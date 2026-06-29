@@ -606,10 +606,9 @@ function renderChips(){
 
 function rowHTML(r){
   const tags = r.assets.map(a=>`<span class="asset-tag">${a}</span>`).join('');
-  const live = r.href && r.href !== "#";
-  const ext  = live && /^https?:\/\//.test(r.href) && !r.href.includes("public.jptrustlearning.com");
+  const live = r.href && r.href !== "#" && r.href.includes("public.jptrustlearning.com");
   const tag  = live ? 'a' : 'div';
-  const link = live ? ` href="${r.href}"${ext ? ' target="_blank" rel="noopener"' : ''}` : '';
+  const link = live ? ` href="${r.href}"` : '';
   const arrow = live ? ' <span class="rarrow" aria-hidden="true">&rarr;</span>' : '';
   return `<${tag} class="rrow${live ? ' is-link' : ''}" data-theme="${r.theme}"${link}>
     <div class="rmain">
