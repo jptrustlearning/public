@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เรื่องเล่า vs ข้อเท็จจริง — เมื่อ Meta Compute เขย่าหุ้นชิปทั้งกระดาน | JP Trust Learning</title>
+<meta name="description" content="ข่าวชิ้นเดียวจาก Bloomberg — Meta เตรียมปล่อยเช่ากำลังประมวลผล AI ส่วนเกิน — ทำหุ้น memory และ neocloud ร่วงยกกลุ่ม ทั้งที่ดีมานด์ยังไม่หาย บทวิเคราะห์กึ่งจิตวิทยา แยก 'เรื่องเล่า' (ความเชื่อของตลาด) ออกจาก 'ข้อเท็จจริง' (ตัวธุรกิจ)">
+<link rel="canonical" href="https://public.jptrustlearning.com/meta-compute-narrative-vs-facts.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="JP Trust Learning">
+<meta property="og:title" content="เรื่องเล่า vs ข้อเท็จจริง — เมื่อ Meta Compute เขย่าหุ้นชิปทั้งกระดาน">
+<meta property="og:description" content="ดีมานด์ยังไม่หาย แต่หุ้นชิปร่วงทั้งกระดาน — บทเรียนจิตวิทยาการลงทุน เมื่อ 'เรื่องเล่า' ที่ตลาดเชื่อมาสองปี ถูกสั่นเป็นครั้งแรก">
+<meta property="og:image" content="https://public.jptrustlearning.com/og-image.png">
+<meta property="og:url" content="https://public.jptrustlearning.com/meta-compute-narrative-vs-facts.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Cinzel:wght@500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maroon-deep:#1a0a0e;
+  --maroon:#2d1018;
+  --maroon-soft:#3a1620;
+  --cream:#FAF6ED;
+  --cream-2:#f3ecdc;
+  --gold:#D4AF37;
+  --gold-bright:#e7c659;
+  --gold-deep:#a8842a;
+  --price:#C75B49;          /* ราคา · อารมณ์  */
+  --price-soft:#e08a78;
+  --ink:#241016;
+  --ink-soft:#5a4640;
+  --on-dark:#f1e6d3;
+  --on-dark-soft:#c9b69b;
+  --line-dark:rgba(212,175,55,.22);
+  --line-light:rgba(45,16,24,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Anuphan',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.eyebrow{
+  font-family:'Cinzel',serif;
+  text-transform:uppercase;
+  letter-spacing:.34em;
+  font-size:.72rem;
+  font-weight:600;
+}
+.num{font-family:'DM Serif Display',serif;font-weight:400;line-height:.92;letter-spacing:-.01em}
+.serif{font-family:'DM Serif Display',serif}
+section{padding:clamp(64px,9vw,128px) clamp(22px,6vw,80px)}
+.wrap{max-width:980px;margin:0 auto}
+.narrow{max-width:760px;margin:0 auto}
+
+/* ---------- dual marker (signature) ---------- */
+.tag{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-family:'Cinzel',serif;font-size:.6rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  padding:.32em .7em;border-radius:999px;white-space:nowrap;
+  vertical-align:middle;
+}
+.tag::before{content:"";width:.5em;height:.5em;border-radius:50%}
+.tag.price{color:var(--price);background:rgba(199,91,73,.1);border:1px solid rgba(199,91,73,.35)}
+.tag.price::before{background:var(--price)}
+.tag.value{color:var(--gold-deep);background:rgba(212,175,55,.12);border:1px solid rgba(168,132,42,.4)}
+.tag.value::before{background:var(--gold)}
+.dark .tag.price{color:var(--price-soft);background:rgba(199,91,73,.16);border-color:rgba(224,138,120,.4)}
+.dark .tag.value{color:var(--gold-bright);background:rgba(212,175,55,.14);border-color:var(--line-dark)}
+
+/* ---------- brand bar ---------- */
+.brandbar{display:flex;align-items:center;gap:14px;margin-bottom:clamp(34px,6vw,60px)}
+.owl{width:48px;height:48px;flex:0 0 auto;object-fit:contain;border-radius:12px;filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}
+.brandbar .wordmark{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.16em;
+  font-size:1.02rem;color:var(--gold);line-height:1.1}
+.brandbar .wordmark span{display:block;font-size:.58rem;letter-spacing:.42em;color:var(--on-dark-soft);font-weight:500}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:
+    radial-gradient(120% 90% at 88% 4%, rgba(212,175,55,.16), transparent 46%),
+    radial-gradient(90% 70% at 0% 100%, rgba(199,91,73,.14), transparent 50%),
+    linear-gradient(160deg,var(--maroon) 0%, var(--maroon-deep) 100%);
+  color:var(--on-dark);position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line-dark);
+}
+.hero .eyebrow{color:var(--gold);margin-bottom:26px}
+.hero-paradox{
+  display:flex;align-items:stretch;gap:0;margin:6px 0 34px;
+  border:1px solid var(--line-dark);border-radius:16px;overflow:hidden;
+  background:rgba(0,0,0,.18);
+}
+.hero-paradox .cell{flex:1;padding:clamp(20px,4vw,34px) clamp(18px,3.5vw,30px)}
+.hero-paradox .cell+.cell{border-left:1px solid var(--line-dark)}
+.hero-paradox .lbl{font-family:'Anuphan';font-size:.82rem;color:var(--on-dark-soft);
+  display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.hero-paradox .big{font-size:clamp(2.9rem,11vw,4.6rem)}
+.hero-paradox .cell.value .big{color:var(--gold-bright)}
+.hero-paradox .cell.price .big{color:var(--price-soft)}
+.hero-paradox .sub{font-size:.82rem;color:var(--on-dark-soft);margin-top:8px}
+.hero h1{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(2rem,6vw,3.35rem);line-height:1.12;
+  letter-spacing:-.01em;margin-bottom:22px;color:#fff;
+}
+.hero h1 em{font-style:italic;color:var(--gold-bright)}
+.hero .lens{
+  font-size:clamp(1.05rem,2.6vw,1.4rem);color:var(--on-dark);
+  border-left:2px solid var(--gold);padding-left:18px;margin-bottom:30px;
+  max-width:680px;
+}
+.hero .lens b{color:var(--gold-bright);font-weight:600}
+.hero .meta{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--on-dark-soft);line-height:2}
+
+/* ---------- section chrome ---------- */
+.dark{background:linear-gradient(170deg,var(--maroon) 0%,var(--maroon-deep) 100%);color:var(--on-dark)}
+.dark .eyebrow{color:var(--gold)}
+.light .eyebrow{color:var(--gold-deep)}
+.act-no{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--gold-deep);
+  letter-spacing:.05em;margin-bottom:6px;display:block}
+.dark .act-no{color:var(--gold)}
+h2.head{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.7rem,4.8vw,2.7rem);line-height:1.15;
+  margin:14px 0 26px;letter-spacing:-.01em;
+}
+.light h2.head{color:var(--maroon)}
+.dark h2.head{color:#fff}
+.lead{font-size:clamp(1.05rem,2.2vw,1.2rem);margin-bottom:14px}
+.light .lead{color:var(--ink)}
+.dark .lead{color:var(--on-dark)}
+p.body{margin-bottom:16px;font-size:1.02rem}
+.light p.body{color:var(--ink-soft)}
+.dark p.body{color:var(--on-dark-soft)}
+.kw{color:var(--maroon);font-weight:600}
+.dark .kw{color:var(--gold-bright)}
+
+/* section figure */
+.figure{margin:6px 0 30px;border-radius:18px;overflow:hidden;border:1px solid var(--line-dark);box-shadow:0 26px 64px -34px rgba(0,0,0,.75);position:relative}
+.figure img{display:block;width:100%;height:auto}
+.figure figcaption{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-soft);padding:11px 16px;background:rgba(0,0,0,.34);border-top:1px solid var(--line-dark);display:flex;align-items:center;gap:8px}
+.figure figcaption::before{content:"";width:.5em;height:.5em;border-radius:50%;background:var(--gold);flex:0 0 auto}
+.light .figure figcaption{color:var(--ink-soft);background:rgba(45,16,24,.05);border-top-color:var(--line-light)}
+/* pull line */
+.pull{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3.4vw,1.9rem);
+  line-height:1.3;margin:30px 0;padding:0 0 0 22px;border-left:3px solid var(--gold);
+}
+.light .pull{color:var(--maroon)}
+.dark .pull{color:#fff}
+.pull em{font-style:italic;color:var(--gold-deep)}
+.dark .pull em{color:var(--gold-bright)}
+
+/* analogy card */
+.analogy{
+  background:var(--cream-2);border:1px solid var(--line-light);border-radius:18px;
+  padding:clamp(24px,4vw,38px);margin:28px 0;position:relative;
+}
+.analogy::before{content:"\201C";font-family:'DM Serif Display',serif;
+  position:absolute;top:-.1em;left:.28em;font-size:4.5rem;color:var(--gold);opacity:.5;line-height:1}
+.analogy p{font-size:1.08rem;color:var(--ink);position:relative}
+.analogy .pv{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
+/* stat grid */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:30px 0 8px}
+.stat{
+  border:1px solid var(--line-dark);border-radius:14px;padding:22px 20px;
+  background:rgba(0,0,0,.16);position:relative;overflow:hidden;
+}
+.light .stat{background:#fff;border-color:var(--line-light);box-shadow:0 8px 24px -18px rgba(45,16,24,.4)}
+.stat .stat-num{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,5vw,2.5rem);
+  line-height:1;color:var(--gold)}
+.light .stat .stat-num{color:var(--gold-deep)}
+.stat .stat-lbl{font-size:.9rem;margin-top:10px}
+.dark .stat .stat-lbl{color:var(--on-dark-soft)}
+.light .stat .stat-lbl{color:var(--ink-soft)}
+.stat .src{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-deep);margin-top:12px;display:block;opacity:.8}
+.dark .stat .src{color:var(--on-dark-soft)}
+
+/* two-trap split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
+.trap{border:1px solid rgba(199,91,73,.34);border-radius:14px;padding:22px;background:rgba(199,91,73,.07)}
+.dark .trap{background:rgba(199,91,73,.12)}
+.trap .t{font-weight:600;color:var(--price);margin-bottom:6px;font-size:1.05rem}
+.dark .trap .t{color:var(--price-soft)}
+.trap p{font-size:.96rem}
+.light .trap p{color:var(--ink-soft)}
+.dark .trap p{color:var(--on-dark-soft)}
+.system{
+  border:1px solid var(--line-dark);border-left:3px solid var(--gold);
+  border-radius:14px;padding:24px;margin-top:20px;background:rgba(212,175,55,.06)
+}
+.dark .system{background:rgba(212,175,55,.08)}
+.system .t{font-family:'Cinzel',serif;letter-spacing:.16em;text-transform:uppercase;
+  font-size:.7rem;color:var(--gold-deep);margin-bottom:10px}
+.dark .system .t{color:var(--gold-bright)}
+
+/* paradox panel (act 2) */
+.paradox2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.pcard{border-radius:16px;padding:24px}
+.pcard.val{background:rgba(212,175,55,.1);border:1px solid rgba(168,132,42,.4)}
+.pcard.mood{background:rgba(199,91,73,.09);border:1px solid rgba(199,91,73,.35)}
+.pcard .pc-num{font-family:'DM Serif Display',serif;font-size:2rem;line-height:1;margin:8px 0}
+.pcard.val .pc-num{color:var(--gold-deep)}
+.pcard.mood .pc-num{color:var(--price)}
+.pcard p{font-size:.95rem;color:var(--ink-soft)}
+
+/* ---------- ad showcase ---------- */
+.showcase{padding:0}
+.showcase-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px);
+  align-items:center;max-width:980px;margin:0 auto;
+}
+.showcase .copy .eyebrow{margin-bottom:14px}
+.showcase .copy h3{font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.5rem,3.6vw,2.1rem);line-height:1.18;margin-bottom:16px}
+.dark.showcase-sec .copy h3{color:#fff}
+.light.showcase-sec .copy h3{color:var(--maroon)}
+.showcase .copy p{font-size:1rem;margin-bottom:18px}
+.dark.showcase-sec .copy p{color:var(--on-dark-soft)}
+.light.showcase-sec .copy p{color:var(--ink-soft)}
+.showcase .copy ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.showcase .copy li{display:flex;gap:10px;align-items:flex-start;font-size:.96rem}
+.showcase .copy li::before{content:"";flex:0 0 auto;width:7px;height:7px;border-radius:50%;
+  background:var(--gold);margin-top:.6em}
+.dark.showcase-sec .copy li{color:var(--on-dark)}
+.light.showcase-sec .copy li{color:var(--ink)}
+.shot{border-radius:20px;overflow:hidden;border:1px solid var(--line-dark);
+  box-shadow:0 30px 70px -34px rgba(0,0,0,.7);position:relative}
+.light.showcase-sec .shot{border-color:var(--line-light);box-shadow:0 30px 70px -38px rgba(45,16,24,.5)}
+.shot img{display:block;width:100%;height:auto}
+
+/* ---------- closing ---------- */
+.closing{background:
+  radial-gradient(100% 80% at 50% 0%, rgba(212,175,55,.14), transparent 55%),
+  linear-gradient(180deg,var(--maroon-deep),#120608);
+  color:var(--on-dark);text-align:center}
+.closing .q{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,4.4vw,2.5rem);
+  line-height:1.28;color:#fff;max-width:760px;margin:0 auto 26px}
+.closing .q em{font-style:italic;color:var(--gold-bright)}
+.closing .lens-final{font-size:clamp(1.05rem,2.6vw,1.3rem);color:var(--on-dark);
+  max-width:640px;margin:0 auto 44px}
+.closing .lens-final b{color:var(--gold-bright)}
+.cta{display:inline-flex;flex-direction:column;align-items:center;gap:6px;
+  border:1px solid var(--line-dark);border-radius:16px;
+  padding:24px 40px;background:rgba(0,0,0,.25);text-decoration:none}
+.cta .sub{font-family:'Cinzel',serif;letter-spacing:.3em;font-size:.6rem;
+  text-transform:uppercase;color:var(--on-dark-soft)}
+.cta .url{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.04em;
+  font-size:clamp(1.3rem,3.4vw,1.7rem);color:var(--gold)}
+.cta .tip{font-size:.84rem;color:var(--on-dark-soft);margin-top:2px}
+.cta:hover .url{color:var(--gold-bright)}
+.disclaimer{margin-top:46px;font-size:.74rem;color:var(--on-dark-soft);
+  letter-spacing:.02em;max-width:680px;margin-left:auto;margin-right:auto;
+  border-top:1px solid var(--line-dark);padding-top:22px;line-height:1.9}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:680px){
+  .hero-paradox{flex-direction:row}
+  .stats{grid-template-columns:1fr 1fr}
+  .split,.paradox2{grid-template-columns:1fr}
+  .showcase-inner{grid-template-columns:1fr}
+  .showcase .copy{order:2}
+  .showcase .shot{order:1;max-width:420px;margin:0 auto}
+}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <img class="owl" src="https://raw.githubusercontent.com/jptrustlearning/pages/main/jpt-owl-cropped.png" alt="JP Trust Learning">
+      <div class="wordmark">JP TRUST<span>LEARNING</span></div>
+    </div>
+
+    <div class="eyebrow rv">บทวิเคราะห์ &times; จิตวิทยาการลงทุน</div>
+
+    <div class="hero-paradox rv">
+      <div class="cell value">
+        <div class="lbl"><span class="tag value">ข้อเท็จจริง · ธุรกิจ</span></div>
+        <div class="num big">+346%</div>
+        <div class="sub">รายได้ Micron ไตรมาสล่าสุด &mdash; ดีมานด์หน่วยความจำยังล้นซัพพลาย</div>
+      </div>
+      <div class="cell price">
+        <div class="lbl"><span class="tag price">เรื่องเล่า · ความเชื่อ</span></div>
+        <div class="num big">&minus;10.8%</div>
+        <div class="sub">SanDisk ร่วงในวันเดียว หลังข่าว Meta จะปล่อยเช่ากำลังประมวลผล &lsquo;ส่วนเกิน&rsquo;</div>
+      </div>
+    </div>
+
+    <h1 class="rv">ดีมานด์ยังไม่หาย<br>แต่หุ้นชิป<em>ร่วงทั้งกระดาน</em></h1>
+    <p class="lens rv">ข่าวชิ้นเดียวจาก Bloomberg ไม่ได้เปลี่ยน <b>&lsquo;ข้อเท็จจริง&rsquo;</b> ของธุรกิจแม้แต่ตัวเลขเดียว<br>
+      แต่มันไปสั่น <b>&lsquo;เรื่องเล่า&rsquo;</b> ที่ตลาดทั้งตลาดเชื่อตรงกันมาตลอดสองปี</p>
+    <p class="meta rv">5 กรกฎาคม 2026 &nbsp;·&nbsp; เรียบเรียงจากข่าวในแอป JP Trust Learning &nbsp;·&nbsp; ไม่ใช่คำแนะนำการลงทุน</p>
+  </div>
+</section>
+
+<!-- ===================== LENS ===================== -->
+<section class="light">
+  <div class="narrow">
+    <div class="eyebrow rv">เลนส์ความคิด</div>
+    <h2 class="head rv">ตลาดไม่ได้ซื้อขาย &lsquo;ตัวเลข&rsquo; อย่างเดียว &mdash; มันซื้อขาย &lsquo;เรื่องเล่า&rsquo; ด้วย</h2>
+    <p class="lead rv">ก่อนไปถึงข่าว ขอวางแว่นสักอันก่อน &mdash; ทำไมหุ้นถึงร่วงแรงได้ ทั้งที่ยังไม่มีข้อเท็จจริงชิ้นไหนของธุรกิจเปลี่ยนไปเลย</p>
+
+    <div class="analogy rv">
+      <p>ลองนึกถึงร้านบุฟเฟ่ต์ชื่อดังที่คิวจองยาวข้ามปี ทุกคนเชื่อตรงกันว่า <span class="kw">&ldquo;โต๊ะไม่มีวันพอ&rdquo;</span> ราคาต่อหัวเลยขึ้นได้เรื่อยๆ &mdash; จนวันหนึ่งร้านประกาศว่า &ldquo;ช่วงบ่ายมีโต๊ะว่าง เปิดให้ร้านอื่นมาเช่าใช้ได้&rdquo; อาหารยังอร่อยเท่าเดิม คิวยังยาวเท่าเดิม แต่ความเชื่อที่ว่า &lsquo;โต๊ะขาดตลอดกาล&rsquo; สั่นทันที</p>
+      <div class="pv">
+        <span class="tag price">เรื่องเล่า = สิ่งที่ตลาดเชื่อตรงกัน</span>
+        <span class="tag value">ข้อเท็จจริง = ตัวเลขที่ตรวจสอบได้</span>
+      </div>
+    </div>
+
+    <p class="body rv">ตลาดหุ้นก็เหมือนกันค่ะ ราคาที่เราเห็นทุกวัน ไม่ได้สะท้อนแค่ <span class="kw">&lsquo;ข้อเท็จจริง&rsquo;</span> อย่างงบการเงินหรือออเดอร์ในมือ แต่สะท้อน <span class="kw">&lsquo;เรื่องเล่า&rsquo;</span> ที่นักลงทุนส่วนใหญ่เชื่อร่วมกันด้วย และเรื่องเล่าที่ทรงพลังที่สุดของสองปีที่ผ่านมาคือ &mdash; <span class="kw">&ldquo;ชิปกับหน่วยความจำจะขาดแคลนไปตลอด&rdquo;</span></p>
+    <p class="body rv">ตลอดบทความนี้ เราจะติดป้ายให้ทุกเหตุการณ์ ว่าอันไหนคือ <span class="tag value">ข้อเท็จจริง · ธุรกิจ</span> และอันไหนคือ <span class="tag price">เรื่องเล่า · ความเชื่อ</span> แล้วลองดูกันว่าวันที่ 1 กรกฎาคมที่ผ่านมา ตลาดกำลังขายอะไรกันแน่</p>
+  </div>
+</section>
+
+<!-- ===================== ACT 1 — Meta Compute ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 1 &mdash; ต้นเรื่อง</span>
+    <div class="eyebrow rv">Meta Compute</div>
+    <h2 class="head rv">เมื่อผู้ซื้อรายใหญ่ที่สุด<br>ประกาศว่าจะเป็น &lsquo;ผู้ขาย&rsquo;</h2>
+    <p class="lead rv">วันที่ 1 กรกฎาคม Bloomberg รายงานว่า Meta กำลังวางแผนสร้างธุรกิจคลาวด์ เพื่อขายกำลังประมวลผล AI <span class="kw">&lsquo;ส่วนเกิน&rsquo;</span> ให้ลูกค้าภายนอก ภายใต้โปรเจกต์ภายในชื่อ <span class="kw">Meta Compute</span></p>
+    <p class="body rv">โมเดลที่พิจารณาอยู่มี 2 แบบ &mdash; แบบแรกคือเปิดให้นักพัฒนาจ่ายเงินเรียกใช้โมเดล AI บนโครงสร้างพื้นฐานของ Meta เอง (คล้ายบริการ Bedrock ของ AWS) และแบบที่สองคือปล่อยเช่ากำลังประมวลผลดิบตรงๆ แบบเดียวกับที่ CoreWeave ทำเป็นธุรกิจหลัก &mdash; เส้นทางนี้เดินตามรอย SpaceX ที่เพิ่งปล่อยเช่ากำลังประมวลผลของศูนย์ข้อมูล Colossus ฝั่ง xAI ให้ Anthropic และ Google ไปก่อนหน้า</p>
+    <p class="body rv">ตัวข่าวเองไม่ได้เหนือความคาดหมายเสียทีเดียว &mdash; Mark Zuckerberg เคยพูดตั้งแต่เดือนพฤษภาคมว่าการขาย compute ส่วนเกิน <span class="kw">&ldquo;อยู่บนโต๊ะแน่นอน&rdquo;</span> เพราะมีบริษัทภายนอกเข้ามาถามซื้อแทบทุกสัปดาห์ แต่สิ่งที่ตลาดโฟกัสคือคำว่า &lsquo;ส่วนเกิน&rsquo; &mdash; บริษัทที่ตั้งงบลงทุนปีนี้สูงถึง 145,000 ล้านดอลลาร์ ยังมีกำลังเหลือพอจะปล่อยเช่า?</p>
+
+    <div class="stats">
+      <div class="stat rv"><div class="num stat-num">$145bn</div><div class="stat-lbl">งบลงทุน (capex) ของ Meta ปีนี้ &mdash; สูงสุดเป็นประวัติการณ์ของบริษัท</div><span class="src">ที่มา · CNBC</span></div>
+      <div class="stat rv"><div class="num stat-num">&minus;9.7% / &minus;10.8%</div><div class="stat-lbl">Micron / SanDisk ร่วงในวันเดียว พร้อม Corning, Marvell, Lumentum ที่ลงยกกลุ่ม</div><span class="src">1 ก.ค. · TradingKey</span></div>
+      <div class="stat rv"><div class="num stat-num">&minus;10.8% / &minus;12.4%</div><div class="stat-lbl">CoreWeave / Nebius &mdash; ธุรกิจให้เช่า compute โดยตรง โดนหนักในฐานะคู่แข่งใหม่ของลูกค้าตัวเอง</div><span class="src">1 ก.ค. · Reuters</span></div>
+      <div class="stat rv"><div class="num stat-num">+8.8%</div><div class="stat-lbl">หุ้น Meta ปิดบวกในวันเดียวกัน &mdash; ตลาดมองเห็นช่องทางรายได้ใหม่จากเงินลงทุนก้อนมหึมา</div><span class="src">1 ก.ค. · CNBC</span></div>
+    </div>
+
+    <p class="pull rv">ทั้งหมดนี้เกิดจากข่าวที่ยังเป็นแค่ <em>&lsquo;แผน&rsquo;</em> &mdash; ยังไม่มีสัญญา ยังไม่มีลูกค้า ยังไม่มีรายได้เข้าจริงแม้แต่ดอลลาร์เดียว</p>
+    <p class="body rv">สังเกตนะคะ &mdash; วันนั้นไม่มีบริษัทไหนรายงานออเดอร์หด ไม่มีใครหั่นคาดการณ์กำไร เหตุการณ์ทั้งหมดอยู่ฝั่ง <span class="tag price">เรื่องเล่า · ความเชื่อ</span> ล้วนๆ แต่มูลค่าตลาดที่หายไปในวันเดียว เป็นเงินจริงระดับแสนล้านดอลลาร์</p>
+  </div>
+</section>
+
+<!-- ===================== AD 1 — NEWS (Daily Dispatches) ===================== -->
+<section class="showcase dark showcase-sec" style="padding:clamp(54px,8vw,96px) clamp(22px,6vw,80px)">
+  <div class="showcase-inner">
+    <div class="copy">
+      <div class="eyebrow rv">Daily Dispatches</div>
+      <h3 class="rv">ข่าวแบบนี้ เราย่อยให้ทุกเช้า&ndash;บ่าย&ndash;เย็น</h3>
+      <p class="rv">Meta Compute, โน้ตเตือนจาก Citi, ท่าทีของ Fed &mdash; ข่าวกระจัดกระจายทั่ว Wall Street เราคัด สรุปเป็นไทย แล้วบอกต่อว่ามันกระทบพอร์ตคุณยังไง</p>
+      <ul>
+        <li class="rv">คัดจาก Wall Street สรุปเป็นไทยในภาษาที่เข้าใจ</li>
+        <li class="rv">ติดโทน Bull / Bear ให้รู้ทันทีว่าข่าวบวกหรือลบ</li>
+        <li class="rv">แท็กหุ้นที่เกี่ยวข้องในแต่ละข่าว พร้อมวิเคราะห์โอกาสและความเสี่ยง</li>
+      </ul>
+    </div>
+    <div class="shot rv"><img src="https://raw.githubusercontent.com/jptrustlearning/pages/main/temp/jpt-ad-dailydispatches.jpg" alt="ฟีเจอร์ข่าวรายวันในแอป JP Trust Learning"></div>
+  </div>
+</section>
+
+<!-- ===================== ACT 2 — Why the panic ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 2 &mdash; จุดพลิก</span>
+    <div class="eyebrow rv">The Crack</div>
+    <h2 class="head rv">ทำไมคำว่า &lsquo;ส่วนเกิน&rsquo; คำเดียว<br>ถึงสะเทือนทั้งกระดาน</h2>
+    <p class="lead rv">ตลอดสองปีที่ผ่านมา หุ้นกลุ่มชิปและหน่วยความจำถูกซื้อขายบนสมมติฐานเดียวกันทั้งตลาด &mdash; <span class="kw">GPU และ memory จะขาดแคลนไปอีกนาน</span> ใครผลิตได้ ขายได้หมด ราคาขึ้นได้เรื่อยๆ</p>
+    <p class="body rv">พอ Meta ซึ่งเป็นหนึ่งในผู้ซื้อรายใหญ่ที่สุดของโลก ส่งสัญญาณว่าตัวเองอาจมีกำลัง <span class="kw">&lsquo;เหลือ&rsquo;</span> พอปล่อยเช่า ตลาดจึงตีความไปอีกขั้นทันที &mdash; หรือกลุ่ม hyperscaler กำลังสร้างเกินความต้องการ (over-built)? และถ้าใช่ ออเดอร์ GPU, HBM, NAND ในอนาคตก็อาจโตช้าลงกว่าที่ราคาหุ้นวันนี้คิดไว้</p>
+    <p class="body rv">จังหวะยิ่งพอดีกับโน้ตของ <span class="kw">Scott Chronert</span> หัวหน้ากลยุทธ์หุ้นสหรัฐฯ ของ Citi ที่ออกมาก่อนหน้าหนึ่งวัน (30 มิ.ย.) ชี้ว่าราคาหน่วยความจำที่พุ่งแรง กำลังจะปะทะกับคำถามเรื่องผลตอบแทนการลงทุน (ROI) ของฝั่ง hyperscaler เอง &mdash; และหุ้นชิปที่เปราะบางที่สุด คือกลุ่มที่รายได้กระจุกอยู่กับลูกค้า hyperscaler ถ้าคลาวด์ยักษ์ใหญ่เริ่มส่งสัญญาณระมัดระวังงบลงทุนในฤดูงบ Q2 ผลต่อคาดการณ์ออเดอร์ชิปจะมาเร็วมาก</p>
+    <p class="body rv">ซ้อนอีกชั้นคือดอกเบี้ย &mdash; Fed ยุคประธาน Kevin Warsh ส่งสัญญาณแข็งกร้าวต่อเนื่อง (&ldquo;ราคาข้าวของยังแพงเกินไป&rdquo;) จน Bank of America ปรับมุมมองเป็นการขึ้นดอกเบี้ยถึง 3 ครั้งภายในสิ้นปี เมื่อต้นทุนเงินแพงขึ้น เงินลงทุน AI มูลค่ามหาศาลที่กู้มาก็ยิ่งถูกผู้ถือหุ้นตั้งคำถามหนักขึ้น ที่ valuation ระดับนี้</p>
+
+    <div class="paradox2">
+      <div class="pcard val rv">
+        <span class="tag value">ข้อเท็จจริง · ธุรกิจ</span>
+        <div class="num pc-num">$42bn</div>
+        <p>สัญญา supply ระยะยาวเน้นงาน AI ที่ SanDisk ล็อกไว้แล้ว พร้อมต่อ JV โรงงานกับ Kioxia ถึงปี 2034 &mdash; ฝั่ง Micron ก็เพิ่ง guide รายได้ไตรมาสหน้าที่ 50,000 ล้านดอลลาร์ ยังไม่มีตัวเลขไหนแย่ลง</p>
+      </div>
+      <div class="pcard mood rv">
+        <span class="tag price">เรื่องเล่า · ความเชื่อ</span>
+        <div class="num pc-num">ครั้งแรก</div>
+        <p>ที่เรื่องเล่า &lsquo;ขาดแคลนตลอดกาล&rsquo; ถูกตั้งคำถามอย่างจริงจัง &mdash; ราคาจึงขยับลงก่อน โดยไม่รอให้ข้อเท็จจริงเปลี่ยน</p>
+      </div>
+    </div>
+
+    <p class="body rv">ฝั่งที่บอกว่าอย่าเพิ่งแพนิกก็มีน้ำหนักไม่น้อยค่ะ &mdash; กำลังประมวลผลของ Meta เป็นสัดส่วนจำกัดมากเมื่อเทียบกับตลาดคลาวด์ทั้งหมด นักวิเคราะห์หลายสำนักมองว่าผลกระทบจริงจะตกที่กลุ่ม neocloud อย่าง CoreWeave มากกว่ากลุ่มผู้ผลิตชิป และการขาย compute ก็เป็นเพียงตัวช่วยรายได้เสริม ไม่ใช่สัญญาณว่าดีมานด์ AI กำลังหาย &mdash; ภาพจริงจะชัดก็ต่อเมื่อฤดูงบที่กำลังมาถึงเปิดตัวเลขออกมา</p>
+
+    <p class="pull rv">ตลาดไม่ได้ขายเพราะดีมานด์หาย &mdash; มันขายเพราะ <em>&lsquo;ความแน่ใจ&rsquo;</em> หายไปก่อน</p>
+  </div>
+</section>
+
+<!-- ===================== ACT 3 — Psychology ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 3 &mdash; บทเรียน</span>
+    <div class="eyebrow rv">Investor Psychology</div>
+    <h2 class="head rv">หุ้นยิ่งวิ่งแรง<br>เรื่องเล่ายิ่งเปราะ</h2>
+    <p class="lead rv">อีกชิ้นส่วนที่ขาดไม่ได้ของเหตุการณ์นี้ &mdash; หุ้นกลุ่มที่ร่วงแรงที่สุด คือกลุ่มที่วิ่งขึ้นมาแรงที่สุดพอดี SanDisk แม้หลังวันร่วงหนัก ก็ยังบวกกว่า 750% นับจากต้นปี ส่วน Micron ยังบวกกว่า 260% &mdash; เมื่อทุกคนถือของเหมือนกัน เชื่อเรื่องเดียวกัน กำไรบนกระดาษก้อนโต ข่าวที่แค่ &lsquo;สั่นความเชื่อ&rsquo; ก็เพียงพอให้เกิดแรงเทขายพร้อมกันได้</p>
+
+    <div class="split">
+      <div class="trap rv">
+        <div class="t">ตกใจ เทขายหนี</div>
+        <p>เห็นหุ้นร่วงพร้อมข่าว เลยขายทิ้งทันที ทั้งที่ยังไม่มีข้อเท็จจริงของธุรกิจชิ้นไหนแย่ลงเลย</p>
+      </div>
+      <div class="trap rv">
+        <div class="t">รีบกระโดดเข้าซื้อ</div>
+        <p>คิดว่า &lsquo;ของถูกแล้ว&rsquo; เลยไล่ช้อน ทั้งที่ยังไม่รู้ว่าเรื่องเล่าจะสั่นต่ออีกแค่ไหน &mdash; ของที่ร่วง 10% วิ่งมา 750% ยังไม่เรียกว่าถูก</p>
+      </div>
+    </div>
+    <p class="body rv">สองแบบนี้พลาดด้วยเหตุผลเดียวกันค่ะ &mdash; <span class="kw">เอาอารมณ์ไปเดิมพันกับเรื่องเล่า</span> ฝั่งหนึ่งเชื่อว่าเรื่องเล่าจบแล้ว อีกฝั่งเชื่อว่าเรื่องเล่ายังอยู่ ทั้งที่ความจริงคือ ยังไม่มีใครรู้ &mdash; ข้อพิสูจน์ยังไม่ออกมา</p>
+
+    <div class="system rv">
+      <div class="t">แล้วถ้าใช้ระบบแทนอารมณ์ล่ะ?</div>
+      <p class="body" style="margin-bottom:0">วิธีที่เรายึดคือ <span class="kw">ไม่เดาเรื่องเล่า</span> ไม่เดาว่างบ hyperscaler จะออกมาทางไหน ไม่เดาว่า Fed จะขึ้นดอกเบี้ยกี่ครั้ง เพราะเดายังไงก็ไม่มีทางรู้ สิ่งที่ดูมีอย่างเดียว &mdash; &lsquo;แรงส่ง&rsquo; ของหุ้นย้อนหลังเป็นเดือนๆ ว่ายังนำตลาด S&amp;P 500 อยู่จริงมั้ย วันร่วงแรงวันเดียวสะเทือนใจคน แต่ไม่ได้ทำให้หุ้นหลุดอันดับทันที ระบบจะคัดออกก็ต่อเมื่อมัน <span class="kw">อ่อนแรงต่อเนื่องจริงๆ</span> ไม่ใช่เพราะพาดหัวข่าววันเดียว</p>
+    </div>
+
+    <p class="pull rv">พอเราใช้ <em>ระบบ</em> แทน <em>อารมณ์</em> เราก็ไม่ต้องรีบตอบคำถามที่ยังไม่มีใครรู้คำตอบ</p>
+  </div>
+</section>
+
+<!-- ===================== AD 2 — TOOLS (All-in-one) ===================== -->
+<section class="showcase light showcase-sec" style="padding:clamp(54px,8vw,96px) clamp(22px,6vw,80px)">
+  <div class="showcase-inner">
+    <div class="shot rv"><img src="https://raw.githubusercontent.com/jptrustlearning/pages/main/temp/jpt-ad-allinone.jpg" alt="เครื่องมือทั้งหมดในแอป JP Trust Learning"></div>
+    <div class="copy">
+      <div class="eyebrow rv">All-in-one Platform</div>
+      <h3 class="rv">ระบบที่ว่า อยู่ครบในแอปเดียว</h3>
+      <p class="rv">เปลี่ยนงานวิจัยให้เป็นเครื่องมือใช้งานจริง &mdash; ตั้งแต่สแกนหาตัวแรง ไปจนถึงวางแผนพอร์ตและตามข่าว</p>
+      <ul>
+        <li class="rv">กลยุทธ์ Momentum หลายแบบ + Dashboard ทองคำ</li>
+        <li class="rv">ราคาตลาด Live &mdash; หุ้น ทองคำ คริปโต เรียลไทม์</li>
+        <li class="rv">วางแผน + จัดพอร์ต การเงินส่วนตัว · Asset Allocation</li>
+        <li class="rv">Roadmap 90 วัน + ข่าวกรองรายวัน</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section class="closing">
+  <div class="narrow">
+    <div class="eyebrow rv" style="color:var(--gold);margin-bottom:24px">สรุปให้จำ</div>
+    <p class="q rv">ครั้งหน้าที่เห็นหุ้นร่วงยกกลุ่มพร้อมข่าวใหญ่ ลองหยุดถามตัวเองสักนิด &mdash;<br><em>&ldquo;ข่าวนี้เปลี่ยน &lsquo;ข้อเท็จจริง&rsquo; ของธุรกิจ หรือแค่สั่น &lsquo;เรื่องเล่า&rsquo; ที่ทุกคนเชื่อ?&rdquo;</em></p>
+    <p class="lens-final rv">ข้อพิสูจน์รอบนี้มีนัดชัดเจน &mdash; งบ Google &middot; Microsoft &middot; Meta &middot; Amazon กลางเดือนกรกฎาคม ต่อด้วยประชุม Fed วันที่ 28&ndash;29 ก.ค.<br>คนที่จะตอบคำถามนี้คือ <b>ข้อเท็จจริง</b> ไม่ใช่พาดหัวข่าว</p>
+
+    <a class="cta rv" href="https://jptrustlearning.com" target="_blank" rel="noopener">
+      <span class="sub">Subscribe at</span>
+      <span class="url">jptrustlearning.com</span>
+      <span class="tip">เริ่มต้นเส้นทางการลงทุนอย่างมีระบบไปกับเรา</span>
+    </a>
+
+    <p class="disclaimer rv">การลงทุนมีความเสี่ยง &middot; เนื้อหาเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน &middot; ผลในอดีตไม่ได้การันตีผลในอนาคต<br>ตัวเลขอ้างอิงจากข่าวที่เผยแพร่ (Bloomberg, Reuters, CNBC, TradingKey, Citi, Bank of America) ณ 1&ndash;5 ก.ค. 2026 &middot; เรียบเรียงโดย JP Trust Learning</p>
+  </div>
+</section>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach((el,i)=>{
+  const sib=[...el.parentElement.children].filter(c=>c.classList.contains('rv'));
+  el.style.transitionDelay=(Math.min(sib.indexOf(el),5)*60)+'ms';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
