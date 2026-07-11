@@ -95,7 +95,6 @@ tbody td{padding:14px 16px;border-bottom:1px solid var(--line-soft);text-align:r
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover{background:rgba(212,175,55,.08)}
 tbody tr.dep{background:rgba(114,47,55,.035)}
-tbody tr.lead-row td{box-shadow:inset 3px 0 0 var(--gold-bright)}
 .aname{text-align:left}
 .aname .n{font-weight:600;font-size:15.5px;color:var(--burgundy-deep)}
 .aname .s{font-size:11.5px;color:var(--faint);margin-top:2px;font-weight:400}
@@ -125,7 +124,28 @@ tbody tr.lead-row td{box-shadow:inset 3px 0 0 var(--gold-bright)}
 .footer{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--faint)}
 .footer .fb{font-family:var(--font-label);letter-spacing:1.5px;font-weight:700;
   background:linear-gradient(135deg,#722F37,#B8860B);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-@media(max-width:720px){body{padding:0 14px 48px}.glossary{grid-template-columns:1fr}.num{font-size:20px}.hcard .v{font-size:32px}}
+@media(max-width:720px){
+  body{padding:0 14px 48px}
+  .glossary{grid-template-columns:1fr}
+  .hcard .v{font-size:32px}
+  .tablewrap{overflow:visible;border:none;background:transparent;box-shadow:none;border-radius:0}
+  table{min-width:0;display:block}
+  thead{display:none}
+  tbody{display:block}
+  tbody tr{display:grid;grid-template-columns:1fr 1fr;gap:13px 14px;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:15px 16px;margin-bottom:12px}
+  tbody tr:hover{background:var(--paper)}
+  tbody tr.dep{background:var(--paper-2)}
+  tbody td{display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:0;border:none!important;text-align:left;white-space:normal}
+  tbody td::before{content:attr(data-label);font-size:10.5px;color:var(--muted);font-weight:500;letter-spacing:.2px}
+  tbody td.aname{grid-column:1 / -1;padding-bottom:11px;border-bottom:1px solid var(--line-soft)}
+  tbody td.aname::before{content:none}
+  tbody td.na{grid-column:1 / -1;align-items:center}
+  .aname .n{font-size:17px}
+  .num{font-size:19px}
+  .real{font-size:17px}
+  .bar{margin-left:0;width:100%;max-width:100%}
+  .win{margin-top:1px}
+}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -261,7 +281,6 @@ function render(){
   rows.forEach(r=>{
     const m=r.m; const tr=document.createElement('tr');
     if(r.k==='deposit') tr.className='dep';
-    if(m && m.cagr===topCagr && r.k!=='deposit') tr.classList.add('lead-row');
 
     if(!m){
       tr.innerHTML = `<td class="aname"><div class="n">${r.name}</div><div class="s">${r.sub}</div></td>
@@ -282,25 +301,25 @@ function render(){
 
     tr.innerHTML = `
       <td class="aname"><div class="n">${r.name}${star}</div><div class="s">${r.sub}</div></td>
-      <td>
+      <td data-label="ผลตอบแทน/ปี">
         <div class="num ${cCls}">${fmtSigned(m.cagr)}%</div>
         <div class="bar ${m.cagr<0?'r':'g'}"><i style="width:${cBar}%"></i></div>
       </td>
-      <td><span class="real ${rCls}"><span class="u">${m.real>=0?'▲':'▼'}</span>${Math.abs(m.real).toFixed(2)}%</span></td>
-      <td>
+      <td data-label="เหนือเงินเฟ้อ"><span class="real ${rCls}"><span class="u">${m.real>=0?'▲':'▼'}</span>${Math.abs(m.real).toFixed(2)}%</span></td>
+      <td data-label="ความผันผวน/ปี">
         <div class="num vol">${(m.vol||0).toFixed(1)}%</div>
         <div class="bar n"><i style="width:${volBar}%"></i></div>
       </td>
-      <td>
+      <td data-label="Max Drawdown">
         <div class="num ${m.maxdd<0?'neg':'zero'}">${m.maxdd.toFixed(2)}%${ddStar}</div>
         <div class="bar r"><i style="width:${ddBar}%"></i></div>
       </td>
-      <td>
+      <td data-label="เวลาฟื้นตัว">
         <div class="rec">${m.rec.replace(' (ยังไม่ฟื้น)','')}
           ${!m.recovered && m.rec!=='—' ? '<span class="warn">ยังไม่ฟื้น</span>':''}</div>
         ${m.win!=='—'?`<div class="win">${m.win}</div>`:''}
       </td>
-      <td>
+      <td data-label="Sharpe">
         <div class="num ${shCls}">${shTxt}</div>
         ${shHas?`<div class="bar ${m.sharpe<0?'r':'g'}"><i style="width:${shBar}%"></i></div>`:''}
       </td>`;
