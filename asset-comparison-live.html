@@ -230,6 +230,7 @@ tbody td:first-child{position:sticky;left:0;z-index:1;background:var(--paper);bo
         <tr>
           <th data-sort="name">สินทรัพย์</th>
           <th data-sort="cagr" class="sort">ผลตอบแทน/ปี<span class="ar">▼</span></th>
+          <th data-sort="real">ผลตอบแทนที่แท้จริง<br>หลังหักเงินเฟ้อ<span class="ar">▼</span></th>
           <th data-sort="vol">ความผันผวน/ปี<span class="ar">▼</span></th>
           <th data-sort="maxdd">Max Drawdown<span class="ar">▼</span></th>
           <th data-sort="recdays">เวลาฟื้นตัว<span class="ar">▼</span></th>
@@ -412,7 +413,7 @@ function render(){
     if(!r.m){
       const msg = r.err && r.err!=='—' ? ('โหลดไม่สำเร็จ: '+r.err) : 'ข้อมูลไม่พอสำหรับช่วงนี้';
       tr.innerHTML=`<td class="aname"><div class="n">${r.name}${r.custom?` <button class="rm" data-rm="${r.k}" title="ลบออก">×</button>`:``}</div><div class="s">${r.sub}</div></td>
-        <td colspan="5" class="na" style="text-align:center">${msg}</td>`;
+        <td colspan="6" class="na" style="text-align:center">${msg}</td>`;
       tb.appendChild(tr); return;
     }
     const m=r.m;
@@ -431,6 +432,7 @@ function render(){
     tr.innerHTML=`
       <td class="aname"><div class="n">${r.name}${r.custom?` <button class="rm" data-rm="${r.k}" title="ลบออก">×</button>`:``}</div><div class="s">${r.sub}</div></td>
       <td data-label="ผลตอบแทน/ปี"><div class="num ${cCls}">${fmtSigned(m.cagr)}%</div><div class="bar ${m.cagr<0?'r':'g'}"><i style="width:${cBar}%"></i></div></td>
+      <td data-label="ผลตอบแทนที่แท้จริงหลังหักเงินเฟ้อ"><span class="real ${rCls}"><span class="u">${m.real>=0?'▲':'▼'}</span>${Math.abs(m.real).toFixed(2)}%</span></td>
       <td data-label="ความผันผวน/ปี"><div class="num vol">${(m.vol||0).toFixed(1)}%</div><div class="bar n"><i style="width:${volBar}%"></i></div></td>
       <td data-label="Max Drawdown"><div class="num ${m.maxdd<0?'neg':'zero'}">${m.maxdd.toFixed(2)}%${ddStar}</div><div class="bar r"><i style="width:${ddBar}%"></i></div></td>
       <td data-label="เวลาฟื้นตัว"><div class="rec">${m.rec.replace(' (ยังไม่ฟื้น)','')}${!m.recovered&&m.rec!=='—'?'<span class="warn">ยังไม่ฟื้น</span>':''}</div>${recRange?`<div class="win">${recRange}</div>`:''}</td>
@@ -442,10 +444,11 @@ function render(){
   (function(){const el=document.getElementById('coverage'); if(!el)return;
     if(META.asof){ const s=new Date(META.asof+'T00:00:00Z'); s.setUTCFullYear(s.getUTCFullYear()-(+TF)); const si=s.toISOString().slice(0,10);
       el.textContent='ช่วงข้อมูลที่ใช้คำนวณ '+mo(si)+' – '+mo(META.asof)+' (ย้อนหลัง '+TF+' ปี)'; } else el.textContent=''; })();
-  document.getElementById('winNote').textContent='เรียงตาม'+({cagr:'ผลตอบแทน/ปี',vol:'ความผันผวน/ปี',maxdd:'Max Drawdown',recdays:'เวลาฟื้นตัว',sharpe:'Sharpe',name:'ชื่อ'}[SORT])+' · แตะหัวคอลัมน์เพื่อเรียงใหม่';
+  document.getElementById('winNote').textContent='เรียงตาม'+({cagr:'ผลตอบแทน/ปี',real:'ผลตอบแทนที่แท้จริง',vol:'ความผันผวน/ปี',maxdd:'Max Drawdown',recdays:'เวลาฟื้นตัว',sharpe:'Sharpe',name:'ชื่อ'}[SORT])+' · แตะหัวคอลัมน์เพื่อเรียงใหม่';
 
   const notes=[];
   notes.push('ข้อมูลราคาดึงสดจาก Yahoo Finance ทุกครั้งที่เปิดหน้า (ใช้ adjusted close — หุ้น/ETF จึงรวมการลงทุนปันผลซ้ำเป็น total return)');
+  notes.push('“ผลตอบแทนที่แท้จริงหลังหักเงินเฟ้อ” = ผลตอบแทน/ปี ลบด้วยเงินเฟ้อทั่วไป '+META.infl_head.toFixed(2)+'%');
   notes.push('“ความผันผวน/ปี” = SD ของผลตอบแทนรายวัน ปรับเป็นรายปีตามจำนวนวันซื้อขายจริง · “Sharpe” = ผลตอบแทน/ปี ÷ ความผันผวน/ปี (Rf = 0)');
   if(anyAdj) notes.push('<b>†</b> WTI: ตัดวันราคาปิดติดลบ 20 เม.ย. 2020 (อุบัติเหตุกลไกสัญญาล่วงหน้า) ออกจากการคำนวณ Max Drawdown');
   notes.push('Bitcoin มีราคาบน Yahoo ตั้งแต่ปี 2014 (~12 ปี) จึงทำช่วง 15/20 ปีไม่ได้ · Dow ใช้ DIA (เริ่ม 1998)');
