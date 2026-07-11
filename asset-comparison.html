@@ -84,7 +84,7 @@ h1 em{font-style:normal;
 .tablewrap{margin-top:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;
   border:1px solid rgba(212,175,55,.14);border-radius:18px;
   background:rgba(26,10,14,.5);backdrop-filter:blur(4px)}
-table{width:100%;border-collapse:collapse;min-width:640px}
+table{width:100%;border-collapse:collapse;min-width:860px}
 thead th{font-family:var(--font-thai);font-weight:600;font-size:12.5px;color:var(--muted);
   text-align:right;padding:15px 16px;white-space:nowrap;cursor:pointer;user-select:none;
   border-bottom:1px solid rgba(212,175,55,.16);transition:color .2s}
@@ -107,6 +107,8 @@ tbody tr.lead-row td{box-shadow:inset 3px 0 0 var(--gold)}
 .bar>i{display:block;height:100%;border-radius:3px}
 .bar.g>i{background:linear-gradient(90deg,#B8860B,#D4AF37)}
 .bar.r>i{background:linear-gradient(90deg,#b24a4a,#D06666)}
+.bar.n>i{background:linear-gradient(90deg,#6a6157,#a09b92)}
+.num.vol{color:var(--gold-light);opacity:.92}
 .real{font-family:var(--font-num);font-size:19px}
 .real.pos{color:var(--pos)} .real.neg{color:var(--neg)}
 .real .u{font-family:var(--font-thai);font-size:12px;margin-right:2px}
@@ -189,8 +191,10 @@ tbody tr.lead-row td{box-shadow:inset 3px 0 0 var(--gold)}
           <th data-sort="name">สินทรัพย์</th>
           <th data-sort="cagr" class="sort">ผลตอบแทน/ปี<span class="ar">▼</span></th>
           <th data-sort="real">เหนือเงินเฟ้อ<span class="ar">▼</span></th>
+          <th data-sort="vol">ความผันผวน/ปี<span class="ar">▼</span></th>
           <th data-sort="maxdd">Max Drawdown<span class="ar">▼</span></th>
           <th data-sort="recdays">เวลาฟื้นตัว<span class="ar">▼</span></th>
+          <th data-sort="sharpe">Sharpe<span class="ar">▼</span></th>
         </tr>
       </thead>
       <tbody id="tbody"></tbody>
@@ -222,7 +226,7 @@ tbody tr.lead-row td{box-shadow:inset 3px 0 0 var(--gold)}
 </div>
 
 <script>
-const DATA = {"meta": {"infl_head": 2.42, "infl_core": 1.23, "infl_month": "มิถุนายน 2569", "asof": "09/07/2026", "source": "ข้อมูลราคาจาก pipeline JP Trust Learning · เงินเฟ้อจาก สนค. กระทรวงพาณิชย์"}, "assets": {"sp500": {"name": "S&P 500", "sub": "ดัชนีหุ้นสหรัฐ 500 บริษัท (SPY)", "tf": {"1": {"cagr": 21.16, "maxdd": -9.13, "maxdd_raw": -9.13, "rec": "3 เดือน", "recovered": true, "win": "07/2025–07/2026", "span": 1.0, "short": false, "real": 18.74}, "3": {"cagr": 20.87, "maxdd": -18.76, "maxdd_raw": -18.76, "rec": "4 เดือน", "recovered": true, "win": "07/2023–07/2026", "span": 3.0, "short": false, "real": 18.45}, "5": {"cagr": 12.93, "maxdd": -24.5, "maxdd_raw": -24.5, "rec": "1 ปี 11 เดือน", "recovered": true, "win": "07/2021–07/2026", "span": 5.0, "short": false, "real": 10.51}, "10": {"cagr": 15.2, "maxdd": -33.72, "maxdd_raw": -33.72, "rec": "6 เดือน", "recovered": true, "win": "07/2016–07/2026", "span": 10.0, "short": false, "real": 12.78}}}, "dow": {"name": "Dow Jones", "sub": "ดัชนีหุ้นสหรัฐ 30 บริษัทใหญ่ (DIA)", "tf": {"1": {"cagr": 19.03, "maxdd": -9.95, "maxdd_raw": -9.95, "rec": "3 เดือน", "recovered": true, "win": "07/2025–07/2026", "span": 1.0, "short": false, "real": 16.61}, "3": {"cagr": 17.28, "maxdd": -15.95, "maxdd_raw": -15.95, "rec": "7 เดือน", "recovered": true, "win": "07/2023–07/2026", "span": 3.0, "short": false, "real": 14.86}, "5": {"cagr": 10.28, "maxdd": -20.76, "maxdd_raw": -20.76, "rec": "1 ปี 11 เดือน", "recovered": true, "win": "07/2021–07/2026", "span": 5.0, "short": false, "real": 7.86}, "10": {"cagr": 13.29, "maxdd": -36.7, "maxdd_raw": -36.7, "rec": "9 เดือน", "recovered": true, "win": "07/2016–07/2026", "span": 10.0, "short": false, "real": 10.87}}}, "gold": {"name": "ทองคำ", "sub": "ทองคำ (สัญญาล่วงหน้า GC=F)", "tf": {"1": {"cagr": 24.75, "maxdd": -24.97, "maxdd_raw": -24.97, "rec": "5 เดือน (ยังไม่ฟื้น)", "recovered": false, "win": "07/2025–07/2026", "span": 1.0, "short": false, "real": 22.33}, "3": {"cagr": 29.0, "maxdd": -24.97, "maxdd_raw": -24.97, "rec": "5 เดือน (ยังไม่ฟื้น)", "recovered": false, "win": "07/2023–07/2026", "span": 3.0, "short": false, "real": 26.58}, "5": {"cagr": 17.94, "maxdd": -24.97, "maxdd_raw": -24.97, "rec": "5 เดือน (ยังไม่ฟื้น)", "recovered": false, "win": "07/2021–07/2026", "span": 5.0, "short": false, "real": 15.52}, "10": {"cagr": 11.8, "maxdd": -24.97, "maxdd_raw": -24.97, "rec": "5 เดือน (ยังไม่ฟื้น)", "recovered": false, "win": "07/2016–07/2026", "span": 10.0, "short": false, "real": 9.38}}}, "btc": {"name": "Bitcoin", "sub": "บิทคอยน์ (BTC/USD)", "tf": {"1": {"cagr": -42.88, "maxdd": -53.06, "maxdd_raw": -53.06, "rec": "9 เดือน (ยังไม่ฟื้น)", "recovered": false, "win": "07/2025–07/2026", "span": 1.0, "short": false, "real": -45.3}, "3": {"cagr": 27.13, "maxdd": -53.06, "maxdd_raw": -53.06, "rec": "9 เดือน (ยังไม่ฟื้น)", "recovered": false, "win": "07/2023–07/2026", "span": 3.0, "short": false, "real": 24.71}, "5": {"cagr": 13.62, "maxdd": -76.63, "maxdd_raw": -76.63, "rec": "2 ปี 4 เดือน", "recovered": true, "win": "07/2021–07/2026", "span": 5.0, "short": false, "real": 11.2}, "10": {"cagr": 34.96, "maxdd": -83.4, "maxdd_raw": -83.4, "rec": "2 ปี 11 เดือน", "recovered": true, "win": "08/2017–07/2026", "span": 8.9, "short": true, "real": 32.54}}}, "wti": {"name": "น้ำมัน WTI", "sub": "น้ำมันดิบ WTI (สัญญาล่วงหน้า CL=F)", "tf": {"1": {"cagr": 5.41, "maxdd": -39.31, "maxdd_raw": -39.31, "rec": "3 เดือน (ยังไม่ฟื้น)", "recovered": false, "win": "07/2025–07/2026", "span": 1.0, "short": false, "real": 2.99}, "3": {"cagr": -0.42, "maxdd": -41.0, "maxdd_raw": -41.0, "rec": "2 ปี 5 เดือน", "recovered": true, "win": "07/2023–07/2026", "span": 3.0, "short": false, "real": -2.84}, "5": {"cagr": -0.67, "maxdd": -55.32, "maxdd_raw": -55.32, "rec": "4 ปี 4 เดือน (ยังไม่ฟื้น)", "recovered": false, "win": "07/2021–07/2026", "span": 5.0, "short": false, "real": -3.09}, "10": {"cagr": 4.88, "maxdd": -86.9, "maxdd_raw": -149.25, "adj": true, "rec": "3 ปี", "recovered": true, "win": "07/2016–07/2026", "span": 10.0, "short": false, "real": 2.46}}}, "deposit": {"name": "เงินฝากประจำ", "sub": "ดอกเบี้ย 1% ต่อปี", "tf": {"1": {"cagr": 1.0, "maxdd": 0.0, "maxdd_raw": 0.0, "rec": "—", "recovered": true, "win": "—", "span": 1, "short": false, "real": -1.42}, "3": {"cagr": 1.0, "maxdd": 0.0, "maxdd_raw": 0.0, "rec": "—", "recovered": true, "win": "—", "span": 3, "short": false, "real": -1.42}, "5": {"cagr": 1.0, "maxdd": 0.0, "maxdd_raw": 0.0, "rec": "—", "recovered": true, "win": "—", "span": 5, "short": false, "real": -1.42}, "10": {"cagr": 1.0, "maxdd": 0.0, "maxdd_raw": 0.0, "rec": "—", "recovered": true, "win": "—", "span": 10, "short": false, "real": -1.42}}}}};
+const DATA = {"meta": {"infl_head": 2.42, "infl_core": 1.23, "infl_month": "มิถุนายน 2569", "rf": 1.0, "asof": "09/07/2026", "source": "ข้อมูลราคาจาก pipeline JP Trust Learning · เงินเฟ้อจาก สนค. กระทรวงพาณิชย์"}, "assets": {"sp500": {"name": "S&P 500", "sub": "ดัชนีหุ้นสหรัฐ 500 บริษัท (SPY)", "tf": {"1": {"cagr": 21.16, "maxdd": -9.13, "rec": "3 เดือน", "recovered": true, "win": "07/2025–07/2026", "span": 1.0, "short": false, "real": 18.74, "vol": 12.6, "sharpe": 1.6}, "3": {"cagr": 20.87, "maxdd": -18.76, "rec": "4 เดือน", "recovered": true, "win": "07/2023–07/2026", "span": 3.0, "short": false, "real": 18.45, "vol": 15.3, "sharpe": 1.3}, "5": {"cagr": 12.93, "maxdd": -24.5, "rec": "1 ปี 11 เดือน", "recovered": true, "win": "07/2021–07/2026", "span": 5.0, "short": false, "real": 10.51, "vol": 17.1, "sharpe": 0.7}, "10": {"cagr": 15.2, "maxdd": -33.72, "rec": "6 เดือน", "recovered": true, "win": "07/2016–07/2026", "span": 10.0, "short": false, "real": 12.78, "vol": 17.9, "sharpe": 0.79}}}, "dow": {"name": "Dow Jones", "sub": "ดัชนีหุ้นสหรัฐ 30 บริษัทใหญ่ (DIA)", "tf": {"1": {"cagr": 19.03, "maxdd": -9.95, "rec": "3 เดือน", "recovered": true, "win": "07/2025–07/2026", "span": 1.0, "short": false, "real": 16.61, "vol": 12.3, "sharpe": 1.46}, "3": {"cagr": 17.28, "maxdd": -15.95, "rec": "7 เดือน", "recovered": true, "win": "07/2023–07/2026", "span": 3.0, "short": false, "real": 14.86, "vol": 13.5, "sharpe": 1.2}, "5": {"cagr": 10.28, "maxdd": -20.76, "rec": "1 ปี 11 เดือน", "recovered": true, "win": "07/2021–07/2026", "span": 5.0, "short": false, "real": 7.86, "vol": 14.8, "sharpe": 0.63}, "10": {"cagr": 13.29, "maxdd": -36.7, "rec": "9 เดือน", "recovered": true, "win": "07/2016–07/2026", "span": 10.0, "short": false, "real": 10.87, "vol": 17.5, "sharpe": 0.7}}}, "gold": {"name": "ทองคำ", "sub": "ทองคำ (สัญญาล่วงหน้า GC=F)", "tf": {"1": {"cagr": 24.75, "maxdd": -24.97, "rec": "5 เดือน (ยังไม่ฟื้น)", "recovered": false, "win": "07/2025–07/2026", "span": 1.0, "short": false, "real": 22.33, "vol": 27.9, "sharpe": 0.85}, "3": {"cagr": 29.0, "maxdd": -24.97, "rec": "5 เดือน (ยังไม่ฟื้น)", "recovered": false, "win": "07/2023–07/2026", "span": 3.0, "short": false, "real": 26.58, "vol": 20.7, "sharpe": 1.35}, "5": {"cagr": 17.94, "maxdd": -24.97, "rec": "5 เดือน (ยังไม่ฟื้น)", "recovered": false, "win": "07/2021–07/2026", "span": 5.0, "short": false, "real": 15.52, "vol": 18.5, "sharpe": 0.91}, "10": {"cagr": 11.8, "maxdd": -24.97, "rec": "5 เดือน (ยังไม่ฟื้น)", "recovered": false, "win": "07/2016–07/2026", "span": 10.0, "short": false, "real": 9.38, "vol": 16.6, "sharpe": 0.65}}}, "btc": {"name": "Bitcoin", "sub": "บิทคอยน์ (BTC/USD)", "tf": {"1": {"cagr": -42.88, "maxdd": -53.06, "rec": "9 เดือน (ยังไม่ฟื้น)", "recovered": false, "win": "07/2025–07/2026", "span": 1.0, "short": false, "real": -45.3, "vol": 43.1, "sharpe": -1.02}, "3": {"cagr": 27.13, "maxdd": -53.06, "rec": "9 เดือน (ยังไม่ฟื้น)", "recovered": false, "win": "07/2023–07/2026", "span": 3.0, "short": false, "real": 24.71, "vol": 46.9, "sharpe": 0.56}, "5": {"cagr": 13.62, "maxdd": -76.63, "rec": "2 ปี 4 เดือน", "recovered": true, "win": "07/2021–07/2026", "span": 5.0, "short": false, "real": 11.2, "vol": 52.7, "sharpe": 0.24}, "10": {"cagr": 34.96, "maxdd": -83.4, "rec": "2 ปี 11 เดือน", "recovered": true, "win": "08/2017–07/2026", "span": 8.9, "short": true, "real": 32.54, "vol": 66.7, "sharpe": 0.51}}}, "wti": {"name": "น้ำมัน WTI", "sub": "น้ำมันดิบ WTI (สัญญาล่วงหน้า CL=F)", "tf": {"1": {"cagr": 5.41, "maxdd": -39.31, "rec": "3 เดือน (ยังไม่ฟื้น)", "recovered": false, "win": "07/2025–07/2026", "span": 1.0, "short": false, "real": 2.99, "vol": 51.3, "sharpe": 0.09}, "3": {"cagr": -0.42, "maxdd": -41.0, "rec": "2 ปี 5 เดือน", "recovered": true, "win": "07/2023–07/2026", "span": 3.0, "short": false, "real": -2.84, "vol": 39.2, "sharpe": -0.04}, "5": {"cagr": -0.67, "maxdd": -55.32, "rec": "4 ปี 4 เดือน (ยังไม่ฟื้น)", "recovered": false, "win": "07/2021–07/2026", "span": 5.0, "short": false, "real": -3.09, "vol": 40.6, "sharpe": -0.04}, "10": {"cagr": 4.88, "maxdd": -86.9, "rec": "3 ปี", "recovered": true, "win": "07/2016–07/2026", "span": 10.0, "short": false, "real": 2.46, "vol": 48.3, "sharpe": 0.08, "adj": true}}}, "deposit": {"name": "เงินฝากประจำ", "sub": "ดอกเบี้ย 1% ต่อปี", "tf": {"1": {"cagr": 1.0, "maxdd": 0.0, "rec": "—", "recovered": true, "win": "—", "span": 1, "short": false, "real": -1.42, "vol": 0.0, "sharpe": null}, "3": {"cagr": 1.0, "maxdd": 0.0, "rec": "—", "recovered": true, "win": "—", "span": 3, "short": false, "real": -1.42, "vol": 0.0, "sharpe": null}, "5": {"cagr": 1.0, "maxdd": 0.0, "rec": "—", "recovered": true, "win": "—", "span": 5, "short": false, "real": -1.42, "vol": 0.0, "sharpe": null}, "10": {"cagr": 1.0, "maxdd": 0.0, "rec": "—", "recovered": true, "win": "—", "span": 10, "short": false, "real": -1.42, "vol": 0.0, "sharpe": null}}}}};
 
 const ORDER = ['sp500','dow','gold','btc','wti','deposit'];
 let TF = '1', SORT = 'cagr', DIR = -1;
@@ -260,6 +264,8 @@ function render(){
 
   const maxAbsC = Math.max(...rows.filter(r=>r.m).map(r=>Math.abs(r.m.cagr)),1);
   const topCagr = Math.max(...rows.filter(r=>r.m).map(r=>r.m.cagr));
+  const maxVol = Math.max(...rows.filter(r=>r.m).map(r=>r.m.vol||0),1);
+  const maxSh = Math.max(...rows.filter(r=>r.m&&r.m.sharpe!=null).map(r=>Math.abs(r.m.sharpe)),1);
 
   const tb = document.getElementById('tbody'); tb.innerHTML='';
   rows.forEach(r=>{
@@ -269,7 +275,7 @@ function render(){
 
     if(!m){
       tr.innerHTML = `<td class="aname"><div class="n">${r.name}</div><div class="s">${r.sub}</div></td>
-        <td colspan="4" class="na" style="text-align:center">ข้อมูลไม่พอสำหรับช่วงนี้</td>`;
+        <td colspan="6" class="na" style="text-align:center">ข้อมูลไม่พอสำหรับช่วงนี้</td>`;
       tb.appendChild(tr); return;
     }
     const cCls = m.cagr>0?'pos':(m.cagr<0?'neg':'zero');
@@ -278,6 +284,11 @@ function render(){
     const rCls = m.real>=0?'pos':'neg';
     const star = m.short?'<span class="star">*</span>':'';
     const ddStar = m.adj?'<span class="star">†</span>':'';
+    const volBar = Math.max(4,Math.round((m.vol||0)/maxVol*100));
+    const shHas = m.sharpe!=null;
+    const shTxt = shHas ? fmtSigned(m.sharpe) : '—';
+    const shCls = !shHas ? 'zero' : (m.sharpe>=0?'pos':'neg');
+    const shBar = shHas ? Math.max(4,Math.round(Math.abs(m.sharpe)/maxSh*100)) : 0;
 
     tr.innerHTML = `
       <td class="aname"><div class="n">${r.name}${star}</div><div class="s">${r.sub}</div></td>
@@ -287,13 +298,21 @@ function render(){
       </td>
       <td><span class="real ${rCls}"><span class="u">${m.real>=0?'▲':'▼'}</span>${Math.abs(m.real).toFixed(2)}%</span></td>
       <td>
+        <div class="num vol">${(m.vol||0).toFixed(1)}%</div>
+        <div class="bar n"><i style="width:${volBar}%"></i></div>
+      </td>
+      <td>
         <div class="num ${m.maxdd<0?'neg':'zero'}">${m.maxdd.toFixed(2)}%${ddStar}</div>
         <div class="bar r"><i style="width:${ddBar}%"></i></div>
       </td>
       <td>
-        <div class="rec">${m.recovered? m.rec.replace(' (ยังไม่ฟื้น)','') : m.rec.replace(' (ยังไม่ฟื้น)','')}
+        <div class="rec">${m.rec.replace(' (ยังไม่ฟื้น)','')}
           ${!m.recovered && m.rec!=='—' ? '<span class="warn">ยังไม่ฟื้น</span>':''}</div>
         ${m.win!=='—'?`<div class="win">${m.win}</div>`:''}
+      </td>
+      <td>
+        <div class="num ${shCls}">${shTxt}</div>
+        ${shHas?`<div class="bar ${m.sharpe<0?'r':'g'}"><i style="width:${shBar}%"></i></div>`:''}
       </td>`;
     tb.appendChild(tr);
   });
@@ -301,11 +320,13 @@ function render(){
   // window note + notes
   const anyShort = ORDER.some(k=>DATA.assets[k].tf[TF] && DATA.assets[k].tf[TF].short);
   document.getElementById('winNote').textContent =
-    'เรียงตาม'+({cagr:'ผลตอบแทน/ปี',real:'ผลตอบแทนเหนือเงินเฟ้อ',maxdd:'Max Drawdown',recdays:'เวลาฟื้นตัว',name:'ชื่อ'}[SORT])+
+    'เรียงตาม'+({cagr:'ผลตอบแทน/ปี',real:'ผลตอบแทนเหนือเงินเฟ้อ',vol:'ความผันผวน/ปี',maxdd:'Max Drawdown',recdays:'เวลาฟื้นตัว',sharpe:'Sharpe',name:'ชื่อ'}[SORT])+
     ' · แตะหัวคอลัมน์เพื่อเรียงใหม่';
 
   const notes=[];
   notes.push('“เหนือเงินเฟ้อ” = ผลตอบแทน/ปี ลบด้วยเงินเฟ้อทั่วไป '+meta.infl_head.toFixed(2)+'% (ผลตอบแทนที่แท้จริง)');
+  notes.push('“ความผันผวน/ปี” (Volatility) = ส่วนเบี่ยงเบนมาตรฐานของผลตอบแทนรายวัน ปรับเป็นรายปีตามจำนวนวันซื้อขายจริงของแต่ละสินทรัพย์ (หุ้น ~252 วัน · คริปโตเทรดทุกวัน ~365) — ยิ่งสูง ราคายิ่งเหวี่ยงแรง');
+  notes.push('“Sharpe” = (ผลตอบแทน/ปี − ดอกเบี้ยไร้ความเสี่ยง '+meta.rf.toFixed(0)+'%) ÷ ความผันผวน/ปี = ได้ผลตอบแทนส่วนเกินกี่หน่วยต่อความเสี่ยง 1 หน่วย ยิ่งสูงยิ่งคุ้มเสี่ยง (คร่าวๆ >1 ดี, >2 ดีมาก) · เงินฝากความผันผวน 0 จึงคำนวณไม่ได้ (—)');
   if(anyShort) notes.push('<b>*</b> Bitcoin มีข้อมูลราคาตั้งแต่ ส.ค. 2017 (~9 ปี) ช่อง 10 ปีจึงใช้ช่วงเต็มเท่าที่มี');
   notes.push('<b>†</b> WTI 10 ปี: ตัดวันราคาปิดติดลบ 20 เม.ย. 2020 (−37.63) ออกจากการคำนวณ Max Drawdown — เป็นอุบัติเหตุกลไกสัญญาล่วงหน้า (คลังเก็บที่ Cushing เต็ม + สัญญาใกล้หมดอายุ) ไม่ใช่ราคาน้ำมันจริงเป็นศูนย์ ตัวเลข −86.9% จึงสะท้อนการร่วงที่ผู้ถือแบบไม่มี leverage เผชิญจริง (ข้อมูลดิบรวมวันติดลบ = −149%)');
   notes.push('ทองคำ/น้ำมันใช้สัญญาล่วงหน้า (GC=F / CL=F) เป็นตัวแทนราคา · '+meta.source);
