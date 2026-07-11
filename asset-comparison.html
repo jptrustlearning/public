@@ -85,20 +85,23 @@ h1 em{font-style:normal;
   border:1px solid var(--line);border-radius:18px;background:var(--paper);box-shadow:var(--shadow)}
 table{width:100%;border-collapse:collapse;min-width:860px}
 thead th{font-family:var(--font-thai);font-weight:600;font-size:12.5px;color:var(--burgundy);
-  text-align:right;padding:15px 16px;white-space:nowrap;cursor:pointer;user-select:none;
+  text-align:right;padding:13px 14px;white-space:nowrap;cursor:pointer;user-select:none;
   border-bottom:2px solid var(--line);transition:color .2s;background:var(--paper-2)}
-thead th:first-child{text-align:left}
+thead th:first-child{text-align:left;position:sticky;left:0;z-index:3;background:var(--paper-2);box-shadow:7px 0 9px -7px rgba(80,30,40,.22)}
 thead th:hover{color:var(--gold-deep)}
 thead th .ar{color:var(--gold-deep);font-size:10px;margin-left:3px;opacity:0}
 thead th.sort .ar{opacity:1}
-tbody td{padding:14px 16px;border-bottom:1px solid var(--line-soft);text-align:right;vertical-align:middle;white-space:nowrap}
+tbody td{padding:12px 14px;border-bottom:1px solid var(--line-soft);text-align:right;vertical-align:middle;white-space:nowrap}
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover{background:rgba(212,175,55,.08)}
+tbody tr:hover td:first-child{background:#FBF6EA}
 tbody tr.dep{background:rgba(114,47,55,.035)}
+tbody tr.dep td:first-child{background:#F7F2EC}
+tbody td:first-child{position:sticky;left:0;z-index:1;background:var(--paper);box-shadow:7px 0 9px -7px rgba(80,30,40,.14)}
 .aname{text-align:left}
 .aname .n{font-weight:600;font-size:15.5px;color:var(--burgundy-deep)}
 .aname .s{font-size:11.5px;color:var(--faint);margin-top:2px;font-weight:400}
-.num{font-family:var(--font-num);font-size:22px;line-height:1.05;letter-spacing:.3px;color:var(--ink)}
+.num{font-family:var(--font-num);font-size:19px;line-height:1.05;letter-spacing:.3px;color:var(--ink)}
 .num.pos{color:var(--pos)} .num.neg{color:var(--neg)} .num.zero{color:var(--muted)}
 .bar{height:5px;border-radius:3px;margin-top:6px;margin-left:auto;background:rgba(114,47,55,.10);overflow:hidden;max-width:130px}
 .bar>i{display:block;height:100%;border-radius:3px}
@@ -106,7 +109,7 @@ tbody tr.dep{background:rgba(114,47,55,.035)}
 .bar.r>i{background:linear-gradient(90deg,#D06666,#a12f2f)}
 .bar.n>i{background:linear-gradient(90deg,#cbbfa9,#9b8b82)}
 .num.vol{color:var(--gold-deep)}
-.real{font-family:var(--font-num);font-size:19px}
+.real{font-family:var(--font-num);font-size:17px}
 .real.pos{color:var(--pos)} .real.neg{color:var(--neg)}
 .real .u{font-family:var(--font-thai);font-size:12px;margin-right:2px}
 .rec{font-size:14px;color:var(--body)}
@@ -128,23 +131,19 @@ tbody tr.dep{background:rgba(114,47,55,.035)}
   body{padding:0 14px 48px}
   .glossary{grid-template-columns:1fr}
   .hcard .v{font-size:32px}
-  .tablewrap{overflow:visible;border:none;background:transparent;box-shadow:none;border-radius:0}
-  table{min-width:0;display:block}
-  thead{display:none}
-  tbody{display:block}
-  tbody tr{display:grid;grid-template-columns:1fr 1fr;gap:13px 14px;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:15px 16px;margin-bottom:12px}
-  tbody tr:hover{background:var(--paper)}
-  tbody tr.dep{background:var(--paper-2)}
-  tbody td{display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:0;border:none!important;text-align:left;white-space:normal}
-  tbody td::before{content:attr(data-label);font-size:10.5px;color:var(--muted);font-weight:500;letter-spacing:.2px}
-  tbody td.aname{grid-column:1 / -1;padding-bottom:11px;border-bottom:1px solid var(--line-soft)}
-  tbody td.aname::before{content:none}
-  tbody td.na{grid-column:1 / -1;align-items:center}
-  .aname .n{font-size:17px}
-  .num{font-size:19px}
-  .real{font-size:17px}
-  .bar{margin-left:0;width:100%;max-width:100%}
-  .win{margin-top:1px}
+  table{min-width:640px}
+  thead th{font-size:11px;padding:11px 10px}
+  tbody td{padding:11px 10px}
+  .num{font-size:16px}
+  .real{font-size:15px}
+  .real .u{font-size:10px}
+  .aname .n{font-size:14px}
+  .aname .s{font-size:10px}
+  .bar{max-width:78px;margin-top:5px}
+  .rec{font-size:12.5px}
+  .win{font-size:10px}
+  thead th:first-child,tbody td:first-child{max-width:138px}
+  .aname .n,.aname .s{max-width:126px;overflow:hidden;text-overflow:ellipsis}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
