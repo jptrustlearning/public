@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เปรียบเทียบสินทรัพย์ (ข้อมูลสด · ถึง 20 ปี) · JP Trust Learning</title>
+<meta name="description" content="เปรียบเทียบผลตอบแทนทบต้นต่อปี (CAGR), Max Drawdown และเวลาฟื้นตัว ของ S&P 500, Dow Jones, ทองคำ, Bitcoin และน้ำมัน WTI ย้อนหลัง 1 / 3 / 5 / 10 ปี เทียบกับเงินเฟ้อไทยและเงินฝาก 1%">
+<meta name="theme-color" content="#FAF6ED">
+<meta property="og:type" content="website">
+<meta property="og:title" content="เปรียบเทียบสินทรัพย์ · ผลตอบแทน–ความเสี่ยง–การฟื้นตัว">
+<meta property="og:description" content="ผลตอบแทนทบต้น, Max Drawdown และเวลาฟื้นตัว ย้อนหลัง 1/3/5/10 ปี เทียบกับเงินเฟ้อไทย">
+<meta property="og:site_name" content="JP Trust Learning">
+<meta property="og:url" content="https://public.jptrustlearning.com/asset-comparison-live.html">
+<meta property="og:image" content="https://public.jptrustlearning.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://public.jptrustlearning.com/og-image.png">
+<link rel="canonical" href="https://public.jptrustlearning.com/asset-comparison-live.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@200;300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* JP Trust — light / cream edition */
+  --cream:#FAF6ED; --paper:#FFFFFF; --paper-2:#FCFAF3;
+  --burgundy:#722F37; --burgundy-deep:#571E27; --burgundy-ink:#3A1D22;
+  --gold:#B8860B; --gold-bright:#D4AF37; --gold-deep:#8B6914;
+  --ink:#2E1B20; --body:#4A3A38; --muted:#7A6A61; --faint:#948578;
+  --pos:#2E7D4F; --neg:#BF3B3B;
+  --line:rgba(114,47,55,.13); --line-soft:rgba(114,47,55,.07);
+  --shadow:0 2px 16px rgba(80,30,40,.07),0 1px 3px rgba(80,30,40,.05);
+  --font-thai:'Anuphan',sans-serif; --font-label:'Cinzel',serif; --font-num:'DM Serif Display',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-thai);color:var(--body);line-height:1.7;
+  background:
+    radial-gradient(ellipse at 18% 0%,rgba(212,175,55,.12),transparent 46%),
+    radial-gradient(ellipse at 92% 10%,rgba(114,47,55,.07),transparent 42%),
+    linear-gradient(170deg,#FBF8F0 0%,#F5EEDD 55%,#FBF8F0 100%);
+  background-attachment:fixed;min-height:100vh;padding:0 20px 64px;
+}
+.wrap{max-width:1080px;margin:0 auto}
+a{color:inherit}
+/* top bar */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:22px 0 6px;font-size:13px}
+.brand{font-family:var(--font-label);letter-spacing:2px;text-transform:uppercase;font-size:13px;font-weight:700;
+  background:linear-gradient(135deg,#8B6914,#C9A227 45%,#8B6914);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.back{color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s}
+.back:hover{color:var(--burgundy)}
+/* hero */
+.hero{padding:38px 0 26px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--font-label);font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:14px}
+h1{font-weight:600;font-size:clamp(28px,4.6vw,46px);line-height:1.25;color:var(--burgundy-deep)}
+h1 em{font-style:normal;
+  background:linear-gradient(135deg,#B8860B,#8B6914 60%,#B8860B);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.lead{font-size:16px;color:var(--body);max-width:66ch;margin-top:16px;font-weight:400}
+.lead b{color:var(--burgundy);font-weight:600}
+/* inflation hurdle */
+.hurdle{margin-top:30px}
+.hurdle-lab{font-size:13px;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.hurdle-lab::before{content:"";width:22px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--gold-bright),var(--gold-deep))}
+.hcards{display:flex;gap:14px;flex-wrap:wrap}
+.hcard{flex:1;min-width:170px;position:relative;overflow:hidden;
+  background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;box-shadow:var(--shadow)}
+.hcard::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#D4AF37,#8B6914)}
+.hcard .k{font-size:12.5px;color:var(--muted);font-weight:500}
+.hcard .v{font-family:var(--font-num);font-size:38px;line-height:1;margin-top:6px;
+  background:linear-gradient(135deg,#8B6914,#C9A227);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hcard .v small{font-size:18px;-webkit-text-fill-color:var(--gold-deep);margin-left:2px}
+.hcard .m{font-size:11.5px;color:var(--faint);margin-top:7px}
+/* tabs */
+.tabs{display:flex;gap:8px;margin:34px 0 4px;flex-wrap:wrap}
+.tab{font-family:var(--font-thai);font-weight:600;font-size:15px;cursor:pointer;
+  padding:9px 20px;border-radius:50px;border:1px solid var(--line);background:var(--paper);color:var(--burgundy);transition:all .2s}
+.tab:hover{border-color:var(--gold);color:var(--burgundy-deep)}
+.tab.on{background:linear-gradient(135deg,#D4AF37,#B8860B);color:#3A1015;border-color:transparent;box-shadow:0 4px 16px rgba(184,134,11,.30)}
+.win-note{font-size:12.5px;color:var(--faint);margin:12px 2px 0}
+.status{font-size:13px;margin:10px 2px 0;min-height:18px}
+.status.load{color:var(--gold-deep)}
+.status.err{color:var(--neg)}
+.status .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);margin-right:7px;animation:pulse 1s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.skel{background:linear-gradient(90deg,rgba(114,47,55,.06),rgba(114,47,55,.12),rgba(114,47,55,.06));background-size:200% 100%;animation:shimmer 1.3s linear infinite;border-radius:5px;height:16px;width:64px;margin-left:auto}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+/* table */
+.tablewrap{margin-top:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  border:1px solid var(--line);border-radius:18px;background:var(--paper);box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;min-width:860px}
+thead th{font-family:var(--font-thai);font-weight:600;font-size:12.5px;color:var(--burgundy);
+  text-align:right;padding:13px 14px;white-space:nowrap;cursor:pointer;user-select:none;
+  border-bottom:2px solid var(--line);transition:color .2s;background:var(--paper-2)}
+thead th:first-child{text-align:left;position:sticky;left:0;z-index:3;background:var(--paper-2);box-shadow:7px 0 9px -7px rgba(80,30,40,.22)}
+thead th:hover{color:var(--gold-deep)}
+thead th .ar{color:var(--gold-deep);font-size:10px;margin-left:3px;opacity:0}
+thead th.sort .ar{opacity:1}
+tbody td{padding:12px 14px;border-bottom:1px solid var(--line-soft);text-align:right;vertical-align:middle;white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:rgba(212,175,55,.08)}
+tbody tr:hover td:first-child{background:#FBF6EA}
+tbody tr.dep{background:rgba(114,47,55,.035)}
+tbody tr.dep td:first-child{background:#F7F2EC}
+tbody td:first-child{position:sticky;left:0;z-index:1;background:var(--paper);box-shadow:7px 0 9px -7px rgba(80,30,40,.14)}
+.aname{text-align:left}
+.aname .n{font-weight:600;font-size:15.5px;color:var(--burgundy-deep)}
+.aname .s{font-size:11.5px;color:var(--faint);margin-top:2px;font-weight:400}
+.num{font-family:var(--font-num);font-size:19px;line-height:1.05;letter-spacing:.3px;color:var(--ink)}
+.num.pos{color:var(--pos)} .num.neg{color:var(--neg)} .num.zero{color:var(--muted)}
+.bar{height:5px;border-radius:3px;margin-top:6px;margin-left:auto;background:rgba(114,47,55,.10);overflow:hidden;max-width:130px}
+.bar>i{display:block;height:100%;border-radius:3px}
+.bar.g>i{background:linear-gradient(90deg,#D4AF37,#8B6914)}
+.bar.r>i{background:linear-gradient(90deg,#D06666,#a12f2f)}
+.bar.n>i{background:linear-gradient(90deg,#cbbfa9,#9b8b82)}
+.num.vol{color:var(--gold-deep)}
+.real{font-family:var(--font-num);font-size:17px}
+.real.pos{color:var(--pos)} .real.neg{color:var(--neg)}
+.real .u{font-family:var(--font-thai);font-size:12px;margin-right:2px}
+.rec{font-size:14px;color:var(--body)}
+.rec .warn{color:var(--neg);font-size:11.5px;display:block;margin-top:1px;font-weight:500}
+.win{font-size:11px;color:var(--faint);margin-top:3px}
+.na{color:var(--faint);font-size:14px}
+.star{color:var(--gold-deep);font-size:11px;vertical-align:super}
+/* glossary + notes */
+.glossary{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gcard{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.gcard h3{font-size:14px;color:var(--burgundy);font-weight:700;margin-bottom:6px}
+.gcard p{font-size:13px;color:var(--body);font-weight:400;line-height:1.65}
+.notes{margin-top:28px;font-size:12.5px;color:var(--muted);line-height:1.9}
+.notes b{color:var(--burgundy);font-weight:600}
+.footer{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--faint)}
+.footer .fb{font-family:var(--font-label);letter-spacing:1.5px;font-weight:700;
+  background:linear-gradient(135deg,#722F37,#B8860B);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@media(max-width:720px){
+  body{padding:0 14px 48px}
+  .glossary{grid-template-columns:1fr}
+  .hcard .v{font-size:32px}
+  table{min-width:640px}
+  thead th{font-size:11px;padding:11px 10px}
+  tbody td{padding:11px 10px}
+  .num{font-size:16px}
+  .real{font-size:15px}
+  .real .u{font-size:10px}
+  .aname .n{font-size:14px}
+  .aname .s{font-size:10px}
+  .bar{max-width:78px;margin-top:5px}
+  .rec{font-size:12.5px}
+  .win{font-size:10px}
+  thead th:first-child,tbody td:first-child{max-width:138px}
+  .aname .n,.aname .s{max-width:126px;overflow:hidden;text-overflow:ellipsis}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <span class="brand">JP Trust Learning</span>
+    <a class="back" href="/">← ห้องสมุดวิจัย</a>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow">Asset Class Comparison · Live Data</div>
+    <h1>สินทรัพย์ไหน <em>คุ้มความเสี่ยง</em><br>ที่สุดในรอบ 1–20 ปี?</h1>
+    <p class="lead">เทียบ 3 มุมที่นักลงทุนควรดูพร้อมกัน — <b>ผลตอบแทนทบต้นต่อปี</b> (ได้เท่าไร),
+      <b>Max Drawdown</b> (เสี่ยงร่วงแรงแค่ไหน) และ <b>เวลาฟื้นตัว</b> (กว่าจะกลับมาเท่าทุนนานแค่ไหน)
+      ดึงราคาจริงสดจาก Yahoo Finance ย้อนหลังสูงสุด 20 ปี เทียบกับ “เส้นชัย” คือเงินเฟ้อไทยและเงินฝาก</p>
+
+    <div class="hurdle">
+      <div class="hurdle-lab">เส้นชัยที่ผลตอบแทนต้องเอาชนะ · เงินเฟ้อไทย <span id="inflMonth"></span></div>
+      <div class="hcards">
+        <div class="hcard">
+          <div class="k">เงินเฟ้อทั่วไป (รวมอาหาร)</div>
+          <div class="v" id="inflHead">–<small>%</small></div>
+          <div class="m">Headline CPI · YoY</div>
+        </div>
+        <div class="hcard">
+          <div class="k">เงินเฟ้อพื้นฐาน (ไม่รวมอาหารสด–พลังงาน)</div>
+          <div class="v" id="inflCore">–<small>%</small></div>
+          <div class="m">Core CPI · YoY</div>
+        </div>
+        <div class="hcard">
+          <div class="k">เงินฝากประจำ (อ้างอิง)</div>
+          <div class="v">1<small>%</small></div>
+          <div class="m">ดอกเบี้ย ~1% ต่อปี</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs" id="tabs">
+    <button class="tab on" data-tf="1">1 ปี</button>
+    <button class="tab" data-tf="3">3 ปี</button>
+    <button class="tab" data-tf="5">5 ปี</button>
+    <button class="tab" data-tf="10">10 ปี</button>
+    <button class="tab" data-tf="15">15 ปี</button>
+    <button class="tab" data-tf="20">20 ปี</button>
+  </div>
+  <div class="win-note" id="winNote"></div>
+  <div class="status" id="status"></div>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr>
+          <th data-sort="name">สินทรัพย์</th>
+          <th data-sort="cagr" class="sort">ผลตอบแทน/ปี<span class="ar">▼</span></th>
+          <th data-sort="real">เหนือเงินเฟ้อ<span class="ar">▼</span></th>
+          <th data-sort="vol">ความผันผวน/ปี<span class="ar">▼</span></th>
+          <th data-sort="maxdd">Max Drawdown<span class="ar">▼</span></th>
+          <th data-sort="recdays">เวลาฟื้นตัว<span class="ar">▼</span></th>
+          <th data-sort="sharpe">Sharpe<span class="ar">▼</span></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <div class="glossary">
+    <div class="gcard">
+      <h3>ผลตอบแทน/ปี (ทบต้น)</h3>
+      <p>CAGR — อัตราการเติบโตทบต้นเฉลี่ยต่อปี เสมือนได้กำไรคงที่ทุกปีจนถึงปัจจุบัน ใช้เทียบข้ามสินทรัพย์และข้ามช่วงเวลาได้ตรงกว่าผลตอบแทนรวม</p>
+    </div>
+    <div class="gcard">
+      <h3>Max Drawdown</h3>
+      <p>การร่วงหนักสุดจากจุดสูงสุดถึงจุดต่ำสุดในช่วงนั้น = กรณีแย่สุดถ้าซื้อที่ยอดดอยพอดี ตัวเลขยิ่งติดลบมาก ยิ่งต้องทนแรง</p>
+    </div>
+    <div class="gcard">
+      <h3>เวลาฟื้นตัว</h3>
+      <p>ระยะเวลาจากจุดสูงสุดก่อนร่วง จนราคากลับมาเท่าเดิม ยิ่งนาน = ยิ่งต้องถือทนขาดทุนบนกระดาษนาน “ยังไม่ฟื้น” คือถึงวันนี้ยังไม่กลับเท่ายอดเดิม</p>
+    </div>
+  </div>
+
+  <div class="notes" id="notes"></div>
+
+  <div class="footer">
+    <span>สรุปโดย <span class="fb">JP TRUST LEARNING</span></span>
+    <span id="asof"></span>
+  </div>
+
+</div>
+
+<script>
+/* ===== live data via port-price worker (Yahoo Finance /hist) ===== */
+const WORKER = 'https://port-price.jptrustlearning.workers.dev/hist';
+const INFL_HEAD = 2.42, INFL_CORE = 1.23, RF = 0;
+const ASSETS = [
+  {key:'sp500', sym:'SPY',     name:'S&P 500',   sub:'ดัชนีหุ้นสหรัฐ 500 บริษัท (SPY · รวมปันผล)',   from:'2004-01-01'},
+  {key:'dow',   sym:'DIA',     name:'Dow Jones', sub:'ดัชนีหุ้นสหรัฐ 30 บริษัทใหญ่ (DIA · รวมปันผล)', from:'2004-01-01'},
+  {key:'gold',  sym:'GC=F',    name:'ทองคำ',      sub:'ทองคำ (สัญญาล่วงหน้า GC=F)',                 from:'2000-01-01'},
+  {key:'wti',   sym:'CL=F',    name:'น้ำมัน WTI', sub:'น้ำมันดิบ WTI (สัญญาล่วงหน้า CL=F)',           from:'2000-01-01', dropNeg:true},
+  {key:'btc',   sym:'BTC-USD', name:'Bitcoin',   sub:'บิทคอยน์ (BTC-USD)',                          from:'2014-01-01'},
+];
+const ORDER = ASSETS.map(a=>a.key).concat('deposit');
+const META = {infl_head:INFL_HEAD, infl_core:INFL_CORE, infl_month:'มิถุนายน 2569', rf:RF, asof:'',
+  source:'ราคาสดจาก Yahoo Finance (ผ่าน port-price worker) · เงินเฟ้อจาก สนค. กระทรวงพาณิชย์'};
+const RAW = {};
+let TF='1', SORT='cagr', DIR=-1;
+
+/* ---------- fetch ---------- */
+async function fetchSeries(sym, from){
+  const ctrl = new AbortController(); const t=setTimeout(()=>ctrl.abort(), 20000);
+  try{
+    const r = await fetch(`${WORKER}?symbol=${encodeURIComponent(sym)}&from=${from}`, {signal:ctrl.signal});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const j = await r.json();
+    if(j.error) throw new Error(j.error);
+    if(!j.dates || !j.closes || j.dates.length<5) throw new Error('ข้อมูลว่าง');
+    const dates=[], closes=[], neg=[];
+    for(let i=0;i<j.dates.length;i++){ const c=j.closes[i];
+      if(c==null || !isFinite(c)) continue;
+      if(c<=0){ neg.push(j.dates[i]); continue; }
+      dates.push(j.dates[i]); closes.push(c);
+    }
+    if(dates.length<5) throw new Error('ข้อมูลน้อยเกินไป');
+    return {dates, closes, neg};
+  } finally { clearTimeout(t); }
+}
+
+/* ---------- metrics (mirror of static pipeline) ---------- */
+function recText(days, recovered){
+  if(days<=0) return recovered ? '—' : 'ยังไม่ฟื้น';
+  const yy=Math.floor(days/365), mm=Math.round((days%365)/30.44);
+  let s=(yy?yy+' ปี ':'')+(mm?mm+' เดือน':(yy?'':'ไม่ถึงเดือน'));
+  s=s.trim()||'ไม่ถึงเดือน';
+  return recovered ? s : s+' (ยังไม่ฟื้น)';
+}
+function mo(d){ const dt=new Date(d+'T00:00:00Z'); return String(dt.getUTCMonth()+1).padStart(2,'0')+'/'+dt.getUTCFullYear(); }
+
+function metrics(series, years, dropNeg){
+  const D=series.dates, C=series.closes, n=D.length;
+  if(n<5) return null;
+  const endT=Date.parse(D[n-1]+'T00:00:00Z');
+  const startTarget=endT - years*365.25*86400000;
+  if(startTarget < Date.parse(D[0]+'T00:00:00Z')) return null; // insufficient history
+  let s=0; while(s<n && Date.parse(D[s]+'T00:00:00Z') < startTarget) s++;
+  const wd=D.slice(s), wc=C.slice(s), m=wc.length;
+  if(m<5) return null;
+  const p0=wc[0], p1=wc[m-1];
+  const d0=Date.parse(wd[0]+'T00:00:00Z'), d1=Date.parse(wd[m-1]+'T00:00:00Z');
+  const yrs=(d1-d0)/(365.25*86400000);
+  const cagr=Math.pow(p1/p0,1/yrs)-1;
+  // drawdown + recovery
+  const cm=[]; let run=-Infinity;
+  for(let i=0;i<m;i++){ run=Math.max(run,wc[i]); cm.push(run); }
+  let ti=0, mn=Infinity;
+  for(let i=0;i<m;i++){ const dd=wc[i]/cm[i]-1; if(dd<mn){mn=dd; ti=i;} }
+  const peakv=cm[ti];
+  let pi=0; for(let i=ti;i>=0;i--){ if(wc[i]>=peakv){pi=i;break;} }
+  let recI=-1; for(let i=ti;i<m;i++){ if(wc[i]>=peakv){recI=i;break;} }
+  let recDays, recovered;
+  if(recI>=0){ recovered=true; recDays=(Date.parse(wd[recI]+'T00:00:00Z')-Date.parse(wd[pi]+'T00:00:00Z'))/86400000; }
+  else { recovered=false; recDays=(d1-Date.parse(wd[pi]+'T00:00:00Z'))/86400000; }
+  // vol (annualize by trading days per year)
+  const rets=[]; for(let i=1;i<m;i++) rets.push(wc[i]/wc[i-1]-1);
+  const mean=rets.reduce((a,b)=>a+b,0)/rets.length;
+  const varr=rets.reduce((a,b)=>a+(b-mean)*(b-mean),0)/rets.length;
+  const ppy=rets.length/yrs;
+  const vol=Math.sqrt(varr)*Math.sqrt(ppy);
+  const maxdd=Math.max(mn,-1); // floor at -100%
+  const adj = !!(dropNeg && wd[0] <= '2020-04-20' && '2020-04-20' <= wd[m-1]);
+  return {
+    cagr:+(cagr*100).toFixed(2),
+    maxdd:+(maxdd*100).toFixed(2),
+    rec:recText(recDays, recovered), recovered,
+    win:mo(wd[0])+'–'+mo(wd[m-1]),
+    vol:+(vol*100).toFixed(1),
+    sharpe: vol>0 ? +((cagr)/(vol)).toFixed(2) : null,
+    real:+((cagr*100)-INFL_HEAD).toFixed(2),
+    adj
+  };
+}
+function depositRow(y){ return {cagr:1.0, maxdd:0.0, rec:'—', recovered:true, win:'—', vol:0.0, sharpe:null, real:+(1.0-INFL_HEAD).toFixed(2)}; }
+
+/* ---------- helpers ---------- */
+function recDays(m){ if(!m||m.rec==='—') return -1; const t=m.rec; let d=0;
+  const yy=t.match(/(\d+)\s*ปี/), mm=t.match(/(\d+)\s*เดือน/);
+  if(yy)d+=parseInt(yy[1])*365; if(mm)d+=parseInt(mm[1])*30.44; return d; }
+function fmtSigned(v){ return (v>0?'+':'')+v.toFixed(2); }
+function fmtDate(iso){ if(!iso) return ''; const [y,m,d]=iso.split('-'); return `${d}/${m}/${y}`; }
+function setStatus(cls,msg){ const el=document.getElementById('status'); el.className='status '+(cls||'');
+  el.innerHTML = cls==='load' ? '<span class="dot"></span>'+msg : (msg||''); }
+
+/* ---------- render ---------- */
+function render(){
+  document.getElementById('inflHead').innerHTML=META.infl_head.toFixed(2)+'<small>%</small>';
+  document.getElementById('inflCore').innerHTML=META.infl_core.toFixed(2)+'<small>%</small>';
+  document.getElementById('inflMonth').textContent='· '+META.infl_month;
+  document.getElementById('asof').textContent='ข้อมูล ณ '+fmtDate(META.asof);
+
+  let rows = ASSETS.map(a=>{
+    const raw=RAW[a.key];
+    let m=null, err=null;
+    if(!raw){ err='—'; } else if(raw.err){ err=raw.err; }
+    else { m=metrics(raw, +TF, a.dropNeg); }
+    return {k:a.key, name:a.name, sub:a.sub, m, err};
+  });
+  rows.push({k:'deposit', name:'เงินฝากประจำ', sub:'ดอกเบี้ย 1% ต่อปี', m:depositRow(+TF), err:null});
+
+  rows.sort((A,B)=>{
+    if(SORT==='name') return DIR*A.name.localeCompare(B.name,'th');
+    const va=SORT==='recdays'?recDays(A.m):(A.m?A.m[SORT]:null);
+    const vb=SORT==='recdays'?recDays(B.m):(B.m?B.m[SORT]:null);
+    if(va==null) return 1; if(vb==null) return -1;
+    return DIR*(va-vb);
+  });
+
+  const withM=rows.filter(r=>r.m);
+  const maxAbsC=Math.max(...withM.map(r=>Math.abs(r.m.cagr)),1);
+  const maxVol=Math.max(...withM.map(r=>r.m.vol||0),1);
+  const maxSh=Math.max(...withM.filter(r=>r.m.sharpe!=null).map(r=>Math.abs(r.m.sharpe)),1);
+
+  const tb=document.getElementById('tbody'); tb.innerHTML='';
+  rows.forEach(r=>{
+    const tr=document.createElement('tr'); if(r.k==='deposit') tr.className='dep';
+    if(!r.m){
+      const msg = r.err && r.err!=='—' ? ('โหลดไม่สำเร็จ: '+r.err) : 'ข้อมูลไม่พอสำหรับช่วงนี้';
+      tr.innerHTML=`<td class="aname"><div class="n">${r.name}</div><div class="s">${r.sub}</div></td>
+        <td colspan="6" class="na" style="text-align:center">${msg}</td>`;
+      tb.appendChild(tr); return;
+    }
+    const m=r.m;
+    const cCls=m.cagr>0?'pos':(m.cagr<0?'neg':'zero');
+    const cBar=Math.max(4,Math.round(Math.abs(m.cagr)/maxAbsC*100));
+    const ddBar=Math.min(100,Math.round(Math.abs(m.maxdd)));
+    const rCls=m.real>=0?'pos':'neg';
+    const volBar=Math.max(4,Math.round((m.vol||0)/maxVol*100));
+    const ddStar=m.adj?'<span class="star">†</span>':'';
+    const shHas=m.sharpe!=null;
+    const shTxt=shHas?fmtSigned(m.sharpe):'—';
+    const shCls=!shHas?'zero':(m.sharpe>=0?'pos':'neg');
+    const shBar=shHas?Math.max(4,Math.round(Math.abs(m.sharpe)/maxSh*100)):0;
+    tr.innerHTML=`
+      <td class="aname"><div class="n">${r.name}</div><div class="s">${r.sub}</div></td>
+      <td data-label="ผลตอบแทน/ปี"><div class="num ${cCls}">${fmtSigned(m.cagr)}%</div><div class="bar ${m.cagr<0?'r':'g'}"><i style="width:${cBar}%"></i></div></td>
+      <td data-label="เหนือเงินเฟ้อ"><span class="real ${rCls}"><span class="u">${m.real>=0?'▲':'▼'}</span>${Math.abs(m.real).toFixed(2)}%</span></td>
+      <td data-label="ความผันผวน/ปี"><div class="num vol">${(m.vol||0).toFixed(1)}%</div><div class="bar n"><i style="width:${volBar}%"></i></div></td>
+      <td data-label="Max Drawdown"><div class="num ${m.maxdd<0?'neg':'zero'}">${m.maxdd.toFixed(2)}%${ddStar}</div><div class="bar r"><i style="width:${ddBar}%"></i></div></td>
+      <td data-label="เวลาฟื้นตัว"><div class="rec">${m.rec.replace(' (ยังไม่ฟื้น)','')}${!m.recovered&&m.rec!=='—'?'<span class="warn">ยังไม่ฟื้น</span>':''}</div>${m.win!=='—'?`<div class="win">${m.win}</div>`:''}</td>
+      <td data-label="Sharpe"><div class="num ${shCls}">${shTxt}</div>${shHas?`<div class="bar ${m.sharpe<0?'r':'g'}"><i style="width:${shBar}%"></i></div>`:''}</td>`;
+    tb.appendChild(tr);
+  });
+
+  const anyAdj = ORDER.some(k=>RAW[k]&&!RAW[k].err&&(()=>{const mm=metrics(RAW[k],+TF,ASSETS.find(a=>a.key===k)?.dropNeg);return mm&&mm.adj;})());
+  document.getElementById('winNote').textContent='เรียงตาม'+({cagr:'ผลตอบแทน/ปี',real:'ผลตอบแทนเหนือเงินเฟ้อ',vol:'ความผันผวน/ปี',maxdd:'Max Drawdown',recdays:'เวลาฟื้นตัว',sharpe:'Sharpe',name:'ชื่อ'}[SORT])+' · แตะหัวคอลัมน์เพื่อเรียงใหม่';
+
+  const notes=[];
+  notes.push('ข้อมูลราคาดึงสดจาก Yahoo Finance ทุกครั้งที่เปิดหน้า (ใช้ adjusted close — หุ้น/ETF จึงรวมการลงทุนปันผลซ้ำเป็น total return)');
+  notes.push('“เหนือเงินเฟ้อ” = ผลตอบแทน/ปี ลบด้วยเงินเฟ้อทั่วไป '+META.infl_head.toFixed(2)+'%');
+  notes.push('“ความผันผวน/ปี” = SD ของผลตอบแทนรายวัน ปรับเป็นรายปีตามจำนวนวันซื้อขายจริง · “Sharpe” = ผลตอบแทน/ปี ÷ ความผันผวน/ปี (Rf = 0)');
+  if(anyAdj) notes.push('<b>†</b> WTI: ตัดวันราคาปิดติดลบ 20 เม.ย. 2020 (อุบัติเหตุกลไกสัญญาล่วงหน้า) ออกจากการคำนวณ Max Drawdown');
+  notes.push('Bitcoin มีราคาบน Yahoo ตั้งแต่ปี 2014 (~12 ปี) จึงทำช่วง 15/20 ปีไม่ได้ · Dow ใช้ DIA (เริ่ม 1998)');
+  notes.push('ผลตอบแทนในอดีตไม่รับประกันอนาคต · ข้อมูลเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน · '+META.source);
+  document.getElementById('notes').innerHTML=notes.map(n=>'• '+n).join('<br>');
+
+  document.querySelectorAll('thead th').forEach(th=>{ th.classList.toggle('sort',th.dataset.sort===SORT);
+    const ar=th.querySelector('.ar'); if(ar) ar.textContent=DIR<0?'▼':'▲'; });
+}
+
+/* ---------- skeleton while loading ---------- */
+function showSkeleton(){
+  const tb=document.getElementById('tbody'); tb.innerHTML='';
+  ASSETS.concat([{key:'deposit',name:'เงินฝากประจำ',sub:'ดอกเบี้ย 1% ต่อปี'}]).forEach(a=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td class="aname"><div class="n">${a.name}</div><div class="s">${a.sub}</div></td>`+
+      Array(6).fill('<td><div class="skel"></div></td>').join('');
+    tb.appendChild(tr);
+  });
+}
+
+/* ---------- events ---------- */
+document.getElementById('tabs').addEventListener('click',e=>{ const b=e.target.closest('.tab'); if(!b) return;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on')); b.classList.add('on'); TF=b.dataset.tf; render(); });
+document.querySelectorAll('thead th').forEach(th=>th.addEventListener('click',()=>{
+  const s=th.dataset.sort; if(SORT===s){DIR*=-1;} else {SORT=s; DIR=(s==='name')?1:-1;} render(); }));
+
+/* ---------- boot ---------- */
+(async function boot(){
+  showSkeleton();
+  setStatus('load','กำลังดึงข้อมูลสดจาก Yahoo Finance…');
+  const res = await Promise.allSettled(ASSETS.map(a=>fetchSeries(a.sym,a.from)));
+  let ok=0, lastDates=[];
+  res.forEach((r,i)=>{ const a=ASSETS[i];
+    if(r.status==='fulfilled'){ RAW[a.key]=r.value; ok++; lastDates.push(r.value.dates[r.value.dates.length-1]); }
+    else { RAW[a.key]={err:(r.reason&&r.reason.message)||'error'}; }
+  });
+  if(ok===0){ setStatus('err','ดึงข้อมูลไม่สำเร็จทั้งหมด — ลองรีเฟรชอีกครั้ง (Yahoo หรือ worker อาจไม่ตอบชั่วคราว)');
+    document.getElementById('tbody').innerHTML=''; return; }
+  META.asof = lastDates.slice().sort().slice(-1)[0]||'';
+  setStatus(ok<ASSETS.length?'err':'', ok<ASSETS.length?`โหลดสำเร็จ ${ok}/${ASSETS.length} รายการ — บางรายการดึงไม่ได้ชั่วคราว`:'');
+  render();
+})();
+
+</script>
+</body>
+</html>
