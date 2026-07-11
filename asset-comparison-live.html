@@ -134,6 +134,25 @@ tbody td:first-child{position:sticky;left:0;z-index:1;background:var(--paper);bo
 .footer{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--faint)}
 .footer .fb{font-family:var(--font-label);letter-spacing:1.5px;font-weight:700;
   background:linear-gradient(135deg,#722F37,#B8860B);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.addbar{margin-top:12px}
+.addbtn{font-family:var(--font-thai);font-weight:600;font-size:14px;cursor:pointer;color:var(--burgundy);background:var(--paper);border:1px dashed var(--gold);border-radius:12px;padding:12px 18px;width:100%;transition:all .2s}
+.addbtn:hover{background:#FBF6EA;border-color:var(--gold-deep)}
+.addbox{background:var(--paper);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:12px}
+.addbox input{width:100%;font-family:var(--font-thai);font-size:15px;color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:11px 13px;outline:none;background:var(--paper-2)}
+.addbox input:focus{border-color:var(--gold);background:var(--paper)}
+.addresults{margin-top:6px;max-height:300px;overflow-y:auto}
+.ares-msg{font-size:13px;color:var(--muted);padding:9px 6px}
+.ares-msg.err{color:var(--neg)}
+.ares-row{display:flex;align-items:baseline;gap:9px;padding:9px 10px;border-radius:8px;cursor:pointer;transition:background .15s}
+.ares-row:hover{background:#FBF6EA}
+.ares-row.dup{opacity:.5;cursor:default}
+.ares-row.dup:hover{background:transparent}
+.ares-sym{font-weight:700;color:var(--burgundy-deep);font-size:14px;min-width:66px;flex-shrink:0}
+.ares-nm{color:var(--body);font-size:13px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ares-ex{color:var(--gold-deep);font-size:11.5px;white-space:nowrap;flex-shrink:0}
+.ares-dup{font-size:11px;color:var(--faint);flex-shrink:0}
+.rm{margin-left:7px;border:none;background:rgba(191,59,59,.12);color:var(--neg);width:19px;height:19px;line-height:17px;text-align:center;border-radius:50%;cursor:pointer;font-size:14px;font-weight:700;vertical-align:middle;padding:0;display:inline-block}
+.rm:hover{background:var(--neg);color:#fff}
 @media(max-width:720px){
   body{padding:0 14px 48px}
   .glossary{grid-template-columns:1fr}
@@ -220,6 +239,14 @@ tbody td:first-child{position:sticky;left:0;z-index:1;background:var(--paper);bo
     </table>
   </div>
 
+  <div class="addbar">
+    <button id="addBtn" class="addbtn" type="button">+ เพิ่มสินทรัพย์เทียบ · ค้นหาจาก Yahoo Finance</button>
+    <div id="addBox" class="addbox" hidden>
+      <input id="addInput" type="text" autocomplete="off" spellcheck="false" placeholder="พิมพ์ชื่อหรือ ticker เช่น AAPL, NVDA, PTT.BK, ^N225, ETH-USD…">
+      <div id="addResults" class="addresults"></div>
+    </div>
+  </div>
+
   <div class="glossary">
     <div class="gcard">
       <h3>ผลตอบแทน/ปี (ทบต้น)</h3>
@@ -247,6 +274,7 @@ tbody td:first-child{position:sticky;left:0;z-index:1;background:var(--paper);bo
 <script>
 /* ===== live data via port-price worker (Yahoo Finance /hist) ===== */
 const WORKER = 'https://port-price.jptrustlearning.workers.dev/hist';
+const WORKER_SEARCH = 'https://port-price.jptrustlearning.workers.dev/search';
 const INFL_HEAD = 2.42, INFL_CORE = 1.23, RF = 0;
 const ASSETS = [
   {key:'sp500', sym:'SPY',     name:'S&P 500',   sub:'ดัชนีหุ้นสหรัฐ 500 บริษัท (SPY · รวมปันผล)',   from:'2004-01-01'},
@@ -259,6 +287,8 @@ const ORDER = ASSETS.map(a=>a.key).concat('deposit');
 const META = {infl_head:INFL_HEAD, infl_core:INFL_CORE, infl_month:'มิถุนายน 2569', rf:RF, asof:'',
   source:'ราคาสดจาก Yahoo Finance (ผ่าน port-price worker) · เงินเฟ้อจาก สนค. กระทรวงพาณิชย์'};
 const RAW = {};
+const CUSTOM = [];
+let searchTimer=null, searchSeq=0;
 let TF='1', SORT='cagr', DIR=-1;
 
 /* ---------- fetch ---------- */
@@ -352,12 +382,12 @@ function render(){
   document.getElementById('inflMonth').textContent='· '+META.infl_month;
   document.getElementById('asof').textContent='ข้อมูล ณ '+fmtDate(META.asof);
 
-  let rows = ASSETS.map(a=>{
+  let rows = ASSETS.concat(CUSTOM).map(a=>{
     const raw=RAW[a.key];
     let m=null, err=null;
     if(!raw){ err='—'; } else if(raw.err){ err=raw.err; }
     else { m=metrics(raw, +TF, a.dropNeg); }
-    return {k:a.key, name:a.name, sub:a.sub, m, err};
+    return {k:a.key, name:a.name, sub:a.sub, m, err, custom:!!a.custom};
   });
   rows.push({k:'deposit', name:'เงินฝากประจำ', sub:'ดอกเบี้ย 1% ต่อปี', m:depositRow(+TF), err:null});
 
@@ -379,7 +409,7 @@ function render(){
     const tr=document.createElement('tr'); if(r.k==='deposit') tr.className='dep';
     if(!r.m){
       const msg = r.err && r.err!=='—' ? ('โหลดไม่สำเร็จ: '+r.err) : 'ข้อมูลไม่พอสำหรับช่วงนี้';
-      tr.innerHTML=`<td class="aname"><div class="n">${r.name}</div><div class="s">${r.sub}</div></td>
+      tr.innerHTML=`<td class="aname"><div class="n">${r.name}${r.custom?` <button class="rm" data-rm="${r.k}" title="ลบออก">×</button>`:``}</div><div class="s">${r.sub}</div></td>
         <td colspan="6" class="na" style="text-align:center">${msg}</td>`;
       tb.appendChild(tr); return;
     }
@@ -395,7 +425,7 @@ function render(){
     const shCls=!shHas?'zero':(m.sharpe>=0?'pos':'neg');
     const shBar=shHas?Math.max(4,Math.round(Math.abs(m.sharpe)/maxSh*100)):0;
     tr.innerHTML=`
-      <td class="aname"><div class="n">${r.name}</div><div class="s">${r.sub}</div></td>
+      <td class="aname"><div class="n">${r.name}${r.custom?` <button class="rm" data-rm="${r.k}" title="ลบออก">×</button>`:``}</div><div class="s">${r.sub}</div></td>
       <td data-label="ผลตอบแทน/ปี"><div class="num ${cCls}">${fmtSigned(m.cagr)}%</div><div class="bar ${m.cagr<0?'r':'g'}"><i style="width:${cBar}%"></i></div></td>
       <td data-label="เหนือเงินเฟ้อ"><span class="real ${rCls}"><span class="u">${m.real>=0?'▲':'▼'}</span>${Math.abs(m.real).toFixed(2)}%</span></td>
       <td data-label="ความผันผวน/ปี"><div class="num vol">${(m.vol||0).toFixed(1)}%</div><div class="bar n"><i style="width:${volBar}%"></i></div></td>
@@ -437,6 +467,56 @@ document.getElementById('tabs').addEventListener('click',e=>{ const b=e.target.c
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on')); b.classList.add('on'); TF=b.dataset.tf; render(); });
 document.querySelectorAll('thead th').forEach(th=>th.addEventListener('click',()=>{
   const s=th.dataset.sort; if(SORT===s){DIR*=-1;} else {SORT=s; DIR=(s==='name')?1:-1;} render(); }));
+
+
+/* ---------- add custom asset (Yahoo search) ---------- */
+const TYPE_TH={EQUITY:'หุ้น',ETF:'ETF',INDEX:'ดัชนี',CRYPTOCURRENCY:'คริปโต',CURRENCY:'ค่าเงิน',FUTURE:'ฟิวเจอร์ส',MUTUALFUND:'กองทุน'};
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function closeAdd(){const b=document.getElementById('addBox');if(!b)return;b.hidden=true;document.getElementById('addBtn').hidden=false;document.getElementById('addInput').value='';document.getElementById('addResults').innerHTML='';}
+
+async function runSearch(q){
+  const box=document.getElementById('addResults'); const seq=++searchSeq;
+  q=(q||'').trim();
+  if(q.length<1){ box.innerHTML=''; return; }
+  box.innerHTML='<div class="ares-msg">กำลังค้นหา…</div>';
+  let list=null, failed=false;
+  try{ const r=await fetch(`${WORKER_SEARCH}?q=${encodeURIComponent(q)}`);
+    if(r.ok){ const j=await r.json(); if(!j.error && Array.isArray(j.quotes)) list=j.quotes; else failed=true; } else failed=true;
+  }catch(e){ failed=true; }
+  if(seq!==searchSeq) return;
+  if(failed){ box.innerHTML=`<div class="ares-row" data-fallback="${esc(q.toUpperCase())}"><span class="ares-sym">${esc(q.toUpperCase())}</span><span class="ares-nm">กด Enter เพื่อเพิ่มเป็น ticker ตรงๆ</span><span class="ares-ex">ค้นหายังไม่พร้อม</span></div>`; return; }
+  if(!list || list.length===0){ box.innerHTML='<div class="ares-msg">ไม่พบสินทรัพย์ที่ตรงกับ “'+esc(q)+'”</div>'; return; }
+  const existing=new Set(ASSETS.concat(CUSTOM).map(a=>a.sym.toUpperCase()));
+  box.innerHTML=list.map(x=>{
+    const dup=existing.has(x.symbol.toUpperCase());
+    const ex=[esc(x.exchange||''),(x.type&&TYPE_TH[x.type])?TYPE_TH[x.type]:''].filter(Boolean).join(' · ');
+    return `<div class="ares-row${dup?' dup':''}"${dup?'':` data-add="${esc(x.symbol)}" data-nm="${esc(x.name)}" data-ex="${esc(x.exchange)}" data-ty="${esc(x.type)}"`}>
+      <span class="ares-sym">${esc(x.symbol)}</span><span class="ares-nm">${esc(x.name)}</span><span class="ares-ex">${ex}</span>${dup?'<span class="ares-dup">มีแล้ว</span>':''}</div>`;
+  }).join('');
+}
+
+async function addCustom(sym, name, exch, type){
+  sym=(sym||'').trim().toUpperCase(); if(!sym) return;
+  if(ASSETS.concat(CUSTOM).some(a=>a.sym.toUpperCase()===sym)){ closeAdd(); return; }
+  const key='cust_'+sym.replace(/[^A-Z0-9]/g,'_');
+  const box=document.getElementById('addResults');
+  box.innerHTML='<div class="ares-msg">กำลังดึงข้อมูล '+esc(sym)+' จาก Yahoo…</div>';
+  try{
+    const series=await fetchSeries(sym,'2004-01-01');
+    RAW[key]=series;
+    const ex=[exch?esc(exch):'',(type&&TYPE_TH[type])?TYPE_TH[type]:''].filter(Boolean).join(' · ');
+    const sub=[(name&&name.toUpperCase()!==sym)?esc(name):'Yahoo Finance', ex].filter(Boolean).join(' · ');
+    CUSTOM.push({key, sym, name:sym, sub, custom:true, from:'2004-01-01'});
+    closeAdd(); render();
+  }catch(e){ box.innerHTML='<div class="ares-msg err">ดึง '+esc(sym)+' ไม่ได้: '+esc(e.message||'error')+' — ลองตรวจสัญลักษณ์ ticker</div>'; }
+}
+function removeCustom(key){ const i=CUSTOM.findIndex(a=>a.key===key); if(i>=0){ delete RAW[CUSTOM[i].key]; CUSTOM.splice(i,1); render(); } }
+
+document.getElementById('addBtn').addEventListener('click',()=>{ document.getElementById('addBtn').hidden=true; document.getElementById('addBox').hidden=false; document.getElementById('addInput').focus(); });
+document.getElementById('addInput').addEventListener('input',e=>{ clearTimeout(searchTimer); const v=e.target.value; searchTimer=setTimeout(()=>runSearch(v),300); });
+document.getElementById('addInput').addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); const v=e.target.value.trim(); if(v) addCustom(v.toUpperCase(),v.toUpperCase(),'',''); } if(e.key==='Escape') closeAdd(); });
+document.getElementById('addResults').addEventListener('click',e=>{ const row=e.target.closest('.ares-row'); if(!row) return; if(row.dataset.fallback){ addCustom(row.dataset.fallback,row.dataset.fallback,'',''); return; } if(row.dataset.add){ addCustom(row.dataset.add,row.dataset.nm,row.dataset.ex,row.dataset.ty); } });
+document.getElementById('tbody').addEventListener('click',e=>{ const b=e.target.closest('.rm'); if(b){ e.stopPropagation(); removeCustom(b.dataset.rm); } });
 
 /* ---------- boot ---------- */
 (async function boot(){
