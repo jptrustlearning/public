@@ -80,6 +80,7 @@ h1 em{font-style:normal;
 .tab:hover{border-color:var(--gold);color:var(--burgundy-deep)}
 .tab.on{background:linear-gradient(135deg,#D4AF37,#B8860B);color:#3A1015;border-color:transparent;box-shadow:0 4px 16px rgba(184,134,11,.30)}
 .win-note{font-size:12.5px;color:var(--faint);margin:12px 2px 0}
+.coverage{font-size:13px;color:var(--gold-deep);font-weight:600;margin:16px 2px 2px}
 .status{font-size:13px;margin:10px 2px 0;min-height:18px}
 .status.load{color:var(--gold-deep)}
 .status.err{color:var(--neg)}
@@ -203,7 +204,7 @@ tbody td:first-child{position:sticky;left:0;z-index:1;background:var(--paper);bo
           <div class="m">Core CPI · YoY</div>
         </div>
         <div class="hcard">
-          <div class="k">เงินฝากประจำ (อ้างอิง)</div>
+          <div class="k">เงินฝากไทย (อ้างอิง)</div>
           <div class="v">1<small>%</small></div>
           <div class="m">ดอกเบี้ย ~1% ต่อปี</div>
         </div>
@@ -219,6 +220,7 @@ tbody td:first-child{position:sticky;left:0;z-index:1;background:var(--paper);bo
     <button class="tab" data-tf="15">15 ปี</button>
     <button class="tab" data-tf="20">20 ปี</button>
   </div>
+  <div class="coverage" id="coverage"></div>
   <div class="win-note" id="winNote"></div>
   <div class="status" id="status"></div>
 
@@ -358,6 +360,7 @@ function metrics(series, years, dropNeg){
     maxdd:+(maxdd*100).toFixed(2),
     rec:recText(recDays, recovered), recovered,
     win:mo(wd[0])+'–'+mo(wd[m-1]),
+    recFrom:wd[pi], recTo:recovered?wd[recI]:null,
     vol:+(vol*100).toFixed(1),
     sharpe: vol>0 ? +((cagr)/(vol)).toFixed(2) : null,
     real:+((cagr*100)-INFL_HEAD).toFixed(2),
@@ -389,7 +392,7 @@ function render(){
     else { m=metrics(raw, +TF, a.dropNeg); }
     return {k:a.key, name:a.name, sub:a.sub, m, err, custom:!!a.custom};
   });
-  rows.push({k:'deposit', name:'เงินฝากประจำ', sub:'ดอกเบี้ย 1% ต่อปี', m:depositRow(+TF), err:null});
+  rows.push({k:'deposit', name:'เงินฝากไทย', sub:'ดอกเบี้ย 1% ต่อปี', m:depositRow(+TF), err:null});
 
   rows.sort((A,B)=>{
     if(SORT==='name') return DIR*A.name.localeCompare(B.name,'th');
@@ -424,18 +427,23 @@ function render(){
     const shTxt=shHas?fmtSigned(m.sharpe):'—';
     const shCls=!shHas?'zero':(m.sharpe>=0?'pos':'neg');
     const shBar=shHas?Math.max(4,Math.round(Math.abs(m.sharpe)/maxSh*100)):0;
+    let recRange='';
+    if(m.rec!=='—'){ if(m.recovered&&m.recTo) recRange=mo(m.recFrom)+'–'+mo(m.recTo); else if(m.recFrom) recRange='พีค '+mo(m.recFrom); }
     tr.innerHTML=`
       <td class="aname"><div class="n">${r.name}${r.custom?` <button class="rm" data-rm="${r.k}" title="ลบออก">×</button>`:``}</div><div class="s">${r.sub}</div></td>
       <td data-label="ผลตอบแทน/ปี"><div class="num ${cCls}">${fmtSigned(m.cagr)}%</div><div class="bar ${m.cagr<0?'r':'g'}"><i style="width:${cBar}%"></i></div></td>
       <td data-label="เหนือเงินเฟ้อ"><span class="real ${rCls}"><span class="u">${m.real>=0?'▲':'▼'}</span>${Math.abs(m.real).toFixed(2)}%</span></td>
       <td data-label="ความผันผวน/ปี"><div class="num vol">${(m.vol||0).toFixed(1)}%</div><div class="bar n"><i style="width:${volBar}%"></i></div></td>
       <td data-label="Max Drawdown"><div class="num ${m.maxdd<0?'neg':'zero'}">${m.maxdd.toFixed(2)}%${ddStar}</div><div class="bar r"><i style="width:${ddBar}%"></i></div></td>
-      <td data-label="เวลาฟื้นตัว"><div class="rec">${m.rec.replace(' (ยังไม่ฟื้น)','')}${!m.recovered&&m.rec!=='—'?'<span class="warn">ยังไม่ฟื้น</span>':''}</div>${m.win!=='—'?`<div class="win">${m.win}</div>`:''}</td>
+      <td data-label="เวลาฟื้นตัว"><div class="rec">${m.rec.replace(' (ยังไม่ฟื้น)','')}${!m.recovered&&m.rec!=='—'?'<span class="warn">ยังไม่ฟื้น</span>':''}</div>${recRange?`<div class="win">${recRange}</div>`:''}</td>
       <td data-label="Sharpe"><div class="num ${shCls}">${shTxt}</div>${shHas?`<div class="bar ${m.sharpe<0?'r':'g'}"><i style="width:${shBar}%"></i></div>`:''}</td>`;
     tb.appendChild(tr);
   });
 
   const anyAdj = ORDER.some(k=>RAW[k]&&!RAW[k].err&&(()=>{const mm=metrics(RAW[k],+TF,ASSETS.find(a=>a.key===k)?.dropNeg);return mm&&mm.adj;})());
+  (function(){const el=document.getElementById('coverage'); if(!el)return;
+    if(META.asof){ const s=new Date(META.asof+'T00:00:00Z'); s.setUTCFullYear(s.getUTCFullYear()-(+TF)); const si=s.toISOString().slice(0,10);
+      el.textContent='ช่วงข้อมูลที่ใช้คำนวณ '+mo(si)+' – '+mo(META.asof)+' (ย้อนหลัง '+TF+' ปี)'; } else el.textContent=''; })();
   document.getElementById('winNote').textContent='เรียงตาม'+({cagr:'ผลตอบแทน/ปี',real:'ผลตอบแทนเหนือเงินเฟ้อ',vol:'ความผันผวน/ปี',maxdd:'Max Drawdown',recdays:'เวลาฟื้นตัว',sharpe:'Sharpe',name:'ชื่อ'}[SORT])+' · แตะหัวคอลัมน์เพื่อเรียงใหม่';
 
   const notes=[];
@@ -454,7 +462,7 @@ function render(){
 /* ---------- skeleton while loading ---------- */
 function showSkeleton(){
   const tb=document.getElementById('tbody'); tb.innerHTML='';
-  ASSETS.concat([{key:'deposit',name:'เงินฝากประจำ',sub:'ดอกเบี้ย 1% ต่อปี'}]).forEach(a=>{
+  ASSETS.concat([{key:'deposit',name:'เงินฝากไทย',sub:'ดอกเบี้ย 1% ต่อปี'}]).forEach(a=>{
     const tr=document.createElement('tr');
     tr.innerHTML=`<td class="aname"><div class="n">${a.name}</div><div class="s">${a.sub}</div></td>`+
       Array(6).fill('<td><div class="skel"></div></td>').join('');
