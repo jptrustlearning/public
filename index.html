@@ -195,10 +195,26 @@ a{color:inherit;text-decoration:none}
 
 .shelf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.2vw,26px)}
 @media(max-width:1000px){.shelf-grid{grid-template-columns:repeat(2,1fr)}}
+/* --- โทนสีการ์ด: default = เลือดหมู (ตู้ไม้) --- */
+.shelf-card{
+  --card-bg:var(--maroon-bg);
+  --card-edge:rgba(212,175,55,0.38);
+  --card-glow:radial-gradient(ellipse at center,rgba(255,196,92,0.30),rgba(255,170,60,0.09) 55%,transparent 72%);
+  --card-icon-edge:rgba(212,175,55,0.65);
+  --card-title:var(--gold);
+  --card-desc:rgba(244,228,186,0.78);
+  --card-foot:linear-gradient(180deg,#2d1018,#1a0a0e);
+  --card-line:rgba(212,175,55,0.22);
+  --card-count:var(--light-sub);
+  --card-arrow-edge:rgba(212,175,55,0.55);
+  --card-arrow:var(--gold);
+  --card-arrow-hbg:var(--gold);
+  --card-arrow-hfg:#1a0a0e;
+}
 .shelf-card{
   position:relative;display:flex;flex-direction:column;overflow:hidden;
-  border-radius:20px;background:var(--maroon-bg);
-  border:1px solid rgba(212,175,55,0.38);
+  border-radius:20px;background:var(--card-bg);
+  border:1px solid var(--card-edge);
   box-shadow:0 16px 38px rgba(58,21,32,0.22),0 0 0 5px #4a2418,0 0 0 6px rgba(212,175,55,0.35);
   opacity:0;transform:translateY(10px);animation:fadeUp .5s ease-out forwards;
   transition:transform .25s ease,box-shadow .25s ease;
@@ -210,12 +226,12 @@ a{color:inherit;text-decoration:none}
 .shelf-card::before{
   content:"";position:absolute;top:-46px;left:50%;transform:translateX(-50%);
   width:74%;height:130px;border-radius:50%;pointer-events:none;z-index:0;
-  background:radial-gradient(ellipse at center,rgba(255,196,92,0.30),rgba(255,170,60,0.09) 55%,transparent 72%);
+  background:var(--card-glow);
 }
 .sc-top{position:relative;z-index:1;display:flex;gap:13px;align-items:flex-start;min-height:104px;padding:clamp(16px,2vw,20px) clamp(15px,1.9vw,19px) clamp(13px,1.6vw,16px)}
 .sc-icon{
   flex-shrink:0;width:clamp(46px,5vw,56px);height:clamp(46px,5vw,56px);border-radius:50%;
-  overflow:hidden;border:1.5px solid rgba(212,175,55,0.65);
+  overflow:hidden;border:1.5px solid var(--card-icon-edge);
   box-shadow:0 3px 12px rgba(0,0,0,0.35),inset 0 0 12px rgba(212,175,55,0.18);
 }
 .sc-icon img{width:100%;height:100%;object-fit:cover;display:block}
@@ -223,12 +239,12 @@ a{color:inherit;text-decoration:none}
 .sc-title{
   display:block;font-weight:700;line-height:1.3;
   font-size:clamp(17px,2.2vw,20px);
-  color:var(--gold);letter-spacing:.2px;
+  color:var(--card-title);letter-spacing:.2px;
 }
 .sc-desc{
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
   margin-top:5px;font-size:clamp(12.5px,1.55vw,13.5px);line-height:1.5;
-  color:rgba(244,228,186,0.78);
+  color:var(--card-desc);
 }
 .sc-shelf{position:relative;z-index:1;line-height:0;
   border-top:2px solid rgba(93,52,24,0.9);
@@ -237,17 +253,55 @@ a{color:inherit;text-decoration:none}
 .sc-foot{
   position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:10px;
   padding:12px clamp(14px,1.8vw,18px);
-  background:linear-gradient(180deg,#2d1018,#1a0a0e);
-  border-top:1px solid rgba(212,175,55,0.22);
+  background:var(--card-foot);
+  border-top:1px solid var(--card-line);
 }
-.sc-count{font-size:clamp(12.5px,1.6vw,14px);color:var(--light-sub);font-weight:500}
+.sc-count{font-size:clamp(12.5px,1.6vw,14px);color:var(--card-count);font-weight:500}
 .sc-arrow{
   flex-shrink:0;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
-  border:1.5px solid rgba(212,175,55,0.55);color:var(--gold);
+  border:1.5px solid var(--card-arrow-edge);color:var(--card-arrow);
   transition:background .22s,transform .22s,color .22s;
 }
 .sc-arrow svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.shelf-card:hover .sc-arrow{background:var(--gold);color:#1a0a0e;transform:translateX(3px)}
+.shelf-card:hover .sc-arrow{background:var(--card-arrow-hbg);color:var(--card-arrow-hfg);transform:translateX(3px)}
+
+/* --- ลายตาหมากรุก: สลับทอง/เลือดหมู ตามจำนวนคอลัมน์จริง --- */
+@media(min-width:1001px){           /* 3 คอลัมน์ -> ทอง = ใบ 1,3,5 */
+  .shelf-card:nth-child(odd){
+  --card-bg:linear-gradient(150deg,#EBCB6E 0%,#D9B646 38%,#C79B2C 68%,#B8860B 100%);
+  --card-edge:rgba(90,52,10,0.45);
+  --card-glow:radial-gradient(ellipse at center,rgba(255,255,255,0.55),rgba(255,244,205,0.2) 55%,transparent 72%);
+  --card-icon-edge:rgba(26,10,14,0.42);
+  --card-title:#1a0a0e;
+  --card-desc:rgba(45,20,10,0.78);
+  --card-foot:linear-gradient(180deg,#D4AF37,#B8860B);
+  --card-line:rgba(26,10,14,0.2);
+  --card-count:#2a1208;
+  --card-arrow-edge:rgba(26,10,14,0.5);
+  --card-arrow:#1a0a0e;
+  --card-arrow-hbg:#1a0a0e;
+  --card-arrow-hfg:var(--gold-light);
+}
+}
+@media(max-width:1000px){           /* 2 คอลัมน์ -> ทอง = ใบ 1,4,5 (สลับฟันปลา) */
+  .shelf-card:nth-child(4n+1),
+  .shelf-card:nth-child(4n+4){
+  --card-bg:linear-gradient(150deg,#EBCB6E 0%,#D9B646 38%,#C79B2C 68%,#B8860B 100%);
+  --card-edge:rgba(90,52,10,0.45);
+  --card-glow:radial-gradient(ellipse at center,rgba(255,255,255,0.55),rgba(255,244,205,0.2) 55%,transparent 72%);
+  --card-icon-edge:rgba(26,10,14,0.42);
+  --card-title:#1a0a0e;
+  --card-desc:rgba(45,20,10,0.78);
+  --card-foot:linear-gradient(180deg,#D4AF37,#B8860B);
+  --card-line:rgba(26,10,14,0.2);
+  --card-count:#2a1208;
+  --card-arrow-edge:rgba(26,10,14,0.5);
+  --card-arrow:#1a0a0e;
+  --card-arrow-hbg:#1a0a0e;
+  --card-arrow-hfg:var(--gold-light);
+}
+}
+
 
 @media(max-width:620px){
   /* ทุกขนาดยืดตามความกว้างจอ (vw) มีเพดานบน-ล่างกันเละ */
