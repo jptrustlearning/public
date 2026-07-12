@@ -195,32 +195,32 @@ a{color:inherit;text-decoration:none}
 
 .shelf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.2vw,26px)}
 @media(max-width:1000px){.shelf-grid{grid-template-columns:repeat(2,1fr)}}
-/* --- โทนสีการ์ด: default = เลือดหมู (ตู้ไม้) --- */
+/* --- โทนสีการ์ด: default = น้ำตาลอ่อน (มอคค่า) · ตัวหนังสือสีเข้ม --- */
 .shelf-card{
-  --card-bg:var(--maroon-bg);
-  --card-edge:rgba(212,175,55,0.38);
-  --card-glow:radial-gradient(ellipse at center,rgba(255,196,92,0.30),rgba(255,170,60,0.09) 55%,transparent 72%);
-  --card-icon-edge:rgba(212,175,55,0.65);
-  --card-title:var(--gold);
-  --card-desc:rgba(244,228,186,0.78);
-  --card-foot:linear-gradient(180deg,#2d1018,#1a0a0e);
-  --card-line:rgba(212,175,55,0.22);
-  --card-count:var(--light-sub);
-  --card-arrow-edge:rgba(212,175,55,0.55);
-  --card-arrow:var(--gold);
-  --card-arrow-hbg:var(--gold);
-  --card-arrow-hfg:#1a0a0e;
+  --card-bg:linear-gradient(160deg,#BCA595 0%,#C7B2A2 28%,#D2BFB0 48%,#C7B2A2 70%,#BCA595 100%);
+  --card-edge:rgba(120,80,52,0.42);
+  --card-glow:radial-gradient(ellipse at center,rgba(255,255,255,0.5),rgba(255,248,228,0.18) 55%,transparent 72%);
+  --card-icon-edge:rgba(60,32,18,0.4);
+  --card-title:#2A1410;
+  --card-desc:rgba(48,28,18,0.78);
+  --card-foot:linear-gradient(180deg,#B8A090,#A98F7E);
+  --card-line:rgba(60,32,18,0.2);
+  --card-count:#3A2216;
+  --card-arrow-edge:rgba(45,22,12,0.45);
+  --card-arrow:#2A1410;
+  --card-arrow-hbg:#2A1410;
+  --card-arrow-hfg:#F4E4BA;
 }
 .shelf-card{
   position:relative;display:flex;flex-direction:column;overflow:hidden;
   border-radius:20px;background:var(--card-bg);
   border:1px solid var(--card-edge);
-  box-shadow:0 16px 38px rgba(58,21,32,0.22),0 0 0 5px #4a2418,0 0 0 6px rgba(212,175,55,0.35);
+  box-shadow:0 14px 32px rgba(90,60,45,0.18),0 0 0 5px #7A5236,0 0 0 6px rgba(212,175,55,0.45);
   opacity:0;transform:translateY(10px);animation:fadeUp .5s ease-out forwards;
   transition:transform .25s ease,box-shadow .25s ease;
   isolation:isolate;
 }
-.shelf-card:hover{transform:translateY(-4px);box-shadow:0 24px 52px rgba(58,21,32,0.3),0 0 0 5px #572c1d,0 0 0 6px rgba(212,175,55,0.6)}
+.shelf-card:hover{transform:translateY(-4px);box-shadow:0 22px 46px rgba(90,60,45,0.26),0 0 0 5px #8B5F3D,0 0 0 6px rgba(212,175,55,0.75)}
 .shelf-card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 /* spotlight from the top of the cabinet */
 .shelf-card::before{
@@ -268,37 +268,37 @@ a{color:inherit;text-decoration:none}
 /* --- ลายตาหมากรุก: สลับทอง/เลือดหมู ตามจำนวนคอลัมน์จริง --- */
 @media(min-width:1001px){           /* 3 คอลัมน์ -> ทอง = ใบ 1,3,5 */
   .shelf-card:nth-child(odd){
-  --card-bg:linear-gradient(150deg,#EBCB6E 0%,#D9B646 38%,#C79B2C 68%,#B8860B 100%);
-  --card-edge:rgba(90,52,10,0.45);
-  --card-glow:radial-gradient(ellipse at center,rgba(255,255,255,0.55),rgba(255,244,205,0.2) 55%,transparent 72%);
-  --card-icon-edge:rgba(26,10,14,0.42);
-  --card-title:#1a0a0e;
-  --card-desc:rgba(45,20,10,0.78);
-  --card-foot:linear-gradient(180deg,#D4AF37,#B8860B);
-  --card-line:rgba(26,10,14,0.2);
-  --card-count:#2a1208;
-  --card-arrow-edge:rgba(26,10,14,0.5);
-  --card-arrow:#1a0a0e;
-  --card-arrow-hbg:#1a0a0e;
-  --card-arrow-hfg:var(--gold-light);
+  --card-bg:linear-gradient(150deg,#F2E0AD 0%,#E9D699 38%,#E0C88C 68%,#D9BE7C 100%);
+  --card-edge:rgba(140,100,30,0.4);
+  --card-glow:radial-gradient(ellipse at center,rgba(255,255,255,0.55),rgba(255,250,230,0.2) 55%,transparent 72%);
+  --card-icon-edge:rgba(60,38,10,0.38);
+  --card-title:#2A1B08;
+  --card-desc:rgba(58,38,14,0.78);
+  --card-foot:linear-gradient(180deg,#E7D296,#D4B771);
+  --card-line:rgba(60,38,10,0.2);
+  --card-count:#3A2A0C;
+  --card-arrow-edge:rgba(50,32,8,0.45);
+  --card-arrow:#2A1B08;
+  --card-arrow-hbg:#2A1B08;
+  --card-arrow-hfg:#F7ECC6;
 }
 }
 @media(max-width:1000px){           /* 2 คอลัมน์ -> ทอง = ใบ 1,4,5 (สลับฟันปลา) */
   .shelf-card:nth-child(4n+1),
   .shelf-card:nth-child(4n+4){
-  --card-bg:linear-gradient(150deg,#EBCB6E 0%,#D9B646 38%,#C79B2C 68%,#B8860B 100%);
-  --card-edge:rgba(90,52,10,0.45);
-  --card-glow:radial-gradient(ellipse at center,rgba(255,255,255,0.55),rgba(255,244,205,0.2) 55%,transparent 72%);
-  --card-icon-edge:rgba(26,10,14,0.42);
-  --card-title:#1a0a0e;
-  --card-desc:rgba(45,20,10,0.78);
-  --card-foot:linear-gradient(180deg,#D4AF37,#B8860B);
-  --card-line:rgba(26,10,14,0.2);
-  --card-count:#2a1208;
-  --card-arrow-edge:rgba(26,10,14,0.5);
-  --card-arrow:#1a0a0e;
-  --card-arrow-hbg:#1a0a0e;
-  --card-arrow-hfg:var(--gold-light);
+  --card-bg:linear-gradient(150deg,#F2E0AD 0%,#E9D699 38%,#E0C88C 68%,#D9BE7C 100%);
+  --card-edge:rgba(140,100,30,0.4);
+  --card-glow:radial-gradient(ellipse at center,rgba(255,255,255,0.55),rgba(255,250,230,0.2) 55%,transparent 72%);
+  --card-icon-edge:rgba(60,38,10,0.38);
+  --card-title:#2A1B08;
+  --card-desc:rgba(58,38,14,0.78);
+  --card-foot:linear-gradient(180deg,#E7D296,#D4B771);
+  --card-line:rgba(60,38,10,0.2);
+  --card-count:#3A2A0C;
+  --card-arrow-edge:rgba(50,32,8,0.45);
+  --card-arrow:#2A1B08;
+  --card-arrow-hbg:#2A1B08;
+  --card-arrow-hfg:#F7ECC6;
 }
 }
 
@@ -307,7 +307,7 @@ a{color:inherit;text-decoration:none}
   /* ทุกขนาดยืดตามความกว้างจอ (vw) มีเพดานบน-ล่างกันเละ */
   .shelf-grid{grid-template-columns:repeat(2,1fr);gap:clamp(8px,2.8vw,14px)}
   .shelf-card{border-radius:clamp(12px,3.8vw,18px);
-    box-shadow:0 10px 24px rgba(58,21,32,0.2),0 0 0 4px #4a2418,0 0 0 5px rgba(212,175,55,0.35)}
+    box-shadow:0 9px 20px rgba(90,60,45,0.18),0 0 0 4px #7A5236,0 0 0 5px rgba(212,175,55,0.45)}
   .shelf-card::before{top:-34px;height:96px}
   .sc-top{flex-direction:column;gap:clamp(6px,2vw,9px);min-height:0;
     padding:clamp(10px,3.2vw,15px) clamp(10px,3.2vw,15px) clamp(8px,2.6vw,12px)}
