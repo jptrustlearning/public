@@ -65,6 +65,12 @@ const RESEARCH = [
   /* ---------- บทวิเคราะห์ ---------- */
   {
     cat: "analysis", type: "article", status: "active",
+    title: "สงครามชิปความจำ 2026: ของขาดที่สุดในโลก กลายเป็นหุ้นที่ร่วงแรงที่สุด",
+    desc: "ราคาความจำขึ้น 8–9 เท่าในปีเดียว Micron ทำงบดีที่สุดในประวัติศาสตร์ แต่หุ้นทั้งกลุ่มเข้าสู่ภาวะหมี — เจาะราคา DRAM/NAND รายไตรมาส สัญญา take-or-pay 100 พันล้าน คู่แข่งทั้งกระดาน (SK Hynix · Samsung · SanDisk · WDC) และปฏิทินที่จะตัดสินรอบนี้",
+    assets: ["S&P 500"], href: "https://public.jptrustlearning.com/memory-chip-analysis.html"
+  },
+  {
+    cat: "analysis", type: "article", status: "active",
     title: "เรื่องเล่า vs ข้อเท็จจริง: เมื่อ Meta Compute เขย่าหุ้นชิปทั้งกระดาน",
     desc: "ข่าวชิ้นเดียวจาก Bloomberg — Meta เตรียมปล่อยเช่ากำลังประมวลผล AI ส่วนเกิน — ทำหุ้น memory และ neocloud ร่วงยกกลุ่ม ทั้งที่ดีมานด์ยังไม่หาย บทวิเคราะห์กึ่งจิตวิทยา แยก 'เรื่องเล่า' ที่ตลาดเชื่อ ออกจาก 'ข้อเท็จจริง' ของธุรกิจ",
     assets: ["S&P 500"], href: "https://public.jptrustlearning.com/meta-compute-narrative-vs-facts.html"
