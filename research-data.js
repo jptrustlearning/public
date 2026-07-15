@@ -110,6 +110,12 @@ const RESEARCH = [
 
   /* ---------- กลยุทธ์ Momentum ---------- */
   {
+    cat: "momentum", type: "article", status: "active",
+    title: "หุ้น Momentum คืออะไร? — พื้นฐานสำหรับมือใหม่",
+    desc: "อธิบายแนวคิด 'ของที่กำลังแรง มักจะแรงต่อ' — ทำไม Momentum ถึงเกิด วัดจากราคาและปริมาณซื้อขายอย่างไร พร้อมงานวิจัยรองรับ (Jegadeesh & Titman 1993) และตัวอย่างเปรียบเทียบ ย่อยให้มือใหม่เข้าใจง่าย",
+    assets: ["S&P 500"], href: "https://public.jptrustlearning.com/what-is-momentum.html"
+  },
+  {
     cat: "momentum", type: "interactive", status: "active",
     title: "Rolling 6M Momentum Lab · 1996–2026",
     desc: "Backtest กลยุทธ์ momentum หมุนสลับล็อตทุกเดือน ทดสอบ live ตั้งแต่กลางปี 1996 ครอบฟองสบู่ดอทคอม วิกฤตปี 2008 และโควิด พร้อม trade log เต็ม",
