@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Momentum Investing คืออะไร? — กลยุทธ์การลงทุนตามแรงส่ง | JP Trust Learning</title>
+<meta name="description" content="Momentum Investing คือกลยุทธ์เลือกซื้อหุ้นที่กำลังแรงแล้วถือตามระบบ ปรับพอร์ตเป็นรอบ ไม่เดา ไม่เทรดตามข่าว — อธิบายกระบวนการ 4 ขั้น เหตุผลเชิงคณิตศาสตร์ที่ทำให้ได้ผล พร้อมงานวิจัยรองรับ ย่อยให้มือใหม่เข้าใจง่าย">
+<link rel="canonical" href="https://public.jptrustlearning.com/momentum-investing.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="JP Trust Learning">
+<meta property="og:title" content="Momentum Investing คืออะไร? — กลยุทธ์การลงทุนตามแรงส่ง">
+<meta property="og:description" content="เลือกตัวที่กำลังนำ ลงเงินเท่ากัน ถือตามระบบ แล้วปรับพอร์ตเป็นรอบ — กระบวนการ เหตุผลเชิงคณิต และงานวิจัยที่รองรับ">
+<meta property="og:image" content="https://public.jptrustlearning.com/og-image.png">
+<meta property="og:url" content="https://public.jptrustlearning.com/momentum-investing.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Cinzel:wght@500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maroon-deep:#1a0a0e;
+  --maroon:#2d1018;
+  --maroon-soft:#3a1620;
+  --cream:#FAF6ED;
+  --cream-2:#f3ecdc;
+  --gold:#D4AF37;
+  --gold-bright:#e7c659;
+  --gold-deep:#a8842a;
+  --price:#C75B49;          /* ราคา · อารมณ์  */
+  --price-soft:#e08a78;
+  --ink:#241016;
+  --ink-soft:#5a4640;
+  --on-dark:#f1e6d3;
+  --on-dark-soft:#c9b69b;
+  --line-dark:rgba(212,175,55,.22);
+  --line-light:rgba(45,16,24,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Anuphan',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.eyebrow{
+  font-family:'Cinzel',serif;
+  text-transform:uppercase;
+  letter-spacing:.34em;
+  font-size:.72rem;
+  font-weight:600;
+}
+.num{font-family:'DM Serif Display',serif;font-weight:400;line-height:.92;letter-spacing:-.01em}
+.serif{font-family:'DM Serif Display',serif}
+section{padding:clamp(64px,9vw,128px) clamp(22px,6vw,80px)}
+.wrap{max-width:980px;margin:0 auto}
+.narrow{max-width:760px;margin:0 auto}
+
+/* ---------- dual marker (signature) ---------- */
+.tag{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-family:'Cinzel',serif;font-size:.6rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  padding:.32em .7em;border-radius:999px;white-space:nowrap;
+  vertical-align:middle;
+}
+.tag::before{content:"";width:.5em;height:.5em;border-radius:50%}
+.tag.price{color:var(--price);background:rgba(199,91,73,.1);border:1px solid rgba(199,91,73,.35)}
+.tag.price::before{background:var(--price)}
+.tag.value{color:var(--gold-deep);background:rgba(212,175,55,.12);border:1px solid rgba(168,132,42,.4)}
+.tag.value::before{background:var(--gold)}
+.dark .tag.price{color:var(--price-soft);background:rgba(199,91,73,.16);border-color:rgba(224,138,120,.4)}
+.dark .tag.value{color:var(--gold-bright);background:rgba(212,175,55,.14);border-color:var(--line-dark)}
+
+/* ---------- brand bar ---------- */
+.brandbar{display:flex;align-items:center;gap:14px;margin-bottom:clamp(34px,6vw,60px)}
+.owl{width:48px;height:48px;flex:0 0 auto;object-fit:contain;border-radius:12px;filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}
+.brandbar .wordmark{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.16em;
+  font-size:1.02rem;color:var(--gold);line-height:1.1}
+.brandbar .wordmark span{display:block;font-size:.58rem;letter-spacing:.42em;color:var(--on-dark-soft);font-weight:500}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:
+    radial-gradient(120% 90% at 88% 4%, rgba(212,175,55,.16), transparent 46%),
+    radial-gradient(90% 70% at 0% 100%, rgba(199,91,73,.14), transparent 50%),
+    linear-gradient(160deg,var(--maroon) 0%, var(--maroon-deep) 100%);
+  color:var(--on-dark);position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line-dark);
+}
+.hero .eyebrow{color:var(--gold);margin-bottom:26px}
+.hero-paradox{
+  display:flex;align-items:stretch;gap:0;margin:6px 0 34px;
+  border:1px solid var(--line-dark);border-radius:16px;overflow:hidden;
+  background:rgba(0,0,0,.18);
+}
+.hero-paradox .cell{flex:1;padding:clamp(20px,4vw,34px) clamp(18px,3.5vw,30px)}
+.hero-paradox .cell+.cell{border-left:1px solid var(--line-dark)}
+.hero-paradox .lbl{font-family:'Anuphan';font-size:.82rem;color:var(--on-dark-soft);
+  display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.hero-paradox .big{font-size:clamp(2.9rem,11vw,4.6rem)}
+.hero-paradox .cell.value .big{color:var(--gold-bright)}
+.hero-paradox .cell.price .big{color:var(--price-soft)}
+.hero-paradox .sub{font-size:.82rem;color:var(--on-dark-soft);margin-top:8px}
+.hero h1{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(2rem,6vw,3.35rem);line-height:1.12;
+  letter-spacing:-.01em;margin-bottom:22px;color:#fff;
+}
+.hero h1 em{font-style:italic;color:var(--gold-bright)}
+.hero .lens{
+  font-size:clamp(1.05rem,2.6vw,1.4rem);color:var(--on-dark);
+  border-left:2px solid var(--gold);padding-left:18px;margin-bottom:30px;
+  max-width:680px;
+}
+.hero .lens b{color:var(--gold-bright);font-weight:600}
+.hero .meta{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--on-dark-soft);line-height:2}
+
+/* ---------- section chrome ---------- */
+.dark{background:linear-gradient(170deg,var(--maroon) 0%,var(--maroon-deep) 100%);color:var(--on-dark)}
+.dark .eyebrow{color:var(--gold)}
+.light .eyebrow{color:var(--gold-deep)}
+.act-no{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--gold-deep);
+  letter-spacing:.05em;margin-bottom:6px;display:block}
+.dark .act-no{color:var(--gold)}
+h2.head{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.7rem,4.8vw,2.7rem);line-height:1.15;
+  margin:14px 0 26px;letter-spacing:-.01em;
+}
+.light h2.head{color:var(--maroon)}
+.dark h2.head{color:#fff}
+.lead{font-size:clamp(1.05rem,2.2vw,1.2rem);margin-bottom:14px}
+.light .lead{color:var(--ink)}
+.dark .lead{color:var(--on-dark)}
+p.body{margin-bottom:16px;font-size:1.02rem}
+.light p.body{color:var(--ink-soft)}
+.dark p.body{color:var(--on-dark-soft)}
+.kw{color:var(--maroon);font-weight:600}
+.dark .kw{color:var(--gold-bright)}
+
+/* section figure */
+.figure{margin:6px 0 30px;border-radius:18px;overflow:hidden;border:1px solid var(--line-dark);box-shadow:0 26px 64px -34px rgba(0,0,0,.75);position:relative}
+.figure img{display:block;width:100%;height:auto}
+.figure figcaption{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-soft);padding:11px 16px;background:rgba(0,0,0,.34);border-top:1px solid var(--line-dark);display:flex;align-items:center;gap:8px}
+.figure figcaption::before{content:"";width:.5em;height:.5em;border-radius:50%;background:var(--gold);flex:0 0 auto}
+.light .figure figcaption{color:var(--ink-soft);background:rgba(45,16,24,.05);border-top-color:var(--line-light)}
+/* pull line */
+.pull{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3.4vw,1.9rem);
+  line-height:1.3;margin:30px 0;padding:0 0 0 22px;border-left:3px solid var(--gold);
+}
+.light .pull{color:var(--maroon)}
+.dark .pull{color:#fff}
+.pull em{font-style:italic;color:var(--gold-deep)}
+.dark .pull em{color:var(--gold-bright)}
+
+/* analogy card */
+.analogy{
+  background:var(--cream-2);border:1px solid var(--line-light);border-radius:18px;
+  padding:clamp(24px,4vw,38px);margin:28px 0;position:relative;
+}
+.analogy::before{content:"\201C";font-family:'DM Serif Display',serif;
+  position:absolute;top:-.1em;left:.28em;font-size:4.5rem;color:var(--gold);opacity:.5;line-height:1}
+.analogy p{font-size:1.08rem;color:var(--ink);position:relative}
+.analogy .pv{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
+/* stat grid */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:30px 0 8px}
+.stat{
+  border:1px solid var(--line-dark);border-radius:14px;padding:22px 20px;
+  background:rgba(0,0,0,.16);position:relative;overflow:hidden;
+}
+.light .stat{background:#fff;border-color:var(--line-light);box-shadow:0 8px 24px -18px rgba(45,16,24,.4)}
+.stat .stat-num{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,5vw,2.5rem);
+  line-height:1;color:var(--gold)}
+.light .stat .stat-num{color:var(--gold-deep)}
+.stat .stat-lbl{font-size:.9rem;margin-top:10px}
+.dark .stat .stat-lbl{color:var(--on-dark-soft)}
+.light .stat .stat-lbl{color:var(--ink-soft)}
+.stat .src{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-deep);margin-top:12px;display:block;opacity:.8}
+.dark .stat .src{color:var(--on-dark-soft)}
+
+/* two-trap split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
+.trap{border:1px solid rgba(199,91,73,.34);border-radius:14px;padding:22px;background:rgba(199,91,73,.07)}
+.dark .trap{background:rgba(199,91,73,.12)}
+.trap .t{font-weight:600;color:var(--price);margin-bottom:6px;font-size:1.05rem}
+.dark .trap .t{color:var(--price-soft)}
+.trap p{font-size:.96rem}
+.light .trap p{color:var(--ink-soft)}
+.dark .trap p{color:var(--on-dark-soft)}
+.system{
+  border:1px solid var(--line-dark);border-left:3px solid var(--gold);
+  border-radius:14px;padding:24px;margin-top:20px;background:rgba(212,175,55,.06)
+}
+.dark .system{background:rgba(212,175,55,.08)}
+.system .t{font-family:'Cinzel',serif;letter-spacing:.16em;text-transform:uppercase;
+  font-size:.7rem;color:var(--gold-deep);margin-bottom:10px}
+.dark .system .t{color:var(--gold-bright)}
+
+/* paradox panel (act 2) */
+.paradox2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.pcard{border-radius:16px;padding:24px}
+.pcard.val{background:rgba(212,175,55,.1);border:1px solid rgba(168,132,42,.4)}
+.pcard.mood{background:rgba(199,91,73,.09);border:1px solid rgba(199,91,73,.35)}
+.pcard .pc-num{font-family:'DM Serif Display',serif;font-size:2rem;line-height:1;margin:8px 0}
+.pcard.val .pc-num{color:var(--gold-deep)}
+.pcard.mood .pc-num{color:var(--price)}
+.pcard p{font-size:.95rem;color:var(--ink-soft)}
+
+/* ---------- ad showcase ---------- */
+.showcase{padding:0}
+.showcase-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px);
+  align-items:center;max-width:980px;margin:0 auto;
+}
+.showcase .copy .eyebrow{margin-bottom:14px}
+.showcase .copy h3{font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.5rem,3.6vw,2.1rem);line-height:1.18;margin-bottom:16px}
+.dark.showcase-sec .copy h3{color:#fff}
+.light.showcase-sec .copy h3{color:var(--maroon)}
+.showcase .copy p{font-size:1rem;margin-bottom:18px}
+.dark.showcase-sec .copy p{color:var(--on-dark-soft)}
+.light.showcase-sec .copy p{color:var(--ink-soft)}
+.showcase .copy ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.showcase .copy li{display:flex;gap:10px;align-items:flex-start;font-size:.96rem}
+.showcase .copy li::before{content:"";flex:0 0 auto;width:7px;height:7px;border-radius:50%;
+  background:var(--gold);margin-top:.6em}
+.dark.showcase-sec .copy li{color:var(--on-dark)}
+.light.showcase-sec .copy li{color:var(--ink)}
+.shot{border-radius:20px;overflow:hidden;border:1px solid var(--line-dark);
+  box-shadow:0 30px 70px -34px rgba(0,0,0,.7);position:relative}
+.light.showcase-sec .shot{border-color:var(--line-light);box-shadow:0 30px 70px -38px rgba(45,16,24,.5)}
+.shot img{display:block;width:100%;height:auto}
+
+/* ---------- closing ---------- */
+.closing{background:
+  radial-gradient(100% 80% at 50% 0%, rgba(212,175,55,.14), transparent 55%),
+  linear-gradient(180deg,var(--maroon-deep),#120608);
+  color:var(--on-dark);text-align:center}
+.closing .q{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,4.4vw,2.5rem);
+  line-height:1.28;color:#fff;max-width:760px;margin:0 auto 26px}
+.closing .q em{font-style:italic;color:var(--gold-bright)}
+.closing .lens-final{font-size:clamp(1.05rem,2.6vw,1.3rem);color:var(--on-dark);
+  max-width:640px;margin:0 auto 44px}
+.closing .lens-final b{color:var(--gold-bright)}
+.cta{display:inline-flex;flex-direction:column;align-items:center;gap:6px;
+  border:1px solid var(--line-dark);border-radius:16px;
+  padding:24px 40px;background:rgba(0,0,0,.25);text-decoration:none}
+.cta .sub{font-family:'Cinzel',serif;letter-spacing:.3em;font-size:.6rem;
+  text-transform:uppercase;color:var(--on-dark-soft)}
+.cta .url{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.04em;
+  font-size:clamp(1.3rem,3.4vw,1.7rem);color:var(--gold)}
+.cta .tip{font-size:.84rem;color:var(--on-dark-soft);margin-top:2px}
+.cta:hover .url{color:var(--gold-bright)}
+.disclaimer{margin-top:46px;font-size:.74rem;color:var(--on-dark-soft);
+  letter-spacing:.02em;max-width:680px;margin-left:auto;margin-right:auto;
+  border-top:1px solid var(--line-dark);padding-top:22px;line-height:1.9}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:680px){
+  .hero-paradox{flex-direction:row}
+  .stats{grid-template-columns:1fr 1fr}
+  .split,.paradox2{grid-template-columns:1fr}
+  .showcase-inner{grid-template-columns:1fr}
+  .showcase .copy{order:2}
+  .showcase .shot{order:1;max-width:420px;margin:0 auto}
+}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO (Keyword + คำตอบสั้น) ===================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <img class="owl" src="https://raw.githubusercontent.com/jptrustlearning/pages/main/jpt-owl-cropped.png" alt="JP Trust Learning">
+      <div class="wordmark">JP TRUST<span>LEARNING</span></div>
+    </div>
+
+    <div class="eyebrow rv">Momentum Investing &middot; กลยุทธ์การลงทุน</div>
+    <h1 class="rv">Momentum Investing <em>คืออะไร?</em></h1>
+
+    <p class="lens rv">Momentum Investing คือ<b>กลยุทธ์การลงทุน</b>ที่เลือกซื้อหุ้นซึ่ง &lsquo;กำลังแรง&rsquo; หรือมีแรงส่งเหนือตลาด แล้ว<b>ถือตามระบบ</b> ปรับพอร์ตเป็นรอบตามกำหนดเวลา ไม่เดาอนาคต ไม่เทรดตามข่าวรายวัน หัวใจอยู่ที่ <b>วินัย</b> &mdash; คัดหุ้นผู้นำเข้าพอร์ต กระจายความเสี่ยงหลายตัว ถือให้แรงส่งได้ทำงาน แล้วคัดตัวที่หมดแรงออกเมื่อถึงรอบ</p>
+
+    <div class="meta rv">ความรู้พื้นฐานสำหรับมือใหม่ &middot; เรียบเรียงโดย JP Trust Learning</div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 1 — หลักการทำงาน ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 1 — หลักการ</span>
+    <div class="eyebrow rv">How It Works</div>
+    <h2 class="head rv">กลยุทธ์นี้ทำงานอย่างไร</h2>
+    <p class="lead rv">Momentum Investing ไม่ใช่การเดาว่าหุ้นตัวไหนจะขึ้น แต่เป็นการทำตามกระบวนการเป็นรอบ ๆ อย่างมีระบบ โดยทั่วไปมี 4 ขั้นตอน</p>
+
+    <div class="stats">
+      <div class="stat rv">
+        <div class="stat-num">1 · คัด</div>
+        <div class="stat-lbl">สแกนหุ้นทั้งกลุ่ม (เช่น ทั้ง S&amp;P 500) ดูผลตอบแทนย้อนหลัง 6&ndash;12 เดือน ทั้งราคาและปริมาณซื้อขาย เรียงอันดับ แล้วเลือกหัวแถวราว 10&ndash;15 ตัว</div>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">2 · ลงเท่ากัน</div>
+        <div class="stat-lbl">ใส่เงินเท่า ๆ กันในแต่ละตัว ไม่มีตัวโปรด เพื่อกระจายความเสี่ยง และไม่เดิมพันหนักไปที่ตัวใดตัวหนึ่ง</div>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">3 · ถือ</div>
+        <div class="stat-lbl">ถือตามกรอบเวลาที่กำหนดไว้ล่วงหน้า ไม่ขายตามข่าวรายวัน เปิดโอกาสให้ตัวที่แรงได้วิ่งเต็มที่</div>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">4 · Rebalance</div>
+        <div class="stat-lbl">ครบรอบก็สแกนใหม่ คัดตัวที่หมดแรง (อันดับร่วง) ออก เอาตัวที่แรงกว่าเข้าแทน แล้ววนซ้ำ</div>
+      </div>
+    </div>
+
+    <p class="body rv">จุดต่างสำคัญคือกลยุทธ์นี้ <span class="kw">ไม่เทรดตามข่าว</span> ข่าวร้ายวันเดียวไม่ได้ทำให้หุ้นหลุดพอร์ตทันที ระบบจะคัดตัวออกก็ต่อเมื่อมัน <span class="kw">อ่อนแรงต่อเนื่องจริง ๆ</span> ไม่ใช่เพราะพาดหัวข่าววันเดียว</p>
+    <p class="body rv" style="margin-bottom:0">ถ้ายังไม่แน่ใจว่า &lsquo;หุ้น Momentum&rsquo; ที่กลยุทธ์นี้ไปคัดมา หน้าตาเป็นอย่างไร อ่านพื้นฐานได้ที่ <a href="https://public.jptrustlearning.com/what-is-momentum.html" style="color:var(--gold-deep);text-decoration:underline">หุ้น Momentum คืออะไร?</a></p>
+
+    <p class="pull rv">ไม่ต้องเดาตลาด &mdash; แค่ <em>ทำตามระบบ</em> ให้ครบรอบ</p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 2 — ทำไมถึงได้ผล ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 2 — ทำไมได้ผล</span>
+    <div class="eyebrow rv">Why It Works</div>
+    <h2 class="head rv">ทำไม Momentum Investing<br>ถึงได้ผล</h2>
+    <p class="lead rv">เหตุผลมาจากสองส่วน &mdash; พฤติกรรมของตลาด และคณิตศาสตร์ของการกระจายความเสี่ยง</p>
+
+    <p class="body rv"><span class="kw">ด้านพฤติกรรม</span> &mdash; หุ้นที่แรง มักแรงด้วยเหตุผล ทั้งธุรกิจที่กำลังโต กำไรที่กำลังมา และเม็ดเงินสถาบันที่ทยอยไหลเข้า สิ่งเหล่านี้ไม่จบในวันสองวัน ทำให้แรงส่งมีแนวโน้มต่อเนื่อง</p>
+
+    <div class="analogy rv">
+      <p>ในทางทฤษฎี หุ้นที่ขาดทุน เสียได้มากที่สุดคือ 100% (ราคาลงไปถึงศูนย์) &mdash; แต่หุ้นที่ชนะ วิ่งขึ้นได้ <b>ไม่มีเพดาน</b> ความไม่สมมาตรนี้เอง ที่ทำให้ตัวชนะไม่กี่ตัว กลบตัวที่ขาดทุนได้หมด แม้ 6 ใน 10 ตัวจะขาดทุน พอร์ตโดยรวมก็ยังมีโอกาสกำไร &mdash; ตราบใดที่เรากระจายและปล่อยให้ตัวแรงได้วิ่ง</p>
+    </div>
+
+    <div class="system rv">
+      <div class="t">มีงานวิจัยรองรับ</div>
+      <p class="body" style="margin-bottom:0">งานวิจัยของ <span class="kw">Jegadeesh และ Titman (1993)</span> วางรากฐานว่าหุ้นที่ทำผลงานดีในรอบ 3&ndash;12 เดือน มักทำต่อได้ในช่วงถัดไป ต่อมา Momentum ถูกยอมรับให้เป็นหนึ่งใน &lsquo;ปัจจัย&rsquo; (Factor) ที่อธิบายผลตอบแทน และมีงานศึกษาระดับสถาบันอย่าง <span class="kw">&lsquo;Value and Momentum Everywhere&rsquo;</span> ของ AQR ที่พบว่าปรากฏการณ์นี้เกิดขึ้นในหลายตลาดทั่วโลก ไม่ใช่แค่หุ้นสหรัฐ</p>
+    </div>
+
+    <p class="pull rv">ตัวชนะไม่มีเพดาน &mdash; ตัวแพ้เสียได้แค่ &lsquo;หมดตัว&rsquo;</p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 3 — ตัวอย่าง 1 รอบ ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 3 — ตัวอย่าง</span>
+    <div class="eyebrow rv">Example</div>
+    <h2 class="head rv">1 รอบการลงทุน<br>เป็นอย่างไร</h2>
+    <p class="lead rv">สมมติเราใช้กรอบถือ 6 เดือน กับหุ้นในดัชนี S&amp;P 500</p>
+
+    <p class="body rv"><span class="kw">ต้นรอบ</span> &mdash; สแกนหุ้นทั้ง 500 ตัว เรียงตามแรงส่งย้อนหลัง 6 เดือน เลือกหัวแถว 10&ndash;15 ตัว ใส่เงินเท่า ๆ กัน</p>
+    <p class="body rv"><span class="kw">ระหว่างรอบ</span> &mdash; ถือไว้ ไม่ขายตามข่าวรายวัน แม้บางตัวจะสะดุดจากข่าวชั่วคราว ก็ยังไม่คัดออกถ้าอันดับแรงส่งยังยืนอยู่</p>
+    <p class="body rv"><span class="kw">ครบรอบ</span> &mdash; สแกนใหม่ ตัวที่อันดับร่วง (หมดแรง) คัดออก เอาตัวที่แรงกว่าเข้าแทน แล้วเริ่มถือรอบใหม่ วนแบบนี้ไปเรื่อย ๆ <em>(ตัวเลขและกรอบเวลาเป็นเพียงตัวอย่างเพื่ออธิบายหลักการ)</em></p>
+
+    <div class="system rv">
+      <div class="t">ข้อควรระวัง</div>
+      <p class="body" style="margin-bottom:0">หุ้น Momentum เหวี่ยงแรงทั้งขาขึ้นและขาลง ในช่วงที่ตลาดกลับทิศเร็วและรุนแรง (บางครั้งเรียก <span class="kw">Momentum Crash</span>) พอร์ตอาจย่อแรงได้ อีกจุดอ่อนคือ <span class="kw">จังหวะเวลา</span> &mdash; วัน Rebalance ถูกกำหนดล่วงหน้า ถ้าบังเอิญตรงกับช่วงวิกฤตพอดี อาจต้องคัดหุ้นในวันที่ทุกอย่างดูแย่สุด กลยุทธ์จึงต้องมาคู่กับการกระจายความเสี่ยงและการยอมรับความผันผวนได้</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 4 — JPTrust Insight ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">JPTrust Insight</span>
+    <div class="eyebrow rv">How We Do It</div>
+    <h2 class="head rv">JPTrust ทำ Momentum Investing<br>อย่างไร</h2>
+    <p class="lead rv">เราเปลี่ยนหลักการนี้ให้เป็นระบบที่ทดสอบได้จริง</p>
+
+    <p class="body rv">JPTrust จัดอันดับหุ้นจาก <span class="kw">ราคา (Price)</span> + <span class="kw">ปริมาณซื้อขาย (Volume)</span> + <span class="kw">ข่าว (News)</span> ประกอบกัน และพัฒนากลยุทธ์โมเมนตัมหลายรูปแบบ &mdash; ทั้งแบบปรับพอร์ตรายสัปดาห์ แบบ 6 เดือน และแบบหมุนสลับล็อตทุกเดือน (Rolling 6M) &mdash; พร้อม <span class="kw">Backtest ย้อนหลังกว่า 30 ปี</span> ครอบวิกฤตดอทคอม ปี 2008 และโควิด โดยมี trade log เต็มให้ตรวจสอบ</p>
+
+    <p class="body rv" style="margin-bottom:0">ลองดูผลทดสอบจริงได้ที่ <a href="https://app.jptrustlearning.com/sp500-rolling-lb6-hold6_lab_v7_hist1996.html" target="_blank" rel="noopener" style="color:var(--gold-bright);text-decoration:underline">Rolling 6M Momentum Lab · 1996&ndash;2026</a> หรือสแกนหุ้นนำตลาดวันนี้ที่ <a href="https://app.jptrustlearning.com/Free_scannerSP500%20(6).html" target="_blank" rel="noopener" style="color:var(--gold-bright);text-decoration:underline">S&amp;P 500 Scanner เวอร์ชันฟรี</a></p>
+  </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section class="closing">
+  <div class="narrow">
+    <div class="eyebrow rv" style="color:var(--gold);margin-bottom:24px">สรุปให้จำ</div>
+    <p class="q rv">Momentum Investing คือ<br>การลงทุน <em>ตามแรงส่ง อย่างมีระบบ</em></p>
+    <p class="lens-final rv">คัดตัวที่กำลังนำ &middot; ลงเงินเท่ากัน &middot; ถือให้ครบรอบ &middot; คัดตัวหมดแรงออก<br>ชนะด้วย <b>วินัย</b> ไม่ใช่การเดา</p>
+
+    <a class="cta rv" href="https://jptrustlearning.com" target="_blank" rel="noopener">
+      <span class="sub">Subscribe at</span>
+      <span class="url">jptrustlearning.com</span>
+      <span class="tip">เริ่มต้นเส้นทางการลงทุนอย่างมีระบบไปกับเรา</span>
+    </a>
+
+    <p class="disclaimer rv">การลงทุนมีความเสี่ยง &middot; เนื้อหาเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน &middot; ผลในอดีตไม่ได้การันตีผลในอนาคต<br>อ้างอิงแนวคิดจากงานวิจัย Jegadeesh &amp; Titman (1993) และ AQR &middot; เรียบเรียงโดย JP Trust Learning</p>
+  </div>
+</section>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach((el,i)=>{
+  const sib=[...el.parentElement.children].filter(c=>c.classList.contains('rv'));
+  el.style.transitionDelay=(Math.min(sib.indexOf(el),5)*60)+'ms';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
