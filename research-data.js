@@ -117,6 +117,12 @@ const RESEARCH = [
   },
   {
     cat: "momentum", type: "article", status: "active",
+    title: "หุ้นแบบไหนเรียกว่า Momentum? — เกณฑ์คัดหุ้นแรง",
+    desc: "เช็กลิสต์คุณสมบัติหุ้น Momentum 4 ข้อ — แข็งแกร่งกว่าตลาด · ขาขึ้นชัด · Volume หนุน · แรงส่งต่อเนื่อง พร้อมแยกให้เห็นว่าแบบไหน 'ไม่ใช่' Momentum (เด้งวันเดียว · หุ้นร่วง · หุ้นกระแสที่ราคาไม่ยืนยัน)",
+    assets: ["S&P 500"], href: "https://public.jptrustlearning.com/momentum-stock-criteria.html"
+  },
+  {
+    cat: "momentum", type: "article", status: "active",
     title: "Momentum Investing คืออะไร? — กลยุทธ์ลงทุนตามแรงส่ง",
     desc: "กลยุทธ์เลือกซื้อหุ้นที่กำลังแรงแล้วถือตามระบบ ปรับพอร์ตเป็นรอบ ไม่เดา ไม่เทรดตามข่าว — อธิบายกระบวนการ 4 ขั้น (คัด · ลงเท่ากัน · ถือ · Rebalance) เหตุผลเชิงคณิตศาสตร์ที่ทำให้ได้ผล และงานวิจัยรองรับ (Jegadeesh & Titman 1993, AQR)",
     assets: ["S&P 500"], href: "https://public.jptrustlearning.com/momentum-investing.html"
