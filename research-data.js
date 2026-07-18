@@ -128,6 +128,12 @@ const RESEARCH = [
     assets: ["S&P 500"], href: "https://public.jptrustlearning.com/momentum-investing.html"
   },
   {
+    cat: "momentum", type: "article", status: "active",
+    title: "Momentum ต่างจากหุ้นเติบโต (Growth) อย่างไร?",
+    desc: "Momentum คัดหุ้นจากพฤติกรรมราคาที่กำลังนำตลาด ส่วนหุ้นเติบโต (Growth) คัดจากพื้นฐานธุรกิจที่โตเร็ว — อธิบายจุดต่าง จุดทับซ้อน พร้อมตัวอย่างหุ้นที่เป็นอย่างหนึ่งแต่ไม่เป็นอีกอย่าง",
+    assets: ["S&P 500"], href: "https://public.jptrustlearning.com/momentum-vs-growth.html"
+  },
+  {
     cat: "momentum", type: "interactive", status: "active",
     title: "Rolling 6M Momentum Lab · 1996–2026",
     desc: "Backtest กลยุทธ์ momentum หมุนสลับล็อตทุกเดือน ทดสอบ live ตั้งแต่กลางปี 1996 ครอบฟองสบู่ดอทคอม วิกฤตปี 2008 และโควิด พร้อม trade log เต็ม",

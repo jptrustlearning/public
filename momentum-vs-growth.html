@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Momentum ต่างจากหุ้นเติบโต (Growth) อย่างไร? | JP Trust Learning</title>
+<meta name="description" content="Momentum คัดหุ้นจาก 'พฤติกรรมราคา' ที่กำลังนำตลาด ส่วนหุ้นเติบโต (Growth) คัดจาก 'พื้นฐานธุรกิจ' ที่โตเร็ว — อธิบายจุดต่าง จุดทับซ้อน พร้อมตัวอย่าง ย่อยให้มือใหม่เข้าใจง่าย">
+<link rel="canonical" href="https://public.jptrustlearning.com/momentum-vs-growth.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="JP Trust Learning">
+<meta property="og:title" content="Momentum ต่างจากหุ้นเติบโต (Growth) อย่างไร?">
+<meta property="og:description" content="Momentum ดูที่ราคา · Growth ดูที่ธุรกิจ — คนละเกณฑ์คัด แม้มักทับซ้อนกัน พร้อมตัวอย่างที่เป็นอย่างหนึ่งแต่ไม่เป็นอีกอย่าง">
+<meta property="og:image" content="https://public.jptrustlearning.com/og-image.png">
+<meta property="og:url" content="https://public.jptrustlearning.com/momentum-vs-growth.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Cinzel:wght@500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maroon-deep:#1a0a0e;
+  --maroon:#2d1018;
+  --maroon-soft:#3a1620;
+  --cream:#FAF6ED;
+  --cream-2:#f3ecdc;
+  --gold:#D4AF37;
+  --gold-bright:#e7c659;
+  --gold-deep:#a8842a;
+  --price:#C75B49;          /* ราคา · อารมณ์  */
+  --price-soft:#e08a78;
+  --ink:#241016;
+  --ink-soft:#5a4640;
+  --on-dark:#f1e6d3;
+  --on-dark-soft:#c9b69b;
+  --line-dark:rgba(212,175,55,.22);
+  --line-light:rgba(45,16,24,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Anuphan',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.eyebrow{
+  font-family:'Cinzel',serif;
+  text-transform:uppercase;
+  letter-spacing:.34em;
+  font-size:.72rem;
+  font-weight:600;
+}
+.num{font-family:'DM Serif Display',serif;font-weight:400;line-height:.92;letter-spacing:-.01em}
+.serif{font-family:'DM Serif Display',serif}
+section{padding:clamp(64px,9vw,128px) clamp(22px,6vw,80px)}
+.wrap{max-width:980px;margin:0 auto}
+.narrow{max-width:760px;margin:0 auto}
+
+/* ---------- dual marker (signature) ---------- */
+.tag{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-family:'Cinzel',serif;font-size:.6rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  padding:.32em .7em;border-radius:999px;white-space:nowrap;
+  vertical-align:middle;
+}
+.tag::before{content:"";width:.5em;height:.5em;border-radius:50%}
+.tag.price{color:var(--price);background:rgba(199,91,73,.1);border:1px solid rgba(199,91,73,.35)}
+.tag.price::before{background:var(--price)}
+.tag.value{color:var(--gold-deep);background:rgba(212,175,55,.12);border:1px solid rgba(168,132,42,.4)}
+.tag.value::before{background:var(--gold)}
+.dark .tag.price{color:var(--price-soft);background:rgba(199,91,73,.16);border-color:rgba(224,138,120,.4)}
+.dark .tag.value{color:var(--gold-bright);background:rgba(212,175,55,.14);border-color:var(--line-dark)}
+
+/* ---------- brand bar ---------- */
+.brandbar{display:flex;align-items:center;gap:14px;margin-bottom:clamp(34px,6vw,60px)}
+.owl{width:48px;height:48px;flex:0 0 auto;object-fit:contain;border-radius:12px;filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}
+.brandbar .wordmark{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.16em;
+  font-size:1.02rem;color:var(--gold);line-height:1.1}
+.brandbar .wordmark span{display:block;font-size:.58rem;letter-spacing:.42em;color:var(--on-dark-soft);font-weight:500}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:
+    radial-gradient(120% 90% at 88% 4%, rgba(212,175,55,.16), transparent 46%),
+    radial-gradient(90% 70% at 0% 100%, rgba(199,91,73,.14), transparent 50%),
+    linear-gradient(160deg,var(--maroon) 0%, var(--maroon-deep) 100%);
+  color:var(--on-dark);position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line-dark);
+}
+.hero .eyebrow{color:var(--gold);margin-bottom:26px}
+.hero-paradox{
+  display:flex;align-items:stretch;gap:0;margin:6px 0 34px;
+  border:1px solid var(--line-dark);border-radius:16px;overflow:hidden;
+  background:rgba(0,0,0,.18);
+}
+.hero-paradox .cell{flex:1;padding:clamp(20px,4vw,34px) clamp(18px,3.5vw,30px)}
+.hero-paradox .cell+.cell{border-left:1px solid var(--line-dark)}
+.hero-paradox .lbl{font-family:'Anuphan';font-size:.82rem;color:var(--on-dark-soft);
+  display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.hero-paradox .big{font-size:clamp(2.9rem,11vw,4.6rem)}
+.hero-paradox .cell.value .big{color:var(--gold-bright)}
+.hero-paradox .cell.price .big{color:var(--price-soft)}
+.hero-paradox .sub{font-size:.82rem;color:var(--on-dark-soft);margin-top:8px}
+.hero h1{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(2rem,6vw,3.35rem);line-height:1.12;
+  letter-spacing:-.01em;margin-bottom:22px;color:#fff;
+}
+.hero h1 em{font-style:italic;color:var(--gold-bright)}
+.hero .lens{
+  font-size:clamp(1.05rem,2.6vw,1.4rem);color:var(--on-dark);
+  border-left:2px solid var(--gold);padding-left:18px;margin-bottom:30px;
+  max-width:680px;
+}
+.hero .lens b{color:var(--gold-bright);font-weight:600}
+.hero .meta{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--on-dark-soft);line-height:2}
+
+/* ---------- section chrome ---------- */
+.dark{background:linear-gradient(170deg,var(--maroon) 0%,var(--maroon-deep) 100%);color:var(--on-dark)}
+.dark .eyebrow{color:var(--gold)}
+.light .eyebrow{color:var(--gold-deep)}
+.act-no{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--gold-deep);
+  letter-spacing:.05em;margin-bottom:6px;display:block}
+.dark .act-no{color:var(--gold)}
+h2.head{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.7rem,4.8vw,2.7rem);line-height:1.15;
+  margin:14px 0 26px;letter-spacing:-.01em;
+}
+.light h2.head{color:var(--maroon)}
+.dark h2.head{color:#fff}
+.lead{font-size:clamp(1.05rem,2.2vw,1.2rem);margin-bottom:14px}
+.light .lead{color:var(--ink)}
+.dark .lead{color:var(--on-dark)}
+p.body{margin-bottom:16px;font-size:1.02rem}
+.light p.body{color:var(--ink-soft)}
+.dark p.body{color:var(--on-dark-soft)}
+.kw{color:var(--maroon);font-weight:600}
+.dark .kw{color:var(--gold-bright)}
+
+/* section figure */
+.figure{margin:6px 0 30px;border-radius:18px;overflow:hidden;border:1px solid var(--line-dark);box-shadow:0 26px 64px -34px rgba(0,0,0,.75);position:relative}
+.figure img{display:block;width:100%;height:auto}
+.figure figcaption{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-soft);padding:11px 16px;background:rgba(0,0,0,.34);border-top:1px solid var(--line-dark);display:flex;align-items:center;gap:8px}
+.figure figcaption::before{content:"";width:.5em;height:.5em;border-radius:50%;background:var(--gold);flex:0 0 auto}
+.light .figure figcaption{color:var(--ink-soft);background:rgba(45,16,24,.05);border-top-color:var(--line-light)}
+/* pull line */
+.pull{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3.4vw,1.9rem);
+  line-height:1.3;margin:30px 0;padding:0 0 0 22px;border-left:3px solid var(--gold);
+}
+.light .pull{color:var(--maroon)}
+.dark .pull{color:#fff}
+.pull em{font-style:italic;color:var(--gold-deep)}
+.dark .pull em{color:var(--gold-bright)}
+
+/* analogy card */
+.analogy{
+  background:var(--cream-2);border:1px solid var(--line-light);border-radius:18px;
+  padding:clamp(24px,4vw,38px);margin:28px 0;position:relative;
+}
+.analogy::before{content:"\201C";font-family:'DM Serif Display',serif;
+  position:absolute;top:-.1em;left:.28em;font-size:4.5rem;color:var(--gold);opacity:.5;line-height:1}
+.analogy p{font-size:1.08rem;color:var(--ink);position:relative}
+.analogy .pv{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
+/* stat grid */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:30px 0 8px}
+.stat{
+  border:1px solid var(--line-dark);border-radius:14px;padding:22px 20px;
+  background:rgba(0,0,0,.16);position:relative;overflow:hidden;
+}
+.light .stat{background:#fff;border-color:var(--line-light);box-shadow:0 8px 24px -18px rgba(45,16,24,.4)}
+.stat .stat-num{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,5vw,2.5rem);
+  line-height:1;color:var(--gold)}
+.light .stat .stat-num{color:var(--gold-deep)}
+.stat .stat-lbl{font-size:.9rem;margin-top:10px}
+.dark .stat .stat-lbl{color:var(--on-dark-soft)}
+.light .stat .stat-lbl{color:var(--ink-soft)}
+.stat .src{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-deep);margin-top:12px;display:block;opacity:.8}
+.dark .stat .src{color:var(--on-dark-soft)}
+
+/* two-trap split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
+.trap{border:1px solid rgba(199,91,73,.34);border-radius:14px;padding:22px;background:rgba(199,91,73,.07)}
+.dark .trap{background:rgba(199,91,73,.12)}
+.trap .t{font-weight:600;color:var(--price);margin-bottom:6px;font-size:1.05rem}
+.dark .trap .t{color:var(--price-soft)}
+.trap p{font-size:.96rem}
+.light .trap p{color:var(--ink-soft)}
+.dark .trap p{color:var(--on-dark-soft)}
+.system{
+  border:1px solid var(--line-dark);border-left:3px solid var(--gold);
+  border-radius:14px;padding:24px;margin-top:20px;background:rgba(212,175,55,.06)
+}
+.dark .system{background:rgba(212,175,55,.08)}
+.system .t{font-family:'Cinzel',serif;letter-spacing:.16em;text-transform:uppercase;
+  font-size:.7rem;color:var(--gold-deep);margin-bottom:10px}
+.dark .system .t{color:var(--gold-bright)}
+
+/* paradox panel (act 2) */
+.paradox2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.pcard{border-radius:16px;padding:24px}
+.pcard.val{background:rgba(212,175,55,.1);border:1px solid rgba(168,132,42,.4)}
+.pcard.mood{background:rgba(199,91,73,.09);border:1px solid rgba(199,91,73,.35)}
+.pcard .pc-num{font-family:'DM Serif Display',serif;font-size:2rem;line-height:1;margin:8px 0}
+.pcard.val .pc-num{color:var(--gold-deep)}
+.pcard.mood .pc-num{color:var(--price)}
+.pcard p{font-size:.95rem;color:var(--ink-soft)}
+
+/* ---------- ad showcase ---------- */
+.showcase{padding:0}
+.showcase-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px);
+  align-items:center;max-width:980px;margin:0 auto;
+}
+.showcase .copy .eyebrow{margin-bottom:14px}
+.showcase .copy h3{font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.5rem,3.6vw,2.1rem);line-height:1.18;margin-bottom:16px}
+.dark.showcase-sec .copy h3{color:#fff}
+.light.showcase-sec .copy h3{color:var(--maroon)}
+.showcase .copy p{font-size:1rem;margin-bottom:18px}
+.dark.showcase-sec .copy p{color:var(--on-dark-soft)}
+.light.showcase-sec .copy p{color:var(--ink-soft)}
+.showcase .copy ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.showcase .copy li{display:flex;gap:10px;align-items:flex-start;font-size:.96rem}
+.showcase .copy li::before{content:"";flex:0 0 auto;width:7px;height:7px;border-radius:50%;
+  background:var(--gold);margin-top:.6em}
+.dark.showcase-sec .copy li{color:var(--on-dark)}
+.light.showcase-sec .copy li{color:var(--ink)}
+.shot{border-radius:20px;overflow:hidden;border:1px solid var(--line-dark);
+  box-shadow:0 30px 70px -34px rgba(0,0,0,.7);position:relative}
+.light.showcase-sec .shot{border-color:var(--line-light);box-shadow:0 30px 70px -38px rgba(45,16,24,.5)}
+.shot img{display:block;width:100%;height:auto}
+
+/* ---------- closing ---------- */
+.closing{background:
+  radial-gradient(100% 80% at 50% 0%, rgba(212,175,55,.14), transparent 55%),
+  linear-gradient(180deg,var(--maroon-deep),#120608);
+  color:var(--on-dark);text-align:center}
+.closing .q{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,4.4vw,2.5rem);
+  line-height:1.28;color:#fff;max-width:760px;margin:0 auto 26px}
+.closing .q em{font-style:italic;color:var(--gold-bright)}
+.closing .lens-final{font-size:clamp(1.05rem,2.6vw,1.3rem);color:var(--on-dark);
+  max-width:640px;margin:0 auto 44px}
+.closing .lens-final b{color:var(--gold-bright)}
+.cta{display:inline-flex;flex-direction:column;align-items:center;gap:6px;
+  border:1px solid var(--line-dark);border-radius:16px;
+  padding:24px 40px;background:rgba(0,0,0,.25);text-decoration:none}
+.cta .sub{font-family:'Cinzel',serif;letter-spacing:.3em;font-size:.6rem;
+  text-transform:uppercase;color:var(--on-dark-soft)}
+.cta .url{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.04em;
+  font-size:clamp(1.3rem,3.4vw,1.7rem);color:var(--gold)}
+.cta .tip{font-size:.84rem;color:var(--on-dark-soft);margin-top:2px}
+.cta:hover .url{color:var(--gold-bright)}
+.disclaimer{margin-top:46px;font-size:.74rem;color:var(--on-dark-soft);
+  letter-spacing:.02em;max-width:680px;margin-left:auto;margin-right:auto;
+  border-top:1px solid var(--line-dark);padding-top:22px;line-height:1.9}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:680px){
+  .hero-paradox{flex-direction:row}
+  .stats{grid-template-columns:1fr 1fr}
+  .split,.paradox2{grid-template-columns:1fr}
+  .showcase-inner{grid-template-columns:1fr}
+  .showcase .copy{order:2}
+  .showcase .shot{order:1;max-width:420px;margin:0 auto}
+}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO (Keyword + คำตอบสั้น) ===================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <img class="owl" src="https://raw.githubusercontent.com/jptrustlearning/pages/main/jpt-owl-cropped.png" alt="JP Trust Learning">
+      <div class="wordmark">JP TRUST<span>LEARNING</span></div>
+    </div>
+
+    <div class="eyebrow rv">Momentum vs Growth &middot; เปรียบเทียบ</div>
+    <h1 class="rv">Momentum ต่างจาก<br>หุ้นเติบโต <em>อย่างไร?</em></h1>
+
+    <p class="lens rv">ต่างกันที่ <b>เกณฑ์คัด</b> คนละมุม &mdash; Momentum ดูที่ <b>พฤติกรรมราคา</b> ที่กำลังนำตลาด (แรงส่ง ขาขึ้น Volume) ไม่สนว่าบริษัททำอะไรหรือแพงแค่ไหน ส่วนหุ้นเติบโต (Growth) ดูที่ <b>พื้นฐานธุรกิจ</b> ที่รายได้และกำไรกำลังโตเร็ว แม้ราคายังไม่ขึ้นก็ยังเป็น Growth ได้ ทั้งสองมักทับซ้อนกัน แต่ไม่ใช่สิ่งเดียวกัน</p>
+
+    <div class="meta rv">ความรู้พื้นฐานสำหรับมือใหม่ &middot; เรียบเรียงโดย JP Trust Learning</div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 1 — ต่างกันตรงไหน ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 1 — จุดต่าง</span>
+    <div class="eyebrow rv">The Difference</div>
+    <h2 class="head rv">ต่างกันที่<br>&lsquo;เกณฑ์คัด&rsquo;</h2>
+    <p class="lead rv">ทั้งคู่เป็นวิธีเลือกหุ้น แต่ตอบคนละคำถาม และดูคนละอย่าง</p>
+
+    <div class="stats">
+      <div class="stat rv">
+        <div class="stat-num">Momentum</div>
+        <div class="stat-lbl"><b>ดูที่ราคา</b> &mdash; แรงส่ง ขาขึ้น และ Volume ที่หนุน<br><b>ถามว่า:</b> &lsquo;ตอนนี้ราคากำลังชนะอยู่ไหม?&rsquo;<br><b>ออกเมื่อ:</b> แรงส่งหมด อันดับร่วง</div>
+        <span class="src">อิงพฤติกรรมราคา</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">Growth</div>
+        <div class="stat-lbl"><b>ดูที่ธุรกิจ</b> &mdash; รายได้และกำไรที่โตเร็ว โอกาสในอนาคต<br><b>ถามว่า:</b> &lsquo;ธุรกิจนี้โตพอจะจ่ายแพงไหม?&rsquo;<br><b>ออกเมื่อ:</b> มุมมองพื้นฐานเปลี่ยน</div>
+        <span class="src">อิงพื้นฐานธุรกิจ</span>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:26px">พูดสั้น ๆ Momentum <span class="kw">ไม่สนว่าบริษัททำอะไรหรือแพงแค่ไหน</span> ขอแค่ราคานำตลาดจริง ส่วน Growth <span class="kw">สนพื้นฐานเป็นหลัก</span> และยอมจ่ายแพงเพื่อการเติบโต แม้ราคายังไม่วิ่ง</p>
+
+    <p class="pull rv">Growth ดูที่ <em>ธุรกิจ</em> &mdash; Momentum ดูที่ <em>ราคา</em></p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 2 — จุดทับซ้อน ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 2 — จุดทับซ้อน</span>
+    <div class="eyebrow rv">The Overlap</div>
+    <h2 class="head rv">ทำไมถึงมักสับสน</h2>
+    <p class="lead rv">เพราะหุ้นเติบโตหลายตัวก็มี Momentum &mdash; พื้นฐานที่ดีดันราคาขึ้น ทำให้สองอย่างนี้ทับซ้อนกันบ่อย แต่ก็มีหลายกรณีที่เป็นอย่างหนึ่งแต่ไม่เป็นอีกอย่าง</p>
+
+    <div class="system rv">
+      <div class="t">Momentum ที่ไม่ใช่ Growth</div>
+      <p class="body" style="margin-bottom:0">หุ้นวัฏจักรอย่างกลุ่มพลังงาน ธนาคาร หรืออุตสาหกรรม ที่ราคากำลังแรงตามรอบเศรษฐกิจ &mdash; <span class="kw">เข้าเกณฑ์ Momentum</span> ทั้งที่ธุรกิจอาจโตช้าและไม่ใช่หุ้นเติบโตเลย</p>
+    </div>
+
+    <div class="system rv">
+      <div class="t">Growth ที่ไม่มี Momentum</div>
+      <p class="body" style="margin-bottom:0">บริษัทที่รายได้ยังโตเร็ว แต่ราคาหุ้นกำลังร่วงหรือพักตัวยาว &mdash; <span class="kw">ยังเป็นหุ้นเติบโต</span> ตามพื้นฐาน แต่ <span class="kw">ไม่เข้าเกณฑ์ Momentum</span> เพราะราคายังไม่ยืนยันแรงส่ง</p>
+    </div>
+
+    <p class="pull rv">ทับซ้อนกันบ่อย &mdash; แต่ <em>ไม่ใช่</em> สิ่งเดียวกัน</p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 3 — ตัวอย่าง ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 3 — ตัวอย่าง</span>
+    <div class="eyebrow rv">Example</div>
+    <h2 class="head rv">เทียบให้เห็นภาพ</h2>
+    <p class="lead rv">สมมติหุ้น 3 ตัว ในช่วงเวลาเดียวกัน</p>
+
+    <p class="body rv"><span class="kw">บริษัทเทคโตเร็ว A</span> &mdash; รายได้โตปีละหลายสิบเปอร์เซ็นต์ และราคากำลังทำจุดสูงสุดใหม่พร้อม Volume หนุน &rarr; เป็นทั้ง <b>Growth และ Momentum</b> (กรณีทับซ้อน ที่พบบ่อยในตลาดขาขึ้น)</p>
+    <p class="body rv"><span class="kw">บริษัทพลังงาน B</span> &mdash; ธุรกิจโตช้า ไม่ใช่หุ้นเติบโต แต่ราคาพุ่งแรงตามวัฏจักรน้ำมัน &rarr; เป็น <b>Momentum แต่ไม่ใช่ Growth</b></p>
+    <p class="body rv"><span class="kw">บริษัทเทคโตเร็ว C</span> &mdash; พื้นฐานยังโตดี แต่ราคาร่วงลงมา 40% และยังไม่ฟื้น &rarr; เป็น <b>Growth แต่ไม่มี Momentum</b> <em>(ตัวอย่างทั้งหมดเป็นกรณีสมมติเพื่ออธิบายหลักการ)</em></p>
+
+    <div class="system rv">
+      <div class="t">สรุปให้เห็นภาพ</div>
+      <p class="body" style="margin-bottom:0">หุ้นตัวเดียวกันอาจเข้าข่ายทั้งสองอย่าง อย่างใดอย่างหนึ่ง หรือไม่เข้าเลย ก็ได้ &mdash; ขึ้นอยู่กับว่าเรากำลังวัดจาก <span class="kw">พื้นฐานธุรกิจ</span> หรือ <span class="kw">พฤติกรรมราคา</span> การรู้ว่าตัวเองกำลังใช้เกณฑ์ไหน ช่วยไม่ให้สับสนตอนตัดสินใจ</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 4 — JPTrust Insight ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">JPTrust Insight</span>
+    <div class="eyebrow rv">How We Screen</div>
+    <h2 class="head rv">JPTrust คัดจากอะไร</h2>
+    <p class="lead rv">แนวทางของเราอิงพฤติกรรมราคา ไม่ใช่การประเมินมูลค่าพื้นฐาน</p>
+
+    <p class="body rv">JPTrust จัดอันดับหุ้นจาก <span class="kw">ราคา (Price)</span> + <span class="kw">ปริมาณซื้อขาย (Volume)</span> + <span class="kw">ข่าว (News)</span> ซึ่งเป็นการวัด Momentum เป็นหลัก หุ้นที่ติดอันดับ<span class="kw">อาจเป็นหุ้นเติบโตหรือไม่ก็ได้</span> ขอเพียงมีแรงส่งจริง วิธีนี้ทำให้จับหุ้นนำตลาดได้ครอบคลุมทุกกลุ่ม ไม่จำกัดเฉพาะหุ้นเติบโต</p>
+
+    <p class="body rv">อ่านต่อเป็นชุดได้ที่ <a href="https://public.jptrustlearning.com/what-is-momentum.html" style="color:var(--gold-bright);text-decoration:underline">หุ้น Momentum คืออะไร?</a> &middot; <a href="https://public.jptrustlearning.com/momentum-stock-criteria.html" style="color:var(--gold-bright);text-decoration:underline">หุ้นแบบไหนเรียกว่า Momentum?</a> &middot; <a href="https://public.jptrustlearning.com/momentum-investing.html" style="color:var(--gold-bright);text-decoration:underline">Momentum Investing คืออะไร?</a></p>
+
+    <p class="body rv" style="margin-bottom:0">อยากเห็นว่าตอนนี้หุ้นตัวไหนอยู่ในกลุ่มนำตลาด ลองดูได้ที่ <a href="https://app.jptrustlearning.com/Free_scannerSP500%20(6).html" target="_blank" rel="noopener" style="color:var(--gold-bright);text-decoration:underline">S&amp;P 500 Scanner เวอร์ชันเปิดให้ใช้ฟรี</a></p>
+  </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section class="closing">
+  <div class="narrow">
+    <div class="eyebrow rv" style="color:var(--gold);margin-bottom:24px">สรุปให้จำ</div>
+    <p class="q rv">Growth ดูที่ <em>ธุรกิจ</em><br>Momentum ดูที่ <em>ราคา</em></p>
+    <p class="lens-final rv">คนละเกณฑ์คัด แม้มักทับซ้อนกัน<br>รู้ว่าตัวเองใช้เกณฑ์ไหน คือจุดเริ่มของการลงทุนอย่างมีระบบ</p>
+
+    <a class="cta rv" href="https://jptrustlearning.com" target="_blank" rel="noopener">
+      <span class="sub">Subscribe at</span>
+      <span class="url">jptrustlearning.com</span>
+      <span class="tip">เริ่มต้นเส้นทางการลงทุนอย่างมีระบบไปกับเรา</span>
+    </a>
+
+    <p class="disclaimer rv">การลงทุนมีความเสี่ยง &middot; เนื้อหาเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน &middot; ผลในอดีตไม่ได้การันตีผลในอนาคต<br>เรียบเรียงโดย JP Trust Learning</p>
+  </div>
+</section>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach((el,i)=>{
+  const sib=[...el.parentElement.children].filter(c=>c.classList.contains('rv'));
+  el.style.transitionDelay=(Math.min(sib.indexOf(el),5)*60)+'ms';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
