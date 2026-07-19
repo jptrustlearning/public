@@ -786,8 +786,6 @@ td.bad{color:var(--loss);font-weight:600}
             <tr><td>ผลตอบแทนต่อปี<br><span style="font-size:.78em;opacity:.75">ไม่ตั้งโควตา &rarr; กระจาย 10 อุตฯ</span></td><td class="bad">35.1% &rarr; 30.4%</td><td class="bad">48.2% &rarr; 39.7%</td><td class="bad">39.9% &rarr; 34.4%</td></tr>
             <tr><td>ช่องว่างผลตอบแทน<br><span style="font-size:.78em;opacity:.75">คิดเป็นต่อปีหลังทบต้น</span></td><td class="bad">3.6% / ปี</td><td class="bad">6.1% / ปี</td><td class="bad">4.1% / ปี</td></tr>
             <tr><td>เงินปลายทางของฝั่งไม่กระจาย<br><span style="font-size:.78em;opacity:.75">มากกว่ากี่เท่า</span></td><td class="bad">2.9 เท่า</td><td class="bad">1.5 เท่า</td><td class="bad">1.2 เท่า</td></tr>
-            <tr><td>Max Drawdown</td><td>ตื้นขึ้น 2.1 จุด</td><td class="bad">ลึกลง 1.9 จุด</td><td class="best">ตื้นขึ้น 5.7 จุด</td></tr>
-            <tr><td>Calmar</td><td class="bad">&minus;10%</td><td class="bad">&minus;22%</td><td class="best">+3%</td></tr>
             <tr class="hi"><td>Average Drawdown</td><td class="best">ตื้นขึ้น 2.9 จุด</td><td class="best">ตื้นขึ้น 1.5 จุด</td><td class="best">ตื้นขึ้น 2.3 จุด</td></tr>
             <tr class="hi"><td>Ulcer Index</td><td class="best">&minus;25%</td><td class="best">&minus;17%</td><td class="best">&minus;24%</td></tr>
             <tr class="hi"><td>Sortino</td><td class="best">+8%</td><td class="best">+8%</td><td class="best">+20%</td></tr>
@@ -795,7 +793,7 @@ td.bad{color:var(--loss);font-weight:600}
           </tbody>
         </table>
       </div>
-      <div class="tblnote"><strong>วิธีอ่าน</strong> &mdash; แถวแรกแสดงค่าจริงของทั้งสองฝั่ง ส่วนแถวที่เหลือแสดง<strong>ส่วนต่าง</strong>เมื่อเปลี่ยนจาก &ldquo;ไม่ตั้งโควตา&rdquo; ไปเป็น &ldquo;กระจาย 10 อุตสาหกรรม&rdquo; ไม่ใช่ค่าสัมบูรณ์ เช่น Ulcer Index &minus;25% หมายถึงค่าลดลง 25% จากเดิม ไม่ใช่ค่าเท่ากับ &minus;25%</div>
+      <div class="tblnote"><strong>วิธีอ่าน</strong> &mdash; แถวแรกแสดงค่าจริงของทั้งสองฝั่ง ส่วนแถวที่เหลือแสดง<strong>ส่วนต่าง</strong>เมื่อเปลี่ยนจาก &ldquo;ไม่ตั้งโควตา&rdquo; ไปเป็น &ldquo;กระจาย 10 อุตสาหกรรม&rdquo; ไม่ใช่ค่าสัมบูรณ์ เช่น Ulcer Index &minus;25% หมายถึงค่าลดลง 25% จากเดิม ไม่ใช่ค่าเท่ากับ &minus;25% &middot; แถวที่ลงท้ายด้วย &ldquo;จุด&rdquo; คือผลต่างโดยตรง ส่วนแถวที่เป็น % คือค่าที่เปลี่ยนไปกี่เปอร์เซ็นต์จากเดิม<br><strong>Max Drawdown และ Calmar ไม่อยู่ในตารางนี้</strong> เพราะทั้งคู่วัดจากเหตุการณ์เพียงจุดเดียว ค่าจึงขึ้นกับว่าวิกฤตใดบังเอิญลึกที่สุดในหน้าต่างนั้น &mdash; แยกไปอธิบายในหัวข้อถัดไป</div>
     </div>
 
     <h3 class="sub rv">คำตอบขึ้นอยู่กับว่านิยาม &ldquo;ความเสี่ยง&rdquo; ว่าอะไร</h3>
@@ -805,7 +803,7 @@ td.bad{color:var(--loss);font-weight:600}
       <div class="vcard no">
         <div class="vh">ถ้าวัดด้วยจุดที่แย่ที่สุด</div>
         <div class="vt">ระยะยาวแล้วแทบไม่ช่วย</div>
-        <p>ตลอด 30 ปี Max Drawdown ดีขึ้นเพียง 2.1 จุดเปอร์เซ็นต์ (จาก &minus;52.4% เป็น &minus;50.3%) ซึ่งถือว่าไม่มีนัยสำคัญ ส่วนค่า Calmar ซึ่งวัดผลตอบแทนต่อหนึ่งหน่วยของความเสียหายสูงสุด กลับ<span class="kw">ลดลง 10%</span></p>
+        <p>ตลอด 30 ปี Max Drawdown ดีขึ้นเพียง 2.1 จุดเปอร์เซ็นต์ (จาก &minus;52.4% เป็น &minus;50.3%) ซึ่งถือว่าไม่มีนัยสำคัญ ส่วนค่า Calmar ซึ่งวัดผลตอบแทนต่อหนึ่งหน่วยของความเสียหายสูงสุด กลับ<span class="kw">ลดลง 10%</span> &mdash; แต่ตัวเลขนี้ปกปิดประโยชน์ก้อนใหญ่ไว้ ตามที่จะเห็นในหัวข้อถัดไป</p>
         <p>แต่ในหน้าต่างล่าสุด 2022&ndash;2026 ภาพกลับด้าน Max Drawdown ตื้นขึ้นถึง 5.7 จุด และ Calmar พลิกเป็นบวก</p>
       </div>
       <div class="vcard yes">
