@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>กระจายพอร์ตแบบไหนดีกว่ากัน — ผลทดสอบย้อนหลัง 30 ปี | JP Trust Learning</title>
+<meta name="description" content="ถือ 10 ตัวเท่ากัน แต่กระจายคนละแบบ ผลต่างกันแค่ไหน — ทดสอบ 7 รูปแบบการกระจายพอร์ตบนกลยุทธ์โมเมนตัมชุดเดียวกัน 3 ช่วงเวลา พร้อมข้อจำกัดของข้อมูลที่พบระหว่างทาง">
+<link rel="canonical" href="https://public.jptrustlearning.com/diversification-shape.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="JP Trust Learning">
+<meta property="og:title" content="กระจายพอร์ตแบบไหนดีกว่ากัน — ผลทดสอบย้อนหลัง 30 ปี">
+<meta property="og:description" content="ถือ 10 ตัวเท่ากัน แต่กระจายคนละแบบ ผลต่างกันแค่ไหน">
+<meta property="og:url" content="https://public.jptrustlearning.com/diversification-shape.html">
+<meta property="og:image" content="https://public.jptrustlearning.com/article-img/diversification-shape-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ทดสอบ 7 รูปทรงการกระจายพอร์ตบนกลยุทธ์โมเมนตัมชุดเดียวกัน">
+<meta property="og:locale" content="th_TH">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://public.jptrustlearning.com/article-img/diversification-shape-og.jpg">
+<meta name="twitter:title" content="ถือหุ้น 10 ตัวเท่ากัน แต่กระจายคนละแบบ ผลต่างกันแค่ไหน">
+<meta name="twitter:description" content="ทดสอบ 7 รูปทรงการกระจายพอร์ต บนข้อมูลจริง 3 ช่วงเวลา ยาวสุด 30 ปี">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Cinzel:wght@500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maroon-deep:#1a0a0e; --maroon:#2d1018; --maroon-soft:#3a1620;
+  --cream:#FAF6ED; --cream-2:#f3ecdc;
+  --gold:#D4AF37; --gold-bright:#e7c659; --gold-deep:#a8842a;
+  --win:#2E7D57; --win-soft:#6cbf94;
+  --loss:#C75B49; --loss-soft:#e08a78;
+  --ink:#241016; --ink-soft:#5a4640;
+  --on-dark:#f1e6d3; --on-dark-soft:#c9b69b;
+  --line-dark:rgba(212,175,55,.22); --line-light:rgba(45,16,24,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Anuphan',sans-serif;background:var(--cream);color:var(--ink);
+  line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.eyebrow{font-family:'Cinzel',serif;text-transform:uppercase;letter-spacing:.34em;
+  font-size:.72rem;font-weight:600;color:var(--gold-deep)}
+.dark .eyebrow{color:var(--gold)}
+.num{font-family:'DM Serif Display',serif;font-weight:400;line-height:.92}
+section{padding:clamp(56px,8vw,116px) clamp(20px,6vw,80px)}
+.wrap{max-width:1000px;margin:0 auto}
+.narrow{max-width:780px;margin:0 auto}
+section.light{background:var(--cream)}
+section.light:nth-of-type(even){background:var(--cream-2)}
+section.dark{background:linear-gradient(165deg,var(--maroon) 0%,var(--maroon-deep) 100%);
+  color:var(--on-dark);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+
+/* ---------- brand bar ---------- */
+.brandbar{display:flex;align-items:center;gap:14px;margin-bottom:clamp(30px,6vw,54px)}
+.owl{width:46px;height:46px;flex:0 0 auto;object-fit:contain;border-radius:12px;
+  filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}
+.brandbar .wordmark{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.16em;
+  font-size:.82rem;color:var(--gold);line-height:1.35}
+.brandbar .wordmark span{display:block;color:var(--on-dark-soft);font-weight:500;font-size:.7rem}
+
+/* ---------- hero ---------- */
+.hero{background:
+   radial-gradient(120% 90% at 88% 4%, rgba(212,175,55,.16), transparent 46%),
+   radial-gradient(90% 70% at 0% 100%, rgba(46,125,87,.14), transparent 50%),
+   linear-gradient(160deg,var(--maroon) 0%, var(--maroon-deep) 100%);
+  color:var(--on-dark);border-bottom:1px solid var(--line-dark)}
+.hero h1{font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.95rem,5.8vw,3.2rem);line-height:1.14;margin:18px 0 20px;color:#fff}
+.hero .lens{font-size:clamp(1rem,2.2vw,1.15rem);color:var(--on-dark);margin-bottom:22px}
+.hero .meta{font-size:.84rem;color:var(--on-dark-soft)}
+.hero-3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0 30px}
+.hero-3 .cell{border:1px solid var(--line-dark);border-radius:14px;padding:16px 12px;
+  background:rgba(0,0,0,.2);text-align:center}
+.hero-3 .cell .shape{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.hero-3 .cell .num{font-size:clamp(1.35rem,4.4vw,2.1rem);color:#fff}
+.hero-3 .cell .sub{font-size:.74rem;color:var(--on-dark-soft);margin-top:6px;line-height:1.5}
+@media(max-width:520px){.hero-3{grid-template-columns:1fr;gap:8px}
+  .hero-3 .cell{display:flex;align-items:center;gap:12px;text-align:left;padding:12px 14px}
+  .hero-3 .cell .shape{margin:0;flex:0 0 82px}
+  .hero-3 .cell .sub{margin:0;flex:1}}
+
+/* ---------- headings & text ---------- */
+h2.head{font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.55rem,4.4vw,2.5rem);line-height:1.18;margin:12px 0 22px}
+.light h2.head{color:var(--maroon)}
+.dark h2.head{color:#fff}
+h3.sub{font-size:1.05rem;font-weight:700;margin:30px 0 10px}
+.light h3.sub{color:var(--maroon)}
+.dark h3.sub{color:var(--gold-bright)}
+.lead{font-size:clamp(1.02rem,2.1vw,1.16rem);margin-bottom:16px}
+.light .lead{color:var(--ink)} .dark .lead{color:var(--on-dark)}
+p.body{margin-bottom:15px;font-size:1rem}
+.light p.body{color:var(--ink-soft)} .dark p.body{color:var(--on-dark-soft)}
+.kw{font-weight:600} .light .kw{color:var(--maroon)} .dark .kw{color:var(--gold-bright)}
+ul.body{margin:0 0 16px 1.1em;font-size:1rem}
+.light ul.body{color:var(--ink-soft)} .dark ul.body{color:var(--on-dark-soft)}
+ul.body li{margin-bottom:8px}
+
+/* ---------- steps ---------- */
+.steps{counter-reset:s;margin:8px 0 6px}
+.step{counter-increment:s;position:relative;padding-left:52px;margin-bottom:24px}
+.step::before{content:counter(s);position:absolute;left:0;top:-2px;
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  font-family:'Cinzel',serif;font-weight:600;font-size:.9rem;
+  border:1px solid var(--gold);color:var(--gold)}
+.step h4{font-size:1.02rem;font-weight:700;margin-bottom:6px;color:var(--gold-bright)}
+.step p{font-size:.97rem;color:var(--on-dark-soft)}
+.light .step::before{border-color:var(--gold-deep);color:var(--gold-deep)}
+.light .step h4{color:var(--maroon)} .light .step p{color:var(--ink-soft)}
+
+/* ---------- shape cards ---------- */
+.shapes{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:26px 0 8px}
+.shape-card{border:1px solid var(--line-light);border-radius:16px;padding:16px 16px 18px;background:#fff}
+.dark .shape-card{border-color:var(--line-dark);background:rgba(0,0,0,.22)}
+.shape-card .name{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold-deep);margin-bottom:8px}
+.dark .shape-card .name{color:var(--gold)}
+.dots{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
+.dots .g{display:flex;gap:2px;padding:3px 4px;border-radius:6px;background:rgba(212,175,55,.14)}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--gold-deep);display:block}
+.dark .dots i{background:var(--gold)}
+.shape-card .txt{font-size:.87rem;line-height:1.6;color:var(--ink-soft)}
+.dark .shape-card .txt{color:var(--on-dark-soft)}
+
+/* ---------- tables ---------- */
+.tablewrap{margin:22px 0 8px;border:1px solid var(--line-light);border-radius:14px;overflow:hidden}
+.dark .tablewrap{border-color:var(--line-dark)}
+.tablescroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.data{border-collapse:collapse;width:100%;min-width:640px;font-size:.88rem;background:#fff}
+.dark table.data{background:rgba(0,0,0,.24)}
+table.data th{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;
+  font-weight:600;color:var(--gold-deep);text-align:right;padding:11px 10px;white-space:nowrap;
+  border-bottom:1px solid var(--line-light);background:var(--cream-2)}
+.dark table.data th{color:var(--gold);border-bottom-color:var(--line-dark);background:rgba(0,0,0,.3)}
+table.data th:first-child,table.data td:first-child{text-align:left;position:sticky;left:0;
+  background:var(--cream-2);z-index:2;min-width:132px}
+.dark table.data th:first-child,.dark table.data td:first-child{background:#241016}
+table.data td{padding:10px;text-align:right;white-space:nowrap;color:var(--ink-soft);
+  border-bottom:1px solid rgba(45,16,24,.07)}
+.dark table.data td{color:var(--on-dark-soft);border-bottom-color:rgba(212,175,55,.1)}
+table.data tbody tr:last-child td{border-bottom:none}
+table.data tr.hi td{background:rgba(46,125,87,.09);color:var(--ink);font-weight:600}
+.dark table.data tr.hi td{background:rgba(46,125,87,.16);color:#fff}
+.dark table.data tr.hi td:first-child{background:#1c2a22}
+table.data tr.hi td:first-child{background:#e6f0ea}
+table.data tr.bench td{font-style:italic;opacity:.78}
+td.best{color:var(--win);font-weight:700}
+.dark td.best{color:var(--win-soft)}
+td.bad{color:var(--loss);font-weight:600}
+.dark td.bad{color:var(--loss-soft)}
+.tblnote{font-size:.78rem;padding:9px 12px;background:var(--cream-2);color:var(--ink-soft);
+  border-top:1px solid var(--line-light)}
+.dark .tblnote{background:rgba(0,0,0,.3);color:var(--on-dark-soft);border-top-color:var(--line-dark)}
+.scrollhint{display:none;font-size:.72rem;color:var(--ink-soft);margin:6px 2px 0;font-style:italic}
+.dark .scrollhint{color:var(--on-dark-soft)}
+@media(max-width:760px){.scrollhint{display:block}}
+
+/* ---------- callouts ---------- */
+.callout{border-radius:16px;padding:20px 22px;margin:26px 0}
+.callout .lbl{font-family:'Cinzel',serif;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:600;margin-bottom:8px;display:block}
+.callout p{font-size:.97rem;line-height:1.72;margin-bottom:10px}
+.callout p:last-child{margin-bottom:0}
+.callout.find{background:rgba(46,125,87,.09);border:1px solid rgba(46,125,87,.32)}
+.callout.find .lbl{color:var(--win)}
+.callout.find p{color:var(--ink-soft)}
+.dark .callout.find{background:rgba(46,125,87,.14);border-color:rgba(108,191,148,.34)}
+.dark .callout.find .lbl{color:var(--win-soft)} .dark .callout.find p{color:var(--on-dark)}
+.callout.warn{background:rgba(199,91,73,.08);border:1px solid rgba(199,91,73,.34)}
+.callout.warn .lbl{color:var(--loss)} .callout.warn p{color:var(--ink-soft)}
+.dark .callout.warn{background:rgba(199,91,73,.15);border-color:rgba(224,138,120,.4)}
+.dark .callout.warn .lbl{color:var(--loss-soft)} .dark .callout.warn p{color:var(--on-dark)}
+.callout.note{background:rgba(212,175,55,.09);border:1px dashed rgba(168,132,42,.45)}
+.callout.note .lbl{color:var(--gold-deep)} .callout.note p{color:var(--ink-soft)}
+.dark .callout.note{background:rgba(212,175,55,.08);border-color:var(--line-dark)}
+.dark .callout.note .lbl{color:var(--gold)} .dark .callout.note p{color:var(--on-dark-soft)}
+
+/* ---------- metric explainer ---------- */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:24px 0 10px}
+.metric{border:1px solid var(--line-light);border-radius:14px;padding:16px;background:#fff}
+.dark .metric{border-color:var(--line-dark);background:rgba(0,0,0,.22)}
+.metric .mname{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--gold-deep);margin-bottom:6px}
+.dark .metric .mname{color:var(--gold)}
+.metric .mth{font-weight:700;font-size:.98rem;margin-bottom:5px;color:var(--maroon)}
+.dark .metric .mth{color:#fff}
+.metric .mdesc{font-size:.87rem;line-height:1.62;color:var(--ink-soft)}
+.dark .metric .mdesc{color:var(--on-dark-soft)}
+
+/* ---------- pull quote ---------- */
+.pull{font-family:'DM Serif Display',serif;font-size:clamp(1.25rem,3.2vw,1.8rem);
+  line-height:1.4;margin:30px 0;padding-left:20px;border-left:3px solid var(--gold)}
+.light .pull{color:var(--maroon)} .dark .pull{color:#fff}
+
+/* ---------- closing ---------- */
+.closing{background:linear-gradient(180deg,var(--maroon-deep),#120609);color:var(--on-dark);text-align:center}
+.closing .q{font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3.4vw,2rem);
+  line-height:1.42;color:#fff;margin-bottom:22px}
+.cta{display:inline-flex;flex-direction:column;gap:3px;margin:26px auto 20px;padding:18px 32px;
+  border:1px solid var(--gold);border-radius:16px;text-decoration:none;transition:background .25s}
+.cta:hover{background:rgba(212,175,55,.1)}
+.cta .sub{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.cta .url{font-size:1.12rem;font-weight:600;color:#fff}
+.cta .tip{font-size:.8rem;color:var(--on-dark-soft)}
+.disclaimer{font-size:.78rem;color:var(--on-dark-soft);line-height:1.75;margin-top:12px}
+
+/* ---------- group directory ---------- */
+.groupwrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 0 8px;align-items:start}
+@media(max-width:760px){.groupwrap{grid-template-columns:1fr;gap:20px}}
+.gpanel{border:1px solid var(--line-light);border-radius:16px;padding:18px 18px 16px;background:#fff}
+.dark .gpanel{border-color:var(--line-dark);background:rgba(0,0,0,.22)}
+.gpanel .gh{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold-deep);margin-bottom:3px}
+.dark .gpanel .gh{color:var(--gold)}
+.gpanel .gt{font-weight:700;font-size:1.02rem;color:var(--maroon);margin-bottom:2px}
+.dark .gpanel .gt{color:#fff}
+.gpanel .gs{font-size:.8rem;color:var(--ink-soft);margin-bottom:12px}
+.dark .gpanel .gs{color:var(--on-dark-soft)}
+.glist{display:flex;flex-direction:column;gap:0}
+.gitem{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:baseline;
+  padding:6px 0;border-bottom:1px solid rgba(45,16,24,.07)}
+.dark .gitem{border-bottom-color:rgba(212,175,55,.1)}
+.gitem:last-child{border-bottom:none}
+.gitem .gn{font-size:.88rem;color:var(--ink);line-height:1.45}
+.dark .gitem .gn{color:var(--on-dark)}
+.gitem .gn i{font-style:normal;display:block;font-family:'Cinzel',serif;font-size:.6rem;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--gold-deep);opacity:.8;margin-top:1px}
+.dark .gitem .gn i{color:var(--gold);opacity:.7}
+.gitem .gc{font-size:.78rem;color:var(--ink-soft);white-space:nowrap;font-variant-numeric:tabular-nums}
+.dark .gitem .gc{color:var(--on-dark-soft)}
+.gitem.tiny .gc{color:var(--loss)} .dark .gitem.tiny .gc{color:var(--loss-soft)}
+
+/* ---------- concentration strip ---------- */
+.bars{margin:22px 0 6px}
+.barrow{display:grid;grid-template-columns:96px 1fr 74px;align-items:center;gap:10px;
+  padding:7px 0;border-bottom:1px solid var(--line-dark)}
+.light .barrow{border-bottom-color:var(--line-light)}
+.barrow:last-child{border-bottom:none}
+.barrow .when{font-size:.8rem;color:var(--on-dark-soft);white-space:nowrap}
+.light .barrow .when{color:var(--ink-soft)}
+.bar{height:20px;border-radius:5px;background:rgba(212,175,55,.12);overflow:hidden;display:flex}
+.bar i{display:block;height:100%}
+.bar i.top{background:linear-gradient(90deg,var(--loss),var(--loss-soft))}
+.bar i.rest{background:rgba(212,175,55,.34)}
+.barrow .lab{font-size:.74rem;color:var(--on-dark-soft);text-align:right;white-space:nowrap}
+.light .barrow .lab{color:var(--ink-soft)}
+.barlegend{display:flex;gap:16px;flex-wrap:wrap;font-size:.76rem;margin-top:14px;color:var(--on-dark-soft)}
+.light .barlegend{color:var(--ink-soft)}
+.barlegend span{display:inline-flex;align-items:center;gap:6px}
+.barlegend i{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+/* ---------- verdict ---------- */
+.verdict{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 6px}
+@media(max-width:640px){.verdict{grid-template-columns:1fr}}
+.vcard{border-radius:16px;padding:20px;border:1px solid}
+.vcard.yes{background:rgba(46,125,87,.13);border-color:rgba(108,191,148,.36)}
+.vcard.no{background:rgba(199,91,73,.13);border-color:rgba(224,138,120,.36)}
+.vcard .vh{font-family:'Cinzel',serif;font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;
+  font-weight:600;margin-bottom:8px}
+.vcard.yes .vh{color:var(--win-soft)} .vcard.no .vh{color:var(--loss-soft)}
+.vcard .vt{font-weight:700;font-size:1rem;margin-bottom:8px;color:#fff}
+.vcard p{font-size:.9rem;line-height:1.68;color:var(--on-dark-soft);margin-bottom:8px}
+.vcard p:last-child{margin-bottom:0}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <img class="owl" src="https://raw.githubusercontent.com/jptrustlearning/pages/main/jpt-owl-cropped.png" alt="JP Trust Learning">
+      <div class="wordmark">JP TRUST<span>LEARNING</span></div>
+    </div>
+
+    <div class="eyebrow rv">Research · Portfolio Construction</div>
+    <h1 class="rv">ถือหุ้น 10 ตัวเท่ากัน<br>แต่กระจายคนละแบบ<br>ผลต่างกันแค่ไหน</h1>
+    <p class="lens rv">ทุกคนบอกว่า &ldquo;อย่ากระจุก&rdquo; &mdash; แต่ไม่ค่อยมีใครบอกว่า<br><b>ควรกระจายเป็นรูปทรงไหน</b> เราเลยลองวัดดู</p>
+
+    <div class="hero-3 rv">
+      <div class="cell">
+        <div class="shape">10 &times; 1</div>
+        <div class="num">10</div>
+        <div class="sub">10 กลุ่ม กลุ่มละ 1 ตัว</div>
+      </div>
+      <div class="cell">
+        <div class="shape">5 &times; 2</div>
+        <div class="num">10</div>
+        <div class="sub">5 กลุ่ม กลุ่มละ 2 ตัว</div>
+      </div>
+      <div class="cell">
+        <div class="shape">4 &times; 3</div>
+        <div class="num">12</div>
+        <div class="sub">4 กลุ่ม กลุ่มละ 3 ตัว</div>
+      </div>
+    </div>
+
+    <p class="meta rv">19 กรกฎาคม 2026 &nbsp;·&nbsp; ผลทดสอบย้อนหลังบนข้อมูลราคาจริง &nbsp;·&nbsp; เพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน</p>
+  </div>
+</section>
+
+
+<!-- ══════════════ A. โมเมนตัมแบบดั้งเดิม ══════════════ -->
+<section class="light">
+  <div class="narrow">
+    <div class="eyebrow rv">Background</div>
+    <h2 class="head rv">เริ่มจากสูตรที่ง่ายที่สุด<br>&ldquo;ซื้อตัวที่แรงที่สุดสิบตัว&rdquo;</h2>
+
+    <p class="lead rv">ก่อนจะพูดถึงการกระจาย ต้องเท้าความก่อนว่ากลยุทธ์ที่กำลังพูดถึงคืออะไร</p>
+
+    <p class="body rv"><span class="kw">โมเมนตัม</span> (Momentum) คือแนวคิดที่ว่าหุ้นซึ่งทำผลงานดีในช่วง 6&ndash;12 เดือนที่ผ่านมา มักจะทำผลงานดีต่อไปอีกระยะหนึ่ง เป็นหนึ่งในรูปแบบที่ถูกศึกษาซ้ำมากที่สุดในวงการการเงิน และพบซ้ำได้ในเกือบทุกตลาดทั่วโลก</p>
+
+    <p class="body rv">วิธีนำแนวคิดนี้ไปใช้ที่ตรงไปตรงมาที่สุดประกอบด้วยสามขั้นตอน &mdash; <span class="kw">จัดอันดับหุ้นทั้งตลาด</span> จากนั้น<span class="kw">คัดสิบอันดับแรกมาถือด้วยน้ำหนักเท่ากัน</span> แล้ว<span class="kw">ทำซ้ำทุกครึ่งปี</span> โดยไม่มีการวิเคราะห์งบการเงินและไม่มีการคาดการณ์ทิศทางเศรษฐกิจ อาศัยเพียงข้อมูลราคาและปริมาณการซื้อขายเท่านั้น</p>
+
+    <h3 class="sub rv">เกณฑ์การจัดอันดับใช้สองปัจจัยร่วมกัน</h3>
+
+    <p class="body rv">การจัดอันดับในงานทดสอบนี้ไม่ได้พิจารณาผลตอบแทนเพียงอย่างเดียว แต่ถ่วงน้ำหนักระหว่างสองปัจจัยในสัดส่วน <span class="kw">50 : 50</span></p>
+
+    <div class="metrics rv">
+      <div class="metric">
+        <div class="mname">Factor 1 &nbsp;·&nbsp; Return</div>
+        <div class="mth">ผลตอบแทนย้อนหลัง 6 เดือน</div>
+        <div class="mdesc">คำนวณจากส่วนต่างของราคาปิด ณ วันต้นและวันปลายของหน้าต่างย้อนหลัง เป็นตัวแทนของ &ldquo;ความแข็งแรงของราคา&rdquo; ตามนิยามของโมเมนตัม</div>
+      </div>
+      <div class="metric">
+        <div class="mname">Factor 2 &nbsp;·&nbsp; Liquidity</div>
+        <div class="mth">ปริมาณการซื้อขายสะสม</div>
+        <div class="mdesc">ผลรวมปริมาณการซื้อขายของทุกวันทำการในหน้าต่างเดียวกัน เป็นตัวแทนของสภาพคล่อง ซึ่งสะท้อนว่าหุ้นตัวนั้นซื้อขายได้จริงในปริมาณที่ต้องการหรือไม่</div>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:20px">เหตุผลที่ต้องมีปัจจัยด้านสภาพคล่องประกอบ เนื่องจากหุ้นที่มีผลตอบแทนสูงแต่มีปริมาณการซื้อขายเบาบางนั้น <span class="kw">ราคาที่ปรากฏอาจไม่สะท้อนราคาที่ซื้อขายได้จริง</span> การเข้าซื้อในปริมาณมากจะดันราคาขึ้น และการขายออกจะกดราคาลง ทำให้ผลตอบแทนในการทดสอบย้อนหลังสูงกว่าที่ทำได้จริงอย่างมีนัยสำคัญ ปัจจัยนี้จึงทำหน้าที่เป็นตัวกรองความเป็นไปได้ในทางปฏิบัติ</p>
+
+    <p class="body rv">ประเด็นเชิงเทคนิคที่ควรทราบคือ ปัจจัยทั้งสองมี<span class="kw">หน่วยที่ต่างกันโดยสิ้นเชิง</span> ด้านหนึ่งเป็นร้อยละ อีกด้านหนึ่งเป็นจำนวนหุ้น จึงนำค่าดิบมาเฉลี่ยกันโดยตรงไม่ได้ วิธีที่ใช้คือ<span class="kw">แปลงทั้งสองปัจจัยเป็นลำดับที่ (rank) ก่อน</span> แล้วจึงถ่วงน้ำหนักลำดับที่เข้าด้วยกัน หุ้นที่ได้คะแนนรวมดีที่สุดคือหุ้นที่อยู่ในลำดับต้นของทั้งสองด้านพร้อมกัน ไม่ใช่หุ้นที่โดดเด่นเพียงด้านเดียว</p>
+
+    <p class="body rv">ผลลัพธ์ที่ได้อยู่ในระดับสูง &mdash; ในช่วงปี 2020 ถึงกลางปี 2026 วิธีนี้ให้ผลตอบแทนราว <span class="kw">48% ต่อปี</span> เทียบกับดัชนี S&amp;P 500 ซึ่งอยู่ที่ 15% ต่อปีในช่วงเดียวกัน</p>
+
+    <p class="body rv">อย่างไรก็ตาม ตัวเลขผลตอบแทนไม่ได้สะท้อนคุณสมบัติทั้งหมดของกลยุทธ์ วิธีนี้มีข้อจำกัดเชิงโครงสร้างอยู่ประการหนึ่ง ซึ่งไม่ปรากฏในตัวเลขผลตอบแทนต่อปีเลย</p>
+
+    <p class="pull rv">การเรียงลำดับตามความแรง<br>ไม่ได้สนใจว่าหุ้นสิบตัวนั้นมาจากไหน</p>
+  </div>
+</section>
+
+
+<!-- ══════════════ B. ปัญหากระจุกตัว ══════════════ -->
+<section class="dark">
+  <div class="wrap">
+    <div class="eyebrow rv">The Hidden Flaw</div>
+    <h2 class="head rv">ขึ้นทั้งแผง ลงทั้งแผง</h2>
+
+    <p class="lead rv">ราคาหุ้นไม่ได้เคลื่อนไหวอย่างเป็นอิสระต่อกัน แต่มีแนวโน้มเคลื่อนไหวไปในทิศทางเดียวกันเป็นกลุ่ม เนื่องจากปัจจัยที่ขับเคลื่อนราคามักเป็นปัจจัยร่วม &mdash; ราคาน้ำมัน วัฏจักรอุตสาหกรรมชิป ระดับอัตราดอกเบี้ย หรือความคาดหวังต่อเทคโนโลยีใหม่</p>
+
+    <p class="body rv">เกณฑ์การจัดอันดับที่อธิบายไว้ข้างต้นพิจารณาความแข็งแรงของราคาและสภาพคล่องของหุ้นแต่ละตัว <span class="kw">แต่ไม่ได้พิจารณาความสัมพันธ์ระหว่างหุ้นด้วยกันเอง</span> กลยุทธ์จึงมีแนวโน้มคัดหุ้นที่ได้รับแรงขับเคลื่อนจากปัจจัยเดียวกันเข้ามาทั้งชุด พอร์ตที่ประกอบด้วยหุ้นสิบตัวจึงอาจเทียบเท่ากับการรับความเสี่ยงจากปัจจัยเดียวในน้ำหนักสิบเท่า</p>
+
+    <p class="body rv">ข้อสังเกตนี้ตรวจสอบได้จากข้อมูลจริง &mdash; เมื่อจำแนกหุ้นในพอร์ตแบบไม่ตั้งโควตาตามอุตสาหกรรมในแต่ละรอบการปรับพอร์ต ได้ผลดังนี้</p>
+
+    <div class="bars rv">
+      <div class="barrow"><span class="when">ก.พ. 2020</span><span class="bar"><i class="top" style="width:80%"></i><i class="rest" style="width:20%"></i></span><span class="lab">IT 8 / 10</span></div>
+      <div class="barrow"><span class="when">ส.ค. 2020</span><span class="bar"><i class="top" style="width:40%"></i><i class="rest" style="width:60%"></i></span><span class="lab">บริโภค 4 / 10</span></div>
+      <div class="barrow"><span class="when">ก.พ. 2021</span><span class="bar"><i class="top" style="width:50%"></i><i class="rest" style="width:50%"></i></span><span class="lab">บริโภค 5 / 10</span></div>
+      <div class="barrow"><span class="when">ส.ค. 2021</span><span class="bar"><i class="top" style="width:30%"></i><i class="rest" style="width:70%"></i></span><span class="lab">สื่อสาร 3 / 10</span></div>
+      <div class="barrow"><span class="when">ก.พ. 2022</span><span class="bar"><i class="top" style="width:50%"></i><i class="rest" style="width:50%"></i></span><span class="lab">พลังงาน 5 / 10</span></div>
+      <div class="barrow"><span class="when">ส.ค. 2022</span><span class="bar"><i class="top" style="width:60%"></i><i class="rest" style="width:40%"></i></span><span class="lab">พลังงาน 6 / 10</span></div>
+      <div class="barrow"><span class="when">ก.พ. 2023</span><span class="bar"><i class="top" style="width:30%"></i><i class="rest" style="width:70%"></i></span><span class="lab">พลังงาน 3 / 10</span></div>
+      <div class="barrow"><span class="when">ส.ค. 2023</span><span class="bar"><i class="top" style="width:50%"></i><i class="rest" style="width:50%"></i></span><span class="lab">IT 5 / 10</span></div>
+      <div class="barrow"><span class="when">ก.พ. 2024</span><span class="bar"><i class="top" style="width:50%"></i><i class="rest" style="width:50%"></i></span><span class="lab">IT 5 / 10</span></div>
+      <div class="barrow"><span class="when">ส.ค. 2024</span><span class="bar"><i class="top" style="width:50%"></i><i class="rest" style="width:50%"></i></span><span class="lab">IT 5 / 10</span></div>
+      <div class="barrow"><span class="when">ก.พ. 2025</span><span class="bar"><i class="top" style="width:50%"></i><i class="rest" style="width:50%"></i></span><span class="lab">บริโภค 5 / 10</span></div>
+      <div class="barrow"><span class="when">ส.ค. 2025</span><span class="bar"><i class="top" style="width:60%"></i><i class="rest" style="width:40%"></i></span><span class="lab">IT 6 / 10</span></div>
+      <div class="barrow"><span class="when">ก.พ. 2026</span><span class="bar"><i class="top" style="width:50%"></i><i class="rest" style="width:50%"></i></span><span class="lab">IT 5 / 10</span></div>
+      <div class="barlegend">
+        <span><i style="background:var(--loss)"></i> สัดส่วนของอุตสาหกรรมที่หนักที่สุดในพอร์ตรอบนั้น</span>
+        <span><i style="background:rgba(212,175,55,.34)"></i> อุตสาหกรรมอื่นๆ รวมกัน</span>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:24px">ตลอด 13 รอบการปรับพอร์ต หุ้นสิบตัวกระจายอยู่ใน<span class="kw">เพียง 4.5 อุตสาหกรรมโดยเฉลี่ย</span> จากทั้งหมด 11 กลุ่ม และอุตสาหกรรมที่มีสัดส่วนสูงสุดในแต่ละรอบคิดเป็น<span class="kw">เฉลี่ย 5 ตัวจาก 10 ตัว</span> หรือครึ่งหนึ่งของพอร์ต</p>
+
+    <p class="body rv">มี <span class="kw">10 จาก 13 รอบ</span> ที่อุตสาหกรรมเดียวมีสัดส่วนตั้งแต่ครึ่งพอร์ตขึ้นไป และรอบที่มีความกระจุกตัวสูงสุดคือเดือนกุมภาพันธ์ 2020 ซึ่งหุ้นกลุ่มเทคโนโลยีคิดเป็น <span class="kw">8 จาก 10 ตัว</span> โดยตลาดเริ่มปรับตัวลงจากสถานการณ์โควิดในอีกสามสัปดาห์ถัดมา</p>
+
+    <div class="callout warn rv">
+      <span class="lbl">ความเสี่ยงที่ตัวเลขผลตอบแทนไม่บอก</span>
+      <p>พอร์ตที่มีความกระจุกตัวสูงจะให้ผลตอบแทนสูงในช่วงที่กลุ่มนั้นทำผลงานดี เพราะได้รับผลตอบแทนเต็มจำนวนจากปัจจัยเดียว &mdash; แต่เมื่อกลุ่มดังกล่าวปรับตัวลง <span class="kw">หุ้นทั้งสิบตัวจะปรับตัวลงพร้อมกัน</span> โดยไม่มีองค์ประกอบใดในพอร์ตทำหน้าที่ถ่วงดุล</p>
+      <p>คำถามในเชิงการออกแบบพอร์ตจึงไม่ใช่ &ldquo;ควรกระจายหรือไม่&rdquo; แต่เป็น &ldquo;<span class="kw">หากกำหนดให้ต้องกระจาย ควรกำหนดในรูปแบบใด</span>&rdquo;</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════ 1. คำถาม ══════════════ -->
+<section class="light">
+  <div class="narrow">
+    <div class="eyebrow rv">คำถามตั้งต้น</div>
+    <h2 class="head rv">&ldquo;กระจายความเสี่ยง&rdquo; มีมากกว่าหนึ่งความหมาย</h2>
+
+    <p class="lead rv">วิธีแก้การกระจุกตัวที่ตรงไปตรงมาที่สุดคือ<span class="kw">ตั้งโควตา</span> &mdash; บังคับว่าห้ามเอาหุ้นจากกลุ่มเดียวกันเกินกี่ตัว และให้ใช้ได้ไม่เกินกี่กลุ่ม</p>
+
+    <p class="body rv">แต่เมื่อกำหนดโควตาแล้ว จะเกิดคำถามถัดมาทันทีว่า <span class="kw">โควตารูปแบบใดให้ผลดีกว่ากัน</span> เพราะการได้มาซึ่งหุ้นสิบตัวเท่ากันนั้น ทำได้หลายรูปแบบ</p>
+
+    <p class="body rv">ก่อนจะกำหนดโควตาได้ ต้องนิยามก่อนว่า &ldquo;กลุ่ม&rdquo; หมายถึงอะไร งานทดสอบนี้ใช้ระบบจัดกลุ่มสองแบบคู่ขนานกัน เพื่อตรวจสอบว่าความละเอียดของการแบ่งกลุ่มส่งผลต่อผลลัพธ์หรือไม่</p>
+
+    <div class="groupwrap rv">
+      <div class="gpanel">
+        <div class="gh">System A &nbsp;·&nbsp; 11 Sectors</div>
+        <div class="gt">อุตสาหกรรม &mdash; 11 กลุ่ม</div>
+        <div class="gs">มาตรฐานสากล GICS &middot; กว้างและหยาบ &middot; กลุ่มเล็กสุด 31 ตัว ใหญ่สุด 105 ตัว</div>
+        <div class="glist">
+        <div class="gitem"><span class="gn">อุตสาหกรรมการผลิตและบริการ<i>Industrials</i></span><span class="gc">105 ตัว</span></div>
+        <div class="gitem"><span class="gn">การเงิน<i>Financials</i></span><span class="gc">95 ตัว</span></div>
+        <div class="gitem"><span class="gn">เทคโนโลยีสารสนเทศ<i>Information Technology</i></span><span class="gc">87 ตัว</span></div>
+        <div class="gitem"><span class="gn">สินค้าฟุ่มเฟือย<i>Consumer Discretionary</i></span><span class="gc">74 ตัว</span></div>
+        <div class="gitem"><span class="gn">การแพทย์และสุขภาพ<i>Health Care</i></span><span class="gc">70 ตัว</span></div>
+        <div class="gitem"><span class="gn">วัสดุพื้นฐาน<i>Materials</i></span><span class="gc">44 ตัว</span></div>
+        <div class="gitem"><span class="gn">สินค้าจำเป็น<i>Consumer Staples</i></span><span class="gc">43 ตัว</span></div>
+        <div class="gitem"><span class="gn">พลังงาน<i>Energy</i></span><span class="gc">40 ตัว</span></div>
+        <div class="gitem"><span class="gn">สาธารณูปโภค<i>Utilities</i></span><span class="gc">34 ตัว</span></div>
+        <div class="gitem"><span class="gn">อสังหาริมทรัพย์<i>Real Estate</i></span><span class="gc">34 ตัว</span></div>
+        <div class="gitem"><span class="gn">สื่อสารและบริการ<i>Communication Services</i></span><span class="gc">31 ตัว</span></div>
+        </div>
+      </div>
+      <div class="gpanel">
+        <div class="gh">System B &nbsp;·&nbsp; 28 Themes</div>
+        <div class="gt">ธีม &mdash; 28 กลุ่ม</div>
+        <div class="gs">แบ่งตามลักษณะธุรกิจที่เจาะจงกว่า &middot; กลุ่มเล็กสุด 3 ตัว ใหญ่สุด 65 ตัว</div>
+        <div class="glist">
+        <div class="gitem"><span class="gn">อุตสาหกรรมทั่วไป<i>Industrials</i></span><span class="gc">65 ตัว</span></div>
+        <div class="gitem"><span class="gn">ค้าปลีกและผู้บริโภค<i>Consumer & Retail</i></span><span class="gc">55 ตัว</span></div>
+        <div class="gitem"><span class="gn">ธนาคารและโบรกเกอร์<i>Banks & Brokers</i></span><span class="gc">51 ตัว</span></div>
+        <div class="gitem"><span class="gn">วัสดุพื้นฐาน<i>Materials</i></span><span class="gc">44 ตัว</span></div>
+        <div class="gitem"><span class="gn">สินค้าจำเป็น<i>Staples</i></span><span class="gc">43 ตัว</span></div>
+        <div class="gitem"><span class="gn">พลังงาน<i>Energy</i></span><span class="gc">40 ตัว</span></div>
+        <div class="gitem"><span class="gn">สาธารณูปโภคและไฟฟ้า<i>Utilities & Power</i></span><span class="gc">34 ตัว</span></div>
+        <div class="gitem"><span class="gn">กองทรัสต์อสังหาริมทรัพย์<i>REITs</i></span><span class="gc">34 ตัว</span></div>
+        <div class="gitem"><span class="gn">ยาและประกันสุขภาพ<i>Pharma & Managed Care</i></span><span class="gc">29 ตัว</span></div>
+        <div class="gitem"><span class="gn">สื่อและโทรคมนาคม<i>Media & Telecom</i></span><span class="gc">29 ตัว</span></div>
+        <div class="gitem"><span class="gn">ประกันภัย<i>Insurance</i></span><span class="gc">28 ตัว</span></div>
+        <div class="gitem"><span class="gn">ฮาร์ดแวร์และอุปกรณ์เครือข่าย<i>IT Hardware & Networking</i></span><span class="gc">24 ตัว</span></div>
+        <div class="gitem"><span class="gn">เครื่องมือแพทย์<i>MedTech</i></span><span class="gc">21 ตัว</span></div>
+        <div class="gitem"><span class="gn">ซอฟต์แวร์<i>Software</i></span><span class="gc">19 ตัว</span></div>
+        <div class="gitem"><span class="gn">ท่องเที่ยวและสายการบิน<i>Travel & Airlines</i></span><span class="gc">18 ตัว</span></div>
+        <div class="gitem"><span class="gn">ยุทโธปกรณ์และการป้องกันประเทศ<i>Defense</i></span><span class="gc">14 ตัว</span></div>
+        <div class="gitem"><span class="gn">ขนส่งและโลจิสติกส์<i>Transport & Logistics</i></span><span class="gc">14 ตัว</span></div>
+        <div class="gitem"><span class="gn">เซมิคอนดักเตอร์<i>Semiconductors</i></span><span class="gc">13 ตัว</span></div>
+        <div class="gitem"><span class="gn">ฟินเทคและระบบชำระเงิน<i>Fintech & Payments</i></span><span class="gc">13 ตัว</span></div>
+        <div class="gitem"><span class="gn">บริการไอที<i>IT Services</i></span><span class="gc">12 ตัว</span></div>
+        <div class="gitem"><span class="gn">เครื่องมือวิทยาศาสตร์ชีวภาพและการวินิจฉัย<i>Life Science Tools & Dx</i></span><span class="gc">11 ตัว</span></div>
+        <div class="gitem tiny"><span class="gn">ไบโอเทครายใหญ่<i>Biotech Large</i></span><span class="gc">9 ตัว</span></div>
+        <div class="gitem tiny"><span class="gn">เครื่องจักรผลิตชิปและหน่วยความจำ<i>Semi Equip & Memory</i></span><span class="gc">9 ตัว</span></div>
+        <div class="gitem tiny"><span class="gn">เทคโนโลยีขนาดใหญ่เจ็ดบริษัท<i>Mag 7</i></span><span class="gc">7 ตัว</span></div>
+        <div class="gitem tiny"><span class="gn">โครงสร้างพื้นฐาน AI และดาต้าเซ็นเตอร์<i>AI Infra & Data Center</i></span><span class="gc">7 ตัว</span></div>
+        <div class="gitem tiny"><span class="gn">ผู้รับเหมาสร้างบ้าน<i>Homebuilders</i></span><span class="gc">7 ตัว</span></div>
+        <div class="gitem tiny"><span class="gn">ความมั่นคงไซเบอร์<i>Cybersecurity</i></span><span class="gc">4 ตัว</span></div>
+        <div class="gitem tiny"><span class="gn">สินทรัพย์เกี่ยวเนื่องกับคริปโท<i>Crypto-linked</i></span><span class="gc">3 ตัว</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:22px">ตัวเลขท้ายแต่ละกลุ่มคือจำนวนหลักทรัพย์ที่อยู่ในกลุ่มนั้น รวมทั้งสิ้น 657 รายการ ข้อสังเกตสำคัญคือ<span class="kw">ระบบธีมมีขนาดกลุ่มที่ไม่สม่ำเสมอกว่าระบบอุตสาหกรรมอย่างมาก</span> &mdash; กลุ่มใหญ่ที่สุดมี 65 รายการ ขณะที่กลุ่มเล็กที่สุดมีเพียง 3 รายการ ส่วนระบบอุตสาหกรรมมีช่วงตั้งแต่ 31 ถึง 105 รายการ ซึ่งกระจายตัวสม่ำเสมอกว่า</p>
+
+    <p class="body rv">ความไม่สม่ำเสมอนี้ส่งผลต่อการทำงานของโควตาโดยตรง เมื่อกำหนดให้กระจายครบ 10 กลุ่มในระบบธีม ระบบยังคงเหลือธีมที่ไม่ได้ใช้อีก 18 กลุ่ม จึงมีอิสระในการเลือกสูง แต่ในระบบอุตสาหกรรมซึ่งมีเพียง 11 กลุ่ม การกำหนดให้กระจายครบ 10 กลุ่มเท่ากับ<span class="kw">บังคับให้แตะเกือบทุกอุตสาหกรรมที่มีอยู่</span> ข้อจำกัดจึงเข้มงวดกว่ามาก ประเด็นนี้จะปรากฏชัดในผลการทดสอบที่จะกล่าวถึงต่อไป</p>
+
+    <p class="body rv">อีกประเด็นหนึ่งคือ ธีมบางกลุ่มใช้ชื่อเดียวกับอุตสาหกรรม เช่น พลังงาน วัสดุพื้นฐาน และสินค้าจำเป็น กรณีเหล่านี้คือกลุ่มที่ไม่สามารถแบ่งย่อยลงไปได้อีกอย่างมีความหมาย จึงคงระดับเดียวกับอุตสาหกรรมไว้</p>
+
+
+    <div class="shapes rv">
+      <div class="shape-card">
+        <div class="name">10 &times; 1 &mdash; กว้าง บาง</div>
+        <div class="dots">
+          <span class="g"><i></i></span><span class="g"><i></i></span><span class="g"><i></i></span><span class="g"><i></i></span><span class="g"><i></i></span>
+          <span class="g"><i></i></span><span class="g"><i></i></span><span class="g"><i></i></span><span class="g"><i></i></span><span class="g"><i></i></span>
+        </div>
+        <div class="txt">กระจายให้ครบ 10 กลุ่ม โดยคัดหุ้นอันดับสูงสุดของแต่ละกลุ่มมากลุ่มละหนึ่งตัว ให้การกระจายกว้างที่สุด</div>
+      </div>
+      <div class="shape-card">
+        <div class="name">5 &times; 2 &mdash; ตรงกลาง</div>
+        <div class="dots">
+          <span class="g"><i></i><i></i></span><span class="g"><i></i><i></i></span><span class="g"><i></i><i></i></span>
+          <span class="g"><i></i><i></i></span><span class="g"><i></i><i></i></span>
+        </div>
+        <div class="txt">คัด 5 กลุ่ม กลุ่มละ 2 ตัว อยู่กึ่งกลางระหว่างความกว้างของการกระจายกับความเข้มข้นในแต่ละกลุ่ม</div>
+      </div>
+      <div class="shape-card">
+        <div class="name">4 &times; 3 &mdash; แคบ ลึก</div>
+        <div class="dots">
+          <span class="g"><i></i><i></i><i></i></span><span class="g"><i></i><i></i><i></i></span>
+          <span class="g"><i></i><i></i><i></i></span><span class="g"><i></i><i></i><i></i></span>
+        </div>
+        <div class="txt">คัดเพียง 4 กลุ่ม แต่ให้น้ำหนักกลุ่มละ 3 ตัว เน้นความเข้มข้นในกลุ่มที่มีโมเมนตัมสูง</div>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:22px">ทั้งสามรูปแบบให้จำนวนหุ้นในพอร์ตใกล้เคียงกันที่ 10&ndash;12 ตัว แตกต่างกันเพียง<span class="kw">รูปทรงของการกระจาย</span> คำถามเชิงประจักษ์คือรูปทรงนี้ส่งผลต่อผลลัพธ์อย่างมีนัยสำคัญหรือไม่</p>
+
+    <p class="pull rv">ถ้ารูปทรงไม่สำคัญ ตัวเลขทั้งสามแบบควรออกมาใกล้เคียงกัน<br>ผลที่ได้ไม่เป็นแบบนั้นเลย</p>
+  </div>
+</section>
+
+
+<!-- ══════════════ 2. วิธีทดสอบ ══════════════ -->
+<section class="dark">
+  <div class="narrow">
+    <div class="eyebrow rv">How We Tested</div>
+    <h2 class="head rv">วิธีทดสอบ ทีละขั้น</h2>
+    <p class="lead rv">การเปรียบเทียบจะเชื่อถือได้ก็ต่อเมื่อ<span class="kw">ทุกอย่างเหมือนกันหมด ยกเว้นสิ่งที่ต้องการวัด</span> ขั้นตอนด้านล่างคือวิธีที่ใช้คุมตัวแปร</p>
+
+    <div class="steps rv">
+      <div class="step">
+        <h4>ใช้กลยุทธ์เดียวกันทุกแบบ</h4>
+        <p>จัดอันดับหุ้นในดัชนี S&amp;P 500 โดยถ่วงน้ำหนักลำดับที่ของผลตอบแทน 6 เดือนกับลำดับที่ของปริมาณการซื้อขายสะสมในสัดส่วน 50 : 50 แล้วปรับพอร์ตปีละ 2 ครั้งในเดือนกุมภาพันธ์และสิงหาคม ถือครบ 6 เดือนแล้วเปลี่ยนชุดใหม่ทั้งหมด &mdash; ทุกรูปทรงใช้กติกาชุดเดียวกันทั้งหมด</p>
+      </div>
+      <div class="step">
+        <h4>ใช้ข้อมูลราคาจริง ไม่ใช่ตัวเลขสมมติ</h4>
+        <p>ราคาเปิด&ndash;ปิดและปริมาณการซื้อขายรายวันของหุ้นในดัชนีทั้งหมด รวมกว่า 3.6 ล้านแถว ครอบคลุม 7,684 วันทำการ ตั้งแต่ต้นปี 1996 ถึงกลางเดือนกรกฎาคม 2026 โดยปริมาณการซื้อขายเป็นข้อมูลที่ใช้ในการจัดอันดับโดยตรง ไม่ใช่เพียงข้อมูลประกอบ</p>
+      </div>
+      <div class="step">
+        <h4>ป้องกันการแอบมองอนาคต</h4>
+        <p>การจัดอันดับใช้ราคาปิด<span class="kw">ของวันก่อนหน้า</span>เท่านั้น ส่วนการซื้อขายจริงเกิดที่ราคาปิดของวันปรับพอร์ต ไม่มีจุดไหนในโปรแกรมที่อ่านข้อมูลของวันข้างหน้าได้เลย</p>
+      </div>
+      <div class="step">
+        <h4>พิสูจน์ว่าสัญญาณเหมือนกันจริง</h4>
+        <p>ก่อนเทียบผลลัพธ์ ต้องมั่นใจก่อนว่าทุกแบบ &ldquo;เห็น&rdquo; ตลาดเหมือนกัน จึงดึงรายชื่อหุ้นที่ระบบจัดอันดับได้ในทุกวันปรับพอร์ต ออกมาเทียบกันตรงๆ &mdash; ผลคือ<span class="kw">อันดับ 12 ตัวแรกตรงกันเป๊ะทั้ง 22 วัน</span> ความต่างที่เหลือจึงมาจากโควตาอย่างเดียว</p>
+      </div>
+      <div class="step">
+        <h4>ทดสอบ 3 ช่วงเวลา ไม่ใช่ช่วงเดียว</h4>
+        <p>กลยุทธ์ที่ดูดีในช่วงหนึ่งอาจแย่ในอีกช่วง จึงรันแยกกันสามหน้าต่าง: <span class="kw">2020&ndash;2026</span> (ครอบคลุมวิกฤตโควิดและภาวะตลาดขาขึ้นที่ตามมา), <span class="kw">2022&ndash;2026</span> (เริ่มจากภาวะตลาดขาลง โดยไม่นับรวมช่วงขาขึ้นรอบก่อนหน้า) และ <span class="kw">1996&ndash;2026</span> (ยาว 30 ปี ผ่านฟองสบู่ดอตคอมและวิกฤตปี 2008)</p>
+      </div>
+    </div>
+
+    <div class="callout note rv">
+      <span class="lbl">หมายเหตุก่อนอ่านผล &mdash; ฐานราคาและต้นทุนที่ยังไม่รวม</span>
+      <p><span class="kw">ราคาที่ใช้เป็นราคาที่ปรับเงินปันผลแล้ว (total return)</span> ผลตอบแทนที่รายงานจึงรวมเงินปันผลอยู่ด้วย โดยตั้งสมมติฐานว่านำเงินปันผลกลับไปลงทุนต่อทันทีในวันที่ได้รับ ทั้งกลยุทธ์และดัชนี S&amp;P 500 ที่ใช้เปรียบเทียบคำนวณบนฐานเดียวกัน การเทียบกันจึงเป็นธรรม</p>
+      <p>สิ่งที่<span class="kw">ยังไม่ได้หักออก</span>ประกอบด้วยค่าธรรมเนียมการซื้อขาย ส่วนต่างราคาเสนอซื้อเสนอขาย และภาษีหัก ณ ที่จ่ายจากเงินปันผลของหลักทรัพย์สหรัฐ ซึ่งผู้ลงทุนไทยถูกหักในอัตรา 15% รายการเหล่านี้ล้วนทำให้ผลตอบแทนจริงต่ำกว่าตัวเลขที่รายงาน โดยรูปทรงที่มีการเปลี่ยนหุ้นบ่อยกว่าจะได้รับผลกระทบมากกว่า</p>
+      <p>ด้วยเหตุนี้ ตัวเลขในบทความจึงมีไว้เพื่อ<span class="kw">เปรียบเทียบรูปทรงต่างๆ กันเอง</span> ไม่ใช่เพื่อระบุระดับผลตอบแทนที่ผู้ลงทุนจะได้รับจริง</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════ 3. เครื่องมือวัด ══════════════ -->
+<section class="light">
+  <div class="narrow">
+    <div class="eyebrow rv">Measuring Pain</div>
+    <h2 class="head rv">ทำไมตัวเลข &ldquo;ขาดทุนหนักสุด&rdquo; ตัวเดียวถึงไม่พอ</h2>
+
+    <p class="lead rv">มาตรวัดความเสี่ยงที่ใช้กันแพร่หลายที่สุดคือ Max Drawdown &mdash; ระยะที่มูลค่าพอร์ตเคยลดลงจากจุดสูงสุดมากที่สุด คิดเป็นร้อยละ มาตรวัดนี้มีประโยชน์ในการประเมินกรณีเลวร้ายสุด แต่โดยนิยามแล้วมันสรุปข้อมูลทั้งชุดเหลือ<span class="kw">เพียงค่าสังเกตเดียว</span></p>
+
+    <p class="body rv">เพื่อให้เห็นข้อจำกัดนี้ ลองพิจารณาผู้ป่วยสองราย ทั้งคู่เคยมีอาการรุนแรงสูงสุดในระดับเท่ากัน แต่รายแรกมีอาการรุนแรงเพียงครั้งเดียวแล้วหายเป็นปกติ ส่วนรายที่สองมีอาการต่อเนื่องตลอดทั้งปี หากประเมินจากระดับความรุนแรงสูงสุดเพียงอย่างเดียว ผู้ป่วยทั้งสองรายจะถูกจัดว่ามีความรุนแรงเท่ากัน ทั้งที่ภาระที่แต่ละรายต้องแบกรับต่างกันอย่างมาก</p>
+
+    <p class="body rv">การประเมินความเสี่ยงของพอร์ตอยู่ภายใต้ตรรกะเดียวกัน สิ่งที่ผู้ลงทุนต้องเผชิญตลอดระยะเวลาถือครองไม่ใช่จุดต่ำสุดเพียงวันเดียว แต่คือ<span class="kw">ระดับที่มูลค่าพอร์ตอยู่ต่ำกว่าจุดสูงสุดเดิมโดยทั่วไป</span> จึงจำเป็นต้องใช้มาตรวัดหลายตัวประกอบกัน</p>
+
+    <div class="metrics rv">
+      <div class="metric">
+        <div class="mname">Max Drawdown</div>
+        <div class="mth">ขาดทุนหนักสุด</div>
+        <div class="mdesc">ระยะห่างจากจุดสูงสุดถึงจุดต่ำสุดที่มากที่สุดตลอดช่วงทดสอบ ใช้ประเมินขนาดความเสียหายในกรณีเลวร้ายสุด</div>
+      </div>
+      <div class="metric">
+        <div class="mname">Average Drawdown</div>
+        <div class="mth">ขาดทุนโดยเฉลี่ย</div>
+        <div class="mdesc">ค่าเฉลี่ยของระยะห่างจากจุดสูงสุดเดิม คำนวณจากทุกวันทำการตลอดช่วงทดสอบ สะท้อนระดับความเสียหายที่พบโดยทั่วไป ไม่ใช่กรณีสุดขั้ว</div>
+      </div>
+      <div class="metric">
+        <div class="mname">Ulcer Index</div>
+        <div class="mth">ดัชนีความเสียหายสะสม</div>
+        <div class="mdesc">รากที่สองของค่าเฉลี่ยกำลังสองของระยะห่างจากจุดสูงสุด การยกกำลังสองทำให้ช่วงที่เสียหายลึกและยาวถูกถ่วงน้ำหนักมากขึ้น จึงรวมทั้งความลึกและระยะเวลาไว้ในค่าเดียว ยิ่งต่ำยิ่งดี</div>
+      </div>
+      <div class="metric">
+        <div class="mname">Sortino Ratio</div>
+        <div class="mth">ผลตอบแทนต่อความเสี่ยงขาลง</div>
+        <div class="mdesc">มีโครงสร้างคล้าย Sharpe Ratio แต่ใช้ส่วนเบี่ยงเบนมาตรฐานเฉพาะผลตอบแทนที่ติดลบเป็นตัวหาร จึงไม่นับความผันผวนด้านบวกเป็นความเสี่ยง ยิ่งสูงยิ่งดี</div>
+      </div>
+    </div>
+
+    <div class="callout note rv">
+      <span class="lbl">อ่านตัวเลขให้เป็น</span>
+      <p>ค่า Max Drawdown ที่เท่ากัน<span class="kw">ไม่ได้หมายความว่ามีความเสี่ยงเท่ากัน</span> หากพอร์ตสองชุดมี Max Drawdown เท่ากัน แต่ชุดหนึ่งมีค่า Average Drawdown และ Ulcer Index ต่ำกว่า แสดงว่าพอร์ตชุดนั้นใช้เวลากลับสู่จุดสูงสุดเดิมสั้นกว่า และมีความเสียหายโดยทั่วไปน้อยกว่า</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════ 4. ผล 2020 ══════════════ -->
+<section class="dark">
+  <div class="wrap">
+    <div class="eyebrow rv">Window 1 &nbsp;·&nbsp; 2020&ndash;2026</div>
+    <h2 class="head rv">ช่วงแรก: ครอบคลุมวิกฤตโควิดและภาวะตลาดขาขึ้น</h2>
+    <p class="lead rv">6.5 ปี ปรับพอร์ต 13 รอบ ทุกแบบใช้วันปรับพอร์ตเดียวกันหมด</p>
+
+    <p class="scrollhint rv">← เลื่อนตารางแนวนอนเพื่อดูคอลัมน์ที่เหลือ →</p>
+    <div class="tablewrap rv">
+      <div class="tablescroll">
+        <table class="data">
+          <thead><tr>
+            <th>รูปทรง</th><th>ผลตอบแทน/ปี</th><th>Max DD</th><th>Avg DD</th>
+            <th>Ulcer</th><th>Sortino</th><th>ช่วงเสียหายเกิน 5%</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>ไม่ตั้งโควตา</td><td>+48.2%</td><td>&minus;34.8%</td><td>&minus;7.1%</td><td>9.75</td><td>1.83</td><td>31</td></tr>
+            <tr class="hi"><td>ธีม 10 &times; 1</td><td>+44.5%</td><td>&minus;36.7%</td><td>&minus;7.8%</td><td>10.80</td><td>1.89</td><td>27</td></tr>
+            <tr><td>ธีม 5 &times; 2</td><td>+45.1%</td><td>&minus;37.9%</td><td>&minus;7.6%</td><td class="bad">11.00</td><td>1.81</td><td>30</td></tr>
+            <tr><td>ธีม 4 &times; 3</td><td>+35.1%</td><td>&minus;39.4%</td><td>&minus;7.9%</td><td class="bad">11.08</td><td class="bad">1.53</td><td>25</td></tr>
+            <tr class="hi"><td>อุตสาหกรรม 10 &times; 1</td><td>+39.7%</td><td>&minus;36.7%</td><td class="best">&minus;5.6%</td><td class="best">8.10</td><td class="best">1.98</td><td class="best">21</td></tr>
+            <tr><td>อุตสาหกรรม 5 &times; 2</td><td>+39.5%</td><td>&minus;40.4%</td><td>&minus;6.4%</td><td>8.89</td><td>1.75</td><td>23</td></tr>
+            <tr><td>อุตสาหกรรม 4 &times; 3</td><td>+36.2%</td><td>&minus;40.0%</td><td>&minus;6.3%</td><td>9.10</td><td>1.67</td><td>23</td></tr>
+            <tr class="bench"><td>ดัชนี S&amp;P 500</td><td>+15.0%</td><td>&minus;33.7%</td><td>&minus;5.4%</td><td>8.40</td><td>1.12</td><td>9</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tblnote">Avg DD = ค่าเฉลี่ยของระยะห่างจากจุดสูงสุดเดิม คำนวณจากทุกวันทำการ · แถวที่เน้นคือรูปทรงที่ให้ผลโดดเด่นในหน้าต่างนี้</div>
+    </div>
+
+    <h3 class="sub rv">อ่านผลอย่างไร</h3>
+    <p class="body rv">ในหน้าต่างนี้ การ<span class="kw">ไม่กำหนดโควตาให้ผลตอบแทนสูงสุด</span> ที่ 48.2% ต่อปี ซึ่งสอดคล้องกับลักษณะของช่วงเวลา &mdash; ปี 2020&ndash;2026 เป็นช่วงที่หุ้นเทคโนโลยีขนาดใหญ่ให้ผลตอบแทนโดดเด่นกว่ากลุ่มอื่นอย่างชัดเจน พอร์ตที่กระจุกตัวอยู่กับกลุ่มดังกล่าวจึงได้เปรียบ</p>
+
+    <p class="body rv">แต่เมื่อพิจารณาด้านความเสี่ยง ลำดับจะกลับด้าน <span class="kw">รูปทรงอุตสาหกรรม 10 &times; 1 ให้ค่าดีที่สุดในทุกมาตรวัด</span> &mdash; Average Drawdown ต่ำสุดที่ &minus;5.6% เทียบกับ &minus;7.1% ของแบบไม่กำหนดโควตา, Ulcer Index ต่ำสุดที่ 8.10 และมีช่วงที่ความเสียหายเกิน 5% เพียง 21 ครั้ง เทียบกับ 31 ครั้ง</p>
+
+    <p class="body rv">ข้อสังเกตที่สำคัญคือ Max Drawdown ของรูปทรงนี้กลับ<span class="kw">ลึกกว่า</span>แบบไม่กำหนดโควตา (&minus;36.7% เทียบ &minus;34.8%) กรณีนี้แสดงให้เห็นข้อจำกัดของการประเมินด้วยมาตรวัดเดียวอย่างชัดเจน &mdash; ความเสียหายที่ลึกกว่าเกิดขึ้นเพียงครั้งเดียวในช่วงโควิด ขณะที่ตลอดช่วงเวลาที่เหลือมีความเสียหายตื้นกว่าอย่างมีนัยสำคัญ</p>
+
+    <div class="callout find rv">
+      <span class="lbl">สิ่งที่เห็นในหน้าต่างแรก</span>
+      <p>รูปทรง <span class="kw">10 &times; 1</span> ให้ค่า Ulcer Index ต่ำที่สุดในทั้งสองระบบจัดกลุ่ม ขณะที่ <span class="kw">4 &times; 3</span> อยู่ในลำดับสุดท้ายของทั้งสองระบบ ในระบบธีม ผลตอบแทนของ 4 &times; 3 ต่ำกว่า 10 &times; 1 ราว 9 จุดเปอร์เซ็นต์ ทั้งที่ถือหุ้นในจำนวนมากกว่า</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════ 5. ผล 2022 ══════════════ -->
+<section class="light">
+  <div class="wrap">
+    <div class="eyebrow rv">Window 2 &nbsp;·&nbsp; 2022&ndash;2026</div>
+    <h2 class="head rv">ช่วงที่สอง: ไม่นับรวมภาวะตลาดขาขึ้นรอบก่อนหน้า</h2>
+    <p class="lead rv">4.5 ปี ปรับพอร์ต 9 รอบ เริ่มนับตั้งแต่ต้นปี 2022 ซึ่งเป็นจุดเริ่มต้นของภาวะตลาดขาลง &mdash; ใช้ทดสอบว่าผลลัพธ์ในหน้าต่างแรกเกิดจากจังหวะเวลาที่เอื้ออำนวย หรือเกิดจากคุณสมบัติของรูปทรงเอง</p>
+
+    <p class="scrollhint rv">← เลื่อนตารางแนวนอนเพื่อดูคอลัมน์ที่เหลือ →</p>
+    <div class="tablewrap rv">
+      <div class="tablescroll">
+        <table class="data">
+          <thead><tr>
+            <th>รูปทรง</th><th>ผลตอบแทน/ปี</th><th>Max DD</th><th>Avg DD</th>
+            <th>Ulcer</th><th>Sortino</th><th>ช่วงเสียหายเกิน 5%</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>ไม่ตั้งโควตา</td><td>+39.9%</td><td>&minus;34.8%</td><td>&minus;7.8%</td><td>10.40</td><td>1.63</td><td>20</td></tr>
+            <tr class="hi"><td>ธีม 10 &times; 1</td><td class="best">+44.4%</td><td>&minus;34.3%</td><td>&minus;7.6%</td><td>10.28</td><td>1.95</td><td>19</td></tr>
+            <tr><td>ธีม 5 &times; 2</td><td>+33.7%</td><td>&minus;37.9%</td><td class="bad">&minus;9.1%</td><td class="bad">12.28</td><td class="bad">1.49</td><td>17</td></tr>
+            <tr><td>ธีม 4 &times; 3</td><td>+30.6%</td><td>&minus;39.4%</td><td class="bad">&minus;9.2%</td><td class="bad">12.30</td><td class="bad">1.41</td><td>15</td></tr>
+            <tr class="hi"><td>อุตสาหกรรม 10 &times; 1</td><td>+34.4%</td><td class="best">&minus;29.1%</td><td class="best">&minus;5.5%</td><td class="best">7.87</td><td class="best">1.96</td><td class="best">13</td></tr>
+            <tr><td>อุตสาหกรรม 5 &times; 2</td><td>+31.0%</td><td class="best">&minus;29.0%</td><td>&minus;6.5%</td><td>8.48</td><td>1.58</td><td>15</td></tr>
+            <tr><td>อุตสาหกรรม 4 &times; 3</td><td>+31.8%</td><td>&minus;31.9%</td><td>&minus;6.7%</td><td>9.07</td><td>1.59</td><td>14</td></tr>
+            <tr class="bench"><td>ดัชนี S&amp;P 500</td><td>+11.6%</td><td>&minus;24.5%</td><td>&minus;6.0%</td><td>8.86</td><td>1.04</td><td>6</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tblnote">หน้าต่างนี้เป็นช่วงย่อยของหน้าต่างแรก จึงไม่ถือเป็นกลุ่มตัวอย่างอิสระ ต่างกันเพียงจุดเริ่มต้นของการนับ</div>
+    </div>
+
+    <h3 class="sub rv">สามอย่างที่เปลี่ยนไป</h3>
+    <p class="body rv"><span class="kw">ประการแรก &mdash; การไม่กำหนดโควตาไม่ได้ให้ผลดีที่สุดอีกต่อไป</span> เมื่อไม่นับรวมช่วงตลาดขาขึ้นปี 2020&ndash;2021 รูปทรงธีม 10 &times; 1 ให้ผลตอบแทน 44.4% สูงกว่าแบบไม่กำหนดโควตาที่ 39.9% และให้ค่าดีกว่าทั้งใน Max Drawdown, Ulcer Index และ Sortino</p>
+
+    <p class="body rv"><span class="kw">ประการที่สอง &mdash; 10 &times; 1 เป็นรูปทรงเดียวที่ผลตอบแทนเปลี่ยนแปลงน้อยที่สุด</span> จาก 44.5% ในหน้าต่างแรกเป็น 44.4% ในหน้าต่างนี้ ขณะที่รูปทรงอื่นลดลง 4&ndash;11 จุดเปอร์เซ็นต์ บ่งชี้ว่าผลตอบแทนของรูปทรงนี้ไม่ได้ขึ้นกับภาวะตลาดช่วงใดช่วงหนึ่งเป็นการเฉพาะ</p>
+
+    <p class="body rv"><span class="kw">ประการที่สาม &mdash; 5 &times; 2 มีผลตอบแทนลดลงมากที่สุด</span> จาก 45.1% เหลือ 33.7% หรือลดลง 11.4 จุดเปอร์เซ็นต์ และค่ามาตรวัดด้านความเสี่ยงเกือบทุกตัวใกล้เคียงกับ 4 &times; 3 ทั้งที่ถือหุ้นน้อยกว่า 2 ตัว</p>
+
+    <div class="callout warn rv">
+      <span class="lbl">รูปทรงตรงกลางไม่ได้แปลว่าปลอดภัยกว่า</span>
+      <p>ในหน้าต่างนี้ 5 &times; 2 ให้ค่า Ulcer Index ที่ 12.28 ขณะที่ 4 &times; 3 ให้ 12.30 ซึ่งแทบไม่ต่างกัน ทั้งที่ 5 &times; 2 กระจายในจำนวนกลุ่มมากกว่า การเลือกรูปแบบกึ่งกลางจึงไม่ได้รับประกันว่าจะได้คุณสมบัติที่ดีของทั้งสองด้าน</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════ 6. กฎที่เจอ ══════════════ -->
+<section class="dark">
+  <div class="narrow">
+    <div class="eyebrow rv">The Pattern</div>
+    <h2 class="head rv">กฎที่โผล่ออกมา:<br>จำนวนกลุ่ม สำคัญกว่า จำนวนหุ้นต่อกลุ่ม</h2>
+
+    <p class="lead rv">เมื่อเรียงผลตาม<span class="kw">จำนวนกลุ่มที่ถูกบังคับให้กระจาย</span> รูปแบบก็ปรากฏชัดเจน</p>
+
+    <div class="tablewrap rv">
+      <div class="tablescroll">
+        <table class="data">
+          <thead><tr>
+            <th>ระบบจัดกลุ่ม · ช่วงเวลา</th><th>10 กลุ่ม</th><th>5 กลุ่ม</th><th>4 กลุ่ม</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>ธีม · 2020&ndash;2026</td><td class="best">10.80</td><td>11.00</td><td>11.08</td></tr>
+            <tr><td>ธีม · 2022&ndash;2026</td><td class="best">10.28</td><td>12.28</td><td>12.30</td></tr>
+            <tr><td>อุตสาหกรรม · 2020&ndash;2026</td><td class="best">8.10</td><td>8.89</td><td>9.10</td></tr>
+            <tr><td>อุตสาหกรรม · 2022&ndash;2026</td><td class="best">7.87</td><td>8.48</td><td>9.07</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tblnote">ตัวเลขในตารางคือ Ulcer Index — ยิ่งต่ำยิ่งดี</div>
+    </div>
+
+    <p class="body rv" style="margin-top:20px">ทั้ง 4 ช่อง ค่าเรียงจากน้อยไปมากตามจำนวนกลุ่มที่ลดลง <span class="kw">ไม่มีข้อยกเว้นเลย</span> ทั้งที่แต่ละแถวถือหุ้นจำนวนใกล้เคียงกัน (10&ndash;12 ตัว) ตัวแปรที่ตัดสินจึงไม่ใช่ &ldquo;ถือกี่ตัว&rdquo; แต่คือ <span class="kw">&ldquo;ถูกกำหนดให้กระจายในกี่กลุ่ม&rdquo;</span></p>
+
+    <h3 class="sub rv">เหตุผลเชิงกลไก</h3>
+    <p class="body rv">คำอธิบายที่สอดคล้องกับข้อมูลมากที่สุดคือ<span class="kw">สหสัมพันธ์ของราคาภายในกลุ่มเดียวกัน</span> หุ้นในกลุ่มเดียวกันมีแนวโน้มเคลื่อนไหวไปในทิศทางเดียวกัน การถือหุ้น 3 ตัวจากกลุ่มเดียวจึงลดความเสี่ยงได้ไม่มากไปกว่าการถือตัวเดียวมากนัก เพราะเมื่อกลุ่มนั้นปรับตัวลง ทั้งสามตัวจะปรับตัวลงพร้อมกัน</p>
+
+    <p class="body rv">ในทางกลับกัน การกำหนดให้พอร์ตต้องกระจายครบ 10 กลุ่ม เท่ากับกำหนดให้พอร์ตรับความเสี่ยงจากปัจจัยขับเคลื่อนที่แตกต่างกัน 10 ปัจจัย เมื่อปัจจัยใดปัจจัยหนึ่งเป็นลบ ยังคงเหลืออีก 9 ปัจจัยที่ไม่สัมพันธ์กันโดยตรงทำหน้าที่ถ่วงดุล ผลคือมูลค่าพอร์ตกลับสู่จุดสูงสุดเดิมได้เร็วกว่า ซึ่งสะท้อนโดยตรงในค่า Ulcer Index</p>
+
+    <p class="pull rv">การนับจำนวนหุ้นในพอร์ต บอกได้แค่ว่าถือกี่ใบ<br>ไม่ได้บอกว่าเดิมพันกี่เรื่อง</p>
+  </div>
+</section>
+
+
+<!-- ══════════════ 7. 30 ปี + ข้อจำกัด ══════════════ -->
+<section class="light">
+  <div class="wrap">
+    <div class="eyebrow rv">Window 3 &nbsp;·&nbsp; 1996&ndash;2026</div>
+    <h2 class="head rv">ทดสอบย้อนหลัง 30 ปี<br>และข้อจำกัดที่ต้องอ่านประกอบ</h2>
+
+    <p class="lead rv">30.5 ปี ปรับพอร์ต 60 รอบ ผ่านฟองสบู่ดอตคอม วิกฤตการเงินปี 2008 และโควิด &mdash; ครอบคลุมสภาวะตลาดที่หลากหลายที่สุดในบรรดาสามหน้าต่าง</p>
+
+    <p class="scrollhint rv">← เลื่อนตารางแนวนอนเพื่อดูคอลัมน์ที่เหลือ →</p>
+    <div class="tablewrap rv">
+      <div class="tablescroll">
+        <table class="data">
+          <thead><tr>
+            <th>รูปทรง</th><th>ผลตอบแทน/ปี</th><th>Max DD</th><th>Avg DD</th>
+            <th>Ulcer</th><th>Sortino</th><th>ระยะฟื้นตัวนานสุด</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>ไม่ตั้งโควตา</td><td>+35.1%</td><td>&minus;52.4%</td><td>&minus;10.1%</td><td>15.14</td><td>1.59</td><td>1,263 วัน</td></tr>
+            <tr><td>ธีม 10 &times; 1</td><td>+33.3%</td><td>&minus;54.9%</td><td>&minus;10.5%</td><td>16.21</td><td>1.64</td><td>1,288 วัน</td></tr>
+            <tr><td>ธีม 5 &times; 2</td><td>+33.6%</td><td>&minus;58.1%</td><td class="bad">&minus;11.4%</td><td class="bad">18.24</td><td>1.61</td><td>1,602 วัน</td></tr>
+            <tr><td>ธีม 4 &times; 3</td><td>+32.6%</td><td class="bad">&minus;60.5%</td><td>&minus;9.1%</td><td>15.03</td><td>1.66</td><td class="bad">1,944 วัน</td></tr>
+            <tr class="hi"><td>อุตสาหกรรม 10 &times; 1</td><td>+30.4%</td><td class="best">&minus;50.3%</td><td class="best">&minus;7.2%</td><td class="best">11.30</td><td class="best">1.71</td><td class="best">872 วัน</td></tr>
+            <tr><td>อุตสาหกรรม 5 &times; 2</td><td>+32.1%</td><td>&minus;50.3%</td><td>&minus;8.8%</td><td>13.74</td><td>1.64</td><td>1,197 วัน</td></tr>
+            <tr><td>อุตสาหกรรม 4 &times; 3</td><td>+30.0%</td><td class="bad">&minus;60.6%</td><td>&minus;9.8%</td><td>15.57</td><td>1.55</td><td>1,554 วัน</td></tr>
+            <tr class="bench"><td>ดัชนี S&amp;P 500</td><td>+10.4%</td><td>&minus;55.2%</td><td>&minus;9.7%</td><td>15.07</td><td>0.87</td><td>2,403 วัน</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tblnote">ระยะฟื้นตัวนานสุด = จำนวนวันปฏิทินของรอบที่ใช้เวลากลับสู่จุดสูงสุดเดิมนานที่สุด</div>
+    </div>
+
+    <h3 class="sub rv">ผลที่ยืนยัน และผลที่ไม่ยืนยัน</h3>
+    <p class="body rv"><span class="kw">ระบบอุตสาหกรรมให้ผลยืนยันซ้ำ</span> &mdash; 10 &times; 1 ยังชนะทุกมาตรวัดความเสี่ยงเป็นครั้งที่สามจากสามหน้าต่าง และค่า Ulcer ยังเรียงตามจำนวนกลุ่มเป็นเส้นตรงเหมือนเดิม (11.30 &rarr; 13.74 &rarr; 15.57)</p>
+
+    <p class="body rv"><span class="kw">แต่ระบบธีมไม่ให้ผลยืนยัน</span> &mdash; ในหน้าต่าง 30 ปี รูปทรง 4 &times; 3 ให้ค่า Ulcer Index ที่ 15.03 ซึ่งต่ำกว่า 10 &times; 1 ที่ 16.21 รูปแบบที่พบในสองหน้าต่างแรกจึงไม่ปรากฏในหน้าต่างนี้</p>
+
+    <p class="body rv">ก่อนจะสรุปว่าหน้าต่างไหนน่าเชื่อกว่ากัน มีเรื่องที่ต้องพิจารณาประกอบ &mdash; ผลตอบแทนราว 30&ndash;35% ต่อปีติดต่อกัน 30 ปี ถือว่า<span class="kw">สูงกว่าที่งานวิจัยเรื่องโมเมนตัมเคยรายงานไว้พอสมควร</span> ซึ่งส่วนหนึ่งอธิบายได้ด้วยข้อจำกัดของชุดข้อมูลที่ใช้</p>
+
+    <div class="callout note rv">
+      <span class="lbl">หมายเหตุ &mdash; ข้อจำกัดของชุดข้อมูล</span>
+      <p><span class="kw">อคติจากการอยู่รอด (survivorship bias)</span> คือความคลาดเคลื่อนที่เกิดขึ้นเมื่อกลุ่มตัวอย่างของการทดสอบย้อนหลังประกอบด้วยเฉพาะบริษัทที่ยังคงอยู่ในดัชนี ณ วันที่ทดสอบ บริษัทที่ถูกถอดออกจากดัชนีระหว่างทาง ซึ่งโดยส่วนใหญ่ถูกถอดออกเพราะมูลค่าตลาดลดลงหรือผลประกอบการถดถอย จะไม่ปรากฏในกลุ่มตัวอย่างเลย ผลตอบแทนที่คำนวณได้จึงเป็นผลตอบแทนของบริษัทที่ประสบความสำเร็จเท่านั้น และสูงกว่าผลตอบแทนที่ผู้ลงทุนในอดีตจะทำได้จริง</p>
+      <p>ชุดข้อมูลที่ใช้ในการทดสอบนี้ได้<span class="kw">รวมบริษัทที่ถูกถอดออกจากดัชนีไว้ด้วยจำนวน 146 ราย</span> จึงลดความคลาดเคลื่อนดังกล่าวได้ในระดับหนึ่ง อย่างไรก็ตาม ข้อมูลส่วนนี้<span class="kw">ครอบคลุมถึงปี 2010 โดยประมาณ</span> ขณะที่ดัชนี S&amp;P 500 มีการเปลี่ยนแปลงองค์ประกอบราวปีละ 20 บริษัท กลุ่มตัวอย่างในช่วงหลังปี 2010 จึงยังคงมีอคติจากการอยู่รอดอยู่</p>
+      <p>ผลที่ตามมาคือ <span class="kw">ระดับผลตอบแทนในหน้าต่างที่ยาวมีแนวโน้มสูงกว่าที่ทำได้จริง</span> และความคลาดเคลื่อนนี้สะสมมากขึ้นตามความยาวของช่วงเวลา จึงควรตีความผลของหน้าต่าง 30 ปีในเชิงเปรียบเทียบระหว่างรูปทรง มากกว่าจะใช้เป็นระดับผลตอบแทนที่คาดหวังได้</p>
+    </div>
+
+    <p class="body rv">ด้วยเหตุนี้ ข้อมูลหน้าต่าง 30 ปีจึงมี<span class="kw">น้ำหนักน้อยกว่า</span>หน้าต่าง 2020 และ 2022 ซึ่งชุดข้อมูลใกล้เคียงความเป็นจริงมากกว่า ข้อขัดแย้งที่พบในฝั่งธีมจึงยังไม่ใช่หลักฐานที่หนักพอจะล้มข้อสรุปจากสองหน้าต่างแรก แต่ก็ไม่ควรมองข้าม &mdash; มันคือเหตุผลที่ข้อสรุปฝั่งธีมต้องถูกจัดว่า &ldquo;มั่นใจปานกลาง&rdquo; ไม่ใช่ &ldquo;มั่นใจสูง&rdquo;</p>
+
+    <div class="callout note rv">
+      <span class="lbl">ข้อควรทราบเพิ่มเติม</span>
+      <p>หน้าต่าง 2020 และ 2022 อยู่ภายใต้ข้อจำกัดเดียวกัน เพียงแต่ผลกระทบน้อยกว่าเนื่องจากช่วงเวลาสั้นกว่า โดยหลักการแล้วไม่มีการทดสอบย้อนหลังชุดใดที่ปลอดจากข้อจำกัดนี้ได้ทั้งหมด อย่างไรก็ตาม <span class="kw">การเปรียบเทียบระหว่างรูปทรงยังคงมีความหมาย</span> เนื่องจากทุกรูปทรงคำนวณบนชุดข้อมูลเดียวกันและได้รับผลกระทบในทิศทางเดียวกัน ส่วนระดับผลตอบแทนสัมบูรณ์ควรตีความอย่างระมัดระวัง</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════ 10. กระจายอุตสาหกรรม คุ้มไหม ══════════════ -->
+<section class="dark">
+  <div class="wrap">
+    <div class="eyebrow rv">The Verdict</div>
+    <h2 class="head rv">แล้วการกระจายอุตสาหกรรม<br>คุ้มกับที่เสียไปหรือเปล่า</h2>
+
+    <p class="lead rv">การกระจายมีต้นทุน ทุกครั้งที่กำหนดให้พอร์ตต้องคัดหุ้นจากกลุ่มที่ไม่ได้อยู่ในอันดับสูงสุด เท่ากับยอมรับผลตอบแทนที่ลดลง คำถามคือประโยชน์ด้านความเสี่ยงที่ได้รับคุ้มค่ากับต้นทุนนั้นหรือไม่ &mdash; และคำตอบเปลี่ยนไปตามช่วงเวลา</p>
+
+    <p class="scrollhint rv">← เลื่อนตารางแนวนอนเพื่อดูคอลัมน์ที่เหลือ →</p>
+    <div class="tablewrap rv">
+      <div class="tablescroll">
+        <table class="data">
+          <thead><tr>
+            <th>สิ่งที่วัด</th><th>30 ปี<br>1996&ndash;2026</th><th>6.5 ปี<br>2020&ndash;2026</th><th>4.5 ปี<br>2022&ndash;2026</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>ผลตอบแทนต่อปี<br><span style="font-size:.78em;opacity:.75">ไม่ตั้งโควตา &rarr; กระจาย 10 อุตฯ</span></td><td class="bad">35.1% &rarr; 30.4%</td><td class="bad">48.2% &rarr; 39.7%</td><td class="bad">39.9% &rarr; 34.4%</td></tr>
+            <tr><td>ช่องว่างผลตอบแทน<br><span style="font-size:.78em;opacity:.75">คิดเป็นต่อปีหลังทบต้น</span></td><td class="bad">3.6% / ปี</td><td class="bad">6.1% / ปี</td><td class="bad">4.1% / ปี</td></tr>
+            <tr><td>เงินปลายทางของฝั่งไม่กระจาย<br><span style="font-size:.78em;opacity:.75">มากกว่ากี่เท่า</span></td><td class="bad">2.9 เท่า</td><td class="bad">1.5 เท่า</td><td class="bad">1.2 เท่า</td></tr>
+            <tr><td>Max Drawdown</td><td>ตื้นขึ้น 2.1 จุด</td><td class="bad">ลึกลง 1.9 จุด</td><td class="best">ตื้นขึ้น 5.7 จุด</td></tr>
+            <tr><td>Calmar</td><td class="bad">&minus;10%</td><td class="bad">&minus;22%</td><td class="best">+3%</td></tr>
+            <tr class="hi"><td>Average Drawdown</td><td class="best">ตื้นขึ้น 2.9 จุด</td><td class="best">ตื้นขึ้น 1.5 จุด</td><td class="best">ตื้นขึ้น 2.3 จุด</td></tr>
+            <tr class="hi"><td>Ulcer Index</td><td class="best">&minus;25%</td><td class="best">&minus;17%</td><td class="best">&minus;24%</td></tr>
+            <tr class="hi"><td>Sortino</td><td class="best">+8%</td><td class="best">+8%</td><td class="best">+20%</td></tr>
+            <tr class="hi"><td>ระยะฟื้นตัวนานสุด</td><td class="best">&minus;31%</td><td class="best">&minus;24%</td><td class="best">&minus;24%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tblnote"><strong>วิธีอ่าน</strong> &mdash; แถวแรกแสดงค่าจริงของทั้งสองฝั่ง ส่วนแถวที่เหลือแสดง<strong>ส่วนต่าง</strong>เมื่อเปลี่ยนจาก &ldquo;ไม่ตั้งโควตา&rdquo; ไปเป็น &ldquo;กระจาย 10 อุตสาหกรรม&rdquo; ไม่ใช่ค่าสัมบูรณ์ เช่น Ulcer Index &minus;25% หมายถึงค่าลดลง 25% จากเดิม ไม่ใช่ค่าเท่ากับ &minus;25%</div>
+    </div>
+
+    <h3 class="sub rv">คำตอบขึ้นอยู่กับว่านิยาม &ldquo;ความเสี่ยง&rdquo; ว่าอะไร</h3>
+    <p class="body rv">ผลในตารางข้างต้นแยกออกเป็นสองกลุ่มชัดเจน และทั้งสองกลุ่มให้ข้อสรุปที่ต่างกัน</p>
+
+    <div class="verdict rv">
+      <div class="vcard no">
+        <div class="vh">ถ้าวัดด้วยจุดที่แย่ที่สุด</div>
+        <div class="vt">ระยะยาวแล้วแทบไม่ช่วย</div>
+        <p>ตลอด 30 ปี Max Drawdown ดีขึ้นเพียง 2.1 จุดเปอร์เซ็นต์ (จาก &minus;52.4% เป็น &minus;50.3%) ซึ่งถือว่าไม่มีนัยสำคัญ ส่วนค่า Calmar ซึ่งวัดผลตอบแทนต่อหนึ่งหน่วยของความเสียหายสูงสุด กลับ<span class="kw">ลดลง 10%</span></p>
+        <p>แต่ในหน้าต่างล่าสุด 2022&ndash;2026 ภาพกลับด้าน Max Drawdown ตื้นขึ้นถึง 5.7 จุด และ Calmar พลิกเป็นบวก</p>
+      </div>
+      <div class="vcard yes">
+        <div class="vh">ถ้าวัดด้วยความรู้สึกรายวัน</div>
+        <div class="vt">ช่วยมาตลอด ทุกช่วงเวลา</div>
+        <p>Average Drawdown ลดลงในทุกหน้าต่าง Ulcer Index ลดลง 17&ndash;25% ในทุกหน้าต่าง และระยะเวลาที่มูลค่าพอร์ตอยู่ต่ำกว่าจุดสูงสุดเดิมนานที่สุด สั้นลง 24&ndash;31% ในทุกหน้าต่าง</p>
+        <p>ที่น่าสนใจคือ<span class="kw">การปรับปรุงด้าน Ulcer ดีที่สุดในหน้าต่าง 30 ปี</span> ไม่ใช่หน้าต่างล่าสุด</p>
+      </div>
+    </div>
+
+    <h3 class="sub rv">ทำไม Max Drawdown ระยะยาวถึงไม่ดีขึ้น</h3>
+    <p class="body rv">คำตอบอยู่ในรายละเอียดของรอบที่ลึกที่สุด และมันอธิบายทุกอย่างได้ในบรรทัดเดียว</p>
+
+    <div class="tablewrap rv">
+      <div class="tablescroll">
+        <table class="data">
+          <thead><tr>
+            <th>วิกฤต</th><th>ไม่ตั้งโควตา</th><th>กระจาย 10 อุตฯ</th><th>ดัชนี S&amp;P 500</th>
+          </tr></thead>
+          <tbody>
+            <tr class="hi"><td>ดอตคอม 2000&ndash;2002</td><td class="bad">&minus;51.1%</td><td class="best">&minus;30.6%</td><td>&minus;47.4%</td></tr>
+            <tr><td>วิกฤตการเงิน 2008</td><td>&minus;52.4%</td><td>&minus;50.3%</td><td>&minus;55.2%</td></tr>
+            <tr><td>โควิด 2020</td><td>&minus;34.3%</td><td>&minus;36.7%</td><td>&minus;33.7%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tblnote">ความลึกของรอบ drawdown ในแต่ละวิกฤต วัดจากยอดสูงสุดก่อนหน้าถึงจุดต่ำสุด</div>
+    </div>
+
+    <p class="body rv" style="margin-top:20px"><span class="kw">วิกฤตดอตคอมเป็นภาวะฟองสบู่ที่จำกัดอยู่ในกลุ่มอุตสาหกรรมเดียว</span> ความเสียหายกระจุกตัวอยู่ที่หุ้นเทคโนโลยี พอร์ตที่กำหนดให้กระจายครบสิบอุตสาหกรรมจึงเสียหายเพียง &minus;30.6% ขณะที่พอร์ตที่ไม่กำหนดโควตาเสียหาย &minus;51.1% &mdash; <span class="kw">ต่างกัน 20 จุดเปอร์เซ็นต์</span> การกระจายให้ประโยชน์เต็มที่ในกรณีนี้</p>
+
+    <p class="body rv"><span class="kw">ในทางกลับกัน วิกฤตปี 2008 เป็นวิกฤตเชิงระบบ</span> ทุกอุตสาหกรรมปรับตัวลงพร้อมกัน การกระจายไปสิบกลุ่มจึงให้ประโยชน์จำกัด &mdash; &minus;52.4% เทียบกับ &minus;50.3% ต่างกันเพียง 2 จุดเปอร์เซ็นต์ ขณะที่ดัชนีเองปรับตัวลง &minus;55.2%</p>
+
+    <p class="body rv">เนื่องจากค่า Max Drawdown ตลอด 30 ปีของทั้งสองรูปแบบถูกกำหนดโดย<span class="kw">เหตุการณ์เดียวกันคือวิกฤตปี 2008</span> ค่าที่ได้จึงใกล้เคียงกัน ทั้งที่การกระจายให้ประโยชน์อย่างมากในวิกฤตอีกครั้งหนึ่ง กรณีนี้เป็นตัวอย่างที่ชัดเจนของข้อจำกัดในการสรุปผลจากมาตรวัดเพียงตัวเดียว</p>
+
+
+    <h3 class="sub rv">&ldquo;ราคาที่ต้องจ่าย&rdquo; หน้าตาเป็นอย่างไร</h3>
+    <p class="body rv">ตัวเลข &ldquo;เสียผลตอบแทน 13&ndash;18%&rdquo; ฟังดูไม่มาก จนกว่าจะเห็นว่ามันทำงานอย่างไรเมื่อเวลาผ่านไป &mdash; เพราะเงินลงทุนไม่ได้บวกกันไปเรื่อยๆ แต่<span class="kw">ทบต้น</span> ช่องว่างเล็กๆ ต่อปีจึงไม่ได้อยู่เท่าเดิม มันขยายตัวขึ้นทุกปี</p>
+
+    <p class="body rv">ลองดูตัวอย่างที่ไม่เกี่ยวกับงานนี้ก่อน เพื่อให้เห็นหลักการล้วนๆ &mdash; สมมติมีสองพอร์ต พอร์ตแรกได้ปีละ 12% อีกพอร์ตได้ปีละ 8% <span class="kw">ต่างกันแค่ 4 จุด</span> ทั้งคู่เริ่มที่เงินหนึ่งแสนบาทเท่ากัน</p>
+
+    <div class="tablewrap rv">
+      <div class="tablescroll">
+        <table class="data">
+          <thead><tr>
+            <th>ผ่านไป</th><th>พอร์ตที่ได้ 12% / ปี</th><th>พอร์ตที่ได้ 8% / ปี</th><th>ห่างกัน</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>5 ปี</td><td>176,000</td><td>147,000</td><td>1.2 เท่า</td></tr>
+            <tr><td>10 ปี</td><td>311,000</td><td>216,000</td><td>1.4 เท่า</td></tr>
+            <tr><td>20 ปี</td><td>965,000</td><td>466,000</td><td>2.1 เท่า</td></tr>
+            <tr class="hi"><td>30 ปี</td><td>2,996,000</td><td>1,006,000</td><td>3.0 เท่า</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tblnote">ตัวอย่างสมมติเพื่ออธิบายหลักการทบต้น ไม่ใช่ผลจากงานทดสอบนี้ · หน่วยเป็นบาท</div>
+    </div>
+
+    <p class="body rv" style="margin-top:20px">ปีที่ 5 ต่างกันแค่ราวสองหมื่นบาท พอถึงปีที่ 30 กลับต่างกันเกือบสองล้าน &mdash; <span class="kw">ช่องว่างต่อปีเท่าเดิมตลอด แต่ผลลัพธ์สะสมโตขึ้นเรื่อยๆ</span> นี่คือเหตุผลที่ส่วนต่างเล็กน้อยในผลตอบแทนรายปีถึงสำคัญมากสำหรับคนที่ตั้งใจถือยาว</p>
+
+    <p class="body rv">กลับมาที่งานทดสอบนี้ ช่องว่างระหว่างพอร์ตที่ไม่กระจายกับพอร์ตที่กระจายสิบอุตสาหกรรม อยู่ที่ราว <span class="kw">3.6&ndash;6.1% ต่อปี</span> ผลสะสมจึงเป็นดังนี้ &mdash; ในหน้าต่างสั้น 4.5 ปี ฝั่งไม่กระจายมีเงินมากกว่าราว 1.2 เท่า ซึ่งยังพอรับได้ แต่ถ้ายืดเป็น 30 ปี ตัวเลขจะขยายเป็น <span class="kw">เกือบ 3 เท่า</span></p>
+
+    <div class="callout note rv">
+      <span class="lbl">อย่าเอาตัวเลข 30 ปีไปตั้งความคาดหวัง</span>
+      <p>ผลตอบแทนระดับ 30% ต่อปีติดต่อกันสามสิบปีที่เห็นในตารางหัวข้อก่อนหน้า <span class="kw">ไม่ใช่ตัวเลขที่ควรคาดหวังในชีวิตจริง</span> ทั้งจากข้อจำกัดของชุดข้อมูลที่ระบุไว้ และจากการที่ยังไม่ได้หักต้นทุนการซื้อขายกับภาษีเงินปันผล</p>
+      <p>สิ่งที่ตัวเลข 30 ปีใช้บอกได้จริงมีอย่างเดียว คือ<span class="kw">รูปร่างของการทบต้น</span> &mdash; ยิ่งถือนาน ช่องว่างเล็กๆ ยิ่งกลายเป็นเรื่องใหญ่ ไม่ว่าระดับผลตอบแทนจริงจะเป็นเท่าไรก็ตาม</p>
+    </div>
+
+    <div class="callout find rv">
+      <span class="lbl">ข้อสรุปของหัวข้อนี้</span>
+      <p><span class="kw">การกระจายตามอุตสาหกรรมลดความเสียหายจากภาวะฟองสบู่เฉพาะกลุ่มได้อย่างมีนัยสำคัญ แต่ลดความเสียหายจากวิกฤตเชิงระบบได้จำกัด</span> เนื่องจากในภาวะที่ตลาดปรับตัวลงพร้อมกันทั้งตลาด สหสัมพันธ์ระหว่างอุตสาหกรรมจะเพิ่มสูงขึ้น ประโยชน์ของการกระจายจึงลดลง</p>
+      <p>ราคาที่ต้องจ่ายคือผลตอบแทนที่ห่างกันราว 3.6&ndash;6.1% ต่อปี ซึ่งถ้าถือสั้นๆ ไม่กี่ปีก็แทบไม่รู้สึก แต่ถ้าตั้งใจถือยี่สิบสามสิบปี ช่องว่างนี้จะทบต้นจนเงินปลายทางต่างกันได้ถึงราวสามเท่า &mdash; คุ้มหรือไม่คุ้มจึงขึ้นอยู่กับว่า<span class="kw">ตั้งใจถือนานแค่ไหน และรับความผันผวนระหว่างทางได้มากแค่ไหน</span> ไม่ใช่คำตอบที่มีเพียงหนึ่งเดียวสำหรับทุกคน</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════ 11. สรุป ══════════════ -->
+<section class="light">
+  <div class="narrow">
+    <div class="eyebrow rv">Conclusions</div>
+    <h2 class="head rv">สรุปสิ่งที่วัดได้ และสิ่งที่ยังวัดไม่ได้</h2>
+
+    <h3 class="sub rv">ห้าข้อที่ข้อมูลสนับสนุน</h3>
+    <ul class="body rv">
+      <li><span class="kw">จำนวนกลุ่มที่ถูกบังคับให้กระจาย มีผลมากกว่าจำนวนหุ้นในพอร์ต</span> &mdash; ค่า Ulcer Index เรียงตามจำนวนกลุ่มครบทั้ง 4 ช่องในสองหน้าต่างที่ข้อมูลน่าเชื่อถือที่สุด</li>
+      <li><span class="kw">รูปทรง 10 &times; 1 ให้ผลดีกว่า 4 &times; 3 และ 5 &times; 2</span> ในหน้าต่าง 2020 และ 2022 ทั้งสองระบบจัดกลุ่ม ทั้งด้านผลตอบแทนและด้านความเสี่ยง</li>
+      <li><span class="kw">การกระจายตามอุตสาหกรรมให้โปรไฟล์ขาลงที่ดีที่สุดอย่างสม่ำเสมอ</span> &mdash; Ulcer Index และ Average Drawdown ดีขึ้นครบทั้งสามหน้าต่าง นี่คือข้อสรุปที่แข็งแรงที่สุดในงานนี้</li>
+      <li><span class="kw">แต่การกระจายอุตสาหกรรมช่วยเฉพาะกับฟองสบู่รายกลุ่ม ไม่ช่วยกับวิกฤตทั้งระบบ</span> &mdash; ในดอตคอมช่วยได้ถึง 20 จุด ในปี 2008 ช่วยได้แค่ 2 จุด ทำให้ Max Drawdown ตลอด 30 ปีดูเหมือนไม่ต่างกัน ทั้งที่จริงแล้วต่างกันมากในบางวิกฤต</li>
+      <li><span class="kw">ราคาของการกระจายคือผลตอบแทน และมันแพงขึ้นตามเวลาที่ถือ</span> &mdash; ช่องว่างอยู่ที่ราว 3.6&ndash;6.1% ต่อปี ซึ่งถือ 5 ปีจะเห็นเงินต่างกันราว 1.2 เท่า แต่ถือ 30 ปีจะขยายเป็นราว 3 เท่า เพราะการทบต้น ผู้ที่ตั้งใจถือยาวและรับความผันผวนได้สูง อาจไม่คุ้มที่จะจ่ายราคานี้</li>
+      <li><span class="kw">รูปทรงตรงกลาง 5 &times; 2 ไม่เสถียรที่สุด</span> &mdash; ผลตอบแทนหล่นจาก 45.1% เหลือ 33.7% เมื่อเปลี่ยนจุดเริ่มนับ ขณะที่ 10 &times; 1 แทบไม่ขยับเลย</li>
+      <li><span class="kw">Max Drawdown เพียงตัวเดียวจัดอันดับผิด</span> &mdash; ในหน้าต่างแรก Max Drawdown บอกว่าการไม่ตั้งโควตาปลอดภัยที่สุด แต่ Average Drawdown และ Ulcer Index บอกตรงกันข้าม</li>
+    </ul>
+
+    <h3 class="sub rv">สี่ข้อที่ยังตอบไม่ได้</h3>
+    <ul class="body rv">
+      <li><span class="kw">ยังไม่ได้หักต้นทุนการซื้อขายและภาษีเงินปันผล</span> รูปทรงที่เปลี่ยนหุ้นบ่อยกว่าจะเสียเปรียบมากขึ้นเมื่อคิดค่าธรรมเนียม ส่วนต่างราคา และภาษีหัก ณ ที่จ่าย 15% ซึ่งอาจเปลี่ยนลำดับได้</li>
+      <li><span class="kw">ชุดข้อมูลมีข้อจำกัดตามที่ระบุไว้ในหัวข้อก่อนหน้า</span> ตัวเลขผลตอบแทนสัมบูรณ์จึงควรอ่านเป็นแนวโน้มเชิงเปรียบเทียบ ไม่ใช่ระดับที่คาดหวังได้ ส่วนการเทียบระหว่างรูปทรงยังใช้ได้เพราะอยู่บนข้อมูลชุดเดียวกัน</li>
+      <li><span class="kw">สองหน้าต่างแรกซ้อนทับกัน</span> จึงไม่ใช่หลักฐานอิสระสองชุด ต่างกันเพียงจุดเริ่มนับ</li>
+      <li><span class="kw">ผลนี้ผูกกับกลยุทธ์โมเมนตัมแบบเฉพาะเจาะจง</span> ยังไม่ได้ทดสอบว่ากฎเรื่องจำนวนกลุ่มจะใช้ได้กับวิธีคัดหุ้นแบบอื่นหรือไม่</li>
+      <li><span class="kw">ยังตอบไม่ได้ว่าความได้เปรียบในหน้าต่างล่าสุดจะอยู่ต่อไปหรือไม่</span> การที่ Max Drawdown และ Calmar ดีขึ้นเฉพาะในช่วง 2022&ndash;2026 อาจสะท้อนลักษณะเฉพาะของช่วงนั้น มากกว่าจะเป็นการเปลี่ยนแปลงถาวรของตลาด</li>
+    </ul>
+
+    <div class="callout note rv">
+      <span class="lbl">สิ่งที่นำไปใช้ได้จริง</span>
+      <p>ครั้งหน้าที่ประเมินพอร์ตของตัวเอง ลองอย่าเพิ่งนับว่ามีหุ้นกี่ตัว แต่ให้นับว่า<span class="kw">หุ้นเหล่านั้นอยู่ในกี่กลุ่มธุรกิจที่ไม่เกี่ยวข้องกัน</span> &mdash; พอร์ต 15 ตัวที่กระจุกใน 3 อุตสาหกรรม อาจเปราะบางกว่าพอร์ต 10 ตัวที่กระจายครบ 10 กลุ่ม</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════ CLOSING ══════════════ -->
+<section class="closing">
+  <div class="narrow">
+    <div class="eyebrow rv" style="color:var(--gold);margin-bottom:22px">สรุปให้จำ</div>
+    <p class="q rv">การกระจายความเสี่ยงที่ได้ผล<br>ไม่ได้วัดที่<em>จำนวนหุ้น</em><br>แต่วัดที่<em>จำนวนเรื่องที่เดิมพัน</em></p>
+
+    <a class="cta rv" href="https://jptrustlearning.com" target="_blank" rel="noopener">
+      <span class="sub">Subscribe at</span>
+      <span class="url">jptrustlearning.com</span>
+      <span class="tip">ทดสอบกลยุทธ์ด้วยตัวเองได้ในห้องทดลอง พร้อม trade log เต็มทุกรอบ</span>
+    </a>
+
+    <p class="disclaimer rv">การลงทุนมีความเสี่ยง &middot; เนื้อหาเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน &middot; ผลในอดีตไม่ได้การันตีผลในอนาคต<br>
+    ผลทดสอบคำนวณจากข้อมูลราคาและปริมาณการซื้อขายรายวันของหุ้นในดัชนี S&amp;P 500 ระหว่าง 2 ม.ค. 1996 ถึง 17 ก.ค. 2026 &middot; ราคาปรับเงินปันผลแล้ว (total return) &middot; ยังไม่หักค่าธรรมเนียม ส่วนต่างราคาซื้อขาย และภาษีหัก ณ ที่จ่ายเงินปันผล &middot; โปรดอ่านหมายเหตุข้อจำกัดของชุดข้อมูลในบทความประกอบ<br>
+    เรียบเรียงโดย JP Trust Learning</p>
+  </div>
+</section>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach((el)=>{
+  const sib=[...el.parentElement.children].filter(c=>c.classList.contains('rv'));
+  el.style.transitionDelay=(Math.min(sib.indexOf(el),5)*55)+'ms';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
