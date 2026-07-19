@@ -110,6 +110,12 @@ const RESEARCH = [
 
   /* ---------- กลยุทธ์ Momentum ---------- */
   {
+    cat: "momentum", type: "own", status: "active",
+    title: "กระจายพอร์ตแบบไหนดีกว่ากัน — ผลทดสอบ 7 รูปทรง 3 ช่วงเวลา",
+    desc: "ถือหุ้น 10 ตัวเท่ากัน แต่กระจายคนละรูปทรง (10×1 · 5×2 · 4×3) ผลต่างกันแค่ไหน — ทดสอบบนกลยุทธ์โมเมนตัมชุดเดียวกัน ทั้งระบบ 11 อุตสาหกรรมและ 28 ธีม วัดด้วย Average Drawdown · Ulcer Index · Sortino ไม่ใช่แค่ Max Drawdown พร้อมหมายเหตุข้อจำกัดของชุดข้อมูล",
+    assets: ["S&P 500"], href: "https://public.jptrustlearning.com/diversification-shape.html"
+  },
+  {
     cat: "momentum", type: "article", status: "active",
     title: "หุ้น Momentum คืออะไร? — พื้นฐานสำหรับมือใหม่",
     desc: "อธิบายแนวคิด 'ของที่กำลังแรง มักจะแรงต่อ' — ทำไม Momentum ถึงเกิด วัดจากราคาและปริมาณซื้อขายอย่างไร พร้อมงานวิจัยรองรับ (Jegadeesh & Titman 1993) และตัวอย่างเปรียบเทียบ ย่อยให้มือใหม่เข้าใจง่าย",
