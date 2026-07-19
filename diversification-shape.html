@@ -127,7 +127,7 @@ ul.body li{margin-bottom:8px}
 .tablewrap{margin:22px 0 8px;border:1px solid var(--line-light);border-radius:14px;overflow:hidden}
 .dark .tablewrap{border-color:var(--line-dark)}
 .tablescroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-table.data{border-collapse:collapse;width:100%;min-width:640px;font-size:.88rem;background:#fff}
+table.data{border-collapse:collapse;width:100%;min-width:760px;font-size:.88rem;background:#fff}
 .dark table.data{background:rgba(0,0,0,.24)}
 table.data th{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;
   font-weight:600;color:var(--gold-deep);text-align:right;padding:11px 10px;white-space:nowrap;
@@ -780,20 +780,22 @@ td.bad{color:var(--loss);font-weight:600}
       <div class="tablescroll">
         <table class="data">
           <thead><tr>
-            <th>สิ่งที่วัด</th><th>30 ปี<br>1996&ndash;2026</th><th>6.5 ปี<br>2020&ndash;2026</th><th>4.5 ปี<br>2022&ndash;2026</th>
+            <th>สิ่งที่วัด<br><span style="font-size:.82em;opacity:.72;text-transform:none;letter-spacing:0">ไม่ตั้งโควตา &rarr; กระจาย 10 อุตฯ</span></th><th>30 ปี<br>1996&ndash;2026</th><th>6.5 ปี<br>2020&ndash;2026</th><th>4.5 ปี<br>2022&ndash;2026</th>
           </tr></thead>
           <tbody>
-            <tr><td>ผลตอบแทนต่อปี<br><span style="font-size:.78em;opacity:.75">ไม่ตั้งโควตา &rarr; กระจาย 10 อุตฯ</span></td><td class="bad">35.1% &rarr; 30.4%</td><td class="bad">48.2% &rarr; 39.7%</td><td class="bad">39.9% &rarr; 34.4%</td></tr>
+            <tr><td>ผลตอบแทนต่อปี</td><td class="bad">35.1% &rarr; 30.4%</td><td class="bad">48.2% &rarr; 39.7%</td><td class="bad">39.9% &rarr; 34.4%</td></tr>
             <tr><td>ช่องว่างผลตอบแทน<br><span style="font-size:.78em;opacity:.75">คิดเป็นต่อปีหลังทบต้น</span></td><td class="bad">3.6% / ปี</td><td class="bad">6.1% / ปี</td><td class="bad">4.1% / ปี</td></tr>
             <tr><td>เงินปลายทางของฝั่งไม่กระจาย<br><span style="font-size:.78em;opacity:.75">มากกว่ากี่เท่า</span></td><td class="bad">2.9 เท่า</td><td class="bad">1.5 เท่า</td><td class="bad">1.2 เท่า</td></tr>
-            <tr class="hi"><td>Average Drawdown</td><td class="best">ตื้นขึ้น 2.9 จุด</td><td class="best">ตื้นขึ้น 1.5 จุด</td><td class="best">ตื้นขึ้น 2.3 จุด</td></tr>
-            <tr class="hi"><td>Ulcer Index</td><td class="best">&minus;25%</td><td class="best">&minus;17%</td><td class="best">&minus;24%</td></tr>
-            <tr class="hi"><td>Sortino</td><td class="best">+8%</td><td class="best">+8%</td><td class="best">+20%</td></tr>
-            <tr class="hi"><td>ระยะฟื้นตัวนานสุด</td><td class="best">&minus;31%</td><td class="best">&minus;24%</td><td class="best">&minus;24%</td></tr>
+            <tr><td>Max Drawdown<br><span style="font-size:.78em;opacity:.75">วัดจากจุดเดียว</span></td><td>&minus;52.4% &rarr; &minus;50.3%</td><td class="bad">&minus;34.8% &rarr; &minus;36.7%</td><td class="best">&minus;34.8% &rarr; &minus;29.1%</td></tr>
+            <tr><td>Calmar<br><span style="font-size:.78em;opacity:.75">อิงจาก Max Drawdown</span></td><td class="bad">0.67 &rarr; 0.60</td><td class="bad">1.39 &rarr; 1.08</td><td class="best">1.15 &rarr; 1.18</td></tr>
+            <tr class="hi"><td>Average Drawdown</td><td class="best">&minus;10.1% &rarr; &minus;7.2%</td><td class="best">&minus;7.1% &rarr; &minus;5.6%</td><td class="best">&minus;7.8% &rarr; &minus;5.5%</td></tr>
+            <tr class="hi"><td>Ulcer Index</td><td class="best">15.14 &rarr; 11.30</td><td class="best">9.75 &rarr; 8.10</td><td class="best">10.40 &rarr; 7.87</td></tr>
+            <tr class="hi"><td>Sortino</td><td class="best">1.59 &rarr; 1.71</td><td class="best">1.83 &rarr; 1.98</td><td class="best">1.63 &rarr; 1.96</td></tr>
+            <tr class="hi"><td>ระยะฟื้นตัวนานสุด</td><td class="best">1,263 &rarr; 872 วัน</td><td class="best">554 &rarr; 423 วัน</td><td class="best">554 &rarr; 423 วัน</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="tblnote"><strong>วิธีอ่าน</strong> &mdash; แถวแรกแสดงค่าจริงของทั้งสองฝั่ง ส่วนแถวที่เหลือแสดง<strong>ส่วนต่าง</strong>เมื่อเปลี่ยนจาก &ldquo;ไม่ตั้งโควตา&rdquo; ไปเป็น &ldquo;กระจาย 10 อุตสาหกรรม&rdquo; ไม่ใช่ค่าสัมบูรณ์ เช่น Ulcer Index &minus;25% หมายถึงค่าลดลง 25% จากเดิม ไม่ใช่ค่าเท่ากับ &minus;25% &middot; แถวที่ลงท้ายด้วย &ldquo;จุด&rdquo; คือผลต่างโดยตรง ส่วนแถวที่เป็น % คือค่าที่เปลี่ยนไปกี่เปอร์เซ็นต์จากเดิม<br><strong>Max Drawdown และ Calmar ไม่อยู่ในตารางนี้</strong> เพราะทั้งคู่วัดจากเหตุการณ์เพียงจุดเดียว ค่าจึงขึ้นกับว่าวิกฤตใดบังเอิญลึกที่สุดในหน้าต่างนั้น &mdash; แยกไปอธิบายในหัวข้อถัดไป</div>
+      <div class="tblnote"><strong>วิธีอ่าน</strong> &mdash; ทุกช่องแสดง<strong>ค่าจริงทั้งสองฝั่ง</strong> ตัวเลขซ้ายคือพอร์ตที่ไม่กำหนดโควตา ตัวเลขขวาคือพอร์ตที่กระจายครบ 10 อุตสาหกรรม<br>แถวที่เน้นสีคือมาตรวัดที่ดีขึ้น<strong>ทุกหน้าต่าง</strong> ส่วน Max Drawdown และ Calmar ไม่เน้นเพราะวัดจากเหตุการณ์เพียงจุดเดียว ค่าจึงขึ้นกับว่าวิกฤตใดบังเอิญลึกที่สุดในหน้าต่างนั้น &mdash; ดูรายละเอียดในหัวข้อถัดไป</div>
     </div>
 
     <h3 class="sub rv">คำตอบขึ้นอยู่กับว่านิยาม &ldquo;ความเสี่ยง&rdquo; ว่าอะไร</h3>
