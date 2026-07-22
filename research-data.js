@@ -123,6 +123,12 @@ const RESEARCH = [
   },
   {
     cat: "momentum", type: "article", status: "active",
+    title: "ทำไมหุ้นบางตัวขึ้นต่อเนื่องหลายเดือน?",
+    desc: "ข่าวดีชิ้นเดียวไม่ได้ถูกรับรู้จบในวันเดียว — เจาะกลไกที่ทำให้ราคาไต่ขึ้นเป็นขั้นบันไดนานหลายเดือน ทั้งการไหลต่อของราคาหลังประกาศงบ (PEAD) เงินสถาบันที่ทยอยสะสม และการปรับประมาณการของนักวิเคราะห์ พร้อมสัญญาณว่าแรงส่งกำลังหมด อ้างอิง Ball & Brown (1968), Bernard & Thomas (1989), Jegadeesh & Titman (1993)",
+    assets: ["S&P 500"], href: "https://public.jptrustlearning.com/why-stocks-rise-for-months.html"
+  },
+  {
+    cat: "momentum", type: "article", status: "active",
     title: "หุ้นแบบไหนเรียกว่า Momentum? — เกณฑ์คัดหุ้นแรง",
     desc: "เช็กลิสต์คุณสมบัติหุ้น Momentum 4 ข้อ — แข็งแกร่งกว่าตลาด · ขาขึ้นชัด · Volume หนุน · แรงส่งต่อเนื่อง พร้อมแยกให้เห็นว่าแบบไหน 'ไม่ใช่' Momentum (เด้งวันเดียว · หุ้นร่วง · หุ้นกระแสที่ราคาไม่ยืนยัน)",
     assets: ["S&P 500"], href: "https://public.jptrustlearning.com/momentum-stock-criteria.html"

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ทำไมหุ้นบางตัวขึ้นต่อเนื่องหลายเดือน? | JP Trust Learning</title>
+<meta name="description" content="หุ้นที่ขึ้นต่อเนื่องหลายเดือนไม่ได้ขึ้นเพราะโชค — อธิบายกลไก 3 ชั้นที่ทำให้ข่าวดีชิ้นเดียวใช้เวลาหลายเดือนกว่าจะซึมเข้าราคาครบ พร้อมสัญญาณว่าแรงส่งกำลังหมด อ้างอิงงานวิจัย PEAD และ Jegadeesh & Titman">
+<link rel="canonical" href="https://public.jptrustlearning.com/why-stocks-rise-for-months.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="JP Trust Learning">
+<meta property="og:title" content="ทำไมหุ้นบางตัวขึ้นต่อเนื่องหลายเดือน?">
+<meta property="og:description" content="ข่าวจบใน 1 วัน แต่ราคายังเดินต่ออีกหลายเดือน — กลไกเบื้องหลังแนวโน้มยาว และจุดที่มันหมดแรง">
+<meta property="og:image" content="https://public.jptrustlearning.com/og-image.png">
+<meta property="og:url" content="https://public.jptrustlearning.com/why-stocks-rise-for-months.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Cinzel:wght@500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maroon-deep:#1a0a0e;
+  --maroon:#2d1018;
+  --maroon-soft:#3a1620;
+  --cream:#FAF6ED;
+  --cream-2:#f3ecdc;
+  --gold:#D4AF37;
+  --gold-bright:#e7c659;
+  --gold-deep:#a8842a;
+  --price:#C75B49;          /* ราคา · อารมณ์  */
+  --price-soft:#e08a78;
+  --ink:#241016;
+  --ink-soft:#5a4640;
+  --on-dark:#f1e6d3;
+  --on-dark-soft:#c9b69b;
+  --line-dark:rgba(212,175,55,.22);
+  --line-light:rgba(45,16,24,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Anuphan',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.eyebrow{
+  font-family:'Cinzel',serif;
+  text-transform:uppercase;
+  letter-spacing:.34em;
+  font-size:.72rem;
+  font-weight:600;
+}
+.num{font-family:'DM Serif Display',serif;font-weight:400;line-height:.92;letter-spacing:-.01em}
+.serif{font-family:'DM Serif Display',serif}
+section{padding:clamp(64px,9vw,128px) clamp(22px,6vw,80px)}
+.wrap{max-width:980px;margin:0 auto}
+.narrow{max-width:760px;margin:0 auto}
+
+/* ---------- dual marker (signature) ---------- */
+.tag{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-family:'Cinzel',serif;font-size:.6rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  padding:.32em .7em;border-radius:999px;white-space:nowrap;
+  vertical-align:middle;
+}
+.tag::before{content:"";width:.5em;height:.5em;border-radius:50%}
+.tag.price{color:var(--price);background:rgba(199,91,73,.1);border:1px solid rgba(199,91,73,.35)}
+.tag.price::before{background:var(--price)}
+.tag.value{color:var(--gold-deep);background:rgba(212,175,55,.12);border:1px solid rgba(168,132,42,.4)}
+.tag.value::before{background:var(--gold)}
+.dark .tag.price{color:var(--price-soft);background:rgba(199,91,73,.16);border-color:rgba(224,138,120,.4)}
+.dark .tag.value{color:var(--gold-bright);background:rgba(212,175,55,.14);border-color:var(--line-dark)}
+
+/* ---------- brand bar ---------- */
+.brandbar{display:flex;align-items:center;gap:14px;margin-bottom:clamp(34px,6vw,60px)}
+.owl{width:48px;height:48px;flex:0 0 auto;object-fit:contain;border-radius:12px;filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}
+.brandbar .wordmark{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.16em;
+  font-size:1.02rem;color:var(--gold);line-height:1.1}
+.brandbar .wordmark span{display:block;font-size:.58rem;letter-spacing:.42em;color:var(--on-dark-soft);font-weight:500}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:
+    radial-gradient(120% 90% at 88% 4%, rgba(212,175,55,.16), transparent 46%),
+    radial-gradient(90% 70% at 0% 100%, rgba(199,91,73,.14), transparent 50%),
+    linear-gradient(160deg,var(--maroon) 0%, var(--maroon-deep) 100%);
+  color:var(--on-dark);position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line-dark);
+}
+.hero .eyebrow{color:var(--gold);margin-bottom:26px}
+.hero-paradox{
+  display:flex;align-items:stretch;gap:0;margin:6px 0 34px;
+  border:1px solid var(--line-dark);border-radius:16px;overflow:hidden;
+  background:rgba(0,0,0,.18);
+}
+.hero-paradox .cell{flex:1;padding:clamp(20px,4vw,34px) clamp(18px,3.5vw,30px)}
+.hero-paradox .cell+.cell{border-left:1px solid var(--line-dark)}
+.hero-paradox .lbl{font-family:'Anuphan';font-size:.82rem;color:var(--on-dark-soft);
+  display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.hero-paradox .big{font-size:clamp(2.9rem,11vw,4.6rem)}
+.hero-paradox .cell.value .big{color:var(--gold-bright)}
+.hero-paradox .cell.price .big{color:var(--price-soft)}
+.hero-paradox .sub{font-size:.82rem;color:var(--on-dark-soft);margin-top:8px}
+.hero h1{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(2rem,6vw,3.35rem);line-height:1.12;
+  letter-spacing:-.01em;margin-bottom:22px;color:#fff;
+}
+.hero h1 em{font-style:italic;color:var(--gold-bright)}
+.hero .lens{
+  font-size:clamp(1.05rem,2.6vw,1.4rem);color:var(--on-dark);
+  border-left:2px solid var(--gold);padding-left:18px;margin-bottom:30px;
+  max-width:680px;
+}
+.hero .lens b{color:var(--gold-bright);font-weight:600}
+.hero .meta{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--on-dark-soft);line-height:2}
+
+/* ---------- section chrome ---------- */
+.dark{background:linear-gradient(170deg,var(--maroon) 0%,var(--maroon-deep) 100%);color:var(--on-dark)}
+.dark .eyebrow{color:var(--gold)}
+.light .eyebrow{color:var(--gold-deep)}
+.act-no{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--gold-deep);
+  letter-spacing:.05em;margin-bottom:6px;display:block}
+.dark .act-no{color:var(--gold)}
+h2.head{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.7rem,4.8vw,2.7rem);line-height:1.15;
+  margin:14px 0 26px;letter-spacing:-.01em;
+}
+.light h2.head{color:var(--maroon)}
+.dark h2.head{color:#fff}
+.lead{font-size:clamp(1.05rem,2.2vw,1.2rem);margin-bottom:14px}
+.light .lead{color:var(--ink)}
+.dark .lead{color:var(--on-dark)}
+p.body{margin-bottom:16px;font-size:1.02rem}
+.light p.body{color:var(--ink-soft)}
+.dark p.body{color:var(--on-dark-soft)}
+.kw{color:var(--maroon);font-weight:600}
+.dark .kw{color:var(--gold-bright)}
+
+/* section figure */
+.figure{margin:6px 0 30px;border-radius:18px;overflow:hidden;border:1px solid var(--line-dark);box-shadow:0 26px 64px -34px rgba(0,0,0,.75);position:relative}
+.figure img{display:block;width:100%;height:auto}
+.figure figcaption{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-soft);padding:11px 16px;background:rgba(0,0,0,.34);border-top:1px solid var(--line-dark);display:flex;align-items:center;gap:8px}
+.figure figcaption::before{content:"";width:.5em;height:.5em;border-radius:50%;background:var(--gold);flex:0 0 auto}
+.light .figure figcaption{color:var(--ink-soft);background:rgba(45,16,24,.05);border-top-color:var(--line-light)}
+/* pull line */
+.pull{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3.4vw,1.9rem);
+  line-height:1.3;margin:30px 0;padding:0 0 0 22px;border-left:3px solid var(--gold);
+}
+.light .pull{color:var(--maroon)}
+.dark .pull{color:#fff}
+.pull em{font-style:italic;color:var(--gold-deep)}
+.dark .pull em{color:var(--gold-bright)}
+
+/* analogy card */
+.analogy{
+  background:var(--cream-2);border:1px solid var(--line-light);border-radius:18px;
+  padding:clamp(24px,4vw,38px);margin:28px 0;position:relative;
+}
+.analogy::before{content:"\201C";font-family:'DM Serif Display',serif;
+  position:absolute;top:-.1em;left:.28em;font-size:4.5rem;color:var(--gold);opacity:.5;line-height:1}
+.analogy p{font-size:1.08rem;color:var(--ink);position:relative}
+.analogy .pv{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
+/* stat grid */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:30px 0 8px}
+.stat{
+  border:1px solid var(--line-dark);border-radius:14px;padding:22px 20px;
+  background:rgba(0,0,0,.16);position:relative;overflow:hidden;
+}
+.light .stat{background:#fff;border-color:var(--line-light);box-shadow:0 8px 24px -18px rgba(45,16,24,.4)}
+.stat .stat-num{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,5vw,2.5rem);
+  line-height:1;color:var(--gold)}
+.light .stat .stat-num{color:var(--gold-deep)}
+.stat .stat-lbl{font-size:.9rem;margin-top:10px}
+.dark .stat .stat-lbl{color:var(--on-dark-soft)}
+.light .stat .stat-lbl{color:var(--ink-soft)}
+.stat .src{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-deep);margin-top:12px;display:block;opacity:.8}
+.dark .stat .src{color:var(--on-dark-soft)}
+
+/* two-trap split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
+.trap{border:1px solid rgba(199,91,73,.34);border-radius:14px;padding:22px;background:rgba(199,91,73,.07)}
+.dark .trap{background:rgba(199,91,73,.12)}
+.trap .t{font-weight:600;color:var(--price);margin-bottom:6px;font-size:1.05rem}
+.dark .trap .t{color:var(--price-soft)}
+.trap p{font-size:.96rem}
+.light .trap p{color:var(--ink-soft)}
+.dark .trap p{color:var(--on-dark-soft)}
+.system{
+  border:1px solid var(--line-dark);border-left:3px solid var(--gold);
+  border-radius:14px;padding:24px;margin-top:20px;background:rgba(212,175,55,.06)
+}
+.dark .system{background:rgba(212,175,55,.08)}
+.system .t{font-family:'Cinzel',serif;letter-spacing:.16em;text-transform:uppercase;
+  font-size:.7rem;color:var(--gold-deep);margin-bottom:10px}
+.dark .system .t{color:var(--gold-bright)}
+
+/* paradox panel (act 2) */
+.paradox2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.pcard{border-radius:16px;padding:24px}
+.pcard.val{background:rgba(212,175,55,.1);border:1px solid rgba(168,132,42,.4)}
+.pcard.mood{background:rgba(199,91,73,.09);border:1px solid rgba(199,91,73,.35)}
+.pcard .pc-num{font-family:'DM Serif Display',serif;font-size:2rem;line-height:1;margin:8px 0}
+.pcard.val .pc-num{color:var(--gold-deep)}
+.pcard.mood .pc-num{color:var(--price)}
+.pcard p{font-size:.95rem;color:var(--ink-soft)}
+
+/* ---------- ad showcase ---------- */
+.showcase{padding:0}
+.showcase-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px);
+  align-items:center;max-width:980px;margin:0 auto;
+}
+.showcase .copy .eyebrow{margin-bottom:14px}
+.showcase .copy h3{font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.5rem,3.6vw,2.1rem);line-height:1.18;margin-bottom:16px}
+.dark.showcase-sec .copy h3{color:#fff}
+.light.showcase-sec .copy h3{color:var(--maroon)}
+.showcase .copy p{font-size:1rem;margin-bottom:18px}
+.dark.showcase-sec .copy p{color:var(--on-dark-soft)}
+.light.showcase-sec .copy p{color:var(--ink-soft)}
+.showcase .copy ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.showcase .copy li{display:flex;gap:10px;align-items:flex-start;font-size:.96rem}
+.showcase .copy li::before{content:"";flex:0 0 auto;width:7px;height:7px;border-radius:50%;
+  background:var(--gold);margin-top:.6em}
+.dark.showcase-sec .copy li{color:var(--on-dark)}
+.light.showcase-sec .copy li{color:var(--ink)}
+.shot{border-radius:20px;overflow:hidden;border:1px solid var(--line-dark);
+  box-shadow:0 30px 70px -34px rgba(0,0,0,.7);position:relative}
+.light.showcase-sec .shot{border-color:var(--line-light);box-shadow:0 30px 70px -38px rgba(45,16,24,.5)}
+.shot img{display:block;width:100%;height:auto}
+
+/* ---------- closing ---------- */
+.closing{background:
+  radial-gradient(100% 80% at 50% 0%, rgba(212,175,55,.14), transparent 55%),
+  linear-gradient(180deg,var(--maroon-deep),#120608);
+  color:var(--on-dark);text-align:center}
+.closing .q{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,4.4vw,2.5rem);
+  line-height:1.28;color:#fff;max-width:760px;margin:0 auto 26px}
+.closing .q em{font-style:italic;color:var(--gold-bright)}
+.closing .lens-final{font-size:clamp(1.05rem,2.6vw,1.3rem);color:var(--on-dark);
+  max-width:640px;margin:0 auto 44px}
+.closing .lens-final b{color:var(--gold-bright)}
+.cta{display:inline-flex;flex-direction:column;align-items:center;gap:6px;
+  border:1px solid var(--line-dark);border-radius:16px;
+  padding:24px 40px;background:rgba(0,0,0,.25);text-decoration:none}
+.cta .sub{font-family:'Cinzel',serif;letter-spacing:.3em;font-size:.6rem;
+  text-transform:uppercase;color:var(--on-dark-soft)}
+.cta .url{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.04em;
+  font-size:clamp(1.3rem,3.4vw,1.7rem);color:var(--gold)}
+.cta .tip{font-size:.84rem;color:var(--on-dark-soft);margin-top:2px}
+.cta:hover .url{color:var(--gold-bright)}
+.disclaimer{margin-top:46px;font-size:.74rem;color:var(--on-dark-soft);
+  letter-spacing:.02em;max-width:680px;margin-left:auto;margin-right:auto;
+  border-top:1px solid var(--line-dark);padding-top:22px;line-height:1.9}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:680px){
+  .hero-paradox{flex-direction:row}
+  .stats{grid-template-columns:1fr 1fr}
+  .split,.paradox2{grid-template-columns:1fr}
+  .showcase-inner{grid-template-columns:1fr}
+  .showcase .copy{order:2}
+  .showcase .shot{order:1;max-width:420px;margin:0 auto}
+}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <img class="owl" src="https://raw.githubusercontent.com/jptrustlearning/pages/main/jpt-owl-cropped.png" alt="JP Trust Learning">
+      <div class="wordmark">JP TRUST<span>LEARNING</span></div>
+    </div>
+
+    <div class="eyebrow rv">Momentum &middot; กลไกราคา</div>
+    <h1 class="rv">ทำไมหุ้นบางตัว<br>ขึ้นต่อเนื่อง <em>หลายเดือน?</em></h1>
+
+    <p class="lens rv">เพราะ<b>ข่าวดีชิ้นเดียวไม่ได้ถูกรับรู้จบภายในวันเดียว</b> &mdash; ตลาดใช้เวลาหลายสัปดาห์ถึงหลายเดือนกว่าข้อมูลใหม่จะซึมเข้าราคาจนครบ ระหว่างทางยังมีคนทยอยซื้อเพิ่มอยู่เรื่อย ๆ ทั้งกองทุนที่สะสมของทีละก้อน นักวิเคราะห์ที่ทยอยปรับประมาณการขึ้น และเม็ดเงินที่ไหลตามความสนใจ ราคาจึงไม่กระโดดทีเดียวจบ แต่ <b>ไต่ขึ้นเป็นขั้นบันไดนานหลายเดือน</b></p>
+
+    <div class="meta rv">ความรู้พื้นฐานสำหรับมือใหม่ &middot; เรียบเรียงโดย JP Trust Learning</div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 1 — ต้นเหตุ ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 1 &mdash; ต้นเหตุ</span>
+    <div class="eyebrow rv">The Delay</div>
+    <h2 class="head rv">ตลาดไม่ได้รับข่าว<br>จบในวันเดียว</h2>
+    <p class="lead rv">ถ้าตลาดมีประสิทธิภาพเต็มร้อย ข่าวดีควรถูกสะท้อนเข้าราคาทันทีในวินาทีที่ประกาศ &mdash; แต่ข้อมูลจริงบอกว่าไม่ใช่แบบนั้น</p>
+
+    <p class="body rv">หนึ่งในปรากฏการณ์ที่ถูกตรวจสอบซ้ำมากที่สุดในวงการการเงินคือสิ่งที่เรียกว่า <span class="kw">Post-Earnings Announcement Drift</span> หรือ &lsquo;การไหลต่อของราคาหลังประกาศงบ&rsquo; &mdash; Ball และ Brown บันทึกไว้ตั้งแต่ปี 1968 ว่าหุ้นที่ประกาศผลประกอบการดีกว่าที่ตลาดคาด ราคาไม่ได้ขึ้นจบในวันประกาศ แต่ยังทยอยไต่ขึ้นต่อไปอีกเป็นเดือน ส่วนหุ้นที่งบแย่กว่าคาดก็ค่อย ๆ ไหลลงในทิศตรงข้ามเช่นกัน</p>
+
+    <div class="analogy rv">
+      <p>เหมือนฝนที่ตกจบไปแล้ว แต่น้ำยังซึมลงดินต่ออีกหลายวัน &mdash; ข่าวประกาศจบตั้งแต่วันแรก แต่มัน &lsquo;ซึม&rsquo; เข้าราคายังไม่ครบ ระดับน้ำจึงยังขยับได้อีกนาน</p>
+    </div>
+
+    <div class="system rv">
+      <div class="t">มีงานวิจัยรองรับ</div>
+      <p class="body" style="margin-bottom:0">Bernard และ Thomas (1989) ศึกษาหุ้นในตลาดสหรัฐฯ ช่วงปี 1974&ndash;1986 พบว่าหุ้นกลุ่มที่ผลประกอบการเซอร์ไพรส์บวกมากที่สุด ยังให้ผลตอบแทนส่วนเกินต่อเนื่องไปอีกราว <span class="kw">60 วันทำการ</span> (ประมาณ 3 เดือน) หลังวันประกาศ และผลนี้เกิดซ้ำใน <span class="kw">41 จาก 48 ไตรมาส</span> ที่ศึกษา &mdash; จึงไม่ใช่ความบังเอิญของช่วงเวลาใดช่วงเวลาหนึ่ง</p>
+    </div>
+
+    <p class="pull rv">ข่าวจบใน 1 วัน &mdash; แต่ <em>ราคายังเดินต่ออีกหลายเดือน</em></p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 2 — ตัวเร่ง ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 2 &mdash; ตัวเร่ง</span>
+    <div class="eyebrow rv">Who Is Still Buying</div>
+    <h2 class="head rv">แรงส่งไม่ได้มาจากราคา<br>แต่มาจากคนที่ยังซื้อไม่ครบ</h2>
+    <p class="lead rv">คำถามที่ควรถามไม่ใช่ &lsquo;ทำไมราคาขึ้น&rsquo; แต่คือ &lsquo;ยังมีใครต้องซื้ออีกบ้าง&rsquo;</p>
+
+    <div class="stats">
+      <div class="stat rv">
+        <div class="stat-num">1</div>
+        <div class="stat-lbl"><b>เงินก้อนใหญ่ซื้อทีเดียวไม่ได้</b> &mdash; กองทุนขนาดใหญ่ถ้าเข้าซื้อรวดเดียวจะดันราคาขึ้นใส่ตัวเองจนต้นทุนแพง จึงต้องทยอยสะสมเป็นสัปดาห์หรือเป็นเดือน แรงซื้อจึงถูกยืดออกไปตามเวลาโดยธรรมชาติ</div>
+        <span class="src">Institutional Flow</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">2</div>
+        <div class="stat-lbl"><b>นักวิเคราะห์ทยอยปรับประมาณการ</b> &mdash; หลังงบดี บทวิเคราะห์ไม่ได้ปรับขึ้นพร้อมกันในวันเดียว แต่ทยอยขยับกำไรคาดการณ์และราคาเป้าหมายทีละสำนัก แต่ละครั้งดึงเม็ดเงินกลุ่มใหม่เข้ามาเพิ่ม</div>
+        <span class="src">Analyst Revision</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">3</div>
+        <div class="stat-lbl"><b>ข้อมูลไม่ได้ถึงทุกคนพร้อมกัน</b> &mdash; Hong และ Stein (1999) เสนอแบบจำลองว่าข้อมูลใหม่แพร่ในหมู่นักลงทุนแบบทีละกลุ่ม ราคาจึงปรับเป็นขั้น ๆ ตามกลุ่มที่เพิ่งรับรู้ ไม่ใช่กระโดดครั้งเดียว</div>
+        <span class="src">Gradual Diffusion</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">4</div>
+        <div class="stat-lbl"><b>ความสนใจดึงเงินรอบใหม่</b> &mdash; พอหุ้นขึ้นไปติดอันดับผู้นำ ก็ปรากฏบนหน้าจอ ในบทวิเคราะห์ และในบทสนทนา ความสนใจนั้นดึงเม็ดเงินอีกระลอกตามมา</div>
+        <span class="src">Attention &amp; Herding</span>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:26px">มีอีกชั้นหนึ่งที่เป็นเรื่องของ<span class="kw">จิตวิทยา</span> &mdash; Barberis, Shleifer และ Vishny (1998) อธิบายว่าคนเรามีนิสัย &lsquo;ให้น้ำหนักข้อมูลใหม่น้อยเกินไป&rsquo; ตอนแรกที่ข่าวดีออกมา หลายคนยังไม่เชื่อเต็มที่ คิดว่าเป็นเรื่องชั่วคราว จึงยังไม่ซื้อ ต่อเมื่อไตรมาสถัดมายืนยันว่าดีจริง จึงค่อยยอมเข้า &mdash; ความลังเลตรงนี้เองที่ยืดแนวโน้มออกไปอีกหลายเดือน</p>
+
+    <div class="analogy rv">
+      <p>เหมือนคิวหน้างานคอนเสิร์ต &mdash; คนไม่ได้เข้าพร้อมกันหมดในวินาทีเดียว แต่ทยอยเข้าทีละกลุ่ม ตราบใดที่คิวยังยาว ประตูก็ยังรับคนใหม่ได้เรื่อย ๆ ราคาหุ้นก็เช่นเดียวกัน ตราบใดที่ยังมีคนที่ยังซื้อไม่ครบ แรงส่งก็ยังไม่หมด</p>
+    </div>
+
+    <p class="pull rv">ราคาไปต่อได้ เพราะ <em>คิวยังไม่หมด</em></p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 3 — แล้วมันจบเมื่อไหร่ ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 3 &mdash; จุดจบของแรงส่ง</span>
+    <div class="eyebrow rv">When It Ends</div>
+    <h2 class="head rv">แรงส่งมีจริง<br>แต่ไม่ได้อยู่ถาวร</h2>
+    <p class="lead rv">งานวิจัยชุดเดียวกันที่ยืนยันว่าแรงส่งมีจริง ก็บอกไว้ด้วยว่ามันมีอายุ</p>
+
+    <p class="body rv">Jegadeesh และ Titman (1993) พบว่าหุ้นที่แข็งแกร่งในรอบ <span class="kw">3&ndash;12 เดือน</span> ที่ผ่านมา มีแนวโน้มทำผลตอบแทนได้ดีต่อในอีก 3&ndash;12 เดือนถัดไป &mdash; แต่ในงานชิ้นเดียวกันนั้นเอง พวกเขาระบุว่าผลตอบแทนส่วนเกินที่เกิดในปีแรก <span class="kw">บางส่วนสลายไปในสองปีถัดมา</span> แรงส่งจึงเป็นปรากฏการณ์ระยะกลาง ไม่ใช่ระยะยาว</p>
+
+    <p class="body rv">พอมองยาวกว่านั้น ทิศทางถึงกับกลับด้าน &mdash; De Bondt และ Thaler (1985) พบว่าหุ้นที่ทำผลงานแย่ในรอบ 3&ndash;5 ปี กลับให้ผลตอบแทนดีกว่าหุ้นที่ทำผลงานดีในรอบเดียวกัน เมื่อวัดในช่วง 3&ndash;5 ปีถัดไป คำอธิบายคือตลาดตอบสนองเกินจริงไปแล้ว และราคาต้องเดินกลับเข้าหามูลค่า</p>
+
+    <div class="split">
+      <div class="trap rv">
+        <div class="t">สัญญาณว่าแรงส่งกำลังหมด</div>
+        <p>อันดับความแข็งแกร่งเทียบกับตลาดเริ่มร่วงจากหัวแถว &middot; ราคายังขึ้นแต่ปริมาณซื้อขายบางลง &middot; ข่าวดีออกมาแล้วราคาแทบไม่ตอบสนอง เพราะตลาดรับรู้ครบไปหมดแล้ว</p>
+      </div>
+      <div class="trap rv">
+        <div class="t">กับดักที่พบบ่อย</div>
+        <p>เห็นหุ้นขึ้นมาหลายเดือนแล้วสรุปเองว่า &lsquo;ต้องขึ้นต่อแน่&rsquo; จึงเข้าซื้อโดยไม่มีเกณฑ์ออก พอแรงส่งหมดจริงก็ไม่มีอะไรบอกให้ออก สุดท้ายกลายเป็นถือยาวโดยไม่ได้ตั้งใจ</p>
+      </div>
+    </div>
+
+    <div class="system rv">
+      <div class="t">กรอบเวลาสำคัญกว่าที่คิด</div>
+      <p class="body" style="margin-bottom:0">งานวิจัยที่พบว่าแรงส่งทำงาน ใช้กรอบเวลา <span class="kw">3&ndash;12 เดือน</span> เป็นหลัก สั้นกว่านั้นในระดับไม่กี่วันถึงไม่กี่สัปดาห์ มักเจอการกลับตัวระยะสั้น ส่วนยาวกว่านั้นในระดับ 3&ndash;5 ปี มักเจอการกลับตัวระยะยาว &mdash; การเลือกกรอบเวลาให้ตรงกับช่วงที่แรงส่งทำงานจริง จึงสำคัญไม่แพ้การเลือกหุ้น</p>
+    </div>
+
+    <p class="pull rv">แรงแล้วยังแรงได้อีก &mdash; <em>แต่ไม่ใช่ตลอดไป</em></p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 4 — JPTrust Insight ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">JPTrust Insight</span>
+    <div class="eyebrow rv">How We Use It</div>
+    <h2 class="head rv">JPTrust ใช้ความรู้นี้<br>อย่างไร</h2>
+    <p class="lead rv">เราออกแบบให้กลยุทธ์อยู่ใน &lsquo;หน้าต่างเวลา&rsquo; ที่งานวิจัยบอกว่าแรงส่งทำงาน &mdash; ไม่สั้นเกิน ไม่ยาวเกิน</p>
+
+    <p class="body rv">ระบบของ JPTrust จัดอันดับหุ้นทั้ง S&amp;P 500 จาก <span class="kw">ผลตอบแทนย้อนหลัง 6 เดือน</span> ประกอบกับ <span class="kw">ปริมาณซื้อขาย</span> แล้วถือรอบละ 6 เดือนก่อนสแกนใหม่ ทั้งช่วงที่ใช้มองย้อนหลังและช่วงที่ถือ อยู่ในกรอบ 3&ndash;12 เดือนซึ่งเป็นช่วงที่การไหลต่อของราคาปรากฏชัดที่สุดในงานวิจัย</p>
+
+    <p class="body rv">ส่วนคำถามที่ยากที่สุด &mdash; &lsquo;แล้วจะรู้ได้ยังไงว่ามันหมดแรงแล้ว&rsquo; &mdash; เราตอบด้วย <span class="kw">การ Rebalance เป็นรอบ</span> ซึ่งทำหน้าที่เป็นเกณฑ์ออกที่เตรียมไว้ตั้งแต่วันแรก ตัวที่แรงส่งหมด อันดับจะร่วงลงมาเอง และถูกคัดออกโดยไม่ต้องใช้ดุลพินิจในวันนั้น</p>
+
+    <p class="body rv" style="margin-bottom:0">อ่านต่อเป็นชุดได้ที่ <a href="https://public.jptrustlearning.com/what-is-momentum.html" style="color:var(--gold-bright);text-decoration:underline">หุ้น Momentum คืออะไร?</a> &middot; <a href="https://public.jptrustlearning.com/momentum-investing.html" style="color:var(--gold-bright);text-decoration:underline">Momentum Investing คืออะไร?</a> &middot; <a href="https://public.jptrustlearning.com/momentum-stock-criteria.html" style="color:var(--gold-bright);text-decoration:underline">หุ้นแบบไหนเรียกว่า Momentum?</a> หรือดูผลทดสอบจริงที่ <a href="https://app.jptrustlearning.com/sp500-rolling-lb6-hold6_lab_v7_hist1996.html" target="_blank" rel="noopener" style="color:var(--gold-bright);text-decoration:underline">Rolling 6M Momentum Lab</a></p>
+  </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section class="closing">
+  <div class="narrow">
+    <div class="eyebrow rv" style="color:var(--gold);margin-bottom:24px">สรุปให้จำ</div>
+    <p class="q rv">ราคาไม่ได้ขึ้นเพราะ <em>มันขึ้น</em><br>แต่เพราะ <em>ยังมีคนซื้อไม่ครบ</em></p>
+    <p class="lens-final rv">ข่าวดีชิ้นเดียวใช้เวลาหลายเดือนกว่าจะซึมเข้าราคาจนครบ &mdash; นั่นคือที่มาของแนวโน้มยาว ๆ<br>และเมื่อคนซื้อครบแล้ว แรงส่งก็หมด &mdash; นั่นคือเหตุผลที่ต้องมีเกณฑ์ออกตั้งแต่วันแรก</p>
+
+    <a class="cta rv" href="https://jptrustlearning.com" target="_blank" rel="noopener">
+      <span class="sub">Subscribe at</span>
+      <span class="url">jptrustlearning.com</span>
+      <span class="tip">เริ่มต้นเส้นทางการลงทุนอย่างมีระบบไปกับเรา</span>
+    </a>
+
+    <p class="disclaimer rv">การลงทุนมีความเสี่ยง &middot; เนื้อหาเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน &middot; ผลในอดีตไม่ได้การันตีผลในอนาคต<br>อ้างอิงแนวคิดจากงานศึกษา Ball &amp; Brown (1968) &middot; De Bondt &amp; Thaler (1985) &middot; Bernard &amp; Thomas (1989) &middot; Jegadeesh &amp; Titman (1993) &middot; Barberis, Shleifer &amp; Vishny (1998) &middot; Hong &amp; Stein (1999) &middot; เรียบเรียงโดย JP Trust Learning</p>
+  </div>
+</section>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach((el,i)=>{
+  const sib=[...el.parentElement.children].filter(c=>c.classList.contains('rv'));
+  el.style.transitionDelay=(Math.min(sib.indexOf(el),5)*60)+'ms';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
