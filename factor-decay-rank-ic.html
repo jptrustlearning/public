@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Factor Decay: สัญญาณโมเมนตัม 30 ปี "เสื่อม" หรือยัง — วัดด้วย Rank IC | JP Trust Learning</title>
+<meta name="description" content="สัญญาณที่เคยได้ผล จะได้ผลตลอดไปไหม — เราวัด factor decay ของกลยุทธ์โมเมนตัม 6 เดือนด้วย Rank IC ทุกรอบ rebalance ตลอด 30 ปี 236 รอบ แล้วจับแชมป์ชนผู้ท้าชิงอีก 4 factor พร้อมเปิดข้อจำกัดของข้อมูลทั้งหมด">
+<link rel="canonical" href="https://public.jptrustlearning.com/factor-decay-rank-ic.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="JP Trust Learning">
+<meta property="og:title" content="Factor Decay: สัญญาณโมเมนตัม 30 ปี &quot;เสื่อม&quot; หรือยัง — วัดด้วย Rank IC">
+<meta property="og:description" content="วัดสุขภาพสัญญาณโมเมนตัมด้วยวิธีเดียวกับ quant desk — 30 ปี 236 รอบ rebalance แข่งกัน 5 factor">
+<meta property="og:url" content="https://public.jptrustlearning.com/factor-decay-rank-ic.html">
+<meta property="og:image" content="https://public.jptrustlearning.com/article-img/factor-decay-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="กราฟเปรียบเทียบ Rank IC ของ 5 momentum factors ตลอด 30 ปี">
+<meta property="og:locale" content="th_TH">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://public.jptrustlearning.com/article-img/factor-decay-og.jpg">
+<meta name="twitter:title" content="สัญญาณโมเมนตัมที่ใช้มา 30 ปี เสื่อมหรือยัง — วัดจริงด้วย Rank IC">
+<meta name="twitter:description" content="236 รอบ rebalance · 5 factors · ผลที่ทำให้ไม่ต้องเปลี่ยนอะไร แต่มั่นใจขึ้นมาก">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Cinzel:wght@500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maroon-deep:#1a0a0e; --maroon:#2d1018; --maroon-soft:#3a1620;
+  --cream:#FAF6ED; --cream-2:#f3ecdc;
+  --gold:#D4AF37; --gold-bright:#e7c659; --gold-deep:#a8842a;
+  --win:#2E7D57; --win-soft:#6cbf94;
+  --loss:#C75B49; --loss-soft:#e08a78;
+  --ink:#241016; --ink-soft:#5a4640;
+  --on-dark:#f1e6d3; --on-dark-soft:#c9b69b;
+  --line-dark:rgba(212,175,55,.22); --line-light:rgba(45,16,24,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Anuphan',sans-serif;background:var(--cream);color:var(--ink);
+  line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.eyebrow{font-family:'Cinzel',serif;text-transform:uppercase;letter-spacing:.34em;
+  font-size:.72rem;font-weight:600;color:var(--gold-deep)}
+.dark .eyebrow{color:var(--gold)}
+.num{font-family:'DM Serif Display',serif;font-weight:400;line-height:.92}
+section{padding:clamp(56px,8vw,116px) clamp(20px,6vw,80px)}
+.wrap{max-width:1000px;margin:0 auto}
+.narrow{max-width:780px;margin:0 auto}
+section.light{background:var(--cream)}
+section.light:nth-of-type(even){background:var(--cream-2)}
+section.dark{background:linear-gradient(165deg,var(--maroon) 0%,var(--maroon-deep) 100%);
+  color:var(--on-dark);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+
+/* ---------- brand bar ---------- */
+.brandbar{display:flex;align-items:center;gap:14px;margin-bottom:clamp(30px,6vw,54px)}
+.owl{width:46px;height:46px;flex:0 0 auto;object-fit:contain;border-radius:12px;
+  filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}
+.brandbar .wordmark{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.16em;
+  font-size:.82rem;color:var(--gold);line-height:1.35}
+.brandbar .wordmark span{display:block;color:var(--on-dark-soft);font-weight:500;font-size:.7rem}
+
+/* ---------- hero ---------- */
+.hero{background:
+   radial-gradient(120% 90% at 88% 4%, rgba(212,175,55,.16), transparent 46%),
+   radial-gradient(90% 70% at 0% 100%, rgba(46,125,87,.14), transparent 50%),
+   linear-gradient(160deg,var(--maroon) 0%, var(--maroon-deep) 100%);
+  color:var(--on-dark);border-bottom:1px solid var(--line-dark)}
+.hero h1{font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.95rem,5.8vw,3.2rem);line-height:1.14;margin:18px 0 20px;color:#fff}
+.hero .lens{font-size:clamp(1rem,2.2vw,1.15rem);color:var(--on-dark);margin-bottom:22px}
+.hero .meta{font-size:.84rem;color:var(--on-dark-soft)}
+.hero-3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0 30px}
+.hero-3 .cell{border:1px solid var(--line-dark);border-radius:14px;padding:16px 12px;
+  background:rgba(0,0,0,.2);text-align:center}
+.hero-3 .cell .shape{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.hero-3 .cell .num{font-size:clamp(1.35rem,4.4vw,2.1rem);color:#fff}
+.hero-3 .cell .sub{font-size:.74rem;color:var(--on-dark-soft);margin-top:6px;line-height:1.5}
+@media(max-width:520px){.hero-3{grid-template-columns:1fr;gap:8px}
+  .hero-3 .cell{display:flex;align-items:center;gap:12px;text-align:left;padding:12px 14px}
+  .hero-3 .cell .shape{margin:0;flex:0 0 82px}
+  .hero-3 .cell .sub{margin:0;flex:1}}
+
+/* ---------- headings & text ---------- */
+h2.head{font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.55rem,4.4vw,2.5rem);line-height:1.18;margin:12px 0 22px}
+.light h2.head{color:var(--maroon)}
+.dark h2.head{color:#fff}
+h3.sub{font-size:1.05rem;font-weight:700;margin:30px 0 10px}
+.light h3.sub{color:var(--maroon)}
+.dark h3.sub{color:var(--gold-bright)}
+.lead{font-size:clamp(1.02rem,2.1vw,1.16rem);margin-bottom:16px}
+.light .lead{color:var(--ink)} .dark .lead{color:var(--on-dark)}
+p.body{margin-bottom:15px;font-size:1rem}
+.light p.body{color:var(--ink-soft)} .dark p.body{color:var(--on-dark-soft)}
+.kw{font-weight:600} .light .kw{color:var(--maroon)} .dark .kw{color:var(--gold-bright)}
+ul.body{margin:0 0 16px 1.1em;font-size:1rem}
+.light ul.body{color:var(--ink-soft)} .dark ul.body{color:var(--on-dark-soft)}
+ul.body li{margin-bottom:8px}
+
+/* ---------- steps ---------- */
+.steps{counter-reset:s;margin:8px 0 6px}
+.step{counter-increment:s;position:relative;padding-left:52px;margin-bottom:24px}
+.step::before{content:counter(s);position:absolute;left:0;top:-2px;
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  font-family:'Cinzel',serif;font-weight:600;font-size:.9rem;
+  border:1px solid var(--gold);color:var(--gold)}
+.step h4{font-size:1.02rem;font-weight:700;margin-bottom:6px;color:var(--gold-bright)}
+.step p{font-size:.97rem;color:var(--on-dark-soft)}
+.light .step::before{border-color:var(--gold-deep);color:var(--gold-deep)}
+.light .step h4{color:var(--maroon)} .light .step p{color:var(--ink-soft)}
+
+/* ---------- tables ---------- */
+.tablewrap{margin:22px 0 8px;border:1px solid var(--line-light);border-radius:14px;overflow:hidden}
+.dark .tablewrap{border-color:var(--line-dark)}
+.tablescroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.data{border-collapse:collapse;width:100%;min-width:700px;font-size:.88rem;background:#fff}
+.dark table.data{background:rgba(0,0,0,.24)}
+table.data th{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;
+  font-weight:600;color:var(--gold-deep);text-align:right;padding:11px 10px;white-space:nowrap;
+  border-bottom:1px solid var(--line-light);background:var(--cream-2)}
+.dark table.data th{color:var(--gold);border-bottom-color:var(--line-dark);background:rgba(0,0,0,.3)}
+table.data th:first-child,table.data td:first-child{text-align:left;position:sticky;left:0;
+  background:var(--cream-2);z-index:2;min-width:132px}
+.dark table.data th:first-child,.dark table.data td:first-child{background:#241016}
+table.data td{padding:10px;text-align:right;white-space:nowrap;color:var(--ink-soft);
+  border-bottom:1px solid rgba(45,16,24,.07)}
+.dark table.data td{color:var(--on-dark-soft);border-bottom-color:rgba(212,175,55,.1)}
+table.data tbody tr:last-child td{border-bottom:none}
+table.data tr.hi td{background:rgba(46,125,87,.09);color:var(--ink);font-weight:600}
+.dark table.data tr.hi td{background:rgba(46,125,87,.16);color:#fff}
+.dark table.data tr.hi td:first-child{background:#1c2a22}
+table.data tr.hi td:first-child{background:#e6f0ea}
+td.best{color:var(--win);font-weight:700}
+.dark td.best{color:var(--win-soft)}
+td.bad{color:var(--loss);font-weight:600}
+.dark td.bad{color:var(--loss-soft)}
+.tblnote{font-size:.78rem;padding:9px 12px;background:var(--cream-2);color:var(--ink-soft);
+  border-top:1px solid var(--line-light)}
+.dark .tblnote{background:rgba(0,0,0,.3);color:var(--on-dark-soft);border-top-color:var(--line-dark)}
+.scrollhint{display:none;font-size:.72rem;color:var(--ink-soft);margin:6px 2px 0;font-style:italic}
+.dark .scrollhint{color:var(--on-dark-soft)}
+@media(max-width:760px){.scrollhint{display:block}}
+
+/* ---------- callouts ---------- */
+.callout{border-radius:16px;padding:20px 22px;margin:26px 0}
+.callout .lbl{font-family:'Cinzel',serif;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:600;margin-bottom:8px;display:block}
+.callout p{font-size:.97rem;line-height:1.72;margin-bottom:10px}
+.callout p:last-child{margin-bottom:0}
+.callout.find{background:rgba(46,125,87,.09);border:1px solid rgba(46,125,87,.32)}
+.callout.find .lbl{color:var(--win)}
+.callout.find p{color:var(--ink-soft)}
+.dark .callout.find{background:rgba(46,125,87,.14);border-color:rgba(108,191,148,.34)}
+.dark .callout.find .lbl{color:var(--win-soft)} .dark .callout.find p{color:var(--on-dark)}
+.callout.warn{background:rgba(199,91,73,.08);border:1px solid rgba(199,91,73,.34)}
+.callout.warn .lbl{color:var(--loss)} .callout.warn p{color:var(--ink-soft)}
+.dark .callout.warn{background:rgba(199,91,73,.15);border-color:rgba(224,138,120,.4)}
+.dark .callout.warn .lbl{color:var(--loss-soft)} .dark .callout.warn p{color:var(--on-dark)}
+.callout.note{background:rgba(212,175,55,.09);border:1px dashed rgba(168,132,42,.45)}
+.callout.note .lbl{color:var(--gold-deep)} .callout.note p{color:var(--ink-soft)}
+.dark .callout.note{background:rgba(212,175,55,.08);border-color:var(--line-dark)}
+.dark .callout.note .lbl{color:var(--gold)} .dark .callout.note p{color:var(--on-dark-soft)}
+
+/* ---------- metric explainer ---------- */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:24px 0 10px}
+.metric{border:1px solid var(--line-light);border-radius:14px;padding:16px;background:#fff}
+.dark .metric{border-color:var(--line-dark);background:rgba(0,0,0,.22)}
+.metric .mname{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--gold-deep);margin-bottom:6px}
+.dark .metric .mname{color:var(--gold)}
+.metric .mth{font-weight:700;font-size:.98rem;margin-bottom:5px;color:var(--maroon)}
+.dark .metric .mth{color:#fff}
+.metric .mdesc{font-size:.87rem;line-height:1.62;color:var(--ink-soft)}
+.dark .metric .mdesc{color:var(--on-dark-soft)}
+
+/* ---------- pull quote ---------- */
+.pull{font-family:'DM Serif Display',serif;font-size:clamp(1.25rem,3.2vw,1.8rem);
+  line-height:1.4;margin:30px 0;padding-left:20px;border-left:3px solid var(--gold)}
+.light .pull{color:var(--maroon)} .dark .pull{color:#fff}
+
+/* ---------- screenshots ---------- */
+figure.shot-p{margin:26px auto 10px;max-width:430px}
+figure.shot-p img{width:100%;height:auto;display:block;border-radius:18px;
+  border:1px solid var(--line-light);box-shadow:0 12px 34px rgba(26,10,14,.16)}
+.dark figure.shot-p img{border-color:var(--line-dark);box-shadow:0 12px 34px rgba(0,0,0,.4)}
+figure.shot-p figcaption{font-size:.78rem;color:var(--ink-soft);margin-top:9px;text-align:center;line-height:1.6}
+.dark figure.shot-p figcaption{color:var(--on-dark-soft)}
+.shot-pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:900px;margin:26px auto 10px}
+.shot-pair figure.shot-p{margin:0;max-width:none}
+@media(max-width:700px){.shot-pair{grid-template-columns:1fr;max-width:430px}}
+
+/* ---------- verdict ---------- */
+.verdict{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 6px}
+@media(max-width:640px){.verdict{grid-template-columns:1fr}}
+.vcard{border-radius:16px;padding:20px;border:1px solid}
+.vcard.yes{background:rgba(46,125,87,.13);border-color:rgba(108,191,148,.36)}
+.vcard.no{background:rgba(199,91,73,.13);border-color:rgba(224,138,120,.36)}
+.vcard .vh{font-family:'Cinzel',serif;font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;
+  font-weight:600;margin-bottom:8px}
+.vcard.yes .vh{color:var(--win-soft)} .vcard.no .vh{color:var(--loss-soft)}
+.vcard .vt{font-weight:700;font-size:1rem;margin-bottom:8px;color:#fff}
+.vcard p{font-size:.9rem;line-height:1.68;color:var(--on-dark-soft);margin-bottom:8px}
+.vcard p:last-child{margin-bottom:0}
+
+/* ---------- closing ---------- */
+.closing{background:linear-gradient(180deg,var(--maroon-deep),#120609);color:var(--on-dark);text-align:center}
+.closing .q{font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3.4vw,2rem);
+  line-height:1.42;color:#fff;margin-bottom:22px}
+.cta{display:inline-flex;flex-direction:column;gap:3px;margin:26px auto 20px;padding:18px 32px;
+  border:1px solid var(--gold);border-radius:16px;text-decoration:none;transition:background .25s}
+.cta:hover{background:rgba(212,175,55,.1)}
+.cta .sub{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.cta .url{font-size:1.12rem;font-weight:600;color:#fff}
+.cta .tip{font-size:.8rem;color:var(--on-dark-soft)}
+.disclaimer{font-size:.78rem;color:var(--on-dark-soft);line-height:1.75;margin-top:12px}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <img class="owl" src="https://raw.githubusercontent.com/jptrustlearning/pages/main/jpt-owl-cropped.png" alt="JP Trust Learning">
+      <div class="wordmark">JP TRUST LEARNING<span>Momentum Research · Factor Health</span></div>
+    </div>
+
+    <div class="eyebrow rv">Factor Decay · Rank IC · 30-Year Audit</div>
+    <h1 class="rv">สัญญาณที่ใช้มา 30 ปี<br>"เสื่อม" หรือยัง?</h1>
+    <p class="lens rv">คำถามที่นักลงทุนเชิงระบบทุกคนควรถามกลยุทธ์ของตัวเอง — และเป็นคำถามที่ตอบด้วยความรู้สึกไม่ได้ ต้องตอบด้วยตัวเลข เราจึงจับสัญญาณโมเมนตัม 6 เดือนของเราขึ้นเขียง วัดด้วยวิธีเดียวกับที่โต๊ะ quant ระดับสถาบันใช้ แล้วเปิดผลทั้งหมดในบทความนี้ รวมถึงทศวรรษที่สัญญาณ "หลับ" ไปเฉยๆ</p>
+
+    <div class="hero-3">
+      <div class="cell rv">
+        <div class="shape">รอบที่วัด</div>
+        <div class="num">236</div>
+        <div class="sub">รอบ rebalance ตลอด ก.ค. 1996 – 2026 ครอบทั้งดอทคอม, 2008, โควิด และปี 2022</div>
+      </div>
+      <div class="cell rv">
+        <div class="shape">Mean IC</div>
+        <div class="num">+0.033</div>
+        <div class="sub">ค่าเฉลี่ยตลอด 30 ปี — และ 5 ปีล่าสุดพุ่งขึ้นเป็น +0.099 สูงสุดในประวัติการวัด</div>
+      </div>
+      <div class="cell rv">
+        <div class="shape">ผู้ท้าชิง</div>
+        <div class="num">5</div>
+        <div class="sub">จับ factor ที่ใช้อยู่ ชนกับสูตรปรับปรุงจากงานวิชาการอีก 4 แบบ บนเงื่อนไขเดียวกันเป๊ะ</div>
+      </div>
+    </div>
+
+    <p class="meta rv">เผยแพร่ กรกฎาคม 2026 · ความยาว ~12 นาที · หมวด Momentum Research</p>
+  </div>
+</section>
+
+<!-- ══════════════ S1 · WHY ══════════════ -->
+<section class="light">
+  <div class="narrow">
+    <div class="eyebrow rv">01 · ปัญหา</div>
+    <h2 class="head rv">Factor Decay — เมื่อสูตรที่เคยได้ผล ค่อยๆ หมดฤทธิ์</h2>
+
+    <p class="lead rv">ทุกกลยุทธ์ลงทุนเชิงระบบสร้างอยู่บนสมมติฐานเดียวกัน: รูปแบบที่เคยเกิดในอดีต จะยังเกิดต่อในอนาคต แต่ตลาดเป็นสิ่งมีชีวิต — เมื่อคนรู้จักสูตรมากขึ้น เงินไหลเข้าไปใช้สูตรเดียวกันมากขึ้น ความได้เปรียบก็ถูกเฉือนบางลงเรื่อยๆ ปรากฏการณ์นี้มีชื่อเรียกในวงการว่า <span class="kw">factor decay</span> (การเสื่อมของปัจจัยทำกำไร)</p>
+
+    <p class="body rv">เรื่องนี้ไม่ใช่ทฤษฎีเลื่อนลอย — งานวิจัยของ McLean &amp; Pontiff (2016) ตรวจสอบสัญญาณทำกำไร 97 แบบที่เคยตีพิมพ์ในวารสารวิชาการ แล้วพบว่าโดยเฉลี่ย <span class="kw">ผลตอบแทนส่วนเกินหดหายไปกว่าครึ่งหลังงานวิจัยถูกเผยแพร่</span> เหตุผลตรงไปตรงมา: พอสูตรกลายเป็นความรู้สาธารณะ ทุกคนก็แห่ใช้จนราคาสะท้อนไปหมดก่อนใครจะได้กำไร</p>
+
+    <p class="body rv">สัญญาณโมเมนตัม (ซื้อหุ้นที่แข็งแรงสุดในช่วงที่ผ่านมา) เป็นหนึ่งใน factor ที่เก่าแก่ที่สุด — Jegadeesh &amp; Titman ตีพิมพ์ไว้ตั้งแต่ปี 1993 ผ่านมากว่าสามทศวรรษ คำถามจึงหนีไม่พ้น: <span class="kw">สัญญาณตัวนี้ยังมีชีวิตอยู่ไหม หรือเรากำลังขับรถด้วยแผนที่เก่า?</span></p>
+
+    <div class="callout note rv">
+      <span class="lbl">ทำไมคำถามนี้สำคัญกับนักลงทุนรายบุคคล</span>
+      <p>เพราะคำตอบตรงข้ามกันสองแบบ นำไปสู่การกระทำตรงข้ามกันสองอย่าง — ถ้าสัญญาณเสื่อมจริง การถือกลยุทธ์ต่อคือการเผาเงินช้าๆ แต่ถ้าสัญญาณยังดีแล้วเราเลิกใช้เพราะเจอช่วงขาดทุนชั่วคราว นั่นคือการทิ้งของดีตอนราคาถูกที่สุด การ "รู้สึกเอา" แยกสองกรณีนี้ไม่ออก — มีแต่การวัดเท่านั้นที่แยกได้</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ S2 · METHOD ══════════════ -->
+<section class="dark">
+  <div class="narrow">
+    <div class="eyebrow rv">02 · เครื่องมือวัด</div>
+    <h2 class="head rv">Rank IC — ให้คะแนน "หมอดู" ทุกครั้งที่ทำนาย</h2>
+
+    <p class="lead rv">หัวใจของการวัดครั้งนี้คือค่าที่โต๊ะ quant เรียกว่า <span class="kw">Information Coefficient (IC)</span> ฟังดูขลัง แต่แนวคิดง่ายมาก: ทุกครั้งที่ระบบจัดอันดับหุ้น ให้ถือว่านั่นคือ "คำทำนาย" — แล้วอีก 6 เดือนถัดมา ค่อยกลับมาตรวจข้อสอบว่าอันดับที่จัดไว้ ตรงกับผลตอบแทนจริงแค่ไหน</p>
+
+    <div class="metrics rv">
+      <div class="metric">
+        <div class="mname">Rank IC</div>
+        <div class="mth">อันดับที่จัด vs ผลจริง</div>
+        <div class="mdesc">วัดความสัมพันธ์ (Spearman correlation) ระหว่างอันดับที่ระบบให้หุ้น<b>ทุกตัว</b>ใน universe กับผลตอบแทนจริง 6 เดือนถัดไป — ค่า +1 คือทำนายเป๊ะทุกตัว, 0 คือมั่วเท่าโยนเหรียญ, ติดลบคือทำนายกลับด้าน สำหรับ factor รายเดือน ค่าเฉลี่ยระดับ +0.02 ถึง +0.05 ถือว่า "มีของจริง" ในเกณฑ์วิชาการ</div>
+      </div>
+      <div class="metric">
+        <div class="mname">Rolling Alpha</div>
+        <div class="mth">ส่วนเกินเทียบตลาด ย้อนหลัง 60 เดือน</div>
+        <div class="mdesc">ผลตอบแทนส่วนที่ชนะ SPY เฉลี่ยแบบเลื่อนหน้าต่างไปเรื่อยๆ — ถ้า factor กำลัง decay เส้นนี้จะไหลลงเข้าหาศูนย์อย่างต่อเนื่อง ไม่ใช่แค่แกว่งขึ้นลง</div>
+      </div>
+      <div class="metric">
+        <div class="mname">IC Trend</div>
+        <div class="mth">ความชันของ IC ต่อทศวรรษ</div>
+        <div class="mdesc">ลากเส้นแนวโน้มผ่านค่า IC ทั้ง 236 จุด — ถ้าติดลบชัดเจน คือหลักฐานเชิงสถิติของการเสื่อม ถ้าแบนราบ คือสัญญาณยังคงตัว</div>
+      </div>
+    </div>
+
+    <h3 class="sub rv">กติกาที่ทำให้ผลเชื่อถือได้</h3>
+    <div class="steps rv">
+      <div class="step">
+        <h4>ตรวจทั้ง universe ไม่ใช่แค่ตัวที่ซื้อ</h4>
+        <p>IC แต่ละรอบคำนวณจากหุ้นทุกตัวที่มีข้อมูลครบ ณ วันนั้น (หลายร้อยตัวต่อรอบ) ไม่ใช่แค่ 10 ตัวบนสุดที่กลยุทธ์เลือกจริง — เพื่อวัดคุณภาพของ "การจัดอันดับทั้งแถว" ไม่ใช่แค่โชคของหัวแถว</p>
+      </div>
+      <div class="step">
+        <h4>ไม่มีการแอบดูอนาคต</h4>
+        <p>อันดับทุกรอบคำนวณจากข้อมูลถึงวันก่อน rebalance เท่านั้น แล้วจึงวัดกับผลตอบแทน 6 เดือน<b>ถัดจากนั้น</b> — ลำดับเวลาเหมือนการลงทุนจริงทุกประการ</p>
+      </div>
+      <div class="step">
+        <h4>รอบที่ข้อมูลไม่ครบ ถูกตัดทิ้ง</h4>
+        <p>รอบท้ายๆ ที่ยังไม่มีผลตอบแทน forward ครบ 6 เดือน จะไม่ถูกนับ — ไม่มีการเดาผลที่ยังมาไม่ถึง</p>
+      </div>
+      <div class="step">
+        <h4>เงื่อนไขเดียวกันทุกการเปรียบเทียบ</h4>
+        <p>เมื่อจับหลาย factor มาแข่งกัน ทุกตัววัดบนวัน rebalance ชุดเดียวกันและหน้าต่าง forward เดียวกันเป๊ะ — ไม่มีใครได้เปรียบจากช่วงเวลาที่ต่างกัน</p>
+      </div>
+    </div>
+
+    <figure class="shot-p rv">
+      <img src="article-img/factor-decay-overview.jpg" alt="หน้าเครื่องมือ Factor Health แสดง Mean IC +0.033, IC 5 ปีล่าสุด +0.099, Hit Rate 60% และกราฟ Rolling Alpha" loading="lazy">
+      <figcaption>หน้าเครื่องมือ Factor Health ที่เราสร้างขึ้นเพื่อการวัดครั้งนี้ — ตัวเลขหลัก 4 ค่า และกราฟ Rolling Alpha ตลอด 30 ปี</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ══════════════ S3 · RESULTS ══════════════ -->
+<section class="light">
+  <div class="narrow">
+    <div class="eyebrow rv">03 · ผลการวัด</div>
+    <h2 class="head rv">คำตอบ: ไม่เสื่อม — และ 5 ปีล่าสุดแรงที่สุดที่เคยวัดได้</h2>
+
+    <p class="lead rv">ตัวเลขหลักสามค่าตอบคำถามใหญ่ได้ในย่อหน้าเดียว: Mean IC ตลอด 30 ปีอยู่ที่ <span class="kw">+0.033</span> — กลางช่วง "มีของจริง" ตามเกณฑ์วิชาการพอดี · เส้นแนวโน้ม IC ต่อทศวรรษอยู่ที่ <span class="kw">−0.004</span> — แบนจนแทบเป็นเส้นตรง ไม่มีหลักฐานการเสื่อมเชิงสถิติ · และที่เหนือความคาดหมาย: IC เฉลี่ย 5 ปีล่าสุดพุ่งขึ้นถึง <span class="kw">+0.099</span> — สูงกว่าค่าเฉลี่ยตลอดกาลสามเท่า</p>
+
+    <div class="pull rv">สัญญาณอายุ 30 ปี ไม่ได้กำลังจะตาย —<br>มันกำลังอยู่ในช่วงฟอร์มดีที่สุดช่วงหนึ่งของชีวิต</div>
+
+    <p class="body rv">Hit Rate อยู่ที่ 60% — แปลว่าใน 10 รอบ rebalance อันดับที่จัดไว้ "ทำนายถูกทาง" ราว 6 รอบ อีก 4 รอบไม่ช่วยหรือชี้ผิด ตัวเลขนี้สำคัญต่อการตั้งความคาดหวัง: โมเมนตัมไม่ใช่สัญญาณที่ถูกทุกเดือน มันคือสัญญาณที่<span class="kw">ถูกบ่อยกว่าผิด และเวลาถูก มักถูกก้อนใหญ่</span></p>
+
+    <figure class="shot-p rv">
+      <img src="article-img/factor-decay-rankic.jpg" alt="กราฟ Rank IC รายรอบ rebalance ตลอด 30 ปี แท่งเขียวแดงพร้อมเส้นค่าเฉลี่ยเคลื่อนที่ และตารางแยกทศวรรษ" loading="lazy">
+      <figcaption>Rank IC ทุกรอบ rebalance — แท่งเขียว = รอบที่อันดับทำนายถูกทาง แท่งแดง = รอบที่ชี้ผิด เส้นเข้ม = ค่าเฉลี่ยเคลื่อนที่ 12 รอบ สังเกตช่วงขวาสุดที่เส้นไต่ขึ้นต่อเนื่อง</figcaption>
+    </figure>
+
+    <h3 class="sub rv">แยกดูรายทศวรรษ — เห็นทั้งช่วงรุ่งและช่วงหลับ</h3>
+    <div class="tablewrap rv"><div class="tablescroll">
+      <table class="data">
+        <thead><tr>
+          <th>ช่วงเวลา</th><th>CAGR กลยุทธ์</th><th>CAGR SPY</th><th>Alpha</th><th>Sharpe</th><th>MaxDD</th><th>คุณภาพสัญญาณ (IC)</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>2539–2548 ⚠️</td><td>+43.6%</td><td>+8.7%</td><td class="best">+34.9%</td><td>1.21</td><td class="bad">−40.9%</td><td>+0.058 (70 รอบ)</td></tr>
+          <tr><td>2549–2558</td><td>+18.4%</td><td>+7.1%</td><td>+11.4%</td><td>0.80</td><td class="bad">−54.0%</td><td class="bad">≈ 0 (74 รอบ)</td></tr>
+          <tr class="hi"><td>2559–2569</td><td>+48.9%</td><td>+15.6%</td><td class="best">+33.3%</td><td>1.47</td><td>−22.9%</td><td class="best">บวกชัดเจน (92 รอบ)</td></tr>
+        </tbody>
+      </table>
+    </div><div class="tblnote">⚠️ ตัวเลขช่วง 2539–2548 มี survivorship bias — อ่านหัวข้อ "ข้อจำกัด" ท้ายบทความก่อนนำไปอ้างอิง · Alpha = ส่วนต่าง CAGR เทียบ SPY · Sharpe คำนวณจากผลตอบแทนรายเดือน · ปีเป็นพุทธศักราช</div></div>
+    <p class="scrollhint">← เลื่อนตารางในแนวนอนได้ →</p>
+
+    <p class="body rv">แถวที่ควรใช้เป็นหลักในการตัดสินคือ<span class="kw">ทศวรรษล่าสุด (2559–2569)</span> — เพราะเป็นช่วงที่ข้อมูลสะอาดที่สุด: Alpha +33.3% ต่อปี, Sharpe 1.47, ขาดทุนลึกสุดเพียง −22.9% และคุณภาพสัญญาณเป็นบวกต่อเนื่องจาก 92 รอบวัด แต่แถวที่<span class="kw">สอนบทเรียนแพงที่สุด</span>กลับเป็นแถวกลาง — ทศวรรษที่สัญญาณดับไปทั้งสิบปี</p>
+  </div>
+</section>
+
+<!-- ══════════════ S4 · LOST DECADE ══════════════ -->
+<section class="dark">
+  <div class="narrow">
+    <div class="eyebrow rv">04 · บทเรียนสำคัญที่สุด</div>
+    <h2 class="head rv">ทศวรรษที่เข็มทิศเสีย — แต่เรือไม่จม</h2>
+
+    <p class="lead rv">ช่วง 2549–2558 (2006–2015) ค่า IC เฉลี่ยของสัญญาณอยู่ที่<span class="kw">แทบศูนย์พอดี</span> — สิบปีเต็มที่การจัดอันดับหุ้นแทบไม่ได้ทำนายอะไรเลย ครอบทั้งวิกฤต 2008 และปรากฏการณ์ "momentum crash" ปี 2009 ที่หุ้นซึ่งเคยร่วงแรงสุดกลับเด้งแรงสุด สวนทางกับสัญญาณทุกประการ วงการ quant เรียกช่วงนี้ว่า lost decade ของโมเมนตัม</p>
+
+    <p class="body rv">แต่ตัวเลขที่อยู่ข้างกันในตารางกลับบอกว่า กลยุทธ์ยังสร้าง Alpha ได้ <span class="kw">+11.4% ต่อปี</span>ตลอดทศวรรษเดียวกัน — สัญญาณดับ แต่ผลตอบแทนส่วนเกินไม่ดับ สองตัวเลขนี้ดูขัดแย้งกัน จนกว่าจะเข้าใจว่ามันวัดคนละสิ่ง</p>
+
+    <div class="verdict rv">
+      <div class="vcard no">
+        <div class="vh">เข็มทิศ — สัญญาณ</div>
+        <div class="vt">สิ่งที่ IC วัด: ความแม่นของการชี้ทาง</div>
+        <p>IC เฉลี่ยความแม่นของอันดับหุ้น<b>ทั้งแถว</b>หลายร้อยตัว — แต่พอร์ตจริงกินจากแค่ 10 ตัวบนสุด ต่อให้อันดับ 50–450 มั่วหมดจนลาก IC ลงศูนย์ ถ้าหัวแถวยังพอเลือกหุ้นที่ไม่เน่าได้ พอร์ตก็ยังเดินต่อ</p>
+        <p>และผลตอบแทนโมเมนตัมมีธรรมชาติ<b>เบ้ขวา</b> — ตัวที่ถูกวิ่งได้ไม่มีเพดาน ตัวที่ผิดเจ็บจำกัด รอบเดียวที่จับถูกตัวใหญ่ ชดเชยรอบมั่วได้หลายรอบ</p>
+      </div>
+      <div class="vcard yes">
+        <div class="vh">ตัวเรือ — โครงสร้าง</div>
+        <div class="vt">สิ่งที่พยุงพอร์ต: วินัยที่ไม่พึ่งความแม่น</div>
+        <p><b>เงินแบ่ง 6 ก้อนสลับเดือนกัน</b> — เดือนที่สัญญาณพลาดหนัก ทำร้ายได้แค่ก้อนเดียว อีกห้าก้อนเข้าตลาดคนละจังหวะ เจอคนละสภาพ</p>
+        <p><b>ถือครบกำหนดเสมอ</b> — ปี 2008 พอร์ตร่วงตามตลาด แต่ระบบไม่ panic sell ครบกำหนดก็ขาย เปิดรอบใหม่ทันที ก้อนที่เปิดตรงก้นเหว 2009 กลายเป็นตัวทำกำไรก้อนโตตอนตลาดฟื้น — จังหวะที่นักลงทุนมือเปล่าส่วนใหญ่หนีออกไปแล้วไม่กล้ากลับ</p>
+        <p><b>ทุกรอบเดิมพันเท่ากัน</b> — ไม่มีการทุ่มเงินเพิ่มตอน "มั่นใจ" ความเสียหายจากการตัดสินใจผิดหนึ่งครั้ง ถูกล็อกไว้ที่ 1/6 ของพอร์ตเสมอ</p>
+      </div>
+    </div>
+
+    <div class="pull rv">Alpha ของทศวรรษที่เข็มทิศเสีย<br>คือรางวัลของการ "แค่ไม่จม แล้วอยู่ในน้ำต่อ"</div>
+
+    <p class="body rv">นี่คือความจริงที่เราคิดว่านักลงทุนควรได้ยินตรงๆ ก่อนใช้กลยุทธ์เชิงระบบใดๆ: <span class="kw">จะมีช่วงหลายปีที่สัญญาณเงียบ</span> — และสิ่งที่พาพอร์ตข้ามช่วงนั้นไม่ใช่ความแม่นของสูตร แต่คือโครงสร้างที่ออกแบบให้รอดจนถึงวันที่สัญญาณกลับมา ทศวรรษล่าสุดที่ IC ฟื้นเป็นบวกชัดเจน คือผลตอบแทนของเรือที่ยังลอยอยู่ตอนลมกลับมา</p>
+  </div>
+</section>
+
+<!-- ══════════════ S5 · HORSE RACE ══════════════ -->
+<section class="light">
+  <div class="narrow">
+    <div class="eyebrow rv">05 · จับแชมป์ชนผู้ท้าชิง</div>
+    <h2 class="head rv">แข่ง 5 factor — สูตรปรับปรุงจากตำรา ชนะของเดิมไหม?</h2>
+
+    <p class="lead rv">รู้ว่าสัญญาณยังดีแล้ว คำถามถัดมาคือ <span class="kw">มีสูตรที่ดีกว่านี้ไหม</span> งานวิชาการสามทศวรรษเสนอวิธี "ปรุง" โมเมนตัมไว้หลายตำรับ เราเลือก 4 ตำรับที่อ้างอิงบ่อยที่สุดมาแข่งกับสูตรที่ใช้อยู่ บนเงื่อนไขเหมือนกันทุกจุด:</p>
+
+    <div class="metrics rv">
+      <div class="metric">
+        <div class="mname">แชมป์เก่า · LB6</div>
+        <div class="mth">ผลตอบแทน 6 เดือนดิบๆ</div>
+        <div class="mdesc">สูตรที่ใช้อยู่ — เรียบง่ายที่สุดในห้าตัว: หุ้นตัวไหนให้ผลตอบแทน 6 เดือนสูงสุด อันดับดีสุด จบ</div>
+      </div>
+      <div class="metric">
+        <div class="mname">ผู้ท้าชิง 1 · 6-1 Skip</div>
+        <div class="mth">ข้ามเดือนล่าสุด</div>
+        <div class="mdesc">ตำรับคลาสสิกจากงานวิจัยยุค 90: วัด 6 เดือนแต่ตัดเดือนล่าสุดทิ้ง เพื่อหลบแรงดีดกลับระยะสั้น (short-term reversal)</div>
+      </div>
+      <div class="metric">
+        <div class="mname">ผู้ท้าชิง 2 · 52W High</div>
+        <div class="mth">ใกล้จุดสูงสุด 52 สัปดาห์</div>
+        <div class="mdesc">ไม่วัดผลตอบแทน แต่วัดว่าราคาปัจจุบันอยู่ใกล้ยอด 1 ปีแค่ไหน — ตำรับที่งานวิจัยเคยพบว่าทนช่วงตลาดผันผวนได้ดีกว่า</div>
+      </div>
+      <div class="metric">
+        <div class="mname">ผู้ท้าชิง 3 · FIP</div>
+        <div class="mth">โมเมนตัมแบบ "ขึ้นเนียน"</div>
+        <div class="mdesc">ตำรับ frog-in-the-pan (2014): หุ้นที่ขึ้นทีละนิดทุกวันแบบเดินบันได ควรชนะหุ้นที่พุ่งจากข่าวก้อนเดียว — ผสมอันดับผลตอบแทนกับอันดับความสม่ำเสมอ 50/50</div>
+      </div>
+      <div class="metric">
+        <div class="mname">ผู้ท้าชิง 4 · Vol-Adj</div>
+        <div class="mth">ผลตอบแทนหารความผันผวน</div>
+        <div class="mdesc">หุ้นขึ้น 40% แบบนิ่งๆ ได้อันดับดีกว่าหุ้นขึ้น 50% แบบเหวี่ยงรายวัน — ตำรับสาย risk-adjusted ที่งานวิจัยหลังปี 2010 ยกให้เป็นม้ามืด</div>
+      </div>
+    </div>
+
+    <div class="shot-pair rv">
+      <figure class="shot-p">
+        <img src="article-img/factor-decay-horserace.jpg" alt="กราฟเส้น Rank IC เฉลี่ยเคลื่อนที่ของ 5 factors ซ้อนกันตลอด 30 ปี พร้อมตารางผล Mean IC" loading="lazy">
+        <figcaption>IC เฉลี่ยเคลื่อนที่ของทั้ง 5 factor ซ้อนบนแกนเดียวกัน — สี่เส้นวิ่งกอดกันเกือบตลอด มีเพียงเส้นเขียว (52W High) ที่เดินคนละจังหวะ</figcaption>
+      </figure>
+      <figure class="shot-p">
+        <img src="article-img/factor-decay-horserace-table.jpg" alt="ตารางผลการแข่ง 5 factors แยกรายทศวรรษ ช่องผู้ชนะไฮไลต์สีเขียว" loading="lazy">
+        <figcaption>ตารางผลแยกรายช่วง — ช่องไฮไลต์เขียวคือผู้ชนะของคอลัมน์นั้น</figcaption>
+      </figure>
+    </div>
+
+    <div class="tablewrap rv"><div class="tablescroll">
+      <table class="data">
+        <thead><tr>
+          <th>Factor</th><th>Mean IC ทั้งหมด</th><th>2539–2548 ⚠️</th><th>2549–2558</th><th>2559–2569</th><th>5 ปีล่าสุด</th><th>Hit Rate</th>
+        </tr></thead>
+        <tbody>
+          <tr class="hi"><td>LB6 (ที่ใช้อยู่)</td><td class="best">+0.048</td><td class="best">+0.070</td><td class="best">+0.019</td><td class="best">+0.055</td><td>+0.099</td><td>66%</td></tr>
+          <tr><td>6-1 Skip</td><td>+0.046</td><td class="best">+0.070</td><td>+0.018</td><td>+0.050</td><td>+0.097</td><td>67%</td></tr>
+          <tr><td>52W High</td><td>+0.009</td><td>+0.028</td><td>+0.004</td><td class="bad">−0.001</td><td>+0.052</td><td>53%</td></tr>
+          <tr><td>FIP</td><td>+0.034</td><td>+0.048</td><td>+0.006</td><td>+0.046</td><td>+0.101</td><td>61%</td></tr>
+          <tr><td>Vol-Adj</td><td>+0.041</td><td>+0.067</td><td>+0.009</td><td>+0.046</td><td class="best">+0.103</td><td>64%</td></tr>
+        </tbody>
+      </table>
+    </div><div class="tblnote">ทุก factor วัดแบบ "เพียวๆ" บนวัน rebalance ชุดเดียวกัน + ผลตอบแทน forward 6 เดือนหน้าต่างเดียวกันทุกจุด · ตัวหนาเขียว = ผู้ชนะของคอลัมน์ · ปีเป็นพุทธศักราช</div></div>
+    <p class="scrollhint">← เลื่อนตารางในแนวนอนได้ →</p>
+
+    <h3 class="sub rv">อ่านผล: แชมป์เก่าป้องกันตำแหน่ง 4 จาก 5 คอลัมน์</h3>
+    <ul class="body rv">
+      <li><span class="kw">6-1 Skip เสมอกับของเดิมทางสถิติ</span> — ต่างกันเพียง 0.001–0.005 ต่อคอลัมน์ เล็กกว่าความคลาดเคลื่อนของการวัดหลายเท่า แปลว่าแรงดีดกลับระยะสั้นที่ตำราให้หลบ แทบไม่มีอยู่ในหุ้นขนาดใหญ่ยุคปัจจุบันแล้ว — งานคลาสสิกเรื่องนี้ทำบนข้อมูลปี 1965–1989 คนละตลาดกับวันนี้</li>
+      <li><span class="kw">52W High แพ้ขาด</span> — IC ต่ำกว่าครึ่งของทุกตัวในทุกช่วง และดิ่งหนักสุดช่วง 2564–2566 ที่หุ้นซึ่งอยู่ใกล้ยอด (กลุ่ม growth ราคาแพง) โดนดอกเบี้ยขาขึ้นทุบแรงที่สุดพอดี ตำราบอกว่ามันควรทนกว่า — ข้อมูลจริงของเราบอกตรงกันข้าม</li>
+      <li><span class="kw">Vol-Adj คือรองแชมป์ที่น่าจับตา</span> — ชนะคอลัมน์เดียวคือ 5 ปีล่าสุด (+0.103) แต่ห่างจากแชมป์เพียง 0.004 ซึ่งยังแยกไม่ออกจาก noise เราบันทึกไว้เป็นตัวที่จะกลับมาวัดซ้ำทุกปี — ถ้าช่องว่างถ่างขึ้นต่อเนื่อง ค่อยคุยกันใหม่</li>
+      <li><span class="kw">สี่ในห้าเส้นวิ่งกอดกันตลอด 30 ปี</span> — เพราะทุกตัวคือญาติสายพันธุ์เดียวกันของโมเมนตัม 6 เดือน เวลาสัญญาณหลับ มันหลับพร้อมกันหมด การสลับไปใช้ "สูตรปรุงพิเศษ" จึงไม่ได้ช่วยกระจายความเสี่ยงของสัญญาณอย่างที่หลายคนหวัง</li>
+    </ul>
+
+    <div class="callout find rv">
+      <span class="lbl">ข้อสรุปของการแข่ง</span>
+      <p>การปรุงเพิ่มทุกตำรับ — ข้ามเดือน, ถ่วงความเนียน, หารด้วยความผันผวน — จ่ายต้นทุนความซับซ้อนเพิ่ม แต่ได้ผลตอบแทนกลับมาเป็นศูนย์หรือติดลบ บน universe และช่วงเวลาที่เราวัด <b>สูตรที่เรียบง่ายที่สุดคือสูตรที่แข็งแรงที่สุด</b> — และตอนนี้ความเรียบง่ายนั้นไม่ใช่ความเรียบง่ายเพราะไม่เคยลองอย่างอื่น แต่คือความเรียบง่ายที่ผ่านการพิสูจน์กับผู้ท้าชิง 4 ราย 236 รอบ 30 ปี</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ S6 · LIMITS ══════════════ -->
+<section class="light">
+  <div class="narrow">
+    <div class="eyebrow rv">06 · ข้อจำกัด</div>
+    <h2 class="head rv">สิ่งที่ตัวเลขชุดนี้ยังตอบไม่ได้ — อ่านก่อนนำไปอ้างอิง</h2>
+
+    <div class="callout warn rv">
+      <span class="lbl">Survivorship Bias ช่วง 2539–2548</span>
+      <p>ข้อมูลช่วงแรกของชุดทดสอบครอบคลุมหุ้นได้ราวครึ่งเดียวของ universe จริง (หุ้นที่ล้มหายไปจำนวนมากไม่มีข้อมูลเหลือ) เราประเมินว่าตัวเลขผลตอบแทนช่วงนั้นสูงเกินจริงราว 2–4% ต่อปี — ดังนั้น Alpha +34.9% ของทศวรรษแรก<b>ห้ามนำไปอ้างอิงเป็นตัวเลขคาดหวัง</b> และการที่กราฟช่วงต้น "ดูดีผิดปกติ" ยังทำให้แนวโน้มระยะยาวดูเหมือน decay แรงกว่าความเป็นจริงด้วย ช่วงที่ข้อมูลเชื่อถือได้คือปี 2549 เป็นต้นไป</p>
+    </div>
+
+    <ul class="body rv">
+      <li><span class="kw">ยังไม่หักต้นทุนการซื้อขาย</span> — ค่าธรรมเนียม ส่วนต่างราคา และภาษีหัก ณ ที่จ่ายเงินปันผล จะลดผลตอบแทนจริงลงจากตัวเลขในตาราง</li>
+      <li><span class="kw">IC สูงไม่ได้แปลว่าเดือนหน้ากำไร</span> — Hit Rate 60% หมายความตรงตัวว่า 4 ใน 10 รอบ สัญญาณจะไม่ช่วยหรือชี้ผิด การวัดครั้งนี้ตอบเรื่อง "สุขภาพระยะยาวของสัญญาณ" ไม่ใช่การพยากรณ์ระยะสั้น</li>
+      <li><span class="kw">ผลผูกกับ universe ที่ทดสอบ</span> — ทั้งหมดวัดบนหุ้นขนาดใหญ่ของสหรัฐฯ ข้อสรุป (เช่น "6-1 Skip ไม่ได้เปรียบ") อาจไม่เป็นจริงกับตลาดหุ้นขนาดเล็กหรือตลาดประเทศอื่น</li>
+      <li><span class="kw">IC 5 ปีล่าสุดที่สูงผิดปกติ อาจถดถอยกลับสู่ค่าเฉลี่ย</span> — ช่วงฟอร์มดีของสัญญาณมาแล้วก็ไปเหมือนช่วงฟอร์มตก เราไม่ได้คาดหวังให้ +0.099 เป็นค่าปกติใหม่</li>
+      <li><span class="kw">การวัดนี้ต้องทำซ้ำ</span> — factor decay เป็นคำถามที่ไม่มีคำตอบถาวร เราตั้งใจกลับมารันการวัดชุดเดียวกันนี้เป็นประจำ และจะรายงานหากแนวโน้มเปลี่ยน</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════ CLOSING ══════════════ -->
+<section class="closing">
+  <div class="narrow">
+    <div class="eyebrow rv" style="color:var(--gold);margin-bottom:22px">สรุปให้จำ</div>
+    <p class="q rv">quant ที่คุ้มที่สุดสำหรับนักลงทุนส่วนใหญ่<br>ไม่ใช่ quant ที่หา alpha เพิ่ม<br>แต่คือ quant ที่ทำให้<em>เสียเงินกับความมั่นใจผิดๆ น้อยลง</em></p>
+
+    <a class="cta rv" href="https://jptrustlearning.com" target="_blank" rel="noopener">
+      <span class="sub">Subscribe at</span>
+      <span class="url">jptrustlearning.com</span>
+      <span class="tip">ทดสอบกลยุทธ์ด้วยตัวเองได้ในห้องทดลอง พร้อม trade log เต็มทุกรอบ</span>
+    </a>
+
+    <p class="disclaimer rv">การลงทุนมีความเสี่ยง &middot; เนื้อหาเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน &middot; ผลในอดีตไม่ได้การันตีผลในอนาคต<br>
+    ค่า IC คำนวณด้วย Spearman rank correlation ระหว่างอันดับสัญญาณ ณ วันก่อน rebalance กับผลตอบแทนจริง 6 เดือนถัดไปของหุ้นทุกตัวใน universe ที่มีข้อมูลครบ &middot; ข้อมูลราคาและปริมาณการซื้อขายรายวันของหุ้นในดัชนี S&amp;P 500 ระหว่าง ก.ค. 1996 ถึง ก.ค. 2026 รวมหุ้นที่ถูกถอดออกจากตลาดเท่าที่มีข้อมูล &middot; โปรดอ่านหมายเหตุข้อจำกัดของชุดข้อมูลในหัวข้อ 06 ประกอบ<br>
+    เรียบเรียงโดย JP Trust Learning</p>
+  </div>
+</section>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach((el)=>{
+  const sib=[...el.parentElement.children].filter(c=>c.classList.contains('rv'));
+  el.style.transitionDelay=(Math.min(sib.indexOf(el),5)*55)+'ms';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
