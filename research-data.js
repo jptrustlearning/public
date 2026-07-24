@@ -141,6 +141,12 @@ const RESEARCH = [
   },
   {
     cat: "momentum", type: "article", status: "active",
+    title: "วิธีหาหุ้น Momentum แบบมืออาชีพ",
+    desc: "ความต่างไม่ได้อยู่ที่อินดิเคเตอร์ลับ แต่อยู่ที่ลำดับขั้นตอน — เริ่มจากจักรวาลหุ้นไม่ใช่หุ้นที่บังเอิญเห็น จัดอันดับเปรียบเทียบแทนเกณฑ์ตายตัว ดูเส้นทางราคาไม่ใช่แค่ปลายทาง (Frog-in-the-Pan) และรู้ล่วงหน้าว่ากลยุทธ์พังตอนไหน (Momentum Crashes) พร้อมวิธีที่ JPTrust ใช้จริงทั้งสี่ขั้น",
+    assets: ["S&P 500"], href: "https://public.jptrustlearning.com/find-momentum-stocks-pro.html"
+  },
+  {
+    cat: "momentum", type: "article", status: "active",
     title: "Momentum Investing คืออะไร? — กลยุทธ์ลงทุนตามแรงส่ง",
     desc: "กลยุทธ์เลือกซื้อหุ้นที่กำลังแรงแล้วถือตามระบบ ปรับพอร์ตเป็นรอบ ไม่เดา ไม่เทรดตามข่าว — อธิบายกระบวนการ 4 ขั้น (คัด · ลงเท่ากัน · ถือ · Rebalance) เหตุผลเชิงคณิตศาสตร์ที่ทำให้ได้ผล และงานวิจัยรองรับ (Jegadeesh & Titman 1993, AQR)",
     assets: ["S&P 500"], href: "https://public.jptrustlearning.com/momentum-investing.html"
