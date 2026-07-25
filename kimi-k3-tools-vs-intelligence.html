@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Kimi K3: ข่าวร้ายของคนขายปัญญา ไม่ใช่คนขายชิป | JP Trust Learning</title>
+<meta name="description" content="บทวิเคราะห์ Kimi K3 โมเดล open-weight ใหญ่ที่สุดในโลกจาก Moonshot AI — ทำไมข่าวเดียวกันทำ NVIDIA แค่สะดุ้ง แต่ SoftBank กับค่ายโมเดล AI จีนร่วง 9-30% · แยกหุ้น AI ในพอร์ต: คนขายเครื่องมือ vs คนขายปัญญา · ข้อมูล 25 ก.ค. 2026">
+<link rel="canonical" href="https://public.jptrustlearning.com/kimi-k3-tools-vs-intelligence.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="JP Trust Learning">
+<meta property="og:title" content="Kimi K3 — ข่าวร้ายของคนขายปัญญา ไม่ใช่คนขายชิป">
+<meta property="og:description" content="ข่าวเดียวจากจีน ทุบหุ้น AI ทั้งกระดาน — แต่ NVIDIA ฟื้นในวันเดียว ขณะที่ค่ายโมเดล AI ร่วง 9-30% แล้วไม่กลับขึ้นมา บทวิเคราะห์แยกหุ้น AI สองสายพันธุ์">
+<meta property="og:image" content="https://public.jptrustlearning.com/og-image.png">
+<meta property="og:url" content="https://public.jptrustlearning.com/kimi-k3-tools-vs-intelligence.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@200;300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-thai:'Anuphan',sans-serif;
+  --font-label:'Cinzel',serif;
+  --font-num:'DM Serif Display',serif;
+
+  --gold:#D4AF37;
+  --gold-dark:#B8860B;
+  --gold-deep:#8B6914;
+  --gold-pale:#E8D48B;
+
+  --maroon:#722F37;
+  --maroon-1:#1a0a0e;
+  --maroon-2:#2d1018;
+  --maroon-3:#3a1520;
+
+  --cream:#FAF6ED;
+  --cream-light:#FFFEF8;
+  --cream-warm:#F5EFE0;
+  --cream-deep:#EDE4D0;
+  --champagne:#EFE3C6;
+
+  --ink:#241016;
+  --ink-soft:#5A4650;
+  --up:#1F7D49;
+  --down:#A32E2E;
+
+  --maxw:1080px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;touch-action:manipulation;}
+body{
+  font-family:var(--font-thai);
+  background:var(--cream);
+  color:var(--ink);
+  font-size:19px;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ── พื้นครีมเหลือบแชมเปญ ─────────────────────────────── */
+body::before{
+  content:"";
+  position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(120% 90% at 12% 0%, #FFFDF4 0%, transparent 60%),
+    radial-gradient(100% 80% at 88% 12%, #F7EEDA 0%, transparent 55%),
+    radial-gradient(120% 100% at 50% 100%, #F2E7CC 0%, transparent 60%),
+    linear-gradient(160deg,#FBF7EC 0%,#F6EFDF 35%,#EFE3C6 62%,#F8F2E4 100%);
+}
+body::after{
+  content:"";
+  position:fixed;inset:-30%;z-index:-1;pointer-events:none;
+  background:linear-gradient(115deg,
+    rgba(255,255,255,0) 34%,
+    rgba(255,255,255,.55) 44%,
+    rgba(232,212,139,.30) 50%,
+    rgba(255,255,255,.55) 56%,
+    rgba(255,255,255,0) 66%);
+  background-size:280% 280%;
+  animation:sheen 26s ease-in-out infinite;
+  opacity:.7;
+}
+@keyframes sheen{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ── Ripple ทอง ───────────────────────────────────────── */
+#rippleLayer{position:fixed;inset:0;z-index:9999;pointer-events:none;overflow:hidden;}
+.rp{
+  position:absolute;border-radius:50%;
+  transform:translate(-50%,-50%) scale(.15);
+  background:none;
+  border:3px solid var(--gold-dark);
+  box-shadow:0 0 0 1px rgba(212,175,55,.35);
+  opacity:1;
+  animation:rp 900ms cubic-bezier(.16,.84,.36,1) forwards;
+}
+.rp.ring{
+  border:1.5px solid rgba(212,175,55,.85);
+  box-shadow:none;
+  animation:rp 1050ms cubic-bezier(.16,.84,.36,1) forwards;
+}
+.rp.core{
+  border:1.5px solid rgba(212,175,55,.9);
+  background:radial-gradient(circle,
+    rgba(232,212,139,.55) 0%,
+    rgba(212,175,55,.32) 45%,
+    rgba(212,175,55,.10) 75%,
+    rgba(212,175,55,0) 100%);
+  box-shadow:0 0 18px rgba(212,175,55,.45);
+  animation:rp 820ms cubic-bezier(.16,.84,.36,1) forwards;
+}
+@keyframes rp{
+  0%{transform:translate(-50%,-50%) scale(.12);opacity:1;}
+  55%{opacity:1;}
+  100%{transform:translate(-50%,-50%) scale(1);opacity:0;}
+}
+
+/* ── โครง ─────────────────────────────────────────────── */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+section{padding:64px 0;position:relative;}
+.eyebrow{
+  font-family:var(--font-label);
+  font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--gold-deep);font-weight:600;
+  display:flex;align-items:center;gap:12px;margin-bottom:14px;
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(212,175,55,.6),transparent);}
+h2{
+  font-size:clamp(28px,4.4vw,42px);font-weight:600;line-height:1.35;
+  letter-spacing:-.01em;margin-bottom:16px;
+}
+h3{font-size:clamp(20px,2.6vw,24px);font-weight:600;margin-bottom:10px;}
+p{margin-bottom:18px;}
+.lead{font-size:clamp(19px,2.2vw,21px);color:var(--ink-soft);}
+strong{font-weight:600;color:var(--maroon-3);}
+.hl{background:linear-gradient(180deg,transparent 62%,rgba(212,175,55,.32) 62%);}
+
+/* ── Hero ─────────────────────────────────────────────── */
+.hero{
+  background:linear-gradient(160deg,var(--maroon-1) 0%,var(--maroon-2) 48%,var(--maroon-3) 100%);
+  color:var(--cream-light);
+  padding:78px 0 62px;
+  border-bottom:2px solid transparent;
+  border-image:linear-gradient(90deg,transparent,var(--gold),var(--gold-pale),var(--gold),transparent) 1;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(90% 70% at 78% 8%,rgba(212,175,55,.16),transparent 62%);
+  pointer-events:none;
+}
+.hero .eyebrow{color:var(--gold);}
+.hero .eyebrow::after{background:linear-gradient(90deg,rgba(212,175,55,.5),transparent);}
+.hero h1{
+  font-size:clamp(36px,6.4vw,68px);font-weight:600;line-height:1.22;
+  letter-spacing:-.015em;margin-bottom:20px;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--gold),#F4E4BA,var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{font-size:clamp(17px,2.2vw,20px);color:rgba(250,246,237,.78);max-width:720px;font-weight:300;}
+.dateline{
+  font-family:var(--font-label);font-size:12px;letter-spacing:.2em;
+  color:rgba(212,175,55,.85);margin-top:26px;
+}
+
+/* ── ลิงก์ห้องสมุด ────────────────────────────────────── */
+.crumb{
+  display:inline-block;margin-bottom:22px;
+  font-family:var(--font-label);font-size:11.5px;letter-spacing:.16em;
+  color:rgba(212,175,55,.9);text-decoration:none;
+  border-bottom:1px solid rgba(212,175,55,.35);padding-bottom:3px;
+}
+.crumb:hover{color:var(--gold-pale);}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:20px;}
+.foot-links a{
+  font-family:var(--font-label);font-size:12px;letter-spacing:.14em;
+  color:var(--gold-deep);text-decoration:none;
+  border-bottom:1px solid rgba(184,134,11,.4);padding-bottom:2px;
+}
+
+/* ── ภาพเปิด ──────────────────────────────────────────── */
+.hero-fig{
+  position:relative;margin:38px 0 6px;border-radius:20px;overflow:hidden;
+  border:1px solid rgba(212,175,55,.4);
+  box-shadow:0 22px 60px rgba(0,0,0,.45);
+  aspect-ratio:16/9;
+}
+.hero-fig img{
+  width:100%;height:100%;object-fit:cover;object-position:center 42%;
+  display:block;filter:saturate(.82) contrast(1.05);
+}
+.hero-fig::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(26,10,14,.30) 0%,rgba(26,10,14,0) 30%,rgba(26,10,14,.55) 100%),
+    radial-gradient(70% 60% at 50% 55%,rgba(212,175,55,.10),transparent 70%);
+}
+.hero-cap{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  padding:16px 20px;
+  font-size:14.5px;font-weight:300;color:rgba(250,246,237,.9);
+  line-height:1.6;
+}
+.hero-cap b{
+  display:block;font-family:var(--font-label);font-size:10.5px;letter-spacing:.18em;
+  color:var(--gold);font-weight:600;margin-bottom:4px;
+}
+@media(max-width:820px){
+  .hero-fig{aspect-ratio:4/3;margin-top:30px;}
+  .hero-cap{font-size:13px;padding:14px 16px;}
+}
+
+/* ── แถบสถิติ ─────────────────────────────────────────── */
+.statstrip{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px;
+}
+.stat{
+  background:rgba(250,246,237,.05);
+  border:1px solid rgba(212,175,55,.28);
+  border-radius:14px;padding:18px 16px;
+  backdrop-filter:blur(2px);
+}
+.stat-lb{font-family:var(--font-label);font-size:10.5px;letter-spacing:.16em;color:rgba(212,175,55,.9);}
+.stat-v{font-family:var(--font-num);font-size:clamp(28px,4vw,40px);line-height:1.1;margin:6px 0 2px;}
+.stat-v.dn{color:#F09A9A;}
+.stat-v.up{color:#8ED9AC;}
+.stat-s{font-size:13.5px;color:rgba(250,246,237,.6);font-weight:300;line-height:1.5;}
+
+/* ── การ์ด ────────────────────────────────────────────── */
+.card{
+  background:linear-gradient(150deg,var(--cream-light),var(--cream-warm));
+  border:1px solid rgba(184,134,11,.22);
+  border-radius:18px;padding:28px 26px;
+  box-shadow:0 10px 34px rgba(90,60,20,.07);
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+
+/* ── แถบสลับสี ────────────────────────────────────────── */
+.band{
+  background:linear-gradient(160deg,var(--maroon-2),var(--maroon-3));
+  color:var(--cream-light);
+}
+.band .eyebrow{color:var(--gold);}
+.band strong{color:var(--gold-pale);}
+.band .lead{color:rgba(250,246,237,.75);}
+.band .card{
+  background:rgba(250,246,237,.055);
+  border-color:rgba(212,175,55,.3);
+  box-shadow:none;
+}
+
+/* ── กราฟแท่ง (CSS) ───────────────────────────────────── */
+.chart{margin:26px 0 10px;}
+.bars{display:flex;align-items:flex-end;gap:14px;height:230px;padding-top:26px;}
+.bar-col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;}
+.bar{
+  width:100%;border-radius:8px 8px 3px 3px;position:relative;
+  background:linear-gradient(180deg,var(--gold-pale),var(--gold) 45%,var(--gold-dark));
+  box-shadow:0 6px 18px rgba(184,134,11,.22);
+  transition:height 1.1s cubic-bezier(.2,.8,.25,1);
+}
+.bar.mute{background:linear-gradient(180deg,#DCCFAE,#C6B489);box-shadow:none;}
+.bar.fcast{
+  background:repeating-linear-gradient(135deg,rgba(212,175,55,.55) 0 8px,rgba(232,212,139,.35) 8px 16px);
+  border:1px dashed var(--gold-dark);
+}
+.bar-v{
+  position:absolute;top:-28px;left:0;right:0;text-align:center;
+  font-family:var(--font-num);font-size:19px;color:var(--gold-deep);
+}
+.bar-x{
+  margin-top:10px;font-size:13px;text-align:center;color:var(--ink-soft);
+  font-weight:500;line-height:1.35;
+}
+.band .bar-v{color:var(--gold-pale);}
+.band .bar-x{color:rgba(250,246,237,.7);}
+
+/* ── ตาราง ────────────────────────────────────────────── */
+.tbl{width:100%;border-collapse:collapse;font-size:16px;margin-top:8px;}
+.tbl th{
+  font-family:var(--font-label);font-size:11px;letter-spacing:.12em;
+  text-align:left;color:var(--gold-deep);padding:12px 10px;
+  border-bottom:1.5px solid rgba(184,134,11,.35);white-space:nowrap;
+}
+.tbl td{padding:14px 10px;border-bottom:1px solid rgba(184,134,11,.14);vertical-align:middle;}
+.tbl tr:last-child td{border-bottom:none;}
+.tk{font-family:var(--font-label);font-weight:600;font-size:15px;color:var(--maroon-3);}
+.tk small{display:block;font-family:var(--font-thai);font-weight:400;font-size:13px;color:var(--ink-soft);letter-spacing:0;}
+.num{font-family:var(--font-num);font-size:19px;}
+.pos{color:var(--up);}
+.neg{color:var(--down);}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+
+/* ── Reveal on scroll ─────────────────────────────────── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+.rv.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}}
+
+/* ── Showcase (แนะนำแพลตฟอร์ม) ────────────────────────── */
+.showcase{padding:clamp(54px,8vw,90px) 0;}
+.showcase-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,56px);align-items:center;
+}
+.showcase h3{font-size:clamp(24px,3.4vw,34px);font-weight:600;line-height:1.35;margin-bottom:14px;}
+.showcase p{font-size:17px;margin-bottom:18px;}
+.showcase ul{list-style:none;}
+.showcase li{
+  position:relative;padding:9px 0 9px 22px;font-size:16.5px;line-height:1.7;
+  border-top:1px solid rgba(184,134,11,.18);
+}
+.showcase li::before{
+  content:"";position:absolute;left:0;top:20px;width:7px;height:7px;border-radius:50%;
+  background:var(--gold);
+}
+.band.showcase li{border-top-color:rgba(212,175,55,.22);}
+.shot{
+  border-radius:20px;overflow:hidden;
+  border:1px solid rgba(212,175,55,.35);
+  box-shadow:0 30px 70px -34px rgba(0,0,0,.55);
+}
+.shot img{display:block;width:100%;height:auto;}
+.light-shot{box-shadow:0 26px 60px -34px rgba(90,60,20,.45);border-color:rgba(184,134,11,.3);}
+.sc-cta{
+  display:inline-flex;flex-direction:column;gap:3px;margin-top:22px;
+  text-decoration:none;border:1px solid rgba(212,175,55,.45);
+  border-radius:14px;padding:14px 22px;
+}
+.sc-cta .sub{font-family:var(--font-label);font-size:10px;letter-spacing:.26em;color:var(--gold-deep);}
+.band .sc-cta .sub{color:var(--gold);}
+.sc-cta .url{font-family:var(--font-label);font-weight:700;font-size:19px;letter-spacing:.02em;color:var(--maroon-3);}
+.band .sc-cta .url{color:var(--gold-pale);}
+.sc-cta:hover{border-color:var(--gold);}
+@media(max-width:820px){
+  .showcase-inner{grid-template-columns:1fr;}
+  .showcase .shot{order:-1;}
+  .showcase.flip .shot{order:-1;}
+}
+
+/* ── ภาพประกอบในเนื้อหา ───────────────────────────────── */
+.fig{
+  margin:28px 0 6px;border-radius:18px;overflow:hidden;
+  border:1px solid rgba(184,134,11,.35);
+  box-shadow:0 18px 46px rgba(90,60,20,.18);
+  position:relative;aspect-ratio:16/9;
+}
+.fig img{
+  width:100%;height:100%;object-fit:cover;object-position:center 34%;
+  display:block;filter:saturate(.9);
+}
+.fig::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(26,10,14,0) 55%,rgba(26,10,14,.75) 100%);
+}
+.fig-cap{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;padding:16px 20px;
+  font-size:14.5px;font-weight:300;color:rgba(250,246,237,.92);line-height:1.6;
+}
+.fig-cap b{
+  display:block;font-family:var(--font-label);font-size:10.5px;letter-spacing:.18em;
+  color:var(--gold);font-weight:600;margin-bottom:4px;
+}
+@media(max-width:820px){
+  .fig{aspect-ratio:4/5;}
+  .fig img{object-position:center 30%;}
+  .fig-cap{font-size:13px;padding:14px 16px;}
+}
+
+/* ── Timeline ─────────────────────────────────────────── */
+.tl{position:relative;padding-left:34px;margin-top:26px;}
+.tl::before{
+  content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(180deg,var(--gold),rgba(212,175,55,.15));
+}
+.tl-item{position:relative;padding-bottom:28px;}
+.tl-item::before{
+  content:"";position:absolute;left:-30px;top:8px;width:14px;height:14px;border-radius:50%;
+  background:var(--cream-light);border:3px solid var(--gold);
+}
+.tl-item.hot::before{background:var(--down);border-color:var(--down);box-shadow:0 0 0 5px rgba(163,46,46,.14);}
+.tl-d{font-family:var(--font-label);font-size:11.5px;letter-spacing:.14em;color:var(--gold-deep);}
+.tl-t{font-weight:600;font-size:18px;margin:2px 0 4px;}
+.tl-b{font-size:16px;color:var(--ink-soft);line-height:1.75;}
+
+/* ── Bull / Bear ──────────────────────────────────────── */
+.bb{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px;}
+.bb-col{border-radius:18px;padding:26px 24px;border:1px solid;}
+.bb-bull{background:linear-gradient(160deg,rgba(46,159,95,.16),rgba(250,246,237,.05));border-color:rgba(46,159,95,.42);}
+.bb-bear{background:linear-gradient(160deg,rgba(200,70,70,.16),rgba(250,246,237,.05));border-color:rgba(200,70,70,.42);}
+.bb-h{font-family:var(--font-label);font-size:13px;letter-spacing:.2em;margin-bottom:16px;font-weight:600;}
+.bb-bull .bb-h{color:#8ED9AC;}
+.bb-bear .bb-h{color:#F09A9A;}
+.bb ul{list-style:none;}
+.bb li{padding:10px 0 10px 24px;position:relative;font-size:16.5px;line-height:1.7;border-bottom:1px dashed rgba(250,246,237,.14);}
+.bb li:last-child{border-bottom:none;}
+.bb li::before{position:absolute;left:0;top:10px;font-weight:700;}
+.bb-bull li::before{content:"▲";color:#8ED9AC;font-size:11px;}
+.bb-bear li::before{content:"▼";color:#F09A9A;font-size:11px;}
+
+/* ── Gauge เป้าหมายราคา ───────────────────────────────── */
+.gauge{margin:30px 0 10px;}
+.gauge-bar{
+  height:16px;border-radius:999px;position:relative;
+  background:linear-gradient(90deg,#C6B489,var(--gold-pale),var(--gold),var(--gold-dark));
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.1);
+}
+.gm{position:absolute;top:-6px;width:2px;height:28px;background:var(--maroon-3);}
+.gm.now{width:3px;height:38px;top:-11px;background:var(--down);box-shadow:0 0 0 4px rgba(163,46,46,.15);}
+.gm span{
+  position:absolute;top:-30px;left:50%;transform:translateX(-50%);
+  font-family:var(--font-label);font-size:10.5px;letter-spacing:.1em;white-space:nowrap;color:var(--ink-soft);
+}
+.gm.now span{color:var(--down);font-weight:700;}
+.gauge-lb{display:flex;justify-content:space-between;margin-top:34px;font-size:14px;color:var(--ink-soft);}
+
+/* ── Quote / callout ──────────────────────────────────── */
+.callout{
+  border-left:4px solid var(--gold);
+  background:linear-gradient(90deg,rgba(212,175,55,.10),transparent);
+  padding:18px 22px;margin:24px 0;border-radius:0 12px 12px 0;
+  font-size:17.5px;line-height:1.8;
+}
+.band .callout{background:linear-gradient(90deg,rgba(212,175,55,.16),transparent);}
+
+/* ── Pills ────────────────────────────────────────────── */
+.pill{
+  display:inline-block;padding:4px 12px;border-radius:999px;
+  font-family:var(--font-label);font-size:10.5px;letter-spacing:.1em;font-weight:600;
+}
+.pill-up{background:rgba(31,125,73,.12);color:var(--up);border:1px solid rgba(31,125,73,.3);}
+.pill-dn{background:rgba(163,46,46,.10);color:var(--down);border:1px solid rgba(163,46,46,.28);}
+.pill-nt{background:rgba(212,175,55,.14);color:var(--gold-deep);border:1px solid rgba(212,175,55,.35);}
+
+/* ── ปฏิทิน ───────────────────────────────────────────── */
+.cal{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px;}
+.cal-i{
+  display:flex;gap:16px;align-items:flex-start;
+  background:linear-gradient(150deg,var(--cream-light),var(--cream-warm));
+  border:1px solid rgba(184,134,11,.2);border-radius:14px;padding:18px;
+  color:var(--ink);
+}
+.cal-d{
+  flex:0 0 62px;text-align:center;
+  border-right:1px solid rgba(184,134,11,.2);padding-right:12px;
+}
+.cal-d b{display:block;font-family:var(--font-num);font-size:26px;line-height:1;color:var(--gold-dark);}
+.cal-d span{font-family:var(--font-label);font-size:10px;letter-spacing:.1em;color:var(--ink-soft);}
+.cal-x b{display:block;font-size:16.5px;font-weight:600;margin-bottom:2px;color:var(--maroon-3);}
+.cal-x span{font-size:14.5px;color:var(--ink-soft);line-height:1.6;}
+
+/* ── Footer ───────────────────────────────────────────── */
+footer{
+  background:linear-gradient(180deg,var(--cream-deep),#E6DAC2);
+  padding:44px 0 56px;margin-top:20px;
+  border-top:1px solid rgba(184,134,11,.3);
+}
+.disc{font-size:14px;color:var(--ink-soft);font-weight:300;line-height:1.8;}
+.sig{
+  font-family:var(--font-label);font-size:13px;letter-spacing:.22em;
+  color:var(--gold-deep);font-weight:600;margin-bottom:12px;
+}
+
+/* ── Mobile ───────────────────────────────────────────── */
+@media(max-width:820px){
+  body{font-size:18px;}
+  section{padding:48px 0;}
+  .statstrip{grid-template-columns:1fr 1fr;}
+  .grid2,.grid3,.bb,.cal{grid-template-columns:1fr;}
+  .bars{height:190px;gap:8px;}
+  .bar-v{font-size:15px;top:-24px;}
+  .bar-x{font-size:11.5px;}
+  .tbl{font-size:14.5px;}
+  .num{font-size:17px;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  body::after{opacity:.4;}
+}
+</style>
+</head>
+<body>
+<div id="rippleLayer"></div>
+
+<!-- ══ HERO ══════════════════════════════════════════════ -->
+<header class="hero">
+  <div class="wrap">
+    <a class="crumb" href="lib-analysis.html">← ห้องสมุดบทวิเคราะห์</a>
+    <div class="eyebrow">AI · Semiconductors · China</div>
+    <h1>Kimi K3 — ข่าวร้ายของ<em>คนขายปัญญา</em><br>ไม่ใช่คนขายชิป</h1>
+    <p class="hero-sub">ศุกร์ 17 ก.ค. ข่าวเดียวจากจีนทุบหุ้น AI ร่วงทั้งกระดานตอนเช้า — แต่พอปิดตลาด คนทำชิปโดนแค่สะดุ้ง ส่วนคนทำตัวโมเดล AI ร่วง 9–30% แล้วนอนอยู่ตรงนั้น บทวิเคราะห์ว่าเส้นแบ่งอยู่ตรงไหน และหุ้น AI ในพอร์ตของเราอยู่ฝั่งไหนของเส้น</p>
+
+    <div class="statstrip">
+      <div class="stat">
+        <div class="stat-lb">NVIDIA · 17 JUL</div>
+        <div class="stat-v dn">−2%</div>
+        <div class="stat-s">เปิดร่วงแรง ฟื้นระหว่างวัน ปิดลบราว 2% — ฝั่ง "เครื่องมือ"</div>
+      </div>
+      <div class="stat">
+        <div class="stat-lb">SOFTBANK · TOKYO</div>
+        <div class="stat-v dn">−9%</div>
+        <div class="stat-s">ตัวแทน OpenAI ในสายตาตลาด — ฝั่ง "ปัญญา"</div>
+      </div>
+      <div class="stat">
+        <div class="stat-lb">Z.AI · ZHIPU · HK</div>
+        <div class="stat-v dn">−28~30%</div>
+        <div class="stat-s">ค่ายโมเดล AI จีนด้วยกันเอง โดนหนักที่สุดและไม่ฟื้น</div>
+      </div>
+      <div class="stat">
+        <div class="stat-lb">SOX · H1 2026</div>
+        <div class="stat-v up">+101%</div>
+        <div class="stat-s">ดัชนีหุ้นชิปครึ่งปีแรก — ฉากหลังที่ทำให้ตลาดไวต่อทุกข่าว</div>
+      </div>
+    </div>
+
+    <div class="dateline">ข้อมูล ณ 25 กรกฎาคม 2026 · JP TRUST LEARNING</div>
+  </div>
+</header>
+
+<!-- ══ 1. เกิดอะไรขึ้น ═══════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">What Happened</div>
+    <h2>ข่าวเดียวกันเป๊ะ — แต่แดงไม่เท่ากัน</h2>
+
+    <p class="lead">วันศุกร์ที่ 17 กรกฎาคม สตาร์ทอัพจีนชื่อ Moonshot AI ปล่อยโมเดล AI ตัวใหม่ชื่อ <strong>Kimi K3</strong> — ภายในไม่กี่ชั่วโมง ตลาดหุ้นไต้หวันร่วงกว่า 6% ญี่ปุ่นลบ 4% Nasdaq เปิดมาไหลลง สื่อการเงินทั่วโลกพาดหัวเหมือนกันหมด: <span class="hl">"DeepSeek Moment รอบสอง"</span></p>
+    <p>แต่พอตลาดปิด ภาพที่เหลืออยู่กลับไม่ใช่การถล่มทั้งกระดานแบบพาดหัว — มันคือการ<strong>คัดแยก</strong>ค่ะ หุ้นสาย "เครื่องมือ" สะดุ้งแล้วฟื้น ส่วนหุ้นสาย "ตัวโมเดล" โดนของจริง</p>
+
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-d">16 JUL</div>
+        <div class="tl-t">Moonshot AI เปิดตัว Kimi K3</div>
+        <div class="tl-b">โมเดลขนาด 2.8 ล้านล้านพารามิเตอร์ ใหญ่ที่สุดในบรรดาโมเดลแบบ open-weight ที่โลกเคยมี พร้อมผล benchmark ที่บริษัทรายงานว่าขึ้นไปอยู่อันดับ 2–3 ของโลก</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-d">17 JUL</div>
+        <div class="tl-t">เอเชียร่วงก่อน — ไต้หวัน −6% ญี่ปุ่น −4%</div>
+        <div class="tl-b">TSMC ร่วง 7% ทั้งที่วันเดียวกันเพิ่งรายงานกำไรจากการดำเนินงานโต 77% · SoftBank ที่ตลาดมองเป็นตัวแทนของ OpenAI ลบ 9% · หุ้นค่ายโมเดล AI จีนอย่าง Z.ai และ Zhipu ถล่มลง 28–30%</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-d">17 JUL</div>
+        <div class="tl-t">อเมริกาเปิดร่วง — แล้วเริ่มคัดแยก</div>
+        <div class="tl-b">NVIDIA เปิดลบแรงตามสคริปต์ DeepSeek แต่ฟื้นระหว่างวันจนปิดลบเพียงราว 2% · SK Hynix เจ้าใหญ่หน่วยความจำถึงกับปิด<strong>บวก</strong>สวนกระดาน · ฝั่งค่ายโมเดลไม่ฟื้นทั้งวัน</div>
+      </div>
+      <div class="tl-item hot">
+        <div class="tl-d">27 JUL</div>
+        <div class="tl-t">กำหนดปล่อย weights จริง</div>
+        <div class="tl-b">ตัวโมเดลจะถูกเปิดให้ดาวน์โหลดฟรี — การทดสอบอิสระโดยคนนอกบริษัทจะเริ่มขึ้น และจะยืนยันหรือหักล้างตัวเลข benchmark ภายในไม่กี่วัน</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:30px;">
+      <strong>คำถามของบทวิเคราะห์นี้:</strong> อะไรตัดสินว่าใครโดนแค่สะดุ้ง และใครโดนของจริง — คำตอบคือคำถามเดียวที่เราอยากชวนทุกคนถามกับหุ้น AI ในพอร์ตตัวเอง: <span class="hl">มันหากินด้วยการขาย "เครื่องมือ" หรือขาย "ปัญญา"</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SHOWCASE · ข่าวรายวัน ═════════════════════════════ -->
+<section class="band showcase">
+  <div class="wrap">
+    <div class="showcase-inner">
+      <div>
+        <div class="eyebrow">Daily Dispatches</div>
+        <h3>ข่าวแบบนี้ เราย่อยให้ทุกเช้า–บ่าย–เย็น</h3>
+        <p>Kimi K3, งบ Intel, ท่าทีของ Fed — ข่าวกระจัดกระจายทั่ว Wall Street เราคัด สรุปเป็นไทย แล้วบอกต่อว่ามันกระทบพอร์ตอย่างไร</p>
+        <ul>
+          <li>คัดจาก Wall Street สรุปเป็นไทยในภาษาที่เข้าใจ</li>
+          <li>ติดโทน Bull / Bear ให้รู้ทันทีว่าข่าวบวกหรือลบ</li>
+          <li>แท็กหุ้นที่เกี่ยวข้องในแต่ละข่าว พร้อมวิเคราะห์โอกาสและความเสี่ยง</li>
+        </ul>
+        <a class="sc-cta" href="https://jptrustlearning.com" target="_blank" rel="noopener">
+          <span class="sub">Subscribe at</span>
+          <span class="url">jptrustlearning.com</span>
+        </a>
+      </div>
+      <div class="shot"><img src="article-img/ad-news.jpg" alt="ฟีเจอร์ข่าวรายวันในแอป JP Trust Learning" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 2. Kimi K3 คืออะไร ════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">The Model</div>
+    <h2>Kimi K3 คืออะไร — และทำไมราคาถึงเป็นเรื่องใหญ่</h2>
+    <p class="lead">Kimi K3 เป็นโมเดล AI จาก Moonshot AI สตาร์ทอัพปักกิ่งที่มี Alibaba หนุนหลัง ขนาด 2.8 ล้านล้านพารามิเตอร์ — ใหญ่กว่ารุ่นก่อนหน้าของตัวเองเกือบ 3 เท่า และใหญ่ที่สุดในบรรดาโมเดลแบบ <strong>open-weight</strong> (เปิดให้ดาวน์โหลดไปรันเองได้ฟรี) ที่โลกเคยมี</p>
+    <p>ผล benchmark ที่บริษัทรายงาน ขึ้นไปอยู่อันดับ 2–3 ของโลก เป็นรองแค่โมเดลท็อปสุดของ Anthropic กับ OpenAI และเหนือกว่าโมเดลระดับรองของทั้งสองค่ายในงานสาย coding</p>
+    <p>แต่ที่แสบจริงคือราคาค่ะ:</p>
+
+    <div class="card">
+      <h3>ค่าใช้งานผ่าน API — ดอลลาร์ต่อ 1 ล้าน output token</h3>
+      <p style="font-size:16px;color:rgba(250,246,237,.65);margin-bottom:4px;">เทียบราคาที่เผยแพร่สาธารณะ ณ กลางเดือน ก.ค. 2026</p>
+      <div class="chart">
+        <div class="bars">
+          <div class="bar-col"><div class="bar mute" data-h="100%"><span class="bar-v">$50</span></div><div class="bar-x">โมเดลท็อป<br>ฝั่งอเมริกา</div></div>
+          <div class="bar-col"><div class="bar" data-h="30%"><span class="bar-v">$15</span></div><div class="bar-x">Kimi K3</div></div>
+          <div class="bar-col"><div class="bar mute" data-h="4%"><span class="bar-v">$0.87</span></div><div class="bar-x">DeepSeek V4</div></div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:26px;">
+        <strong>อ่านตัวเลขนี้ให้ครบสองชั้น:</strong> K3 ถูกกว่าโมเดลท็อปอเมริการาว 3 เท่า — แต่ในขณะเดียวกันก็<strong>แพงกว่า</strong>ค่ายจีนด้วยกันเองหลายเท่า เพราะ Moonshot กำลังทดสอบว่าคุณภาพระดับนี้ตั้งราคาพรีเมียมในจีนได้ไหม และวันที่ 27 ก.ค. ตัว weights จะถูกแจกฟรี — เพดานราคาของ "ปัญญา" ทั้งอุตสาหกรรมถูกกดลงพร้อมกัน
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3. กระดูกสันหลัง ══════════════════════════════════ -->
+<section class="band">
+  <div class="wrap">
+    <div class="eyebrow">The Backbone</div>
+    <h2>เครื่องมือ vs ปัญญา — เส้นแบ่งที่ตลาดลากให้ดูในวันเดียว</h2>
+    <p class="lead">นึกภาพแบบนี้นะคะ — K3 คือการแจก<strong>สูตรอาหาร</strong>ระดับภัตตาคารให้ฟรี คนที่เดือดร้อนคือร้านที่หากินกับการขายสูตรแพงๆ ไม่ใช่<strong>คนขายเตา</strong> เพราะสูตรที่แจกฟรีรอบนี้เป็นสูตรจานใหญ่ขึ้นกว่าเดิม — ใครอยากทำตาม ยิ่งต้องซื้อเตาใหญ่ขึ้น</p>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>ข้อแรก — ทำไมคนขายเครื่องมือไม่โดน</h3>
+        <p style="margin-bottom:0;">โมเดลใหญ่ 2.8 ล้านล้านพารามิเตอร์ ต้องการฮาร์ดแวร์มหาศาลในการรัน โดยเฉพาะหน่วยความจำแบนด์วิดท์สูง (HBM) — Bloomberg ชี้ประเด็นนี้ตรงๆ ว่า K3 ต่างจาก DeepSeek ตรงที่มันยิ่ง<strong>ตอกย้ำ</strong>ดีมานด์ของ HBM, ระบบของ NVIDIA และโรงงานผลิตขั้นสูงของ TSMC — นี่คือเหตุผลที่ SK Hynix ปิดบวกสวนตลาดทั้งกระดาน ตลาดครึ่งวันหลังอ่านออกแล้วว่าเรื่องนี้ไม่ใช่เรื่อง "ใช้ชิปน้อยลง"</p>
+      </div>
+      <div class="card">
+        <h3>ข้อสอง — ที่โดนจริงคือ "ราคาขายของปัญญา"</h3>
+        <p style="margin-bottom:0;">ของเทียบชั้นท็อปโลก ขายถูกกว่า 3 เท่า แถมกำลังจะแจก weights ฟรี — เพดานราคาที่ค่ายโมเดลอเมริกันจะตั้งได้ในอนาคตถูกกดลงทันที และค่ายโมเดลจีนด้วยกันเองโดนหนักกว่าใคร เพราะแข่งในสนามเดียวกันแบบตรงๆ — นี่คือเหตุผลที่ Z.ai กับ Zhipu ร่วงหนักกว่า NVIDIA สิบกว่าเท่า ทั้งที่เป็นข่าว "จีนชนะ"</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:24px;">
+      <strong>กันสับสนเรื่อง Micron:</strong> สัปดาห์เดียวกันนั้น หุ้นหน่วยความจำอย่าง Micron มีวันร่วงแรงระดับ 8% เหมือนกัน — แต่นั่นเกิด<strong>ก่อน K3 ออกสองวัน</strong> จากแรงคนละเรื่อง: การขายทำกำไรหลังราคาวิ่งมา 301% ตั้งแต่ต้นปี บวกข่าว IPO ของคู่แข่งและความกังวลเรื่อง export — พอถึงวันที่ K3 ออกจริง Micron กลับขยับขึ้นเล็กน้อยด้วยซ้ำ อย่าเหมารวมแท่งแดงทั้งสัปดาห์เป็นฝีมือ K3 นะคะ คนละแรงกันค่ะ
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4. คู่เทียบ DeepSeek ══════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">The Comparison</div>
+    <h2>"DeepSeek Moment รอบสอง" — เทียบถูกครึ่งเดียว</h2>
+    <p class="lead">สองเหตุการณ์นี้หน้าตาเหมือนกัน แต่<strong>กลไกกลับด้านกัน</strong> — และผลลัพธ์ในตลาดต่างกัน 8 เท่า</p>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>DeepSeek · มกราคม 2025</h3>
+        <p>โมเดลเก่งเทียบชั้นอเมริกา โดยอ้างว่าใช้ทรัพยากร<strong>น้อยกว่า</strong>มาก — เป็นข่าวร้ายของฮาร์ดแวร์โดยตรง เพราะมันบอกว่า "อาจไม่ต้องซื้อชิปเยอะขนาดนั้น"</p>
+        <p style="margin-bottom:0;"><strong>ผล:</strong> NVIDIA ร่วงเกือบ 17% ในวันเดียว มูลค่าหายไป 589 พันล้านดอลลาร์ — สถิติการร่วงวันเดียวที่ใหญ่ที่สุดของบริษัทใดๆ ในประวัติศาสตร์ ณ ตอนนั้น</p>
+      </div>
+      <div class="card">
+        <h3>Kimi K3 · กรกฎาคม 2026</h3>
+        <p>จีนเลิกเล่นเกม "เล็กแต่คุ้ม" หันมาเล่นเกม<strong>สเกล</strong>แบบเดียวกับอเมริกา — สร้างโมเดลใหญ่ขึ้นเกือบ 3 เท่า ซึ่งแปลว่าอยากได้ชิป<strong>มากขึ้น</strong> ไม่ใช่น้อยลง ขนาดเจ้าหน้าที่ทำเนียบขาวยังระบุว่า Moonshot เข้าถึงชิป NVIDIA ได้ทั้งที่มีคำสั่งห้ามส่งออก</p>
+        <p style="margin-bottom:0;"><strong>ผล:</strong> NVIDIA ปิดลบเพียงราว 2% — ตลาดจำบทเรียนเก่าได้ และเนื้อเรื่องรอบนี้ต่างจริง</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5. แฟร์กับฝั่งกังวล ═══════════════════════════════ -->
+<section class="band">
+  <div class="wrap">
+    <div class="eyebrow">The Counter</div>
+    <h2>แต่ต้องแฟร์กับฝั่งที่กังวลด้วย</h2>
+    <p class="lead">"คนขายชิปไม่โดนตรงๆ" ไม่ได้แปลว่าหุ้นชิปปลอดภัย — สามข้อที่ฝั่งระวังพูดถูก</p>
+
+    <div class="grid3">
+      <div class="card">
+        <h3>เงาที่ทาบปี 2027–2028</h3>
+        <p style="margin-bottom:0;">เงิน capex ระดับหกแสนล้านดอลลาร์ของบิ๊กเทคอเมริกัน สุดท้ายต้องคืนทุนผ่านการ<strong>ขายปัญญา</strong> — ถ้าราคาขายปัญญาถูกกดโดยของฟรีจากจีนเรื่อยๆ เส้นทางคืนทุนก็ยืดออกไป และวันหนึ่งจะวนกลับมาเป็นคำถามต่อคำสั่งซื้อชิปเอง ไม่ใช่ปีนี้ แต่เป็นเงาระยะยาว</p>
+      </div>
+      <div class="card">
+        <h3>ราคาที่ตึงอยู่แล้ว</h3>
+        <p style="margin-bottom:0;">ทั้งหมดนี้เกิดบนราคาหุ้นชิปที่ครึ่งปีแรกวิ่งไป <strong>101%</strong> จ่ายเผื่อความสมบูรณ์แบบไว้หมดแล้ว — ตลาดที่ราคาตึงแบบนี้ ไวต่อทุกรอยขีดข่วนบน thesis ต่อให้รอยนั้นยังไม่ถึงเนื้อ</p>
+      </div>
+      <div class="card">
+        <h3>ตัวเลขที่ยังไม่มีใครตรวจ</h3>
+        <p style="margin-bottom:0;">benchmark ทั้งหมดตอนนี้คือตัวเลขที่ Moonshot รายงานเอง weights จริงยังไม่ถูกปล่อย การตรวจสอบอิสระยังไม่เกิด — เราเองก็ตอบไม่ได้ว่า K3 เก่งจริงเต็มตามโฆษณาหรือไม่ ไม่มีใครนอกบริษัทรู้</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:24px;">
+      <strong>ก่อนทำอะไรกับพอร์ต:</strong> ข่าวเดียวกัน คนหนึ่งเห็นคำว่า "DeepSeek 2.0" แล้วกดขาย อีกคนรอดูข้อมูลจริงแล้วค่อยตัดสินตอนใจนิ่ง — ตลาดวันศุกร์ที่ 17 พิสูจน์ให้ดูในวันเดียวว่าสองแบบนี้ได้ผลลัพธ์คนละโลก ปรับที่กติกาด้วยหลักฐาน ไม่ใช่ปรับที่หน้าจอด้วยความรู้สึก
+    </div>
+  </div>
+</section>
+
+<!-- ══ SHOWCASE · เครื่องมือครบในแอปเดียว ═══════════════ -->
+<section class="showcase flip">
+  <div class="wrap">
+    <div class="showcase-inner">
+      <div class="shot light-shot"><img src="article-img/ad-allinone.jpg" alt="เครื่องมือทั้งหมดในแอป JP Trust Learning" loading="lazy"></div>
+      <div>
+        <div class="eyebrow">All-in-one Platform</div>
+        <h3>ระบบที่ว่า อยู่ครบในแอปเดียว</h3>
+        <p>เปลี่ยนงานวิจัยให้เป็นเครื่องมือใช้งานจริง — ตั้งแต่สแกนหาตัวแรง ไปจนถึงวางแผนพอร์ตและตามข่าว</p>
+        <ul>
+          <li>กลยุทธ์ Momentum หลายแบบ + Dashboard ทองคำ</li>
+          <li>ราคาตลาด Live — หุ้น ทองคำ คริปโต เรียลไทม์</li>
+          <li>วางแผน + จัดพอร์ต การเงินส่วนตัว · Asset Allocation</li>
+          <li>Roadmap 90 วัน + ข่าวกรองรายวัน</li>
+        </ul>
+        <a class="sc-cta" href="https://jptrustlearning.com" target="_blank" rel="noopener">
+          <span class="sub">Subscribe at</span>
+          <span class="url">jptrustlearning.com</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 6. สรุป ═══════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Bottom Line</div>
+    <h2>สรุป — เงินของเราอยู่ฝั่งไหนของเส้น</h2>
+    <p class="lead">กลับไปที่คำถามแรกสุด: หุ้น AI ในพอร์ต เป็นคนขายเครื่องมือหรือคนขายปัญญา — ตอนนี้พอมีเครื่องแยกแล้ว</p>
+    <p><strong>คนขายเครื่องมือ</strong> คือพวกที่ยิ่ง AI ถูกลง คนยิ่งต้องซื้อของเขาเพิ่ม — ชิป หน่วยความจำ โรงงานผลิต โครงสร้างพื้นฐาน</p>
+    <p><strong>คนขายปัญญา</strong> คือพวกที่รายได้ขึ้นกับการตั้งราคาตัวโมเดล — ซึ่งเพดานเพิ่งถูกกดลง</p>
+    <p style="margin-bottom:0;">คำถามที่ถูกจึงไม่ใช่ "หุ้น AI จะลงไหม" แต่คือ <span class="hl">"เงินของเราอยู่ฝั่งที่ของถูกลงแล้วได้ประโยชน์ หรือฝั่งที่ของถูกลงแล้วเจ็บ"</span></p>
+  </div>
+</section>
+
+<!-- ══ 7. ปฏิทิน ═════════════════════════════════════════ -->
+<section class="band">
+  <div class="wrap">
+    <div class="eyebrow">What To Watch</div>
+    <h2>ปฏิทินที่จะตัดสินเรื่องนี้</h2>
+    <div class="cal">
+      <div class="cal-i">
+        <div class="cal-d"><b>27</b><span>JUL</span></div>
+        <div class="cal-x"><b>วันปล่อย weights จริงของ K3</b><span>การทดสอบอิสระจะยืนยันหรือหักล้างตัวเลข benchmark ของ Moonshot ภายในไม่กี่วัน</span></div>
+      </div>
+      <div class="cal-i">
+        <div class="cal-d"><b>W+</b><span>API</span></div>
+        <div class="cal-x"><b>ราคา API ของค่ายอเมริกัน</b><span>ถ้าเริ่มมีการหั่นราคาตาม นั่นคือสัญญาณว่าสงครามราคาปัญญาเริ่มจริง</span></div>
+      </div>
+      <div class="cal-i">
+        <div class="cal-d"><b>28+</b><span>JUL</span></div>
+        <div class="cal-x"><b>งบ Microsoft · Meta · Apple + ประชุม Fed</b><span>ฟังช่วงถาม-ตอบว่านักวิเคราะห์เริ่มถามหรือยัง: "ถ้าจีนตามทันด้วยเงินน้อยกว่า ทำไมต้องเผา capex เท่านี้" — วันที่คำถามนี้ดังขึ้นในห้องประชุมงบ คือวันที่เรื่อง K3 ส่งผลต่อราคาหุ้นจริงๆ</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 8. แหล่งที่มา ═════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Sources</div>
+    <h2>แหล่งที่มา</h2>
+    <p class="lead" style="margin-bottom:18px;">ตัวเลขหลักในบทวิเคราะห์นี้ตรวจสอบกับแหล่งข่าวการเงินเกรดสูงอย่างน้อยสองแหล่งต่อประเด็น</p>
+    <ul style="line-height:2.2;word-break:break-all;font-size:15.5px;color:var(--ink-soft);">
+      <li><a href="https://www.bloomberg.com/news/articles/2026-07-20/moonshot-s-kimi-k3-may-be-more-about-memory-than-compute" target="_blank" rel="noopener">Bloomberg — Moonshot's Kimi K3 May Be More About Memory Than Compute</a></li>
+      <li><a href="https://www.cnbc.com/2026/07/17/moonshot-ai-kimi-k3-model-openai-anthropic-china.html" target="_blank" rel="noopener">CNBC — China's Moonshot AI unveils Kimi K3 that rivals OpenAI, Anthropic</a></li>
+      <li><a href="https://fortune.com/2026/07/17/china-moonshot-kimi-k3-markets-china-ai/" target="_blank" rel="noopener">Fortune — Markets experience new DeepSeek shock after Moonshot AI releases Kimi K3</a></li>
+      <li><a href="https://fortune.com/2026/07/16/moonshots-kimi-k3-pushes-chinese-ai-into-fable-level-territory/" target="_blank" rel="noopener">Fortune — Moonshot's Kimi K3 pushes Chinese AI into frontier territory</a></li>
+      <li><a href="https://www.forbes.com/sites/tylerroush/2026/07/17/chinese-ai-startup-moonshot-unveils-kimi-k3-model-will-it-challenge-openai-and-anthropic/" target="_blank" rel="noopener">Forbes — Chinese AI Startup Moonshot Unveils Kimi K3 Model</a></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="lib-analysis.html">ห้องสมุดบทวิเคราะห์</a>
+      <a href="index.html">ห้องสมุดสาธารณะ</a>
+      <a href="https://app.jptrustlearning.com">เข้าระบบสมาชิก</a>
+    </div>
+    <div class="sig">สรุปโดย JP TRUST LEARNING</div>
+    <p class="disc">
+      ข้อมูลในบทวิเคราะห์นี้รวบรวมจากรายงานผลประกอบการของบริษัท เอกสารที่ยื่นต่อหน่วยงานกำกับดูแล รายงานวิจัยอุตสาหกรรม และสำนักข่าวการเงิน ณ วันที่ 25 กรกฎาคม 2026 · ราคาหลักทรัพย์และตัวเลขระหว่างวันอาจเปลี่ยนแปลงได้ตลอดเวลา<br><br>
+      เนื้อหานี้จัดทำขึ้นเพื่อการศึกษาและให้ข้อมูลเท่านั้น ไม่ใช่คำแนะนำในการซื้อขายหลักทรัพย์ การลงทุนมีความเสี่ยง ผู้ลงทุนควรศึกษาข้อมูลและประเมินความเสี่ยงที่รับได้ก่อนตัดสินใจลงทุน ผลการดำเนินงานในอดีตไม่ได้เป็นเครื่องยืนยันผลการดำเนินงานในอนาคต
+    </p>
+  </div>
+</footer>
+
+<script>
+/* ═══ Ripple ทอง — คลิก/ลากนิ้ว ═══════════════════════ */
+(function(){
+  var layer = document.getElementById('rippleLayer');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var active = 0;
+
+  function spawn(x, y, size, withRing){
+    if (reduce || active > 18) return;
+
+    function add(cls, d){
+      var el = document.createElement('div');
+      el.className = 'rp' + (cls ? ' ' + cls : '');
+      el.style.width = el.style.height = d + 'px';
+      el.style.left = x + 'px';
+      el.style.top  = y + 'px';
+      layer.appendChild(el);
+      active++;
+      var done = false;
+      function kill(){
+        if (done) return;
+        done = true;
+        if (el.parentNode) el.remove();
+        active--;
+      }
+      el.addEventListener('animationend', kill);
+      setTimeout(kill, 1400);
+    }
+
+    add('', size);                      // วงหลัก เส้นคม
+    add('core', Math.round(size * 0.42)); // วงเล็กข้างใน + ฟุ้ง
+    if (withRing) add('ring', Math.round(size * 1.35)); // วงนอกบาง
+  }
+
+  /* เมาส์: ดับเบิลคลิก */
+  document.addEventListener('dblclick', function(e){
+    spawn(e.clientX, e.clientY, 210, true);
+  });
+
+  /* มือถือ: เคาะสองทีเร็วๆ (ไม่ใช่เลื่อนหน้า ไม่ใช่กดค้าง) */
+  var tapT = 0, tapX = 0, tapY = 0;
+  var stX = 0, stY = 0, stT = 0;
+
+  document.addEventListener('touchstart', function(e){
+    var t = e.changedTouches[0];
+    stX = t.clientX; stY = t.clientY; stT = Date.now();
+  }, {passive:true});
+
+  document.addEventListener('touchend', function(e){
+    var t = e.changedTouches[0];
+    var moved = Math.hypot(t.clientX - stX, t.clientY - stY);
+    var held  = Date.now() - stT;
+
+    // ลาก / เลื่อนหน้า / กดค้าง = ไม่นับเป็นการเคาะ
+    if (moved > 14 || held > 400){ tapT = 0; return; }
+
+    var now  = Date.now();
+    var near = Math.hypot(t.clientX - tapX, t.clientY - tapY) < 55;
+
+    if (tapT && (now - tapT) < 400 && near){
+      spawn(t.clientX, t.clientY, 210, true);
+      tapT = 0;
+    } else {
+      tapT = now; tapX = t.clientX; tapY = t.clientY;
+    }
+  }, {passive:true});
+})();
+
+/* ═══ กราฟแท่ง — เติมความสูงเมื่อเลื่อนมาถึง ═══════════ */
+(function(){
+  var bars = document.querySelectorAll('.bar');
+  bars.forEach(function(b){ b.style.height = '0%'; });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting){
+        var b = en.target;
+        setTimeout(function(){ b.style.height = b.dataset.h; }, 80);
+        io.unobserve(b);
+      }
+    });
+  }, {threshold: 0.25});
+
+  bars.forEach(function(b){ io.observe(b); });
+})();
+
+/* ═══ Reveal on scroll ═══════════════════════════════ */
+(function(){
+  var wraps = document.querySelectorAll('section > .wrap, header .statstrip, header .hero-fig');
+  var groups = ['.grid2','.grid3','.tl','.cal','.bb','.showcase-inner'];
+  var targets = [];
+
+  document.querySelectorAll('section > .wrap > *').forEach(function(el){
+    var isGroup = groups.some(function(g){ return el.matches(g); });
+    if (isGroup){
+      Array.prototype.forEach.call(el.children, function(c){ targets.push(c); });
+    } else {
+      targets.push(el);
+    }
+  });
+  document.querySelectorAll('.tl-item, .cal-i, .statstrip .stat, header .hero-fig').forEach(function(el){
+    if (targets.indexOf(el) === -1) targets.push(el);
+  });
+  // showcase: เผยทีละคอลัมน์
+  document.querySelectorAll('.showcase-inner > *').forEach(function(el){
+    if (targets.indexOf(el) === -1) targets.push(el);
+  });
+
+  targets.forEach(function(el){ el.classList.add('rv'); });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -6% 0px'});
+
+  targets.forEach(function(el){
+    var sibs = Array.prototype.filter.call(el.parentElement.children, function(c){
+      return c.classList.contains('rv');
+    });
+    el.style.transitionDelay = (Math.min(sibs.indexOf(el), 5) * 60) + 'ms';
+    io.observe(el);
+  });
+})();
+</script>
+</body>
+</html>

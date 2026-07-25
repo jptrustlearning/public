@@ -65,6 +65,12 @@ const RESEARCH = [
   /* ---------- บทวิเคราะห์ ---------- */
   {
     cat: "analysis", type: "article", status: "active",
+    title: "Kimi K3: ข่าวร้ายของคนขายปัญญา ไม่ใช่คนขายชิป",
+    desc: "โมเดล open-weight ใหญ่ที่สุดในโลกจากจีน ทุบหุ้น AI ทั้งกระดานในวันเดียว — แต่ NVIDIA สะดุ้งแล้วฟื้น ขณะ SoftBank และค่ายโมเดล AI ร่วง 9–30% ไม่กลับขึ้นมา · แยกหุ้น AI สองสายพันธุ์: คนขายเครื่องมือ vs คนขายปัญญา เทียบกลไกกับ DeepSeek Moment 2025 และปฏิทินที่จะตัดสินเรื่องนี้",
+    assets: ["S&P 500"], href: "https://public.jptrustlearning.com/kimi-k3-tools-vs-intelligence.html"
+  },
+  {
+    cat: "analysis", type: "article", status: "active",
     title: "สงครามชิปความจำ 2026: ของขาดที่สุดในโลก กลายเป็นหุ้นที่ร่วงแรงที่สุด",
     desc: "ราคาความจำขึ้น 8–9 เท่าในปีเดียว Micron ทำงบดีที่สุดในประวัติศาสตร์ แต่หุ้นทั้งกลุ่มเข้าสู่ภาวะหมี — เจาะราคา DRAM/NAND รายไตรมาส สัญญา take-or-pay 100 พันล้าน คู่แข่งทั้งกระดาน (SK Hynix · Samsung · SanDisk · WDC) และปฏิทินที่จะตัดสินรอบนี้",
     assets: ["S&P 500"], href: "https://public.jptrustlearning.com/memory-chip-analysis.html"
