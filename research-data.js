@@ -117,6 +117,12 @@ const RESEARCH = [
   /* ---------- กลยุทธ์ Momentum ---------- */
   {
     cat: "momentum", type: "article", status: "active",
+    title: "นักลงทุนสถาบันใช้ Momentum อย่างไร",
+    desc: "Momentum ไม่ใช่กลยุทธ์รายย่อย — ETF ปัจจัยของ BlackRock ($29B) กองทุนควอนต์ AQR และอุตสาหกรรม Trend Following ($340B) ใช้มันเป็นแกนพอร์ตอย่างเปิดเผย — แยกสองสายพันธุ์ Cross-Sectional vs Time-Series, สี่วินัยที่สถาบันทำแล้วรายย่อยลอกได้ และข้อจำกัดของเงินก้อนใหญ่ที่กลายเป็นแต้มต่อของรายย่อย อ้างอิง Jegadeesh & Titman, Moskowitz Ooi & Pedersen, Barroso & Santa-Clara",
+    assets: ["S&P 500"], href: "https://public.jptrustlearning.com/institutional-momentum.html"
+  },
+  {
+    cat: "momentum", type: "article", status: "active",
     title: "Factor Decay: สัญญาณโมเมนตัม 30 ปี \"เสื่อม\" หรือยัง — วัดด้วย Rank IC",
     desc: "สัญญาณที่เคยได้ผล จะได้ผลตลอดไปไหม — วัดสุขภาพสัญญาณด้วย Rank IC ทุกรอบ rebalance 236 รอบตลอด 30 ปี พบทศวรรษที่สัญญาณหลับสนิทแต่พอร์ตยังรอด แล้วจับแชมป์ชนผู้ท้าชิงจากตำราอีก 4 factor บนเงื่อนไขเดียวกันเป๊ะ พร้อมเปิดข้อจำกัดของข้อมูลทั้งหมด",
     assets: ["S&P 500"], href: "https://public.jptrustlearning.com/factor-decay-rank-ic.html"
