@@ -65,6 +65,12 @@ const RESEARCH = [
   /* ---------- บทวิเคราะห์ ---------- */
   {
     cat: "analysis", type: "article", status: "active",
+    title: "Fed พุธนี้: ดอกเบี้ยไม่ขยับสักครั้ง แต่ทำไมของในพอร์ตขยับหมด",
+    desc: "ครั้งแรกในรอบหลายปีที่ตลาดเถียงกันว่า Fed จะ 'ขึ้น' ดอกเบี้ย — ทั้งที่ดอกเบี้ยจริงคงที่ 5 ประชุมติด แต่ทองร่วง 28% เยนอ่อนสุดรอบ 40 ปี · ไล่ timeline จากปีที่ทั้งตลาดรอคำว่า 'ลด' สู่คืนชี้ชะตา 29 ก.ค. · กลไก 'ราคาฟังดอกเบี้ยที่ตลาดเชื่อว่ากำลังจะมา ไม่ใช่ดอกเบี้ยวันนี้' เทียบบทเรียนปี 2022 · โพสต์ 26 ก.ค. 2026",
+    assets: ["S&P 500", "Gold", "FX"], href: "https://public.jptrustlearning.com/fed-yellow-light-repricing.html"
+  },
+  {
+    cat: "analysis", type: "article", status: "active",
     title: "Kimi K3: ข่าวร้ายของคนขายปัญญา ไม่ใช่คนขายชิป",
     desc: "โมเดล open-weight ใหญ่ที่สุดในโลกจากจีน ทุบหุ้น AI ทั้งกระดานในวันเดียว — แต่ NVIDIA สะดุ้งแล้วฟื้น ขณะ SoftBank และค่ายโมเดล AI ร่วง 9–30% ไม่กลับขึ้นมา · แยกหุ้น AI สองสายพันธุ์: คนขายเครื่องมือ vs คนขายปัญญา เทียบกลไกกับ DeepSeek Moment 2025 และปฏิทินที่จะตัดสินเรื่องนี้",
     assets: ["S&P 500"], href: "https://public.jptrustlearning.com/kimi-k3-tools-vs-intelligence.html"
