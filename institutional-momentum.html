@@ -289,6 +289,26 @@ p.body{margin-bottom:16px;font-size:1.02rem}
 .dark .steps li{color:var(--on-dark-soft)}
 .steps li b{color:var(--maroon)}
 .dark .steps li b{color:#fff}
+
+/* ═══ JPT · สีลิงก์ในเนื้อบทความ (v1) ═══════════════════
+   เจาะจงเฉพาะลิงก์ที่อยู่ในย่อหน้า/รายการ เพื่อไม่ให้ไปโดน
+   .sc-cta (ปุ่ม Subscribe ที่ไม่ได้กำหนดสีของตัวเองไว้)
+   .crumb และ .foot-links a ซึ่งมีสีของตัวเองอยู่แล้ว        */
+.wrap p a,.wrap li a,.callout a,.tl-b a,.tl-t a{
+  color:#8B6914;text-decoration:none;
+  border-bottom:1px solid rgba(184,134,11,.42);
+  transition:color .15s ease,border-color .15s ease;
+}
+.wrap p a:hover,.wrap li a:hover,.callout a:hover,.tl-b a:hover,.tl-t a:hover{
+  color:#722F37;border-bottom-color:rgba(114,47,55,.55);
+}
+.band .wrap p a,.band .wrap li a,.band .callout a,.band .tl-b a,.band .tl-t a{
+  color:#E8D48B;border-bottom-color:rgba(232,212,139,.42);
+}
+.band .wrap p a:hover,.band .wrap li a:hover,.band .callout a:hover,
+.band .tl-b a:hover,.band .tl-t a:hover{
+  color:#FFFEF8;border-bottom-color:rgba(255,254,248,.75);
+}
 </style>
 </head>
 <body>
