@@ -49,16 +49,17 @@ body{font-family:var(--font-thai);color:var(--text-light);display:flex;align-ite
   transition:opacity .45s ease}
 #pan img.on{opacity:1}
 
-.ring{position:absolute;border:solid var(--gold);border-width:calc(3.2px / var(--zs));
+.ring{position:absolute;border:solid var(--pink);border-width:calc(3.6px / var(--zs));
   border-radius:calc(14px / var(--zs));opacity:0;transform:scale(1.35);
-  box-shadow:0 0 calc(26px / var(--zs)) rgba(212,175,55,.55),
-             inset 0 0 calc(26px / var(--zs)) rgba(212,175,55,.22);
+  box-shadow:0 0 calc(9px / var(--zs)) rgba(13,5,8,.75),
+             0 0 calc(30px / var(--zs)) rgba(232,135,156,.85),
+             inset 0 0 calc(28px / var(--zs)) rgba(232,135,156,.30);
   transition:opacity .45s ease,transform .55s var(--ease-spring)}
 .ring.on{opacity:1;transform:scale(1)}
 .ring.pill{border-radius:calc(60px / var(--zs))}
 .ring.dot{border-radius:50%}
 .ring::after{content:'';position:absolute;inset:calc(-6px / var(--zs));border-radius:inherit;
-  border:solid var(--gold);border-width:calc(2px / var(--zs));opacity:0}
+  border:solid var(--pink-light);border-width:calc(2.4px / var(--zs));opacity:0}
 .ring.on.tap::after{animation:ripple 1.7s ease-out infinite}
 @keyframes ripple{0%{transform:scale(.94);opacity:.85}100%{transform:scale(1.28);opacity:0}}
 .mask{position:absolute;inset:0;background:rgba(13,5,8,.5);opacity:0;
@@ -91,7 +92,7 @@ body{font-family:var(--font-thai);color:var(--text-light);display:flex;align-ite
   padding:5% 6%;opacity:0;visibility:hidden;transition:opacity .5s ease}
 .scene.active{opacity:1;visibility:visible;animation:sceneIn .8s var(--ease-spring)}
 @keyframes sceneIn{from{opacity:0;transform:scale(1.05)}to{opacity:1;transform:none}}
-.scene>[data-beat]{margin-block:1.6%;max-height:78cqh;overflow:visible}
+.scene>[data-beat]{margin-block:1.15%;max-height:78cqh;overflow:visible}
 .scene>[data-beat]:not(.on){max-height:0;margin-block:0;overflow:hidden;
   padding-top:0;padding-bottom:0;border-top-width:0;border-bottom-width:0}
 [data-beat]{opacity:0;transform:translateY(28px);
@@ -118,13 +119,13 @@ body{font-family:var(--font-thai);color:var(--text-light);display:flex;align-ite
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .rose-grad{background:linear-gradient(135deg,#E8879C,#F7C6D3,#E8879C);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.steps{width:100%;display:flex;flex-direction:column;gap:9px}
+.steps{width:100%;display:flex;flex-direction:column;gap:7px}
 .step{display:flex;gap:12px;align-items:flex-start;border:1px solid rgba(232,135,156,.32);
   border-radius:13px;background:linear-gradient(165deg,rgba(58,20,36,.8),rgba(34,9,15,.85));
-  padding:11px 14px}
+  padding:9px 12px}
 .step i{font-family:var(--font-num);font-style:normal;font-size:clamp(17px,3.8cqh,24px);
   color:var(--pink);line-height:1.15}
-.step span{font-size:clamp(13px,3.4cqh,17px);line-height:1.55}
+.step span{font-size:clamp(12.5px,3.3cqh,17px);line-height:1.5}
 .step span b{color:var(--gold-light);font-weight:600}
 .dflist{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:9px}
 .df{border:1px solid rgba(212,175,55,.4);border-radius:13px;padding:11px 12px;
@@ -134,8 +135,30 @@ body{font-family:var(--font-thai);color:var(--text-light);display:flex;align-ite
 .df b{display:block;font-family:var(--font-num);font-size:clamp(19px,4.6cqh,28px);
   color:var(--gold-light);margin-top:3px;line-height:1.1}
 .df small{display:block;font-size:clamp(10px,2.4cqh,12.5px);color:var(--text-muted);margin-top:3px}
+.note b{color:var(--pink-light);font-weight:600}
 .note{font-size:clamp(12px,3cqh,15px);font-weight:300;color:var(--text-muted);
-  border-left:2px solid rgba(232,135,156,.45);padding-left:12px;line-height:1.7;width:100%}
+  border-left:2px solid rgba(232,135,156,.45);padding-left:11px;line-height:1.58;width:100%}
+.lots{width:100%;display:flex;gap:6px;justify-content:center}
+.lot{flex:1;border:1.5px solid rgba(232,135,156,.45);border-radius:11px;
+  background:linear-gradient(165deg,rgba(58,20,36,.9),rgba(34,9,15,.9));
+  padding:9px 2px 7px;text-align:center;position:relative;
+  opacity:0;transform:translateY(12px) scale(.85)}
+.on.lots .lot{animation:lotIn .5s var(--ease-spring) forwards}
+.on.lots .lot:nth-child(2){animation-delay:.13s}
+.on.lots .lot:nth-child(3){animation-delay:.26s}
+.on.lots .lot:nth-child(4){animation-delay:.39s}
+.on.lots .lot:nth-child(5){animation-delay:.52s}
+.on.lots .lot:nth-child(6){animation-delay:.65s}
+@keyframes lotIn{to{opacity:1;transform:none}}
+.lot b{display:block;font-family:var(--font-num);font-size:clamp(17px,3.8cqh,24px);
+  color:var(--gold-light);line-height:1}
+.lot u{display:block;text-decoration:none;font-size:clamp(9px,2.1cqh,11.5px);
+  color:var(--text-muted);margin-top:3px;white-space:nowrap}
+.on.lots .lot:first-child{border-color:var(--pink);box-shadow:0 0 16px rgba(232,135,156,.5)}
+.on.lots .lot:first-child::after{content:'↻';position:absolute;top:-11px;right:-6px;
+  font-size:clamp(14px,3cqh,19px);color:var(--pink-light);opacity:0;
+  animation:fadeUp .6s ease 1.5s forwards}
+@keyframes fadeUp{to{opacity:1}}
 .brand{font-family:var(--font-label);font-size:12px;letter-spacing:4px;text-transform:uppercase;
   color:rgba(232,135,156,.6);position:absolute;bottom:5%}
 
@@ -186,15 +209,15 @@ body{font-family:var(--font-thai);color:var(--text-light);display:flex;align-ite
 
   <!-- ══ TALK SCENE 1 · ค่าเริ่มต้นแนะนำ ══ -->
   <section class="scene" id="t1">
-    <div class="eyebrow" data-beat>Default Settings</div>
-    <div class="title" data-beat data-anim="pop">ตั้งไม่เป็น<br>ใช้ 4 ค่านี้ก่อน</div>
+    <div class="eyebrow" data-beat>Factory Defaults</div>
+    <div class="title" data-beat data-anim="pop">ตั้งไม่เป็น<br>ใช้ <span class="gold-grad">ค่าโรงงาน</span> ก่อน</div>
     <div class="dflist" data-beat>
+      <div class="df"><u>Ranking Weight</u><b>50 / 50</b><small>Return / Volume</small></div>
       <div class="df"><u>Per-lot Capital</u><b>$600</b><small>ต่อรอบ · รวม 6 เดือน $3,600</small></div>
       <div class="df"><u>Portfolio Size</u><b>10</b><small>ซื้อ Top 10 ต่อรอบ</small></div>
-      <div class="df"><u>Ranking Weight</u><b>80 / 20</b><small>Return / Volume</small></div>
       <div class="df"><u>Start Year</u><b>2015</b><small>ย้อนได้ถึง 1996 ใน Deep Archive</small></div>
     </div>
-    <div class="note" data-beat>เปลี่ยนทีละค่า แล้วดูว่าตัวเลขขยับทางไหน — เปลี่ยนพร้อมกันหลายค่าจะแยกไม่ออกว่าอะไรทำให้ผลเปลี่ยน</div>
+    <div class="note" data-beat>4 ค่านี้คือค่าที่ระบบตั้งมาให้ · อยากลองปรับ ให้เปลี่ยน<b>ทีละค่า</b> แล้วดูว่าตัวเลขขยับทางไหน — เปลี่ยนพร้อมกันหลายค่าจะแยกไม่ออกว่าอะไรทำให้ผลเปลี่ยน</div>
   </section>
 
   <!-- ══ TALK SCENE 2 · ปิด ══ -->
@@ -207,8 +230,42 @@ body{font-family:var(--font-thai);color:var(--text-light);display:flex;align-ite
       <div class="step"><i>3</i><span>ปุ่ม <b>หลอดทดลอง</b> → ตั้งค่า → RUN BACKTEST</span></div>
       <div class="step"><i>4</i><span><b>Trade Log</b> ดูไม้ถัดไป + DETAILS PDF</span></div>
     </div>
-    <div class="note" data-beat>ตัวเลขทั้งหมดเป็นผลทดสอบย้อนหลัง ยังไม่หักค่าธรรมเนียม · เพื่อการศึกษาเท่านั้น ไม่ใช่คำแนะนำการลงทุน</div>
+    <div class="note" data-beat>ผลทดสอบย้อนหลัง ยังไม่หักค่าธรรมเนียม · เพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน</div>
     <div class="brand">JP Trust Learning</div>
+  </section>
+
+  <!-- ══ กลไก 4 ขั้น ══ -->
+  <section class="scene" id="tm">
+    <div class="eyebrow" data-beat>How It Works</div>
+    <div class="title" data-beat data-anim="pop">กลไกมีแค่<br><span class="gold-grad">4 ขั้น</span></div>
+    <div class="step" data-beat data-anim="left"><i>1</i><span><b>คัด</b> — สแกนหุ้น S&amp;P 500 ทั้งกระดาน ดูย้อนหลัง 6 เดือน ทั้ง<b>ราคา</b>และ<b>ปริมาณซื้อขาย</b> เรียงอันดับ แล้วเอาเฉพาะหัวตาราง</span></div>
+    <div class="step" data-beat data-anim="left"><i>2</i><span><b>ลงเงินเท่ากันทุกตัว</b> — ไม่มีตัวโปรด เพราะไม่มีใครรู้ล่วงหน้าว่าตัวไหนจะเป็นพระเอก</span></div>
+    <div class="step" data-beat data-anim="left"><i>3</i><span><b>ถือยาว 6 เดือน</b> — ไม่ขายตามข่าว ระบบคัดออกตอนอ่อนแรงต่อเนื่อง ไม่ใช่เพราะพาดหัววันเดียว</span></div>
+    <div class="step" data-beat data-anim="left"><i>4</i><span><b>ครบกำหนดค่อยจัดใหม่</b> — สแกนอีกรอบ ตัวไหนยังแรงถือต่อ ตัวไหนหมดแรงคัดออก เอาตัวที่แรงกว่าเข้าแทน</span></div>
+  </section>
+
+  <!-- ══ 6 ไม้มาตรงไหน ══ -->
+  <section class="scene" id="tl">
+    <div class="eyebrow" data-beat>Rolling 6M</div>
+    <div class="title" data-beat data-anim="pop">แล้ว <span class="rose-grad">6 ไม้</span><br>มาตรงไหน</div>
+    <div class="lots" data-beat>
+      <div class="lot"><b>1</b><u>ด.1</u></div><div class="lot"><b>2</b><u>ด.2</u></div>
+      <div class="lot"><b>3</b><u>ด.3</u></div><div class="lot"><b>4</b><u>ด.4</u></div>
+      <div class="lot"><b>5</b><u>ด.5</u></div><div class="lot"><b>6</b><u>ด.6</u></div>
+    </div>
+    <div class="sub" data-beat>เงินไม่ได้ลงทีเดียว — <b>แบ่งเป็น 6 ก้อนเท่ากัน</b><br>เปิดเดือนละก้อน ก้อนละ 10 ตัว</div>
+    <div class="sub" data-beat>พอถึงเดือนที่ 7 <b>ไม้ที่ 1 ครบ 6 เดือนพอดี</b> — ขายทั้งไม้ แล้วเอาเงินไปซื้อหุ้นชุดใหม่ที่กำลังแรง จากนั้นเดือนที่ 8 ก็ถึงคิวไม้ที่ 2 วนไปเรื่อยๆ</div>
+    <div class="note" data-beat>ผลลัพธ์คือ <b>ขยับพอร์ตเดือนละครั้ง</b> แต่หุ้นแต่ละไม้ยังถือครบ 6 เดือนเท่าเดิม</div>
+  </section>
+
+  <!-- ══ ทำไมถึงดี ══ -->
+  <section class="scene" id="tw">
+    <div class="eyebrow" data-beat>Why It Works</div>
+    <div class="title" data-beat data-anim="pop">แบ่ง 6 ไม้<br><span class="gold-grad">ดียังไง</span></div>
+    <div class="step" data-beat data-anim="left"><i>1</i><span><b>ไม่ต้องเดาจังหวะเข้า</b> — เงินทยอยลง 6 เดือน เดือนไหนเผอิญซื้อแพง ก็แพงแค่ 1 ใน 6 ของเงินทั้งหมด</span></div>
+    <div class="step" data-beat data-anim="left"><i>2</i><span><b>วันจัดพอร์ตกระจาย 6 วัน</b> — แบบลงทีเดียวล็อกวันปรับไว้ตายตัว ถ้าตรงกับก้นเหวพอดี ก็ต้องคัดหุ้นวันที่ทุกอย่างดูแย่สุด · แบ่ง 6 ไม้แล้วไม่แขวนชะตาไว้กับวันเดียว</span></div>
+    <div class="step" data-beat data-anim="left"><i>3</i><span><b>ถือหลายตัว น้ำหนักเท่ากัน</b> — ตัวที่พลาด แย่สุดคือเสียเงินก้อนนั้น แต่ตัวที่ถูกวิ่งได้ไม่มีเพดาน ตัวเดียวกลบตัวที่แพ้ได้ทั้งพอร์ต</span></div>
+    <div class="note" data-beat>แลกมาด้วย · <b>6 เดือนแรกเงินยังลงไม่ครบ</b> ผลช่วงต้นจะดูจืด และซื้อขายถี่เป็นเดือนละครั้ง = ค่าธรรมเนียมสูงกว่าแบบลงทีเดียว</div>
   </section>
 
   <div id="guide"></div>
@@ -243,8 +300,8 @@ const R = {
   cagr     :[33.5,32.3,26.0,7.2], profit:[8.0,49.6,36.0,8.0],
   mTL:[8.5,66.0,41.0,11.5], mTR:[51.4,66.0,39.4,11.5], mBL:[8.5,79.0,41.0,11.0], mBR:[51.4,79.0,39.4,11.0],
   setHead  :[4.5,11.5,91.0,6.5],
-  setRank  :[4.5,27.7,91.0,15.3], setCap:[4.7,48.8,90.8,17.4],
-  setSize  :[4.5,23.8,91.0,17.3], setYear:[4.5,42.6,91.0,17.4], setRun:[27.4,81.2,56.0,5.7],
+  setRank  :[4.6,27.3,91.2,15.5], setCap:[4.7,48.7,90.9,17.6],
+  setSize  :[4.7,21.6,90.7,17.4], setYear:[4.7,40.3,91.0,17.5], setRun:[27.4,78.9,58.2,5.7],
   tabStrip :[5.2,18.5,89.5,6.2],
   tabEq:[5.4,18.5,18.0,6.2], tabRr:[23.2,18.5,18.0,6.2], tabDd:[58.8,18.5,18.0,6.2], tabVs:[76.6,18.5,18.0,6.2],
   chart    :[5.2,25.0,89.5,40.5],
@@ -290,8 +347,12 @@ const SCENES=[
 ]},
 
 {img:'05-how-a.jpg', step:'ขั้นที่ 2 · อ่านก่อนกด', beats:[
-  {focus:[50,42,1.18], cap:'ก่อนกดเข้าไป เลื่อนลงอ่าน <b>“กลยุทธ์นี้ทำงานยังไง”</b> ก่อน', pos:'bottom', d:4200}
+  {focus:[50,42,1.18], cap:'ก่อนกดเข้าไป เลื่อนลงอ่าน <b>“กลยุทธ์นี้ทำงานยังไง”</b> — สรุปให้ฟังสั้นๆ ก่อนก็ได้', pos:'bottom', d:4400}
 ]},
+
+{talk:'tm', beats:[{d:1800},{d:2800},{off:[1],d:5600},{d:4800},{d:5000},{d:5400}]},
+{talk:'tl', beats:[{d:1800},{d:2800},{off:[1],d:3400},{d:4800},{off:[3],d:6000},{d:5000}]},
+{talk:'tw', beats:[{d:1800},{d:2800},{off:[1],d:5400},{d:6200},{d:5600},{d:5800}]},
 {img:'05-how-b.jpg', step:'ขั้นที่ 2 · อ่านก่อนกด', beats:[
   {focus:[50,45,1.15], cap:'<b>AXIS 1</b> อธิบายว่าเงินถูกจัดสรรยังไง · <b>AXIS 2</b> อธิบายว่าเจอตลาดขาลงแล้วทำอะไร', pos:'bottom', d:4600}
 ]},
@@ -322,7 +383,7 @@ const SCENES=[
   {focus:[50,15,1.5], ring:[[R.setHead,'']],
    cap:'หน้า <b>ตั้งค่าแบ็คเทส</b> — มี 4 ค่าให้ปรับ', pos:'bottom', d:3200},
   {focus:[50,35,1.65], ring:[[R.setRank,'']],
-   cap:'<b>Ranking Weight</b> ตัดสินว่าจะเรียงอันดับหุ้นยังไง — เลื่อนซ้ายเน้นกำไรล้วน เลื่อนขวาเน้นหุ้นที่สภาพคล่องสูง', pos:'bottom', d:5000},
+   cap:'<b>Ranking Weight</b> ตัดสินว่าจะเรียงอันดับหุ้นยังไง · ค่าโรงงานคือ <b>Return 50% / Volume 50%</b> — เลื่อนซ้ายเน้นกำไรล้วน เลื่อนขวาเน้นหุ้นที่สภาพคล่องสูง', pos:'bottom', d:5400},
   {focus:[50,57,1.65], ring:[[R.setCap,'']],
    cap:'<b>Per-lot Capital</b> คือเงินที่ใส่ต่อรอบ (ต่อเดือน) · $600 หมายถึงช่วง 6 เดือนแรกต้องเตรียม $3,600', pos:'top', d:5000}
 ]},
@@ -498,7 +559,13 @@ function render(){
     if(cursor>=0){
       const els=$$('#'+sc.talk+' [data-beat]');
       let k=0;
-      for(let i=0;i<=cursor;i++){ if(beats[i].sc===b.sc){ if(els[k]) els[k].classList.add('on'); k++; } }
+      for(let i=0;i<=cursor;i++){
+        if(beats[i].sc!==b.sc) continue;
+        if(els[k]) els[k].classList.add('on');
+        if(beats[i].off) beats[i].off.forEach(j=>{
+          if(els[j]){ els[j].classList.remove('on'); els[j].classList.add('gone'); } });
+        k++;
+      }
     }
   } else {
     showTalk(null);
