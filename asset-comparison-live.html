@@ -544,5 +544,28 @@ document.getElementById('tbody').addEventListener('click',e=>{ const b=e.target.
 })();
 
 </script>
+<style>
+/* ═══ JPT · แถบนำทางกลับ (v1) — ใช้ค่าสีตรงๆ ไม่พึ่งตัวแปรของแต่ละหน้า ═══ */
+.jpt-libnav{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 26px;
+  margin:0;padding:26px 20px calc(26px + env(safe-area-inset-bottom,0px));
+  background:linear-gradient(135deg,#1a0a0e 0%,#2d1018 55%,#3a1520 100%);
+  border-top:1px solid rgba(212,175,55,.35);
+  font-family:'Anuphan',system-ui,-apple-system,sans-serif;
+  font-size:14.5px;line-height:1.9;text-align:center;
+}
+.jpt-libnav a{
+  color:#D4AF37;text-decoration:none;
+  border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease;
+}
+.jpt-libnav a:hover{color:#E8D48B;border-bottom-color:rgba(232,212,139,.6);}
+.jpt-libnav .sep{color:rgba(212,175,55,.35);}
+</style>
+<!-- ═══ JPT · แถบนำทางกลับ ═══ -->
+<nav class="jpt-libnav">
+  <a href="lib-dashboard.html">← ห้องสมุด Dashboard</a>
+  <a href="index.html">หน้าแรกห้องสมุด</a>
+  <a href="https://app.jptrustlearning.com">เข้าระบบสมาชิก</a>
+</nav>
 </body>
 </html>
