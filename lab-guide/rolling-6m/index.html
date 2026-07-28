@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="robots" content="noindex,nofollow">
+<title>คู่มือใช้งาน Lab — Rolling 6M กระทิงแถวหน้า</title>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#D4AF37; --gold-dark:#B8860B; --gold-light:#F4E4BA;
+  --pink:#E8879C; --pink-deep:#C25E78; --pink-light:#F7C6D3;
+  --maroon:#722F37; --m-darkest:#1a0a0e; --m-mid:#2d1018;
+  --cream:#FAF6ED;
+  --text-light:#E8E4DC; --text-heading:#F4E4BA; --text-muted:#A89CA0;
+  --red:#E05555; --green:#7fc783;
+  --font-thai:'Anuphan',sans-serif; --font-label:'Cinzel',serif; --font-num:'DM Serif Display',serif;
+  --ease-spring:cubic-bezier(.22,1.15,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:#0d0508;overflow:hidden}
+body{font-family:var(--font-thai);color:var(--text-light);display:flex;align-items:center;justify-content:center}
+
+#stage{position:relative;height:min(100vh,calc(100vw*16/9));aspect-ratio:9/16;
+  overflow:hidden;cursor:pointer;container-type:size;
+  background:linear-gradient(160deg,#1a0a0e 0%,#301020 25%,#48192e 48%,#2d1018 70%,#1a0a0e 100%);
+  box-shadow:0 0 80px rgba(232,135,156,.08)}
+#stage::before{content:'';position:absolute;inset:-14%;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse at 28% 22%,rgba(194,94,120,.28) 0%,transparent 52%),
+    radial-gradient(ellipse at 74% 62%,rgba(114,47,55,.24) 0%,transparent 50%),
+    radial-gradient(ellipse at 50% 45%,rgba(212,175,55,.06) 0%,transparent 60%);
+  animation:drift 26s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(-2%,-1.5%,0) scale(1.02)}to{transform:translate3d(2.5%,2%,0) scale(1.08)}}
+#stage.shake{animation:shk .5s ease}
+@keyframes shk{0%,100%{transform:translate(0,0)}20%{transform:translate(-6px,4px)}
+  45%{transform:translate(5px,-4px)}70%{transform:translate(-4px,-2px)}88%{transform:translate(3px,2px)}}
+
+/* ═══ APP SCREEN LAYER ═══ */
+#shot{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;opacity:0;transition:opacity .5s ease}
+#shot.on{opacity:1}
+#pan{position:relative;height:100%;aspect-ratio:1080/2400;
+  --fx:50;--fy:50;--zs:1;--tx:0%;--ty:0%;
+  transform:translate(var(--tx),var(--ty)) scale(var(--zs));will-change:transform;
+  transition:transform 1.3s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 0 0 1px rgba(212,175,55,.35),0 24px 70px rgba(0,0,0,.6)}
+#pan img{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;
+  transition:opacity .45s ease}
+#pan img.on{opacity:1}
+
+.ring{position:absolute;border:solid var(--gold);border-width:calc(3.2px / var(--zs));
+  border-radius:calc(14px / var(--zs));opacity:0;transform:scale(1.35);
+  box-shadow:0 0 calc(26px / var(--zs)) rgba(212,175,55,.55),
+             inset 0 0 calc(26px / var(--zs)) rgba(212,175,55,.22);
+  transition:opacity .45s ease,transform .55s var(--ease-spring)}
+.ring.on{opacity:1;transform:scale(1)}
+.ring.pill{border-radius:calc(60px / var(--zs))}
+.ring.dot{border-radius:50%}
+.ring::after{content:'';position:absolute;inset:calc(-6px / var(--zs));border-radius:inherit;
+  border:solid var(--gold);border-width:calc(2px / var(--zs));opacity:0}
+.ring.on.tap::after{animation:ripple 1.7s ease-out infinite}
+@keyframes ripple{0%{transform:scale(.94);opacity:.85}100%{transform:scale(1.28);opacity:0}}
+.mask{position:absolute;inset:0;background:rgba(13,5,8,.5);opacity:0;
+  transition:opacity .5s ease;pointer-events:none}
+.mask.on{opacity:1}
+
+/* ═══ CAPTION ═══ */
+#cap{position:absolute;left:4%;right:4%;z-index:3;opacity:0;transform:translateY(16px);
+  transition:opacity .45s ease,transform .55s var(--ease-spring),top .5s ease,bottom .5s ease}
+#cap.on{opacity:1;transform:none}
+#cap.bottom{bottom:6%;top:auto}
+#cap.top{top:5%;bottom:auto}
+.cap-box{background:linear-gradient(165deg,rgba(58,20,36,.96),rgba(26,10,14,.97));
+  border:1.5px solid rgba(212,175,55,.55);border-radius:16px;padding:15px 17px;
+  box-shadow:0 14px 40px rgba(0,0,0,.55);position:relative}
+.cap-step{font-family:var(--font-label);font-size:clamp(9px,2.1cqh,12px);letter-spacing:3px;
+  text-transform:uppercase;color:var(--pink);margin-bottom:5px}
+.cap-text{font-size:clamp(14px,3.7cqh,19px);line-height:1.62;font-weight:500}
+.cap-text b{color:var(--gold-light);font-weight:700}
+.cap-text i{font-style:normal;color:var(--pink-light);font-weight:600}
+.cap-text s{color:var(--text-muted)}
+.cap-box::after{content:'';position:absolute;left:50%;width:0;height:0;
+  border-left:11px solid transparent;border-right:11px solid transparent}
+#cap.bottom .cap-box::after{top:-11px;margin-left:-11px;border-bottom:11px solid rgba(212,175,55,.6)}
+#cap.top .cap-box::after{bottom:-11px;margin-left:-11px;border-top:11px solid rgba(212,175,55,.6)}
+
+/* ═══ TALK SCENES (presenter zone kept free) ═══ */
+.scene{position:absolute;top:0;left:0;right:0;bottom:25%;z-index:2;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:5% 6%;opacity:0;visibility:hidden;transition:opacity .5s ease}
+.scene.active{opacity:1;visibility:visible;animation:sceneIn .8s var(--ease-spring)}
+@keyframes sceneIn{from{opacity:0;transform:scale(1.05)}to{opacity:1;transform:none}}
+.scene>[data-beat]{margin-block:1.6%;max-height:78cqh;overflow:visible}
+.scene>[data-beat]:not(.on){max-height:0;margin-block:0;overflow:hidden;
+  padding-top:0;padding-bottom:0;border-top-width:0;border-bottom-width:0}
+[data-beat]{opacity:0;transform:translateY(28px);
+  transition:opacity .5s ease,transform .7s var(--ease-spring),filter .6s ease,
+             max-height .55s cubic-bezier(.4,0,.2,1),margin-block .55s cubic-bezier(.4,0,.2,1),
+             padding .55s cubic-bezier(.4,0,.2,1),border-width .55s ease}
+[data-beat][data-anim="pop"]{transform:scale(.8)}
+[data-beat][data-anim="blur"]{transform:scale(1.08);filter:blur(12px)}
+[data-beat].on{opacity:1;transform:none;filter:none}
+.scene>[data-beat].gone{transform:translateY(-18px) scale(.94)}
+
+#guide{position:absolute;left:0;right:0;bottom:25%;z-index:2;pointer-events:none;
+  border-top:1px dashed rgba(232,135,156,.28);opacity:0;transition:opacity .4s}
+#guide.show{opacity:1}
+#guide::after{content:'พื้นที่รูปผู้บรรยาย';position:absolute;top:8px;right:12px;
+  font-size:10px;letter-spacing:1px;color:rgba(232,135,156,.4)}
+
+.eyebrow{font-family:var(--font-label);font-size:clamp(11px,2.5cqh,14px);letter-spacing:5px;
+  text-transform:uppercase;color:var(--pink);text-align:center;margin-bottom:5px}
+.title{font-size:clamp(24px,6.6cqh,36px);font-weight:700;text-align:center;line-height:1.35}
+.sub{font-size:clamp(15px,4cqh,20px);text-align:center;line-height:1.65;color:var(--text-light)}
+.sub b{color:var(--gold-light);font-weight:600}
+.gold-grad{background:linear-gradient(135deg,#D4AF37,#F4E4BA,#D4AF37);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.rose-grad{background:linear-gradient(135deg,#E8879C,#F7C6D3,#E8879C);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.steps{width:100%;display:flex;flex-direction:column;gap:9px}
+.step{display:flex;gap:12px;align-items:flex-start;border:1px solid rgba(232,135,156,.32);
+  border-radius:13px;background:linear-gradient(165deg,rgba(58,20,36,.8),rgba(34,9,15,.85));
+  padding:11px 14px}
+.step i{font-family:var(--font-num);font-style:normal;font-size:clamp(17px,3.8cqh,24px);
+  color:var(--pink);line-height:1.15}
+.step span{font-size:clamp(13px,3.4cqh,17px);line-height:1.55}
+.step span b{color:var(--gold-light);font-weight:600}
+.dflist{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.df{border:1px solid rgba(212,175,55,.4);border-radius:13px;padding:11px 12px;
+  background:linear-gradient(165deg,rgba(58,20,36,.8),rgba(34,9,15,.85));text-align:center}
+.df u{display:block;text-decoration:none;font-family:var(--font-label);letter-spacing:1.5px;
+  font-size:clamp(10px,2.4cqh,13px);color:var(--pink)}
+.df b{display:block;font-family:var(--font-num);font-size:clamp(19px,4.6cqh,28px);
+  color:var(--gold-light);margin-top:3px;line-height:1.1}
+.df small{display:block;font-size:clamp(10px,2.4cqh,12.5px);color:var(--text-muted);margin-top:3px}
+.note{font-size:clamp(12px,3cqh,15px);font-weight:300;color:var(--text-muted);
+  border-left:2px solid rgba(232,135,156,.45);padding-left:12px;line-height:1.7;width:100%}
+.brand{font-family:var(--font-label);font-size:12px;letter-spacing:4px;text-transform:uppercase;
+  color:rgba(232,135,156,.6);position:absolute;bottom:5%}
+
+/* ═══ HUD ═══ */
+#prog{position:absolute;left:0;bottom:0;height:3px;width:0;z-index:6;opacity:0;
+  background:linear-gradient(90deg,var(--pink),var(--gold))}
+#prog.run{opacity:1}
+#hud{position:absolute;left:0;right:0;bottom:0;z-index:5;padding:9px 14px 11px;
+  display:flex;flex-direction:column;gap:7px;align-items:center;pointer-events:none;
+  background:linear-gradient(0deg,rgba(13,5,8,.8),transparent);transition:opacity .4s}
+#hud.hidden{opacity:0}
+#beatdots{display:flex;gap:4px;flex-wrap:wrap;justify-content:center;max-width:92%}
+#beatdots i{width:5px;height:5px;border-radius:50%;background:rgba(232,135,156,.22);transition:background .3s}
+#beatdots i.done{background:var(--pink)}
+#ctrl{display:flex;gap:9px;pointer-events:auto}
+#play{font-family:var(--font-thai);font-size:12px;color:var(--text-light);cursor:pointer;
+  border:1px solid rgba(232,135,156,.45);background:rgba(58,20,36,.8);border-radius:50px;
+  padding:6px 16px}
+#play.on{border-color:var(--gold);color:var(--gold-light)}
+#hint{font-size:10.5px;color:var(--text-muted);text-align:center}
+#load{position:absolute;inset:0;z-index:8;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:12px;background:#12060a;transition:opacity .6s ease}
+#load.done{opacity:0;pointer-events:none}
+#load .lbar{width:46%;height:3px;background:rgba(232,135,156,.2);border-radius:3px;overflow:hidden}
+#load .lbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--gold));
+  transition:width .25s ease}
+#load span{font-family:var(--font-label);font-size:11px;letter-spacing:4px;color:var(--pink)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01s!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <div id="shot"><div id="pan"><img id="shotImg" alt=""><div class="mask" id="shotMask"></div></div></div>
+
+  <!-- ══ TALK SCENE 0 · เปิด ══ -->
+  <section class="scene" id="t0">
+    <div class="eyebrow" data-beat>User Guide · Lab</div>
+    <div class="title" data-beat data-anim="pop"><span class="gold-grad">Rolling 6M</span><br>กระทิงแถวหน้า</div>
+    <div class="sub" data-beat>ใช้เวลา 3 นาที — จบแล้วกดใช้เองได้เลย</div>
+    <div class="steps" data-beat>
+      <div class="step"><i>1</i><span>เปิด <b>Lab</b> แล้วเลือกคอลเลกชัน</span></div>
+      <div class="step"><i>2</i><span>เลือก <b>1 ใน 4 กล่อง</b> ให้ตรงจริตตัวเอง</span></div>
+      <div class="step"><i>3</i><span>อ่าน <b>ผลแบ็คเทส</b> แล้วปรับค่าเอง</span></div>
+      <div class="step"><i>4</i><span>ดู <b>Trade Log</b> ว่าไม้ถัดไปเข้าเมื่อไหร่</span></div>
+    </div>
+  </section>
+
+  <!-- ══ TALK SCENE 1 · ค่าเริ่มต้นแนะนำ ══ -->
+  <section class="scene" id="t1">
+    <div class="eyebrow" data-beat>Default Settings</div>
+    <div class="title" data-beat data-anim="pop">ตั้งไม่เป็น<br>ใช้ 4 ค่านี้ก่อน</div>
+    <div class="dflist" data-beat>
+      <div class="df"><u>Per-lot Capital</u><b>$600</b><small>ต่อรอบ · รวม 6 เดือน $3,600</small></div>
+      <div class="df"><u>Portfolio Size</u><b>10</b><small>ซื้อ Top 10 ต่อรอบ</small></div>
+      <div class="df"><u>Ranking Weight</u><b>80 / 20</b><small>Return / Volume</small></div>
+      <div class="df"><u>Start Year</u><b>2015</b><small>ย้อนได้ถึง 1996 ใน Deep Archive</small></div>
+    </div>
+    <div class="note" data-beat>เปลี่ยนทีละค่า แล้วดูว่าตัวเลขขยับทางไหน — เปลี่ยนพร้อมกันหลายค่าจะแยกไม่ออกว่าอะไรทำให้ผลเปลี่ยน</div>
+  </section>
+
+  <!-- ══ TALK SCENE 2 · ปิด ══ -->
+  <section class="scene" id="t2">
+    <div class="eyebrow" data-beat>Recap</div>
+    <div class="title" data-beat data-anim="pop">จบแล้ว<br><span class="rose-grad">ลองเองได้เลย</span></div>
+    <div class="steps" data-beat>
+      <div class="step"><i>1</i><span>Lab → Momentum → <b>กระทิงแถวหน้า</b></span></div>
+      <div class="step"><i>2</i><span>กล่อง 3 · <b>แบ่ง 6 ไม้ ทุกเดือน</b></span></div>
+      <div class="step"><i>3</i><span>ปุ่ม <b>หลอดทดลอง</b> → ตั้งค่า → RUN BACKTEST</span></div>
+      <div class="step"><i>4</i><span><b>Trade Log</b> ดูไม้ถัดไป + DETAILS PDF</span></div>
+    </div>
+    <div class="note" data-beat>ตัวเลขทั้งหมดเป็นผลทดสอบย้อนหลัง ยังไม่หักค่าธรรมเนียม · เพื่อการศึกษาเท่านั้น ไม่ใช่คำแนะนำการลงทุน</div>
+    <div class="brand">JP Trust Learning</div>
+  </section>
+
+  <div id="guide"></div>
+  <div id="cap" class="bottom"><div class="cap-box">
+    <div class="cap-step" id="capStep"></div><div class="cap-text" id="capText"></div>
+  </div></div>
+  <div id="prog"></div>
+  <div id="hud">
+    <div id="beatdots"></div>
+    <div id="ctrl"><button id="play">▶ เล่นอัตโนมัติ</button></div>
+    <div id="hint">แตะ = ถัดไป · แตะฝั่งซ้าย = ย้อน · P = เล่น/หยุด · H = ซ่อนแถบ · R = เริ่มใหม่</div>
+  </div>
+  <div id="load"><span>LOADING</span><div class="lbar"><i id="lfill"></i></div></div>
+</div>
+
+<script>
+'use strict';
+const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+const IMG='img/';
+
+/* ────────────────────────────────────────────────────────────
+   ทุกพิกัดเป็น % ของภาพหน้าจอ  ·  ring:[x, y, w, h]
+   focus:[fx, fy, zoom]  ·  cap:'ข้อความ'  ·  pos:'top'|'bottom'
+   ──────────────────────────────────────────────────────────── */
+const R = {
+  labNav   :[61.0,86.2,15.0,8.2],
+  fabPlus  :[83.4,65.0,13.0,6.2], fabTarget:[80.4,71.7,16.0,6.0], fabFlask:[83.4,78.3,13.0,6.0],
+  chipMom  :[4.6,36.8,30.5,8.5],
+  card1    :[5.0,18.6,90.0,18.6], card2:[5.0,38.4,90.0,18.6], card3:[5.0,58.3,90.0,18.7],
+  grid     :[3.9,32.5,92.2,40.0],
+  b1:[3.9,32.5,46.1,20.0], b3:[50.0,32.5,46.1,20.0], b2:[3.9,52.5,46.1,20.0], b4:[50.0,52.5,46.1,20.0],
+  cagr     :[33.5,32.3,26.0,7.2], profit:[8.0,49.6,36.0,8.0],
+  mTL:[8.5,66.0,41.0,11.5], mTR:[51.4,66.0,39.4,11.5], mBL:[8.5,79.0,41.0,11.0], mBR:[51.4,79.0,39.4,11.0],
+  setHead  :[4.5,11.5,91.0,6.5],
+  setRank  :[4.5,27.7,91.0,15.3], setCap:[4.7,48.8,90.8,17.4],
+  setSize  :[4.5,23.8,91.0,17.3], setYear:[4.5,42.6,91.0,17.4], setRun:[27.4,81.2,56.0,5.7],
+  tabStrip :[5.2,18.5,89.5,6.2],
+  tabEq:[5.4,18.5,18.0,6.2], tabRr:[23.2,18.5,18.0,6.2], tabDd:[58.8,18.5,18.0,6.2], tabVs:[76.6,18.5,18.0,6.2],
+  chart    :[5.2,25.0,89.5,40.5],
+  mtabRow  :[9.3,14.3,81.5,5.0], mtabAcc:[50.5,14.5,18.8,4.6], mtabRisk:[70.6,14.5,18.4,4.6],
+  cWin:[9.5,20.7,39.2,9.1], cPF:[51.4,20.7,39.2,9.1], cMdd:[9.5,30.6,39.2,9.1], cMkt:[51.4,30.6,39.2,9.1],
+  logPill  :[5.6,15.9,17.7,6.2], logCard:[9.5,27.3,81.0,37.5], logPdf:[11.9,38.4,28.0,3.3],
+  heatPill :[41.3,17.2,17.3,6.0], heatTbl:[5.2,26.6,89.6,50.0],
+  statPill :[59.0,19.2,17.4,6.0], statCard:[5.2,28.5,89.6,50.0],
+  senPill  :[76.8,12.7,17.3,6.0], senRun:[8.0,33.1,28.0,4.2], senTbl:[6.0,40.0,88.0,45.0]
+};
+
+const SCENES=[
+{talk:'t0', beats:[{},{},{},{d:5200}]},
+
+{img:'01-home.jpg', step:'ขั้นที่ 1 · เข้า Lab', beats:[
+  {focus:[50,50,1],   cap:'หน้าแรกของแอพ — เมนูหลักอยู่ที่<i>แถบล่างสุด</i>', pos:'bottom', d:3000},
+  {focus:[68,89,2.1], ring:[[R.labNav,'pill tap']], cap:'แตะ <b>Lab</b> — ห้องทดลองกลยุทธ์ทั้งหมดอยู่ในนี้', pos:'top', d:3600}
+]},
+
+{img:'02-lab-top.jpg', step:'ขั้นที่ 1 · เข้า Lab', beats:[
+  {focus:[50,22,1.5], ring:[[[4,12.3,92,19],'']], cap:'ใน Lab มี <b>14 กลยุทธ์</b> แบ่งเป็น 3 หมวด', pos:'bottom', d:3400},
+  {focus:[20,41,2.0], ring:[[R.chipMom,'pill tap']], cap:'แตะหมวด <b>Momentum</b> — กลยุทธ์สายแรงส่งของราคา', pos:'bottom', d:3800}
+]},
+
+{img:'03-lab-list.jpg', step:'ขั้นที่ 1 · เข้า Lab', beats:[
+  {focus:[50,48,1.12], ring:[[R.card1,''],[R.card2,''],[R.card3,'']],
+   cap:'Momentum มี <b>3 คอลเลกชัน</b> — คัดหุ้นคนละวิธี ใช้ข้อมูล 30 ปีชุดเดียวกัน', pos:'bottom', d:4200},
+  {focus:[50,28,1.75], ring:[[R.card1,'tap']],
+   cap:'คู่มือนี้เดินด้วยอันแรก · <b>กระทิงแถวหน้า</b> — คัดหุ้นแรงที่สุดของตลาด ไม่จำกัดอุตสาหกรรม', pos:'bottom', d:4400}
+]},
+
+{img:'04-boxes.jpg', step:'ขั้นที่ 2 · เลือกกล่อง', beats:[
+  {focus:[50,52,1.12], ring:[[R.grid,'']],
+   cap:'ข้างในมี <b>4 กล่อง</b> — กลไกคัดหุ้นเหมือนกันหมด ต่างกันแค่ 2 แกน', pos:'bottom', d:4000},
+  {focus:[50,42,1.35], ring:[[R.b1,''],[R.b2,'']],
+   cap:'แกนที่ 1 · คอลัมน์ซ้าย = <b>ลงทีเดียว</b> ใส่เงินก้อนเดียว ปรับพอร์ตปีละ 2 ครั้ง', pos:'bottom', d:4200},
+  {focus:[50,42,1.35], ring:[[R.b3,''],[R.b4,'']],
+   cap:'คอลัมน์ขวา = <b>แบ่ง 6 ไม้</b> ทยอยเข้าเดือนละไม้ ถือไม้ละ 6 เดือน', pos:'bottom', d:4200},
+  {focus:[50,60,1.35], ring:[[R.b2,''],[R.b4,'']],
+   cap:'แกนที่ 2 · แถวล่าง = <b>ยืดตอนหมี</b> ถ้าตลาดอยู่ในภาวะขาลง จะยืดเวลาถือของชุดเดิมออกไป', pos:'top', d:4400},
+  {focus:[73,42,1.9], ring:[[R.b3,'tap']],
+   cap:'คู่มือนี้เดินด้วย <b>กล่อง 3 · แบ่ง 6 ไม้ ทุกเดือน</b> — แตะเข้าไปเลย', pos:'bottom', d:4000}
+]},
+
+{img:'05-how-a.jpg', step:'ขั้นที่ 2 · อ่านก่อนกด', beats:[
+  {focus:[50,42,1.18], cap:'ก่อนกดเข้าไป เลื่อนลงอ่าน <b>“กลยุทธ์นี้ทำงานยังไง”</b> ก่อน', pos:'bottom', d:4200}
+]},
+{img:'05-how-b.jpg', step:'ขั้นที่ 2 · อ่านก่อนกด', beats:[
+  {focus:[50,45,1.15], cap:'<b>AXIS 1</b> อธิบายว่าเงินถูกจัดสรรยังไง · <b>AXIS 2</b> อธิบายว่าเจอตลาดขาลงแล้วทำอะไร', pos:'bottom', d:4600}
+]},
+{img:'05-how-c.jpg', step:'ขั้นที่ 2 · อ่านก่อนกด', beats:[
+  {focus:[50,35,1.15], cap:'ท้ายหน้าเป็น <b>ข้อจำกัดที่ควรพิจารณา</b> — อ่านให้จบ อย่าข้าม', pos:'bottom', d:4200},
+  {focus:[50,80,1.3],  cap:'ล่างสุดคือ <b>Deep Archive</b> เวอร์ชันย้อนหลังยาว ผ่านตลาดหมีหลายรอบ', pos:'top', d:4000}
+]},
+
+{img:'06-result.jpg', step:'ขั้นที่ 3 · อ่านผล', beats:[
+  {focus:[50,35,1.5], ring:[[R.cagr,'']],
+   cap:'เลขแรกที่เห็นคือ <b>ผลตอบแทนเฉลี่ยต่อปีแบบทบต้น</b>', pos:'bottom', d:3600},
+  {focus:[50,53,1.7], ring:[[R.profit,'']],
+   cap:'<b>กำไรรวม</b> ตลอด 11.6 ปี — จากงบตั้งต้น $3,600 (เดือนละ $600 × 6 ไม้)', pos:'bottom', d:4400},
+  {focus:[50,78,1.3], ring:[[R.mTL,''],[R.mTR,''],[R.mBL,''],[R.mBR,'']],
+   cap:'4 ตัวเลขหลัก · <b>Annualized</b> ผลต่อปี · <b>Sharpe</b> กำไรคุ้มเสี่ยงไหม · <b>Alpha</b> ชนะตลาดเท่าไหร่ · <b>Max Drawdown</b>', pos:'top', d:5000},
+  {focus:[70,84,1.95], ring:[[R.mBR,'']],
+   cap:'ตัวที่ต้องดูจริงจังที่สุดคือ <b>Max Drawdown</b> — พอร์ตเคยลดจากยอดสูงสุดมากที่สุดเท่าไหร่ นี่คือความอดทนที่ต้องมี', pos:'top', d:5200}
+]},
+
+{img:'09-equity.jpg', step:'ขั้นที่ 3 · ปรับค่าเอง', beats:[
+  {focus:[88,74,1.9], ring:[[R.fabPlus,'dot'],[R.fabTarget,'dot'],[R.fabFlask,'dot']],
+   cap:'มุมขวาจะมี <b>ปุ่มลอย 3 ปุ่ม</b> ติดอยู่ทุกหน้า', pos:'bottom', d:3600},
+  {focus:[90,81,2.4], ring:[[R.fabFlask,'dot tap']],
+   cap:'กด <b>ปุ่มหลอดทดลอง</b> (ล่างสุด) เพื่อเปิดหน้าตั้งค่าแบ็คเทส', pos:'bottom', d:4000}
+]},
+
+{img:'08-set-a.jpg', step:'ขั้นที่ 3 · ปรับค่าเอง', beats:[
+  {focus:[50,15,1.5], ring:[[R.setHead,'']],
+   cap:'หน้า <b>ตั้งค่าแบ็คเทส</b> — มี 4 ค่าให้ปรับ', pos:'bottom', d:3200},
+  {focus:[50,35,1.65], ring:[[R.setRank,'']],
+   cap:'<b>Ranking Weight</b> ตัดสินว่าจะเรียงอันดับหุ้นยังไง — เลื่อนซ้ายเน้นกำไรล้วน เลื่อนขวาเน้นหุ้นที่สภาพคล่องสูง', pos:'bottom', d:5000},
+  {focus:[50,57,1.65], ring:[[R.setCap,'']],
+   cap:'<b>Per-lot Capital</b> คือเงินที่ใส่ต่อรอบ (ต่อเดือน) · $600 หมายถึงช่วง 6 เดือนแรกต้องเตรียม $3,600', pos:'top', d:5000}
+]},
+
+{img:'08-set-b.jpg', step:'ขั้นที่ 3 · ปรับค่าเอง', beats:[
+  {focus:[50,32,1.65], ring:[[R.setSize,'']],
+   cap:'<b>Portfolio Size</b> คือซื้อกี่ตัวต่อรอบ · ยิ่งน้อยยิ่งแรง แต่ก็เหวี่ยงแรงตาม', pos:'bottom', d:4600},
+  {focus:[50,51,1.65], ring:[[R.setYear,'']],
+   cap:'<b>Start Year</b> ปีที่เริ่มทดสอบ · ยิ่งย้อนนาน ยิ่งได้เจอตลาดหมีหลายรอบ ตัวเลขจะจริงขึ้น', pos:'top', d:4800},
+  {focus:[55,84,1.85], ring:[[R.setRun,'pill tap']],
+   cap:'ตั้งเสร็จกด <b>RUN BACKTEST</b> แล้วรอผลสักครู่', pos:'top', d:3800}
+]},
+
+{talk:'t1', beats:[{},{},{d:4200},{d:5200}]},
+
+{img:'09-equity.jpg', step:'ขั้นที่ 3 · อ่านกราฟ', beats:[
+  {focus:[50,21,1.7], ring:[[R.tabStrip,'pill']],
+   cap:'ใต้ผลสรุปมี <b>แถบกราฟ 5 แบบ</b> — แตะสลับดูได้', pos:'bottom', d:3800},
+  {focus:[50,42,1.2], ring:[[R.tabEq,'pill'],[R.chart,'']],
+   cap:'<b>Equity Curve</b> — เส้นเงินเติบโตตามเวลา แตะบนเส้นดูยอดของวันนั้นได้', pos:'bottom', d:4400}
+]},
+{img:'10-rounds.jpg', step:'ขั้นที่ 3 · อ่านกราฟ', beats:[
+  {focus:[50,42,1.2], ring:[[R.tabRr,'pill'],[R.chart,'']],
+   cap:'<b>Round Returns</b> — แท่งทองคือไม้ที่ปิดมีกำไร แท่งชมพูคือไม้ที่ขาดทุน รวมทั้งหมด 133 ไม้', pos:'bottom', d:4800}
+]},
+{img:'11-drawdown.jpg', step:'ขั้นที่ 3 · อ่านกราฟ', beats:[
+  {focus:[50,42,1.2], ring:[[R.tabDd,'pill'],[R.chart,'']],
+   cap:'<b>Drawdown</b> — ทุกครั้งที่พอร์ตลดจากยอดสูงสุด จะเป็นหนามลงมา ยิ่งลึกยิ่งต้องอดทนนาน', pos:'bottom', d:4800}
+]},
+{img:'12-vs-spx.jpg', step:'ขั้นที่ 3 · อ่านกราฟ', beats:[
+  {focus:[50,42,1.2], ring:[[R.tabVs,'pill'],[R.chart,'']],
+   cap:'<b>VS S&amp;P 500</b> — เทียบรายปี เขียวคือกลยุทธ์ แดงเข้มคือตลาด ปีไหนแพ้ก็เห็นชัด', pos:'bottom', d:4800}
+]},
+
+{img:'13-accuracy.jpg', step:'ขั้นที่ 3 · อ่านสถิติ', beats:[
+  {focus:[50,17,1.65], ring:[[R.mtabRow,'pill']],
+   cap:'เหนือกราฟมีแถบสรุป 4 มุม · <b>เทียบตลาด · กำไร · ความแม่น · ความเสี่ยง</b>', pos:'bottom', d:4200},
+  {focus:[50,30,1.4], ring:[[R.mtabAcc,'pill'],[R.cWin,''],[R.cPF,'']],
+   cap:'<b>ความแม่น</b> — Win Rate 91% แปลว่า 121 จาก 133 ล็อตปิดมีกำไร · Profit Factor 23.32 คือทุก $1 ที่เสีย ได้กลับมา $23', pos:'bottom', d:5400}
+]},
+{img:'14-risk.jpg', step:'ขั้นที่ 3 · อ่านสถิติ', beats:[
+  {focus:[79,17,1.85], ring:[[R.mtabRisk,'pill tap']],
+   cap:'แตะ <b>ความเสี่ยง</b> — มุมที่คนมักข้าม แต่สำคัญที่สุด', pos:'bottom', d:3600},
+  {focus:[50,33,1.4], ring:[[R.cMdd,''],[R.cMkt,'']],
+   cap:'พอร์ตเคยลดหนักสุด <b>-36.5%</b> ส่วนตลาด <b>-33.7%</b> — เหวี่ยงกว่าตลาดนิดเดียว แต่ต้องเตรียมใจไว้ก่อน', pos:'top', d:5200}
+]},
+
+{img:'15-tradelog.jpg', step:'ขั้นที่ 4 · ไม้ถัดไป', beats:[
+  {focus:[50,19,1.7], ring:[[R.logPill,'pill']],
+   cap:'แถบล่างสุดมี 6 แท็บ · <b>Trade Log</b> คือของที่ใช้จริงทุกเดือน', pos:'bottom', d:4200},
+  {focus:[50,40,1.3], ring:[[R.logCard,'']],
+   cap:'การ์ดบนสุดบอก <b>ไม้ถัดไปเข้าวันไหน · ซื้ออะไรบ้าง · ใช้งบเท่าไหร่</b>', pos:'top', d:4600},
+  {focus:[26,40,2.1], ring:[[R.logPdf,'pill tap']],
+   cap:'กด <b>DETAILS PDF</b> ได้รายละเอียดเต็มของไม้นั้น เอาไปเปิดตอนสั่งซื้อจริง', pos:'top', d:4400}
+]},
+
+{img:'16-heatmap.jpg', step:'ขั้นที่ 4 · ดูย้อนหลัง', beats:[
+  {focus:[50,20,1.7], ring:[[R.heatPill,'pill tap']],
+   cap:'แตะ <b>Monthly Heatmap</b>', pos:'bottom', d:3000},
+  {focus:[50,55,1.12], ring:[[R.heatTbl,'']],
+   cap:'ผลรายเดือนย้อนหลังทุกปี — เขียวคือบวก แดงคือลบ เห็นได้เลยว่าเดือนแย่ๆ มาถี่แค่ไหน', pos:'top', d:5000}
+]},
+{img:'17-stats.jpg', step:'ขั้นที่ 4 · ดูย้อนหลัง', beats:[
+  {focus:[68,22,1.8], ring:[[R.statPill,'pill tap']],
+   cap:'แตะ <b>Statistics</b>', pos:'bottom', d:3000},
+  {focus:[50,55,1.12], ring:[[R.statCard,'']],
+   cap:'สถิติรวมทั้งชุด · Sharpe 1.46 · ความผันผวน 31% · รอบดีสุด +102% · รอบแย่สุด -27.4%', pos:'top', d:5000}
+]},
+{img:'18-sensitivity.jpg', step:'ขั้นที่ 4 · ดูย้อนหลัง', beats:[
+  {focus:[85,16,1.85], ring:[[R.senPill,'pill tap']],
+   cap:'แท็บสุดท้าย <b>Sensitivity</b> — เอาไว้ตอบว่า “ถ้าเปลี่ยนค่า ผลจะเปลี่ยนแค่ไหน”', pos:'bottom', d:4400},
+  {focus:[30,35,1.8], ring:[[R.senRun,'pill tap']],
+   cap:'เลือกตัวชี้วัดที่อยากดู แล้วกด <b>RUN ANALYSIS</b>', pos:'bottom', d:3800},
+  {focus:[50,60,1.15], ring:[[R.senTbl,'']],
+   cap:'แถวคือจำนวนหุ้นในพอร์ต — <b>5 ตัวได้ 50%/ปี แต่ 30 ตัวเหลือ 28%</b> · หุ้นน้อยแรงกว่าจริง แต่แลกมาด้วยความเหวี่ยง', pos:'top', d:5600}
+]},
+
+{talk:'t2', beats:[{},{},{d:5600},{d:5600}]}
+];
+
+/* ── flatten to a single beat list ── */
+const beats=[];
+SCENES.forEach((sc,si)=>sc.beats.forEach((b,bi)=>beats.push(Object.assign({},b,{sc:si,first:bi===0}))));
+
+/* ── preload ── */
+(function(){
+  const files=[...new Set(SCENES.filter(s=>s.img).map(s=>s.img))];
+  let done=0;
+  const fill=$('#lfill');
+  const finish=()=>{ $('#load').classList.add('done'); };
+  if(!files.length) return finish();
+  files.forEach(f=>{
+    const im=new Image();
+    im.onload=im.onerror=()=>{ done++; fill.style.width=(done/files.length*100)+'%';
+      if(done===files.length) setTimeout(finish,300); };
+    im.src=IMG+f;
+  });
+  setTimeout(finish,9000);   // safety
+})();
+
+/* ── stage helpers ── */
+const stage=$('#stage'), shot=$('#shot'), pan=$('#pan'), shotImg=$('#shotImg');
+const capEl=$('#cap'), capStep=$('#capStep'), capText=$('#capText'), guide=$('#guide');
+let curImg='';
+/* จุดซูมคำนวณจากกรอบของวงที่จะไฮไลต์เอง — ไม่ต้องกำหนดมือให้พลาด */
+function setFocus(b){
+  let [fx,fy,zs]=(b&&b.focus)||[50,50,1];
+  const W0=pan.clientWidth||1, H0=pan.clientHeight||1;
+  const SW=stage.clientWidth||1, SH=stage.clientHeight||1;
+  const rings=(b&&b.ring)||[];
+  if(rings.length){
+    let x0=100,y0=100,x1=0,y1=0;
+    rings.forEach(it=>{ const r=it[0];
+      x0=Math.min(x0,r[0]); y0=Math.min(y0,r[1]);
+      x1=Math.max(x1,r[0]+r[2]); y1=Math.max(y1,r[1]+r[3]); });
+    fx=(x0+x1)/2; fy=(y0+y1)/2;
+    const bw=(x1-x0)/100*W0, bh=(y1-y0)/100*H0;
+    zs=Math.min(zs, (SW*0.90)/Math.max(bw,1), (SH*0.60)/Math.max(bh,1));
+    zs=Math.max(1,zs);
+  }
+  // ดันภาพหนีฝั่งที่มีคำอธิบาย
+  const nudge = b&&b.cap ? (b.pos==='top'? SH*0.07 : -SH*0.07) : 0;
+  let tx=(50-fx)/100*W0*zs, ty=(50-fy)/100*H0*zs + nudge;
+  const mx=Math.max(0,(W0*zs-SW)/2), my=Math.max(0,(H0*zs-SH)/2);
+  tx=Math.max(-mx,Math.min(mx,tx)); ty=Math.max(-my,Math.min(my,ty));
+  pan.style.setProperty('--zs',zs.toFixed(3));
+  pan.style.setProperty('--tx',tx.toFixed(1)+'px');
+  pan.style.setProperty('--ty',ty.toFixed(1)+'px');
+}
+function clearRings(){ $$('#pan .ring').forEach(r=>r.remove()); }
+function drawRings(list){
+  clearRings();
+  (list||[]).forEach((item,i)=>{
+    const [box,mod]=item;
+    const d=document.createElement('div');
+    d.className='ring '+(mod||'');
+    d.style.left=box[0]+'%'; d.style.top=box[1]+'%';
+    d.style.width=box[2]+'%'; d.style.height=box[3]+'%';
+    pan.appendChild(d);
+    setTimeout(()=>d.classList.add('on'), 220+i*110);
+  });
+}
+function setCap(b,step){
+  if(!b.cap){ capEl.classList.remove('on'); return; }
+  capStep.textContent=step||'';
+  capText.innerHTML=b.cap;
+  capEl.className=(b.pos||'bottom');
+  requestAnimationFrame(()=>capEl.classList.add('on'));
+}
+function shake(){ stage.classList.remove('shake'); void stage.offsetWidth; stage.classList.add('shake'); }
+
+/* ── engine ── */
+const talkScenes=$$('.scene');
+let cursor=-1, auto=false, autoTimer=null;
+const beatdotsEl=$('#beatdots');
+beats.forEach(()=>beatdotsEl.appendChild(document.createElement('i')));
+const beatdots=Array.from(beatdotsEl.children);
+
+function showTalk(id){
+  talkScenes.forEach(s=>s.classList.toggle('active',s.id===id));
+  guide.classList.toggle('show',!!id);
+}
+function resetTalk(){ $$('.scene [data-beat]').forEach(e=>e.classList.remove('on','gone')); }
+
+function render(){
+  const b=beats[cursor<0?0:cursor];
+  const sc=SCENES[b.sc];
+
+  if(sc.talk){
+    shot.classList.remove('on'); capEl.classList.remove('on'); clearRings();
+    showTalk(sc.talk);
+    resetTalk();
+    if(cursor>=0){
+      const els=$$('#'+sc.talk+' [data-beat]');
+      let k=0;
+      for(let i=0;i<=cursor;i++){ if(beats[i].sc===b.sc){ if(els[k]) els[k].classList.add('on'); k++; } }
+    }
+  } else {
+    showTalk(null);
+    if(curImg!==sc.img){
+      curImg=sc.img;
+      shotImg.classList.remove('on');
+      shotImg.src=IMG+sc.img;
+      shotImg.onload=()=>shotImg.classList.add('on');
+      if(shotImg.complete) shotImg.classList.add('on');
+    }
+    shot.classList.add('on');
+    if(cursor<0){ setFocus(null); clearRings(); capEl.classList.remove('on'); }
+    else { setFocus(b); drawRings(b.ring); capEl.classList.remove('on'); setTimeout(()=>setCap(b,sc.step),260); }
+  }
+  beatdots.forEach((d,i)=>d.classList.toggle('done',i<=cursor));
+  scheduleAuto();
+}
+function next(){ if(cursor>=beats.length-1){ setAuto(false); return; } cursor++; render(); }
+function prev(){ if(cursor<0) return; cursor--; render(); }
+function restart(){ cursor=-1; render(); }
+
+/* ── autoplay ── */
+const prog=$('#prog'), playBtn=$('#play');
+function setAuto(on){
+  auto=on;
+  playBtn.textContent=on?'❚❚ หยุด':'▶ เล่นอัตโนมัติ';
+  playBtn.classList.toggle('on',on);
+  if(on&&cursor>=beats.length-1) restart(); else scheduleAuto();
+}
+function scheduleAuto(){
+  clearTimeout(autoTimer);
+  prog.classList.remove('run'); prog.style.transition='none'; prog.style.width='0%';
+  if(!auto) return;
+  const d=(cursor<0?1200:(beats[cursor].d||3400));
+  void prog.offsetWidth;
+  prog.classList.add('run');
+  prog.style.transition='width '+d+'ms linear';
+  prog.style.width='100%';
+  autoTimer=setTimeout(next,d);
+}
+
+/* ── input ── */
+stage.addEventListener('click',e=>{
+  if(e.target.closest('#ctrl')) return;
+  const x=e.clientX-stage.getBoundingClientRect().left;
+  if(x<stage.clientWidth*0.26) prev(); else next();
+});
+playBtn.addEventListener('click',e=>{ e.stopPropagation(); setAuto(!auto); });
+document.addEventListener('keydown',e=>{
+  if(e.key===' '||e.key==='ArrowRight'||e.key==='ArrowDown'){ e.preventDefault(); setAuto(false); next(); }
+  else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){ e.preventDefault(); setAuto(false); prev(); }
+  else if(e.key==='p'||e.key==='P'){ setAuto(!auto); }
+  else if(e.key==='h'||e.key==='H'){ $('#hud').classList.toggle('hidden'); }
+  else if(e.key==='r'||e.key==='R'){ restart(); }
+});
+
+render();
+</script>
+</body>
+</html>
