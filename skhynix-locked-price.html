@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>กำไรสูงสุดในประวัติศาสตร์ แต่ยังต่ำกว่าที่ตลาดคาด — สัญญาที่ล็อกราคาไว้ก่อนราคาขึ้น | JP Trust Learning</title>
+<meta name="description" content="29 ก.ค. 2026 SK Hynix รายงานกำไรจากการดำเนินงาน 60.54 ล้านล้านวอน โต 557% ทำสถิติใหม่ แต่ต่ำกว่าที่ตลาดคาด 3.46 ล้านล้านวอน หุ้นระหว่างวันร่วงเกือบ 20% ตลาดเกาหลีหยุดซื้อขายสองวันติด — บทวิเคราะห์กลไกสัญญาล็อกราคา HBM และแรงขายจากเงินกู้ · โพสต์ 29 ก.ค. 2026">
+<link rel="canonical" href="https://public.jptrustlearning.com/skhynix-locked-price.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="JP Trust Learning">
+<meta property="og:title" content="กำไรสูงสุดในประวัติศาสตร์ แต่ยังต่ำกว่าที่ตลาดคาด">
+<meta property="og:description" content="SK Hynix ทำกำไรไตรมาสเดียวสูงที่สุดของบริษัทจดทะเบียนเกาหลี แล้วหุ้นร่วงจนตลาดทั้งประเทศหยุดซื้อขายเป็นวันที่สอง — บทวิเคราะห์ว่าทำไมเบอร์หนึ่งของ HBM ถึงเก็บส่วนต่างราคาได้น้อยที่สุด">
+<meta property="og:image" content="https://public.jptrustlearning.com/article-img/skhynix-hero.jpg">
+<meta property="og:url" content="https://public.jptrustlearning.com/skhynix-locked-price.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@200;300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-thai:'Anuphan',sans-serif;
+  --font-label:'Cinzel',serif;
+  --font-num:'DM Serif Display',serif;
+
+  --gold:#D4AF37;
+  --gold-dark:#B8860B;
+  --gold-deep:#8B6914;
+  --gold-pale:#E8D48B;
+
+  --maroon:#722F37;
+  --maroon-1:#1a0a0e;
+  --maroon-2:#2d1018;
+  --maroon-3:#3a1520;
+
+  --cream:#FAF6ED;
+  --cream-light:#FFFEF8;
+  --cream-warm:#F5EFE0;
+  --cream-deep:#EDE4D0;
+  --champagne:#EFE3C6;
+
+  --ink:#241016;
+  --ink-soft:#5A4650;
+  --up:#1F7D49;
+  --down:#A32E2E;
+
+  --maxw:1080px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;touch-action:manipulation;}
+body{
+  font-family:var(--font-thai);
+  background:var(--cream);
+  color:var(--ink);
+  font-size:19px;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ── พื้นครีมเหลือบแชมเปญ ─────────────────────────────── */
+body::before{
+  content:"";
+  position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(120% 90% at 12% 0%, #FFFDF4 0%, transparent 60%),
+    radial-gradient(100% 80% at 88% 12%, #F7EEDA 0%, transparent 55%),
+    radial-gradient(120% 100% at 50% 100%, #F2E7CC 0%, transparent 60%),
+    linear-gradient(160deg,#FBF7EC 0%,#F6EFDF 35%,#EFE3C6 62%,#F8F2E4 100%);
+}
+body::after{
+  content:"";
+  position:fixed;inset:-30%;z-index:-1;pointer-events:none;
+  background:linear-gradient(115deg,
+    rgba(255,255,255,0) 34%,
+    rgba(255,255,255,.55) 44%,
+    rgba(232,212,139,.30) 50%,
+    rgba(255,255,255,.55) 56%,
+    rgba(255,255,255,0) 66%);
+  background-size:280% 280%;
+  animation:sheen 26s ease-in-out infinite;
+  opacity:.7;
+}
+@keyframes sheen{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ── Ripple ทอง ───────────────────────────────────────── */
+#rippleLayer{position:fixed;inset:0;z-index:9999;pointer-events:none;overflow:hidden;}
+.rp{
+  position:absolute;border-radius:50%;
+  transform:translate(-50%,-50%) scale(.15);
+  background:none;
+  border:3px solid var(--gold-dark);
+  box-shadow:0 0 0 1px rgba(212,175,55,.35);
+  opacity:1;
+  animation:rp 900ms cubic-bezier(.16,.84,.36,1) forwards;
+}
+.rp.ring{
+  border:1.5px solid rgba(212,175,55,.85);
+  box-shadow:none;
+  animation:rp 1050ms cubic-bezier(.16,.84,.36,1) forwards;
+}
+.rp.core{
+  border:1.5px solid rgba(212,175,55,.9);
+  background:radial-gradient(circle,
+    rgba(232,212,139,.55) 0%,
+    rgba(212,175,55,.32) 45%,
+    rgba(212,175,55,.10) 75%,
+    rgba(212,175,55,0) 100%);
+  box-shadow:0 0 18px rgba(212,175,55,.45);
+  animation:rp 820ms cubic-bezier(.16,.84,.36,1) forwards;
+}
+@keyframes rp{
+  0%{transform:translate(-50%,-50%) scale(.12);opacity:1;}
+  55%{opacity:1;}
+  100%{transform:translate(-50%,-50%) scale(1);opacity:0;}
+}
+
+/* ── โครง ─────────────────────────────────────────────── */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+section{padding:64px 0;position:relative;}
+.eyebrow{
+  font-family:var(--font-label);
+  font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--gold-deep);font-weight:600;
+  display:flex;align-items:center;gap:12px;margin-bottom:14px;
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(212,175,55,.6),transparent);}
+h2{
+  font-size:clamp(28px,4.4vw,42px);font-weight:600;line-height:1.35;
+  letter-spacing:-.01em;margin-bottom:16px;
+}
+h3{font-size:clamp(20px,2.6vw,24px);font-weight:600;margin-bottom:10px;}
+p{margin-bottom:18px;}
+.lead{font-size:clamp(19px,2.2vw,21px);color:var(--ink-soft);}
+strong{font-weight:600;color:var(--maroon-3);}
+.hl{background:linear-gradient(180deg,transparent 62%,rgba(212,175,55,.32) 62%);}
+
+/* ── Hero ─────────────────────────────────────────────── */
+.hero{
+  background:linear-gradient(160deg,var(--maroon-1) 0%,var(--maroon-2) 48%,var(--maroon-3) 100%);
+  color:var(--cream-light);
+  padding:78px 0 62px;
+  border-bottom:2px solid transparent;
+  border-image:linear-gradient(90deg,transparent,var(--gold),var(--gold-pale),var(--gold),transparent) 1;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(90% 70% at 78% 8%,rgba(212,175,55,.16),transparent 62%);
+  pointer-events:none;
+}
+.hero .eyebrow{color:var(--gold);}
+.hero .eyebrow::after{background:linear-gradient(90deg,rgba(212,175,55,.5),transparent);}
+.hero h1{
+  font-size:clamp(36px,6.4vw,68px);font-weight:600;line-height:1.22;
+  letter-spacing:-.015em;margin-bottom:20px;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--gold),#F4E4BA,var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{font-size:clamp(17px,2.2vw,20px);color:rgba(250,246,237,.78);max-width:720px;font-weight:300;}
+.dateline{
+  font-family:var(--font-label);font-size:12px;letter-spacing:.2em;
+  color:rgba(212,175,55,.85);margin-top:26px;
+}
+
+/* ── ลิงก์ห้องสมุด ────────────────────────────────────── */
+.crumb{
+  display:inline-block;margin-bottom:22px;
+  font-family:var(--font-label);font-size:11.5px;letter-spacing:.16em;
+  color:rgba(212,175,55,.9);text-decoration:none;
+  border-bottom:1px solid rgba(212,175,55,.35);padding-bottom:3px;
+}
+.crumb:hover{color:var(--gold-pale);}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:20px;}
+.foot-links a{
+  font-family:var(--font-label);font-size:12px;letter-spacing:.14em;
+  color:var(--gold-deep);text-decoration:none;
+  border-bottom:1px solid rgba(184,134,11,.4);padding-bottom:2px;
+}
+
+/* ── ภาพเปิด ──────────────────────────────────────────── */
+.hero-fig{
+  position:relative;margin:38px 0 6px;border-radius:20px;overflow:hidden;
+  border:1px solid rgba(212,175,55,.4);
+  box-shadow:0 22px 60px rgba(0,0,0,.45);
+  aspect-ratio:16/9;
+}
+.hero-fig img{
+  width:100%;height:100%;object-fit:cover;object-position:center 42%;
+  display:block;filter:saturate(.82) contrast(1.05);
+}
+.hero-fig::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(26,10,14,.30) 0%,rgba(26,10,14,0) 30%,rgba(26,10,14,.55) 100%),
+    radial-gradient(70% 60% at 50% 55%,rgba(212,175,55,.10),transparent 70%);
+}
+.hero-cap{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  padding:16px 20px;
+  font-size:14.5px;font-weight:300;color:rgba(250,246,237,.9);
+  line-height:1.6;
+}
+.hero-cap b{
+  display:block;font-family:var(--font-label);font-size:10.5px;letter-spacing:.18em;
+  color:var(--gold);font-weight:600;margin-bottom:4px;
+}
+@media(max-width:820px){
+  .hero-fig{aspect-ratio:4/3;margin-top:30px;}
+  .hero-cap{font-size:13px;padding:14px 16px;}
+}
+
+/* ── แถบสถิติ ─────────────────────────────────────────── */
+.statstrip{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px;
+}
+.stat{
+  background:rgba(250,246,237,.05);
+  border:1px solid rgba(212,175,55,.28);
+  border-radius:14px;padding:18px 16px;
+  backdrop-filter:blur(2px);
+}
+.stat-lb{font-family:var(--font-label);font-size:10.5px;letter-spacing:.16em;color:rgba(212,175,55,.9);}
+.stat-v{font-family:var(--font-num);font-size:clamp(28px,4vw,40px);line-height:1.1;margin:6px 0 2px;}
+.stat-v.dn{color:#F09A9A;}
+.stat-v.up{color:#8ED9AC;}
+.stat-s{font-size:13.5px;color:rgba(250,246,237,.6);font-weight:300;line-height:1.5;}
+
+/* ── การ์ด ────────────────────────────────────────────── */
+.card{
+  background:linear-gradient(150deg,var(--cream-light),var(--cream-warm));
+  border:1px solid rgba(184,134,11,.22);
+  border-radius:18px;padding:28px 26px;
+  box-shadow:0 10px 34px rgba(90,60,20,.07);
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+
+/* ── แถบสลับสี ────────────────────────────────────────── */
+.band{
+  background:linear-gradient(160deg,var(--maroon-2),var(--maroon-3));
+  color:var(--cream-light);
+}
+.band .eyebrow{color:var(--gold);}
+.band strong{color:var(--gold-pale);}
+.band .lead{color:rgba(250,246,237,.75);}
+.band .card{
+  background:rgba(250,246,237,.055);
+  border-color:rgba(212,175,55,.3);
+  box-shadow:none;
+}
+
+/* ── กราฟแท่ง (CSS) ───────────────────────────────────── */
+.chart{margin:26px 0 10px;}
+.bars{display:flex;align-items:flex-end;gap:14px;height:230px;padding-top:26px;}
+.bar-col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;}
+.bar{
+  width:100%;border-radius:8px 8px 3px 3px;position:relative;
+  background:linear-gradient(180deg,var(--gold-pale),var(--gold) 45%,var(--gold-dark));
+  box-shadow:0 6px 18px rgba(184,134,11,.22);
+  transition:height 1.1s cubic-bezier(.2,.8,.25,1);
+}
+.bar.mute{background:linear-gradient(180deg,#DCCFAE,#C6B489);box-shadow:none;}
+.bar.fcast{
+  background:repeating-linear-gradient(135deg,rgba(212,175,55,.55) 0 8px,rgba(232,212,139,.35) 8px 16px);
+  border:1px dashed var(--gold-dark);
+}
+.bar-v{
+  position:absolute;top:-28px;left:0;right:0;text-align:center;
+  font-family:var(--font-num);font-size:19px;color:var(--gold-deep);
+}
+.bar-x{
+  margin-top:10px;font-size:13px;text-align:center;color:var(--ink-soft);
+  font-weight:500;line-height:1.35;
+}
+.band .bar-v{color:var(--gold-pale);}
+.band .bar-x{color:rgba(250,246,237,.7);}
+
+/* ── ตาราง ────────────────────────────────────────────── */
+.tbl{width:100%;border-collapse:collapse;font-size:16px;margin-top:8px;}
+.tbl th{
+  font-family:var(--font-label);font-size:11px;letter-spacing:.12em;
+  text-align:left;color:var(--gold-deep);padding:12px 10px;
+  border-bottom:1.5px solid rgba(184,134,11,.35);white-space:nowrap;
+}
+.tbl td{padding:14px 10px;border-bottom:1px solid rgba(184,134,11,.14);vertical-align:middle;}
+.tbl tr:last-child td{border-bottom:none;}
+.tk{font-family:var(--font-label);font-weight:600;font-size:15px;color:var(--maroon-3);}
+.tk small{display:block;font-family:var(--font-thai);font-weight:400;font-size:13px;color:var(--ink-soft);letter-spacing:0;}
+.num{font-family:var(--font-num);font-size:19px;}
+.pos{color:var(--up);}
+.neg{color:var(--down);}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+
+/* ── Reveal on scroll ─────────────────────────────────── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+.rv.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}}
+
+/* ── Showcase (แนะนำแพลตฟอร์ม) ────────────────────────── */
+.showcase{padding:clamp(54px,8vw,90px) 0;}
+.showcase-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,56px);align-items:center;
+}
+.showcase h3{font-size:clamp(24px,3.4vw,34px);font-weight:600;line-height:1.35;margin-bottom:14px;}
+.showcase p{font-size:17px;margin-bottom:18px;}
+.showcase ul{list-style:none;}
+.showcase li{
+  position:relative;padding:9px 0 9px 22px;font-size:16.5px;line-height:1.7;
+  border-top:1px solid rgba(184,134,11,.18);
+}
+.showcase li::before{
+  content:"";position:absolute;left:0;top:20px;width:7px;height:7px;border-radius:50%;
+  background:var(--gold);
+}
+.band.showcase li{border-top-color:rgba(212,175,55,.22);}
+.shot{
+  border-radius:20px;overflow:hidden;
+  border:1px solid rgba(212,175,55,.35);
+  box-shadow:0 30px 70px -34px rgba(0,0,0,.55);
+}
+.shot img{display:block;width:100%;height:auto;}
+.light-shot{box-shadow:0 26px 60px -34px rgba(90,60,20,.45);border-color:rgba(184,134,11,.3);}
+.sc-cta{
+  display:inline-flex;flex-direction:column;gap:3px;margin-top:22px;
+  text-decoration:none;border:1px solid rgba(212,175,55,.45);
+  border-radius:14px;padding:14px 22px;
+}
+.sc-cta .sub{font-family:var(--font-label);font-size:10px;letter-spacing:.26em;color:var(--gold-deep);}
+.band .sc-cta .sub{color:var(--gold);}
+.sc-cta .url{font-family:var(--font-label);font-weight:700;font-size:19px;letter-spacing:.02em;color:var(--maroon-3);}
+.band .sc-cta .url{color:var(--gold-pale);}
+.sc-cta:hover{border-color:var(--gold);}
+@media(max-width:820px){
+  .showcase-inner{grid-template-columns:1fr;}
+  .showcase .shot{order:-1;}
+  .showcase.flip .shot{order:-1;}
+}
+
+/* ── ภาพประกอบในเนื้อหา ───────────────────────────────── */
+.fig{
+  margin:28px 0 6px;border-radius:18px;overflow:hidden;
+  border:1px solid rgba(184,134,11,.35);
+  box-shadow:0 18px 46px rgba(90,60,20,.18);
+  position:relative;aspect-ratio:16/9;
+}
+.fig img{
+  width:100%;height:100%;object-fit:cover;object-position:center 34%;
+  display:block;filter:saturate(.9);
+}
+.fig::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(26,10,14,0) 55%,rgba(26,10,14,.75) 100%);
+}
+.fig-cap{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;padding:16px 20px;
+  font-size:14.5px;font-weight:300;color:rgba(250,246,237,.92);line-height:1.6;
+}
+.fig-cap b{
+  display:block;font-family:var(--font-label);font-size:10.5px;letter-spacing:.18em;
+  color:var(--gold);font-weight:600;margin-bottom:4px;
+}
+@media(max-width:820px){
+  .fig{aspect-ratio:4/5;}
+  .fig img{object-position:center 30%;}
+  .fig-cap{font-size:13px;padding:14px 16px;}
+}
+
+/* ── Timeline ─────────────────────────────────────────── */
+.tl{position:relative;padding-left:34px;margin-top:26px;}
+.tl::before{
+  content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(180deg,var(--gold),rgba(212,175,55,.15));
+}
+.tl-item{position:relative;padding-bottom:28px;}
+.tl-item::before{
+  content:"";position:absolute;left:-30px;top:8px;width:14px;height:14px;border-radius:50%;
+  background:var(--cream-light);border:3px solid var(--gold);
+}
+.tl-item.hot::before{background:var(--down);border-color:var(--down);box-shadow:0 0 0 5px rgba(163,46,46,.14);}
+.tl-d{font-family:var(--font-label);font-size:11.5px;letter-spacing:.14em;color:var(--gold-deep);}
+.tl-t{font-weight:600;font-size:18px;margin:2px 0 4px;}
+.tl-b{font-size:16px;color:var(--ink-soft);line-height:1.75;}
+
+/* ── Bull / Bear ──────────────────────────────────────── */
+.bb{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px;}
+.bb-col{border-radius:18px;padding:26px 24px;border:1px solid;}
+.bb-bull{background:linear-gradient(160deg,rgba(46,159,95,.16),rgba(250,246,237,.05));border-color:rgba(46,159,95,.42);}
+.bb-bear{background:linear-gradient(160deg,rgba(200,70,70,.16),rgba(250,246,237,.05));border-color:rgba(200,70,70,.42);}
+.bb-h{font-family:var(--font-label);font-size:13px;letter-spacing:.2em;margin-bottom:16px;font-weight:600;}
+.bb-bull .bb-h{color:#8ED9AC;}
+.bb-bear .bb-h{color:#F09A9A;}
+.bb ul{list-style:none;}
+.bb li{padding:10px 0 10px 24px;position:relative;font-size:16.5px;line-height:1.7;border-bottom:1px dashed rgba(250,246,237,.14);}
+.bb li:last-child{border-bottom:none;}
+.bb li::before{position:absolute;left:0;top:10px;font-weight:700;}
+.bb-bull li::before{content:"▲";color:#8ED9AC;font-size:11px;}
+.bb-bear li::before{content:"▼";color:#F09A9A;font-size:11px;}
+
+/* ── Gauge เป้าหมายราคา ───────────────────────────────── */
+.gauge{margin:30px 0 10px;}
+.gauge-bar{
+  height:16px;border-radius:999px;position:relative;
+  background:linear-gradient(90deg,#C6B489,var(--gold-pale),var(--gold),var(--gold-dark));
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.1);
+}
+.gm{position:absolute;top:-6px;width:2px;height:28px;background:var(--maroon-3);}
+.gm.now{width:3px;height:38px;top:-11px;background:var(--down);box-shadow:0 0 0 4px rgba(163,46,46,.15);}
+.gm span{
+  position:absolute;top:-30px;left:50%;transform:translateX(-50%);
+  font-family:var(--font-label);font-size:10.5px;letter-spacing:.1em;white-space:nowrap;color:var(--ink-soft);
+}
+.gm.now span{color:var(--down);font-weight:700;}
+.gauge-lb{display:flex;justify-content:space-between;margin-top:34px;font-size:14px;color:var(--ink-soft);}
+
+/* ── Quote / callout ──────────────────────────────────── */
+.callout{
+  border-left:4px solid var(--gold);
+  background:linear-gradient(90deg,rgba(212,175,55,.10),transparent);
+  padding:18px 22px;margin:24px 0;border-radius:0 12px 12px 0;
+  font-size:17.5px;line-height:1.8;
+}
+.band .callout{background:linear-gradient(90deg,rgba(212,175,55,.16),transparent);}
+
+/* ── Pills ────────────────────────────────────────────── */
+.pill{
+  display:inline-block;padding:4px 12px;border-radius:999px;
+  font-family:var(--font-label);font-size:10.5px;letter-spacing:.1em;font-weight:600;
+}
+.pill-up{background:rgba(31,125,73,.12);color:var(--up);border:1px solid rgba(31,125,73,.3);}
+.pill-dn{background:rgba(163,46,46,.10);color:var(--down);border:1px solid rgba(163,46,46,.28);}
+.pill-nt{background:rgba(212,175,55,.14);color:var(--gold-deep);border:1px solid rgba(212,175,55,.35);}
+
+/* ── ปฏิทิน ───────────────────────────────────────────── */
+.cal{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px;}
+.cal-i{
+  display:flex;gap:16px;align-items:flex-start;
+  background:linear-gradient(150deg,var(--cream-light),var(--cream-warm));
+  border:1px solid rgba(184,134,11,.2);border-radius:14px;padding:18px;
+  color:var(--ink);
+}
+.cal-d{
+  flex:0 0 62px;text-align:center;
+  border-right:1px solid rgba(184,134,11,.2);padding-right:12px;
+}
+.cal-d b{display:block;font-family:var(--font-num);font-size:26px;line-height:1;color:var(--gold-dark);}
+.cal-d span{font-family:var(--font-label);font-size:10px;letter-spacing:.1em;color:var(--ink-soft);}
+.cal-x b{display:block;font-size:16.5px;font-weight:600;margin-bottom:2px;color:var(--maroon-3);}
+.cal-x span{font-size:14.5px;color:var(--ink-soft);line-height:1.6;}
+
+/* ── Footer ───────────────────────────────────────────── */
+footer{
+  background:linear-gradient(180deg,var(--cream-deep),#E6DAC2);
+  padding:44px 0 56px;margin-top:20px;
+  border-top:1px solid rgba(184,134,11,.3);
+}
+.disc{font-size:14px;color:var(--ink-soft);font-weight:300;line-height:1.8;}
+.sig{
+  font-family:var(--font-label);font-size:13px;letter-spacing:.22em;
+  color:var(--gold-deep);font-weight:600;margin-bottom:12px;
+}
+
+/* ── Mobile ───────────────────────────────────────────── */
+@media(max-width:820px){
+  body{font-size:18px;}
+  section{padding:48px 0;}
+  .statstrip{grid-template-columns:1fr 1fr;}
+  .grid2,.grid3,.bb,.cal{grid-template-columns:1fr;}
+  .bars{height:190px;gap:8px;}
+  .bar-v{font-size:15px;top:-24px;}
+  .bar-x{font-size:11.5px;}
+  .tbl{font-size:14.5px;}
+  .num{font-size:17px;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  body::after{opacity:.4;}
+}
+
+/* ═══ JPT · สีลิงก์ในเนื้อบทความ (v1) ═══════════════════
+   เจาะจงเฉพาะลิงก์ที่อยู่ในย่อหน้า/รายการ เพื่อไม่ให้ไปโดน
+   .sc-cta (ปุ่ม Subscribe ที่ไม่ได้กำหนดสีของตัวเองไว้)
+   .crumb และ .foot-links a ซึ่งมีสีของตัวเองอยู่แล้ว        */
+.wrap p a,.wrap li a,.callout a,.tl-b a,.tl-t a{
+  color:#8B6914;text-decoration:none;
+  border-bottom:1px solid rgba(184,134,11,.42);
+  transition:color .15s ease,border-color .15s ease;
+}
+.wrap p a:hover,.wrap li a:hover,.callout a:hover,.tl-b a:hover,.tl-t a:hover{
+  color:#722F37;border-bottom-color:rgba(114,47,55,.55);
+}
+.band .wrap p a,.band .wrap li a,.band .callout a,.band .tl-b a,.band .tl-t a{
+  color:#E8D48B;border-bottom-color:rgba(232,212,139,.42);
+}
+.band .wrap p a:hover,.band .wrap li a:hover,.band .callout a:hover,
+.band .tl-b a:hover,.band .tl-t a:hover{
+  color:#FFFEF8;border-bottom-color:rgba(255,254,248,.75);
+}
+
+/* ── chart figures (ภาพกราฟ แสดงเต็มภาพ ไม่ครอป) ───────── */
+.chartfig{
+  margin:30px 0 8px;border-radius:18px;overflow:hidden;
+  border:1px solid rgba(184,134,11,.38);
+  box-shadow:0 18px 46px rgba(90,60,20,.20);
+  background:var(--cream-light);
+}
+.chartfig img{display:block;width:100%;height:auto;}
+.chartfig figcaption{
+  padding:14px 20px 16px;font-size:14.5px;font-weight:300;line-height:1.65;
+  color:var(--ink-soft);border-top:1px solid rgba(184,134,11,.22);
+}
+.chartfig figcaption b{
+  display:block;font-family:var(--font-label);font-size:10.5px;letter-spacing:.18em;
+  color:var(--gold-deep);font-weight:600;margin-bottom:4px;
+}
+.band .chartfig{border-color:rgba(212,175,55,.30);background:rgba(0,0,0,.16);}
+.band .chartfig figcaption{color:rgba(250,246,237,.86);border-top-color:rgba(212,175,55,.22);}
+.band .chartfig figcaption b{color:var(--gold);}
+</style>
+</head>
+<body>
+<div id="rippleLayer"></div>
+
+<!-- ══ HERO ══════════════════════════════════════════════ -->
+<header class="hero">
+  <div class="wrap">
+    <a class="crumb" href="lib-analysis.html">← ห้องสมุดบทวิเคราะห์</a>
+    <div class="eyebrow">Korea · Memory · HBM Contracts</div>
+    <h1>กำไรสูงสุดในประวัติศาสตร์<br>แต่ยัง<em>ต่ำกว่าที่ตลาดคาด</em></h1>
+    <p class="hero-sub">เช้าวันที่ 29 กรกฎาคม SK Hynix รายงานกำไรไตรมาสเดียวสูงที่สุดเท่าที่บริษัทจดทะเบียนเกาหลีเคยทำได้ กำไรจากการดำเนินงานโต 557% จากปีก่อน มาร์จิ้น 76% แล้วราคาหุ้นระหว่างวันร่วงเกือบ 20% ตลาดหุ้นทั้งประเทศต้องหยุดซื้อขายกลางคันเป็นวันที่สองติดกัน บทวิเคราะห์นี้ไล่ให้ดูทีละฉากว่ากำไรที่ทำลายสถิติ ทำไมถึงยังเรียกว่าพลาดเป้า</p>
+
+    <figure class="hero-fig">
+      <img src="article-img/skhynix-hero.jpg" alt="กราฟกำไรจากการดำเนินงานไตรมาส 2 ของ SK Hynix เทียบกับที่ตลาดคาด">
+      <figcaption class="hero-cap">
+        <b>Record, and still a miss</b>
+        กำไรจากการดำเนินงาน 60.54 ล้านล้านวอน โตจาก 9.21 ล้านล้านวอนเมื่อปีก่อน แต่ยังไม่ถึงเส้นที่ตลาดคาดไว้ที่ 64 ล้านล้านวอน
+      </figcaption>
+    </figure>
+
+    <div class="statstrip">
+      <div class="stat">
+        <div class="stat-lb">OPERATING PROFIT</div>
+        <div class="stat-v">+557%</div>
+        <div class="stat-s">60.54 ล้านล้านวอน · มาร์จิ้น 76% · ทำสถิติใหม่เป็นไตรมาสที่ห้าติดต่อกัน</div>
+      </div>
+      <div class="stat">
+        <div class="stat-lb">VS CONSENSUS</div>
+        <div class="stat-v dn">−5%</div>
+        <div class="stat-s">ตลาดคาด 64 ล้านล้านวอน ตาม LSEG SmartEstimate · ต่ำกว่าที่คาด 3.46 ล้านล้านวอน</div>
+      </div>
+      <div class="stat">
+        <div class="stat-lb">SK HYNIX · 29 JUL</div>
+        <div class="stat-v dn">−9.6%</div>
+        <div class="stat-s">ระหว่างวันร่วงเกือบ 20% ก่อนดึงกลับ · Samsung ระหว่างวันลง 14% ปิดลบ 5.2%</div>
+      </div>
+      <div class="stat">
+        <div class="stat-lb">KOSPI · FROM PEAK</div>
+        <div class="stat-v dn">−40%</div>
+        <div class="stat-s">จากจุดสูงสุดเมื่อเดือนก่อน · หยุดซื้อขายสองวันติด · มูลค่าตลาดหายมากสุด 2.18 ล้านล้านดอลลาร์</div>
+      </div>
+    </div>
+
+    <div class="dateline">โพสต์ 29 กรกฎาคม 2026 · JP TRUST LEARNING</div>
+  </div>
+</header>
+
+<!-- ══ 1 ═══════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Act I</div>
+    <h2>เดือนที่เริ่มต้นด้วยสถิติใหม่</h2>
+    <p class="lead">ก่อนจะถึงวันที่ตลาดหยุดซื้อขาย ต้องดูก่อนว่าเดือนนี้เริ่มต้นอย่างไร และใครเป็นคนแบกดัชนีทั้งประเทศไว้</p>
+
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-d">10 JUL</div>
+        <div class="tl-t">SK Hynix เข้าเทรดที่ Nasdaq ในชื่อย่อ SKHY</div>
+        <div class="tl-b">ราคา IPO 149 ดอลลาร์ · วันแรกปิดบวกราว 13% สะท้อนความต้องการของนักลงทุนสหรัฐที่มีต่อหุ้นกลุ่ม AI</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-d">ปลายปี 2025</div>
+        <div class="tl-t">Samsung กับ SK Hynix รวมกันมีน้ำหนักราวหนึ่งในสี่ของ KOSPI</div>
+        <div class="tl-b">ที่เหลืออีกสามในสี่กระจายอยู่ในธนาคาร ยานยนต์ เคมี และอุตสาหกรรมอื่นทั้งประเทศ</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-d">วันนี้</div>
+        <div class="tl-t">สองบริษัทเดียวกันนั้น รวมกันเกินครึ่งของมูลค่าตลาดทั้งดัชนี</div>
+        <div class="tl-b">น้ำหนักเพิ่มขึ้นเท่าตัวภายในครึ่งปี</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:26px;">
+      สังเกตอะไรไหมคะ — น้ำหนักของหุ้นในดัชนีไม่ใช่สิ่งที่ใครนั่งกำหนด มันคือสัดส่วนมูลค่าตลาดของหุ้นตัวนั้นเทียบกับทั้งตลาดเฉยๆ ครึ่งปีที่ผ่านมาราคาของสองตัวนี้ขึ้นแรงกว่าหุ้นเกาหลีที่เหลือมาก มูลค่าของมันจึงกินสัดส่วนไปเรื่อยๆ <span class="hl">คนที่ซื้อกองทุนดัชนีเกาหลีเพราะอยากกระจายความเสี่ยง วันนี้ถือหุ้นหน่วยความจำสองตัวเป็นครึ่งพอร์ตโดยไม่ได้ตั้งใจ</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SHOWCASE · ข่าวรายวัน ═════════════════════════════ -->
+<section class="band showcase">
+  <div class="wrap">
+    <div class="showcase-inner">
+      <div>
+        <div class="eyebrow">Daily Dispatches</div>
+        <h3>ข่าวแบบนี้ เราย่อยให้ทุกเช้า–บ่าย–เย็น</h3>
+        <p>งบบริษัทชิป ท่าที Fed ราคาน้ำมัน ดีล AI ระดับแสนล้าน — ข่าวกระจัดกระจายทั่ว Wall Street เราคัด สรุปเป็นไทย แล้วบอกต่อว่ามันกระทบพอร์ตอย่างไร</p>
+        <ul>
+          <li>คัดจาก Wall Street สรุปเป็นไทยในภาษาที่เข้าใจ</li>
+          <li>ติดโทน Bull / Bear ให้รู้ทันทีว่าข่าวบวกหรือลบ</li>
+          <li>แท็กหุ้นที่เกี่ยวข้องในแต่ละข่าว พร้อมวิเคราะห์โอกาสและความเสี่ยง</li>
+        </ul>
+        <a class="sc-cta" href="https://jptrustlearning.com" target="_blank" rel="noopener">
+          <span class="sub">Subscribe at</span>
+          <span class="url">jptrustlearning.com</span>
+        </a>
+      </div>
+      <div class="shot"><img src="article-img/ad-news.jpg" alt="ฟีเจอร์ข่าวรายวันในแอป JP Trust Learning" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 2 ═══════════════════════════════════════════════ -->
+<section class="band">
+  <div class="wrap">
+    <div class="eyebrow">Act II</div>
+    <h2>สองสัปดาห์ก่อนงบ ราคาก็เริ่มเถียงกันเองแล้ว</h2>
+    <p class="lead">คำเตือนไม่ได้มาพร้อมงบ มันมาถึงก่อนหน้านั้นสองสัปดาห์เต็ม ในวันที่ยังไม่มีข่าวร้ายเรื่องกำไรออกมาสักคำเดียว</p>
+
+    <div class="tl">
+      <div class="tl-item hot">
+        <div class="tl-d">13 JUL · SEOUL</div>
+        <div class="tl-t">หุ้น SK Hynix ที่โซลปิดลบ 15.4% แรงที่สุดในประวัติศาสตร์ของหุ้นตัวนี้</div>
+        <div class="tl-b">ข้อมูลจาก LSEG · เกิดขึ้นเพียงสามวันหลังการเข้าเทรดที่ Nasdaq ที่ปิดบวกวันแรก</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-d">วันเดียวกัน</div>
+        <div class="tl-t">KOSPI ลงเกิน 8% ตลาดหยุดซื้อขาย 20 นาที</div>
+        <div class="tl-b">นักวิเคราะห์อธิบายว่าเป็นการขายทำกำไร บวกกับการที่ราคาหุ้นในสหรัฐกลายเป็นราคาอ้างอิงใหม่ ให้คนเอามาเถียงกันว่าหุ้นที่โซลควรอยู่ตรงไหน</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-d">14 JUL</div>
+        <div class="tl-t">เด้งกลับ 13% ภายในวันเดียว</div>
+        <div class="tl-b">ระหว่างนั้นโบรกเกอร์ในเกาหลีก็ทยอยหั่นประมาณการกำไรไตรมาส 2 ลง</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:26px;">
+      ฟังดูแปลกไหมคะ วันที่ 13 ยังไม่มีข่าวร้ายเรื่องกำไรออกมาสักคำเดียว บริษัทเพิ่งระดมทุนก้อนใหญ่สำเร็จเมื่อสามวันก่อน แต่ราคากลับเหวี่ยงวันละสิบกว่าเปอร์เซ็นต์ทั้งขึ้นและลงติดกันสองวัน
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3 ═══════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Act III</div>
+    <h2>กำไรโต 557% แต่ยังเรียกว่า “ต่ำกว่าคาด”</h2>
+    <p class="lead">วันที่ตัวเลขจริงออกมา ทุกบรรทัดของงบทำลายสถิติ แล้วหุ้นก็ร่วงหนักที่สุดของกลุ่มในวันเดียวกัน</p>
+
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-d">29 JUL · ผลประกอบการ</div>
+        <div class="tl-t">รายได้ 79.32 ล้านล้านวอน โต 257% · กำไรจากการดำเนินงาน 60.54 ล้านล้านวอน โต 557%</div>
+        <div class="tl-b">มาร์จิ้นจากการดำเนินงาน 76% · gross margin ราว 83% · ครึ่งปีแรกรายได้สะสมทะลุ 100 ล้านล้านวอน ครั้งแรกในประวัติศาสตร์บริษัท</div>
+      </div>
+      <div class="tl-item hot">
+        <div class="tl-d">ที่ตลาดคาดไว้</div>
+        <div class="tl-t">รายได้ 84 ล้านล้านวอน · กำไรจากการดำเนินงาน 64 ล้านล้านวอน</div>
+        <div class="tl-b">ตาม LSEG SmartEstimate ซึ่งถ่วงน้ำหนักไปทางนักวิเคราะห์ที่แม่นสม่ำเสมอ · ค่าเฉลี่ยโบรกเกาหลีหนึ่งเดือนล่าสุดอยู่ที่ 64.68 ล้านล้านวอน</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-d">ไตรมาสเดียวกัน</div>
+        <div class="tl-t">ราคาสัญญา DRAM ทั่วไปขึ้น 58–63% จากไตรมาสก่อน แต่ราคาสัญญา HBM ปี 2026 ลดลง</div>
+        <div class="tl-b">ตามรายงานสำรวจราคาของ TrendForce · ไตรมาสก่อนหน้านั้น ราคาสัญญา DRAM ทั่วไปขึ้น 93–98%</div>
+      </div>
+    </div>
+
+    <figure class="chartfig">
+      <img src="article-img/skhynix-miss.jpg" alt="กราฟแท่งเปรียบเทียบกำไรจากการดำเนินงานไตรมาส 2 ปี 2025 ที่ 9.21 ล้านล้านวอน ที่ตลาดคาด 64.00 และทำได้จริง 60.54" loading="lazy">
+      <figcaption>
+        <b>Operating profit · Q2</b>
+        โตจาก 9.21 เป็น 60.54 ล้านล้านวอนภายในปีเดียว แต่ยังไม่ถึงเส้นที่ตลาดคาดไว้ที่ 64.00 — ส่วนต่าง 3.46 ล้านล้านวอน หรือราว 5%
+      </figcaption>
+    </figure>
+
+    <div class="callout" style="margin-top:26px;">
+      ฟังดูขัดแย้งใช่ไหมคะ กำไรโตห้าเท่ากว่าแต่ยังพลาดเป้า และนี่แหละกระดูกสันหลังของทั้งเรื่องค่ะ: <strong>สินค้าที่ทำให้ SK Hynix เป็นเบอร์หนึ่ง คือสินค้าที่ขายด้วยสัญญาล็อกราคายาว — พอราคาของทั่วไปในตลาดพุ่งขึ้นกลางทาง คนที่ล็อกราคาไว้แน่นที่สุดจึงเก็บส่วนต่างได้น้อยที่สุด</strong>
+    </div>
+
+    <p>เหมือนชาวนาที่ทำสัญญาขายข้าวทั้งยุ้งไว้ตั้งแต่ต้นฤดู แล้วราคาข้าวมาพุ่งเอากลางฤดูค่ะ เขายังได้เงินมากที่สุดเท่าที่เคยได้ในชีวิต แต่ได้น้อยกว่าเพื่อนบ้านที่รอไปขายหน้าโรงสี</p>
+
+    <p>TrendForce เขียนเรื่องนี้ไว้ตั้งแต่ไตรมาส 1 ว่า SK Hynix มีสัดส่วน HBM สูงที่สุดในสามเจ้าใหญ่ ราคาขายเฉลี่ยรวมจึงถูกจำกัดด้วยราคาสัญญา HBM ที่กำลังลดลง</p>
+
+    <p>ตัวเลขไตรมาสนั้นเห็นชัดเลยค่ะ Samsung รายได้โต 93.4% จากไตรมาสก่อน ส่วน SK Hynix โต 62.5% — เจ้าของเทคโนโลยีที่แพงกว่า โตช้ากว่าคนที่มีของธรรมดาในมือมากกว่า</p>
+
+    <p>และตัวเลขกำไรสุทธิต้องระวังนะคะ 93.92 ล้านล้านวอนดูใหญ่กว่ากำไรจากการดำเนินงานเสียอีก แต่ในนั้นมีกำไรจากสินทรัพย์ลงทุนราว 63 ล้านล้านวอน ซึ่งวงการประเมินว่าส่วนใหญ่มาจากการขายหุ้น Kioxia</p>
+
+    <figure class="chartfig">
+      <img src="article-img/skhynix-oneoff.jpg" alt="กราฟแท่งเปรียบเทียบกำไรจากการดำเนินงาน 60.54 ล้านล้านวอน กับกำไรจากสินทรัพย์ลงทุนครั้งเดียว 63.27 ล้านล้านวอน" loading="lazy">
+      <figcaption>
+        <b>Pre-tax profit mix · Q2</b>
+        กำไรจากสินทรัพย์ลงทุนครั้งเดียว 63.27 ล้านล้านวอน ใหญ่กว่ากำไรจากการขายชิปทั้งไตรมาส — เวลาเทียบกำไรไตรมาสหน้า ให้ดูกำไรจากการดำเนินงาน ไม่ใช่กำไรสุทธิ
+      </figcaption>
+    </figure>
+
+    <p>เป็นเงินก้อนเดียวจบ ไม่ใช่เงินที่โรงงานทำได้ทุกไตรมาสค่ะ อัตรากำไรสุทธิที่ 118% ซึ่งสูงกว่ารายได้ทั้งไตรมาส เป็นสัญญาณในตัวมันเองว่ามีรายการพิเศษปนอยู่</p>
+  </div>
+</section>
+
+<!-- ══ 4 ═══════════════════════════════════════════════ -->
+<section class="band">
+  <div class="wrap">
+    <div class="eyebrow">Act IV</div>
+    <h2>แรงขายมาจากไหน และอะไรทำให้มันแรงเกินเหตุ</h2>
+    <p class="lead">ส่วนต่างจากที่ตลาดคาดอยู่ที่ราว 5% แต่ราคาลงกว่านั้นหลายเท่า ส่วนที่เกินมาต้องอธิบายด้วยอย่างอื่น</p>
+
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-d">27 JUL · SHANGHAI</div>
+        <div class="tl-t">CXMT ผู้ผลิต DRAM รายใหญ่ที่สุดของจีน เข้าเทรดที่เซี่ยงไฮ้ วันแรกปิดบวก 466%</div>
+        <div class="tl-b">ระดมทุน 5.79 หมื่นล้านหยวน ราว 8,600 ล้านดอลลาร์ ใหญ่ที่สุดในบรรดา IPO ชิปของจีนแผ่นดินใหญ่</div>
+      </div>
+      <div class="tl-item hot">
+        <div class="tl-d">28 JUL</div>
+        <div class="tl-t">KOSPI ปิดลบ 10.8% ตลาดหยุดซื้อขายกลางคัน · SK Hynix ลบราว 15%</div>
+        <div class="tl-b">Samsung ลบ 13.6% ในวันเดียวกัน · Kioxia ที่ญี่ปุ่นลบกว่า 18%</div>
+      </div>
+      <div class="tl-item hot">
+        <div class="tl-d">29 JUL</div>
+        <div class="tl-t">ระหว่างวัน KOSPI ลงลึกสุด 12.6% หยุดซื้อขายเป็นวันที่สองติด ก่อนดึงกลับมาปิดลบราว 6%</div>
+        <div class="tl-b">SK Hynix ระหว่างวันลงเกือบ 20% ปิดลบ 9.6% · Samsung ระหว่างวันลง 14% ปิดลบ 5.2% · TSMC ที่ไทเปลบ 3.5%</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:26px;">
+      พอวางทุกแรงเรียงกันแล้ว ต้องแยกให้ออกนะคะ เพราะปนกันเมื่อไหร่จะสรุปผิดทันที — สาเหตุมีสองอย่าง คือ CXMT กับงบที่ต่ำกว่าคาด ทั้งคู่เป็นคำถามเรื่องอนาคตล้วนๆ <span class="hl">ไม่มีอันไหนบอกว่าความต้องการวันนี้หายไป</span>
+    </div>
+
+    <p>แต่สองอย่างนี้รวมกันก็ยังอธิบายการลงราว 40% ในเดือนเดียวไม่ได้ค่ะ ส่วนที่เหลือมาจากวิธีที่คนเกาหลีถือหุ้นสองตัวนี้</p>
+
+    <p>ครึ่งปีแรกที่ราคาวิ่งขึ้น รายย่อยเกาหลีจำนวนมากไม่ได้ซื้อด้วยเงินตัวเองล้วนๆ แต่กู้เงินโบรกมาซื้อเพิ่ม และซื้อผ่านกองทุนที่ขยายผลตอบแทนเป็น 3 เท่า</p>
+
+    <p>เงินกู้ทำงานสองทางเสมอค่ะ ตอนขาขึ้นมันทำให้ขึ้นเร็วกว่าที่ข่าวควรทำได้ ตอนขาลงมันก็ทำให้ลงเร็วกว่าเท่าๆ กัน</p>
+
+    <p>จุดสำคัญคือ คนที่กู้มาซื้อไม่ได้เป็นคนตัดสินใจว่าจะขายเมื่อไหร่ พอราคาหลุดระดับที่ตกลงไว้กับโบรก โบรกกดขายให้เลย ไม่ต้องถามเจ้าของพอร์ตว่ามองยังไง <span class="hl">แรงขายแบบนี้ไม่ฟังว่า gross margin 83% และไม่สนใจว่า HBM4 เพิ่งเริ่มผลิต มันขายเพราะต้องขาย</span></p>
+
+    <p>กองทุน 3 เท่ายิ่งชัดกว่านั้น เพราะกติกาของมันบังคับให้ลดสถานะทุกครั้งที่ราคาลง เพื่อรักษาอัตราส่วนไว้ — เดือนกรกฎาคมเดือนเดียว กองแบบนี้ที่อ้างอิงตลาดเกาหลีลงไปเกือบ 64%</p>
+
+    <p>นักวิเคราะห์จาก KB Securities สรุปสั้นๆ ว่านี่ไม่ใช่การเสื่อมของพื้นฐาน แต่เป็นเรื่องสภาพคล่องกับอารมณ์ ที่ถูกเร่งด้วยการบังคับปิดสถานะกองทุนอิงหุ้นตัวเดียวพร้อมกันทั้งเกาหลี สหรัฐ ฮ่องกง และอังกฤษ</p>
+
+    <p>แล้วสองเรื่องก็มาบรรจบกันตรงนี้พอดีค่ะ — หลักประกันของคนที่กู้มาซื้อ ก็คือหุ้นที่ซื้อนั่นเอง ซึ่งเป็นหุ้นสองตัวเดียวกันกับที่กินน้ำหนักเกินครึ่งดัชนี พอราคาลง หลักประกันก็ลดตาม โบรกก็ต้องขายเพิ่ม แล้วราคาก็ลงอีก</p>
+
+    <p>Reuters รายงานว่าวอลุ่มสองวันนี้บาง แปลว่าฝั่งซื้อหายไปแล้ว เหลือแต่คนที่ถูกบังคับขายอยู่ฝั่งเดียว สองวันรวมกันมูลค่าตลาดหุ้นโซลจึงหายไปมากสุดถึง 2.18 ล้านล้านดอลลาร์ และคนที่อยากย้ายไปถือหุ้นเกาหลีตัวอื่นเพื่อเลี่ยงหุ้นชิป ก็เลี่ยงได้ไม่มากอยู่ดี เพราะครึ่งหนึ่งของดัชนีคือของสองชิ้นเดียวกันนั้น</p>
+  </div>
+</section>
+
+<!-- ══ SHOWCASE · เครื่องมือครบในแอปเดียว ═══════════════ -->
+<section class="showcase flip">
+  <div class="wrap">
+    <div class="showcase-inner">
+      <div class="shot light-shot"><img src="article-img/ad-allinone.jpg" alt="เครื่องมือทั้งหมดในแอป JP Trust Learning" loading="lazy"></div>
+      <div>
+        <div class="eyebrow">All-in-one Platform</div>
+        <h3>ระบบที่ว่า อยู่ครบในแอปเดียว</h3>
+        <p>เปลี่ยนงานวิจัยให้เป็นเครื่องมือใช้งานจริง — ตั้งแต่สแกนหาตัวแรง ไปจนถึงวางแผนพอร์ตและตามข่าว</p>
+        <ul>
+          <li>กลยุทธ์ Momentum หลายแบบ + Dashboard ทองคำ</li>
+          <li>ราคาตลาด Live — หุ้น ทองคำ คริปโต เรียลไทม์</li>
+          <li>วางแผน + จัดพอร์ต การเงินส่วนตัว · Asset Allocation</li>
+          <li>Roadmap 90 วัน + ข่าวกรองรายวัน</li>
+        </ul>
+        <a class="sc-cta" href="https://jptrustlearning.com" target="_blank" rel="noopener">
+          <span class="sub">Subscribe at</span>
+          <span class="url">jptrustlearning.com</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5 ═══════════════════════════════════════════════ -->
+<section class="band">
+  <div class="wrap">
+    <div class="eyebrow">Act V</div>
+    <h2>เหรียญอีกด้านของสัญญาที่ล็อกราคาไว้</h2>
+    <p class="lead">สัญญาชุดเดียวกันที่ทำให้พลาดเป้าไตรมาสนี้ คือสิ่งที่กันบริษัทจากสงครามราคาที่กำลังจะมา แต่ต้องเทียบให้ถูกที่ก่อน</p>
+
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-d">2022–23</div>
+        <div class="tl-t">ราคาหน่วยความจำร่วงแรงที่สุดตั้งแต่ปี 2008 · SK Hynix ขาดทุนจากการดำเนินงานรายไตรมาสสูงสุดเป็นประวัติการณ์</div>
+        <div class="tl-b">กระแสเงินสดอิสระติดลบ 4.23 ล้านล้านวอน ณ สิ้นปี 2022 จนต้องประกาศหั่นแผนลงทุนปี 2023 ลงกว่าครึ่ง</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-d">ไตรมาส 2 ปีนี้</div>
+        <div class="tl-t">เงินสด 88 ล้านล้านวอน หนี้ 18.6 ล้านล้านวอน เงินสดสุทธิ 69.4 ล้านล้านวอน</div>
+        <div class="tl-b">หนี้ต่อทุนราว 7% · gross margin ราว 83% · ทำสัญญาระยะยาวกับลูกค้าราว 10 ราย · HBM4 เริ่มผลิตจำนวนมากแล้ว</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-d">ตอนนี้</div>
+        <div class="tl-t">CXMT มีส่วนแบ่ง DRAM โลกราว 8% และยังไม่มี HBM</div>
+        <div class="tl-b">รายได้ราว 98% มาจาก DRAM ทั่วไป ซึ่งเป็นส่วนที่ SK Hynix มีสัดส่วนน้อยกว่าคู่แข่งพอดี</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:26px;">
+      เห็นตัวเลขพวกนี้แล้ว หลายคนคงกำลังคิดว่ารอบนี้คือจุดจบของ supercycle เหมือนปี 2022 ใช่ไหมคะ — เทียบแบบนั้นยังไม่ตรงจุดค่ะ สิ่งที่ต่างกันจริงๆ คือ<strong>ทิศทางของราคาขายกับสภาพเงินในมือ</strong> ปี 2022 ราคากำลังร่วงและบริษัทเงินสดติดลบจนต้องหั่นการลงทุน วันนี้ราคายังขึ้นและบริษัทมีเงินสดสุทธิเกือบ 70 ล้านล้านวอน
+    </div>
+
+    <p>แต่ต้องแฟร์กับอีกฝั่งด้วยนะคะ เงินลงทุนปีนี้ที่ระดับปลาย 40 ล้านล้านวอน คือรายจ่ายที่ผูกไปแล้ว แผนคืนกำไรผู้ถือหุ้นยังไม่มีตัวเลข บอกแค่ว่าจะประกาศภายในปีนี้ และอัตราการโตเริ่มชะลอลงจริงตามที่ตลาดกังวล</p>
+
+    <p>แล้วแปลว่าไม่ต้องสนใจข่าวพวกนี้เลยเหรอ — ไม่ใช่ค่ะ เราตามข่าวทุกวัน และแผนของเราปรับได้ แต่ข้อมูลใหม่ทุกชิ้นต้องผ่านขั้นตอนเดิมก่อน เอาไปทดสอบกับข้อมูลจริง ดูผลกระทบเป็นตัวเลข แก้กติกาตอนใจนิ่ง แล้วมีผลรอบถัดไป — <span class="hl">ข่าวเดียวกันนี้ คนหนึ่งเอาไปกดขาย อีกคนเอาไปรันทดสอบ</span></p>
+  </div>
+</section>
+
+<!-- ══ 6 ═══════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Act VI</div>
+    <h2>แล้วต้องดูอะไรต่อ</h2>
+    <p class="lead">ของที่ตรวจสอบได้จริงมีอยู่ไม่กี่อย่าง และเรียงมาให้ดูได้ตามลำดับเวลา</p>
+
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-d">ไตรมาส 3</div>
+        <div class="tl-t">TrendForce ประเมินราคาสัญญา DRAM ทั่วไปโตเหลือ 13–18% ชะลอลงชัดจากไตรมาส 2</div>
+        <div class="tl-b">ถ้าเป็นไปตามนี้ ช่องห่างระหว่างราคาที่ล็อกไว้กับราคาตลาดจะแคบลงเอง</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-d">ครึ่งปีหลัง</div>
+        <div class="tl-t">HBM4 เข้าสู่การผลิตจำนวนมาก · แผนคืนกำไรผู้ถือหุ้นที่ยังไม่มีตัวเลข</div>
+        <div class="tl-b">ผู้บริหารบอกว่าจะประกาศแผนคืนกำไรภายในปีนี้ · ไตรมาส 3 บริษัท guide ว่ายอดส่ง DRAM จะโตราว 10% จากไตรมาสก่อน</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-d">สิ้นปี 2026</div>
+        <div class="tl-t">กำลังผลิต DRAM ของ CXMT ที่ตั้งเป้าราว 3.5 แสนแผ่นเวเฟอร์ต่อเดือน</div>
+        <div class="tl-b">ตัวเลขนี้จะบอกว่าแรงกดดันด้านราคาจากฝั่งจีนมาจริงเร็วแค่ไหน</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:26px;">
+      มาถึงตรงนี้ สรุปแบบเรานะคะ — คำถามที่ถูกไม่ใช่ “supercycle จบหรือยัง” แต่คือ <strong>ราคาที่ SK Hynix ล็อกไว้กับลูกค้า ห่างจากราคาที่คนอื่นในตลาดจ่ายกัน มากขึ้นหรือน้อยลง</strong>
+    </div>
+
+    <p>ถ้าราคาตลาดยังวิ่งแรงต่อ ช่องห่างกว้างขึ้น บริษัททำกำไรมากขึ้นแต่ยังพลาดเป้าได้อีกหลายไตรมาส ถ้าราคาตลาดชะลอลงตามที่ TrendForce ประเมิน ช่องห่างแคบลง แล้วสัญญาที่วันนี้เป็นข้อเสีย จะกลายเป็นสิ่งที่ทำให้กำไรนิ่งกว่าคู่แข่งตอนขาลง</p>
+
+    <p>เราตอบไม่ได้ค่ะว่าอันไหนจะเกิดก่อน ไม่มีใครรู้ สิ่งที่ดูได้คืองบไตรมาสหน้า ว่าราคาขายเฉลี่ยที่ SK Hynix ทำได้ ขยับเข้าใกล้ราคาที่คนอื่นในตลาดจ่ายกันแค่ไหน</p>
+
+    <p>อีกอย่างคือแผนสร้างโรงงานค่ะ บริษัทประกาศจะใช้เงินลงทุนปีนี้ระดับปลาย 40 ล้านล้านวอน ซึ่งเป็นเงินที่ต้องจ่ายจากยอดขายที่ทำได้จริงในแต่ละไตรมาส ปี 2023 ตอนที่ยอดขายไม่พอ บริษัทก็เคยประกาศหั่นแผนลงทุนลงกว่าครึ่งมาแล้ว — <span class="hl">วันที่ข่าวแบบนั้นกลับมาอีกครั้ง คือวันที่ต้องกังวลจริง</span></p>
+  </div>
+</section>
+
+<!-- ══ 7 · แหล่งที่มา ════════════════════════════════════ -->
+<section class="band">
+  <div class="wrap">
+    <div class="eyebrow">Sources</div>
+    <h2>แหล่งที่มา</h2>
+    <p class="lead" style="margin-bottom:18px;">ตัวเลขหลักในบทวิเคราะห์นี้ตรวจสอบกับแหล่งข่าวการเงินเกรดสูงอย่างน้อยสองแหล่งต่อประเด็น ตัวเลขราคาหน่วยความจำมาจากรายงานสำรวจของ TrendForce โดยตรง</p>
+    <ul style="line-height:2.2;word-break:break-all;font-size:15.5px;">
+      <li><a href="https://news.skhynix.com/en/q2-2026-business-results/" target="_blank" rel="noopener">SK hynix Newsroom — SK hynix Announces 2Q26 Financial Results</a></li>
+      <li><a href="https://www.cnbc.com/2026/07/29/sk-hynix-earnings-profit-revenue-hbm-memory.html" target="_blank" rel="noopener">CNBC — SK Hynix shares tank as earnings growth fails to satisfy expectations</a></li>
+      <li><a href="https://money.usnews.com/investing/news/articles/2026-07-29/south-korea-stock-rout-breaks-records-as-sk-hynix-earnings-disappoint" target="_blank" rel="noopener">Reuters — South Korea stock rout breaks records as SK Hynix earnings disappoint</a></li>
+      <li><a href="https://kfgo.com/2026/07/29/analysts-react-to-steep-rout-in-south-korea-stocks/" target="_blank" rel="noopener">Reuters — Analysts react to steep rout in South Korea stocks</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-07-29/korean-stocks-tumble-a-second-day-as-sk-hynix-results-disappoint" target="_blank" rel="noopener">Bloomberg — Korean Stocks Tumble a Second Day as SK Hynix Results Disappoint</a></li>
+      <li><a href="https://www.thestar.com.my/business/business-news/2026/07/29/sk-hynix-posts-sixfold-rise-in-q2-profit-on-ai-chip-demand-misses-forecasts" target="_blank" rel="noopener">Reuters — SK Hynix posts sixfold rise in Q2 profit on AI chip demand, misses forecasts</a></li>
+      <li><a href="https://www.cnbc.com/2026/07/13/sk-hynix-shares-fall-after-stellar-nasdaq-debut.html" target="_blank" rel="noopener">CNBC — SK Hynix shares clock worst day after Nasdaq debut</a></li>
+      <li><a href="https://www.trendforce.com/presscenter/news/20260331-12995.html" target="_blank" rel="noopener">TrendForce — Memory contract prices in 2Q26 as CSPs secure supply via long-term agreements</a></li>
+      <li><a href="https://www.trendforce.com/presscenter/news/20260601-13070.html" target="_blank" rel="noopener">TrendForce — Rapid contract price surge drives 1Q26 DRAM industry up 81% QoQ</a></li>
+      <li><a href="https://www.trendforce.com/presscenter/news/20260703-13134.html" target="_blank" rel="noopener">TrendForce — AI server demand supports memory prices in 3Q26 as gains moderate</a></li>
+      <li><a href="https://en.sedaily.com/finance/2026/07/29/sk-hynix-posts-record-94-trillion-won-net-profit-tops" target="_blank" rel="noopener">Seoul Economic Daily — SK hynix posts record 94 trillion won net profit</a></li>
+      <li><a href="https://www.marketscreener.com/news/china-memory-chipmaker-cxmt-set-for-shanghai-debut-after-asia-s-biggest-ipo-ce7f51dcd88df124" target="_blank" rel="noopener">Reuters — China memory chipmaker CXMT set for Shanghai debut after Asia's biggest IPO</a></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="lib-analysis.html">ห้องสมุดบทวิเคราะห์</a>
+      <a href="index.html">ห้องสมุดสาธารณะ</a>
+      <a href="https://app.jptrustlearning.com">เข้าระบบสมาชิก</a>
+    </div>
+    <div class="sig">สรุปโดย JP TRUST LEARNING</div>
+    <p class="disc">
+      โพสต์เมื่อ 29 กรกฎาคม 2026 · ข้อมูลในบทวิเคราะห์นี้รวบรวมจากสำนักข่าวการเงิน รายงานของบริษัท และรายงานสำรวจราคาของ TrendForce ณ วันที่ 29 กรกฎาคม 2026 หลังตลาดเอเชียปิดทำการ · ผลประกอบการไตรมาส 2 ปี 2026 เป็นตัวเลขเบื้องต้น ยังไม่ผ่านการสอบทานจากผู้สอบบัญชี<br><br>
+      เนื้อหานี้จัดทำขึ้นเพื่อการศึกษาและให้ข้อมูลเท่านั้น ไม่ใช่คำแนะนำในการซื้อขายหลักทรัพย์ การลงทุนมีความเสี่ยง ผู้ลงทุนควรศึกษาข้อมูลและประเมินความเสี่ยงที่รับได้ก่อนตัดสินใจลงทุน ผลการดำเนินงานในอดีตไม่ได้เป็นเครื่องยืนยันผลการดำเนินงานในอนาคต
+    </p>
+  </div>
+</footer>
+
+<script>
+/* ═══ Ripple ทอง — คลิก/ลากนิ้ว ═══════════════════════ */
+(function(){
+  var layer = document.getElementById('rippleLayer');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var active = 0;
+
+  function spawn(x, y, size, withRing){
+    if (reduce || active > 18) return;
+
+    function add(cls, d){
+      var el = document.createElement('div');
+      el.className = 'rp' + (cls ? ' ' + cls : '');
+      el.style.width = el.style.height = d + 'px';
+      el.style.left = x + 'px';
+      el.style.top  = y + 'px';
+      layer.appendChild(el);
+      active++;
+      var done = false;
+      function kill(){
+        if (done) return;
+        done = true;
+        if (el.parentNode) el.remove();
+        active--;
+      }
+      el.addEventListener('animationend', kill);
+      setTimeout(kill, 1400);
+    }
+
+    add('', size);                      // วงหลัก เส้นคม
+    add('core', Math.round(size * 0.42)); // วงเล็กข้างใน + ฟุ้ง
+    if (withRing) add('ring', Math.round(size * 1.35)); // วงนอกบาง
+  }
+
+  /* เมาส์: ดับเบิลคลิก */
+  document.addEventListener('dblclick', function(e){
+    spawn(e.clientX, e.clientY, 210, true);
+  });
+
+  /* มือถือ: เคาะสองทีเร็วๆ (ไม่ใช่เลื่อนหน้า ไม่ใช่กดค้าง) */
+  var tapT = 0, tapX = 0, tapY = 0;
+  var stX = 0, stY = 0, stT = 0;
+
+  document.addEventListener('touchstart', function(e){
+    var t = e.changedTouches[0];
+    stX = t.clientX; stY = t.clientY; stT = Date.now();
+  }, {passive:true});
+
+  document.addEventListener('touchend', function(e){
+    var t = e.changedTouches[0];
+    var moved = Math.hypot(t.clientX - stX, t.clientY - stY);
+    var held  = Date.now() - stT;
+
+    // ลาก / เลื่อนหน้า / กดค้าง = ไม่นับเป็นการเคาะ
+    if (moved > 14 || held > 400){ tapT = 0; return; }
+
+    var now  = Date.now();
+    var near = Math.hypot(t.clientX - tapX, t.clientY - tapY) < 55;
+
+    if (tapT && (now - tapT) < 400 && near){
+      spawn(t.clientX, t.clientY, 210, true);
+      tapT = 0;
+    } else {
+      tapT = now; tapX = t.clientX; tapY = t.clientY;
+    }
+  }, {passive:true});
+})();
+
+/* ═══ กราฟแท่ง — เติมความสูงเมื่อเลื่อนมาถึง ═══════════ */
+(function(){
+  var bars = document.querySelectorAll('.bar');
+  bars.forEach(function(b){ b.style.height = '0%'; });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting){
+        var b = en.target;
+        setTimeout(function(){ b.style.height = b.dataset.h; }, 80);
+        io.unobserve(b);
+      }
+    });
+  }, {threshold: 0.25});
+
+  bars.forEach(function(b){ io.observe(b); });
+})();
+
+/* ═══ Reveal on scroll ═══════════════════════════════ */
+(function(){
+  var wraps = document.querySelectorAll('section > .wrap, header .statstrip, header .hero-fig');
+  var groups = ['.grid2','.grid3','.tl','.cal','.bb','.showcase-inner'];
+  var targets = [];
+
+  document.querySelectorAll('section > .wrap > *').forEach(function(el){
+    var isGroup = groups.some(function(g){ return el.matches(g); });
+    if (isGroup){
+      Array.prototype.forEach.call(el.children, function(c){ targets.push(c); });
+    } else {
+      targets.push(el);
+    }
+  });
+  document.querySelectorAll('.tl-item, .cal-i, .statstrip .stat, header .hero-fig').forEach(function(el){
+    if (targets.indexOf(el) === -1) targets.push(el);
+  });
+  // showcase: เผยทีละคอลัมน์
+  document.querySelectorAll('.showcase-inner > *').forEach(function(el){
+    if (targets.indexOf(el) === -1) targets.push(el);
+  });
+
+  targets.forEach(function(el){ el.classList.add('rv'); });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -6% 0px'});
+
+  targets.forEach(function(el){
+    var sibs = Array.prototype.filter.call(el.parentElement.children, function(c){
+      return c.classList.contains('rv');
+    });
+    el.style.transitionDelay = (Math.min(sibs.indexOf(el), 5) * 60) + 'ms';
+    io.observe(el);
+  });
+})();
+</script>
+</body>
+</html>
