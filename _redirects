@@ -1,0 +1,2 @@
+/lab-guide/rolling-6m/*  /appguide/rolling-6m/:splat  301
+/lab-guide/*             /appguide/:splat            301
