@@ -486,7 +486,23 @@ const scenes=$$('.scene');
 let cursor=-1, auto=false, autoTimer=null;
 const countEl=$('#count');
 
-function showScene(idx){ scenes.forEach((sc,i)=>sc.classList.toggle('active',i===idx)); }
+function sceneSpan(idx){
+  let a=-1,b=-1;
+  beats.forEach((bt,i)=>{ if(bt.s===idx){ if(a<0)a=i; b=i; } });
+  if(a<0||!haveMarks()) return null;
+  const end=(b+1<MARKS.length)?MARKS[b+1]:(vo.duration||MARKS[b]+8);
+  return Math.max(6, end-MARKS[a]);
+}
+function showScene(idx){
+  scenes.forEach((sc,i)=>{
+    const was=sc.classList.contains('active');
+    sc.classList.toggle('active',i===idx);
+    if(i===idx && !was){
+      const sp=sceneSpan(idx);
+      sc.style.animationDuration = sp ? ('.8s, '+sp.toFixed(1)+'s') : '';
+    }
+  });
+}
 function resetAll(){
   $$('[data-beat]').forEach(el=>el.classList.remove('on','gone'));
   resetBars(); hideExp();
@@ -572,7 +588,7 @@ document.addEventListener('keydown',e=>{
    ยังว่าง = ยังไม่ได้จับเวลา · กด S ทีละ beat ตอนฟังเสียง แล้วกด E เพื่อคัดลอกออกมา
    ════════════════════════════════════════════════════ */
 const VOICE_SRC='voice.mp3';
-const MARKS=[];               // <— วางชุดเวลาที่ได้จากโหมดจับเวลาตรงนี้
+const MARKS=[0.0,14.19,23.71,31.23,36.91,54.01,58.17,62.97,72.91,84.11,95.29,99.87,104.77,111.25,118.25,127.37,133.09,137.47,142.35,152.53,157.85,163.73,167.49,174.53,186.83,194.35,208.57,218.23,227.59,231.53,237.87,242.33,255.19,264.47,270.89,275.77,281.73,287.05,297.23,304.05,312.33,321.53,324.57,328.67,339.03,351.39,362.53,369.17,373.99,383.73,388.03,398.79];
 
 const vo=$('#vo'), gate=$('#gate'), stampEl=$('#stamp');
 let voiceOK=false, stampMode=false, stamps=[];
