@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title><span class="w">เงิน</span>​<span class="w">ของ</span>​ใคร — KOSPI x Circular Financing (Rose Edition)</title>
+<meta name="description" content="เมื่อดีลประวัติศาสตร์ซ่อนความเสี่ยง Circular Financing — ทำไมตลาดหุ้นเกาหลีร่วง 10.84% ทั้งที่เพิ่งเซ็นดีลชิปที่ใหญ่ที่สุด">
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#D4AF37; --gold-dark:#B8860B; --gold-light:#F4E4BA;
+  --pink:#E8879C; --pink-deep:#C25E78; --pink-light:#F7C6D3;
+  --maroon:#722F37; --m-darkest:#1a0a0e; --m-mid:#2d1018; --m-light:#3a1520;
+  --cream:#FAF6ED;
+  --text-light:#E8E4DC; --text-heading:#F4E4BA; --text-muted:#A89CA0;
+  --red:#E05555; --green:#7fc783;
+  --font-thai:'Anuphan',sans-serif; --font-label:'Cinzel',serif; --font-num:'DM Serif Display',serif;
+  --ease-spring:cubic-bezier(.22,1.15,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:#0d0508;overflow:hidden}
+body{font-family:var(--font-thai);color:var(--text-light);display:flex;align-items:center;justify-content:center}
+
+/* ===== STAGE 9:16 ===== */
+#stage{
+  position:relative; height:min(100vh, calc(100vw * 16 / 9)); aspect-ratio:9/16;
+  overflow:hidden; cursor:pointer; container-type:size;
+  background:linear-gradient(160deg,#1a0a0e 0%,#301020 25%,#48192e 48%,#2d1018 70%,#1a0a0e 100%);
+  box-shadow:0 0 80px rgba(232,135,156,.08);
+}
+#stage::before{content:'';position:absolute;inset:-14%;pointer-events:none;z-index:1;
+  background:
+    radial-gradient(ellipse at 28% 22%, rgba(194,94,120,.30) 0%, transparent 52%),
+    radial-gradient(ellipse at 74% 62%, rgba(114,47,55,.26) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 88%, rgba(232,135,156,.13) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 45%, rgba(212,175,55,.06) 0%, transparent 60%);
+  animation:drift 26s ease-in-out infinite alternate}
+@keyframes drift{
+  from{transform:translate3d(-2%,-1.5%,0) scale(1.02)}
+  to{transform:translate3d(2.5%,2%,0) scale(1.08)}}
+#stage::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:4;
+  background:radial-gradient(ellipse at 50% 45%,transparent 55%,rgba(13,5,8,.55) 100%)}
+#stage.shake{animation:shk .5s ease}
+@keyframes shk{0%,100%{transform:translate(0,0)}
+  15%{transform:translate(-7px,4px)}32%{transform:translate(6px,-5px)}
+  52%{transform:translate(-5px,-3px)}72%{transform:translate(4px,4px)}88%{transform:translate(-2px,1px)}}
+
+#flash{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;
+  background:radial-gradient(circle at 50% 45%,rgba(224,85,85,.5),transparent 62%)}
+#flash.go{animation:flashGo .55s ease}
+@keyframes flashGo{0%{opacity:0}18%{opacity:1}100%{opacity:0}}
+
+.mote{position:absolute;z-index:1;border-radius:50%;pointer-events:none;
+  background:rgba(247,198,211,.45);filter:blur(1.2px);opacity:0;
+  animation-name:motefloat;animation-timing-function:linear;animation-iteration-count:infinite}
+@keyframes motefloat{
+  0%{transform:translateY(0) translateX(0);opacity:0}
+  12%{opacity:.55}
+  88%{opacity:.35}
+  100%{transform:translateY(-130%) translateX(26px);opacity:0}}
+
+/* ===== SCENES — always centered ===== */
+.scene{position:absolute;top:0;left:0;right:0;bottom:25%;z-index:2;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:5% 6%;opacity:0;visibility:hidden;transition:opacity .5s ease;
+  word-break:keep-all;overflow-wrap:break-word;line-break:strict}
+.scene>[data-beat]{margin-block:1.7%;max-height:78cqh;overflow:visible}
+.scene>[data-beat]:not(.on){max-height:0;margin-block:0;overflow:hidden;
+  padding-top:0;padding-bottom:0;border-top-width:0;border-bottom-width:0}
+.scene.active{opacity:1;visibility:visible;animation:sceneIn .8s var(--ease-spring)}
+@keyframes sceneIn{from{opacity:0;transform:scale(1.05)}to{opacity:1;transform:none}}
+#guide{position:absolute;left:0;right:0;bottom:25%;z-index:3;pointer-events:none;
+  border-top:1px dashed rgba(232,135,156,.28);transition:opacity .4s}
+#guide::after{content:'พื้นที่รูปผู้บรรยาย';position:absolute;top:8px;right:12px;
+  font-size:10px;letter-spacing:1px;color:rgba(232,135,156,.4)}
+#guide.hidden{opacity:0}
+
+.eyebrow{font-family:var(--font-label);font-size:clamp(11px,2.5cqh,14px);letter-spacing:5px;
+  text-transform:uppercase;color:var(--pink);text-align:center;margin-bottom:4px}
+.scene-title{font-size:clamp(19px,5.2cqh,28px);font-weight:600;color:var(--text-heading);
+  text-align:center;line-height:1.42}
+.head{display:flex;flex-direction:column;align-items:center}
+.gold-grad{background:linear-gradient(135deg,#D4AF37,#F4E4BA,#D4AF37);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.rose-grad{background:linear-gradient(135deg,#E8879C,#F7C6D3,#E8879C);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* ===== beat entrances ===== */
+[data-beat]{opacity:0;transform:translateY(30px);
+  transition:opacity .5s ease,transform .7s var(--ease-spring),filter .6s ease,
+             max-height .55s cubic-bezier(.4,0,.2,1),margin-block .55s cubic-bezier(.4,0,.2,1),
+             padding .55s cubic-bezier(.4,0,.2,1),border-width .55s ease}
+[data-beat][data-anim="pop"]{transform:scale(.78)}
+[data-beat][data-anim="left"]{transform:translateX(-46px)}
+[data-beat][data-anim="right"]{transform:translateX(46px)}
+[data-beat][data-anim="blur"]{transform:scale(1.09);filter:blur(12px)}
+[data-beat][data-anim="rise"]{transform:translateY(54px) scale(.94)}
+[data-beat].on{opacity:1;transform:none;filter:none}
+.scene>[data-beat].gone{transform:translateY(-18px) scale(.94)}
+
+.keyline{font-size:clamp(16px,4.4cqh,22px);font-weight:500;line-height:1.7;text-align:center;
+  border-top:1px solid rgba(232,135,156,.35);border-bottom:1px solid rgba(232,135,156,.35);
+  padding:14px 6px;width:96%}
+.keyline b{color:var(--pink-light);font-weight:700}
+.keyline b.g{color:var(--gold-light)}
+.fineprint{font-size:clamp(11px,2.8cqh,14px);font-weight:300;color:var(--text-muted);
+  border-left:2px solid rgba(232,135,156,.45);padding-left:12px;line-height:1.7;width:92%}
+.big{font-size:clamp(22px,6.4cqh,34px);font-weight:700;text-align:center;line-height:1.5}
+.mid{font-size:clamp(16px,4.3cqh,21px);text-align:center;line-height:1.7;width:96%}
+.mid b{color:var(--gold-light);font-weight:600}
+.mid b.p{color:var(--pink-light)}
+.mid b.r{color:var(--red);font-weight:700}
+.glow{animation:glowPulse 2.4s ease-in-out infinite alternate}
+@keyframes glowPulse{from{filter:drop-shadow(0 0 2px rgba(232,135,156,.25))}
+  to{filter:drop-shadow(0 0 16px rgba(232,135,156,.6))}}
+
+/* ===== S0 HOOK ===== */
+.goodrow{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.gpill{border:1.5px solid rgba(127,199,131,.55);background:rgba(127,199,131,.1);
+  border-radius:50px;padding:9px 18px;font-size:clamp(13px,3.4cqh,18px);color:var(--green);
+  opacity:0;transform:scale(.6) translateY(10px)}
+.on .gpill{animation:pillIn .55s var(--ease-spring) forwards}
+.on .gpill:nth-child(2){animation-delay:.16s}
+@keyframes pillIn{to{opacity:1;transform:none}}
+.gpill::before{content:'✓ ';font-weight:700}
+.redboard{width:84%;border:1.5px solid var(--red);border-radius:14px;
+  background:linear-gradient(165deg,#3d1216,#24090c);padding:16px 12px;text-align:center}
+[data-beat].on.redboard{animation:hurtPulse 1.3s ease infinite alternate}
+.rb-arrow{font-family:var(--font-num);font-size:clamp(30px,7cqh,46px);color:var(--red);line-height:1}
+.on .rb-arrow{animation:arrowDrop .7s var(--ease-spring)}
+@keyframes arrowDrop{from{transform:translateY(-26px);opacity:0}to{transform:none;opacity:1}}
+.rb-num{font-family:var(--font-num);font-size:clamp(30px,7.4cqh,48px);color:var(--red);
+  line-height:1.05;margin-top:4px}
+.rb-text{font-size:clamp(15px,4cqh,20px);font-weight:600;color:var(--red);margin-top:6px}
+@keyframes hurtPulse{from{box-shadow:0 0 10px rgba(224,85,85,.18)}to{box-shadow:0 0 32px rgba(224,85,85,.5)}}
+.hook-punch{font-size:clamp(27px,7.8cqh,42px);font-weight:700;text-align:center;line-height:1.42}
+
+/* ===== S1 · ปรากฏการณ์ขัดแย้ง ===== */
+.ncard{width:100%;border:1.5px solid rgba(232,135,156,.4);border-radius:14px;
+  background:linear-gradient(165deg,#3a1424,#22090f);padding:15px 16px 14px;position:relative}
+.nc-tag{font-family:var(--font-label);font-size:clamp(10px,2.3cqh,13px);letter-spacing:3px;
+  color:var(--pink);text-transform:uppercase;margin-bottom:6px}
+.nc-title{font-size:clamp(14px,3.7cqh,19px);line-height:1.6}
+.nc-title b{color:var(--gold-light);font-weight:600}
+.tickers{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}
+.tk{font-family:var(--font-label);font-size:clamp(12px,3cqh,15px);letter-spacing:1px;
+  border:1px solid rgba(232,135,156,.35);border-radius:7px;padding:6px 11px;color:var(--text-muted);
+  transition:all .45s var(--ease-spring)}
+.tk.down{border-color:var(--red);color:var(--red);background:rgba(224,85,85,.14);
+  animation:tkDrop .5s var(--ease-spring)}
+.tk.down::after{content:attr(data-d);font-size:.92em;margin-left:5px}
+@keyframes tkDrop{0%{transform:translateY(-8px) scale(1.12)}
+  40%{transform:translateY(5px) scale(.96)}100%{transform:none}}
+
+/* circuit breaker explainer */
+.cbwrap{width:100%;border:1.5px solid rgba(212,175,55,.4);border-radius:14px;
+  background:linear-gradient(165deg,rgba(58,20,36,.85),rgba(26,10,14,.9));padding:14px 15px;
+  display:flex;gap:13px;align-items:center}
+.cb-ico{flex:0 0 auto;width:clamp(34px,6.4cqh,46px);aspect-ratio:1;border-radius:10px;
+  border:1.5px solid rgba(224,85,85,.6);display:flex;align-items:center;justify-content:center;
+  font-size:clamp(19px,4cqh,26px);color:var(--red);background:rgba(224,85,85,.1)}
+.on .cb-ico{animation:cbFlick 1.7s steps(1) infinite}
+@keyframes cbFlick{0%,100%{opacity:1}46%{opacity:1}50%{opacity:.25}54%{opacity:1}}
+.cb-txt{font-size:clamp(12.5px,3.3cqh,16px);line-height:1.62}
+.cb-txt b{color:var(--gold-light);font-weight:600}
+.cb-txt u{display:block;text-decoration:none;font-family:var(--font-label);letter-spacing:2px;
+  font-size:clamp(10px,2.3cqh,12.5px);color:var(--pink);margin-bottom:3px}
+
+/* ===== S2 · CIRCULAR FINANCING LOOP ===== */
+.loop{position:relative;width:min(88%,340px);aspect-ratio:1}
+.loop svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.loop .ringbase{fill:none;stroke:rgba(232,135,156,.16);stroke-width:2.2}
+.loop .ringdash{fill:none;stroke:var(--pink);stroke-width:2.6;stroke-linecap:round;
+  stroke-dasharray:10 13;filter:drop-shadow(0 0 6px rgba(232,135,156,.55))}
+.loop.on .ringdash{animation:ringSpin 3.4s linear infinite}
+@keyframes ringSpin{to{stroke-dashoffset:-92}}
+.lnode{position:absolute;left:50%;transform:translate(-50%,-50%);width:58%;
+  border:1.5px solid rgba(232,135,156,.5);border-radius:13px;padding:9px 8px;text-align:center;
+  background:linear-gradient(165deg,#43182a,#22090f);
+  box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.lnode u{display:block;text-decoration:none;font-family:var(--font-label);letter-spacing:2px;
+  font-size:clamp(9.5px,2.2cqh,12px);color:var(--pink)}
+.lnode b{display:block;font-size:clamp(14px,3.7cqh,19px);color:var(--gold-light);
+  font-weight:600;line-height:1.3;margin-top:2px}
+.lnode small{display:block;font-size:clamp(10px,2.4cqh,13px);color:var(--text-muted);margin-top:2px}
+.nseller{top:12.7%}
+.nbuyer{top:87.3%}
+.on .nseller{animation:nodeGlow 3.4s ease-in-out infinite}
+.on .nbuyer{animation:nodeGlow 3.4s ease-in-out infinite 1.7s}
+@keyframes nodeGlow{0%,100%{box-shadow:0 8px 24px rgba(0,0,0,.5)}
+  50%{box-shadow:0 8px 24px rgba(0,0,0,.5),0 0 26px rgba(232,135,156,.55)}}
+.larc{position:absolute;top:50%;transform:translateY(-50%);width:33%;text-align:center;
+  font-size:clamp(11px,2.7cqh,14px);line-height:1.5;color:var(--text-light)}
+.larc i{display:block;font-family:var(--font-num);font-style:normal;
+  font-size:clamp(15px,3.4cqh,20px);color:var(--pink-light);line-height:1}
+.larc b{display:block;color:var(--gold-light);font-weight:600;margin-top:2px}
+.larc small{display:block;color:var(--text-muted);font-size:.88em;margin-top:1px}
+.lright{right:-4%}
+.lleft{left:-4%}
+.money{position:absolute;left:0;top:0;width:clamp(15px,3.2cqh,22px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%,#F4E4BA,#D4AF37 60%,#8B6914);
+  box-shadow:0 0 16px rgba(212,175,55,.95);transform:translate(-50%,-50%);opacity:0;z-index:3}
+.money.go{opacity:1}
+.loop-mid{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:52%;
+  text-align:center;font-size:clamp(11.5px,2.9cqh,15px);line-height:1.55;color:var(--text-muted);
+  opacity:0;transition:opacity .6s ease}
+.loop-mid.show{opacity:1}
+.loop-mid b{color:var(--pink-light);font-weight:600}
+
+/* deal total */
+.dealrow{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.deal{border:1px solid rgba(212,175,55,.4);border-radius:12px;padding:10px 9px;text-align:center;
+  background:linear-gradient(165deg,rgba(58,20,36,.8),rgba(34,9,15,.85))}
+.deal u{display:block;text-decoration:none;font-size:clamp(10px,2.4cqh,13px);color:var(--text-muted)}
+.deal b{display:block;font-family:var(--font-num);font-size:clamp(17px,4.1cqh,25px);
+  color:var(--gold-light);margin-top:3px;line-height:1.1}
+.deal small{display:block;font-size:clamp(9.5px,2.2cqh,12px);color:var(--pink);margin-top:2px}
+.total{width:100%;text-align:center;border:1.5px solid var(--pink);border-radius:12px;
+  padding:11px 10px;background:rgba(232,135,156,.09)}
+.total u{display:block;text-decoration:none;font-family:var(--font-label);letter-spacing:3px;
+  font-size:clamp(10px,2.3cqh,12.5px);color:var(--pink)}
+.total b{display:block;font-family:var(--font-num);font-size:clamp(24px,5.8cqh,36px);
+  color:var(--gold-light);line-height:1.1;margin-top:3px}
+.total small{display:block;font-size:clamp(10.5px,2.5cqh,13px);color:var(--text-muted);margin-top:2px}
+
+/* CDS spike */
+.cds{width:96%;position:relative}
+.cds svg{width:100%;height:auto;display:block;overflow:visible}
+.cds .axis{stroke:rgba(250,246,237,.16);stroke-width:1}
+.cds .spike{fill:none;stroke:var(--red);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:340;stroke-dashoffset:340;transition:stroke-dashoffset 1.5s ease .2s;
+  filter:drop-shadow(0 0 7px rgba(224,85,85,.6))}
+.cds.on .spike{stroke-dashoffset:0}
+.cds-lbl{display:flex;justify-content:space-between;font-size:clamp(10px,2.5cqh,13px);
+  color:var(--text-muted);margin-top:7px}
+.cds-tag{position:absolute;right:2%;top:-6%;font-size:clamp(11px,2.7cqh,14px);color:var(--red);
+  font-weight:600;opacity:0;transition:opacity .5s ease .9s}
+.cds.on .cds-tag{opacity:1}
+
+/* ===== S3 · ทำไม KOSPI ===== */
+.concbar{width:98%}
+.cbar{display:flex;height:clamp(44px,7.6cqh,60px);border-radius:10px;overflow:hidden;
+  border:1px solid rgba(232,135,156,.35)}
+.cseg{display:flex;align-items:center;justify-content:center;font-size:clamp(11px,2.7cqh,14px);
+  transition:width 1.4s cubic-bezier(.4,0,.2,1);white-space:nowrap;overflow:hidden}
+.cs-two{width:8%;background:linear-gradient(180deg,#E8879C,#C25E78);color:#1a0a0e;font-weight:700}
+.cs-rest{width:92%;background:rgba(250,246,237,.09);color:var(--text-muted)}
+.on .cs-two{width:50%}
+.on .cs-rest{width:50%}
+.conc-lbl{display:flex;justify-content:space-between;font-size:clamp(10px,2.5cqh,13px);
+  color:var(--text-muted);margin-top:8px}
+
+.dropwrap{width:100%;display:flex;align-items:flex-end;justify-content:center;
+  gap:clamp(12px,3cqh,22px)}
+.dcol{display:flex;flex-direction:column;align-items:center;gap:6px;justify-content:flex-end;flex:1}
+.dbar{width:100%;max-width:clamp(46px,8cqh,66px);border-radius:7px 7px 0 0;
+  background:linear-gradient(180deg,#E05555,#7a2626);
+  height:clamp(5px,.9cqh,8px);transition:height 1.25s cubic-bezier(.5,0,.25,1)}
+.on .d1 .dbar{height:clamp(31px,5.4cqh,45px)}
+.on .d2 .dbar{height:clamp(30px,5.3cqh,44px)}
+.on .d3 .dbar{height:clamp(84px,14.4cqh,122px)}
+.dnum{font-family:var(--font-num);font-size:clamp(14px,3.3cqh,19px);color:var(--red);line-height:1}
+.dlbl{font-size:clamp(10.5px,2.6cqh,13.5px);color:var(--text-muted);text-align:center;line-height:1.4}
+
+/* ===== S4 · dot-com ===== */
+.tlrow{width:100%;display:flex;gap:11px;align-items:flex-start;
+  border-left:2px solid rgba(232,135,156,.45);padding-left:13px}
+.tl-yr{font-family:var(--font-num);font-size:clamp(17px,4cqh,24px);color:var(--pink);
+  line-height:1.15;flex:0 0 auto;min-width:clamp(58px,11cqh,84px)}
+.tl-tx{font-size:clamp(12.5px,3.3cqh,16.5px);line-height:1.6}
+.tl-tx b{color:var(--gold-light);font-weight:600}
+.tl-tx b.r{color:var(--red);font-weight:700}
+.vs2{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.vscard{border:1.5px solid rgba(232,135,156,.35);border-radius:13px;padding:12px 11px;
+  background:linear-gradient(165deg,#3a1424,#22090f)}
+.vscard.now{border-color:rgba(212,175,55,.5)}
+.vs-h{font-family:var(--font-label);font-size:clamp(10px,2.3cqh,12.5px);letter-spacing:2px;
+  color:var(--pink);margin-bottom:5px}
+.vscard.now .vs-h{color:var(--gold)}
+.vs-b{font-size:clamp(12px,3.1cqh,15.5px);line-height:1.55}
+.vs-b b{color:var(--gold-light);font-weight:600}
+
+/* ===== S5 · จับตา ===== */
+.watch{width:100%;display:flex;gap:13px;align-items:flex-start;
+  border:1.5px solid rgba(232,135,156,.35);border-radius:14px;
+  background:linear-gradient(165deg,#3a1424,#22090f);padding:14px 15px}
+.wnum{font-family:var(--font-num);font-size:clamp(24px,5cqh,33px);color:var(--pink);line-height:1;
+  padding-top:2px}
+.wt{font-family:var(--font-label);font-size:clamp(13px,3.3cqh,18px);letter-spacing:2px;
+  color:var(--gold-light)}
+.ws{font-size:clamp(10.5px,2.7cqh,13.5px);color:var(--text-muted);margin-top:3px}
+.wq{font-size:clamp(12.5px,3.2cqh,16px);line-height:1.6;margin-top:8px;
+  border-top:1px solid rgba(232,135,156,.2);padding-top:8px}
+.wq b{color:var(--pink-light);font-weight:600}
+
+/* ===== S6 CLOSE ===== */
+.strike{position:relative;display:inline}
+.strike::after{content:'';position:absolute;left:-2px;right:-2px;top:52%;height:2.5px;
+  background:var(--red);transform:scaleX(0);transform-origin:left;border-radius:2px;
+  transition:transform .9s ease .35s}
+.on .strike::after{transform:scaleX(1)}
+.on .strike{color:var(--text-muted);transition:color .6s ease .6s}
+.cta-word{font-size:clamp(30px,14.4cqw,76px);font-weight:700;line-height:1.2;text-align:center;
+  white-space:nowrap}
+.w{white-space:nowrap}
+.cta-word span{display:inline-block;opacity:0;transform:translateY(34px) rotate(-6deg)}
+.cta-word.gold-grad{-webkit-text-fill-color:currentColor;background:none}
+.cta-word.gold-grad span{background:linear-gradient(135deg,#D4AF37,#F4E4BA,#D4AF37);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.on.cta-word span{animation:charIn .6s var(--ease-spring) forwards}
+@keyframes charIn{to{opacity:1;transform:none}}
+.cta-sub{font-size:clamp(14px,3.7cqh,19px);color:var(--text-muted);text-align:center;line-height:1.7}
+.cta-sub b{color:var(--pink-light);font-weight:600}
+.brand{font-family:var(--font-label);font-size:12px;letter-spacing:4px;text-transform:uppercase;
+  color:rgba(232,135,156,.6);position:absolute;bottom:5%}
+
+/* ===== HUD ===== */
+#prog{position:absolute;left:0;bottom:0;height:3px;width:0;z-index:6;
+  background:linear-gradient(90deg,var(--pink),var(--gold));opacity:0}
+#prog.run{opacity:1}
+#hud{position:absolute;left:0;right:0;bottom:0;z-index:5;padding:10px 14px 12px;
+  display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none;
+  background:linear-gradient(0deg,rgba(13,5,8,.75),transparent);transition:opacity .4s}
+#hud.hidden{opacity:0}
+#beatdots{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
+#beatdots i{width:6px;height:6px;border-radius:50%;background:rgba(232,135,156,.22);transition:background .3s}
+#beatdots i.done{background:var(--pink)}
+#ctrl{display:flex;align-items:center;gap:10px;pointer-events:auto}
+#play{font-family:var(--font-thai);font-size:12px;color:var(--text-light);cursor:pointer;
+  border:1px solid rgba(232,135,156,.45);background:rgba(58,20,36,.75);border-radius:50px;
+  padding:6px 16px;letter-spacing:.5px}
+#play.on{border-color:var(--gold);color:var(--gold-light)}
+#hint{font-size:11px;color:var(--text-muted);letter-spacing:.5px;text-align:center}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01s!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="flash"></div>
+
+  <!-- ══════ SCENE 0 · HOOK ══════ -->
+  <section class="scene" id="s0">
+    <div class="eyebrow" data-beat>The Hook</div>
+    <div class="goodrow" data-beat id="s0good">
+      <div class="gpill"><span class="w">ดีล</span>​<span class="w">ชิป</span>​<span class="w">ใหญ่</span>​<span class="w">ที่สุด</span>​<span class="w">ใน</span>​<span class="w">ประวัติศาสตร์</span></div>
+      <div class="gpill"><span class="w">เซ็น</span>​<span class="w">ไป</span>​เมื่อ 5 วันก่อน</div>
+    </div>
+    <div class="redboard" data-beat data-anim="pop" id="s0red">
+      <div class="rb-arrow">▼</div>
+      <div class="rb-num">10.84%</div>
+      <div class="rb-text"><span class="w">ตลาดหุ้น</span>​<span class="w">เกาหลี</span>​<span class="w">ทั้ง</span>​<span class="w">ประเทศ</span><br><span class="w">ต้อง</span>​<span class="w">หยุด</span>​<span class="w">ซื้อขาย</span>​<span class="w">กลางคัน</span></div>
+    </div>
+    <div class="big" data-beat id="s0line"><span class="w">หนัก</span>​<span class="w">เป็น</span><span class="rose-grad">อันดับ 4</span><br><span class="w">ใน</span>​<span class="w">ประวัติศาสตร์</span>​<span class="w">ตลาด</span>​<span class="w">เกาหลี</span></div>
+    <div class="hook-punch glow" data-beat data-anim="blur" id="s0punch"><span class="w">แต่</span>​<span class="w">ตัว</span>​<span class="w">ที่</span>​<span class="w">ร่วง</span>​<span class="w">หนัก</span>​<span class="w">ที่สุด</span><br><span class="rose-grad"><span class="w">คือ</span>​<span class="w">คน</span>​<span class="w">ที่</span>​<span class="w">เพิ่ง</span>​<span class="w">ได้</span>​<span class="w">ออเดอร์</span></span></div>
+  </section>
+
+  <!-- ══════ SCENE 1 · ปรากฏการณ์ขัดแย้ง ══════ -->
+  <section class="scene" id="s1">
+    <div class="head" data-beat data-anim="pop" id="s1head">
+      <div class="eyebrow">Scene 01</div>
+      <div class="scene-title"><span class="w">ข่าวดี</span>​<span class="w">สุดขั้ว</span><br><span class="w">แต่</span>​<span class="w">หุ้น</span>​<span class="w">ร่วง</span>​<span class="w">สุดขีด</span></div>
+    </div>
+    <div class="cbwrap" data-beat data-anim="left" id="s1cb">
+      <div class="cb-ico">⚡</div>
+      <div class="cb-txt"><u>Circuit Breaker</u><span class="w">ระบบ</span><b><span class="w">หยุด</span>​<span class="w">ซื้อขาย</span>​<span class="w">อัตโนมัติ</span></b> — ชื่อ​<span class="w">มาจาก</span>​<span class="w">เบรก</span>​<span class="w">เกอร์</span>​<span class="w">ตัด</span>​ไฟ ราคา​<span class="w">ลง</span>​<span class="w">เร็ว</span>​<span class="w">เกิน</span>​<span class="w">เกณฑ์</span>​เมื่อไหร่ ระบบ​<span class="w">สั่ง</span>​<span class="w">หยุด</span>​<span class="w">ทั้ง</span>​<span class="w">กระดาน</span>​<span class="w">ทันที</span></div>
+    </div>
+    <div class="ncard" data-beat data-anim="right" id="s1n1">
+      <div class="nc-tag"><span class="w">ตัวนำ</span>​<span class="w">การร่วง</span></div>
+      <div class="nc-title"><span class="w">หุ้น</span>​<span class="w">ชิป</span>​<span class="w">ยักษ์</span>​<span class="w">ใหญ่</span>​<span class="w">ทั้งสอง</span>​<span class="w">ตัว</span><br><span class="w">ลาก</span>​<span class="w">ดัชนี</span>​<span class="w">ลง</span>​<span class="w">ทั้ง</span>​<span class="w">กระดาน</span></div>
+      <div class="tickers"><span class="tk" data-d=" −14.7% ▼">SK Hynix</span><span class="tk" data-d=" −13.4% ▼">Samsung</span></div>
+    </div>
+    <div class="mid" data-beat id="s1cap">ทั้งที่ <b>SK Group</b> กับ <b>Samsung</b> เพิ่ง​<span class="w">เซ็นสัญญา</span><br><span class="w">ป้อน</span>​<span class="w">ชิ้นส่วน</span>​ให้ <b>NVIDIA</b> มูลค่า​<span class="w">รวม</span>​<span class="w">หลาย</span>​<span class="w">แสน</span>​<span class="w">ล้าน</span>​<span class="w">ดอลลาร์</span></div>
+    <div class="keyline" data-beat id="s1key"><span class="w">ได้</span>​<span class="w">ดีล</span>​<span class="w">ใหญ่</span>​<span class="w">ที่สุด</span>​<span class="w">ใน</span>​<span class="w">ชีวิต</span><br><span class="w">แล้ว</span><b><span class="w">ร่วง</span>​<span class="w">หนัก</span>​<span class="w">ที่สุด</span>​<span class="w">ใน</span>​<span class="w">ตลาด</span></b> — วันเดียวกัน</div>
+  </section>
+
+  <!-- ══════ SCENE 2 · CIRCULAR FINANCING ══════ -->
+  <section class="scene" id="s2">
+    <div class="head" data-beat data-anim="pop" id="s2head">
+      <div class="eyebrow">Scene 02</div>
+      <div class="scene-title"><span class="w">จุด</span>​<span class="w">เปลี่ยน</span>​<span class="w">ที่</span>​<span class="w">ทำให้</span><br><span class="w">ข่าวดี</span>​<span class="w">กลายเป็น</span>​<span class="w">ข่าวร้าย</span></div>
+    </div>
+
+    <div class="loop" data-beat id="s2loop">
+      <svg viewBox="0 0 300 300" aria-hidden="true">
+        <path class="ringbase" d="M150,38 A112,112 0 0 1 150,262 A112,112 0 0 1 150,38"/>
+        <path class="ringdash" id="loopPath" d="M150,38 A112,112 0 0 1 150,262 A112,112 0 0 1 150,38"/>
+      </svg>
+      <div class="lnode nseller"><u><span class="w">ผู้ขาย</span></u><b>NVIDIA</b><small><span class="w">คน</span>​<span class="w">ทำ</span>​<span class="w">ชิป</span></small></div>
+      <div class="lnode nbuyer"><u><span class="w">ผู้ซื้อ</span></u><b>OpenAI</b><small><span class="w">ลูกค้า</span></small></div>
+      <div class="larc lright"><i>①</i><b><span class="w">ค้ำ</span>​<span class="w">เงินกู้</span><br>+ จัด​<span class="w">หาเงิน</span></b><small>250,000 ล้าน</small></div>
+      <div class="larc lleft"><i>②</i><b><span class="w">เอา</span>​<span class="w">เงิน</span>​<span class="w">นั้น</span><br><span class="w">มา</span>​<span class="w">ซื้อ</span>​<span class="w">ชิป</span></b><small>350,000 ล้าน</small></div>
+      <div class="loop-mid" id="loopMid"><span class="w">เงิน</span>​<span class="w">ออกจาก</span>​<span class="w">กระเป๋า</span>​<span class="w">คน</span>​<span class="w">ขาย</span><br><span class="w">แล้ว</span><b><span class="w">วิ่ง</span>​<span class="w">กลับมา</span>​<span class="w">ที่</span>​<span class="w">เดิม</span></b></div>
+      <div class="money" id="money"></div>
+    </div>
+
+    <div class="total" data-beat data-anim="pop" id="s2total">
+      <u>Deals In Talks</u><b>750,000+</b><small><span class="w">ล้าน</span>​ดอลลาร์ · รวม​<span class="w">ทุก</span>​<span class="w">ดีล</span>​<span class="w">ที่</span>​<span class="w">กำลัง</span>​<span class="w">เจรจา</span></small>
+    </div>
+
+    <div class="mid" data-beat id="s2cap"><span class="w">พอ</span>​<span class="w">เป็น</span>​แบบนี้ ตัวเลข​<span class="w">ยอดขาย</span><br><span class="w">เลิก</span>​สะท้อน <b>Demand ที่​<span class="w">แท้จริง</span></b> เพียง​<span class="w">อย่าง</span>​<span class="w">เดียว</span></div>
+
+    <div class="keyline" data-beat id="s2key"><span class="w">มัน</span>​<span class="w">แปล</span>​ว่า <b><span class="w">ผู้ขาย</span></b> กำลัง​<span class="w">เอา</span>​<span class="w">ตัวเอง</span><br><span class="w">ไป</span>​<span class="w">แบกรับ</span><b class="g"><span class="w">ความเสี่ยง</span>​<span class="w">ทางการเงิน</span>​<span class="w">แทน</span>​<span class="w">ผู้ซื้อ</span></b></div>
+
+    <div class="cds" data-beat data-anim="pop" id="s2cds">
+      <svg viewBox="0 0 300 110" aria-hidden="true">
+        <line class="axis" x1="4" y1="104" x2="296" y2="104"/>
+        <path class="spike" d="M8,88 L52,85 L96,89 L140,84 L184,86 L212,80 L240,62 L262,34 L288,10"/>
+      </svg>
+      <span class="cds-tag">▲ พุ่ง​<span class="w">ทันที</span></span>
+      <div class="cds-lbl"><span>CDS · ราคา​<span class="w">ประกัน</span>​<span class="w">ความเสี่ยง</span>​<span class="w">ผิดนัด</span>​<span class="w">ชำระหนี้</span>​ของ NVIDIA</span></div>
+    </div>
+
+    <div class="keyline" data-beat id="s2key2"><span class="w">ตลาด</span>​<span class="w">หนี้</span>​<span class="w">อ่าน</span>​<span class="w">เกม</span>​<span class="w">ออก</span>​<span class="w">ก่อน</span><br><span class="w">เพราะ</span>​<span class="w">เขา</span>​<span class="w">ไม่</span>​<span class="w">ได้</span>​<span class="w">ถาม</span>​<span class="w">ว่า</span>​<span class="w">ยอดขาย</span>​<span class="w">โต</span>​เท่าไหร่ — เขา​<span class="w">ถาม</span>​ว่า <b><span class="w">เงิน</span>​<span class="w">ที่</span>​<span class="w">เอา</span>​<span class="w">มา</span>​จ่าย เป็น​<span class="w">เงิน</span>​<span class="w">ของ</span>​<span class="w">ใคร</span></b></div>
+  </section>
+
+  <!-- ══════ SCENE 3 · ทำไม KOSPI เจ็บกว่า ══════ -->
+  <section class="scene" id="s3">
+    <div class="head" data-beat data-anim="pop" id="s3head">
+      <div class="eyebrow">Scene 03</div>
+      <div class="scene-title">ทำไม KOSPI ถึง​<span class="w">รับ</span><br><span class="w">แรง</span>​<span class="w">กระแทก</span>​<span class="w">หนัก</span>​<span class="w">กว่า</span>​<span class="w">ที่อื่น</span></div>
+    </div>
+    <div class="dropwrap" data-beat id="s3drop">
+      <div class="dcol d1"><div class="dnum">−3.95%</div><div class="dbar"></div><div class="dlbl">Nikkei<br><span class="w">ญี่ปุ่น</span></div></div>
+      <div class="dcol d2"><div class="dnum">−3.9%</div><div class="dbar"></div><div class="dlbl"><span class="w">ไต้หวัน</span></div></div>
+      <div class="dcol d3"><div class="dnum">−10.84%</div><div class="dbar"></div><div class="dlbl">KOSPI<br><span class="w">เกาหลี</span></div></div>
+    </div>
+    <div class="mid" data-beat id="s3cap1"><span class="w">ต้นเรื่อง</span>​เดียวกัน แต่​<span class="w">เกาหลี</span>​<span class="w">เจ็บ</span>​<span class="w">กว่า</span><b class="p"><span class="w">เกือบ</span>​<span class="w">สาม</span>​<span class="w">เท่า</span></b><br><span class="w">คำตอบ</span>​<span class="w">อยู่</span>​ที่ <b><span class="w">โครงสร้าง</span>​<span class="w">ของ</span>​<span class="w">ดัชนี</span>​<span class="w">เอง</span></b></div>
+    <div class="concbar" data-beat data-anim="pop" id="s3conc">
+      <div class="cbar">
+        <div class="cseg cs-two">Samsung + SK Hynix</div>
+        <div class="cseg cs-rest">อีก 900 กว่า​<span class="w">บริษัท</span>​<span class="w">รวมกัน</span></div>
+      </div>
+      <div class="conc-lbl"><span><span class="w">น้ำหนัก</span>​<span class="w">ใน</span>​ดัชนี KOSPI</span><span>ราว 50%</span></div>
+    </div>
+    <div class="mid" data-beat id="s3cap2"><span class="w">พอ</span>​<span class="w">สอง</span>​<span class="w">ตัว</span>​<span class="w">นี้</span>​<span class="w">ถูก</span>​<span class="w">เท</span>​ขาย <b><span class="w">ดัชนี</span>​<span class="w">ทั้ง</span>​<span class="w">กระดาน</span>​<span class="w">พัง</span>​<span class="w">ตาม</span></b><br><span class="w">ภาพ</span>​<span class="w">เดียว</span>​<span class="w">กับ</span>​ที่ <b class="p">DELTA</b> มี​ต่อ <b class="p">SET</b> บ้าน​เรา — ต่างกัน​<span class="w">แค่</span>​<span class="w">ขนาด</span></div>
+    <div class="ncard" data-beat data-anim="right" id="s3cx">
+      <div class="nc-tag"><span class="w">ปัจจัย</span>​<span class="w">แทรกซ้อน</span></div>
+      <div class="nc-title"><b>CXMT</b> ผู้ผลิต​<span class="w">ชิป</span>​จีน เข้า​<span class="w">ตลาดหุ้น</span>​<span class="w">ด้วย</span>​<span class="w">รา</span>​<span class="w">คาที่</span>​<span class="w">พุ่ง</span>​<span class="w">แรง</span><br><span class="w">สะท้อน</span>​<span class="w">ความกังวล</span>​เรื่อง <b>Supply ใหม่</b> ที่จะ​<span class="w">เข้ามา</span>​<span class="w">แย่ง</span>​<span class="w">ส่วนแบ่งตลาด</span></div>
+    </div>
+  </section>
+
+  <!-- ══════ SCENE 4 · บทเรียน DOT-COM ══════ -->
+  <section class="scene" id="s4">
+    <div class="head" data-beat data-anim="pop" id="s4head">
+      <div class="eyebrow">Scene 04</div>
+      <div class="scene-title"><span class="w">คน</span>​<span class="w">ขาย</span>​<span class="w">ออก</span>​<span class="w">เงิน</span>​<span class="w">ให้</span>​<span class="w">คนซื้อ</span><br><span class="w">เคย</span>​<span class="w">เกิด</span>​<span class="w">มา</span>​<span class="w">แล้ว</span></div>
+    </div>
+    <div class="tlrow" data-beat data-anim="left" id="s4t1">
+      <div class="tl-yr">1998<br>–2000</div>
+      <div class="tl-tx"><span class="w">ยุค</span>​<span class="w">บูม</span>​โทรคมนาคม — <b>Cisco, Lucent, Ericsson</b> แข่ง​<span class="w">กัน</span>​<span class="w">ปล่อย</span>​<span class="w">กู้</span>​<span class="w">ให้</span>​<span class="w">ลูกค้า</span>​หน้าใหม่ เอา​<span class="w">ไป</span>​<span class="w">ซื้อ</span>​<span class="w">ของ</span>​<span class="w">ของ</span>​<span class="w">ตัวเอง</span></div>
+    </div>
+    <div class="tlrow" data-beat data-anim="left" id="s4t2">
+      <div class="tl-yr">2003</div>
+      <div class="tl-tx"><span class="w">ผู้ให้บริการ</span>​<span class="w">โทรคมนาคม</span>​รายใหญ่ <b class="r">ล้มละลาย 24 จาก 30 ราย</b></div>
+    </div>
+    <div class="mid" data-beat id="s4cap"><span class="w">แต่</span>​<span class="w">ต้อง</span>​<span class="w">เทียบ</span>​<span class="w">ให้</span>​<span class="w">แฟร์</span>​<span class="w">กับ</span>​<span class="w">รอบ</span>​<span class="w">นี้</span>​<span class="w">ด้วย</span><br><span class="w">สิ่ง</span>​<span class="w">ที่</span>​<span class="w">ต่าง</span>​<span class="w">จริง</span>​คือ <b><span class="w">คน</span>​<span class="w">กู้</span>​<span class="w">เป็น</span>​<span class="w">ใคร</span></b></div>
+    <div class="vs2" data-beat data-anim="pop" id="s4vs">
+      <div class="vscard">
+        <div class="vs-h">DOT-COM</div>
+        <div class="vs-b"><span class="w">บริษัท</span>​<span class="w">ตั้งใหม่</span><br><b><span class="w">แทบ</span>​<span class="w">ไม่</span>​<span class="w">มี</span>​<span class="w">รายได้</span></b></div>
+      </div>
+      <div class="vscard now">
+        <div class="vs-h">AI TODAY</div>
+        <div class="vs-b">Microsoft · Meta · Google<br><b><span class="w">มี</span>​<span class="w">กำไร</span>​<span class="w">จริง</span></b></div>
+      </div>
+    </div>
+    <div class="keyline" data-beat id="s4key"><span class="w">จุด</span>​<span class="w">ที่</span>​<span class="w">ต้อง</span>​<span class="w">ระวัง</span>​<span class="w">ที่สุด</span>​<span class="w">จึง</span>​<span class="w">ไป</span>​<span class="w">กระจุก</span>​<span class="w">อยู่</span>​<span class="w">ที่</span>​<span class="w">เดียว</span><br><b>OpenAI</b> — คน​<span class="w">กู้</span>​ตัวจริง ที่​<span class="w">ยัง</span><b class="g"><span class="w">ขาดทุน</span>​<span class="w">อยู่</span></b></div>
+  </section>
+
+  <!-- ══════ SCENE 5 · สิ่งที่ต้องจับตา ══════ -->
+  <section class="scene" id="s5">
+    <div class="head" data-beat data-anim="pop" id="s5head">
+      <div class="eyebrow">What To Watch</div>
+      <div class="scene-title"><span class="w">แล้ว</span>​<span class="w">จากนี้</span><br><span class="w">ดู</span>​<span class="w">อะไร</span>​<span class="w">ต่อ</span></div>
+    </div>
+    <div class="watch" data-beat data-anim="left" id="w1">
+      <div class="wnum">01</div>
+      <div>
+        <div class="wt">DEAL &amp; CAPEX</div>
+        <div class="ws"><span class="w">ไส้</span>​<span class="w">ใน</span>​<span class="w">ของ</span>​<span class="w">ดีล</span>​<span class="w">และ</span>​<span class="w">งบ</span>​<span class="w">ลงทุน</span></div>
+        <div class="wq"><span class="w">ดู</span>​<span class="w">แค่</span>​<span class="w">ยอด</span>​<span class="w">ออเดอร์</span>​<span class="w">ไม่</span>​พอ — <b><span class="w">มี</span>​<span class="w">ใคร</span>​<span class="w">ค้ำประกัน</span>​<span class="w">ซ่อน</span>​<span class="w">อยู่</span>​<span class="w">เบื้องหลัง</span>​<span class="w">ไหม</span></b></div>
+      </div>
+    </div>
+    <div class="watch" data-beat data-anim="right" id="w2">
+      <div class="wnum">02</div>
+      <div>
+        <div class="wt">CDS</div>
+        <div class="ws"><span class="w">ราคา</span>​<span class="w">ประกัน</span>​<span class="w">ความเสี่ยง</span>​<span class="w">ผิดนัด</span>​<span class="w">ชำระหนี้</span></div>
+        <div class="wq"><span class="w">ดู</span>​<span class="w">ควบคู่</span>​<span class="w">ราคา</span>​หุ้น — <b><span class="w">ตลาด</span>​<span class="w">หนี้</span>​<span class="w">สะท้อน</span>​<span class="w">ความเสี่ยง</span>​<span class="w">ไว</span>​<span class="w">กว่า</span>​<span class="w">เสมอ</span></b></div>
+      </div>
+    </div>
+    <div class="watch" data-beat data-anim="left" id="w3">
+      <div class="wnum">03</div>
+      <div>
+        <div class="wt">GAP RISK</div>
+        <div class="ws"><span class="w">ตลาดหุ้น</span>​<span class="w">ไทย</span>​<span class="w">เปิด</span>​<span class="w">หลัง</span>​<span class="w">หยุด</span>​<span class="w">ยาว</span></div>
+        <div class="wq"><span class="w">รับ</span>​<span class="w">ข่าว</span>​<span class="w">รวบยอด</span>​ทีเดียว — <b><span class="w">ราคา</span>​<span class="w">เปิด</span>​<span class="w">อาจ</span>​กระโดด ไม่​ค่อยๆ ปรับ</b></div>
+      </div>
+    </div>
+    <div class="fineprint" data-beat id="s5fine">* เนื้อหา​<span class="w">เพื่อ</span>​การศึกษา ไม่​<span class="w">ใช่</span>​<span class="w">คำแนะนำ</span>​<span class="w">การลงทุน</span></div>
+  </section>
+
+  <!-- ══════ SCENE 6 · CLOSE ══════ -->
+  <section class="scene" id="s6">
+    <div class="head" data-beat data-anim="pop" id="s6head">
+      <div class="eyebrow">The Point</div>
+      <div class="scene-title"><span class="w">สรุป</span>​<span class="w">ให้</span>​<span class="w">สั้น</span>​<span class="w">ที่สุด</span></div>
+    </div>
+    <div class="mid" data-beat id="s6strike"><span class="w">คำถาม</span>​<span class="w">ที่</span>​ถูก <span class="strike"><span class="w">ไม่</span>​<span class="w">ใช่</span>​<span class="w">ว่า</span>​ฟองสบู่ AI แตก​<span class="w">หรือยัง</span></span></div>
+    <div class="cta-word gold-grad" data-beat id="ctaWord"><span style="animation-delay:0ms">เ</span><span style="animation-delay:70ms">งิ</span><span style="animation-delay:140ms">น</span><span style="animation-delay:210ms">ข</span><span style="animation-delay:280ms">อ</span><span style="animation-delay:350ms">ง</span><span style="animation-delay:420ms">ใ</span><span style="animation-delay:490ms">ค</span><span style="animation-delay:560ms">ร</span></div>
+    <div class="cta-sub" data-beat id="s6sub"><span class="w">ใน</span>​<span class="w">ดีล</span>​<span class="w">ก้อน</span>​<span class="w">โต</span>​<span class="w">แต่ละ</span>​<span class="w">ก้อน</span><br><b><span class="w">เงิน</span>​<span class="w">มาจาก</span>​<span class="w">กระเป๋า</span>​<span class="w">คนซื้อ</span>​จริงๆ กี่​<span class="w">เปอร์เซ็นต์</span></b></div>
+    <div class="brand">JP Trust Learning</div>
+  </section>
+
+  <div id="guide"></div>
+  <div id="prog"></div>
+  <div id="hud">
+    <div id="beatdots"></div>
+    <div id="ctrl"><button id="play">▶ เล่น​<span class="w">อัตโนมัติ</span></button></div>
+    <div id="hint">แตะ = ถัดไป · แตะ​<span class="w">ฝั่ง</span>​ซ้าย = ย้อน · P = เล่น/หยุด · H = ซ่อน​แถบ · R = เริ่มใหม่</div>
+  </div>
+</div>
+
+<script>
+'use strict';
+const $=s=>document.querySelector(s);
+const $$=s=>Array.from(document.querySelectorAll(s));
+const stage=$('#stage');
+
+/* ---------- build repeated elements ---------- */
+(function(){
+  for(let i=0;i<16;i++){
+    const m=document.createElement('div');
+    m.className='mote';
+    const sz=2+Math.random()*3.5;
+    m.style.width=sz+'px'; m.style.height=sz+'px';
+    m.style.left=(Math.random()*100)+'%';
+    m.style.top=(70+Math.random()*40)+'%';
+    m.style.animationDuration=(16+Math.random()*18)+'s';
+    m.style.animationDelay=(-Math.random()*20)+'s';
+    stage.appendChild(m);
+  }
+})();
+
+/* ---------- effects ---------- */
+function shake(){ stage.classList.remove('shake'); void stage.offsetWidth; stage.classList.add('shake'); }
+function flash(){ const f=$('#flash'); f.classList.remove('go'); void f.offsetWidth; f.classList.add('go'); }
+function dropTickers(sel){
+  $$(sel+' .tk').forEach((t,i)=>{ setTimeout(()=>t.classList.add('down'), 380+i*180); });
+}
+function resetTickers(){ $$('.tk').forEach(t=>t.classList.remove('down')); }
+
+/* ---------- circular-financing loop ---------- */
+let loopRAF=null;
+function runLoop(){
+  const path=$('#loopPath'), dot=$('#money'), box=$('#s2loop');
+  if(!path||!dot||!box) return;
+  cancelAnimationFrame(loopRAF);
+  const svg=path.ownerSVGElement, vb=svg.viewBox.baseVal;
+  let len=0;
+  try{ len=path.getTotalLength(); }catch(e){ return; }
+  if(!len) return;
+  dot.classList.add('go');
+  const DUR=3400, t0=performance.now();
+  function step(t){
+    const box2=$('#s2loop');
+    if(!box2||!box2.classList.contains('on')){ dot.classList.remove('go'); return; }
+    const w=box2.clientWidth, h=box2.clientHeight;
+    if(!w||!h){ loopRAF=requestAnimationFrame(step); return; }
+    const p=((t-t0)%DUR)/DUR;
+    const pt=path.getPointAtLength(len*p);
+    dot.style.left=(pt.x/vb.width*w)+'px';
+    dot.style.top=(pt.y/vb.height*h)+'px';
+    loopRAF=requestAnimationFrame(step);
+  }
+  loopRAF=requestAnimationFrame(step);
+}
+function stopLoop(){
+  cancelAnimationFrame(loopRAF);
+  const d=$('#money'); if(d) d.classList.remove('go');
+  const m=$('#loopMid'); if(m) m.classList.remove('show');
+}
+function showLoopMid(){ const m=$('#loopMid'); if(m) m.classList.add('show'); }
+
+/* ---------- beats:  s=scene, el=reveal, off=hide, fn=effect, d=autoplay ms ---------- */
+const beats=[
+  /* S0 · HOOK */
+  {s:0, el:'#s0 .eyebrow', d:1500},
+  {s:0, el:'#s0good', d:2600},
+  {s:0, el:'#s0red', d:3000, fn:shake},
+  {s:0, el:'#s0line', off:['#s0good'], d:2800},
+  {s:0, el:'#s0punch', off:['#s0red','#s0line'], d:3600, fn:flash},
+  /* S1 · ปรากฏการณ์ขัดแย้ง */
+  {s:1, el:'#s1head', d:2600},
+  {s:1, el:'#s1cb', off:['#s1head'], d:4200},
+  {s:1, el:'#s1n1', off:['#s1cb'], d:3800, fn:()=>dropTickers('#s1n1')},
+  {s:1, el:'#s1cap', d:3800},
+  {s:1, el:'#s1key', off:['#s1n1','#s1cap'], d:3800},
+  /* S2 · CIRCULAR FINANCING */
+  {s:2, el:'#s2head', d:2800},
+  {s:2, el:'#s2loop', off:['#s2head'], d:4600, fn:runLoop},
+  {s:2, el:'#s2total', d:3600, fn:showLoopMid},
+  {s:2, el:'#s2cap', off:['#s2loop','#s2total'], d:3800, fn:stopLoop},
+  {s:2, el:'#s2key', off:['#s2cap'], d:4000},
+  {s:2, el:'#s2cds', off:['#s2key'], d:3800},
+  {s:2, el:'#s2key2', d:4600, fn:flash},
+  /* S3 · ทำไม KOSPI */
+  {s:3, el:'#s3head', d:2600},
+  {s:3, el:'#s3drop', off:['#s3head'], d:3600, fn:()=>setTimeout(shake,1000)},
+  {s:3, el:'#s3cap1', d:3600},
+  {s:3, el:'#s3conc', off:['#s3drop','#s3cap1'], d:3800},
+  {s:3, el:'#s3cap2', d:4200},
+  {s:3, el:'#s3cx', off:['#s3conc','#s3cap2'], d:4200},
+  /* S4 · DOT-COM */
+  {s:4, el:'#s4head', d:2600},
+  {s:4, el:'#s4t1', off:['#s4head'], d:3800},
+  {s:4, el:'#s4t2', d:3200},
+  {s:4, el:'#s4cap', off:['#s4t1','#s4t2'], d:3400},
+  {s:4, el:'#s4vs', d:3800},
+  {s:4, el:'#s4key', off:['#s4cap'], d:4200},
+  /* S5 · จับตา */
+  {s:5, el:'#s5head', d:2400},
+  {s:5, el:'#w1', off:['#s5head'], d:4000},
+  {s:5, el:'#w2', d:4000},
+  {s:5, el:'#w3', off:['#w1'], d:4000},
+  {s:5, el:'#s5fine', d:2800},
+  /* S6 · CLOSE */
+  {s:6, el:'#s6head', d:2200},
+  {s:6, el:'#s6strike', off:['#s6head'], d:3400},
+  {s:6, el:'#ctaWord', off:['#s6strike'], d:3000, fn:flash},
+  {s:6, el:'#s6sub', d:4200}
+];
+
+/* ---------- engine ---------- */
+const scenes=$$('.scene');
+let cursor=-1, auto=false, autoTimer=null;
+
+const beatdotsEl=$('#beatdots');
+beats.forEach(()=>beatdotsEl.appendChild(document.createElement('i')));
+const beatdots=Array.from(beatdotsEl.children);
+
+function showScene(idx){ scenes.forEach((sc,i)=>sc.classList.toggle('active',i===idx)); }
+function resetAll(){
+  $$('[data-beat]').forEach(el=>el.classList.remove('on','gone'));
+  resetTickers(); stopLoop();
+}
+function applyBeat(b){
+  if(b.el){ const el=$(b.el); if(el){ el.classList.remove('gone'); el.classList.add('on'); } }
+  if(b.off) b.off.forEach(sel=>{
+    const el=$(sel); if(el){ el.classList.remove('on'); el.classList.add('gone'); }
+  });
+}
+function applyState(){
+  resetAll();
+  if(cursor<0){ showScene(0); updateHud(); return; }
+  const cur=beats[cursor].s;
+  showScene(cur);
+  for(let i=0;i<=cursor;i++){
+    const b=beats[i];
+    if(b.s!==cur) continue;
+    applyBeat(b);
+    if(b.fn) b.fn();
+  }
+  updateHud();
+}
+function next(){
+  if(cursor>=beats.length-1){ setAuto(false); return; }
+  cursor++;
+  const b=beats[cursor];
+  const prevScene=cursor>0?beats[cursor-1].s:-1;
+  if(b.s!==prevScene){ applyState(); return; }
+  showScene(b.s);
+  applyBeat(b);
+  if(b.fn) b.fn();
+  updateHud();
+}
+function prev(){ if(cursor<0) return; cursor--; applyState(); }
+function restart(){ cursor=-1; applyState(); }
+function updateHud(){
+  beatdots.forEach((d,i)=>d.classList.toggle('done',i<=cursor));
+  scheduleAuto();
+}
+
+/* ---------- autoplay ---------- */
+const prog=$('#prog'), playBtn=$('#play');
+function setAuto(on){
+  auto=on;
+  playBtn.textContent=on?'❚❚ หยุด':'▶ เล่นอัตโนมัติ';
+  playBtn.classList.toggle('on',on);
+  if(on&&cursor>=beats.length-1) restart();
+  scheduleAuto();
+}
+function scheduleAuto(){
+  clearTimeout(autoTimer);
+  prog.classList.remove('run');
+  prog.style.transition='none'; prog.style.width='0%';
+  if(!auto) return;
+  const d=(cursor<0?900:(beats[cursor].d||3000));
+  void prog.offsetWidth;
+  prog.classList.add('run');
+  prog.style.transition='width '+d+'ms linear';
+  prog.style.width='100%';
+  autoTimer=setTimeout(next,d);
+}
+
+/* ---------- input ---------- */
+stage.addEventListener('click',e=>{
+  if(e.target.closest('#ctrl')) return;
+  const x=e.clientX-stage.getBoundingClientRect().left;
+  if(x<stage.clientWidth*0.28) prev(); else next();
+});
+playBtn.addEventListener('click',e=>{ e.stopPropagation(); setAuto(!auto); });
+document.addEventListener('keydown',e=>{
+  if(e.key===' '||e.key==='ArrowRight'||e.key==='ArrowDown'){ e.preventDefault(); setAuto(false); next(); }
+  else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){ e.preventDefault(); setAuto(false); prev(); }
+  else if(e.key==='p'||e.key==='P'){ setAuto(!auto); }
+  else if(e.key==='h'||e.key==='H'){ $('#hud').classList.toggle('hidden'); $('#guide').classList.toggle('hidden'); }
+  else if(e.key==='r'||e.key==='R'){ restart(); }
+});
+
+applyState();
+</script>
+</body>
+</html>
