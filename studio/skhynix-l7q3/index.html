@@ -595,13 +595,21 @@ let voiceOK=false, stampMode=false, stamps=[];
 
 function haveMarks(){ return MARKS.length===beats.length; }
 
-vo.addEventListener('canplaythrough',()=>{ voiceOK=true; },{once:true});
-vo.addEventListener('error',()=>{ voiceOK=false; });
-vo.src=VOICE_SRC;
+let voiceTried=false;
+function setGateText(t,s){
+  const g=$('#gate'); if(!g) return;
+  g.querySelector('.t').textContent=t; g.querySelector('.s').textContent=s;
+}
+vo.addEventListener('canplay',()=>{ voiceOK=true; },{once:true});
+vo.addEventListener('loadedmetadata',()=>{ voiceOK=true; });
+vo.addEventListener('error',()=>{ voiceOK=false; if(voiceTried) fallback(); });
+vo.addEventListener('waiting',()=>{ if(voiceTried) setGateText('กำลังโหลดเสียง…','BUFFERING'); });
+vo.addEventListener('playing',()=>{ gate.classList.add('hidden'); });
+vo.src=VOICE_SRC; vo.load();
 
 /* เสียงเป็นคนสั่งจังหวะ — เดินหน้าเมื่อเวลาเสียงผ่านหมุดของ beat ถัดไป */
 vo.addEventListener('timeupdate',()=>{
-  if(!voiceOK||!haveMarks()||stampMode) return;
+  if(!voiceMode||!haveMarks()||stampMode) return;
   let target=-1;
   for(let i=0;i<MARKS.length;i++){ if(vo.currentTime>=MARKS[i]) target=i; }
   if(target!==cursor){
@@ -611,16 +619,30 @@ vo.addEventListener('timeupdate',()=>{
 });
 vo.addEventListener('ended',()=>{ setAuto(false); });
 
-function startShow(){
+let voiceMode=false;
+function fallback(){
+  voiceMode=false;
   gate.classList.add('hidden');
-  if(voiceOK){
-    vo.currentTime=0;
-    vo.play().catch(()=>{ voiceOK=false; setAuto(true); });
-    if(!haveMarks()) setAuto(true);      // มีเสียงแต่ยังไม่ได้จับเวลา → ใช้ d: ไปพลางก่อน
-    else { cursor=-1; applyState(); }
+  setAuto(true);
+}
+function startShow(){
+  if(voiceTried) return;
+  voiceTried=true;
+  setGateText('กำลังเริ่ม…','LOADING');
+  cursor=-1; applyState();
+  const pr=vo.play();
+  if(pr && pr.then){
+    pr.then(()=>{
+      voiceMode=haveMarks();
+      gate.classList.add('hidden');
+      if(!voiceMode) setAuto(true);      // มีเสียงแต่ยังไม่ได้จับเวลา
+    }).catch(()=>{ fallback(); });       // เล่นเสียงไม่ได้ → ออโต้เพลย์แบบเดิม
   }else{
-    setAuto(true);                        // ไม่มีเสียง → ออโต้เพลย์แบบเดิม
+    voiceMode=haveMarks();
+    gate.classList.add('hidden');
+    if(!voiceMode) setAuto(true);
   }
+  setTimeout(()=>{ if(voiceTried && vo.paused) fallback(); }, 6000);  // กันค้าง
 }
 gate.addEventListener('click',e=>{ e.stopPropagation(); startShow(); });
 
@@ -628,7 +650,7 @@ gate.addEventListener('click',e=>{ e.stopPropagation(); startShow(); });
 function toggleStamp(){
   stampMode=!stampMode;
   stampEl.classList.toggle('on',stampMode);
-  if(stampMode){ stamps=[]; cursor=-1; applyState(); vo.currentTime=0; vo.play().catch(()=>{}); }
+  if(stampMode){ stamps=[]; cursor=-1; applyState(); voiceMode=false; vo.currentTime=0; vo.play().catch(()=>{}); }
   updateStamp();
 }
 function updateStamp(){
