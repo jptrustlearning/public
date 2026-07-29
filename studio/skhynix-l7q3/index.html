@@ -169,6 +169,23 @@ body{font-family:var(--font-thai);color:var(--text-light);display:flex;align-ite
   border-radius:999px;padding:6px 15px}
 #play.on{border-color:var(--gold);color:var(--gold-light)}
 #hint{font-size:11px;color:var(--text-muted);letter-spacing:.5px;text-align:center}
+
+/* ===== VOICE LAYER ===== */
+#gate{position:absolute;inset:0;z-index:9;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:14px;cursor:pointer;
+  background:rgba(13,5,8,.72);backdrop-filter:blur(3px);transition:opacity .45s ease}
+#gate.hidden{opacity:0;pointer-events:none}
+#gate .ring{width:82px;height:82px;border-radius:50%;border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;color:var(--gold-light);animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(212,175,55,.35)}
+  50%{transform:scale(1.06);box-shadow:0 0 0 16px rgba(212,175,55,0)}}
+#gate .t{font-size:clamp(15px,4cqh,19px);color:var(--text-heading);text-align:center;line-height:1.6}
+#gate .s{font-size:11px;color:var(--text-muted);letter-spacing:1px}
+#stamp{position:absolute;left:10px;top:10px;z-index:8;font-family:var(--font-label);
+  font-size:11px;letter-spacing:1.5px;color:var(--pink);background:rgba(13,5,8,.7);
+  border:1px solid rgba(232,135,156,.5);border-radius:6px;padding:4px 9px;display:none}
+#stamp.on{display:block}
 </style>
 </head>
 <body>
@@ -322,12 +339,20 @@ body{font-family:var(--font-thai);color:var(--text-light);display:flex;align-ite
     <div data-beat id="s8fine" class="fine">เพื่อ​<span class="w">การ</span>​ศึกษา ไม่ใช่​<span class="w">คำ</span>​แนะนำ​<span class="w">การ</span>​ลงทุน · JP TRUST LEARNING</div>
   </section>
 
+  <audio id="vo" preload="auto" playsinline></audio>
+  <div id="stamp"></div>
+  <div id="gate">
+    <div class="ring">&#9654;</div>
+    <div class="t">แตะ​<span class="w">เพื่อ</span>​เริ่ม</div>
+    <div class="s">TAP TO START</div>
+  </div>
+
   <div id="guide"></div>
   <div id="prog"></div>
   <div id="hud">
     <div id="count"></div>
     <div id="ctrl"><button id="play">▶ เล่น​<span class="w">อัตโนมัติ</span></button></div>
-    <div id="hint">แตะ = ถัดไป · แตะ​<span class="w">ฝั่ง</span>​ซ้าย = ย้อน · P = เล่น/หยุด · H = ซ่อน​แถบ · R = เริ่มใหม่</div>
+    <div id="hint">แตะ = ถัดไป · แตะ​<span class="w">ฝั่ง</span>​ซ้าย = ย้อน · P = เล่น/หยุด · H = ซ่อน​แถบ · R = เริ่มใหม่ · S = จับเวลาเสียง</div>
   </div>
 </div>
 
@@ -538,6 +563,77 @@ document.addEventListener('keydown',e=>{
   else if(e.key==='p'||e.key==='P'){ setAuto(!auto); }
   else if(e.key==='h'||e.key==='H'){ $('#hud').classList.toggle('hidden'); $('#guide').classList.toggle('hidden'); }
   else if(e.key==='r'||e.key==='R'){ restart(); }
+});
+
+/* ════════ VOICE LAYER ════════════════════════════════
+   ใส่ไฟล์เสียงชื่อ voice.mp3 ไว้โฟลเดอร์เดียวกัน = ระบบสลับมาให้เสียงคุมจังหวะเอง
+   ถ้าไม่มีไฟล์ → ถอยไปใช้เวลา d: เดิมอัตโนมัติ ไม่พัง
+   MARKS = วินาทีที่แต่ละ beat ต้องขึ้น (index ตรงกับ beats)
+   ยังว่าง = ยังไม่ได้จับเวลา · กด S ทีละ beat ตอนฟังเสียง แล้วกด E เพื่อคัดลอกออกมา
+   ════════════════════════════════════════════════════ */
+const VOICE_SRC='voice.mp3';
+const MARKS=[];               // <— วางชุดเวลาที่ได้จากโหมดจับเวลาตรงนี้
+
+const vo=$('#vo'), gate=$('#gate'), stampEl=$('#stamp');
+let voiceOK=false, stampMode=false, stamps=[];
+
+function haveMarks(){ return MARKS.length===beats.length; }
+
+vo.addEventListener('canplaythrough',()=>{ voiceOK=true; },{once:true});
+vo.addEventListener('error',()=>{ voiceOK=false; });
+vo.src=VOICE_SRC;
+
+/* เสียงเป็นคนสั่งจังหวะ — เดินหน้าเมื่อเวลาเสียงผ่านหมุดของ beat ถัดไป */
+vo.addEventListener('timeupdate',()=>{
+  if(!voiceOK||!haveMarks()||stampMode) return;
+  let target=-1;
+  for(let i=0;i<MARKS.length;i++){ if(vo.currentTime>=MARKS[i]) target=i; }
+  if(target!==cursor){
+    if(target>cursor && target===cursor+1){ next(); }
+    else { cursor=target; applyState(); }
+  }
+});
+vo.addEventListener('ended',()=>{ setAuto(false); });
+
+function startShow(){
+  gate.classList.add('hidden');
+  if(voiceOK){
+    vo.currentTime=0;
+    vo.play().catch(()=>{ voiceOK=false; setAuto(true); });
+    if(!haveMarks()) setAuto(true);      // มีเสียงแต่ยังไม่ได้จับเวลา → ใช้ d: ไปพลางก่อน
+    else { cursor=-1; applyState(); }
+  }else{
+    setAuto(true);                        // ไม่มีเสียง → ออโต้เพลย์แบบเดิม
+  }
+}
+gate.addEventListener('click',e=>{ e.stopPropagation(); startShow(); });
+
+/* ---------- โหมดจับเวลา: กด S ทีละ beat ตอนฟัง / กด E เพื่อคัดลอก ---------- */
+function toggleStamp(){
+  stampMode=!stampMode;
+  stampEl.classList.toggle('on',stampMode);
+  if(stampMode){ stamps=[]; cursor=-1; applyState(); vo.currentTime=0; vo.play().catch(()=>{}); }
+  updateStamp();
+}
+function updateStamp(){
+  if(!stampMode) return;
+  stampEl.textContent='STAMP '+stamps.length+' / '+beats.length+'  ·  '+vo.currentTime.toFixed(2)+'s';
+}
+setInterval(updateStamp,120);
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='s'||e.key==='S'){ e.preventDefault(); toggleStamp(); }
+  else if(stampMode&&(e.key===' '||e.key==='ArrowRight')){
+    e.preventDefault();
+    stamps.push(Number(vo.currentTime.toFixed(2)));
+    next(); updateStamp();
+  }
+  else if(e.key==='e'||e.key==='E'){
+    const out='const MARKS=['+stamps.join(',')+'];';
+    console.log(out);
+    if(navigator.clipboard) navigator.clipboard.writeText(out).catch(()=>{});
+    stampEl.textContent='COPIED · '+stamps.length+' marks';
+  }
 });
 
 applyState();
