@@ -135,6 +135,12 @@ const RESEARCH = [
   /* ---------- กลยุทธ์ Momentum ---------- */
   {
     cat: "momentum", type: "article", status: "active",
+    title: "ไม่ได้ซื้อ ไม่ได้ขาย แต่พอร์ตเปลี่ยนเป็นคนละพอร์ต — ทำไมต้อง Rebalance",
+    desc: "เล่า rebalance ให้จบในที่เดียวด้วยตัวอย่างเงินหนึ่งแสน — คืออะไร ทำแล้วได้อะไร 3 ข้อ วิธีทำจริง 5 ขั้น ทำบ่อยแค่ไหนถึงพอดี · หุ้นตัวเดียวกันที่พอร์ตหนึ่งขาย อีกพอร์ตซื้อ ในวันเดียวกัน แล้วถูกทั้งคู่ — เพราะจุดประสงค์ของการ rebalance ต่างกัน · โยงเข้ากลยุทธ์โมเมนตัมว่าทำไมวัน rebalance คือหัวใจ ไม่ใช่งานเสริม อ้างอิง Vanguard, Jegadeesh & Titman · โพสต์ 31 ก.ค. 2026",
+    assets: ["S&P 500"], href: "https://public.jptrustlearning.com/why-rebalance.html"
+  },
+  {
+    cat: "momentum", type: "article", status: "active",
     title: "นักลงทุนสถาบันใช้ Momentum อย่างไร",
     desc: "Momentum ไม่ใช่กลยุทธ์รายย่อย — ETF ปัจจัยของ BlackRock ($29B) กองทุนควอนต์ AQR และอุตสาหกรรม Trend Following ($340B) ใช้มันเป็นแกนพอร์ตอย่างเปิดเผย — แยกสองสายพันธุ์ Cross-Sectional vs Time-Series, สี่วินัยที่สถาบันทำแล้วรายย่อยลอกได้ และข้อจำกัดของเงินก้อนใหญ่ที่กลายเป็นแต้มต่อของรายย่อย อ้างอิง Jegadeesh & Titman, Moskowitz Ooi & Pedersen, Barroso & Santa-Clara",
     assets: ["S&P 500"], href: "https://public.jptrustlearning.com/institutional-momentum.html"
