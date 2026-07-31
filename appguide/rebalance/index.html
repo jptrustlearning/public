@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="robots" content="noindex,nofollow">
+<title>ANIM — ทำไมต้อง Rebalance</title>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#D4AF37; --gold-dark:#B8860B; --gold-light:#F4E4BA;
+  --pink:#E8879C; --pink-deep:#C25E78; --pink-light:#F7C6D3;
+  --maroon:#722F37; --m-darkest:#1a0a0e; --m-mid:#2d1018;
+  --cream:#FAF6ED;
+  --text-light:#E8E4DC; --text-heading:#F4E4BA; --text-muted:#A89CA0;
+  --red:#E05555; --green:#7fc783;
+  --pieA:#EECD6A; --pieB:#C46A6A; --pieC:#6E9E8B; --pieD:#7189A8; --pieE:#9A7BA8;
+  --font-thai:'Anuphan',sans-serif; --font-label:'Cinzel',serif; --font-num:'DM Serif Display',serif;
+  --ease-spring:cubic-bezier(.22,1.15,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:#0d0508;overflow:hidden}
+body{font-family:var(--font-thai);color:var(--text-light);display:flex;align-items:center;justify-content:center}
+
+#stage{position:relative;height:min(100vh,calc(100vw*16/9));aspect-ratio:9/16;
+  overflow:hidden;cursor:pointer;container-type:size;
+  background:linear-gradient(160deg,#1a0a0e 0%,#301020 25%,#48192e 48%,#2d1018 70%,#1a0a0e 100%);
+  box-shadow:0 0 80px rgba(232,135,156,.08)}
+#stage::before{content:'';position:absolute;inset:-14%;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse at 28% 22%,rgba(194,94,120,.28) 0%,transparent 52%),
+    radial-gradient(ellipse at 74% 62%,rgba(114,47,55,.24) 0%,transparent 50%),
+    radial-gradient(ellipse at 50% 45%,rgba(212,175,55,.06) 0%,transparent 60%);
+  animation:drift 26s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(-2%,-1.5%,0) scale(1.02)}to{transform:translate3d(2.5%,2%,0) scale(1.08)}}
+
+/* ═══ TALK SCENES (presenter zone kept free) ═══ */
+.scene{position:absolute;top:0;left:0;right:0;bottom:25%;z-index:2;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:5% 6%;opacity:0;visibility:hidden;transition:opacity .5s ease}
+.scene.active{opacity:1;visibility:visible;animation:sceneIn .8s var(--ease-spring)}
+@keyframes sceneIn{from{opacity:0;transform:scale(1.05)}to{opacity:1;transform:none}}
+.scene>[data-beat]{margin-block:1.15%;max-height:78cqh;overflow:visible}
+.scene>[data-beat]:not(.on){max-height:0;margin-block:0;overflow:hidden;
+  padding-top:0;padding-bottom:0;border-top-width:0;border-bottom-width:0}
+[data-beat]{opacity:0;transform:translateY(28px);
+  transition:opacity .5s ease,transform .7s var(--ease-spring),filter .6s ease,
+             max-height .55s cubic-bezier(.4,0,.2,1),margin-block .55s cubic-bezier(.4,0,.2,1),
+             padding .55s cubic-bezier(.4,0,.2,1),border-width .55s ease}
+[data-beat][data-anim="pop"]{transform:scale(.8)}
+[data-beat][data-anim="left"]{transform:translateX(-30px)}
+[data-beat].on{opacity:1;transform:none;filter:none}
+.scene>[data-beat].gone{transform:translateY(-18px) scale(.94)}
+
+#guide{position:absolute;left:0;right:0;bottom:25%;z-index:2;pointer-events:none;
+  border-top:1px dashed rgba(232,135,156,.28);opacity:0;transition:opacity .4s}
+#guide.show{opacity:1}
+#guide::after{content:'พื้นที่รูปผู้บรรยาย';position:absolute;top:8px;right:12px;
+  font-size:10px;letter-spacing:1px;color:rgba(232,135,156,.4)}
+
+.eyebrow{font-family:var(--font-label);font-size:clamp(11px,2.5cqh,14px);letter-spacing:5px;
+  text-transform:uppercase;color:var(--pink);text-align:center;margin-bottom:5px}
+.title{font-size:clamp(24px,6.6cqh,36px);font-weight:700;text-align:center;line-height:1.35}
+.sub{font-size:clamp(15px,4cqh,20px);text-align:center;line-height:1.65;color:var(--text-light)}
+.sub b{color:var(--gold-light);font-weight:600}
+.sub i{font-style:normal;color:var(--pink-light);font-weight:600}
+.gold-grad{background:linear-gradient(135deg,#D4AF37,#F4E4BA,#D4AF37);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.rose-grad{background:linear-gradient(135deg,#E8879C,#F7C6D3,#E8879C);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.steps{width:100%;display:flex;flex-direction:column;gap:7px}
+.step{display:flex;gap:12px;align-items:flex-start;border:1px solid rgba(232,135,156,.32);
+  border-radius:13px;background:linear-gradient(165deg,rgba(58,20,36,.8),rgba(34,9,15,.85));
+  padding:9px 12px;width:100%}
+.step i{font-family:var(--font-num);font-style:normal;font-size:clamp(17px,3.8cqh,24px);
+  color:var(--pink);line-height:1.15}
+.step span{font-size:clamp(12.5px,3.3cqh,17px);line-height:1.5}
+.step span b{color:var(--gold-light);font-weight:600}
+.dflist{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.dflist.one{grid-template-columns:1fr}
+.df{border:1px solid rgba(212,175,55,.4);border-radius:13px;padding:11px 12px;
+  background:linear-gradient(165deg,rgba(58,20,36,.8),rgba(34,9,15,.85));text-align:center}
+.df u{display:block;text-decoration:none;font-family:var(--font-label);letter-spacing:1.5px;
+  font-size:clamp(10px,2.4cqh,13px);color:var(--pink)}
+.df b{display:block;font-family:var(--font-num);font-size:clamp(19px,4.6cqh,28px);
+  color:var(--gold-light);margin-top:3px;line-height:1.1}
+.df b em{font-style:normal;color:var(--gold)}
+.dflist.one .df b{font-size:clamp(17px,4.2cqh,26px);letter-spacing:.5px}
+.df small{display:block;font-size:clamp(10px,2.4cqh,12.5px);color:var(--text-muted);margin-top:3px}
+.note b{color:var(--pink-light);font-weight:600}
+.note{font-size:clamp(12px,3cqh,15px);font-weight:300;color:var(--text-muted);
+  border-left:2px solid rgba(232,135,156,.45);padding-left:11px;line-height:1.58;width:100%}
+.note s{text-decoration:none;color:var(--gold-light)}
+.brand{font-family:var(--font-label);font-size:12px;letter-spacing:4px;text-transform:uppercase;
+  color:rgba(232,135,156,.6);position:absolute;bottom:5%}
+
+/* ═══ PIE CHARTS (SVG) ═══ */
+.pieduo{display:flex;gap:6cqw;justify-content:center;align-items:flex-start;width:100%}
+.pcell{text-align:center;flex:0 0 auto}
+.psvg{width:31cqw;aspect-ratio:1;margin:0 auto}
+.psvg svg{width:100%;height:100%;display:block;overflow:visible;
+  filter:drop-shadow(0 10px 26px rgba(0,0,0,.45))}
+.ps{stroke:#240d13;stroke-width:.9;stroke-linejoin:round}
+.pt{font-family:var(--font-num);fill:#3a1a08;font-size:9.5px;text-anchor:middle}
+.pt.big{font-size:14px}
+.pulse .ps.hot{transform-box:view-box;transform-origin:center;
+  animation:pgl 1.5s ease-in-out infinite}
+@keyframes pgl{
+  0%,100%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(238,205,106,0))}
+  50%{transform:scale(1.06);filter:drop-shadow(0 0 7px rgba(238,205,106,.95))}}
+.plab{margin-top:6px;font-size:clamp(11px,2.7cqh,14px);color:var(--gold-light);font-weight:600}
+.psub{font-size:clamp(9.5px,2.3cqh,12px);color:var(--text-muted)}
+.parrow{align-self:center;font-size:clamp(18px,4.6cqh,26px);color:var(--gold);padding-top:10cqw}
+.mini{width:15cqw;aspect-ratio:1;border-radius:50%;margin:5px auto 6px;
+  background:conic-gradient(#CEA848 0 calc(var(--q)*1%),#6E9E8B 0 100%);
+  box-shadow:0 0 0 1.5px rgba(212,175,55,.4)}
+.legend{display:flex;gap:10px;justify-content:center;margin-top:4px;
+  font-size:clamp(9.5px,2.3cqh,12px);color:var(--text-muted)}
+.legend i{font-style:normal;display:inline-block;width:9px;height:9px;border-radius:3px;
+  margin-right:4px;vertical-align:-1px}
+.cta{border:1.5px solid var(--gold);border-radius:60px;padding:9px 20px;
+  font-weight:700;font-size:clamp(15px,4cqh,20px);color:var(--gold-light);
+  background:linear-gradient(165deg,rgba(58,20,36,.85),rgba(34,9,15,.9));text-align:center}
+
+/* ═══ HUD ═══ */
+#prog{position:absolute;left:0;bottom:0;height:3px;width:0;z-index:6;opacity:0;
+  background:linear-gradient(90deg,var(--pink),var(--gold))}
+#prog.run{opacity:1}
+#hud{position:absolute;left:0;right:0;bottom:0;z-index:5;padding:7px 14px 9px;
+  display:flex;flex-direction:column;gap:6px;align-items:center;pointer-events:none;
+  background:linear-gradient(0deg,rgba(13,5,8,.8),transparent);transition:opacity .4s}
+#hud.hidden{opacity:0}
+#allprog{position:absolute;top:0;left:0;right:0;height:3px;z-index:6;
+  background:rgba(232,135,156,.15);transition:opacity .4s}
+#allprog i{display:block;height:100%;width:0;border-radius:0 3px 3px 0;
+  background:linear-gradient(90deg,var(--pink),var(--gold));transition:width .55s ease}
+#hud.hidden~#allprog,#allprog.hidden{opacity:0}
+#ctrl{display:flex;gap:9px;pointer-events:auto}
+#play{font-family:var(--font-thai);font-size:12px;color:var(--text-light);cursor:pointer;
+  border:1px solid rgba(232,135,156,.45);background:rgba(58,20,36,.8);border-radius:50px;
+  padding:6px 16px}
+#play.on{border-color:var(--gold);color:var(--gold-light)}
+#hint{font-size:10.5px;color:var(--text-muted);text-align:center;
+  transition:opacity .5s ease,max-height .5s ease}
+#hint.gone{opacity:0;max-height:0;overflow:hidden}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01s!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- ══ SCENE 0 · เปิด ══ -->
+  <section class="scene" id="t0">
+    <div class="eyebrow" data-beat>JP Trust Learning</div>
+    <div class="title" data-beat data-anim="pop">ทำไมต้อง<br><span class="gold-grad">Rebalance</span></div>
+    <div class="sub" data-beat>ซื้อหุ้น 5 ตัว เท่ากันเป๊ะ · ปีเดียว<br><i>เงินเกือบครึ่ง</i>ไปกองที่หุ้นตัวเดียว<br>ทั้งที่ไม่ได้กดซื้อเพิ่มเลยสักครั้ง</div>
+    <div class="steps" data-beat>
+      <div class="step"><i>1</i><span><b>rebalance คืออะไร</b> — เล่าด้วยเงิน 100,000</span></div>
+      <div class="step"><i>2</i><span>ทำแล้ว<b>ได้อะไร 3 ข้อ</b></span></div>
+      <div class="step"><i>3</i><span><b>วิธีทำจริง 5 ขั้น</b> — คิดเลขให้ดูเลย</span></div>
+      <div class="step"><i>4</i><span><b>นัดของจูน</b> — ต้นสิงหาคมนี้</span></div>
+    </div>
+  </section>
+
+  <!-- ══ SCENE 1 · ช่วงที่ 1 rebalance คืออะไร ══ -->
+  <section class="scene" id="t1">
+    <div class="eyebrow" data-beat>ช่วงที่ 1 · Rebalance คืออะไร</div>
+    <div class="title" data-beat data-anim="pop">เล่าด้วยเงิน<br><span class="gold-grad">100,000</span></div>
+    <div class="pieduo" data-beat>
+      <div class="pcell">
+        <div class="psvg" data-base="20" data-labels="all"></div>
+        <div class="plab">วันแรก</div>
+        <div class="psub">5 ตัว ตัวละ 20,000</div>
+      </div>
+      <div class="parrow">→</div>
+      <div class="pcell">
+        <div class="psvg" id="pieYear" data-base="43" data-labels="hot" data-hot="pulse"></div>
+        <div class="plab">ผ่านไป 1 ปี</div>
+        <div class="psub">ตัวสีทองวิ่ง 20,000 → 60,000</div>
+      </div>
+    </div>
+    <div class="sub" data-beat>รวมพอร์ต <b>140,000</b> — แต่<i>เงินเกือบครึ่ง</i><br>ไปอยู่ที่หุ้นตัวเดียวแล้ว</div>
+    <div class="sub" data-beat>ถ้าพรุ่งนี้ตัวนั้นตกแรง <b>เจ็บหนักสุด</b><br>เพราะเงินกองที่มันเยอะสุดพอดี</div>
+    <div class="note" data-beat data-fx="pieYear">rebalance = <b>ขายส่วนเกินของตัวที่ใหญ่เกิน</b> เอาไปเติมตัวที่เหลือ ให้ทุกตัวกลับมาเท่ากันเหมือนวันแรก — <s>แค่นั้นเลย ไม่มีอะไรลึกลับ</s></div>
+  </section>
+
+  <!-- ══ SCENE 2 · ช่วงที่ 2 ได้อะไร 3 ข้อ ══ -->
+  <section class="scene" id="t2">
+    <div class="eyebrow" data-beat>ช่วงที่ 2 · ทำแล้วได้อะไร</div>
+    <div class="title" data-beat data-anim="pop">ได้อะไร — <span class="gold-grad">3 ข้อ</span></div>
+    <div class="step" data-beat data-anim="left"><i>1</i><span><b>ความเสี่ยงไม่บาน</b>เกินที่ตั้งใจ</span></div>
+    <div class="dflist" data-beat>
+      <div class="df"><u>จัดกลับทุกปี</u><div class="mini" style="--q:60"></div><b>ยัง 60 : 40</b><small>Vanguard ทดลอง 32 ปี</small></div>
+      <div class="df"><u>ไม่แตะเลย</u><div class="mini" style="--q:80"></div><b>กลาย 80 : 20</b><small>เสี่ยงเกินโดยไม่รู้ตัว</small></div>
+    </div>
+    <div class="step" data-beat data-anim="left"><i>2</i><span><b>เก็บกำไรเป็นรอบ</b> — กำไรหน้าจอ → เงินจริง ไม่ต้องเดาจังหวะขาย</span></div>
+    <div class="step" data-beat data-anim="left"><i>3</i><span><b>ตัดอารมณ์</b> — หุ้นพุ่งใจบอกถือต่อ หุ้นดิ่งใจบอกขายหนี · ใจมักผิดเวลาทั้ง 2 ครั้ง</span></div>
+    <div class="note" data-beat>วันนัดตายตัว = ให้ตัวเราตอน<b>ใจนิ่ง</b> ตัดสินใจแทนตัวเราตอน<b>ใจสั่น</b> ไว้ล่วงหน้า</div>
+  </section>
+
+  <!-- ══ SCENE 3 · ช่วงที่ 3 วิธีทำ 5 ขั้น ══ -->
+  <section class="scene" id="t3">
+    <div class="eyebrow" data-beat>ช่วงที่ 3 · วิธีทำจริง</div>
+    <div class="title" data-beat data-anim="pop">ง่ายมาก <span class="gold-grad">5 ขั้น</span></div>
+    <div class="step" data-beat data-anim="left"><i>1</i><span>เปิดแอปโบรกเกอร์ ดู<b>มูลค่ารวม</b>ของพอร์ตวันนี้</span></div>
+    <div class="step" data-beat data-anim="left"><i>2</i><span>เอา<b>จำนวนหุ้นหาร</b> → ได้เป้าต่อตัว</span></div>
+    <div class="step" data-beat data-anim="left"><i>3</i><span>ตัวเกินเป้า <b>ขายส่วนที่เกิน</b> · ตัวขาด <b>ซื้อเติม</b></span></div>
+    <div class="step" data-beat data-anim="left"><i>4</i><span>จดวันที่ <b>ตั้งนัดครั้งถัดไป</b> — ปีใหม่ หรือวันเกิด จำง่ายดี</span></div>
+    <div class="step" data-beat data-anim="left"><i>5</i><span>ระหว่างรอถึงนัด <b>ไม่ต้องทำอะไรเลย</b></span></div>
+  </section>
+
+  <!-- ══ SCENE 4 · คิดเลขให้ดู ══ -->
+  <section class="scene" id="t4">
+    <div class="eyebrow" data-beat>ช่วงที่ 3 · คิดเลขให้ดูเลย</div>
+    <div class="title" data-beat data-anim="pop">พอร์ต <span class="gold-grad">140,000</span><br>หุ้น 5 ตัว</div>
+    <div class="dflist one" data-beat>
+      <div class="df"><u>ขั้น 2 · หาเป้าต่อตัว</u><b>140,000 ÷ 5 = <em>28,000</em></b><small>ทุกตัวควรมีเท่านี้</small></div>
+    </div>
+    <div class="dflist one" data-beat>
+      <div class="df"><u>ขั้น 3 · ตัวสีทองเกินเป้า</u><b>60,000 − 28,000 = <em>32,000</em></b><small>ขายออก 32,000</small></div>
+    </div>
+    <div class="dflist one" data-beat>
+      <div class="df"><u>เอาเงินก้อนนั้นไปเติม 4 ตัว</u><b>32,000 ÷ 4 = <em>8,000</em></b><small>เติมตัวละ 8,000</small></div>
+    </div>
+    <div class="pcell" data-beat data-fx="pieBack" style="width:100%">
+      <div class="psvg" id="pieBack" data-base="43" data-labels="hot" data-hot="pulse" style="width:26cqw"></div>
+      <div class="psub" style="margin-top:5px">ขายส่วนเกิน + เติม 4 ตัว → <b style="color:var(--gold-light)">กลับไปสัดส่วนเดิม ตัวละ 20%</b> เหมือนวันแรก</div>
+    </div>
+    <div class="note" data-beat>ทุกตัวกลับมา <b>28,000 เท่ากันเป๊ะ</b> — ทั้งหมดไม่ถึงครึ่งชั่วโมง <b>ปีละครั้ง</b>เอง</div>
+  </section>
+
+  <!-- ══ SCENE 5 · ตั้งวันนัด 2 สไตล์ + เคล็ด ══ -->
+  <section class="scene" id="t5">
+    <div class="eyebrow" data-beat>ช่วงที่ 3 · ตั้งวันนัดแบบไหนดี</div>
+    <div class="title" data-beat data-anim="pop">นัดได้ <span class="gold-grad">2 สไตล์</span></div>
+    <div class="step" data-beat data-anim="left"><i>①</i><span><b>ตามปฏิทิน</b> — ถึงวันปุ๊บทำเลย ปีละ 1–2 ครั้งพอ · ง่าย เหมาะมือใหม่</span></div>
+    <div class="step" data-beat data-anim="left"><i>②</i><span><b>ตามความเบี่ยงเบน</b> — ตั้งเป้าตัวละ 20 ส่วน พอบวมถึง <b>25</b> ค่อยจัด · ไม่ต้องรอวัน แต่ต้องคอยเช็คพอร์ตบ้าง</span></div>
+    <div class="sub" data-beat>แบบไหนก็ได้ — ขอแค่<b>เลือกไว้ล่วงหน้า</b><br>แล้วทำตามนั้นจริงๆ</div>
+    <div class="note" data-beat>เคล็ดคนเสียดายค่าธรรมเนียม · ใช้<b>เงินออมใหม่</b>แต่ละเดือน เติมเฉพาะตัวที่ขาด — พอร์ตกลับมาสมดุลเอง<b>โดยไม่ต้องขายสักหุ้น</b></div>
+  </section>
+
+  <!-- ══ SCENE 6 · ช่วงจบ นัดของจูน ══ -->
+  <section class="scene" id="t6">
+    <div class="eyebrow" data-beat>ช่วงจบ · นัดของจูน</div>
+    <div class="title" data-beat data-anim="pop"><span class="rose-grad">ต้นสิงหาคม</span><br>พอร์ตใหญ่ครบ 6 เดือน</div>
+    <div class="sub" data-beat>จูน rebalance ตามกติกาเป๊ะๆ<br>ตัว<b>ฟอร์มตก หลุดอันดับ</b> → ออก<br>ตัวที่<b>กำลังแรง</b>ชุดใหม่ → เข้าแทน</div>
+    <div class="note" data-beat>พอร์ตโมเมนตัม = <b>ร้านขายของสด</b> ของต้องหมุน · ไม่เอาของใหม่เข้า ร้านยังเปิดอยู่ แต่ของข้างในไม่สดแล้ว</div>
+    <div class="sub" data-beat>รอบนี้จะดีหรือแย่ ไม่มีใครตอบได้<br>ที่แน่ๆ พอร์ตจะกลับมาตรงกับ<b>กติกา</b><br>ไม่ใช่<i>อารมณ์</i>ของสัปดาห์นั้น</div>
+  </section>
+
+  <!-- ══ SCENE 7 · ปิด ══ -->
+  <section class="scene" id="t7">
+    <div class="eyebrow" data-beat>คำถามส่งท้าย</div>
+    <div class="title" data-beat data-anim="pop">พอร์ตของคุณ<br>ยังเป็นแบบที่<span class="gold-grad">ตั้งใจ</span><br>ไว้วันแรกไหม?</div>
+    <div class="sub" data-beat>หรือกลายเป็นแบบที่<i>ตลาดจัดให้</i>ไปแล้ว<br>ลองเปิดแอปดูเลยค่ะ</div>
+    <div class="cta" data-beat data-anim="pop">คอมเมนต์ “ของสด” 💛<br><small style="font-weight:400;font-size:.72em;color:var(--text-muted)">รับลิงก์บทความฉบับเต็ม</small></div>
+    <div class="note" data-beat>เนื้อหาเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน · ผลในอดีตไม่ได้การันตีผลในอนาคต</div>
+    <div class="brand">JP Trust Learning</div>
+  </section>
+
+  <div id="guide"></div>
+  <div id="prog"></div>
+  <div id="allprog"><i id="allfill"></i></div>
+  <div id="hud">
+    <div id="ctrl"><button id="play">▶ เล่นอัตโนมัติ</button></div>
+    <div id="hint">แตะ = ถัดไป · แตะฝั่งซ้าย = ย้อน · P = เล่น/หยุด · H = ซ่อนแถบ · R = เริ่มใหม่</div>
+  </div>
+</div>
+
+<script>
+'use strict';
+const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+
+const SCENES=[
+{talk:'t0', beats:[{d:2600},{d:3400},{d:5200},{d:6200}]},
+{talk:'t1', beats:[{d:2400},{d:3000},{d:5600},{d:4200},{d:4200},{d:6400}]},
+{talk:'t2', beats:[{d:2400},{d:2800},{d:3400},{d:6200},{d:4600},{d:5000},{d:5200}]},
+{talk:'t3', beats:[{d:2400},{d:2600},{d:3600},{d:3600},{d:4000},{d:4200},{d:3800}]},
+{talk:'t4', beats:[{d:2400},{d:3000},{d:4600},{d:4600},{d:4600},{d:5600},{d:5200}]},
+{talk:'t5', beats:[{d:2400},{d:2600},{d:4600},{d:5600},{d:3800},{d:5600}]},
+{talk:'t6', beats:[{d:2400},{d:3400},{d:5600},{d:5600},{d:5600}]},
+{talk:'t7', beats:[{d:2400},{d:3800},{d:3600},{d:4600},{d:5600}]}
+];
+
+/* ── flatten to a single beat list ── */
+const beats=[];
+SCENES.forEach((sc,si)=>sc.beats.forEach((b,bi)=>beats.push(Object.assign({},b,{sc:si,first:bi===0}))));
+
+/* ── engine ── */
+const stage=$('#stage'), guide=$('#guide');
+const talkScenes=$$('.scene');
+let cursor=-1, auto=false, autoTimer=null;
+const allfill=$('#allfill'), hintEl=$('#hint');
+
+function showTalk(id){
+  talkScenes.forEach(s=>s.classList.toggle('active',s.id===id));
+  guide.classList.toggle('show',!!id);
+}
+function resetTalk(){ $$('.scene [data-beat]').forEach(e=>e.classList.remove('on','gone')); }
+
+/* ── SVG pies ── */
+const PCOLS=['#EECD6A','#C46A6A','#6E9E8B','#7189A8','#9A7BA8'];
+function ptTop(r,adeg){const a=adeg*Math.PI/180;
+  return [(50+r*Math.sin(a)).toFixed(2),(50-r*Math.cos(a)).toFixed(2)];}
+function buildPie(el,p,animating){
+  const others=(100-p)/4, shares=[p,others,others,others,others];
+  const mode=el.getAttribute('data-labels')||'all';
+  let a=0, svg='<svg viewBox="0 0 100 100">';
+  shares.forEach((s,i)=>{
+    const a2=a+s*3.6, [x1,y1]=ptTop(48,a), [x2,y2]=ptTop(48,a2);
+    const large=(a2-a)>180?1:0;
+    svg+='<path class="ps'+(i===0?' hot':'')+'" fill="'+PCOLS[i]+
+         '" d="M50,50 L'+x1+','+y1+' A48,48 0 '+large+' 1 '+x2+','+y2+' Z"/>';
+    a=a2;
+  });
+  svg+='<circle cx="50" cy="50" r="48.7" fill="none" stroke="rgba(212,175,55,.55)" stroke-width="1.3"/>';
+  a=0;
+  shares.forEach((s,i)=>{
+    const mid=a+s*1.8; a+=s*3.6;
+    const show=(mode==='all')||(mode==='hot'&&i===0);
+    if(!show) return;
+    const big=(mode==='hot'&&i===0);
+    const [lx,ly]=ptTop(big?26:32,mid);
+    svg+='<text class="pt'+(big?' big':'')+'" x="'+lx+'" y="'+(parseFloat(ly)+(big?4.5:3.2)).toFixed(1)+
+         '">'+Math.round(s)+'%</text>';
+  });
+  svg+='</svg>';
+  el.innerHTML=svg;
+  el.dataset.p=p;
+  el.classList.toggle('pulse', !animating && p>25 && el.getAttribute('data-hot')==='pulse');
+}
+function healPie(el,to,dur,delay){
+  clearTimeout(el._ht); if(el._anim) cancelAnimationFrame(el._anim);
+  el._ht=setTimeout(()=>{
+    const from=parseFloat(el.dataset.p);
+    el.classList.remove('pulse');
+    const t0=performance.now();
+    const fr=t=>{
+      let k=Math.min(1,(t-t0)/dur); k=1-Math.pow(1-k,3);
+      buildPie(el, from+(to-from)*k, k<1);
+      if(k<1) el._anim=requestAnimationFrame(fr);
+    };
+    el._anim=requestAnimationFrame(fr);
+  }, delay||0);
+}
+function resetPie(el){
+  clearTimeout(el._ht); if(el._anim) cancelAnimationFrame(el._anim);
+  buildPie(el, parseFloat(el.getAttribute('data-base')));
+}
+$$('.psvg').forEach(el=>buildPie(el, parseFloat(el.getAttribute('data-base'))));
+
+function applyFx(){
+  $$('.scene [data-fx]').forEach(el=>{
+    const t=document.getElementById(el.getAttribute('data-fx'));
+    if(!t) return;
+    const base=parseFloat(t.getAttribute('data-base'));
+    if(el.classList.contains('on')){
+      if(parseFloat(t.dataset.p)>20.5) healPie(t,20,1700,600);
+    } else if(parseFloat(t.dataset.p)<base-0.5 || t._ht || t._anim){
+      resetPie(t);
+    }
+  });
+}
+
+function render(){
+  const b=beats[cursor<0?0:cursor];
+  const sc=SCENES[b.sc];
+  showTalk(sc.talk);
+  resetTalk();
+  if(cursor>=0){
+    const els=$$('#'+sc.talk+' [data-beat]');
+    let k=0;
+    for(let i=0;i<=cursor;i++){
+      if(beats[i].sc!==b.sc) continue;
+      if(els[k]) els[k].classList.add('on');
+      if(beats[i].off) beats[i].off.forEach(j=>{
+        if(els[j]){ els[j].classList.remove('on'); els[j].classList.add('gone'); } });
+      k++;
+    }
+  }
+  applyFx();
+  allfill.style.width=(Math.max(0,cursor+1)/beats.length*100)+'%';
+  hintEl.classList.toggle('gone',cursor>2);
+  scheduleAuto();
+}
+function next(){ if(cursor>=beats.length-1){ setAuto(false); return; } cursor++; render(); }
+function prev(){ if(cursor<0) return; cursor--; render(); }
+function restart(){ cursor=-1; render(); }
+
+/* ── autoplay ── */
+const prog=$('#prog'), playBtn=$('#play');
+function setAuto(on){
+  auto=on;
+  playBtn.textContent=on?'❚❚ หยุด':'▶ เล่นอัตโนมัติ';
+  playBtn.classList.toggle('on',on);
+  if(on&&cursor>=beats.length-1) restart(); else scheduleAuto();
+}
+function scheduleAuto(){
+  clearTimeout(autoTimer);
+  prog.classList.remove('run'); prog.style.transition='none'; prog.style.width='0%';
+  if(!auto) return;
+  const d=(cursor<0?1200:(beats[cursor].d||3400));
+  void prog.offsetWidth;
+  prog.classList.add('run');
+  prog.style.transition='width '+d+'ms linear';
+  prog.style.width='100%';
+  autoTimer=setTimeout(next,d);
+}
+
+/* ── input ── */
+stage.addEventListener('click',e=>{
+  if(e.target.closest('#ctrl')) return;
+  const x=e.clientX-stage.getBoundingClientRect().left;
+  if(x<stage.clientWidth*0.26) prev(); else next();
+});
+playBtn.addEventListener('click',e=>{ e.stopPropagation(); setAuto(!auto); });
+document.addEventListener('keydown',e=>{
+  if(e.key===' '||e.key==='ArrowRight'||e.key==='ArrowDown'){ e.preventDefault(); setAuto(false); next(); }
+  else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){ e.preventDefault(); setAuto(false); prev(); }
+  else if(e.key==='p'||e.key==='P'){ setAuto(!auto); }
+  else if(e.key==='h'||e.key==='H'){ $('#hud').classList.toggle('hidden'); $('#allprog').classList.toggle('hidden'); }
+  else if(e.key==='r'||e.key==='R'){ restart(); }
+});
+
+render();
+</script>
+</body>
+</html>
