@@ -121,6 +121,12 @@ const RESEARCH = [
   },
   {
     cat: "dashboard", type: "dashboard", status: "active",
+    title: "Sector & Theme Rotation — เวอร์ชันเปิดให้ใช้ฟรี",
+    desc: "แดชบอร์ดติดตามว่าเงินลงทุนกำลังหมุนเข้ากลุ่มไหนในตลาดหุ้นสหรัฐฯ แบ่งเป็น 4 โซน — นำตลาด กำลังฟื้น เริ่มแผ่ว อ่อนแรง — พร้อมแผนที่การหมุน (แกนนอน = ความแข็งเทียบ SPY, แกนตั้ง = โมเมนตัมของความแข็งนั้น) · ทุกกลุ่มคำนวณจากหุ้นใน S&P 500 แบบถ่วงน้ำหนักเท่ากันจากราคาปิดรายวัน มี Breadth และมูลค่าซื้อขาย 5D/20D ประกอบ พร้อม ETF อ้างอิงของแต่ละกลุ่ม",
+    assets: ["S&P 500"], href: "https://app.jptrustlearning.com/sector-rotation.html"
+  },
+  {
+    cat: "dashboard", type: "dashboard", status: "active",
     title: "S&P 500 Scanner — เวอร์ชันเปิดให้ใช้ฟรี",
     desc: "สแกนหุ้นใน S&P 500 ตามคะแนนโมเมนตัมรวม อัปเดตรายวันจากข้อมูลปิดตลาด ใช้ดูภาพรวมว่าหุ้นตัวไหนกำลังอยู่ในกลุ่มนำตลาด",
     assets: ["S&P 500"], href: "https://app.jptrustlearning.com/Free_scannerSP500%20(6).html"
