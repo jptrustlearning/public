@@ -316,18 +316,37 @@ img{max-width:100%;display:block}
   .foot-news{grid-column:1/-1}
 }
 @media(max-width:760px){
-  .nav-cta{display:none}
-  .nav-burger{display:flex}
   .hero{background-position:78% center}
   .hero-copy{max-width:100%}
   .hero-features{gap:16px 22px}
   .stats-panel{grid-template-columns:1fr 1fr;gap:26px 16px}
   .stat-item:nth-child(2)::after{display:none}
 }
+@media(max-width:600px){
+  /* quad stays a unified 2x2 checkerboard box with the owl medal at the crux */
+  .quad{grid-template-columns:1fr 1fr;gap:2px;
+    background:linear-gradient(135deg,#D4AF37,#B8860B);
+    border:3px solid var(--gold);border-radius:26px;overflow:hidden;
+    box-shadow:0 18px 44px rgba(58,21,32,0.18)}
+  .qcard{border-radius:0;box-shadow:none;border:none;min-height:190px;
+    justify-content:center;align-items:center;text-align:center;padding:26px 16px}
+  .qcard:hover{transform:none;box-shadow:none}
+  .qcard .q-ico{margin:0 auto 12px}
+  .qcard .q-eye{margin:0 0 4px}
+  .qcard .q-title{margin-bottom:0}
+  .qcard .q-desc,.qcard .q-arrow{display:none}
+  .quad-medal{display:flex;width:92px;height:92px;padding:7px;border-radius:20px}
+  .nav-cta{padding:10px 15px;font-size:13px}
+  .brand-sub{letter-spacing:2px}
+}
+@media(max-width:400px){
+  .brand-name{font-size:14px}
+  .brand-sub{font-size:9px;letter-spacing:1.5px}
+  .nav-cta{padding:9px 13px;font-size:12.5px;gap:6px}
+  .qcard{min-height:172px;padding:22px 12px}
+  .qcard .q-title{font-size:19px}
+}
 @media(max-width:480px){
-  .quad{grid-template-columns:1fr}
-  .quad-medal{display:none}
-  .qcard{min-height:auto}
   .foot-grid{grid-template-columns:1fr}
   .stats-panel{grid-template-columns:1fr 1fr}
   .stat-item::after{display:none!important}
