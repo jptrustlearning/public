@@ -238,6 +238,12 @@ const RESEARCH = [
 
   /* ---------- Macro & ความเสี่ยง ---------- */
   {
+    cat: "macro", type: "article", status: "active",
+    title: "Macro คืออะไร และทำไมคนลงทุนต้องเข้าใจ Macro?",
+    desc: "Macro คือภาพใหญ่ที่บริษัททุกแห่งอยู่ร่วมกัน — ไล่ตัวเลขเศรษฐกิจมหภาค 4 กลุ่ม (Rates/CPI · DXY/US10Y · GDP/Jobs · Liquidity) ว่าแต่ละกลุ่มตอบคำถามอะไร · ทำไมสนามกลบฝีมือการเลือกหุ้นได้ (2022 ขึ้นดอกเบี้ย 7 ครั้ง เหลือกลุ่มพลังงานกลุ่มเดียวที่บวก / 2020 เศรษฐกิจหด แต่ดัชนีปิดบวก) · และโครงคิดที่วาง Momentum คู่กับ Macro เป็นภาวะตลาด → ระดับความเสี่ยง → คะแนนสองตัว แทนการใช้ทำนายอนาคต",
+    assets: ["S&P 500", "Gold", "FX"], href: "https://public.jptrustlearning.com/what-is-macro.html"
+  },
+  {
     cat: "macro", type: "interactive", status: "active",
     title: "Macro Overlay & Defensive Extend (v8neg)",
     desc: "ขยายรอบถือเมื่อสัญญาณ macro 4 สินทรัพย์ (SPY · WTI · Gold · USDJPY) ติดลบพร้อมกัน — โมเดลตั้งรับเมื่อไม่มีตัวนำให้หนีไป ทดสอบย้อนถึง 1996",

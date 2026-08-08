@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Macro คืออะไร และทำไมคนลงทุนต้องเข้าใจ Macro? | JP Trust Learning</title>
+<meta name="description" content="Macro หรือเศรษฐกิจมหภาค คือภาพใหญ่ที่บริษัททุกแห่งอยู่ร่วมกัน — ดอกเบี้ย เงินเฟ้อ ค่าเงิน การเติบโต และสภาพคล่อง อธิบายว่า Macro ประกอบด้วยตัวเลขกลุ่มไหน ทำไมมันตัดสินผลตอบแทนของพอร์ตมากกว่าที่คิด และวิธีวาง Macro ให้อยู่คู่กับ Momentum เป็นภาวะตลาดและระดับความเสี่ยง แทนการใช้ทำนายอนาคต">
+<link rel="canonical" href="https://public.jptrustlearning.com/what-is-macro.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="JP Trust Learning">
+<meta property="og:title" content="Macro คืออะไร และทำไมคนลงทุนต้องเข้าใจ Macro?">
+<meta property="og:description" content="Momentum บอกว่าใครกำลังนำ Macro บอกว่าสนามนี้เอื้อใคร — ทำความเข้าใจตัวเลขเศรษฐกิจมหภาค 4 กลุ่ม และวิธีแปลงมันเป็นระดับความเสี่ยงของพอร์ต">
+<meta property="og:image" content="https://public.jptrustlearning.com/og-image.png">
+<meta property="og:url" content="https://public.jptrustlearning.com/what-is-macro.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Cinzel:wght@500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maroon-deep:#1a0a0e;
+  --maroon:#2d1018;
+  --maroon-soft:#3a1620;
+  --cream:#FAF6ED;
+  --cream-2:#f3ecdc;
+  --gold:#D4AF37;
+  --gold-bright:#e7c659;
+  --gold-deep:#a8842a;
+  --price:#C75B49;          /* ราคา · อารมณ์  */
+  --price-soft:#e08a78;
+  --ink:#241016;
+  --ink-soft:#5a4640;
+  --on-dark:#f1e6d3;
+  --on-dark-soft:#c9b69b;
+  --line-dark:rgba(212,175,55,.22);
+  --line-light:rgba(45,16,24,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Anuphan',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.eyebrow{
+  font-family:'Cinzel',serif;
+  text-transform:uppercase;
+  letter-spacing:.34em;
+  font-size:.72rem;
+  font-weight:600;
+}
+.num{font-family:'DM Serif Display',serif;font-weight:400;line-height:.92;letter-spacing:-.01em}
+.serif{font-family:'DM Serif Display',serif}
+section{padding:clamp(64px,9vw,128px) clamp(22px,6vw,80px)}
+.wrap{max-width:980px;margin:0 auto}
+.narrow{max-width:760px;margin:0 auto}
+
+/* ---------- dual marker (signature) ---------- */
+.tag{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-family:'Cinzel',serif;font-size:.6rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  padding:.32em .7em;border-radius:999px;white-space:nowrap;
+  vertical-align:middle;
+}
+.tag::before{content:"";width:.5em;height:.5em;border-radius:50%}
+.tag.price{color:var(--price);background:rgba(199,91,73,.1);border:1px solid rgba(199,91,73,.35)}
+.tag.price::before{background:var(--price)}
+.tag.value{color:var(--gold-deep);background:rgba(212,175,55,.12);border:1px solid rgba(168,132,42,.4)}
+.tag.value::before{background:var(--gold)}
+.dark .tag.price{color:var(--price-soft);background:rgba(199,91,73,.16);border-color:rgba(224,138,120,.4)}
+.dark .tag.value{color:var(--gold-bright);background:rgba(212,175,55,.14);border-color:var(--line-dark)}
+
+/* ---------- brand bar ---------- */
+.brandbar{display:flex;align-items:center;gap:14px;margin-bottom:clamp(34px,6vw,60px)}
+.owl{width:48px;height:48px;flex:0 0 auto;object-fit:contain;border-radius:12px;filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}
+.brandbar .wordmark{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.16em;
+  font-size:1.02rem;color:var(--gold);line-height:1.1}
+.brandbar .wordmark span{display:block;font-size:.58rem;letter-spacing:.42em;color:var(--on-dark-soft);font-weight:500}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:
+    radial-gradient(120% 90% at 88% 4%, rgba(212,175,55,.16), transparent 46%),
+    radial-gradient(90% 70% at 0% 100%, rgba(199,91,73,.14), transparent 50%),
+    linear-gradient(160deg,var(--maroon) 0%, var(--maroon-deep) 100%);
+  color:var(--on-dark);position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line-dark);
+}
+.hero .eyebrow{color:var(--gold);margin-bottom:26px}
+.hero-paradox{
+  display:flex;align-items:stretch;gap:0;margin:6px 0 34px;
+  border:1px solid var(--line-dark);border-radius:16px;overflow:hidden;
+  background:rgba(0,0,0,.18);
+}
+.hero-paradox .cell{flex:1;padding:clamp(20px,4vw,34px) clamp(18px,3.5vw,30px)}
+.hero-paradox .cell+.cell{border-left:1px solid var(--line-dark)}
+.hero-paradox .lbl{font-family:'Anuphan';font-size:.82rem;color:var(--on-dark-soft);
+  display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.hero-paradox .big{font-size:clamp(2.9rem,11vw,4.6rem)}
+.hero-paradox .cell.value .big{color:var(--gold-bright)}
+.hero-paradox .cell.price .big{color:var(--price-soft)}
+.hero-paradox .sub{font-size:.82rem;color:var(--on-dark-soft);margin-top:8px}
+.hero h1{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(2rem,6vw,3.35rem);line-height:1.12;
+  letter-spacing:-.01em;margin-bottom:22px;color:#fff;
+}
+.hero h1 em{font-style:italic;color:var(--gold-bright)}
+.hero .lens{
+  font-size:clamp(1.05rem,2.6vw,1.4rem);color:var(--on-dark);
+  border-left:2px solid var(--gold);padding-left:18px;margin-bottom:30px;
+  max-width:680px;
+}
+.hero .lens b{color:var(--gold-bright);font-weight:600}
+.hero .meta{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--on-dark-soft);line-height:2}
+
+/* ---------- section chrome ---------- */
+.dark{background:linear-gradient(170deg,var(--maroon) 0%,var(--maroon-deep) 100%);color:var(--on-dark)}
+.dark .eyebrow{color:var(--gold)}
+.light .eyebrow{color:var(--gold-deep)}
+.act-no{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--gold-deep);
+  letter-spacing:.05em;margin-bottom:6px;display:block}
+.dark .act-no{color:var(--gold)}
+h2.head{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.7rem,4.8vw,2.7rem);line-height:1.15;
+  margin:14px 0 26px;letter-spacing:-.01em;
+}
+.light h2.head{color:var(--maroon)}
+.dark h2.head{color:#fff}
+.lead{font-size:clamp(1.05rem,2.2vw,1.2rem);margin-bottom:14px}
+.light .lead{color:var(--ink)}
+.dark .lead{color:var(--on-dark)}
+p.body{margin-bottom:16px;font-size:1.02rem}
+.light p.body{color:var(--ink-soft)}
+.dark p.body{color:var(--on-dark-soft)}
+.kw{color:var(--maroon);font-weight:600}
+.dark .kw{color:var(--gold-bright)}
+
+/* section figure */
+.figure{margin:6px 0 30px;border-radius:18px;overflow:hidden;border:1px solid var(--line-dark);box-shadow:0 26px 64px -34px rgba(0,0,0,.75);position:relative}
+.figure img{display:block;width:100%;height:auto}
+.figure figcaption{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-soft);padding:11px 16px;background:rgba(0,0,0,.34);border-top:1px solid var(--line-dark);display:flex;align-items:center;gap:8px}
+.figure figcaption::before{content:"";width:.5em;height:.5em;border-radius:50%;background:var(--gold);flex:0 0 auto}
+.light .figure figcaption{color:var(--ink-soft);background:rgba(45,16,24,.05);border-top-color:var(--line-light)}
+/* pull line */
+.pull{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3.4vw,1.9rem);
+  line-height:1.3;margin:30px 0;padding:0 0 0 22px;border-left:3px solid var(--gold);
+}
+.light .pull{color:var(--maroon)}
+.dark .pull{color:#fff}
+.pull em{font-style:italic;color:var(--gold-deep)}
+.dark .pull em{color:var(--gold-bright)}
+
+/* analogy card */
+.analogy{
+  background:var(--cream-2);border:1px solid var(--line-light);border-radius:18px;
+  padding:clamp(24px,4vw,38px);margin:28px 0;position:relative;
+}
+.analogy::before{content:"\201C";font-family:'DM Serif Display',serif;
+  position:absolute;top:-.1em;left:.28em;font-size:4.5rem;color:var(--gold);opacity:.5;line-height:1}
+.analogy p{font-size:1.08rem;color:var(--ink);position:relative}
+.analogy .pv{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
+/* stat grid */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:30px 0 8px}
+.stat{
+  border:1px solid var(--line-dark);border-radius:14px;padding:22px 20px;
+  background:rgba(0,0,0,.16);position:relative;overflow:hidden;
+}
+.light .stat{background:#fff;border-color:var(--line-light);box-shadow:0 8px 24px -18px rgba(45,16,24,.4)}
+.stat .stat-num{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,5vw,2.5rem);
+  line-height:1;color:var(--gold)}
+.light .stat .stat-num{color:var(--gold-deep)}
+.stat .stat-lbl{font-size:.9rem;margin-top:10px}
+.dark .stat .stat-lbl{color:var(--on-dark-soft)}
+.light .stat .stat-lbl{color:var(--ink-soft)}
+.stat .src{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-deep);margin-top:12px;display:block;opacity:.8}
+.dark .stat .src{color:var(--on-dark-soft)}
+
+/* two-trap split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
+.trap{border:1px solid rgba(199,91,73,.34);border-radius:14px;padding:22px;background:rgba(199,91,73,.07)}
+.dark .trap{background:rgba(199,91,73,.12)}
+.trap .t{font-weight:600;color:var(--price);margin-bottom:6px;font-size:1.05rem}
+.dark .trap .t{color:var(--price-soft)}
+.trap p{font-size:.96rem}
+.light .trap p{color:var(--ink-soft)}
+.dark .trap p{color:var(--on-dark-soft)}
+.system{
+  border:1px solid var(--line-dark);border-left:3px solid var(--gold);
+  border-radius:14px;padding:24px;margin-top:20px;background:rgba(212,175,55,.06)
+}
+.dark .system{background:rgba(212,175,55,.08)}
+.system .t{font-family:'Cinzel',serif;letter-spacing:.16em;text-transform:uppercase;
+  font-size:.7rem;color:var(--gold-deep);margin-bottom:10px}
+.dark .system .t{color:var(--gold-bright)}
+
+/* paradox panel (act 2) */
+.paradox2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.pcard{border-radius:16px;padding:24px}
+.pcard.val{background:rgba(212,175,55,.1);border:1px solid rgba(168,132,42,.4)}
+.pcard.mood{background:rgba(199,91,73,.09);border:1px solid rgba(199,91,73,.35)}
+.pcard .pc-num{font-family:'DM Serif Display',serif;font-size:2rem;line-height:1;margin:8px 0}
+.pcard.val .pc-num{color:var(--gold-deep)}
+.pcard.mood .pc-num{color:var(--price)}
+.pcard p{font-size:.95rem;color:var(--ink-soft)}
+
+/* ---------- ad showcase ---------- */
+.showcase{padding:0}
+.showcase-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px);
+  align-items:center;max-width:980px;margin:0 auto;
+}
+.showcase .copy .eyebrow{margin-bottom:14px}
+.showcase .copy h3{font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.5rem,3.6vw,2.1rem);line-height:1.18;margin-bottom:16px}
+.dark.showcase-sec .copy h3{color:#fff}
+.light.showcase-sec .copy h3{color:var(--maroon)}
+.showcase .copy p{font-size:1rem;margin-bottom:18px}
+.dark.showcase-sec .copy p{color:var(--on-dark-soft)}
+.light.showcase-sec .copy p{color:var(--ink-soft)}
+.showcase .copy ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.showcase .copy li{display:flex;gap:10px;align-items:flex-start;font-size:.96rem}
+.showcase .copy li::before{content:"";flex:0 0 auto;width:7px;height:7px;border-radius:50%;
+  background:var(--gold);margin-top:.6em}
+.dark.showcase-sec .copy li{color:var(--on-dark)}
+.light.showcase-sec .copy li{color:var(--ink)}
+.shot{border-radius:20px;overflow:hidden;border:1px solid var(--line-dark);
+  box-shadow:0 30px 70px -34px rgba(0,0,0,.7);position:relative}
+.light.showcase-sec .shot{border-color:var(--line-light);box-shadow:0 30px 70px -38px rgba(45,16,24,.5)}
+.shot img{display:block;width:100%;height:auto}
+
+/* ---------- closing ---------- */
+.closing{background:
+  radial-gradient(100% 80% at 50% 0%, rgba(212,175,55,.14), transparent 55%),
+  linear-gradient(180deg,var(--maroon-deep),#120608);
+  color:var(--on-dark);text-align:center}
+.closing .q{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,4.4vw,2.5rem);
+  line-height:1.28;color:#fff;max-width:760px;margin:0 auto 26px}
+.closing .q em{font-style:italic;color:var(--gold-bright)}
+.closing .lens-final{font-size:clamp(1.05rem,2.6vw,1.3rem);color:var(--on-dark);
+  max-width:640px;margin:0 auto 44px}
+.closing .lens-final b{color:var(--gold-bright)}
+.cta{display:inline-flex;flex-direction:column;align-items:center;gap:6px;
+  border:1px solid var(--line-dark);border-radius:16px;
+  padding:24px 40px;background:rgba(0,0,0,.25);text-decoration:none}
+.cta .sub{font-family:'Cinzel',serif;letter-spacing:.3em;font-size:.6rem;
+  text-transform:uppercase;color:var(--on-dark-soft)}
+.cta .url{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.04em;
+  font-size:clamp(1.3rem,3.4vw,1.7rem);color:var(--gold)}
+.cta .tip{font-size:.84rem;color:var(--on-dark-soft);margin-top:2px}
+.cta:hover .url{color:var(--gold-bright)}
+.disclaimer{margin-top:46px;font-size:.74rem;color:var(--on-dark-soft);
+  letter-spacing:.02em;max-width:680px;margin-left:auto;margin-right:auto;
+  border-top:1px solid var(--line-dark);padding-top:22px;line-height:1.9}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:680px){
+  .hero-paradox{flex-direction:row}
+  .stats{grid-template-columns:1fr 1fr}
+  .split,.paradox2{grid-template-columns:1fr}
+  .showcase-inner{grid-template-columns:1fr}
+  .showcase .copy{order:2}
+  .showcase .shot{order:1;max-width:420px;margin:0 auto}
+}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+<style>
+/* --- checklist (article-specific) --- */
+.stat.span2{grid-column:1/-1}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:12px;margin:24px 0 8px}
+.checklist li{display:flex;gap:12px;align-items:flex-start;font-size:1rem;line-height:1.6}
+.checklist li .ck{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:rgba(212,175,55,.14);
+  border:1px solid var(--gold);color:var(--gold-deep);display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;font-weight:700;margin-top:.1em}
+.light .checklist li{color:var(--ink-soft)}
+.checklist li b{color:var(--maroon)}
+
+/* ═══ JPT · สีลิงก์ในเนื้อบทความ (v1) ═══════════════════
+   เจาะจงเฉพาะลิงก์ที่อยู่ในย่อหน้า/รายการ เพื่อไม่ให้ไปโดน
+   .sc-cta (ปุ่ม Subscribe ที่ไม่ได้กำหนดสีของตัวเองไว้)
+   .crumb และ .foot-links a ซึ่งมีสีของตัวเองอยู่แล้ว        */
+.wrap p a,.wrap li a,.narrow p a,.narrow li a,.callout a,.tl-b a,.tl-t a{
+  color:#8B6914;text-decoration:none;
+  border-bottom:1px solid rgba(184,134,11,.42);
+  transition:color .15s ease,border-color .15s ease;
+}
+.wrap p a:hover,.wrap li a:hover,.narrow p a:hover,.narrow li a:hover,.callout a:hover,.tl-b a:hover,.tl-t a:hover{
+  color:#722F37;border-bottom-color:rgba(114,47,55,.55);
+}
+.band .wrap p a,.band .wrap li a,.band .callout a,.band .tl-b a,.band .tl-t a{
+  color:#E8D48B;border-bottom-color:rgba(232,212,139,.42);
+}
+.band .wrap p a:hover,.band .wrap li a:hover,.band .callout a:hover,
+.band .tl-b a:hover,.band .tl-t a:hover{
+  color:#FFFEF8;border-bottom-color:rgba(255,254,248,.75);
+}
+</style>
+
+<style>
+/* --- flow diagram (article-specific) --- */
+.flow{margin:34px 0 12px}
+.fnode{
+  border:1px solid var(--line-light);border-radius:14px;
+  padding:16px 18px;text-align:center;background:#fff;
+  box-shadow:0 8px 24px -18px rgba(45,16,24,.4);
+}
+.dark .fnode{border-color:var(--line-dark);background:rgba(0,0,0,.18);box-shadow:none}
+.fnode .fn-t{
+  font-family:'Cinzel',serif;letter-spacing:.16em;text-transform:uppercase;
+  font-size:.74rem;font-weight:600;color:var(--gold-deep);line-height:1.5;
+}
+.dark .fnode .fn-t{color:var(--gold)}
+.fnode .fn-s{font-size:.88rem;color:var(--ink-soft);margin-top:8px;line-height:1.7}
+.dark .fnode .fn-s{color:var(--on-dark-soft)}
+.fnode.accent{border-color:rgba(168,132,42,.55);background:rgba(212,175,55,.1)}
+.dark .fnode.accent{border-color:var(--gold);background:rgba(212,175,55,.12)}
+.fnode.accent .fn-t{font-size:.82rem}
+.fnode.term{border-color:rgba(114,47,55,.3);background:rgba(45,16,24,.05)}
+.fpair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fdrop{position:relative;height:30px}
+.fdrop::before{
+  content:"";position:absolute;left:50%;top:0;width:1px;height:100%;
+  background:linear-gradient(180deg,rgba(168,132,42,.2),var(--gold-deep));
+  transform:translateX(-.5px);
+}
+.dark .fdrop::before{background:linear-gradient(180deg,rgba(212,175,55,.2),var(--gold))}
+.fdrop::after{
+  content:"";position:absolute;left:50%;bottom:1px;width:7px;height:7px;
+  border-right:1px solid var(--gold-deep);border-bottom:1px solid var(--gold-deep);
+  transform:translate(-50%,0) rotate(45deg);
+}
+.dark .fdrop::after{border-right-color:var(--gold);border-bottom-color:var(--gold)}
+.fcap{
+  font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-soft);opacity:.75;text-align:center;margin-top:14px;
+}
+.dark .fcap{color:var(--on-dark-soft)}
+@media(max-width:520px){
+  .fpair{grid-template-columns:1fr;gap:12px}
+  .fnode{padding:14px 15px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO (Keyword + คำตอบสั้น) ===================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <img class="owl" src="https://raw.githubusercontent.com/jptrustlearning/pages/main/jpt-owl-cropped.png" alt="JP Trust Learning">
+      <div class="wordmark">JP TRUST<span>LEARNING</span></div>
+    </div>
+
+    <div class="eyebrow rv">Macro &amp; Risk &middot; พื้นฐานการลงทุน</div>
+    <h1 class="rv">Macro <em>คืออะไร?</em><br>และทำไมคนลงทุน<br>ต้องเข้าใจ</h1>
+
+    <p class="lens rv">Macro หรือ <b>เศรษฐกิจมหภาค</b> คือภาพใหญ่ที่บริษัททุกแห่งอยู่ร่วมกัน &mdash; ดอกเบี้ย เงินเฟ้อ ค่าเงิน การเติบโตของเศรษฐกิจ การจ้างงาน และปริมาณเงินที่ไหลเวียนอยู่ในระบบ Macro <b>ไม่ได้บอกว่าควรซื้อหุ้นตัวไหน</b> แต่บอกว่าตอนนี้กำลังเล่นอยู่ใน<b>สนามแบบไหน</b> และสนามแบบนั้นให้ราคากับสินทรัพย์ประเภทใดดีกว่ากัน</p>
+
+    <div class="meta rv">ความรู้พื้นฐาน &middot; หมวด Macro &amp; ความเสี่ยง &middot; เรียบเรียงโดย JP Trust Learning</div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 1 — นิยาม ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 1 — นิยาม</span>
+    <div class="eyebrow rv">What Is Macro</div>
+    <h2 class="head rv">Macro คือกติกาของสนาม<br>ไม่ใช่รายชื่อผู้เล่น</h2>
+    <p class="lead rv">การวิเคราะห์การลงทุนแบ่งได้เป็นสองชั้นใหญ่ ชั้นแรกคือ <span class="kw">Micro</span> &mdash; เจาะเข้าไปที่ตัวบริษัท รายได้ กำไร ส่วนแบ่งตลาด คู่แข่ง อีกชั้นหนึ่งคือ <span class="kw">Macro</span> &mdash; ดูสภาพแวดล้อมที่บริษัททุกแห่งต้องอยู่ร่วมกัน ไม่ว่าจะทำธุรกิจอะไรก็หนีไม่พ้น</p>
+
+    <div class="analogy rv">
+      <p>นักวิ่งที่ฟอร์มดีที่สุดในสนาม ก็ยังทำเวลาได้ไม่ดีถ้าลู่เปียกและลมสวน &mdash; ฟอร์มของนักวิ่งคือ Micro ส่วนสภาพลู่กับทิศลมคือ Macro คนละเรื่องกัน แต่ตัดสินผลลัพธ์ร่วมกัน</p>
+    </div>
+
+    <p class="body rv">ตัวเลข Macro มีเป็นร้อยตัว แต่ตัวที่ตลาดการเงินให้น้ำหนักจริงจังรวมกันได้ประมาณ <span class="kw">4 กลุ่ม</span> และแต่ละกลุ่มตอบคำถามคนละข้อ</p>
+
+    <div class="stats">
+      <div class="stat rv">
+        <div class="stat-num">Rates / CPI</div>
+        <div class="stat-lbl">ดอกเบี้ยนโยบายกับอัตราเงินเฟ้อ &mdash; ตอบว่า <b>ต้นทุนของเงินแพงแค่ไหน</b> เงินเฟ้อสูงบังคับให้ธนาคารกลางคงหรือขึ้นดอกเบี้ย เงินเฟ้อเย็นลงจึงเปิดทางให้ลดได้</div>
+        <span class="src">ต้นทุนของเงิน</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">DXY / US10Y</div>
+        <div class="stat-lbl">ค่าเงินดอลลาร์กับผลตอบแทนพันธบัตรสหรัฐ 10 ปี &mdash; ตอบว่า <b>ตลาดเชื่อว่าดอกเบี้ยข้างหน้าจะไปทางไหน</b> เป็นราคาที่คนซื้อขายจริงตั้งกันเอง ไม่ใช่คำแถลง</div>
+        <span class="src">ความเชื่อของตลาด</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">GDP / Jobs</div>
+        <div class="stat-lbl">การเติบโตของเศรษฐกิจกับตัวเลขการจ้างงาน &mdash; ตอบว่า <b>กำไรของบริษัทมีที่มาให้โตต่อไหม</b> เพราะรายได้ของบริษัทก็คือรายจ่ายของคนที่มีงานทำ</div>
+        <span class="src">เนื้อของกำไร</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">Liquidity</div>
+        <div class="stat-lbl">สภาพคล่อง หรือปริมาณเงินที่ไหลเวียนหาสินทรัพย์อยู่ &mdash; ตอบว่า <b>มีเงินพร้อมเข้าซื้อมากน้อยแค่ไหน</b> ตัวนี้เห็นยากที่สุด แต่ขยับราคาเร็วที่สุด</div>
+        <span class="src">แรงซื้อในระบบ</span>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:26px">สังเกตว่าทั้งสี่กลุ่มไม่มีตัวไหนพูดถึงบริษัทใดบริษัทหนึ่งเลย นั่นคือลักษณะเฉพาะของ Macro &mdash; <span class="kw">มันเป็นเงื่อนไขที่ใช้กับทุกคนพร้อมกัน</span></p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 2 — ทำไมต้องเข้าใจ ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 2 — เหตุผล</span>
+    <div class="eyebrow rv">Why It Matters</div>
+    <h2 class="head rv">ทำไมคนลงทุน<br>ต้องเข้าใจ Macro</h2>
+    <p class="lead rv">คำตอบสั้นที่สุดคือ ความเสี่ยงส่วนใหญ่ในพอร์ตไม่ได้มาจากหุ้นที่เลือก แต่มาจากสนามที่หุ้นทุกตัวยืนอยู่ร่วมกัน</p>
+
+    <p class="body rv"><span class="kw">เหตุผลที่หนึ่ง &mdash; ดอกเบี้ยตั้งราคาให้ทุกอย่าง</span> ราคาของสินทรัพย์ทุกชนิดคือการเอาเงินที่คาดว่าจะได้ในอนาคต มาคิดกลับเป็นมูลค่าวันนี้ อัตราที่ใช้คิดกลับก็คือดอกเบี้ย พอดอกเบี้ยขยับ ราคาทุกอย่างต้องคิดใหม่ทั้งกระดาน <span class="kw">แม้ตัวธุรกิจจะไม่เปลี่ยนเลยสักนิดเดียว</span></p>
+
+    <p class="body rv"><span class="kw">เหตุผลที่สอง &mdash; สนามกลบฝีมือได้</span> ปี 2022 ธนาคารกลางสหรัฐขึ้นดอกเบี้ยเจ็ดครั้งในปีเดียว จากช่วง 0&ndash;0.25% ไปจบที่ 4.25&ndash;4.50% ปีนั้น S&amp;P 500 ปิดปีติดลบราว 19% และในกลุ่มอุตสาหกรรมทั้ง 11 กลุ่ม มีเพียงกลุ่ม<span class="kw">พลังงาน</span>กลุ่มเดียวที่ราคาปิดปีเป็นบวก ที่เหลืออีกสิบกลุ่มติดลบทั้งหมด ไม่ว่าจะเลือกหุ้นเก่งแค่ไหนก็ตาม</p>
+
+    <p class="body rv"><span class="kw">เหตุผลที่สาม &mdash; ทิศทางกลับกันก็จริงเหมือนกัน</span> ปี 2020 เศรษฐกิจสหรัฐหดตัว คนตกงานเป็นล้าน แต่ธนาคารกลางลดดอกเบี้ยลงเกือบศูนย์และอัดเงินเข้าระบบมหาศาล ปีนั้น S&amp;P 500 กลับปิดบวกราว 16% <span class="kw">สภาพคล่องชนะข่าวร้ายได้ในระยะสั้น</span> ซึ่งเป็นเรื่องที่ดูงบการเงินรายบริษัทอย่างเดียวแล้วอธิบายไม่ได้</p>
+
+    <p class="pull rv">Macro ไม่ได้ตอบว่า <em>ซื้ออะไร</em><br>มันตอบว่า <em>ตอนนี้ควรกล้าแค่ไหน</em></p>
+
+    <div class="system rv">
+      <div class="t">จุดที่คนมักเข้าใจผิด</div>
+      <p class="body" style="margin-bottom:0">เข้าใจ Macro ไม่ได้แปลว่าต้อง<span class="kw">ทายเศรษฐกิจให้ถูก</span> การพยากรณ์ GDP หรือเดาว่าธนาคารกลางจะลดดอกเบี้ยเดือนไหน เป็นงานที่แม้แต่มืออาชีพก็พลาดเป็นประจำ ประโยชน์จริงของ Macro อยู่ที่การ<span class="kw">อ่านสภาพปัจจุบัน</span>ให้ตรง แล้วปรับระดับความเสี่ยงให้เหมาะ ไม่ใช่การมองอนาคต</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 3 — โครงคิด (flow) ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 3 — โครงคิด</span>
+    <div class="eyebrow rv">The Framework</div>
+    <h2 class="head rv">Momentum บอกว่าใครนำ<br>Macro บอกว่าสนามเอื้อใคร</h2>
+    <p class="lead rv">สองด้านนี้ไม่ได้แข่งกัน และไม่ควรใช้แยกกัน วิธีวางที่ใช้ได้จริงคือให้ทั้งคู่ไหลมาบรรจบกันก่อน แล้วค่อยแปลงเป็นการตัดสินใจ</p>
+
+    <div class="flow rv">
+      <div class="fnode accent">
+        <div class="fn-t">JP Trust</div>
+        <div class="fn-s">อ่านตลาดจากสองด้านพร้อมกัน</div>
+      </div>
+      <div class="fdrop"></div>
+
+      <div class="fpair">
+        <div class="fnode">
+          <div class="fn-t">Momentum</div>
+          <div class="fn-s">Price / Volume<br>Relative Strength<br>Trend / Flow</div>
+        </div>
+        <div class="fnode">
+          <div class="fn-t">Macro</div>
+          <div class="fn-s">Rates / CPI<br>DXY / US10Y<br>GDP / Jobs<br>Liquidity</div>
+        </div>
+      </div>
+      <div class="fdrop"></div>
+
+      <div class="fnode">
+        <div class="fn-t">Market Regime</div>
+        <div class="fn-s">ตอนนี้ตลาดอยู่ในสภาวะแบบไหน</div>
+      </div>
+      <div class="fdrop"></div>
+
+      <div class="fnode">
+        <div class="fn-t">Risk Assessment</div>
+        <div class="fn-s">สภาวะแบบนี้ควรรับความเสี่ยงได้แค่ไหน</div>
+      </div>
+      <div class="fdrop"></div>
+
+      <div class="fnode accent">
+        <div class="fn-t">JPTrust AI Engine</div>
+        <div class="fn-s">ประมวลสองด้านเป็นตัวเลขที่เทียบกันได้</div>
+      </div>
+      <div class="fdrop"></div>
+
+      <div class="fpair">
+        <div class="fnode">
+          <div class="fn-t">Momentum Score</div>
+          <div class="fn-s">แรงส่งของตัวที่กำลังนำ</div>
+        </div>
+        <div class="fnode">
+          <div class="fn-t">Risk Score</div>
+          <div class="fn-s">ความเสี่ยงของสนามตอนนี้</div>
+        </div>
+      </div>
+      <div class="fdrop"></div>
+
+      <div class="fnode">
+        <div class="fn-t">Momentum Discovery</div>
+        <div class="fn-s">รายชื่อที่ผ่านทั้งสองด่าน</div>
+      </div>
+      <div class="fdrop"></div>
+
+      <div class="fnode accent">
+        <div class="fn-t">JPTrust App</div>
+        <div class="fn-s">ส่งถึงมือผู้ใช้เป็นภาพเดียว</div>
+      </div>
+      <p class="fcap">โครงการอ่านตลาดของ JP Trust Learning</p>
+    </div>
+
+    <p class="body rv" style="margin-top:30px"><span class="kw">จุดบรรจบอยู่ที่คำว่า Market Regime</span> หรือภาวะตลาด &mdash; เป็นการสรุปว่าตอนนี้เงินไหลเข้าหาความเสี่ยงหรือไหลออก มีตัวนำชัดเจนหรือไม่มีใครนำ ภาวะตลาดไม่ใช่คำทำนาย แต่เป็นการอ่านสิ่งที่เกิดขึ้นแล้ว</p>
+
+    <p class="body rv">จากภาวะตลาดจึงแปลงต่อเป็น <span class="kw">Risk Assessment</span> ซึ่งเป็นคำถามที่ตอบได้จริงกว่าคำถามว่าตลาดจะขึ้นหรือลง &mdash; คำถามคือถ้าคิดผิดขึ้นมา จะเสียหายแค่ไหน และตอนนี้ควรถือกี่ส่วน</p>
+
+    <p class="body rv">ปลายทางคือคะแนนสองตัวที่อ่านคู่กัน <span class="kw">Momentum Score</span> ตอบว่าอะไรกำลังนำ ส่วน <span class="kw">Risk Score</span> ตอบว่าสนามตอนนี้ให้กล้าได้แค่ไหน ตัวที่ผ่านทั้งสองด่านเท่านั้นจึงจะขึ้นมาอยู่ในรายชื่อ</p>
+
+    <div class="split rv">
+      <div class="trap">
+        <div class="t">ใช้ Momentum ด้านเดียว</div>
+        <p>ได้รายชื่อที่แรงที่สุดเสมอ แม้ในวันที่ทั้งตลาดกำลังถอย &mdash; แรงที่สุดในกลุ่มที่กำลังลง ก็ยังลงอยู่ดี</p>
+      </div>
+      <div class="trap">
+        <div class="t">ใช้ Macro ด้านเดียว</div>
+        <p>ได้ความเห็นว่าเศรษฐกิจดีหรือแย่ แต่ไม่มีรายชื่อให้ลงมือ และมักออกจากตลาดเร็วเกินไปหลายเดือน</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 4 — JPTrust Insight ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">JPTrust Insight</span>
+    <div class="eyebrow rv">How We Use It</div>
+    <h2 class="head rv">JPTrust ใช้ Macro<br>อย่างไร</h2>
+    <p class="lead rv">หลักข้อเดียวที่ยึดคือ ใช้ Macro <span class="kw">จัดระดับความเสี่ยง</span> ไม่ใช้ทำนายทิศทาง</p>
+
+    <p class="body rv">แทนที่จะตีความข่าวเศรษฐกิจเป็นคำพูด เราแปลงมันเป็นตัวเลขที่วัดซ้ำได้ วิธีหนึ่งที่ใช้อยู่คือจัดอันดับ<span class="kw">แรงส่งรอบ 6 เดือน</span>ของสินทรัพย์หลักสี่อย่างที่สะท้อนสนามคนละมุม &mdash; หุ้นสหรัฐ น้ำมัน ทองคำ และค่าเงินเยน แล้วดูว่าหุ้นสหรัฐยังอยู่ในกลุ่มนำหรือไม่</p>
+
+    <p class="body rv">เมื่อหุ้นสหรัฐหลุดจากสองอันดับแรก ระบบจะเข้าสู่โหมด<span class="kw">ตั้งรับ</span> ซึ่งไม่ได้แปลว่าประกาศว่าตลาดเป็นขาลง แต่แปลว่าไม่มีตัวนำที่ชัดเจนให้ย้ายเงินไปหา จึงลดความกล้าลงจนกว่าจะมีตัวนำกลับมา <em>ตรรกะเดียวกันกับคำถามว่าตอนนี้ควรถือกี่ส่วน ไม่ใช่คำถามว่าพรุ่งนี้จะขึ้นหรือลง</em></p>
+
+    <p class="pull rv">อ่านสิ่งที่<em>เกิดขึ้นแล้ว</em> ให้ตรง<br>ดีกว่าเดาสิ่งที่<em>ยังไม่เกิด</em>ให้เก่ง</p>
+
+    <div class="system rv">
+      <div class="t">ข้อจำกัดที่ต้องพูดตรง</div>
+      <p class="body" style="margin-bottom:0">Macro ไม่มีทางบอกจุดกลับตัวได้ล่วงหน้า และสัญญาณจากตัวเลขเศรษฐกิจมัก<span class="kw">มาช้ากว่าราคา</span>เสมอ ในตลาดที่กลับทิศเร็วและแรง ทุกวิธีจะออกช้าไปหนึ่งจังหวะ นี่ไม่ใช่ข้อบกพร่องที่แก้ได้ด้วยการปรับสูตร แต่เป็นราคาที่ต้องจ่ายของการไม่เดาอนาคต การกระจายความเสี่ยงและวินัยในการปรับพอร์ตจึงยังจำเป็นเสมอ</p>
+    </div>
+
+    <p class="body rv" style="margin-top:22px">อยากเห็นเครื่องมือฝั่ง Macro ที่เผยแพร่ไว้แล้ว ดูได้ในหมวด <a href="lib-macro.html">Macro &amp; ความเสี่ยง</a> ของห้องสมุด หรือถ้าอยากเริ่มจากฝั่ง Momentum ก่อน อ่านได้ที่ <a href="what-is-momentum.html">หุ้น Momentum คืออะไร</a></p>
+  </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section class="closing">
+  <div class="narrow">
+    <div class="eyebrow rv" style="color:var(--gold);margin-bottom:24px">สรุปให้จำ</div>
+    <p class="q rv">Momentum บอกว่า <em>ใครกำลังนำ</em><br>Macro บอกว่า <em>สนามนี้เอื้อใคร</em></p>
+    <p class="lens-final rv">Macro คือดอกเบี้ย เงินเฟ้อ ค่าเงิน การเติบโต และสภาพคล่อง<br>เราไม่ใช้มันทำนายอนาคต แต่ใช้ตอบว่า <b>ตอนนี้ควรกล้าแค่ไหน</b></p>
+
+    <a class="cta rv" href="https://jptrustlearning.com" target="_blank" rel="noopener">
+      <span class="sub">Subscribe at</span>
+      <span class="url">jptrustlearning.com</span>
+      <span class="tip">เริ่มต้นเส้นทางการลงทุนอย่างมีระบบไปกับเรา</span>
+    </a>
+
+    <p class="disclaimer rv">การลงทุนมีความเสี่ยง &middot; เนื้อหาเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน &middot; ผลในอดีตไม่ได้การันตีผลในอนาคต<br>ตัวเลขปี 2020 และ 2022 อ้างอิงข้อมูลสาธารณะของ Federal Reserve และดัชนี S&amp;P 500 &middot; เรียบเรียงโดย JP Trust Learning</p>
+  </div>
+</section>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach((el,i)=>{
+  const sib=[...el.parentElement.children].filter(c=>c.classList.contains('rv'));
+  el.style.transitionDelay=(Math.min(sib.indexOf(el),5)*60)+'ms';
+  io.observe(el);
+});
+</script>
+<style>
+/* ═══ JPT · แถบนำทางกลับ (v1) ═══ */
+.jpt-libnav{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 26px;
+  margin:0;padding:26px 20px calc(26px + env(safe-area-inset-bottom,0px));
+  background:linear-gradient(135deg,#1a0a0e 0%,#2d1018 55%,#3a1520 100%);
+  border-top:1px solid rgba(212,175,55,.35);
+  font-family:'Anuphan',system-ui,-apple-system,sans-serif;
+  font-size:14.5px;line-height:1.9;text-align:center;
+}
+.jpt-libnav a{
+  color:#D4AF37;text-decoration:none;
+  border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease;
+}
+.jpt-libnav a:hover{color:#E8D48B;border-bottom-color:rgba(232,212,139,.6);}
+.jpt-libnav .sep{color:rgba(212,175,55,.35);}
+</style>
+<!-- JPT · แถบนำทางกลับ -->
+<nav class="jpt-libnav">
+  <a href="lib-macro.html">← ห้องสมุด Macro &amp; ความเสี่ยง</a>
+  <a href="index.html">หน้าแรกห้องสมุด</a>
+  <a href="https://app.jptrustlearning.com">เข้าระบบสมาชิก</a>
+</nav>
+</body>
+</html>
