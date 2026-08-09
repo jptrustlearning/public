@@ -437,17 +437,9 @@ img{max-width:100%;display:block}
 @media(prefers-reduced-motion:reduce){.svc-card,.svc-btn{transition:none}.svc-card:hover,.svc-btn:hover{transform:none}}
 
 
-/* ===== MARKET WIDGETS (TradingView) ===== */
+/* ===== TICKER TAPE (TradingView) ===== */
 .tt-strip{background:linear-gradient(180deg,#2d1018 0%,#1a0a0e 100%);border-top:1px solid rgba(212,175,55,0.16);border-bottom:1px solid rgba(212,175,55,0.16);padding:3px 0;overflow:hidden}
 .tt-strip .tradingview-widget-copyright{display:none}
-.mkt-section{background:var(--maroon-bg);padding:clamp(40px,6vw,72px) 0;position:relative}
-.mkt-head{text-align:center;margin-bottom:clamp(22px,3vw,34px)}
-.mkt-eyebrow{font-family:'Cinzel',serif;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.mkt-title{font-family:'Anuphan',sans-serif;font-size:clamp(24px,3.6vw,38px);font-weight:600;color:var(--gold-light);line-height:1.35}
-.mkt-desc{font-family:'Anuphan',sans-serif;font-size:clamp(14px,1.8vw,16px);color:var(--text-light-muted,#A09B92);margin-top:10px}
-.mkt-widget{max-width:1000px;margin:0 auto}
-.mkt-section .tradingview-widget-copyright{text-align:center;font-size:11px;margin-top:10px}
-.mkt-section .tradingview-widget-copyright a{color:#8f857a;text-decoration:none}
 </style>
 </head>
 <body>
@@ -544,78 +536,6 @@ img{max-width:100%;display:block}
           <span class="hf-ring"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
           <span class="hf-text"><span class="k">Risk Control</span><span class="v">บริหารความเสี่ยง</span></span>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== MARKET OVERVIEW (TradingView) ===== -->
-<section class="mkt-section">
-  <div class="wrap">
-    <div class="mkt-head">
-      <div class="mkt-eyebrow">Market Overview</div>
-      <h2 class="mkt-title">ภาพรวมตลาดวันนี้</h2>
-      <p class="mkt-desc">ดัชนีหลัก · หุ้นเทค · ทองคำ และคริปโต แบบเรียลไทม์</p>
-    </div>
-    <div class="mkt-widget">
-      <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-        {
-          "colorTheme": "dark",
-          "dateRange": "12M",
-          "showChart": true,
-          "locale": "th",
-          "width": "100%",
-          "height": "460",
-          "largeChartUrl": "",
-          "isTransparent": true,
-          "showSymbolLogo": true,
-          "showFloatingTooltip": true,
-          "plotLineColorGrowing": "rgba(212, 175, 55, 1)",
-          "plotLineColorFalling": "rgba(139, 58, 68, 1)",
-          "gridLineColor": "rgba(240, 243, 250, 0.06)",
-          "scaleFontColor": "rgba(219, 219, 219, 1)",
-          "belowLineFillColorGrowing": "rgba(212, 175, 55, 0.12)",
-          "belowLineFillColorFalling": "rgba(139, 58, 68, 0.12)",
-          "belowLineFillColorGrowingBottom": "rgba(212, 175, 55, 0)",
-          "belowLineFillColorFallingBottom": "rgba(139, 58, 68, 0)",
-          "symbolActiveColor": "rgba(212, 175, 55, 0.15)",
-          "tabs": [
-            {
-              "title": "ดัชนี",
-              "symbols": [
-                {"s": "FOREXCOM:SPXUSD", "d": "S&P 500"},
-                {"s": "FOREXCOM:NSXUSD", "d": "Nasdaq 100"},
-                {"s": "FOREXCOM:DJI", "d": "Dow Jones"},
-                {"s": "TVC:VIX", "d": "VIX"}
-              ]
-            },
-            {
-              "title": "หุ้นเทค",
-              "symbols": [
-                {"s": "NASDAQ:NVDA", "d": "NVIDIA"},
-                {"s": "NASDAQ:AAPL", "d": "Apple"},
-                {"s": "NASDAQ:MSFT", "d": "Microsoft"},
-                {"s": "NASDAQ:AMZN", "d": "Amazon"},
-                {"s": "NASDAQ:GOOGL", "d": "Alphabet"},
-                {"s": "NASDAQ:TSLA", "d": "Tesla"},
-                {"s": "NASDAQ:META", "d": "Meta"}
-              ]
-            },
-            {
-              "title": "ทอง & คริปโต",
-              "symbols": [
-                {"s": "TVC:GOLD", "d": "Gold"},
-                {"s": "TVC:USOIL", "d": "Oil WTI"},
-                {"s": "BITSTAMP:BTCUSD", "d": "Bitcoin"},
-                {"s": "BITSTAMP:ETHUSD", "d": "Ethereum"}
-              ]
-            }
-          ]
-        }
-        </script>
-        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
       </div>
     </div>
   </div>
