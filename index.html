@@ -113,34 +113,46 @@ img{max-width:100%;display:block}
   background-image:linear-gradient(90deg,rgba(20,8,12,0.97) 0%,rgba(26,10,14,0.86) 32%,rgba(26,10,14,0.42) 58%,rgba(26,10,14,0.12) 100%),url('hero-bull.jpg');
   background-size:cover;background-position:right center;background-repeat:no-repeat;
 }
-.hero-inner{position:relative;z-index:2;padding:clamp(56px,9vw,120px) 0 clamp(52px,8vw,104px)}
+.hero-inner{position:relative;z-index:2;padding:clamp(52px,8.4vw,112px) 0 clamp(40px,6vw,76px)}
 .hero-copy{max-width:min(620px,80%);animation:riseIn .8s ease both}
-.hero .eyebrow{color:var(--gold-light);display:inline-block;margin-bottom:18px;
-  padding:7px 15px;border:1px solid rgba(212,175,55,0.34);border-radius:100px;background:rgba(212,175,55,0.06)}
-.hero h1{
-  font-family:'Cinzel',serif;font-weight:700;line-height:1.02;letter-spacing:.5px;
-  font-size:clamp(40px,7.4vw,78px);margin-bottom:8px;
+.hero .eyebrow{color:var(--gold);display:inline-block;margin-bottom:16px;letter-spacing:5px}
+.hero h1{font-family:'Cinzel',serif;font-weight:700;line-height:1.0;margin-bottom:14px}
+.hero h1 .h1-top{
+  display:block;font-weight:600;font-size:clamp(28px,5.1vw,52px);letter-spacing:3px;
+  color:#F0E3C4;text-shadow:0 2px 24px rgba(212,175,55,0.14)}
+.hero h1 .h1-bot{
+  display:block;font-weight:700;font-size:clamp(38px,7.1vw,74px);letter-spacing:1px;
   background:linear-gradient(120deg,#F4E4BA 0%,#D4AF37 44%,#B8860B 100%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  text-shadow:0 2px 30px rgba(212,175,55,0.12);
-}
+  text-shadow:0 2px 30px rgba(212,175,55,0.12)}
 .hero h2{
   font-family:'Anuphan',sans-serif;font-weight:700;color:#FFFEF8;
   font-size:clamp(21px,3.4vw,34px);line-height:1.28;margin-bottom:18px;letter-spacing:.2px}
 .hero .lead{color:rgba(255,254,248,0.78);font-size:clamp(15px,1.9vw,18px);line-height:1.72;max-width:520px;margin-bottom:30px}
-.hero-features{display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,34px)}
-.hf{display:flex;align-items:center;gap:12px;animation:riseIn .8s ease both}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;padding:14px 26px;border-radius:12px;
+  border:1.5px solid rgba(212,175,55,0.55);background:rgba(212,175,55,0.05);
+  color:var(--gold-light);font-weight:600;font-size:clamp(15px,1.8vw,17px);letter-spacing:.3px;
+  transition:transform .25s ease,background .25s ease,border-color .25s ease;animation:riseIn .8s ease .1s both}
+.hero-cta svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s ease}
+.hero-cta:hover{transform:translateY(-2px);background:rgba(212,175,55,0.13);border-color:var(--gold)}
+.hero-cta:hover svg{transform:translateX(4px)}
+.hero-band{position:relative;z-index:2;border-top:1px solid rgba(212,175,55,0.13);
+  background:linear-gradient(180deg,rgba(16,6,9,0.40),rgba(16,6,9,0.86))}
+.hero-features{display:grid;grid-template-columns:repeat(4,1fr)}
+.hf{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;
+  padding:clamp(20px,3.2vw,32px) clamp(4px,1.4vw,16px);animation:riseIn .8s ease both}
+.hf+.hf{border-left:1px solid rgba(212,175,55,0.16)}
 .hf:nth-child(1){animation-delay:.15s}.hf:nth-child(2){animation-delay:.28s}
 .hf:nth-child(3){animation-delay:.41s}.hf:nth-child(4){animation-delay:.54s}
 .hf-ring{
-  width:52px;height:52px;border-radius:50%;flex-shrink:0;
+  width:clamp(44px,6.4vw,58px);height:clamp(44px,6.4vw,58px);border-radius:50%;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
   border:1.5px solid rgba(212,175,55,0.5);background:radial-gradient(circle at 35% 30%,rgba(212,175,55,0.22),rgba(212,175,55,0.04));
   box-shadow:0 0 22px rgba(212,175,55,0.14),inset 0 0 12px rgba(212,175,55,0.1)}
-.hf-ring svg{width:24px;height:24px;fill:none;stroke:var(--gold-light);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-.hf-text{display:flex;flex-direction:column;line-height:1.2}
-.hf-text .k{font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;color:var(--gold-light);font-weight:600}
-.hf-text .v{font-size:13.5px;color:rgba(255,254,248,0.72)}
+.hf-ring svg{width:clamp(21px,2.9vw,26px);height:clamp(21px,2.9vw,26px);fill:none;stroke:var(--gold-light);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.hf-text{display:flex;flex-direction:column;align-items:center;line-height:1.32;gap:3px}
+.hf-text .k{font-family:'Cinzel',serif;font-size:clamp(10px,1.35vw,12.5px);letter-spacing:2px;color:var(--gold-light);font-weight:600;white-space:nowrap}
+.hf-text .v{font-size:clamp(11px,1.5vw,13.5px);color:rgba(255,254,248,0.72)}
 
 /* ============ ENTRANCE — quad box (original 100%) ============ */
 /* ============ ENTRANCE — 4-door square ============ */
@@ -386,13 +398,18 @@ img{max-width:100%;display:block}
 @media(max-width:760px){
   .hero{background-position:78% center}
   .hero-copy{max-width:100%}
-  .hero h1{font-size:clamp(30px,8.6vw,50px)}
-  .hero-features{gap:16px 22px}
+  .hero h1 .h1-top{font-size:clamp(22px,6.2vw,40px);letter-spacing:2px}
+  .hero h1 .h1-bot{font-size:clamp(30px,8.6vw,52px)}
+  .hf{gap:8px;padding:18px 4px}
+  .hf-text .k{letter-spacing:1.4px}
   .stats-panel{grid-template-columns:1fr 1fr;gap:26px 16px}
   .stat-item:nth-child(2)::after{display:none}
 }
 @media(max-width:480px){
-  .hero h1{font-size:29px}
+  .hero h1 .h1-top{font-size:20px;letter-spacing:1.6px}
+  .hero h1 .h1-bot{font-size:31px}
+  .hf-text .k{font-size:9.5px;letter-spacing:1px}
+  .hf-text .v{font-size:10.5px;line-height:1.25}
   .foot-grid{grid-template-columns:1fr}
   .stats-panel{grid-template-columns:1fr 1fr}
   .stat-item::after{display:none!important}
@@ -409,7 +426,8 @@ img{max-width:100%;display:block}
   .brand-sub{font-size:8.5px;letter-spacing:1.2px}
   .nav-cta{padding:8px 11px;font-size:12px;gap:5px}
   .nav-burger{width:37px;height:37px}
-  .hero h1{font-size:27px}
+  .hero h1 .h1-top{font-size:18.5px}
+  .hero h1 .h1-bot{font-size:28px}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -515,11 +533,15 @@ img{max-width:100%;display:block}
 <section class="hero">
   <div class="wrap hero-inner">
     <div class="hero-copy">
-      <span class="eyebrow">Momentum Trading Research Library</span>
-      <h1>Momentum Trading</h1>
+      <span class="eyebrow">Momentum Trading Research</span>
+      <h1><span class="h1-top">Momentum</span><span class="h1-bot">Trading</span></h1>
       <h2>ศูนย์รวมกลยุทธ์ งานวิจัย<br>และเครื่องมือเทรด</h2>
       <p class="lead">ผลการทดสอบกลยุทธ์ย้อนหลังกว่า 30 ปี เพื่อการลงทุนอย่างมีระบบและลดความเสี่ยง</p>
-      <div class="hero-features">
+      <a class="hero-cta" href="https://app.jptrustlearning.com/new">เริ่มต้นใช้งาน<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+  <div class="hero-band">
+    <div class="wrap hero-features">
         <div class="hf">
           <span class="hf-ring"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="M8 15l3-4 3 2 4-6"/></svg></span>
           <span class="hf-text"><span class="k">Research</span><span class="v">งานวิจัยเชิงลึก</span></span>
@@ -536,7 +558,6 @@ img{max-width:100%;display:block}
           <span class="hf-ring"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
           <span class="hf-text"><span class="k">Risk Control</span><span class="v">บริหารความเสี่ยง</span></span>
         </div>
-      </div>
     </div>
   </div>
 </section>
