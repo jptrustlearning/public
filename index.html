@@ -434,9 +434,31 @@ img{max-width:100%;display:block}
 }
 :focus-visible{outline:2.5px solid var(--gold);outline-offset:3px;border-radius:6px}
 
-/* ===== SERVICES — ใช้การ์ดชุดเดียวกับ "หมวดหมู่ความรู้" (.shelf-card) ต่างแค่ไอคอนเป็น SVG ===== */
-.sc-ico-svg{display:grid;place-items:center;background:radial-gradient(circle at 34% 28%,rgba(212,175,55,.30),rgba(22,8,12,.72));}
-.sc-ico-svg svg{width:52%;height:52%;fill:none;stroke:var(--gold-light);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* ===== SERVICES CARDS (svc-) — maroon theme ===== */
+.svc-tray{background:var(--maroon-bg);border:1px solid var(--gold-border);border-radius:22px;padding:clamp(28px,4vw,52px) clamp(16px,3vw,34px);box-shadow:0 10px 30px rgba(58,21,32,0.18)}
+.svc-head{text-align:center;margin-bottom:clamp(34px,5vw,54px)}
+.svc-eyebrow{font-family:'Cinzel',serif;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.svc-title{font-family:'Anuphan',sans-serif;font-size:clamp(26px,4vw,42px);font-weight:600;color:var(--gold-light);line-height:1.35}
+.svc-rule{width:60px;height:2px;margin:18px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.svc-desc{font-size:clamp(15px,2vw,17px);color:#B3A9A0;line-height:1.8;max-width:640px;margin:14px auto 0}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,26px)}
+.svc-card{background:linear-gradient(160deg,rgba(58,21,32,0.55),rgba(26,10,14,0.55));border:1px solid rgba(212,175,55,0.14);border-radius:20px;box-shadow:0 6px 24px rgba(0,0,0,0.28);backdrop-filter:blur(4px);overflow:hidden;text-decoration:none;padding:16px 16px 0;min-height:186px;text-align:left;display:flex;flex-direction:column;align-items:stretch;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 12px 34px rgba(0,0,0,0.35),0 0 40px rgba(212,175,55,0.06);border-color:rgba(212,175,55,0.4)}
+.svc-icon{width:clamp(40px,5vw,48px);height:clamp(40px,5vw,48px);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 30%,#9c4450 0%,#7a323c 55%,#5c1327 100%);box-shadow:0 4px 12px rgba(0,0,0,0.35),inset 0 0 0 1.5px rgba(212,175,55,0.6);margin-bottom:11px}
+.svc-icon svg{width:52%;height:52%;stroke:var(--gold-light);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.svc-body{flex:1;min-width:0}
+.svc-eye{display:block;font-family:'Cinzel',serif;font-size:9px;letter-spacing:.26em;font-weight:600;color:var(--gold);margin-bottom:3px}
+.svc-card-title{display:block;font-family:'Anuphan',sans-serif;font-size:clamp(16px,1.9vw,19px);font-weight:700;color:var(--gold-light);line-height:1.3;margin-bottom:5px}
+.svc-card-desc{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:clamp(12.5px,1.5vw,13.5px);color:#B3A9A0;line-height:1.55;margin:0}
+.svc-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:12px -16px 0;padding:10px 16px;background:linear-gradient(180deg,rgba(18,7,10,0),rgba(16,6,9,.7) 55%);border-top:1px solid rgba(212,175,55,0.26)}
+.svc-meta{font-size:clamp(11.5px,1.6vw,13px);font-weight:500;color:#EBD7A2}
+.svc-meta b{font-family:'DM Serif Display',serif;font-weight:400;font-size:1.25em;margin-right:1px;color:#F8EFD2}
+.svc-arrow{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;border:1.5px solid rgba(212,175,55,0.6);color:var(--gold);transition:background .22s,transform .22s,color .22s}
+.svc-arrow svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.svc-card:hover .svc-arrow{background:var(--gold);color:#1a0a0e;transform:translateX(2px)}
+@media(max-width:900px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.svc-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.svc-card,.svc-arrow{transition:none}.svc-card:hover{transform:none}}
 
 
 /* ===== TICKER TAPE (TradingView) ===== */
@@ -662,85 +684,94 @@ img{max-width:100%;display:block}
         <div class="shelf-grid" id="shelfGrid"></div>
       </div>
       <div class="tab-panel" id="panel-services" role="tabpanel">
-        <div class="tab-sub">เครื่องมือและความรู้สำหรับนักลงทุนไทย ตั้งแต่ทดสอบกลยุทธ์ ติดตามพอร์ต ไปจนถึงข่าวและบทวิเคราะห์รายวัน</div>
-        <div class="shelf-grid">
-          <a class="shelf-card" href="https://app.jptrustlearning.com/new" style="--bg:url(lib/shelf-momentum.jpg)" aria-label="Momentum Lab">
-            <span class="sc-ico sc-ico-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l5.5-5.5 3.5 3.5L21 6"/><path d="M15 6h6v6"/></svg></span>
-            <span class="sc-body">
-              <span class="sc-eye">LAB</span>
-              <span class="sc-title">Momentum Lab</span>
-              <span class="sc-desc">เครื่องมือ backtest กลยุทธ์ Momentum หุ้น S&amp;P 500 ด้วยข้อมูลจริง เทียบผลตอบแทนก่อนลงมือ</span>
-            </span>
-            <span class="sc-foot">
-              <span class="sc-count"><b>8</b> กลยุทธ์</span>
-              <span class="sc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </span>
-          </a>
+        <div class="svc-tray">
+          <div class="svc-head">
+      <div class="svc-eyebrow">Our Services</div>
+      <h2 class="svc-title">บริการของ JP Trust Learning</h2>
+      <div class="svc-rule"></div>
+      <p class="svc-desc">เครื่องมือและความรู้สำหรับนักลงทุนไทย ตั้งแต่การทดสอบกลยุทธ์ ติดตามพอร์ต ไปจนถึงข่าวและบทวิเคราะห์รายวัน</p>
+    </div>
+    <div class="svc-grid">
 
-          <a class="shelf-card" href="https://app.jptrustlearning.com/new" style="--bg:url(lib/shelf-analysis.jpg)" aria-label="ข่าว &amp; บทวิเคราะห์">
-            <span class="sc-ico sc-ico-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h13v14H5a2 2 0 0 1-2-2V6"/><path d="M17 8h3v9a2 2 0 0 1-2 2"/><path d="M7 9h7M7 12h7M7 15h4"/></svg></span>
-            <span class="sc-body">
-              <span class="sc-eye">NEWS</span>
-              <span class="sc-title">ข่าว &amp; บทวิเคราะห์</span>
-              <span class="sc-desc">ข่าวการเงินและตลาดหุ้นสหรัฐฯ ภาษาไทย อัพเดทรายวัน พร้อมมุมมองสำหรับนักลงทุนไทย</span>
-            </span>
-            <span class="sc-foot">
-              <span class="sc-count">อัพเดททุกวัน</span>
-              <span class="sc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </span>
-          </a>
+      <a class="svc-card" href="https://app.jptrustlearning.com/new" aria-label="Momentum Lab">
+        <span class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l5.5-5.5 3.5 3.5L21 6"/><path d="M15 6h6v6"/></svg></span>
+        <span class="svc-body">
+          <span class="svc-eye">LAB</span>
+          <span class="svc-card-title">Momentum Lab</span>
+          <span class="svc-card-desc">เครื่องมือ backtest กลยุทธ์ Momentum หุ้น S&amp;P 500 ด้วยข้อมูลจริง เทียบผลตอบแทนก่อนลงมือ</span>
+        </span>
+        <span class="svc-foot">
+          <span class="svc-meta"><b>8</b> กลยุทธ์</span>
+          <span class="svc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
+      </a>
 
-          <a class="shelf-card" href="https://app.jptrustlearning.com/new" style="--bg:url(lib/shelf-dashboard.jpg)" aria-label="Port Recorder">
-            <span class="sc-ico sc-ico-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg></span>
-            <span class="sc-body">
-              <span class="sc-eye">PORTFOLIO</span>
-              <span class="sc-title">Port Recorder</span>
-              <span class="sc-desc">บันทึกและติดตามพอร์ตหลายบัญชี ดูกราฟ equity อ่านสลิปอัตโนมัติ ซิงก์บน Google Drive</span>
-            </span>
-            <span class="sc-foot">
-              <span class="sc-count"><b>5</b> พอร์ต</span>
-              <span class="sc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </span>
-          </a>
+      <a class="svc-card" href="https://app.jptrustlearning.com/new" aria-label="ข่าว &amp; บทวิเคราะห์">
+        <span class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h13v14H5a2 2 0 0 1-2-2V6"/><path d="M17 8h3v9a2 2 0 0 1-2 2"/><path d="M7 9h7M7 12h7M7 15h4"/></svg></span>
+        <span class="svc-body">
+          <span class="svc-eye">NEWS</span>
+          <span class="svc-card-title">ข่าว &amp; บทวิเคราะห์</span>
+          <span class="svc-card-desc">ข่าวการเงินและตลาดหุ้นสหรัฐฯ ภาษาไทย อัพเดทรายวัน พร้อมมุมมองสำหรับนักลงทุนไทย</span>
+        </span>
+        <span class="svc-foot">
+          <span class="svc-meta">อัพเดททุกวัน</span>
+          <span class="svc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
+      </a>
 
-          <a class="shelf-card" href="https://app.jptrustlearning.com/new" style="--bg:url(lib/shelf-method.jpg)" aria-label="S&amp;P 500 Scanner">
-            <span class="sc-ico sc-ico-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 12l2 2 3.5-4"/></svg></span>
-            <span class="sc-body">
-              <span class="sc-eye">SCANNER</span>
-              <span class="sc-title">S&amp;P 500 Scanner</span>
-              <span class="sc-desc">สแกนหุ้นตามโมเมนตัม จัดอันดับและกรองสถานะตลาด Bull / Neutral / Bear ในหน้าจอเดียว</span>
-            </span>
-            <span class="sc-foot">
-              <span class="sc-count"><b>500</b>+ หุ้น</span>
-              <span class="sc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </span>
-          </a>
+      <a class="svc-card" href="https://app.jptrustlearning.com/new" aria-label="Port Recorder">
+        <span class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg></span>
+        <span class="svc-body">
+          <span class="svc-eye">PORTFOLIO</span>
+          <span class="svc-card-title">Port Recorder</span>
+          <span class="svc-card-desc">บันทึกและติดตามพอร์ตหลายบัญชี ดูกราฟ equity อ่านสลิปอัตโนมัติ ซิงก์บน Google Drive</span>
+        </span>
+        <span class="svc-foot">
+          <span class="svc-meta"><b>5</b> พอร์ต</span>
+          <span class="svc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
+      </a>
 
-          <a class="shelf-card" href="#collection" style="--bg:url(lib/shelf-curated.jpg)" aria-label="ห้องสมุดความรู้">
-            <span class="sc-ico sc-ico-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H19v3H6.5"/></svg></span>
-            <span class="sc-body">
-              <span class="sc-eye">LIBRARY</span>
-              <span class="sc-title">ห้องสมุดความรู้</span>
-              <span class="sc-desc">บทความการลงทุน มาโครเศรษฐกิจ และการบริหารความเสี่ยง ภาษาไทยเข้าใจง่าย เปิดอ่านฟรี</span>
-            </span>
-            <span class="sc-foot">
-              <span class="sc-count">เปิดอ่านฟรี</span>
-              <span class="sc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </span>
-          </a>
+      <a class="svc-card" href="https://app.jptrustlearning.com/new" aria-label="S&amp;P 500 Scanner">
+        <span class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 12l2 2 3.5-4"/></svg></span>
+        <span class="svc-body">
+          <span class="svc-eye">SCANNER</span>
+          <span class="svc-card-title">S&amp;P 500 Scanner</span>
+          <span class="svc-card-desc">สแกนหุ้นตามโมเมนตัม จัดอันดับและกรองสถานะตลาด Bull / Neutral / Bear ในหน้าจอเดียว</span>
+        </span>
+        <span class="svc-foot">
+          <span class="svc-meta"><b>500</b>+ หุ้น</span>
+          <span class="svc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
+      </a>
 
-          <a class="shelf-card" href="https://app.jptrustlearning.com/new" style="--bg:url(lib/shelf-macro.jpg)" aria-label="Gold &amp; Macro">
-            <span class="sc-ico sc-ico-svg"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg></span>
-            <span class="sc-body">
-              <span class="sc-eye">GOLD</span>
-              <span class="sc-title">Gold &amp; Macro</span>
-              <span class="sc-desc">แดชบอร์ดติดตามทองคำและภาพรวมเศรษฐกิจ เชื่อมโยงน้ำมัน ดอลลาร์ และดอกเบี้ย</span>
-            </span>
-            <span class="sc-foot">
-              <span class="sc-count">แดชบอร์ดทองคำ</span>
-              <span class="sc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </span>
-          </a>
+      <a class="svc-card" href="#collection" aria-label="ห้องสมุดความรู้">
+        <span class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H19v3H6.5"/></svg></span>
+        <span class="svc-body">
+          <span class="svc-eye">LIBRARY</span>
+          <span class="svc-card-title">ห้องสมุดความรู้</span>
+          <span class="svc-card-desc">บทความการลงทุน มาโครเศรษฐกิจ และการบริหารความเสี่ยง ภาษาไทยเข้าใจง่าย เปิดอ่านฟรี</span>
+        </span>
+        <span class="svc-foot">
+          <span class="svc-meta">เปิดอ่านฟรี</span>
+          <span class="svc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
+      </a>
+
+      <a class="svc-card" href="https://app.jptrustlearning.com/new" aria-label="Gold &amp; Macro">
+        <span class="svc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg></span>
+        <span class="svc-body">
+          <span class="svc-eye">GOLD</span>
+          <span class="svc-card-title">Gold &amp; Macro</span>
+          <span class="svc-card-desc">แดชบอร์ดติดตามทองคำและภาพรวมเศรษฐกิจ เชื่อมโยงน้ำมัน ดอลลาร์ และดอกเบี้ย</span>
+        </span>
+        <span class="svc-foot">
+          <span class="svc-meta">แดชบอร์ดทองคำ</span>
+          <span class="svc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
+      </a>
+
+    </div>
         </div>
       </div>
     </div>
