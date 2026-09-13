@@ -271,6 +271,12 @@ const RESEARCH = [
   /* ---------- ข้อมูล & ระเบียบวิธี ---------- */
   {
     cat: "method", type: "own", status: "active",
+    title: "ทองคำ วันที่ Asia ดัง กับวันที่ Asia เงียบ — HIGH + LOW มี edge จริงไหม",
+    desc: "วัดว่าช่วงเช้าเอเชียขยับเป็นสัดส่วนเท่าไรของทั้งวัน แล้วให้ระบบสองตัวเทรดคนละวัน: breakout วัน HIGH (22 ปี 2,179 ไม้ · Sharpe 1.19 · walk-forward 1.07) และกริด mean-reversion วัน LOW (536 วัน · ชนะวันสุ่มทั้ง 3 แบบ) — เปิดทุกด่านที่ใช้พิสูจน์ว่ารวมกันแล้วมี edge จริง: สลับแผนที่ regime ทั้งชุด 5,000 รอบ เทียบกับการเพิ่ม lot ที่ drawdown เท่ากัน ต้นทุนต่อรอบของกริด และ buy & hold ทอง พร้อมสิ่งที่ยังพิสูจน์ไม่ได้ (ระบบ L ยังไม่เคยเทรดจริง · ไม่มีวัน LOW ตั้งแต่ เม.ย. 2024)",
+    assets: ["Gold"], href: "https://public.jptrustlearning.com/gold-asia-regime-high-low-edge.html"
+  },
+  {
+    cat: "method", type: "own", status: "active",
     title: "Survivorship Bias ใน Backtest 25 ปี",
     desc: "วัด coverage จริงของดัชนีย้อนยุคดอทคอม (~50% ของสมาชิกจริง) แล้วประเมินว่าผลลัพธ์ backtest เกินจริงเท่าไร — ประมาณ +2–4% CAGR/ปี ในช่วงต้น และลดลงเหลือ ~0 ที่ปี 2015+",
     assets: ["S&P 500"], href: "#"

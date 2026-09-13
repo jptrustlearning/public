@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ทองคำ วันที่ Asia ดัง กับวันที่ Asia เงียบ — HIGH + LOW มี edge จริงไหม | JP Trust Learning</title>
+<meta name="description" content="วัดว่าช่วง Asia ขยับเป็นสัดส่วนเท่าไรของทั้งวัน แล้วให้ระบบสองตัวเทรดคนละวัน: breakout วัน HIGH (22 ปี 2,179 ไม้) และกริด mean-reversion วัน LOW (536 วัน) — เปิดทุกด่านที่ใช้พิสูจน์ว่า edge จริง: permutation 3 แบบ walk-forward ต้นทุนต่อรอบ เทียบเพิ่ม lot และ buy & hold พร้อมสิ่งที่ยังพิสูจน์ไม่ได้">
+<link rel="canonical" href="https://public.jptrustlearning.com/gold-asia-regime-high-low-edge.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="JP Trust Learning">
+<meta property="og:title" content="ทองคำ วันที่ Asia ดัง กับวันที่ Asia เงียบ — HIGH + LOW มี edge จริงไหม">
+<meta property="og:description" content="สองระบบที่เทรดคนละวันบนทองคำ — พิสูจน์ด้วย permutation 3 แบบ walk-forward ต้นทุนต่อรอบ และเทียบกับการเพิ่ม lot · เปิดหมดรวมสิ่งที่ยังไม่ผ่าน">
+<meta property="og:url" content="https://public.jptrustlearning.com/gold-asia-regime-high-low-edge.html">
+<meta property="og:image" content="https://public.jptrustlearning.com/og-image.png">
+<meta property="og:locale" content="th_TH">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Cinzel:wght@500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--maroon-deep:#1a0a0e;--maroon:#2d1018;--maroon-soft:#3a1620;--cream:#FAF6ED;--cream-2:#f3ecdc;--gold:#D4AF37;--gold-bright:#e7c659;--gold-deep:#a8842a;--win:#2E7D57;--win-soft:#6cbf94;--loss:#C75B49;--loss-soft:#e08a78;--ink:#241016;--ink-soft:#5a4640;--on-dark:#f1e6d3;--on-dark-soft:#c9b69b;--line-dark:rgba(212,175,55,.22);--line-light:rgba(45,16,24,.14)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Anuphan',sans-serif;background:var(--cream);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.eyebrow{font-family:'Cinzel',serif;text-transform:uppercase;letter-spacing:.34em;font-size:.72rem;font-weight:600;color:var(--gold-deep)}.dark .eyebrow{color:var(--gold)}
+.num{font-family:'DM Serif Display',serif;font-weight:400;line-height:.92}
+section{padding:clamp(56px,8vw,116px) clamp(20px,6vw,80px)}.wrap{max-width:1000px;margin:0 auto}.narrow{max-width:780px;margin:0 auto}
+section.light{background:var(--cream)}section.light:nth-of-type(even){background:var(--cream-2)}
+section.dark{background:linear-gradient(165deg,var(--maroon) 0%,var(--maroon-deep) 100%);color:var(--on-dark);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+.brandbar{display:flex;align-items:center;gap:14px;margin-bottom:clamp(30px,6vw,54px)}
+.owl{width:46px;height:46px;flex:0 0 auto;object-fit:contain;border-radius:12px;filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}
+.brandbar .wordmark{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.16em;font-size:.82rem;color:var(--gold);line-height:1.35}.brandbar .wordmark span{display:block;color:var(--on-dark-soft);font-weight:500;font-size:.7rem}
+.hero{background:radial-gradient(120% 90% at 88% 4%,rgba(212,175,55,.16),transparent 46%),radial-gradient(90% 70% at 0% 100%,rgba(46,125,87,.14),transparent 50%),linear-gradient(160deg,var(--maroon) 0%,var(--maroon-deep) 100%);color:var(--on-dark);border-bottom:1px solid var(--line-dark)}
+.hero h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(1.95rem,5.8vw,3.2rem);line-height:1.14;margin:18px 0 20px;color:#fff}
+.hero .lens{font-size:clamp(1rem,2.2vw,1.15rem);color:var(--on-dark);margin-bottom:22px}.hero .meta{font-size:.84rem;color:var(--on-dark-soft)}
+.hero-3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0 30px}
+.hero-3 .cell{border:1px solid var(--line-dark);border-radius:14px;padding:16px 12px;background:rgba(0,0,0,.2);text-align:center}
+.hero-3 .cell .shape{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.hero-3 .cell .num{font-size:clamp(1.35rem,4.4vw,2.1rem);color:#fff}.hero-3 .cell .sub{font-size:.74rem;color:var(--on-dark-soft);margin-top:6px;line-height:1.5}
+@media(max-width:520px){.hero-3{grid-template-columns:1fr;gap:8px}.hero-3 .cell{display:flex;align-items:center;gap:12px;text-align:left;padding:12px 14px}.hero-3 .cell .shape{margin:0;flex:0 0 82px}.hero-3 .cell .sub{margin:0;flex:1}}
+h2.head{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(1.55rem,4.4vw,2.5rem);line-height:1.18;margin:12px 0 22px}.light h2.head{color:var(--maroon)}.dark h2.head{color:#fff}
+h3.sub{font-size:1.05rem;font-weight:700;margin:30px 0 10px}.light h3.sub{color:var(--maroon)}.dark h3.sub{color:var(--gold-bright)}
+.lead{font-size:clamp(1.02rem,2.1vw,1.16rem);margin-bottom:16px}.light .lead{color:var(--ink)}.dark .lead{color:var(--on-dark)}
+p.body{margin-bottom:15px;font-size:1rem}.light p.body{color:var(--ink-soft)}.dark p.body{color:var(--on-dark-soft)}
+.kw{font-weight:600}.light .kw{color:var(--maroon)}.dark .kw{color:var(--gold-bright)}
+ul.body{margin:0 0 16px 1.1em;font-size:1rem}.light ul.body{color:var(--ink-soft)}.dark ul.body{color:var(--on-dark-soft)}ul.body li{margin-bottom:8px}
+.steps{counter-reset:s;margin:8px 0 6px}.step{counter-increment:s;position:relative;padding-left:52px;margin-bottom:24px}
+.step::before{content:counter(s);position:absolute;left:0;top:-2px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-family:'Cinzel',serif;font-weight:600;font-size:.9rem;border:1px solid var(--gold);color:var(--gold)}
+.step h4{font-size:1.02rem;font-weight:700;margin-bottom:6px;color:var(--gold-bright)}.step p{font-size:.97rem;color:var(--on-dark-soft)}
+.light .step::before{border-color:var(--gold-deep);color:var(--gold-deep)}.light .step h4{color:var(--maroon)}.light .step p{color:var(--ink-soft)}
+.tablewrap{margin:22px 0 8px;border:1px solid var(--line-light);border-radius:14px;overflow:hidden}.dark .tablewrap{border-color:var(--line-dark)}
+.tablescroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.data{border-collapse:collapse;width:100%;min-width:560px;font-size:.88rem;background:#fff}.dark table.data{background:rgba(0,0,0,.24)}
+table.data th{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;font-weight:600;color:var(--gold-deep);text-align:right;padding:11px 10px;white-space:nowrap;border-bottom:1px solid var(--line-light);background:var(--cream-2)}
+.dark table.data th{color:var(--gold);border-bottom-color:var(--line-dark);background:rgba(0,0,0,.3)}
+table.data th:first-child,table.data td:first-child{text-align:left;position:sticky;left:0;background:var(--cream-2);z-index:2;min-width:132px}
+.dark table.data th:first-child,.dark table.data td:first-child{background:#241016}
+table.data td{padding:10px;text-align:right;white-space:nowrap;color:var(--ink-soft);border-bottom:1px solid rgba(45,16,24,.07)}
+.dark table.data td{color:var(--on-dark-soft);border-bottom-color:rgba(212,175,55,.1)}table.data tbody tr:last-child td{border-bottom:none}
+table.data tr.hi td{background:rgba(46,125,87,.09);color:var(--ink);font-weight:600}.dark table.data tr.hi td{background:rgba(46,125,87,.16);color:#fff}
+.dark table.data tr.hi td:first-child{background:#1c2a22}table.data tr.hi td:first-child{background:#e6f0ea}
+td.best{color:var(--win);font-weight:700}.dark td.best{color:var(--win-soft)}td.bad{color:var(--loss);font-weight:600}.dark td.bad{color:var(--loss-soft)}
+.tblnote{font-size:.78rem;padding:9px 12px;background:var(--cream-2);color:var(--ink-soft);border-top:1px solid var(--line-light)}
+.dark .tblnote{background:rgba(0,0,0,.3);color:var(--on-dark-soft);border-top-color:var(--line-dark)}
+.scrollhint{display:none;font-size:.72rem;color:var(--ink-soft);margin:6px 2px 0;font-style:italic}.dark .scrollhint{color:var(--on-dark-soft)}@media(max-width:760px){.scrollhint{display:block}}
+.callout{border-radius:16px;padding:20px 22px;margin:26px 0}.callout .lbl{font-family:'Cinzel',serif;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:8px;display:block}
+.callout p{font-size:.97rem;line-height:1.72;margin-bottom:10px}.callout p:last-child{margin-bottom:0}
+.callout.find{background:rgba(46,125,87,.09);border:1px solid rgba(46,125,87,.32)}.callout.find .lbl{color:var(--win)}.callout.find p{color:var(--ink-soft)}
+.dark .callout.find{background:rgba(46,125,87,.14);border-color:rgba(108,191,148,.34)}.dark .callout.find .lbl{color:var(--win-soft)}.dark .callout.find p{color:var(--on-dark)}
+.callout.warn{background:rgba(199,91,73,.08);border:1px solid rgba(199,91,73,.34)}.callout.warn .lbl{color:var(--loss)}.callout.warn p{color:var(--ink-soft)}
+.dark .callout.warn{background:rgba(199,91,73,.15);border-color:rgba(224,138,120,.4)}.dark .callout.warn .lbl{color:var(--loss-soft)}.dark .callout.warn p{color:var(--on-dark)}
+.callout.note{background:rgba(212,175,55,.09);border:1px dashed rgba(168,132,42,.45)}.callout.note .lbl{color:var(--gold-deep)}.callout.note p{color:var(--ink-soft)}
+.dark .callout.note{background:rgba(212,175,55,.08);border-color:var(--line-dark)}.dark .callout.note .lbl{color:var(--gold)}.dark .callout.note p{color:var(--on-dark-soft)}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:24px 0 10px}
+.metric{border:1px solid var(--line-light);border-radius:14px;padding:16px;background:#fff}.dark .metric{border-color:var(--line-dark);background:rgba(0,0,0,.22)}
+.metric .mname{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:6px}.dark .metric .mname{color:var(--gold)}
+.metric .mth{font-weight:700;font-size:.98rem;margin-bottom:5px;color:var(--maroon)}.dark .metric .mth{color:#fff}
+.metric .mdesc{font-size:.87rem;line-height:1.62;color:var(--ink-soft)}.dark .metric .mdesc{color:var(--on-dark-soft)}
+.pull{font-family:'DM Serif Display',serif;font-size:clamp(1.25rem,3.2vw,1.8rem);line-height:1.4;margin:30px 0;padding-left:20px;border-left:3px solid var(--gold)}.light .pull{color:var(--maroon)}.dark .pull{color:#fff}
+.verdict{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 6px}@media(max-width:640px){.verdict{grid-template-columns:1fr}}
+.vcard{border-radius:16px;padding:20px;border:1px solid}.vcard.yes{background:rgba(46,125,87,.13);border-color:rgba(108,191,148,.36)}.vcard.no{background:rgba(199,91,73,.13);border-color:rgba(224,138,120,.36)}
+.vcard .vh{font-family:'Cinzel',serif;font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;margin-bottom:8px}.vcard.yes .vh{color:var(--win-soft)}.vcard.no .vh{color:var(--loss-soft)}
+.vcard .vt{font-weight:700;font-size:1rem;margin-bottom:8px;color:#fff}.vcard p{font-size:.9rem;line-height:1.68;color:var(--on-dark-soft);margin-bottom:8px}.vcard p:last-child{margin-bottom:0}
+.closing{background:linear-gradient(180deg,var(--maroon-deep),#120609);color:var(--on-dark);text-align:center}
+.closing .q{font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3.4vw,2rem);line-height:1.42;color:#fff;margin-bottom:22px}
+.cta{display:inline-flex;flex-direction:column;gap:3px;margin:26px auto 20px;padding:18px 32px;border:1px solid var(--gold);border-radius:16px;text-decoration:none;transition:background .25s}.cta:hover{background:rgba(212,175,55,.1)}
+.cta .sub{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}.cta .url{font-size:1.12rem;font-weight:600;color:#fff}.cta .tip{font-size:.8rem;color:var(--on-dark-soft)}
+.disclaimer{font-size:.78rem;color:var(--on-dark-soft);line-height:1.75;margin-top:12px}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}.rv.in{opacity:1;transform:none}@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+/* charts */
+.chartbox{margin:22px 0 6px;padding:14px 10px 6px;border:1px solid var(--line-light);border-radius:14px;background:#fff;overflow-x:auto;-webkit-overflow-scrolling:touch}.dark .chartbox{border-color:var(--line-dark);background:rgba(0,0,0,.22)}
+.chart{width:100%;min-width:560px;height:auto;display:block;font-family:'Anuphan',sans-serif}
+.chart .grid{stroke:rgba(45,16,24,.08);stroke-width:1}.dark .chart .grid{stroke:rgba(212,175,55,.14)}
+.chart .zero{stroke:rgba(45,16,24,.45);stroke-width:1.2}.dark .chart .zero{stroke:rgba(241,230,211,.5)}
+.chart .tick{font-size:11px;fill:var(--ink-soft)}.dark .chart .tick{fill:var(--on-dark-soft)}
+.chart .val{font-size:11px;font-weight:600;fill:var(--ink)}.dark .chart .val{fill:#fff}
+.chart .bar-h{fill:#7a2a3c}.chart .bar-l{fill:var(--gold)}.chart .bar-k{fill:#b08a8f}.chart .bar-pos{fill:var(--win)}.chart .bar-neg{fill:var(--loss)}.chart .bar-mid{fill:#b3a58f}
+.chart polyline{fill:none;stroke-width:2.2;stroke-linejoin:round}.chart .ln-h{stroke:#7a2a3c}.chart .ln-l{stroke:var(--gold-deep);stroke-width:3}.chart .ln-k{stroke:#b08a8f;stroke-dasharray:5 4}.chart .ln-g{stroke:#8a8a8a;stroke-width:1.6}
+.chart text.lbl{font-size:11px;font-weight:600}.chart text.ln-h{fill:#7a2a3c}.chart text.ln-l{fill:var(--gold-deep)}.chart text.ln-k{fill:#8c6a70}.chart text.ln-g{fill:#777}
+.dark .chart text.ln-h{fill:#e08a9c}.dark .chart text.ln-l{fill:var(--gold-bright)}.dark .chart text.ln-k{fill:#c9a8ad}.dark .chart text.ln-g{fill:#bbb}
+.chart .st{display:none}.chart[data-state="h"] .st-h,.chart[data-state="l"] .st-l,.chart[data-state="k"] .st-k{display:inline}
+.toggle{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.toggle button{font-family:'Anuphan',sans-serif;font-size:.9rem;font-weight:600;padding:9px 16px;border-radius:999px;border:1px solid var(--line-light);background:#fff;color:var(--ink-soft);cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--maroon);color:#fff;border-color:var(--maroon)}
+.toggle button:focus-visible{outline:2px solid var(--gold-deep);outline-offset:2px}
+.legend{font-size:.82rem;color:var(--ink-soft);margin:6px 2px 0}.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin:0 4px 0 10px}
+.statline{font-size:.95rem;color:var(--ink);margin:10px 2px 0;min-height:1.6em}.statline b{color:var(--maroon)}
+.jpt-libnav{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 26px;margin:0;padding:26px 20px calc(26px + env(safe-area-inset-bottom,0px));background:linear-gradient(135deg,#1a0a0e 0%,#2d1018 55%,#3a1520 100%);border-top:1px solid rgba(212,175,55,.35);font-family:'Anuphan',system-ui,-apple-system,sans-serif;font-size:14.5px;line-height:1.9;text-align:center}
+.jpt-libnav a{color:#D4AF37;text-decoration:none;border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease}.jpt-libnav a:hover{color:#E8D48B;border-bottom-color:rgba(232,212,139,.6)}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <img class="owl" src="https://raw.githubusercontent.com/jptrustlearning/pages/main/jpt-owl-cropped.png" alt="JP Trust Learning">
+      <div class="wordmark">JP TRUST LEARNING<span>Gold Research · Edge Audit</span></div>
+    </div>
+    <div class="eyebrow rv">Gold · Asia Regime · High + Low</div>
+    <h1 class="rv">ทองคำ วันที่ Asia ดัง<br>กับวันที่ Asia เงียบ</h1>
+    <p class="lens rv">ทองคำไม่ได้มีนิสัยเดียวทุกวัน บางวันเดินเป็นเส้นตรง บางวันแกว่งไปมาไม่ไปไหน เราพบว่า "ช่วงเช้าฝั่งเอเชียขยับมากแค่ไหนเมื่อเทียบกับทั้งวัน" บอกล่วงหน้าได้ว่าวันนั้นเป็นแบบไหน จึงสร้างระบบสองตัวที่เทรดคนละวัน แล้วถามคำถามที่ยากที่สุด: <span class="kw">รวมกันแล้วมี edge จริงหรือแค่บังเอิญ</span> — บทความนี้เปิดทุกด่านที่ใช้พิสูจน์ รวมด่านที่ยังไม่ผ่าน</p>
+    <div class="hero-3">
+      <div class="cell rv"><div class="shape">ระบบ H</div><div class="num">2,179</div><div class="sub">ไม้ breakout วัน HIGH บนข้อมูล 22 ปี · Sharpe 1.19 · t 5.7</div></div>
+      <div class="cell rv"><div class="shape">ระบบ L</div><div class="num">536</div><div class="sub">วัน LOW ที่กริดเทรด 2019–24 · Sharpe 1.59 บนวันนั้น · ยังไม่เคยเทรดจริง</div></div>
+      <div class="cell rv"><div class="shape">รวมกัน</div><div class="num">8/8</div><div class="sub">ปีบวกเมื่อรวมสองระบบ (H เดี่ยว 4/7) ที่ drawdown เท่าเดิม</div></div>
+    </div>
+    <p class="meta rv">เผยแพร่ กันยายน 2026 · ความยาว ~15 นาที · หมวดข้อมูล &amp; ระเบียบวิธี · ตัวเลขทุกตัวมาจากสคริปต์ที่บันทึกไว้ในคลังวิจัยของเรา</p>
+  </div>
+</section>
+
+<section class="light">
+  <div class="narrow">
+    <div class="eyebrow rv">01 · อ่านแบบ 1 นาที</div>
+    <h2 class="head rv">สองระบบ เทรดคนละวัน แล้วดูว่าปีแห้งหายไปไหม</h2>
+    <p class="lead rv">ทุกเช้าเราวัดตัวเลขเดียว: ช่วง 07:00–13:00 (เวลาไทย) ราคาทองแกว่งกว้างแค่ไหน เทียบกับทั้งวัน แล้วเทียบตัวเลขนั้นกับประวัติ 2 ปีของมันเอง</p>
+    <ul class="body rv">
+      <li><span class="kw">วัน HIGH</span> — Asia ขยับมากผิดปกติ ปกติแปลว่ามีทิศชัด → ระบบ H เข้าตามทางที่ราคาหลุดกรอบเช้า แล้วถือข้ามคืน</li>
+      <li><span class="kw">วัน LOW</span> — Asia เงียบผิดปกติ ปกติแปลว่าวันนั้นแกว่งไร้ทิศ → ระบบ L วางกริดรับซื้อล่าง-ขายบน ปิดหมดก่อนเที่ยงคืน</li>
+      <li><span class="kw">วัน MID</span> — ธรรมดา ไม่ทำอะไร</li>
+    </ul>
+    <p class="body rv">กราฟด้านล่างคือคำตอบสั้นที่สุด กดสลับดูว่าเมื่อเติมระบบ L เข้าไป ปีที่ระบบ H "แห้ง" เปลี่ยนไปอย่างไร — และเทียบกับทางเลือกที่ง่ายกว่า: ไม่เพิ่มระบบ แค่เพิ่ม lot ของ H ให้ drawdown เท่ากัน</p>
+    <div class="chartbox rv">
+      <div class="toggle" role="group" aria-label="เลือกพอร์ต">
+        <button type="button" data-st="h" aria-pressed="false">HIGH เดี่ยว</button>
+        <button type="button" data-st="l" aria-pressed="true">HIGH + LOW</button>
+        <button type="button" data-st="k" aria-pressed="false">HIGH เพิ่ม lot 1.19×</button>
+      </div>
+      <div id="ychart" data-state="l"><svg viewBox="0 0 720 300" class="chart" data-state="l" role="img" aria-label="กำไรรายปี HIGH เทียบ HIGH+LOW">
+<line x1="46" x2="708" y1="243.4" y2="243.4" class="grid"/><text x="40" y="247.4" class="tick" text-anchor="end">+0%</text>
+<line x1="46" x2="708" y1="205.7" y2="205.7" class="grid"/><text x="40" y="209.7" class="tick" text-anchor="end">+10%</text>
+<line x1="46" x2="708" y1="168.0" y2="168.0" class="grid"/><text x="40" y="172.0" class="tick" text-anchor="end">+20%</text>
+<line x1="46" x2="708" y1="130.3" y2="130.3" class="grid"/><text x="40" y="134.3" class="tick" text-anchor="end">+30%</text>
+<line x1="46" x2="708" y1="92.6" y2="92.6" class="grid"/><text x="40" y="96.6" class="tick" text-anchor="end">+40%</text>
+<line x1="46" x2="708" y1="54.9" y2="54.9" class="grid"/><text x="40" y="58.9" class="tick" text-anchor="end">+50%</text>
+<line x1="46" x2="708" y1="243.4" y2="243.4" class="zero"/>
+<text x="87.4" y="286" class="tick" text-anchor="middle">2019</text>
+<g class="st st-h"><rect x="60.9" y="243.4" width="53.0" height="1.9" class="bar-h"/><text x="87.4" y="259.3" class="val" text-anchor="middle">-0.5</text></g>
+<g class="st st-l"><rect x="60.9" y="243.4" width="53.0" height="1.9" class="bar-h"/><rect x="60.9" y="235.5" width="53.0" height="7.9" class="bar-l"/><text x="87.4" y="231.4" class="val" text-anchor="middle">+1.6</text></g>
+<g class="st st-k"><rect x="60.9" y="243.4" width="53.0" height="2.3" class="bar-k"/><text x="87.4" y="259.7" class="val" text-anchor="middle">-0.6</text></g>
+<text x="170.1" y="286" class="tick" text-anchor="middle">2020</text>
+<g class="st st-h"><rect x="143.6" y="220.0" width="53.0" height="23.4" class="bar-h"/><text x="170.1" y="214.0" class="val" text-anchor="middle">+6.2</text></g>
+<g class="st st-l"><rect x="143.6" y="220.0" width="53.0" height="23.4" class="bar-h"/><rect x="143.6" y="185.7" width="53.0" height="34.3" class="bar-l"/><text x="170.1" y="179.7" class="val" text-anchor="middle">+15.3</text></g>
+<g class="st st-k"><rect x="143.6" y="215.5" width="53.0" height="27.9" class="bar-k"/><text x="170.1" y="209.5" class="val" text-anchor="middle">+7.4</text></g>
+<text x="252.9" y="286" class="tick" text-anchor="middle">2021</text>
+<g class="st st-h"><rect x="226.4" y="243.4" width="53.0" height="4.5" class="bar-h"/><text x="252.9" y="261.9" class="val" text-anchor="middle">-1.2</text></g>
+<g class="st st-l"><rect x="226.4" y="243.4" width="53.0" height="4.5" class="bar-h"/><rect x="226.4" y="205.7" width="53.0" height="37.7" class="bar-l"/><text x="252.9" y="204.2" class="val" text-anchor="middle">+8.8</text></g>
+<g class="st st-k"><rect x="226.4" y="243.4" width="53.0" height="5.3" class="bar-k"/><text x="252.9" y="262.7" class="val" text-anchor="middle">-1.4</text></g>
+<text x="335.6" y="286" class="tick" text-anchor="middle">2022</text>
+<g class="st st-h"><rect x="309.1" y="243.4" width="53.0" height="0.0" class="bar-h"/><text x="335.6" y="237.4" class="val" text-anchor="middle">+0.0</text></g>
+<g class="st st-l"><rect x="309.1" y="243.4" width="53.0" height="0.0" class="bar-h"/><rect x="309.1" y="231.7" width="53.0" height="11.7" class="bar-l"/><text x="335.6" y="225.7" class="val" text-anchor="middle">+3.1</text></g>
+<g class="st st-k"><rect x="309.1" y="243.4" width="53.0" height="0.0" class="bar-k"/><text x="335.6" y="237.4" class="val" text-anchor="middle">+0.0</text></g>
+<text x="418.4" y="286" class="tick" text-anchor="middle">2023</text>
+<g class="st st-h"><rect x="391.9" y="243.4" width="53.0" height="7.5" class="bar-h"/><text x="418.4" y="265.0" class="val" text-anchor="middle">-2.0</text></g>
+<g class="st st-l"><rect x="391.9" y="243.4" width="53.0" height="7.5" class="bar-h"/><rect x="391.9" y="211.0" width="53.0" height="32.4" class="bar-l"/><text x="418.4" y="212.5" class="val" text-anchor="middle">+6.6</text></g>
+<g class="st st-k"><rect x="391.9" y="243.4" width="53.0" height="9.0" class="bar-k"/><text x="418.4" y="266.5" class="val" text-anchor="middle">-2.4</text></g>
+<text x="501.1" y="286" class="tick" text-anchor="middle">2024</text>
+<g class="st st-h"><rect x="474.6" y="177.8" width="53.0" height="65.6" class="bar-h"/><text x="501.1" y="171.8" class="val" text-anchor="middle">+17.4</text></g>
+<g class="st st-l"><rect x="474.6" y="177.8" width="53.0" height="65.6" class="bar-h"/><rect x="474.6" y="147.3" width="53.0" height="30.5" class="bar-l"/><text x="501.1" y="141.3" class="val" text-anchor="middle">+25.5</text></g>
+<g class="st st-k"><rect x="474.6" y="165.0" width="53.0" height="78.4" class="bar-k"/><text x="501.1" y="159.0" class="val" text-anchor="middle">+20.8</text></g>
+<text x="583.9" y="286" class="tick" text-anchor="middle">2025</text>
+<g class="st st-h"><rect x="557.4" y="189.5" width="53.0" height="53.9" class="bar-h"/><text x="583.9" y="183.5" class="val" text-anchor="middle">+14.3</text></g>
+<g class="st st-l"><rect x="557.4" y="189.5" width="53.0" height="53.9" class="bar-h"/><rect x="557.4" y="189.5" width="53.0" height="0.0" class="bar-l"/><text x="583.9" y="183.5" class="val" text-anchor="middle">+14.3</text></g>
+<g class="st st-k"><rect x="557.4" y="179.0" width="53.0" height="64.5" class="bar-k"/><text x="583.9" y="173.0" class="val" text-anchor="middle">+17.1</text></g>
+<text x="666.6" y="286" class="tick" text-anchor="middle">2026</text>
+<g class="st st-h"><rect x="640.1" y="67.4" width="53.0" height="176.0" class="bar-h"/><text x="666.6" y="61.4" class="val" text-anchor="middle">+46.7</text></g>
+<g class="st st-l"><rect x="640.1" y="67.4" width="53.0" height="176.0" class="bar-h"/><rect x="640.1" y="67.4" width="53.0" height="0.0" class="bar-l"/><text x="666.6" y="61.4" class="val" text-anchor="middle">+46.7</text></g>
+<g class="st st-k"><rect x="640.1" y="33.1" width="53.0" height="210.3" class="bar-k"/><text x="666.6" y="27.1" class="val" text-anchor="middle">+55.8</text></g>
+</svg></div>
+      <div class="legend"><i style="background:#7a2a3c"></i>breakout วัน HIGH <i style="background:#D4AF37"></i>กริดวัน LOW <i style="background:#b08a8f"></i>HIGH ×1.19 lot</div>
+      <div class="statline" id="ystat">HIGH + LOW — Sharpe <b>1.24</b> · กำไร <b>+17.8%/ปี</b> · DD <b>-11.3%</b> (เท่าเดิม) · ปีบวก <b>8/8</b> — สีทองคือส่วนที่กริดวัน LOW เติมให้</div>
+    </div>
+    <div class="tblnote">กำไร % ต่อปีที่ขนาดสัญญา 1 เท่าของทุน ไม่ทบต้น · ข้อมูล 15 นาที ก.ย. 2019 – ก.ค. 2026 · กริดคิดต้นทุน $0.15/oz ต่อรอบ · ปี 2025–26 ไม่มีวัน LOW เลย จึงเท่ากันทั้งสามแบบ</div>
+    <div class="callout find rv"><span class="lbl">คำตอบสั้น</span>
+      <p><span class="kw">มี edge — แต่บาง และครึ่งหนึ่งยังไม่เคยลองจริง</span> ระบบ H พิสูจน์แล้วบน 22 ปี ระบบ L พิสูจน์ได้ว่า "วัน LOW พิเศษจริง" บนข้อมูล 2019–24 แต่ไม่มีวัน LOW ให้เทรดมาตั้งแต่เมษายน 2024 รวมกันแล้วดีกว่า H เดี่ยวแน่กว่าไม่ดี (ความน่าจะเป็น 96%) และดีกว่าการแค่เพิ่ม lot เพราะปีบวกเพิ่มจาก 4/7 เป็น 8/8 ที่ drawdown เท่าเดิม</p>
+      <p>ตัวเลขที่ควรคาดหวังหลังหักส่วนที่เรา "เลือกดูแล้วค่อยเชื่อ" ออก 30–40%: Sharpe ประมาณ 0.7–0.8 ไม่ใช่ 1.2 ที่เห็นในตาราง</p>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="narrow">
+    <div class="eyebrow rv">02 · ตัวเลขเดียวที่ทุกอย่างพึ่ง</div>
+    <h2 class="head rv">"Asia share" — วัดว่าเช้าเอเชียเป็นกี่ส่วนของทั้งวัน</h2>
+    <p class="lead rv">คำนวณสามขั้น ใช้เฉพาะข้อมูลที่รู้แล้วก่อนเปิดไม้ทุกครั้ง ไม่มีการแอบดูอนาคต</p>
+    <div class="steps rv">
+      <div class="step"><h4>share ของแต่ละวัน</h4><p>ช่วงราคา 07:00–13:00 หารด้วยช่วงราคาทั้งวัน — ได้ตัวเลข 0 ถึง 1 ว่าเช้าเอเชียกินสัดส่วนเท่าไร</p></div>
+      <div class="step"><h4>เฉลี่ย 60 วันย้อนหลัง</h4><p>วันเดียวเสียงดังเกินไป จึงใช้ค่าเฉลี่ยของ 60 วันเทรดก่อนหน้า (ไม่รวมวันนี้)</p></div>
+      <div class="step"><h4>เทียบกับ 500 วันก่อนหน้า</h4><p>ค่าเฉลี่ยวันนี้สูงกว่ากี่เปอร์เซ็นต์ของค่าใน 2 ปีที่ผ่านมา — สูงกว่า 66% = <span class="kw">HIGH</span> · ต่ำกว่า 33% = <span class="kw">LOW</span> · ที่เหลือ MID</p></div>
+    </div>
+    <h3 class="sub rv">ทำไมต้องคนละระบบ — เพราะระบบเดียวกันให้ผลกลับด้านตาม regime</h3>
+    <div class="tablewrap rv"><div class="tablescroll"><table class="data">
+      <thead><tr><th>ระบบ (กติกาเดียวกันทุก regime)</th><th>วัน HIGH</th><th>วัน MID</th><th>วัน LOW</th></tr></thead>
+      <tbody>
+        <tr><td>breakout ถือข้ามคืน — กำไรเฉลี่ยต่อไม้ (22 ปี)</td><td class="best">+12.8 bp</td><td>+6.8 bp</td><td class="bad">+1.6 bp</td></tr>
+        <tr><td>breakout — Sharpe (22 ปี)</td><td class="best">1.19</td><td>0.70</td><td class="bad">0.19</td></tr>
+        <tr><td>กริดสองด้าน ออกวันเดียว — Sharpe (2019–26)</td><td class="bad">−1.08</td><td>1.09</td><td class="best">1.59</td></tr>
+      </tbody></table></div>
+      <div class="tblnote">bp = หนึ่งในหมื่นของราคา · กริดบน MID ดูดีแต่เมื่อเทียบกับวันสุ่มในปีเดียวกันแล้วไม่ต่าง (อ่านหัวข้อ 04) · ระบบเดียวกันจึงถูกเปิดเฉพาะ regime ที่มันเป็นผู้ชนะ</div>
+    </div>
+    <p class="pull rv">วันที่เช้าเอเชียดัง ให้ตามทาง<br>วันที่เช้าเอเชียเงียบ ให้สวนทาง<br>วันธรรมดา ให้อยู่เฉย</p>
+  </div>
+</section>
+
+<section class="light">
+  <div class="narrow">
+    <div class="eyebrow rv">03 · ระบบ H</div>
+    <h2 class="head rv">Breakout วัน HIGH — พิสูจน์แล้วบน 22 ปี</h2>
+    <p class="lead rv">กติกา 4 บรรทัด: วัน HIGH ตอน 14:00 วางคำสั่งซื้อที่ยอดกรอบเช้าและขายที่ฐานกรอบเช้า ราคาแตะฝั่งไหนก่อนเข้าฝั่งนั้น หยุดขาดทุนที่อีกฝั่งของกรอบ ถือถึง 14:00 ของวันเทรดถัดไป หนึ่งไม้ต่อวัน ไม่มีเป้ากำไร</p>
+    <div class="metrics rv">
+      <div class="metric"><div class="mname">Sharpe · t-stat</div><div class="mth">1.19 · 5.7</div><div class="mdesc">2,179 ไม้ ระหว่าง มิ.ย. 2004 – ก.ย. 2026 · t เกิน 3 ที่เราตั้งเป็นเกณฑ์ขั้นต่ำมาก</div></div>
+      <div class="metric"><div class="mname">กำไร · Drawdown</div><div class="mth">+12.5%/ปี · -12.8%</div><div class="mdesc">ที่ขนาด 1 เท่าของทุน ปีบวก 16/21 ปีแย่สุด -2.6%</div></div>
+      <div class="metric"><div class="mname">Walk-forward</div><div class="mth">1.07 · t 4.3</div><div class="mdesc">เลือกพารามิเตอร์จากอดีตเท่านั้น แล้วเทรดปีถัดไป 2011–26 — ยังได้ Sharpe 1.07 นอกตัวอย่าง</div></div>
+      <div class="metric"><div class="mname">Strategy Tester</div><div class="mth">234 ไม้ · PF 1.80</div><div class="mdesc">EA จริงบนบัญชีทดลองของโบรก พ.ค. 2024 – เม.ย. 2026 · Sharpe 3.65 (สูตร MT5) · DD 7.4% · ตรงกับ Python 233 ไม้</div></div>
+    </div>
+    <div class="tablewrap rv"><div class="tablescroll"><table class="data">
+      <thead><tr><th>ยุค</th><th>2005–12</th><th>2013–18</th><th>2019–23</th><th>2024–26</th></tr></thead>
+      <tbody><tr><td>Sharpe ของระบบ H</td><td>1.49</td><td>0.78</td><td class="bad">0.34</td><td class="best">2.02</td></tr></tbody></table></div>
+      <div class="tblnote">จุดอ่อนที่เห็นชัด: ยุค 2019–23 แทบไม่ทำกำไร ห้าปีที่นักลงทุนต้องนั่งรอ — และนี่คือช่องที่ระบบ L เข้ามาเติม</div>
+    </div>
+    <p class="body rv">สิ่งที่ตัวกรอง HIGH ทำได้จริงคือ <span class="kw">เลือกวันที่ดีที่สุดและคุมความเสี่ยง</span> ถ้าเทรด breakout ทุกวันไม่กรอง 22 ปีจะได้ Sharpe 1.34 กำไร +18.4%/ปี แต่ drawdown −19% และอยู่ในตลาดทุกวัน กรองเหลือวัน HIGH ได้ 1.19 กำไร +12.5% drawdown −12.8% และอยู่ในตลาดเพียง 42% ของวัน เราเลือกอย่างหลัง</p>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="narrow">
+    <div class="eyebrow rv">04 · ระบบ L</div>
+    <h2 class="head rv">กริดวัน LOW — วันแบบนี้พิเศษจริง หรือเราแค่เลือกวันที่ผลดีมาโชว์?</h2>
+    <p class="lead rv">กติกา: วัน LOW ตอน 14:00 วางระดับทุกครึ่งกรอบเช้า จากใต้ฐานสองกรอบถึงเหนือยอดสองกรอบ ต่ำกว่าราคาตอนนั้นเป็นซื้อ สูงกว่าเป็นขาย แต่ละไม้ปิดกำไรที่หนึ่งขั้นแล้ววางใหม่ที่เดิม หยุดขาดทุนที่หนึ่งกรอบแล้วปิดระดับนั้นทั้งวัน ปิดทุกไม้ 23:59</p>
+    <div class="metrics rv">
+      <div class="metric"><div class="mname">บนวัน LOW</div><div class="mth">Sharpe 1.59 · t 2.3</div><div class="mdesc">536 วัน ต.ค. 2019 – เม.ย. 2024 · กำไร +11.8%/ปี · DD −9.5% · วันบวก 59%</div></div>
+      <div class="metric"><div class="mname">ต่อวัน</div><div class="mth">ปิดกำไร 4.4 · หยุดขาดทุน 1.7</div><div class="mdesc">ประมาณ 7 รอบต่อวัน ไม้ค้างเฉลี่ย 2.2 ชั้น สูงสุด 8 ชั้น · วันแย่สุด −405 bp ต่อชั้น</div></div>
+      <div class="metric"><div class="mname">36 แบบที่ลอง</div><div class="mth">บวก 36/36</div><div class="mdesc">เปลี่ยนขั้น พื้นที่ และหยุดขาดทุน ทุกแบบยังบวกบนวัน LOW — ไม่ใช่โชคของค่าเดียว</div></div>
+      <div class="metric"><div class="mname">Walk-forward</div><div class="mth">1.16 · t 1.5</div><div class="mdesc">OOS 2021–24 แค่ 413 วัน ปี 2024 ติดลบ — สั้นเกินกว่าจะเป็นหลักฐานหนัก</div></div>
+    </div>
+
+    <h3 class="sub rv">ด่านที่หนึ่ง: วัน LOW ต้องชนะ "วันสุ่ม" ทั้งสามแบบ</h3>
+    <p class="body rv">ถ้ากริดทำกำไรบนวันไหนก็ได้ วัน LOW ก็ไม่พิเศษ เราจึงจำลองกริดบนทุกวันที่มี regime 5,000 ครั้ง แล้วสุ่มหยิบวันจำนวนเท่ากับวัน LOW มาเทียบ ด้วยวิธีสุ่มสามแบบที่ตอบคนละคำถาม: สุ่มวันไหนก็ได้ · เลื่อนแผนที่ regime ทั้งชุดไปในเวลา (เก็บโครงสร้างที่ LOW มาเป็นช่วงยาว) · และสุ่มเฉพาะภายในปีเดียวกัน (ตัดข้ออ้างว่า LOW แค่บังเอิญตกปีที่กริดดี)</p>
+    <div class="tablewrap rv"><div class="tablescroll"><table class="data">
+      <thead><tr><th>วิธีสุ่ม</th><th>Sharpe จริง (วัน LOW)</th><th>สุ่มได้ถึง (p95)</th><th>p-value</th><th>ผล</th></tr></thead>
+      <tbody><tr><td>สุ่มวันเท่ากัน (iid)</td><td>1.59</td><td>1.16</td><td>0.008</td><td class="best">ผ่าน</td></tr><tr><td>เลื่อนแผนที่ทั้งชุด (circular shift)</td><td>1.59</td><td>1.12</td><td>0.009</td><td class="best">ผ่าน</td></tr><tr><td>สุ่มเฉพาะในปีเดียวกัน (within-year)</td><td>1.59</td><td>1.41</td><td>0.023</td><td class="best">ผ่าน</td></tr></tbody></table></div>
+      <div class="tblnote">กริดแบบมีหยุดขาดทุน (สเปก) · ไม่มีหยุดขาดทุน: จริง 1.32 p = 0.018 / 0.006 / 0.012 ผ่านทั้งสามเช่นกัน · ครั้งแรกที่เราทดสอบด้วยการสุ่มเพียง 20 รอบ ผลออกมาว่า "ไม่ผ่าน" — เพราะ 20 รอบไม่พอ ไม่ใช่เพราะ LOW ไม่พิเศษ</div>
+    </div>
+    <p class="body rv">ตรวจอีกมุมโดยไม่แบ่งกล่อง: แบ่งทุกวันตาม Asia share เป็น 10 กลุ่มเท่าๆ กัน — กลุ่มที่เช้าเอเชียเงียบที่สุดให้กริดกำไรมากที่สุด กลุ่มกลางบวกอ่อนลง และตั้งแต่ 0.69 ขึ้นไป (โซน HIGH) กริดขาดทุนทุกกลุ่ม ทิศทางตรงกับที่ regime ทำนาย (ความสัมพันธ์อันดับ t = −2.3) และภายในปีเดียวกัน วัน LOW ให้กำไรมากกว่าวันอื่น <span class="kw">ครบทั้ง 6 ปี</span> (+17 bp/วันโดยเฉลี่ย)</p>
+    <div class="chartbox rv"><svg viewBox="0 0 720 260" class="chart" role="img" aria-label="Sharpe ของกริดตามกลุ่ม Asia share">
+<line x1="44" x2="710" y1="183.4" y2="183.4" class="grid"/><text x="38" y="187.4" class="tick" text-anchor="end">-1</text>
+<line x1="44" x2="710" y1="145.6" y2="145.6" class="grid"/><text x="38" y="149.6" class="tick" text-anchor="end">0</text>
+<line x1="44" x2="710" y1="107.7" y2="107.7" class="grid"/><text x="38" y="111.7" class="tick" text-anchor="end">1</text>
+<line x1="44" x2="710" y1="69.9" y2="69.9" class="grid"/><text x="38" y="73.9" class="tick" text-anchor="end">2</text>
+<line x1="44" x2="710" y1="32.0" y2="32.0" class="grid"/><text x="38" y="36.0" class="tick" text-anchor="end">3</text>
+<line x1="44" x2="710" y1="145.6" y2="145.6" class="zero"/>
+<rect x="57.3" y="93.3" width="40.0" height="52.2" class="bar-pos"/><text x="77.3" y="87.3" class="val" text-anchor="middle">+1.38</text><text x="77.3" y="234" class="tick" text-anchor="middle">0.00–0.08</text>
+<rect x="123.9" y="36.9" width="40.0" height="108.7" class="bar-pos"/><text x="143.9" y="30.9" class="val" text-anchor="middle">+2.87</text><text x="143.9" y="234" class="tick" text-anchor="middle">0.08–0.23</text>
+<rect x="190.5" y="112.3" width="40.0" height="33.3" class="bar-pos"/><text x="210.5" y="106.3" class="val" text-anchor="middle">+0.88</text><text x="210.5" y="234" class="tick" text-anchor="middle">0.23–0.32</text>
+<rect x="257.1" y="108.5" width="40.0" height="37.1" class="bar-pos"/><text x="277.1" y="102.5" class="val" text-anchor="middle">+0.98</text><text x="277.1" y="234" class="tick" text-anchor="middle">0.33–0.44</text>
+<rect x="323.7" y="117.6" width="40.0" height="28.0" class="bar-pos"/><text x="343.7" y="111.6" class="val" text-anchor="middle">+0.74</text><text x="343.7" y="234" class="tick" text-anchor="middle">0.44–0.58</text>
+<rect x="390.3" y="117.2" width="40.0" height="28.4" class="bar-pos"/><text x="410.3" y="111.2" class="val" text-anchor="middle">+0.75</text><text x="410.3" y="234" class="tick" text-anchor="middle">0.58–0.69</text>
+<rect x="456.9" y="145.6" width="40.0" height="55.7" class="bar-neg"/><text x="476.9" y="215.2" class="val" text-anchor="middle">-1.47</text><text x="476.9" y="234" class="tick" text-anchor="middle">0.69–0.79</text>
+<rect x="523.5" y="145.6" width="40.0" height="59.1" class="bar-neg"/><text x="543.5" y="218.6" class="val" text-anchor="middle">-1.56</text><text x="543.5" y="234" class="tick" text-anchor="middle">0.79–0.88</text>
+<rect x="590.1" y="145.6" width="40.0" height="34.8" class="bar-neg"/><text x="610.1" y="194.4" class="val" text-anchor="middle">-0.92</text><text x="610.1" y="234" class="tick" text-anchor="middle">0.88–0.95</text>
+<rect x="656.7" y="145.6" width="40.0" height="19.3" class="bar-neg"/><text x="676.7" y="178.9" class="val" text-anchor="middle">-0.51</text><text x="676.7" y="234" class="tick" text-anchor="middle">0.95–1.00</text>
+</svg>
+      <div class="legend">Sharpe ของกริดแบ่งตาม Asia share 10 กลุ่ม (ซ้าย = เช้าเอเชียเงียบสุด) · ทุกวันที่มี regime 2019–26</div></div>
+
+    <h3 class="sub rv">ด่านที่สอง: ต้นทุน — ด่านที่กริดเกือบไม่ผ่าน</h3>
+    <p class="body rv">กำไรของกริดมาจากขั้นเล็กจำนวนมาก: ปิดประมาณ 7 รอบต่อวัน กำไรก่อนหักต้นทุนราว 1.9 bp ต่อรอบ นั่นคือโครงสร้างที่จ่ายค่าธรรมเนียมมากที่สุดที่เป็นไปได้ กราฟนี้คือ Sharpe บนวัน LOW เมื่อต้นทุนต่อรอบ (spread + ค่าคอม + slippage) เพิ่มขึ้น — <span class="kw">คุ้มทุนที่ประมาณ $0.33 ต่อออนซ์</span> เพิ่ม lot ไม่ช่วยเพราะต้นทุนทองคิดต่อออนซ์</p>
+    <div class="chartbox rv"><svg viewBox="0 0 720 260" class="chart" role="img" aria-label="Sharpe ของกริดวัน LOW ตามต้นทุนต่อรอบ">
+<line x1="44" x2="710" y1="204.2" y2="204.2" class="grid"/><text x="38" y="208.2" class="tick" text-anchor="end">-0.5</text>
+<line x1="44" x2="710" y1="167.4" y2="167.4" class="grid"/><text x="38" y="171.4" class="tick" text-anchor="end">0</text>
+<line x1="44" x2="710" y1="130.6" y2="130.6" class="grid"/><text x="38" y="134.6" class="tick" text-anchor="end">0.5</text>
+<line x1="44" x2="710" y1="93.8" y2="93.8" class="grid"/><text x="38" y="97.8" class="tick" text-anchor="end">1</text>
+<line x1="44" x2="710" y1="57.0" y2="57.0" class="grid"/><text x="38" y="61.0" class="tick" text-anchor="end">1.5</text>
+<line x1="44" x2="710" y1="20.2" y2="20.2" class="grid"/><text x="38" y="24.2" class="tick" text-anchor="end">2</text>
+<line x1="44" x2="710" y1="167.4" y2="167.4" class="zero"/>
+<rect x="66.2" y="54.8" width="66.6" height="112.6" class="bar-pos"/><text x="99.5" y="48.8" class="val" text-anchor="middle">+1.53</text><text x="99.5" y="234" class="tick" text-anchor="middle">$0.10</text>
+<rect x="177.2" y="77.6" width="66.6" height="89.8" class="bar-pos"/><text x="210.5" y="71.6" class="val" text-anchor="middle">+1.22</text><text x="210.5" y="234" class="tick" text-anchor="middle">$0.15</text>
+<rect x="288.2" y="101.2" width="66.6" height="66.2" class="bar-pos"/><text x="321.5" y="95.2" class="val" text-anchor="middle">+0.90</text><text x="321.5" y="234" class="tick" text-anchor="middle">$0.20</text>
+<rect x="399.2" y="124.0" width="66.6" height="43.4" class="bar-mid"/><text x="432.5" y="118.0" class="val" text-anchor="middle">+0.59</text><text x="432.5" y="234" class="tick" text-anchor="middle">$0.25</text>
+<rect x="510.2" y="147.5" width="66.6" height="19.9" class="bar-mid"/><text x="543.5" y="141.5" class="val" text-anchor="middle">+0.27</text><text x="543.5" y="234" class="tick" text-anchor="middle">$0.30</text>
+<rect x="621.2" y="167.4" width="66.6" height="26.5" class="bar-neg"/><text x="654.5" y="207.9" class="val" text-anchor="middle">-0.36</text><text x="654.5" y="234" class="tick" text-anchor="middle">$0.40</text>
+</svg>
+      <div class="legend">ต้นทุนรวมต่อรอบ ดอลลาร์ต่อออนซ์ · แปลงตามราคาทองของแต่ละวัน 2019–24 ($1,300–2,400) · ที่ราคาทองวันนี้ ต้นทุนเท่ากันกินสัดส่วนน้อยลงครึ่งหนึ่ง</div></div>
+    <div class="callout warn rv"><span class="lbl">สิ่งที่ยังไม่ผ่าน</span>
+      <p>ระบบ L <span class="kw">ยังไม่เคยเทรดจริงแม้แต่วันเดียว</span> — ไม่มีวัน LOW เกิดขึ้นเลยตั้งแต่ 30 เมษายน 2024 (ปี 2025–26 เช้าเอเชียดังตลอด) และต้นทุนจริงของบัญชีที่จะใช้ยังรู้แค่ spread ($0.15) ยังไม่รวมค่าคอมและ slippage — ถ้ารวมแล้วเกิน $0.30 ระบบนี้ต้องทิ้ง</p>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="narrow">
+    <div class="eyebrow rv">05 · รวมกัน</div>
+    <h2 class="head rv">H + L บนข้อมูลเดียวกัน 7 ปี — และคำถามที่ต้องถามทุกครั้งที่เพิ่มระบบ</h2>
+    <p class="lead rv">สองระบบเทรดคนละวัน กำไรจึงบวกกันตรงๆ แต่ตัวเลขที่ "ดูดีขึ้น" ยังไม่ใช่หลักฐาน คำถามที่ถูกต้องคือ: ถ้าไม่เพิ่มระบบ แต่เพิ่ม lot ของ H ให้ drawdown เท่ากัน จะได้เท่ากันไหม</p>
+    <div class="tablewrap rv"><div class="tablescroll"><table class="data">
+      <thead><tr><th>พอร์ต</th><th>Sharpe</th><th>t</th><th>กำไร/ปี</th><th>Drawdown</th><th>ปีบวก</th></tr></thead>
+      <tbody>
+        <tr><td>ระบบ H เดี่ยว</td><td>1.05</td><td>2.8</td><td>+11.8%</td><td>-11.3%</td><td>4/7</td></tr>
+        <tr class="hi"><td>H + L</td><td class="best">1.24</td><td>3.3</td><td class="best">+17.8%</td><td>-11.3%</td><td class="best">8/8</td></tr>
+        <tr><td>H เพิ่ม lot 1.19× (DD เท่า)</td><td>1.05</td><td>2.8</td><td>+14.1%</td><td>-13.5%</td><td>4/7</td></tr>
+        <tr><td>ถือทอง buy &amp; hold</td><td>0.92</td><td>2.4</td><td>+16.4%</td><td class="bad">-26.6%</td><td>—</td></tr>
+      </tbody></table></div>
+      <div class="tblnote">15 นาที ก.ย. 2019 – ก.ค. 2026 · ขนาด 1 เท่าของทุน ไม่ทบต้น · กริดคิดต้นทุน $0.15/oz ต่อรอบ · ทองช่วงนี้ขึ้นจาก $1,490 เป็น $4,126 จึงเป็นคู่เทียบที่โหดเป็นพิเศษ</div>
+    </div>
+    <div class="chartbox rv"><svg viewBox="0 0 720 340" class="chart" role="img" aria-label="เส้นสะสมกำไร HIGH · HIGH+LOW · HIGH×1.19 · ทอง buy and hold">
+<line x1="48" x2="706" y1="284.9" y2="284.9" class="grid"/><text x="42" y="288.9" class="tick" text-anchor="end">+0%</text>
+<line x1="48" x2="706" y1="244.2" y2="244.2" class="grid"/><text x="42" y="248.2" class="tick" text-anchor="end">+20%</text>
+<line x1="48" x2="706" y1="203.5" y2="203.5" class="grid"/><text x="42" y="207.5" class="tick" text-anchor="end">+40%</text>
+<line x1="48" x2="706" y1="162.7" y2="162.7" class="grid"/><text x="42" y="166.7" class="tick" text-anchor="end">+60%</text>
+<line x1="48" x2="706" y1="122.0" y2="122.0" class="grid"/><text x="42" y="126.0" class="tick" text-anchor="end">+80%</text>
+<line x1="48" x2="706" y1="81.3" y2="81.3" class="grid"/><text x="42" y="85.3" class="tick" text-anchor="end">+100%</text>
+<line x1="48" x2="706" y1="40.5" y2="40.5" class="grid"/><text x="42" y="44.5" class="tick" text-anchor="end">+120%</text>
+<text x="52.0" y="328" class="tick">2019</text>
+<line x1="76.8" x2="76.8" y1="16" y2="306" class="grid"/>
+<text x="80.8" y="328" class="tick">2020</text>
+<line x1="173.4" x2="173.4" y1="16" y2="306" class="grid"/>
+<text x="177.4" y="328" class="tick">2021</text>
+<line x1="269.7" x2="269.7" y1="16" y2="306" class="grid"/>
+<text x="273.7" y="328" class="tick">2022</text>
+<line x1="365.2" x2="365.2" y1="16" y2="306" class="grid"/>
+<text x="369.2" y="328" class="tick">2023</text>
+<line x1="460.4" x2="460.4" y1="16" y2="306" class="grid"/>
+<text x="464.4" y="328" class="tick">2024</text>
+<line x1="556.6" x2="556.6" y1="16" y2="306" class="grid"/>
+<text x="560.6" y="328" class="tick">2025</text>
+<line x1="652.9" x2="652.9" y1="16" y2="306" class="grid"/>
+<text x="656.9" y="328" class="tick">2026</text>
+<polyline points="48.0,286.4 49.8,284.9 51.7,286.0 53.5,286.0 55.4,286.0 57.2,286.0 59.1,286.0 60.9,286.0 62.8,286.0 64.6,286.0 66.4,286.0 68.3,286.0 70.1,286.0 72.0,286.0 73.8,286.0 75.7,286.0 77.5,286.0 79.4,286.0 81.2,286.0 83.0,286.0 84.9,286.0 86.7,286.0 88.6,286.0 90.4,286.0 92.3,286.0 94.1,286.0 95.9,287.5 97.8,286.2 99.6,278.2 101.5,278.2 103.3,278.2 105.2,278.2 107.0,278.2 108.9,278.2 110.7,278.2 112.5,278.2 114.4,278.2 116.2,278.2 118.1,278.2 119.9,278.2 121.8,278.2 123.6,278.2 125.5,278.2 127.3,278.2 129.1,278.2 131.0,278.2 132.8,278.2 134.7,278.2 136.5,278.2 138.4,278.2 140.2,278.2 142.1,278.2 143.9,283.0 145.7,290.2 147.6,287.2 149.4,288.1 151.3,289.5 153.1,293.0 155.0,293.7 156.8,291.3 158.7,287.3 160.5,280.2 162.3,284.0 164.2,276.7 166.0,272.6 167.9,273.4 169.7,273.4 171.6,273.4 173.4,273.4 175.2,273.4 177.1,273.4 178.9,273.4 180.8,273.4 182.6,273.4 184.5,274.5 186.3,271.5 188.2,268.2 190.0,268.2 191.8,268.9 193.7,270.3 195.5,275.9 197.4,267.0 199.2,267.2 201.1,266.9 202.9,267.0 204.8,270.1 206.6,268.4 208.4,269.8 210.3,270.2 212.1,270.8 214.0,267.3 215.8,272.0 217.7,272.4 219.5,273.3 221.4,274.7 223.2,276.7 225.0,277.6 226.9,280.3 228.7,281.7 230.6,280.6 232.4,276.6 234.3,280.5 236.1,278.9 237.9,278.1 239.8,275.3 241.6,275.8 243.5,275.8 245.3,275.8 247.2,275.8 249.0,275.8 250.9,275.8 252.7,275.8 254.5,275.8 256.4,275.8 258.2,275.8 260.1,275.8 261.9,275.8 263.8,275.8 265.6,275.8 267.5,275.8 269.3,275.8 271.1,275.8 273.0,275.8 274.8,275.8 276.7,275.8 278.5,275.8 280.4,275.8 282.2,275.8 284.1,275.8 285.9,275.8 287.7,275.8 289.6,275.8 291.4,275.8 293.3,275.8 295.1,275.8 297.0,275.8 298.8,275.8 300.7,275.8 302.5,275.8 304.3,275.8 306.2,275.8 308.0,275.8 309.9,275.8 311.7,275.8 313.6,275.8 315.4,275.8 317.2,275.8 319.1,275.8 320.9,275.8 322.8,275.8 324.6,275.8 326.5,275.8 328.3,275.8 330.2,275.8 332.0,275.8 333.8,275.8 335.7,275.8 337.5,275.8 339.4,275.8 341.2,275.8 343.1,275.8 344.9,275.8 346.8,275.8 348.6,275.8 350.4,275.8 352.3,275.8 354.1,275.8 356.0,275.8 357.8,275.8 359.7,275.8 361.5,275.8 363.4,275.8 365.2,275.8 367.0,275.8 368.9,275.8 370.7,275.8 372.6,275.8 374.4,275.8 376.3,275.8 378.1,276.5 380.0,277.8 381.8,279.5 383.6,279.6 385.5,279.6 387.3,280.4 389.2,275.2 391.0,276.2 392.9,277.0 394.7,277.0 396.5,277.0 398.4,277.0 400.2,277.0 402.1,277.0 403.9,277.0 405.8,277.0 407.6,277.0 409.5,277.0 411.3,277.0 413.1,277.0 415.0,277.0 416.8,277.0 418.7,277.0 420.5,278.7 422.4,278.7 424.2,278.7 426.1,278.7 427.9,278.7 429.7,278.7 431.6,278.7 433.4,279.9 435.3,280.2 437.1,279.9 439.0,279.9 440.8,279.9 442.7,279.9 444.5,279.9 446.3,279.9 448.2,279.9 450.0,279.9 451.9,279.9 453.7,279.9 455.6,279.9 457.4,279.9 459.2,279.9 461.1,279.9 462.9,279.9 464.8,279.9 466.6,279.9 468.5,279.9 470.3,279.9 472.2,279.9 474.0,279.9 475.8,279.9 477.7,279.9 479.5,279.9 481.4,279.9 483.2,279.9 485.1,279.9 486.9,279.9 488.8,279.9 490.6,279.9 492.4,279.9 494.3,281.6 496.1,281.6 498.0,273.4 499.8,272.7 501.7,271.4 503.5,266.4 505.4,266.7 507.2,265.4 509.0,265.5 510.9,262.9 512.7,266.1 514.6,264.2 516.4,261.6 518.3,261.9 520.1,261.3 522.0,256.9 523.8,260.0 525.6,263.7 527.5,261.9 529.3,259.4 531.2,260.8 533.0,263.3 534.9,267.6 536.7,265.2 538.5,265.3 540.4,261.7 542.2,259.5 544.1,258.2 545.9,255.6 547.8,252.9 549.6,251.7 551.5,246.8 553.3,246.1 555.1,245.8 557.0,242.0 558.8,240.1 560.7,237.9 562.5,238.4 564.4,238.7 566.2,238.4 568.1,238.7 569.9,240.2 571.7,238.5 573.6,239.2 575.4,239.7 577.3,239.7 579.1,239.1 581.0,233.6 582.8,233.3 584.7,228.5 586.5,222.5 588.3,220.4 590.2,218.1 592.0,216.4 593.9,212.8 595.7,212.1 597.6,218.0 599.4,217.9 601.3,218.4 603.1,223.5 604.9,222.3 606.8,227.3 608.6,229.9 610.5,226.2 612.3,225.3 614.2,224.1 616.0,223.4 617.8,224.9 619.7,227.1 621.5,231.2 623.4,232.4 625.2,235.1 627.1,232.4 628.9,231.6 630.8,231.3 632.6,222.9 634.4,206.4 636.3,206.0 638.1,210.3 640.0,205.3 641.8,206.2 643.7,207.1 645.5,213.3 647.4,213.1 649.2,217.9 651.0,213.4 652.9,215.2 654.7,218.6 656.6,218.8 658.4,212.6 660.3,185.7 662.1,155.7 664.0,156.0 665.8,157.0 667.6,156.9 669.5,148.0 671.3,153.5 673.2,137.5 675.0,133.4 676.9,131.9 678.7,129.6 680.6,129.7 682.4,135.8 684.2,129.6 686.1,130.6 687.9,133.7 689.8,130.4 691.6,122.3 693.5,123.5 695.3,125.2 697.1,130.3 699.0,125.6 700.8,124.2 702.7,124.8 704.5,119.7 706.0,120.1" class="ln-h"/>
+<polyline points="48.0,286.4 49.8,284.9 51.7,286.0 53.5,286.0 55.4,286.0 57.2,283.9 59.1,284.5 60.9,285.6 62.8,288.3 64.6,288.4 66.4,283.8 68.3,282.7 70.1,285.4 72.0,288.2 73.8,283.4 75.7,284.4 77.5,282.3 79.4,289.6 81.2,286.3 83.0,288.6 84.9,288.6 86.7,288.6 88.6,288.6 90.4,288.6 92.3,288.6 94.1,288.6 95.9,290.1 97.8,288.9 99.6,280.8 101.5,280.8 103.3,282.1 105.2,283.4 107.0,281.7 108.9,281.3 110.7,274.7 112.5,271.0 114.4,267.9 116.2,267.9 118.1,271.8 119.9,269.9 121.8,268.4 123.6,260.4 125.5,260.4 127.3,260.4 129.1,258.7 131.0,261.6 132.8,255.3 134.7,255.3 136.5,255.3 138.4,255.3 140.2,255.3 142.1,255.3 143.9,260.2 145.7,267.3 147.6,264.3 149.4,265.2 151.3,266.7 153.1,270.2 155.0,270.9 156.8,268.4 158.7,264.4 160.5,257.4 162.3,261.2 164.2,253.9 166.0,249.8 167.9,250.5 169.7,250.5 171.6,250.5 173.4,250.5 175.2,250.5 177.1,250.5 178.9,250.5 180.8,250.5 182.6,250.5 184.5,251.6 186.3,248.7 188.2,245.4 190.0,245.4 191.8,246.1 193.7,247.4 195.5,253.1 197.4,244.2 199.2,244.3 201.1,244.1 202.9,244.1 204.8,247.2 206.6,245.6 208.4,246.9 210.3,247.4 212.1,248.0 214.0,244.5 215.8,249.1 217.7,249.5 219.5,250.5 221.4,251.8 223.2,253.9 225.0,254.8 226.9,257.5 228.7,258.9 230.6,257.8 232.4,253.8 234.3,257.7 236.1,256.0 237.9,255.2 239.8,252.5 241.6,252.9 243.5,252.9 245.3,252.9 247.2,251.7 249.0,245.5 250.9,240.0 252.7,235.6 254.5,235.6 256.4,236.0 258.2,230.3 260.1,236.3 261.9,231.2 263.8,227.9 265.6,231.1 267.5,231.1 269.3,232.6 271.1,235.1 273.0,233.6 274.8,231.2 276.7,231.5 278.5,232.1 280.4,231.1 282.2,234.2 284.1,236.4 285.9,233.0 287.7,232.1 289.6,223.1 291.4,223.6 293.3,224.9 295.1,223.0 297.0,220.9 298.8,220.7 300.7,213.0 302.5,214.4 304.3,217.5 306.2,217.1 308.0,215.0 309.9,219.6 311.7,224.7 313.6,231.3 315.4,226.8 317.2,219.0 319.1,218.7 320.9,218.7 322.8,218.7 324.6,218.7 326.5,218.7 328.3,218.7 330.2,218.7 332.0,218.1 333.8,219.5 335.7,218.0 337.5,215.5 339.4,214.1 341.2,214.1 343.1,215.9 344.9,226.6 346.8,227.2 348.6,222.0 350.4,226.9 352.3,228.1 354.1,226.8 356.0,224.1 357.8,224.1 359.7,224.9 361.5,225.5 363.4,227.5 365.2,223.6 367.0,224.2 368.9,222.3 370.7,224.9 372.6,222.8 374.4,222.8 376.3,222.8 378.1,223.5 380.0,224.8 381.8,226.5 383.6,226.6 385.5,226.6 387.3,227.4 389.2,222.2 391.0,223.2 392.9,224.0 394.7,224.0 396.5,224.0 398.4,224.4 400.2,217.7 402.1,216.9 403.9,215.9 405.8,215.9 407.6,215.9 409.5,215.9 411.3,217.6 413.1,215.6 415.0,214.5 416.8,210.0 418.7,204.4 420.5,206.1 422.4,206.1 424.2,206.1 426.1,204.1 427.9,208.4 429.7,207.4 431.6,204.1 433.4,205.3 435.3,205.5 437.1,205.2 439.0,204.3 440.8,204.3 442.7,203.1 444.5,202.4 446.3,201.7 448.2,207.3 450.0,209.0 451.9,208.3 453.7,216.6 455.6,215.6 457.4,213.3 459.2,212.8 461.1,214.2 462.9,206.1 464.8,207.6 466.6,204.8 468.5,205.0 470.3,205.0 472.2,209.7 474.0,209.5 475.8,211.6 477.7,213.0 479.5,208.4 481.4,208.7 483.2,210.9 485.1,209.7 486.9,212.4 488.8,204.9 490.6,200.8 492.4,196.4 494.3,198.1 496.1,198.1 498.0,189.9 499.8,189.2 501.7,187.9 503.5,182.9 505.4,183.2 507.2,181.9 509.0,182.0 510.9,179.4 512.7,182.6 514.6,180.7 516.4,178.1 518.3,178.4 520.1,177.8 522.0,173.4 523.8,176.5 525.6,180.3 527.5,178.4 529.3,175.9 531.2,177.3 533.0,179.8 534.9,184.1 536.7,181.7 538.5,181.8 540.4,178.2 542.2,176.0 544.1,174.7 545.9,172.1 547.8,169.4 549.6,168.2 551.5,163.3 553.3,162.6 555.1,162.3 557.0,158.5 558.8,156.6 560.7,154.4 562.5,154.9 564.4,155.2 566.2,154.9 568.1,155.2 569.9,156.7 571.7,155.0 573.6,155.7 575.4,156.2 577.3,156.2 579.1,155.6 581.0,150.1 582.8,149.8 584.7,145.0 586.5,139.0 588.3,136.9 590.2,134.6 592.0,132.9 593.9,129.3 595.7,128.6 597.6,134.5 599.4,134.4 601.3,134.9 603.1,140.0 604.9,138.8 606.8,143.8 608.6,146.4 610.5,142.7 612.3,141.8 614.2,140.6 616.0,139.9 617.8,141.4 619.7,143.7 621.5,147.7 623.4,148.9 625.2,151.6 627.1,148.9 628.9,148.1 630.8,147.8 632.6,139.4 634.4,122.9 636.3,122.5 638.1,126.8 640.0,121.8 641.8,122.7 643.7,123.6 645.5,129.8 647.4,129.6 649.2,134.4 651.0,129.9 652.9,131.7 654.7,135.1 656.6,135.3 658.4,129.1 660.3,102.2 662.1,72.2 664.0,72.5 665.8,73.5 667.6,73.5 669.5,64.5 671.3,70.0 673.2,54.0 675.0,49.9 676.9,48.4 678.7,46.1 680.6,46.2 682.4,52.3 684.2,46.1 686.1,47.1 687.9,50.2 689.8,46.9 691.6,38.8 693.5,40.0 695.3,41.7 697.1,46.8 699.0,42.1 700.8,40.7 702.7,41.3 704.5,36.2 706.0,36.6" class="ln-l"/>
+<polyline points="48.0,286.6 49.8,284.9 51.7,286.2 53.5,286.2 55.4,286.2 57.2,286.2 59.1,286.2 60.9,286.2 62.8,286.2 64.6,286.2 66.4,286.2 68.3,286.2 70.1,286.2 72.0,286.2 73.8,286.2 75.7,286.2 77.5,286.2 79.4,286.2 81.2,286.2 83.0,286.2 84.9,286.2 86.7,286.2 88.6,286.2 90.4,286.2 92.3,286.2 94.1,286.2 95.9,287.9 97.8,286.4 99.6,276.8 101.5,276.8 103.3,276.8 105.2,276.8 107.0,276.8 108.9,276.8 110.7,276.8 112.5,276.8 114.4,276.8 116.2,276.8 118.1,276.8 119.9,276.8 121.8,276.8 123.6,276.8 125.5,276.8 127.3,276.8 129.1,276.8 131.0,276.8 132.8,276.8 134.7,276.8 136.5,276.8 138.4,276.8 140.2,276.8 142.1,276.8 143.9,282.7 145.7,291.2 147.6,287.6 149.4,288.7 151.3,290.4 153.1,294.6 155.0,295.4 156.8,292.5 158.7,287.7 160.5,279.3 162.3,283.8 164.2,275.1 166.0,270.2 167.9,271.1 169.7,271.1 171.6,271.1 173.4,271.1 175.2,271.1 177.1,271.1 178.9,271.1 180.8,271.1 182.6,271.1 184.5,272.4 186.3,268.9 188.2,265.0 190.0,264.9 191.8,265.8 193.7,267.4 195.5,274.2 197.4,263.5 199.2,263.7 201.1,263.4 202.9,263.5 204.8,267.2 206.6,265.2 208.4,266.8 210.3,267.4 212.1,268.1 214.0,263.9 215.8,269.4 217.7,269.9 219.5,271.1 221.4,272.7 223.2,275.1 225.0,276.2 226.9,279.4 228.7,281.1 230.6,279.7 232.4,275.0 234.3,279.7 236.1,277.7 237.9,276.7 239.8,273.5 241.6,274.0 243.5,274.0 245.3,274.0 247.2,274.0 249.0,274.0 250.9,274.0 252.7,274.0 254.5,274.0 256.4,274.0 258.2,274.0 260.1,274.0 261.9,274.0 263.8,274.0 265.6,274.0 267.5,274.0 269.3,274.0 271.1,274.0 273.0,274.0 274.8,274.0 276.7,274.0 278.5,274.0 280.4,274.0 282.2,274.0 284.1,274.0 285.9,274.0 287.7,274.0 289.6,274.0 291.4,274.0 293.3,274.0 295.1,274.0 297.0,274.0 298.8,274.0 300.7,274.0 302.5,274.0 304.3,274.0 306.2,274.0 308.0,274.0 309.9,274.0 311.7,274.0 313.6,274.0 315.4,274.0 317.2,274.0 319.1,274.0 320.9,274.0 322.8,274.0 324.6,274.0 326.5,274.0 328.3,274.0 330.2,274.0 332.0,274.0 333.8,274.0 335.7,274.0 337.5,274.0 339.4,274.0 341.2,274.0 343.1,274.0 344.9,274.0 346.8,274.0 348.6,274.0 350.4,274.0 352.3,274.0 354.1,274.0 356.0,274.0 357.8,274.0 359.7,274.0 361.5,274.0 363.4,274.0 365.2,274.0 367.0,274.0 368.9,274.0 370.7,274.0 372.6,274.0 374.4,274.0 376.3,274.0 378.1,274.9 380.0,276.4 381.8,278.5 383.6,278.6 385.5,278.6 387.3,279.5 389.2,273.3 391.0,274.5 392.9,275.5 394.7,275.5 396.5,275.5 398.4,275.5 400.2,275.5 402.1,275.5 403.9,275.5 405.8,275.5 407.6,275.5 409.5,275.5 411.3,275.5 413.1,275.5 415.0,275.5 416.8,275.5 418.7,275.5 420.5,277.5 422.4,277.5 424.2,277.5 426.1,277.5 427.9,277.5 429.7,277.5 431.6,277.5 433.4,279.0 435.3,279.2 437.1,278.9 439.0,278.9 440.8,278.9 442.7,278.9 444.5,278.9 446.3,278.9 448.2,278.9 450.0,278.9 451.9,278.9 453.7,278.9 455.6,278.9 457.4,278.9 459.2,278.9 461.1,278.9 462.9,278.9 464.8,278.9 466.6,278.9 468.5,278.9 470.3,278.9 472.2,278.9 474.0,278.9 475.8,278.9 477.7,278.9 479.5,278.9 481.4,278.9 483.2,278.9 485.1,278.9 486.9,278.9 488.8,278.9 490.6,278.9 492.4,278.9 494.3,281.0 496.1,281.0 498.0,271.1 499.8,270.3 501.7,268.8 503.5,262.8 505.4,263.1 507.2,261.6 509.0,261.7 510.9,258.6 512.7,262.4 514.6,260.1 516.4,257.1 518.3,257.5 520.1,256.7 522.0,251.4 523.8,255.1 525.6,259.6 527.5,257.4 529.3,254.4 531.2,256.1 533.0,259.0 534.9,264.2 536.7,261.4 538.5,261.5 540.4,257.2 542.2,254.6 544.1,253.0 545.9,249.9 547.8,246.7 549.6,245.2 551.5,239.3 553.3,238.5 555.1,238.2 557.0,233.7 558.8,231.4 560.7,228.7 562.5,229.3 564.4,229.7 566.2,229.4 568.1,229.7 569.9,231.5 571.7,229.5 573.6,230.3 575.4,230.9 577.3,230.9 579.1,230.1 581.0,223.6 582.8,223.3 584.7,217.6 586.5,210.3 588.3,207.9 590.2,205.1 592.0,203.0 593.9,198.8 595.7,197.9 597.6,205.0 599.4,204.8 601.3,205.5 603.1,211.5 604.9,210.1 606.8,216.1 608.6,219.2 610.5,214.7 612.3,213.7 614.2,212.2 616.0,211.4 617.8,213.2 619.7,215.9 621.5,220.7 623.4,222.2 625.2,225.4 627.1,222.1 628.9,221.2 630.8,220.8 632.6,210.8 634.4,191.2 636.3,190.6 638.1,195.8 640.0,189.8 641.8,190.9 643.7,191.9 645.5,199.4 647.4,199.1 649.2,204.8 651.0,199.5 652.9,201.6 654.7,205.6 656.6,205.9 658.4,198.5 660.3,166.4 662.1,130.5 664.0,130.9 665.8,132.1 667.6,132.0 669.5,121.3 671.3,127.9 673.2,108.8 675.0,103.9 676.9,102.1 678.7,99.4 680.6,99.5 682.4,106.7 684.2,99.3 686.1,100.6 687.9,104.3 689.8,100.3 691.6,90.7 693.5,92.1 695.3,94.1 697.1,100.2 699.0,94.5 700.8,92.9 702.7,93.6 704.5,87.5 706.0,88.0" class="ln-k"/>
+<polyline points="48.0,284.9 49.8,282.9 51.7,284.8 53.5,283.2 55.4,285.9 57.2,285.4 59.1,283.7 60.9,282.9 62.8,289.5 64.6,288.5 66.4,289.1 68.3,288.8 70.1,289.2 72.0,287.1 73.8,286.8 75.7,281.9 77.5,276.9 79.4,275.8 81.2,276.3 83.0,274.3 84.9,272.8 86.7,275.5 88.6,274.0 90.4,266.8 92.3,273.3 94.1,263.5 95.9,282.5 97.8,288.1 99.6,270.8 101.5,271.7 103.3,263.7 105.2,262.9 107.0,258.5 108.9,262.0 110.7,260.7 112.5,255.0 114.4,255.7 116.2,255.7 118.1,261.2 119.9,255.4 121.8,254.0 123.6,251.1 125.5,250.7 127.3,248.4 129.1,247.3 131.0,237.2 132.8,229.6 134.7,224.4 136.5,234.5 138.4,235.1 140.2,231.9 142.1,235.8 143.9,234.9 145.7,232.9 147.6,242.2 149.4,237.8 151.3,235.2 153.1,238.0 155.0,237.8 156.8,239.8 158.7,232.0 160.5,238.0 162.3,239.8 164.2,249.3 166.0,244.0 167.9,243.5 169.7,238.5 171.6,238.7 173.4,236.7 175.2,241.1 177.1,243.0 178.9,240.0 180.8,239.7 182.6,243.5 184.5,242.3 186.3,246.9 188.2,254.4 190.0,258.8 191.8,256.6 193.7,254.7 195.5,256.2 197.4,256.5 199.2,254.6 201.1,250.3 202.9,250.2 204.8,251.2 206.6,243.9 208.4,242.9 210.3,239.7 212.1,237.7 214.0,239.1 215.8,240.4 217.7,251.9 219.5,250.4 221.4,250.3 223.2,247.7 225.0,246.9 226.9,248.0 228.7,246.6 230.6,252.7 232.4,251.2 234.3,250.6 236.1,246.5 237.9,245.1 239.8,249.1 241.6,253.2 243.5,253.5 245.3,252.4 247.2,252.7 249.0,251.4 250.9,247.9 252.7,249.6 254.5,246.0 256.4,241.0 258.2,241.8 260.1,248.6 261.9,249.4 263.8,249.2 265.6,246.6 267.5,245.4 269.3,243.5 271.1,247.4 273.0,244.9 274.8,242.9 276.7,248.4 278.5,246.7 280.4,243.4 282.2,239.4 284.1,240.8 285.9,232.9 287.7,231.0 289.6,237.1 291.4,233.4 293.3,237.0 295.1,235.3 297.0,232.5 298.8,236.3 300.7,238.7 302.5,239.5 304.3,247.4 306.2,244.1 308.0,243.3 309.9,243.6 311.7,241.3 313.6,244.7 315.4,246.1 317.2,249.2 319.1,256.9 320.9,261.3 322.8,258.8 324.6,254.5 326.5,253.5 328.3,251.0 330.2,256.9 332.0,258.2 333.8,260.9 335.7,260.0 337.5,265.2 339.4,268.7 341.2,266.1 343.1,261.2 344.9,267.3 346.8,266.3 348.6,268.2 350.4,264.5 352.3,254.6 354.1,256.6 356.0,256.5 357.8,251.7 359.7,250.8 361.5,251.8 363.4,250.9 365.2,247.6 367.0,243.7 368.9,240.2 370.7,238.1 372.6,238.3 374.4,243.6 376.3,247.1 378.1,249.2 380.0,249.7 381.8,251.4 383.6,242.9 385.5,241.8 387.3,238.3 389.2,232.1 391.0,233.5 392.9,233.8 394.7,236.0 396.5,233.3 398.4,231.6 400.2,235.7 402.1,237.1 403.9,238.6 405.8,237.8 407.6,239.6 409.5,240.6 411.3,243.3 413.1,242.2 415.0,241.2 416.8,236.0 418.7,237.4 420.5,239.2 422.4,241.1 424.2,243.3 426.1,244.0 427.9,240.3 429.7,241.4 431.6,242.9 433.4,240.8 435.3,243.9 437.1,251.7 439.0,247.9 440.8,241.7 442.7,236.3 444.5,236.9 446.3,239.7 448.2,239.6 450.0,235.7 451.9,232.0 453.7,235.7 455.6,239.3 457.4,231.4 459.2,227.6 461.1,230.8 462.9,233.7 464.8,233.8 466.6,234.3 468.5,229.8 470.3,232.8 472.2,236.1 474.0,234.4 475.8,231.7 477.7,221.1 479.5,220.6 481.4,218.3 483.2,214.8 485.1,208.7 486.9,203.4 488.8,197.9 490.6,202.1 492.4,205.0 494.3,202.6 496.1,197.4 498.0,201.3 499.8,200.7 501.7,198.0 503.5,202.7 505.4,198.0 507.2,200.4 509.0,197.2 510.9,193.0 512.7,188.8 514.6,196.7 516.4,189.6 518.3,192.6 520.1,189.2 522.0,187.7 523.8,184.5 525.6,186.1 527.5,183.6 529.3,179.8 531.2,173.6 533.0,174.8 534.9,178.6 536.7,172.6 538.5,169.8 540.4,169.8 542.2,172.6 544.1,182.0 545.9,174.9 547.8,177.2 549.6,176.9 551.5,172.5 553.3,178.5 555.1,175.2 557.0,173.4 558.8,172.7 560.7,168.2 562.5,164.7 564.4,161.9 566.2,157.1 568.1,152.5 569.9,149.5 571.7,154.0 573.6,151.9 575.4,147.4 577.3,143.2 579.1,143.0 581.0,139.1 582.8,136.0 584.7,126.9 586.5,125.7 588.3,134.7 590.2,129.8 592.0,134.5 593.9,130.2 595.7,128.9 597.6,126.6 599.4,124.1 601.3,125.1 603.1,127.2 604.9,126.8 606.8,128.0 608.6,126.6 610.5,124.6 612.3,129.4 614.2,124.6 616.0,127.8 617.8,127.4 619.7,122.9 621.5,114.8 623.4,109.5 625.2,108.6 627.1,104.6 628.9,97.8 630.8,91.4 632.6,77.2 634.4,86.3 636.3,91.9 638.1,94.1 640.0,82.3 641.8,89.0 643.7,81.9 645.5,79.6 647.4,76.1 649.2,72.8 651.0,66.7 652.9,73.7 654.7,67.1 656.6,60.8 658.4,49.2 660.3,33.7 662.1,43.7 664.0,41.5 665.8,41.1 667.6,35.2 669.5,41.1 671.3,40.5 673.2,61.6 675.0,66.3 676.9,52.9 678.7,47.2 680.6,46.4 682.4,47.4 684.2,52.0 686.1,46.1 687.9,47.8 689.8,54.5 691.6,54.5 693.5,54.5 695.3,72.7 697.1,65.7 699.0,74.9 700.8,70.5 702.7,69.9 704.5,77.4 706.0,70.8" class="ln-g"/>
+</svg><div class="legend">กำไรสะสม % ถึง ก.ค. 2026 · <i style="background:#7a2a3c"></i>H เดี่ยว +81% <i style="background:#a8842a"></i>H + L +122% <i style="background:#b08a8f"></i>H ×1.19 +97% <i style="background:#8a8a8a"></i>ถือทอง +105%</div></div>
+    <div class="tablewrap rv"><div class="tablescroll"><table class="data">
+      <thead><tr><th>ปี</th><th>H เดี่ยว</th><th>H + L</th><th>L เติมให้</th><th>H ×1.19 lot</th><th>H+L ชนะเพิ่ม lot?</th></tr></thead>
+      <tbody><tr class="hi"><td>2019</td><td>-0.5</td><td>+1.6</td><td class="best">+2.1</td><td>-0.6</td><td>ใช่</td></tr><tr><td>2020</td><td>+6.2</td><td>+15.3</td><td class="best">+9.1</td><td>+7.4</td><td>ใช่</td></tr><tr class="hi"><td>2021</td><td>-1.2</td><td>+8.8</td><td class="best">+10.0</td><td>-1.4</td><td>ใช่</td></tr><tr class="hi"><td>2022</td><td>+0.0</td><td>+3.1</td><td class="best">+3.1</td><td>+0.0</td><td>ใช่</td></tr><tr class="hi"><td>2023</td><td>-2.0</td><td>+6.6</td><td class="best">+8.6</td><td>-2.4</td><td>ใช่</td></tr><tr><td>2024</td><td>+17.4</td><td>+25.5</td><td class="best">+8.1</td><td>+20.8</td><td>ใช่</td></tr><tr><td>2025</td><td>+14.3</td><td>+14.3</td><td class="">+0.0</td><td>+17.1</td><td>ไม่</td></tr><tr><td>2026</td><td>+46.7</td><td>+46.7</td><td class="">+0.0</td><td>+55.8</td><td>ไม่</td></tr></tbody></table></div>
+      <div class="tblnote">แถวเน้น = ปีที่ H ไม่ทำกำไรแต่ H+L บวก · ปี 2025–26 ไม่มีวัน LOW จึงเท่ากัน</div>
+    </div>
+    <div class="callout find rv"><span class="lbl">สิ่งที่การเพิ่ม lot ให้ไม่ได้</span>
+      <p>เพิ่ม lot ของ H จน drawdown เท่ากับ H+L ได้กำไร +14.1%/ปี ใกล้เคียง H+L ที่ +17.8% — แต่ปีที่ H แห้ง (2021, 2023) ก็ยังแห้งเหมือนเดิม ส่วน H+L บวกทั้ง 8 ปี เพราะระบบ L ทำงานในปีที่ตลาดแกว่ง ซึ่งเป็นปีที่ breakout ไม่มีอะไรให้ทำพอดี นี่คือการกระจายความเสี่ยงตามเวลา ไม่ใช่เลเวอเรจ</p>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="narrow">
+    <div class="eyebrow rv">06 · ด่านสุดท้าย</div>
+    <h2 class="head rv">รวมแล้วยังมี edge จริงไหม — สลับ "แผนที่" ทั้งชุดแล้วดู</h2>
+    <p class="lead rv">ผลรวมของสองระบบที่ดูดีทั้งคู่ย่อมดูดี คำถามที่ยากกว่าคือ ตัว "แผนที่" — วันไหนให้ H วันไหนให้ L — มีความหมายจริงไหม เราจึงจำลองทั้งสองระบบบนทุกวัน แล้วสุ่มสลับแผนที่ทั้งชุด 5,000 ครั้ง ด้วยเกณฑ์ที่เข้มขึ้น: ของจริงต้องชนะ 97.5% ของแผนที่สุ่ม</p>
+    <div class="tablewrap rv"><div class="tablescroll"><table class="data">
+      <thead><tr><th>วิธีสุ่มแผนที่</th><th>H + L จริง</th><th>สุ่มได้ถึง (p97.5)</th><th>p-value</th><th>ผล</th></tr></thead>
+      <tbody><tr><td>สุ่มวันเท่ากัน (iid)</td><td>1.18</td><td>1.10</td><td>0.015</td><td class="best">ผ่าน</td></tr><tr><td>เลื่อนแผนที่ทั้งชุด (circular shift)</td><td>1.18</td><td>1.14</td><td>0.020</td><td class="best">ผ่าน</td></tr><tr><td>สุ่มเฉพาะในปีเดียวกัน (within-year)</td><td>1.18</td><td>1.24</td><td>0.041</td><td class="bad">ไม่ผ่าน</td></tr></tbody></table></div>
+      <div class="tblnote">ผ่าน 2 ใน 3 · แบบเข้มสุด (สุ่มในปีเดียวกัน) ได้ p = 0.041 คือผ่านที่ 95% แต่ไม่ถึง 97.5% — บนข้อมูลแค่ 7 ปี · Sharpe ในตารางนี้คิดจากกำไรต่อไม้ผูกกับวันที่เกิดสัญญาณ จึงต่างจากตารางในหัวข้อ 05 เล็กน้อย (1.24 vs 1.18)</div>
+    </div>
+    <div class="metrics rv">
+      <div class="metric"><div class="mname">แผนที่สลับด้าน</div><div class="mth">Sharpe -0.62</div><div class="mdesc">ให้ H เทรดวัน LOW และ L เทรดวัน HIGH → กำไร -9.2%/ปี drawdown -68% · ทิศของแผนที่ไม่ใช่เรื่องบังเอิญ</div></div>
+      <div class="metric"><div class="mname">เพิ่ม L ช่วยจริงไหม</div><div class="mth">Δ Sharpe +0.21</div><div class="mdesc">ช่วงความเชื่อมั่น [+0.01, +0.53] · ความน่าจะเป็นที่ดีขึ้น 96% (สุ่มปีซ้ำ 2,000 ครั้ง)</div></div>
+      <div class="metric"><div class="mname">t-stat ของพอร์ตรวม</div><div class="mth">3.3 (n 1,769)</div><div class="mdesc">ผ่านเกณฑ์ t &gt; 3 ของเรา · H เดี่ยวบน 7 ปีนี้ได้ 2.8 — หลักฐานของ H อยู่ที่ 22 ปี ไม่ใช่ 7 ปีนี้</div></div>
+      <div class="metric"><div class="mname">หัก snooping</div><div class="mth">≈ 0.7–0.8</div><div class="mdesc">ตัวเลขที่เห็นถูกเลือกมาแล้วบางส่วน เราหัก 30–40% เสมอก่อนตัดสินใจ — นี่คือ Sharpe ที่ควรคาดหวังจริง</div></div>
+    </div>
+    <div class="verdict rv">
+      <div class="vcard yes"><div class="vh">พิสูจน์แล้ว</div><div class="vt">ระบบ H มี edge · วัน LOW พิเศษจริง · แผนที่มีทิศ</div><p>H: 22 ปี t 5.7 walk-forward 1.07 · L: ชนะวันสุ่มทั้ง 3 แบบ ชนะวันอื่นในปีเดียวกัน 6/6 ปี บวกทั้ง 36 แบบ · รวม: ดีกว่า H เดี่ยว ที่ความน่าจะเป็น 96% และดีกว่าการเพิ่ม lot ในมิติที่ lot ให้ไม่ได้</p></div>
+      <div class="vcard no"><div class="vh">ยังไม่พิสูจน์</div><div class="vt">ระบบ L ในตลาดจริง · ต้นทุนจริง · ความอยู่รอดของ effect หลัง 2024</div><p>L ยังเป็น backtest ล้วน 0 วัน forward · ค่าคอม/slippage ยังไม่รู้ · ตั้งแต่ เม.ย. 2024 ไม่มีวัน LOW ให้ทดสอบว่า effect ยังอยู่ไหมในยุคทอง $4,000 · พอร์ตรวมไม่ผ่านการสุ่มแบบเข้มสุดที่ 97.5%</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="narrow">
+    <div class="eyebrow rv">07 · ข้อจำกัด</div>
+    <h2 class="head rv">อ่านก่อนนำตัวเลขไปใช้</h2>
+    <ul class="body rv">
+      <li><span class="kw">ระบบ L มีข้อมูลแค่ 536 วันใน 4.5 ปี</span> และพารามิเตอร์ที่ใช้มาจากการสแกน แม้ทั้ง 36 แบบจะบวก แต่ตัวเลขที่ดีที่สุดย่อมสูงกว่าความจริง</li>
+      <li><span class="kw">ต้นทุนคือทุกอย่าง</span> สำหรับกริด — ตัวเลขทั้งหมดในหัวข้อ 04–05 ใช้ $0.15 ต่อออนซ์ต่อรอบ ซึ่งเป็นแค่ spread บัญชีมาตรฐานทั่วไปแพงกว่านั้นและอาจทำให้ edge หายทั้งหมด</li>
+      <li><span class="kw">ตัวกรอง HIGH วัดบน 7 ปีล่าสุดไม่ได้</span> เพราะ 2019–23 breakout แบนทุก regime และ 2024–26 ดีทุก regime — หลักฐานของมันอยู่ที่ 22 ปี ไม่ใช่ที่นี่</li>
+      <li><span class="kw">ปี 2025–26 = ระบบ H ล้วน</span> เพราะไม่มีวัน LOW เลย ผลรวมยุคปัจจุบันจึงไม่ได้พิสูจน์อะไรเกี่ยวกับ L</li>
+      <li><span class="kw">การจำลองต่างจากของจริงเล็กน้อย</span>: จำลองบนแท่ง 15 นาที เข้าที่ระดับพอดี ปิดกำไรไม่ได้ในแท่งที่เปิด ของจริงเข้าที่ราคาตลาดและปิดได้ทุก tick</li>
+      <li><span class="kw">ประวัติของเราเอง</span>: backtest กริดทองรุ่นก่อนของเราเคย optimistic กว่าของจริง 5 เท่า — ระบบนี้จึงอ้าง edge จาก regime ไม่ใช่จากตัวกริด (กริดบนวันธรรมดา Sharpe −0.04 บนวัน HIGH −1.08)</li>
+      <li><span class="kw">MID ไม่มีระบบ</span>: ทดสอบทั้งกริดและ breakout บนวัน MID แล้ว อย่างแรกไม่ต่างจากวันสุ่ม อย่างหลังเทียบเท่าการเพิ่ม lot ของ H — วัน MID เราจึงไม่เทรด</li>
+    </ul>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="narrow">
+    <div class="eyebrow rv" style="color:var(--gold);margin-bottom:22px">สรุปให้จำ</div>
+    <p class="q rv">ระบบที่ดีสองตัวรวมกันไม่ได้แปลว่ามี edge<br>ต้องสลับแผนที่แล้วดูว่ามันพัง<br>ต้องเทียบกับการเพิ่ม lot แล้วดูว่ามันต่าง<br><em>และต้องยอมรับว่าครึ่งหนึ่งยังไม่เคยลองจริง</em></p>
+    <a class="cta rv" href="https://jptrustlearning.com" target="_blank" rel="noopener">
+      <span class="sub">Subscribe at</span>
+      <span class="url">jptrustlearning.com</span>
+      <span class="tip">ตามผล forward test ของทั้งสองระบบได้ในห้องทดลองของสมาชิก</span>
+    </a>
+    <p class="disclaimer rv">การลงทุนมีความเสี่ยง &middot; เนื้อหาเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน &middot; ผลในอดีตไม่ได้การันตีผลในอนาคต &middot; ผลทั้งหมดเป็นการจำลองย้อนหลัง ยกเว้นผล Strategy Tester ของระบบ H ซึ่งเป็นการจำลองด้วยโปรแกรมจริงบนบัญชีทดลอง<br>
+    ข้อมูล: XAUUSD รายชั่วโมง มิ.ย. 2004 – ก.ย. 2026 และราย 15 นาที ส.ค. 2018 – ก.ค. 2026 เวลาไทย &middot; ต้นทุน breakout spread 0.5 bp + swap 1 bp/คืน &middot; ต้นทุนกริด $0.15/oz ต่อรอบ &middot; ผลตอบแทนที่ขนาด 1 เท่าของทุนไม่ทบต้น &middot; Sharpe จากผลตอบแทนรายวัน ×√252 &middot; permutation 5,000 รอบต่อแบบ &middot; walk-forward anchored เลือกด้วย Sharpe ในตัวอย่าง<br>
+    เรียบเรียงโดย JP Trust Learning</p>
+  </div>
+</section>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach((el)=>{const sib=[...el.parentElement.children].filter(c=>c.classList.contains('rv'));el.style.transitionDelay=(Math.min(sib.indexOf(el),5)*55)+'ms';io.observe(el);});
+const STAT={"h": "HIGH เดี่ยว — Sharpe <b>1.05</b> · กำไร <b>+11.8%/ปี</b> · DD <b>-11.3%</b> · ปีบวก <b>4/7</b>", "l": "HIGH + LOW — Sharpe <b>1.24</b> · กำไร <b>+17.8%/ปี</b> · DD <b>-11.3%</b> (เท่าเดิม) · ปีบวก <b>8/8</b> — สีทองคือส่วนที่กริดวัน LOW เติมให้", "k": "HIGH เพิ่ม lot 1.19 เท่า (DD เท่า 3 regime) — Sharpe <b>1.05</b> · กำไร <b>+14.1%/ปี</b> · DD <b>-13.5%</b> · ปีบวก <b>4/7</b> — ได้กำไรใกล้เคียง แต่ปีแห้งยังแห้ง"};
+const ch=document.querySelector('#ychart svg'),st=document.getElementById('ystat');
+document.querySelectorAll('.toggle button').forEach(b=>b.addEventListener('click',()=>{
+  const s=b.dataset.st;ch.setAttribute('data-state',s);st.innerHTML=STAT[s];
+  document.querySelectorAll('.toggle button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
+}));
+</script>
+<nav class="jpt-libnav">
+  <a href="lib-method.html">← ห้องสมุดข้อมูล &amp; ระเบียบวิธี</a>
+  <a href="index.html">หน้าแรกห้องสมุด</a>
+  <a href="https://app.jptrustlearning.com">เข้าระบบสมาชิก</a>
+</nav>
+</body>
+</html>
