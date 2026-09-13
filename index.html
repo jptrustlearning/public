@@ -397,6 +397,27 @@ section[id]{scroll-margin-top:90px}
 .stat-num{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,40px);color:var(--maroon);line-height:1}
 .stat-num small{font-size:.5em;color:var(--gold-deep);font-family:'Anuphan',sans-serif;font-weight:600}
 .stat-lbl{font-size:13px;color:var(--ink-muted);line-height:1.35}
+/* --- animation: เผยทีละช่อง + นับเลขขึ้น (เปิดเมื่อ JS ทำงานเท่านั้น) --- */
+.stats-panel.anim-ready .stat-item{opacity:0;transform:translateY(20px);
+  transition:opacity .7s ease,transform .85s cubic-bezier(.22,.85,.2,1)}
+.stats-panel.anim-ready.in .stat-item{opacity:1;transform:none}
+.stats-panel.anim-ready.in .stat-item:nth-child(1){transition-delay:.00s}
+.stats-panel.anim-ready.in .stat-item:nth-child(2){transition-delay:.10s}
+.stats-panel.anim-ready.in .stat-item:nth-child(3){transition-delay:.20s}
+.stats-panel.anim-ready.in .stat-item:nth-child(4){transition-delay:.30s}
+.stat-ico{transition:transform .35s cubic-bezier(.22,.85,.2,1),background .3s ease}
+.stats-panel.anim-ready.in .stat-ico{animation:statPulse 1.5s ease-out 1 both}
+.stats-panel.anim-ready.in .stat-item:nth-child(2) .stat-ico{animation-delay:.10s}
+.stats-panel.anim-ready.in .stat-item:nth-child(3) .stat-ico{animation-delay:.20s}
+.stats-panel.anim-ready.in .stat-item:nth-child(4) .stat-ico{animation-delay:.30s}
+.stat-item:hover .stat-ico{transform:translateY(-3px);background:rgba(212,175,55,0.20)}
+.stat-num .cnum{font-variant-numeric:tabular-nums}
+@keyframes statPulse{
+  0%{box-shadow:0 0 0 0 rgba(212,175,55,0.45)}
+  70%{box-shadow:0 0 0 15px rgba(212,175,55,0)}
+  100%{box-shadow:0 0 0 0 rgba(212,175,55,0)}}
+@media(prefers-reduced-motion:reduce){
+  .stats-panel.anim-ready .stat-item{opacity:1!important;transform:none!important}}
 
 /* ============ FOOTER ============ */
 .foot{background:var(--maroon-bg);color:rgba(255,254,248,0.72);padding:clamp(48px,6vw,72px) 0 28px;
@@ -812,12 +833,12 @@ section[id]{scroll-margin-top:90px}
     <div class="stats-panel">
       <div class="stat-item">
         <span class="stat-ico"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/><path d="M9 13h6M9 17h6"/></svg></span>
-        <span class="stat-num">30<small>+ ปี</small></span>
+        <span class="stat-num"><span class="cnum" data-to="30">0</span><small>+ ปี</small></span>
         <span class="stat-lbl">ข้อมูลย้อนหลัง</span>
       </div>
       <div class="stat-item">
         <span class="stat-ico"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="M8 15l3-4 3 2 4-6"/></svg></span>
-        <span class="stat-num">100<small>+</small></span>
+        <span class="stat-num"><span class="cnum" data-to="100">0</span><small>+</small></span>
         <span class="stat-lbl">กลยุทธ์ &amp; งานวิจัย</span>
       </div>
       <div class="stat-item">
@@ -927,6 +948,37 @@ document.getElementById('shelfGrid').innerHTML = CATS.map(cardHTML).join('');
   function link(sel,name){document.querySelectorAll(sel).forEach(function(a){a.addEventListener('click',function(e){activate(name);if(sec){e.preventDefault();sec.scrollIntoView({behavior:'smooth',block:'start'});}});});}
   link('a[href="#collection"]','category');
   link('a[href="#pricing"]','package');
+})();
+
+/* ---------- stats strip: เผยทีละช่อง + นับเลขขึ้น ---------- */
+(function(){
+  var panel=document.querySelector('.stats-panel'); if(!panel) return;
+  panel.classList.add('anim-ready');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(el){
+    var to=parseInt(el.dataset.to,10)||0, dur=1400, t0=null;
+    function step(ts){
+      if(t0===null) t0=ts;
+      var k=Math.min((ts-t0)/dur,1), e=1-Math.pow(1-k,3);
+      el.textContent=Math.round(to*e);
+      if(k<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  function fire(){
+    panel.classList.add('in');
+    panel.querySelectorAll('.cnum').forEach(function(el,i){
+      if(reduce){el.textContent=el.dataset.to; return;}
+      setTimeout(function(){countUp(el);}, 180+i*110);
+    });
+  }
+  if(reduce || !('IntersectionObserver' in window)){ fire(); return; }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ fire(); io.disconnect(); }
+    });
+  },{threshold:.35});
+  io.observe(panel);
 })();
 
 /* ---------- nav: โปร่ง → ครีมเมื่อเลื่อน ---------- */
