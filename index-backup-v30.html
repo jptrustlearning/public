@@ -261,65 +261,17 @@ section[id]{scroll-margin-top:90px}
 .quad-medal img{width:100%;height:100%;border-radius:24%;display:block}
 
 
-/* ============ ABOUT PANEL — การ์ดเต็มกว้าง สองระนาบ + กราฟวาดตัวเอง + ชั้นหลัง ============ */
-.about-stage{position:relative;z-index:1;max-width:1100px;margin:0 auto}
-.about-glow{position:absolute;inset:-60px -40px;z-index:0;pointer-events:none;
-  background:radial-gradient(55% 60% at 62% 48%,rgba(212,175,55,0.18),rgba(212,175,55,0) 70%);filter:blur(26px)}
-.about-ghost{position:absolute;inset:0;z-index:0;border-radius:24px;pointer-events:none;
-  background:rgba(18,7,11,0.55);border:1px solid rgba(212,175,55,0.12);
-  transform:translate(20px,22px) scale(.985);transform-origin:center;box-shadow:0 30px 60px rgba(0,0,0,0.35)}
-.about-ghost.two{transform:translate(40px,44px) scale(.97);opacity:.55;border-color:rgba(212,175,55,0.07)}
-.about-card{position:relative;z-index:2;border-radius:24px;
-  padding:clamp(28px,4vw,46px) clamp(24px,4.4vw,52px);
-  display:grid;grid-template-columns:1.12fr .95fr;gap:clamp(24px,4vw,52px);align-items:center;
-  background:linear-gradient(160deg,rgba(66,25,37,0.74) 0%,rgba(32,12,18,0.86) 100%);
-  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-  border:1px solid rgba(212,175,55,0.30);
-  box-shadow:0 44px 90px rgba(0,0,0,0.55),0 14px 30px rgba(0,0,0,0.38),inset 0 1px 0 rgba(255,255,255,0.08);
-  text-align:left}
-.about-card::before{content:"";position:absolute;top:0;left:8%;right:8%;height:1px;
-  background:linear-gradient(90deg,rgba(212,175,55,0),rgba(212,175,55,0.75),rgba(212,175,55,0))}
-.about-eyebrow{font-family:'Anuphan',sans-serif;font-size:11.5px;color:var(--gold);letter-spacing:.28em;text-transform:uppercase;margin-bottom:10px;font-weight:600}
-.about-title{font-family:'DM Serif Display','Anuphan',serif;font-size:clamp(26px,3.2vw,36px);color:var(--gold-light);line-height:1.12;letter-spacing:.3px;margin:0 0 14px;font-weight:400;text-shadow:0 2px 24px rgba(0,0,0,0.5)}
-.about-intro{font-family:'Anuphan',sans-serif;font-size:clamp(14.5px,1.5vw,16px);color:#E8E4DC;line-height:1.7;margin:0 0 18px;font-weight:400;max-width:520px}
-.about-row{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px}
-.about-row .lbl{font-size:12.5px;color:rgba(244,228,186,0.7);margin-right:2px;white-space:nowrap}
-.about-chip{padding:6px 13px;border-radius:100px;font-size:12.5px;font-weight:500;color:var(--gold-light);
-  border:1px solid rgba(212,175,55,0.42);background:rgba(212,175,55,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)}
-.about-chip.soft{color:rgba(232,228,220,0.85);border-color:rgba(255,255,255,0.14);background:rgba(255,255,255,0.04)}
-.about-disclaimer{font-family:'Anuphan',sans-serif;font-size:10.5px;color:rgba(232,228,220,0.58);line-height:1.5;margin:14px 0 0;font-style:italic;letter-spacing:.2px;padding-top:10px;border-top:1px dashed rgba(212,175,55,0.22)}
-/* แผ่นกราฟ — ระนาบของตัวเอง ยื่นพ้นขอบการ์ด */
-.chart-pane{position:relative;border-radius:18px;padding:18px 18px 14px;
-  margin:calc(-1*clamp(28px,4vw,46px) - 26px) calc(-1*clamp(24px,4.4vw,52px) - 22px) calc(-1*clamp(28px,4vw,46px) + 8px) 0;
-  background:linear-gradient(160deg,rgba(250,246,237,0.11),rgba(250,246,237,0.04));
-  -webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%);
-  border:1px solid rgba(212,175,55,0.42);
-  box-shadow:0 34px 64px rgba(0,0,0,0.52),0 10px 22px rgba(0,0,0,0.32),inset 0 1px 0 rgba(255,255,255,0.12);
-  transform:rotate(-1.2deg);transition:transform .5s cubic-bezier(.22,.85,.2,1)}
-.about-card:hover .chart-pane{transform:rotate(0deg) translateY(-4px)}
-.cp-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
-.cp-head .k{font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:3px;color:var(--gold)}
-.cp-head .s{font-size:10.5px;color:rgba(244,228,186,0.55)}
-.cp-svg{width:100%;height:auto;display:block}
-.cp-svg .bar{transform-box:fill-box;transform-origin:bottom;transform:scaleY(0);transition:transform .9s cubic-bezier(.22,.85,.2,1)}
-.cp-svg .line{stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 1.6s ease-out .55s}
-.cp-svg .dot{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.3);transition:opacity .35s ease,transform .45s cubic-bezier(.22,.85,.2,1)}
-.cp-svg .grid{opacity:.35}
-.chart-pane.draw .bar{transform:scaleY(1)}
-.chart-pane.draw .line{stroke-dashoffset:0}
-.chart-pane.draw .dot{opacity:1;transform:scale(1)}
-.cp-foot{display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(244,228,186,0.5);letter-spacing:.5px}
-@media(max-width:900px){
-  .about-card{grid-template-columns:1fr;gap:26px}
-  .chart-pane{margin:0;transform:none}
-  .about-card:hover .chart-pane{transform:none}
-  .about-ghost{transform:translate(12px,14px) scale(.985)}
-  .about-ghost.two{display:none}
-}
-@media(prefers-reduced-motion:reduce){
-  .cp-svg .bar,.cp-svg .line,.cp-svg .dot{transition:none}
-  .chart-pane,.about-card:hover .chart-pane{transform:none}
-}
+/* ============ ABOUT CARD (ported from app — identical look) ============ */
+.about-wrap{max-width:540px;margin:clamp(22px,4vw,34px) auto 0}
+.about-section{position:relative;margin:4px 4px 0;padding:14px 14px 12px;background:linear-gradient(160deg,rgba(58,21,32,0.62),rgba(26,10,14,0.62));border:1px solid rgba(212,175,55,0.34);border-radius:16px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,0.28);text-align:left}
+.about-chart-deco{position:absolute;right:-4px;top:0;bottom:0;width:42%;height:100%;pointer-events:none;z-index:0;opacity:0.85;-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 40%,#000 100%);mask-image:linear-gradient(to right,transparent 0%,#000 40%,#000 100%)}
+.about-content{position:relative;z-index:1;max-width:78%}
+.about-eyebrow{font-family:'Cinzel',serif;font-size:10.5px;color:#D4AF37;letter-spacing:0.32em;text-transform:uppercase;margin-bottom:5px;font-weight:600}
+.about-title{font-family:'DM Serif Display','Anuphan',serif;font-size:21px;color:#F4E4BA;line-height:1.15;letter-spacing:0.3px;margin:0 0 8px;font-weight:400}
+.about-intro{font-family:'Anuphan',sans-serif;font-size:12.5px;color:#E8E4DC;line-height:1.55;margin:0 0 7px;font-weight:500}
+.about-disclaimer{font-family:'Anuphan',sans-serif;font-size:9.5px;color:rgba(232,228,220,0.6);line-height:1.5;margin:0;font-style:italic;letter-spacing:0.2px;padding-top:6px;border-top:1px dashed rgba(212,175,55,0.2)}
+@media(max-width:380px){.about-content{max-width:75%}.about-title{font-size:19px}.about-chart-deco{width:38%}}
+@media(max-width:340px){.about-content{max-width:72%}.about-chart-deco{width:34%}}
 /* ============ CATEGORY — shelf cards (original 100%) ============ */
 /* ============ SHELF CARDS (6 หมวด) ============ */
 @keyframes fadeUp{to{opacity:1;transform:none}}
@@ -414,10 +366,7 @@ section[id]{scroll-margin-top:90px}
 @media(max-width:560px){.pricing-grid{grid-template-columns:1fr;max-width:340px;margin:0 auto}}
 /* ============ TABS (simple rounded rectangles) ============ */
 @keyframes tabFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.tabs-section{position:relative;isolation:isolate;background:var(--maroon-bg);padding:clamp(28px,4vw,50px) 0 clamp(56px,8vw,96px);scroll-margin-top:80px}
-.tabs-section::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(60% 70% at 50% 40%,rgba(120,44,60,0.42),rgba(120,44,60,0) 70%)}
-.tabs-section>.wrap{position:relative;z-index:1}
+.tabs-section{background:var(--maroon-bg);padding:clamp(28px,4vw,50px) 0 clamp(48px,7vw,84px);scroll-margin-top:80px}
 .tab-bar{display:flex;gap:clamp(5px,1.4vw,11px);max-width:780px;margin:0 auto clamp(28px,3.6vw,42px);padding:0 clamp(10px,3vw,16px)}
 .tab-btn{flex:1;min-width:0;cursor:pointer;
   padding:13px 8px;border-radius:14px;border:1.5px solid var(--gold-border);
@@ -429,7 +378,7 @@ section[id]{scroll-margin-top:90px}
 .tab-panel{display:none}
 .tab-panel.active{display:block;animation:tabFade .3s ease}
 .tab-sub{text-align:center;font-size:clamp(13px,1.8vw,15px);color:rgba(245,233,208,0.72);margin:0 auto clamp(20px,3vw,30px);max-width:560px}
-.tab-panel .about-stage{animation:none}
+.tab-panel .about-wrap{margin:0 auto;animation:none}
 .tab-panel .shelf-card{opacity:1;transform:none;animation:none}
 /* ============ STATS STRIP ============ */
 .stats{background:var(--cream);padding:0 0 clamp(52px,7vw,90px)}
@@ -716,55 +665,48 @@ section[id]{scroll-margin-top:90px}
     </div>
     <div class="tab-panels">
       <div class="tab-panel active" id="panel-about" role="tabpanel">
-    <div class="about-stage">
-      <div class="about-glow" aria-hidden="true"></div>
-      <div class="about-ghost two" aria-hidden="true"></div>
-      <div class="about-ghost" aria-hidden="true"></div>
-      <div class="about-card">
+    <div class="about-wrap">
+      <div class="about-section">
+        <svg class="about-chart-deco" viewBox="0 0 200 100" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="aboutBgGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#FAF6ED" stop-opacity="0"/>
+              <stop offset="55%" stop-color="#F4E4BA" stop-opacity="0.32"/>
+              <stop offset="100%" stop-color="#EDD89A" stop-opacity="0.42"/>
+            </linearGradient>
+            <linearGradient id="aboutBarGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F4E4BA" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.18"/>
+            </linearGradient>
+          </defs>
+          <rect width="200" height="100" fill="url(#aboutBgGrad)"/>
+          <g>
+            <rect x="76" y="74" width="13" height="26" rx="1.5" fill="url(#aboutBarGrad)" opacity="0.32"/>
+            <rect x="94" y="62" width="13" height="38" rx="1.5" fill="url(#aboutBarGrad)" opacity="0.36"/>
+            <rect x="112" y="50" width="13" height="50" rx="1.5" fill="url(#aboutBarGrad)" opacity="0.42"/>
+            <rect x="130" y="38" width="13" height="62" rx="1.5" fill="url(#aboutBarGrad)" opacity="0.48"/>
+            <rect x="148" y="26" width="13" height="74" rx="1.5" fill="url(#aboutBarGrad)" opacity="0.54"/>
+            <rect x="166" y="14" width="13" height="86" rx="1.5" fill="url(#aboutBarGrad)" opacity="0.6"/>
+          </g>
+          <polyline points="83,68 100,56 118,44 137,32 155,20 173,8" fill="none" stroke="#C9A85F" stroke-width="1.2" opacity="0.55" stroke-linecap="round" stroke-linejoin="round"/>
+          <g>
+            <circle cx="83" cy="68" r="1.8" fill="#FFFEF8" stroke="#C9A85F" stroke-width="0.7" opacity="0.7"/>
+            <circle cx="100" cy="56" r="1.8" fill="#FFFEF8" stroke="#C9A85F" stroke-width="0.7" opacity="0.7"/>
+            <circle cx="118" cy="44" r="1.8" fill="#FFFEF8" stroke="#C9A85F" stroke-width="0.7" opacity="0.75"/>
+            <circle cx="137" cy="32" r="1.8" fill="#FFFEF8" stroke="#C9A85F" stroke-width="0.7" opacity="0.8"/>
+            <circle cx="155" cy="20" r="1.8" fill="#FFFEF8" stroke="#C9A85F" stroke-width="0.7" opacity="0.85"/>
+            <circle cx="173" cy="8" r="2.5" fill="#FFFEF8" stroke="#D4AF37" stroke-width="1" opacity="0.9"/>
+            <circle cx="173" cy="8" r="2.5" fill="none" stroke="#D4AF37" stroke-width="0.6" opacity="0.5">
+              <animate attributeName="r" values="2.5;6;2.5" dur="2.4s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.5;0;0.5" dur="2.4s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+        </svg>
         <div class="about-content">
           <div class="about-eyebrow">เกี่ยวกับเรา</div>
           <h2 class="about-title">JP Trust Learning</h2>
-          <p class="about-intro">แพลตฟอร์มวิจัยและเรียนรู้ด้าน Momentum Trading นำข้อมูลย้อนหลังมาทดสอบ เพื่อพัฒนาแนวทางวิเคราะห์ตลาดและกลยุทธ์การเทรดอย่างเป็นระบบ</p>
-          <div class="about-row"><span class="lbl">เราศึกษาตลาดผ่าน</span>
-            <span class="about-chip">Price</span><span class="about-chip">Volume</span><span class="about-chip">News</span><span class="about-chip">Market Structure</span></div>
-          <div class="about-row"><span class="lbl">ครอบคลุม</span>
-            <span class="about-chip soft">หุ้นสหรัฐฯ</span><span class="about-chip soft">Gold</span><span class="about-chip soft">Bitcoin</span><span class="about-chip soft">ดัชนีตลาด</span></div>
+          <p class="about-intro">แพลตฟอร์มวิจัยและเรียนรู้ด้าน Momentum Trading<br>เราศึกษาการเคลื่อนไหวของตลาดผ่าน Price · Volume · News · Market Structure และนำข้อมูลย้อนหลังมาทดสอบ เพื่อพัฒนาแนวทางวิเคราะห์ตลาดและกลยุทธ์การเทรดอย่างเป็นระบบ<br>ครอบคลุม หุ้นสหรัฐฯ · Gold · Bitcoin · ดัชนีตลาด</p>
           <p class="about-disclaimer">ไม่ใช่คำแนะนำในการลงทุน · ผลในอดีตไม่ใช่การรับประกันผลในอนาคต</p>
-        </div>
-        <div class="chart-pane" id="aboutChart">
-          <div class="cp-head"><span class="k">MOMENTUM</span><span class="s">ภาพประกอบแนวคิด</span></div>
-          <svg class="cp-svg" viewBox="0 0 320 170" aria-hidden="true">
-            <defs>
-              <linearGradient id="cpBarG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F4E4BA" stop-opacity=".95"/><stop offset="100%" stop-color="#D4AF37" stop-opacity=".25"/></linearGradient>
-              <linearGradient id="cpLineG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C9A85F" stop-opacity=".6"/><stop offset="100%" stop-color="#F4E4BA"/></linearGradient>
-              <filter id="cpGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
-            <g class="grid" stroke="rgba(212,175,55,.35)" stroke-width=".7" stroke-dasharray="2 4"><line x1="12" y1="40" x2="308" y2="40"/><line x1="12" y1="80" x2="308" y2="80"/><line x1="12" y1="120" x2="308" y2="120"/></g>
-            <line x1="12" y1="156" x2="308" y2="156" stroke="rgba(212,175,55,.5)" stroke-width="1"/>
-            <g fill="url(#cpBarG)">
-              <rect class="bar" x="30"  y="128" width="26" height="28"  rx="3" style="transition-delay:.05s"/>
-              <rect class="bar" x="72"  y="112" width="26" height="44"  rx="3" style="transition-delay:.15s"/>
-              <rect class="bar" x="114" y="94"  width="26" height="62"  rx="3" style="transition-delay:.25s"/>
-              <rect class="bar" x="156" y="76"  width="26" height="80"  rx="3" style="transition-delay:.35s"/>
-              <rect class="bar" x="198" y="54"  width="26" height="102" rx="3" style="transition-delay:.45s"/>
-              <rect class="bar" x="240" y="26"  width="26" height="130" rx="3" style="transition-delay:.55s"/>
-            </g>
-            <polyline class="line" points="43,118 85,102 127,84 169,66 211,44 253,16 296,10" fill="none" stroke="url(#cpLineG)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#cpGlow)"/>
-            <g>
-              <circle class="dot" cx="43"  cy="118" r="3" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1" style="transition-delay:.75s"/>
-              <circle class="dot" cx="85"  cy="102" r="3" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1" style="transition-delay:.95s"/>
-              <circle class="dot" cx="127" cy="84"  r="3" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1" style="transition-delay:1.15s"/>
-              <circle class="dot" cx="169" cy="66"  r="3" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1" style="transition-delay:1.35s"/>
-              <circle class="dot" cx="211" cy="44"  r="3" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1" style="transition-delay:1.55s"/>
-              <circle class="dot" cx="253" cy="16"  r="3" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1" style="transition-delay:1.75s"/>
-              <circle class="dot" cx="296" cy="10"  r="4.2" fill="#FFFEF8" stroke="#D4AF37" stroke-width="1.4" style="transition-delay:2.05s"/>
-              <circle class="dot" cx="296" cy="10" r="4.2" fill="none" stroke="#D4AF37" stroke-width=".9" style="transition-delay:2.1s">
-                <animate attributeName="r" values="4.2;12;4.2" dur="2.4s" begin="2.2s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values=".6;0;.6" dur="2.4s" begin="2.2s" repeatCount="indefinite"/>
-              </circle>
-            </g>
-          </svg>
-          <div class="cp-foot"><span>PRICE</span><span>VOLUME</span><span>NEWS</span><span>STRUCTURE</span></div>
         </div>
       </div>
     </div>
@@ -1001,18 +943,6 @@ document.getElementById('shelfGrid').innerHTML = CATS.map(cardHTML).join('');
   function activate(name){
     tabs.forEach(function(t){var on=t.dataset.tab===name;t.classList.toggle('active',on);t.setAttribute('aria-selected',on?'true':'false');});
     panels.forEach(function(p){p.classList.toggle('active',p.id==='panel-'+name);});
-    if(name==='about') drawAboutChart(true);
-  }
-  /* กราฟในการ์ดเกี่ยวกับเรา: วาดเมื่อเลื่อนมาถึง และวาดใหม่ทุกครั้งที่เปิดแท็บ */
-  var cp=document.getElementById('aboutChart');
-  function drawAboutChart(reset){
-    if(!cp) return;
-    if(reset){cp.classList.remove('draw'); void cp.offsetWidth;}
-    cp.classList.add('draw');
-  }
-  if(cp){
-    if(!('IntersectionObserver' in window)){drawAboutChart(false);}
-    else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){drawAboutChart(false);io.disconnect();}});},{threshold:.4});io.observe(cp);}
   }
   tabs.forEach(function(t){t.addEventListener('click',function(){activate(t.dataset.tab);});});
   function link(sel,name){document.querySelectorAll(sel).forEach(function(a){a.addEventListener('click',function(e){activate(name);if(sec){e.preventDefault();sec.scrollIntoView({behavior:'smooth',block:'start'});}});});}
