@@ -61,82 +61,36 @@ img{max-width:100%;display:block}
   text-transform:uppercase; font-weight:500;
 }
 
-/* ============ TOP NAV — fixed · โปร่งทับ hero → ครีมเมื่อเลื่อน ============ */
+/* ============ TOP NAV ============ */
 .nav{
-  position:fixed; top:0; left:0; right:0; z-index:120;
-  border-bottom:1px solid rgba(255,255,255,0.10);
-  transition:background .32s ease,box-shadow .32s ease,border-color .32s ease;
-}
-.nav.solid{
+  position:sticky; top:0; z-index:120;
   background:linear-gradient(180deg,#FFFEFB 0%,#FAF6ED 100%);
   border-bottom:2px solid; border-image:linear-gradient(90deg,transparent,#D4AF37,#E8D48B,#D4AF37,transparent) 1;
   box-shadow:0 4px 20px rgba(212,175,55,0.12);
 }
-.nav-inner{display:flex;align-items:center;gap:clamp(12px,2.2vw,30px);height:clamp(62px,8vw,76px)}
-.brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:clamp(60px,8vw,74px);gap:14px}
+.brand{display:flex;align-items:center;gap:11px}
 .brand-owl{width:clamp(32px,5vw,42px);height:auto;flex-shrink:0}
 .brand-text{display:flex;flex-direction:column;line-height:1.05}
 .brand-name{
-  font-family:'Cinzel',serif;font-weight:600;font-size:clamp(15px,2.1vw,18.5px);letter-spacing:1px;
-  background-image:linear-gradient(135deg,#FFFCF2,#E8CE7E);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 2px 12px rgba(0,0,0,0.55));transition:filter .3s ease;
+  font-family:'Cinzel',serif;font-weight:600;font-size:clamp(15px,2.2vw,19px);letter-spacing:1px;
+  background:linear-gradient(135deg,#722F37,#D4AF37);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
 }
-.nav.solid .brand-name{background-image:linear-gradient(135deg,#722F37,#D4AF37);filter:none}
-.brand-sub{font-size:clamp(9px,1.3vw,10.5px);color:rgba(212,175,55,0.95);letter-spacing:2.4px;font-weight:600;
-  font-family:'Cinzel',serif;transition:color .3s ease}
-.nav.solid .brand-sub{color:var(--gold-deep)}
-
-/* เมนูแนวนอน (เดสก์ท็อป) */
-.nav-links{display:flex;align-items:center;gap:clamp(6px,1.4vw,20px);margin-left:clamp(6px,1.8vw,24px)}
-.nl{position:relative}
-.nl>a{display:inline-flex;align-items:center;gap:6px;padding:9px 4px;font-size:15px;font-weight:500;
-  color:rgba(255,254,248,0.94);text-shadow:0 1px 10px rgba(0,0,0,0.55);white-space:nowrap;
-  transition:color .3s ease,opacity .18s ease}
-.nav.solid .nl>a{color:var(--ink);text-shadow:none}
-.nl>a:hover{opacity:.72}
-.nl>a svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s ease}
-.nl.open>a svg{transform:rotate(180deg)}
-.nl-drop{
-  position:absolute;top:calc(100% + 12px);left:-14px;min-width:268px;
-  background:var(--cream-card);border:1px solid var(--gold-border);border-radius:16px;
-  box-shadow:0 26px 54px rgba(40,14,22,0.30);padding:8px;
-  opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s ease,transform .2s ease,visibility .2s;
-}
-.nl.open .nl-drop{opacity:1;visibility:visible;transform:none}
-.nl-drop a{display:flex;flex-direction:column;gap:2px;padding:10px 13px;border-radius:11px;transition:background .18s ease}
-.nl-drop a:hover{background:var(--cream-warm)}
-.nl-drop .v{font-size:14.5px;font-weight:500;color:var(--ink)}
-.nl-drop .k{font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:2px;color:var(--gold-deep)}
-
-.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.brand-sub{font-size:clamp(9px,1.3vw,11px);color:var(--gold-deep);letter-spacing:2.5px;font-weight:600;font-family:'Cinzel',serif}
+.nav-right{display:flex;align-items:center;gap:12px}
 .nav-cta{
-  display:inline-flex;align-items:center;gap:7px;padding:10px 17px;border-radius:100px;
-  font-size:14px;font-weight:600;color:#FFFCF2;border:1px solid rgba(255,255,255,0.30);
-  background:rgba(24,10,15,0.32);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
-  transition:background .25s ease,color .3s ease,border-color .3s ease;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,#722F37 0%,#8B3A44 100%); color:#FFFEF8;
+  font-weight:600;font-size:14px;padding:11px 20px;border-radius:100px;
+  box-shadow:0 6px 16px rgba(114,47,55,0.28);transition:transform .18s ease,box-shadow .18s ease;
 }
-.nav-cta:hover{background:rgba(24,10,15,0.52)}
-.nav.solid .nav-cta{color:var(--maroon);border-color:rgba(114,47,55,0.30);background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
-.nav.solid .nav-cta:hover{background:rgba(114,47,55,0.07)}
-.nav-cta svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
-.nav-signup{
-  display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:100px;
-  background:linear-gradient(135deg,#722F37 0%,#8B3A44 100%);color:#FFFEF8;
-  font-weight:600;font-size:14px;white-space:nowrap;
-  box-shadow:0 8px 22px rgba(0,0,0,0.34);transition:transform .18s ease,box-shadow .18s ease;
-}
-.nav-signup:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(0,0,0,0.42)}
-.nav.solid .nav-signup{box-shadow:0 6px 16px rgba(114,47,55,0.28)}
-
+.nav-cta svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(114,47,55,0.34)}
 .nav-burger{
-  width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,0.28);
-  background:rgba(24,10,15,0.32);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
-  display:none;align-items:center;justify-content:center;cursor:pointer;
-  flex-direction:column;gap:5px;transition:border-color .3s ease,background .3s ease}
-.nav-burger span{width:20px;height:2px;background:#FFFCF2;border-radius:2px;transition:transform .25s ease,opacity .2s ease,background .3s ease}
-.nav.solid .nav-burger{border-color:var(--gold-border);background:var(--cream-card)}
-.nav.solid .nav-burger span{background:var(--maroon)}
+  width:44px;height:44px;border-radius:12px;border:1.5px solid var(--gold-border);
+  background:var(--cream-card);display:flex;align-items:center;justify-content:center;cursor:pointer;
+  flex-direction:column;gap:5px;transition:border-color .18s ease}
+.nav-burger span{width:20px;height:2px;background:var(--maroon);border-radius:2px;transition:transform .25s ease,opacity .2s ease}
 .nav-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
@@ -152,67 +106,62 @@ img{max-width:100%;display:block}
   font-weight:500;color:var(--ink)}
 .nav-menu a:last-child{border-bottom:0}
 .nav-menu a span.k{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--gold-deep);text-transform:uppercase}
-@media(max-width:1080px){
-  .nav-links{display:none}
-  .nav-cta{display:none}
-  .nav-burger{display:flex}
-}
-section[id]{scroll-margin-top:90px}
 
 /* ============ HERO ============ */
-.hero{position:relative;overflow:hidden;background:#160810;isolation:isolate}
+.hero{position:relative;overflow:hidden;background:var(--maroon-darkest)}
 .hero::before{content:"";position:absolute;inset:0;z-index:0;
   background-image:url('hero-momentum.jpg');
-  background-size:cover;background-position:center;background-repeat:no-repeat;
-  filter:contrast(1.05) saturate(1.04);
-  transform-origin:60% 60%;animation:heroZoom 30s ease-in-out infinite alternate}
-/* ม่านเป็นวงรีเฉพาะหลังข้อความ + ไล่บน + vignette — ไม่ทาบทั้งผืน มุมภาพจึงยังเห็นเส้นโค้งทอง */
+  background-size:cover;background-position:right center;background-repeat:no-repeat;
+  transform-origin:72% 62%;animation:heroZoom 28s ease-in-out infinite alternate}
 .hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background-image:
-    radial-gradient(62% 58% at 50% 46%, rgba(10,4,7,0.80), rgba(10,4,7,0.30) 62%, rgba(10,4,7,0) 82%),
-    linear-gradient(180deg, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0) 28%),
-    radial-gradient(140% 120% at 50% 40%, rgba(6,2,4,0) 54%, rgba(6,2,4,0.62) 100%)}
-.hero-grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")}
-@keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.05)}}
+  background-image:linear-gradient(90deg,rgba(20,8,12,0.97) 0%,rgba(26,10,14,0.86) 32%,rgba(26,10,14,0.42) 58%,rgba(26,10,14,0.12) 100%)}
+@keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.06)}}
 @keyframes goldSweep{from{background-position:150% 0,0 0}to{background-position:-60% 0,0 0}}
-.hero-inner{position:relative;z-index:4;text-align:center;
-  padding:clamp(150px,17vw,222px) 0 clamp(92px,12vw,146px)}
-
-/* หัวเรื่องสลับข้อความ */
-.hero h1{position:relative;font-family:'Cinzel',serif;font-weight:700;line-height:1.0;margin-bottom:22px}
-.hero h1 .phrase{display:block}
-.hero h1 .phrase.sizer{visibility:hidden;pointer-events:none}
-.hero h1 .phrase:not(.sizer){position:absolute;left:0;right:0;top:0}
+.hero-inner{position:relative;z-index:2;padding:clamp(52px,8.4vw,112px) 0 clamp(40px,6vw,76px)}
+.hero-copy{max-width:min(620px,80%)}
+.hero .eyebrow{animation:riseIn .7s ease .05s both}
+.hero h2{animation:riseIn .7s ease .42s both}
+.hero .lead{animation:riseIn .7s ease .54s both}
+.hero .eyebrow{color:var(--gold);display:inline-block;margin-bottom:16px;letter-spacing:5px}
+.hero h1{font-family:'Cinzel',serif;font-weight:700;line-height:1.0;margin-bottom:14px}
 .hero h1 .h1-top{
-  display:block;font-weight:500;font-size:clamp(22px,3.8vw,38px);letter-spacing:8px;line-height:1;
-  color:#EFE1C2;text-shadow:0 3px 34px rgba(0,0,0,0.72)}
+  display:block;font-weight:600;font-size:clamp(28px,5.1vw,52px);letter-spacing:3px;
+  color:#F0E3C4;text-shadow:0 2px 24px rgba(212,175,55,0.14);animation:riseIn .7s ease .18s both}
 .hero h1 .h1-bot{
-  display:block;font-weight:700;font-size:clamp(38px,7vw,76px);letter-spacing:1.5px;line-height:1.06;
-  background-image:linear-gradient(105deg,rgba(255,255,255,0) 38%,rgba(255,250,232,0.92) 48%,rgba(255,255,255,0) 58%),linear-gradient(120deg,#F7EACB 0%,#D4AF37 46%,#A9760A 100%);
+  display:block;font-weight:700;font-size:clamp(38px,7.1vw,74px);letter-spacing:1px;
+  background-image:linear-gradient(105deg,rgba(255,255,255,0) 38%,rgba(255,250,232,0.92) 48%,rgba(255,255,255,0) 58%),linear-gradient(120deg,#F4E4BA 0%,#D4AF37 44%,#B8860B 100%);
   background-size:300% 100%,100% 100%;background-position:150% 0,0 0;background-repeat:no-repeat;
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 4px 26px rgba(0,0,0,0.6))}
-.hero h1 .phrase:not(.sizer) .h1-top,.hero h1 .phrase:not(.sizer) .h1-bot{
-  opacity:0;transform:translateY(30px);
-  transition:opacity .75s ease,transform .9s cubic-bezier(.22,.85,.2,1)}
-.hero h1 .phrase.on .h1-top{opacity:1;transform:none;transition-delay:.04s}
-.hero h1 .phrase.on .h1-bot{opacity:1;transform:none;transition-delay:.16s;animation:goldSweep 2.3s ease-out .3s 1 both}
-.hero h1 .phrase.out .h1-top{opacity:0;transform:translateY(-28px);transition-duration:.6s,.65s}
-.hero h1 .phrase.out .h1-bot{opacity:0;transform:translateY(-28px);transition-duration:.6s,.65s;transition-delay:.05s}
-
-.hero .lead{font-weight:500;font-size:clamp(17px,2.1vw,21px);line-height:1.6;
-  color:rgba(255,254,248,0.90);text-shadow:0 2px 20px rgba(0,0,0,0.75);
-  margin:0 auto 32px;max-width:520px;animation:riseIn .8s ease .25s both}
-.hero .lead b{font-weight:700;color:#FFFEF8}
-.hero-cta{display:inline-flex;align-items:center;gap:11px;padding:15px 30px;border-radius:12px;
-  background:linear-gradient(135deg,#F0D68C 0%,#D4AF37 46%,#B8860B 100%);color:#26100F;
-  font-weight:700;font-size:clamp(15px,1.8vw,16px);letter-spacing:.2px;
-  box-shadow:0 16px 34px rgba(0,0,0,0.46),0 4px 12px rgba(212,175,55,0.26),inset 0 1px 0 rgba(255,255,255,0.55);
-  transition:transform .22s ease,box-shadow .22s ease;animation:riseIn .8s ease .38s both}
-.hero-cta:hover{transform:translateY(-2px);box-shadow:0 22px 42px rgba(0,0,0,0.5),0 6px 16px rgba(212,175,55,0.32),inset 0 1px 0 rgba(255,255,255,0.6)}
-.hero-cta svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s ease}
+  text-shadow:0 2px 30px rgba(212,175,55,0.12);
+  animation:riseIn .7s ease .30s both,goldSweep 2.4s ease-out 1s 1 both}
+.hero h2{
+  font-family:'Anuphan',sans-serif;font-weight:700;color:#FFFEF8;
+  font-size:clamp(21px,3.4vw,34px);line-height:1.28;margin-bottom:18px;letter-spacing:.2px}
+.hero .lead{color:rgba(255,254,248,0.78);font-size:clamp(15px,1.9vw,18px);line-height:1.72;max-width:520px;margin-bottom:30px}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;padding:14px 26px;border-radius:12px;
+  border:1.5px solid rgba(212,175,55,0.55);background:rgba(212,175,55,0.05);
+  color:var(--gold-light);font-weight:600;font-size:clamp(15px,1.8vw,17px);letter-spacing:.3px;
+  transition:transform .25s ease,background .25s ease,border-color .25s ease;animation:riseIn .7s ease .66s both}
+.hero-cta svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s ease}
+.hero-cta:hover{transform:translateY(-2px);background:rgba(212,175,55,0.13);border-color:var(--gold)}
 .hero-cta:hover svg{transform:translateX(4px)}
+.hero-band{position:relative;z-index:2;border-top:1px solid rgba(212,175,55,0.13);
+  background:linear-gradient(180deg,rgba(16,6,9,0.40),rgba(16,6,9,0.86))}
+.hero-features{display:grid;grid-template-columns:repeat(4,1fr)}
+.hf{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;
+  padding:clamp(20px,3.2vw,32px) clamp(4px,1.4vw,16px);animation:riseIn .8s ease both}
+.hf+.hf{border-left:1px solid rgba(212,175,55,0.16)}
+.hf:nth-child(1){animation-delay:.78s}.hf:nth-child(2){animation-delay:.90s}
+.hf:nth-child(3){animation-delay:1.02s}.hf:nth-child(4){animation-delay:1.14s}
+.hf-ring{
+  width:clamp(44px,6.4vw,58px);height:clamp(44px,6.4vw,58px);border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  border:1.5px solid rgba(212,175,55,0.5);background:radial-gradient(circle at 35% 30%,rgba(212,175,55,0.22),rgba(212,175,55,0.04));
+  box-shadow:0 0 22px rgba(212,175,55,0.14),inset 0 0 12px rgba(212,175,55,0.1)}
+.hf-ring svg{width:clamp(21px,2.9vw,26px);height:clamp(21px,2.9vw,26px);fill:none;stroke:var(--gold-light);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.hf-text{display:flex;flex-direction:column;align-items:center;line-height:1.32;gap:3px}
+.hf-text .k{font-family:'Cinzel',serif;font-size:clamp(10px,1.35vw,12.5px);letter-spacing:2px;color:var(--gold-light);font-weight:600;white-space:nowrap}
+.hf-text .v{font-size:clamp(11px,1.5vw,13.5px);color:rgba(255,254,248,0.72)}
 
 /* ============ ENTRANCE — quad box (original 100%) ============ */
 /* ============ ENTRANCE — 4-door square ============ */
@@ -456,15 +405,20 @@ section[id]{scroll-margin-top:90px}
   .foot-news{grid-column:1/-1}
 }
 @media(max-width:760px){
-  .hero::before{background-position:center}
-  .hero h1 .h1-top{font-size:clamp(20px,5.4vw,34px);letter-spacing:4px}
+  .hero::before{background-position:78% center}
+  .hero-copy{max-width:100%}
+  .hero h1 .h1-top{font-size:clamp(22px,6.2vw,40px);letter-spacing:2px}
   .hero h1 .h1-bot{font-size:clamp(30px,8.6vw,52px)}
+  .hf{gap:8px;padding:18px 4px}
+  .hf-text .k{letter-spacing:1.4px}
   .stats-panel{grid-template-columns:1fr 1fr;gap:26px 16px}
   .stat-item:nth-child(2)::after{display:none}
 }
 @media(max-width:480px){
-  .hero h1 .h1-top{font-size:20px;letter-spacing:3.4px}
+  .hero h1 .h1-top{font-size:20px;letter-spacing:1.6px}
   .hero h1 .h1-bot{font-size:31px}
+  .hf-text .k{font-size:9.5px;letter-spacing:1px}
+  .hf-text .v{font-size:10.5px;line-height:1.25}
   .foot-grid{grid-template-columns:1fr}
   .stats-panel{grid-template-columns:1fr 1fr}
   .stat-item::after{display:none!important}
@@ -481,7 +435,7 @@ section[id]{scroll-margin-top:90px}
   .brand-sub{font-size:8.5px;letter-spacing:1.2px}
   .nav-cta{padding:8px 11px;font-size:12px;gap:5px}
   .nav-burger{width:37px;height:37px}
-  .hero h1 .h1-top{font-size:18.5px;letter-spacing:2.8px}
+  .hero h1 .h1-top{font-size:18.5px}
   .hero h1 .h1-bot{font-size:28px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -538,28 +492,11 @@ section[id]{scroll-margin-top:90px}
         <span class="brand-sub">MOMENTUM RESEARCH</span>
       </span>
     </a>
-    <nav class="nav-links" aria-label="เมนูหลัก">
-      <div class="nl"><a href="/">หน้าแรก</a></div>
-      <div class="nl" id="nlLib">
-        <a href="#collection">ห้องสมุด <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
-        <div class="nl-drop">
-          <a href="lib-momentum.html"><span class="v">กลยุทธ์ Momentum</span><span class="k">Momentum</span></a>
-          <a href="lib-analysis.html"><span class="v">บทวิเคราะห์</span><span class="k">Analysis</span></a>
-          <a href="lib-curated.html"><span class="v">งานวิจัยคัดสรร</span><span class="k">Curated</span></a>
-          <a href="lib-macro.html"><span class="v">Macro &amp; ความเสี่ยง</span><span class="k">Macro</span></a>
-          <a href="lib-method.html"><span class="v">ข้อมูล &amp; ระเบียบวิธี</span><span class="k">Method</span></a>
-        </div>
-      </div>
-      <div class="nl"><a href="lib-dashboard.html">Dashboard</a></div>
-      <div class="nl"><a href="#pricing">แพ็กเกจสมาชิก</a></div>
-      <div class="nl"><a href="#" id="menuContactTop">ติดต่อเรา</a></div>
-    </nav>
     <div class="nav-right">
       <a class="nav-cta" href="https://app.jptrustlearning.com">
-        <svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
         เข้าระบบสมาชิก
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <a class="nav-signup" href="https://app.jptrustlearning.com/new">สมัครสมาชิก</a>
       <button class="nav-burger" id="navBurger" aria-label="เมนู" aria-expanded="false" aria-controls="navMenu">
         <span></span><span></span><span></span>
       </button>
@@ -570,9 +507,6 @@ section[id]{scroll-margin-top:90px}
     <a href="#pricing"><span>แพ็กเกจสมาชิก</span><span class="k">Plans</span></a>
     <a href="lib-momentum.html"><span>กลยุทธ์ Momentum</span><span class="k">Momentum</span></a>
     <a href="lib-analysis.html"><span>บทวิเคราะห์</span><span class="k">Analysis</span></a>
-    <a href="lib-curated.html"><span>งานวิจัยคัดสรร</span><span class="k">Curated</span></a>
-    <a href="lib-macro.html"><span>Macro &amp; ความเสี่ยง</span><span class="k">Macro</span></a>
-    <a href="lib-method.html"><span>ข้อมูล &amp; ระเบียบวิธี</span><span class="k">Method</span></a>
     <a href="lib-dashboard.html"><span>Dashboard</span><span class="k">Dashboard</span></a>
     <a href="#collection"><span>ห้องสมุด</span><span class="k">Library</span></a>
     <a href="#" id="menuContact"><span>ติดต่อเรา</span><span class="k">Contact</span></a>
@@ -582,17 +516,34 @@ section[id]{scroll-margin-top:90px}
 
 <!-- ===== HERO ===== -->
 <section class="hero">
-  <div class="hero-grain" aria-hidden="true"></div>
   <div class="wrap hero-inner">
-    <h1 id="heroRot" aria-label="Momentum Trading — ศูนย์รวมกลยุทธ์และงานวิจัย JP Trust Learning">
-      <span class="phrase sizer" aria-hidden="true"><span class="h1-top">Momentum</span><span class="h1-bot">Trading</span></span>
-      <span class="phrase"><span class="h1-top">Momentum</span><span class="h1-bot">Trading</span></span>
-      <span class="phrase"><span class="h1-top">Gold</span><span class="h1-bot">Research</span></span>
-      <span class="phrase"><span class="h1-top">Macro</span><span class="h1-bot">Analysis</span></span>
-      <span class="phrase"><span class="h1-top">Risk</span><span class="h1-bot">Control</span></span>
-    </h1>
-    <p class="lead">กลยุทธ์และงานวิจัยที่ทดสอบย้อนหลัง <b>กว่า 30 ปี</b></p>
-    <a class="hero-cta" href="https://app.jptrustlearning.com/new">เริ่มต้นใช้งาน<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="hero-copy">
+      <span class="eyebrow">Momentum Trading Research</span>
+      <h1><span class="h1-top">Momentum</span><span class="h1-bot">Trading</span></h1>
+      <h2>ศูนย์รวมกลยุทธ์ งานวิจัย<br>และเครื่องมือเทรด</h2>
+      <p class="lead">ผลการทดสอบกลยุทธ์ย้อนหลังกว่า 30 ปี เพื่อการลงทุนอย่างมีระบบและลดความเสี่ยง</p>
+      <a class="hero-cta" href="https://app.jptrustlearning.com/new">เริ่มต้นใช้งาน<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+  <div class="hero-band">
+    <div class="wrap hero-features">
+        <div class="hf">
+          <span class="hf-ring"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="M8 15l3-4 3 2 4-6"/></svg></span>
+          <span class="hf-text"><span class="k">Research</span><span class="v">งานวิจัยเชิงลึก</span></span>
+        </div>
+        <div class="hf">
+          <span class="hf-ring"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></span>
+          <span class="hf-text"><span class="k">Strategy</span><span class="v">กลยุทธ์ใช้งานได้จริง</span></span>
+        </div>
+        <div class="hf">
+          <span class="hf-ring"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 005.4-5.4l-2.6 2.6-2-2z"/></svg></span>
+          <span class="hf-text"><span class="k">Tools</span><span class="v">เครื่องมือเทรด</span></span>
+        </div>
+        <div class="hf">
+          <span class="hf-ring"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <span class="hf-text"><span class="k">Risk Control</span><span class="v">บริหารความเสี่ยง</span></span>
+        </div>
+    </div>
   </div>
 </section>
 
@@ -929,36 +880,6 @@ document.getElementById('shelfGrid').innerHTML = CATS.map(cardHTML).join('');
   link('a[href="#pricing"]','package');
 })();
 
-/* ---------- nav: โปร่ง → ครีมเมื่อเลื่อน ---------- */
-(function(){
-  var nav=document.querySelector('.nav');
-  function onScroll(){nav.classList.toggle('solid', window.scrollY>40);}
-  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
-})();
-
-/* ---------- dropdown ห้องสมุด ---------- */
-(function(){
-  var lib=document.getElementById('nlLib'); if(!lib) return;
-  lib.addEventListener('mouseenter',function(){lib.classList.add('open');});
-  lib.addEventListener('mouseleave',function(){lib.classList.remove('open');});
-  document.addEventListener('click',function(e){if(!lib.contains(e.target))lib.classList.remove('open');});
-})();
-
-/* ---------- hero: หัวเรื่องสลับข้อความ ---------- */
-(function(){
-  var ph=[].slice.call(document.querySelectorAll('#heroRot .phrase:not(.sizer)'));
-  if(!ph.length) return;
-  var i=0; ph[0].classList.add('on');
-  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  setInterval(function(){
-    var cur=ph[i];
-    cur.classList.remove('on'); cur.classList.add('out');
-    setTimeout(function(){cur.classList.remove('out');},900);
-    i=(i+1)%ph.length;
-    ph[i].classList.add('on');
-  },4600);
-})();
-
 /* ---------- nav burger menu ---------- */
 var burger=document.getElementById('navBurger');
 var menu=document.getElementById('navMenu');
@@ -974,7 +895,7 @@ menu.querySelectorAll('a').forEach(function(a){
 var cm=document.getElementById('contactModal');
 function openContact(e){if(e)e.preventDefault();cm.hidden=false;document.body.style.overflow='hidden';}
 function closeContact(){cm.hidden=true;document.body.style.overflow='';}
-['contactDoor','footContact','menuContact','menuContactTop'].forEach(function(id){
+['contactDoor','footContact','menuContact'].forEach(function(id){
   var el=document.getElementById(id);
   if(el) el.addEventListener('click',function(e){openContact(e);menu.classList.remove('open');burger.setAttribute('aria-expanded','false');});
 });
