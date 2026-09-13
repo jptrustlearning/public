@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ทองคำ วันที่ Asia ดัง กับวันที่ Asia เงียบ — HIGH + LOW มี edge จริงไหม | JP Trust Learning</title>
-<meta name="description" content="วัดว่าช่วง Asia ขยับเป็นสัดส่วนเท่าไรของทั้งวัน แล้วให้ระบบสองตัวเทรดคนละวัน: breakout วัน HIGH (22 ปี 2,179 ไม้) และกริด mean-reversion วัน LOW (536 วัน) — เปิดทุกด่านที่ใช้พิสูจน์ว่า edge จริง: permutation 3 แบบ walk-forward ต้นทุนต่อรอบ เทียบเพิ่ม lot และ buy & hold พร้อมสิ่งที่ยังพิสูจน์ไม่ได้">
+<meta name="description" content="วัดว่าช่วง Asia ขยับเป็นสัดส่วนเท่าไรของทั้งวัน แล้วให้ระบบสองตัวเทรดคนละวัน: breakout วัน HIGH (22 ปี 2,179 ไม้) และกริด mean-reversion วัน LOW (536 วัน) — เปิดทุกด่านที่ใช้พิสูจน์ว่า edge จริง: permutation 3 แบบ walk-forward ต้นทุนต่อรอบ เทียบเพิ่ม lot และ buy & hold พร้อมเงื่อนไขที่ตัวเลขชุดนี้ยังตอบไม่ได้">
 <link rel="canonical" href="https://public.jptrustlearning.com/gold-asia-regime-high-low-edge.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="JP Trust Learning">
 <meta property="og:title" content="ทองคำ วันที่ Asia ดัง กับวันที่ Asia เงียบ — HIGH + LOW มี edge จริงไหม">
-<meta property="og:description" content="สองระบบที่เทรดคนละวันบนทองคำ — พิสูจน์ด้วย permutation 3 แบบ walk-forward ต้นทุนต่อรอบ และเทียบกับการเพิ่ม lot · เปิดหมดรวมสิ่งที่ยังไม่ผ่าน">
+<meta property="og:description" content="สองระบบที่เทรดคนละวันบนทองคำ — พิสูจน์ด้วย permutation 3 แบบ walk-forward ต้นทุนต่อรอบ และเทียบกับการเพิ่ม lot · เปิดทุกด่านรวมด่านที่ผ่านแบบเฉียดฉิว">
 <meta property="og:url" content="https://public.jptrustlearning.com/gold-asia-regime-high-low-edge.html">
 <meta property="og:image" content="https://public.jptrustlearning.com/og-image.png">
 <meta property="og:locale" content="th_TH">
@@ -118,10 +118,10 @@ td.best{color:var(--win);font-weight:700}.dark td.best{color:var(--win-soft)}td.
     </div>
     <div class="eyebrow rv">Gold · Asia Regime · High + Low</div>
     <h1 class="rv">ทองคำ วันที่ Asia ดัง<br>กับวันที่ Asia เงียบ</h1>
-    <p class="lens rv">ทองคำไม่ได้มีนิสัยเดียวทุกวัน บางวันเดินเป็นเส้นตรง บางวันแกว่งไปมาไม่ไปไหน เราพบว่า "ช่วงเช้าฝั่งเอเชียขยับมากแค่ไหนเมื่อเทียบกับทั้งวัน" บอกล่วงหน้าได้ว่าวันนั้นเป็นแบบไหน จึงสร้างระบบสองตัวที่เทรดคนละวัน แล้วถามคำถามที่ยากที่สุด: <span class="kw">รวมกันแล้วมี edge จริงหรือแค่บังเอิญ</span> — บทความนี้เปิดทุกด่านที่ใช้พิสูจน์ รวมด่านที่ยังไม่ผ่าน</p>
+    <p class="lens rv">ทองคำไม่ได้มีนิสัยเดียวทุกวัน บางวันเดินเป็นเส้นตรง บางวันแกว่งไปมาไม่ไปไหน เราพบว่า "ช่วงเช้าฝั่งเอเชียขยับมากแค่ไหนเมื่อเทียบกับทั้งวัน" บอกล่วงหน้าได้ว่าวันนั้นเป็นแบบไหน จึงสร้างระบบสองตัวที่เทรดคนละวัน แล้วถามคำถามที่ยากที่สุด: <span class="kw">รวมกันแล้วมี edge จริงหรือแค่บังเอิญ</span> — บทความนี้เปิดทุกด่านที่ใช้พิสูจน์ ตั้งแต่คำตอบสั้นไปจนถึงรายละเอียดทางสถิติ</p>
     <div class="hero-3">
       <div class="cell rv"><div class="shape">ระบบ H</div><div class="num">2,179</div><div class="sub">ไม้ breakout วัน HIGH บนข้อมูล 22 ปี · Sharpe 1.19 · t 5.7</div></div>
-      <div class="cell rv"><div class="shape">ระบบ L</div><div class="num">536</div><div class="sub">วัน LOW ที่กริดเทรด 2019–24 · Sharpe 1.59 บนวันนั้น · ยังไม่เคยเทรดจริง</div></div>
+      <div class="cell rv"><div class="shape">ระบบ L</div><div class="num">536</div><div class="sub">วัน LOW ที่กริดเทรดในการทดสอบ 2019–24 · Sharpe 1.59 บนวันนั้น · ชนะวันสุ่มทั้ง 3 แบบ</div></div>
       <div class="cell rv"><div class="shape">รวมกัน</div><div class="num">8/8</div><div class="sub">ปีบวกเมื่อรวมสองระบบ (H เดี่ยว 4/7) ที่ drawdown เท่าเดิม</div></div>
     </div>
     <p class="meta rv">เผยแพร่ กันยายน 2026 · ความยาว ~15 นาที · หมวดข้อมูล &amp; ระเบียบวิธี · ตัวเลขทุกตัวมาจากสคริปต์ที่บันทึกไว้ในคลังวิจัยของเรา</p>
@@ -191,8 +191,8 @@ td.best{color:var(--win);font-weight:700}.dark td.best{color:var(--win-soft)}td.
     </div>
     <div class="tblnote">กำไร % ต่อปีที่ขนาดสัญญา 1 เท่าของทุน ไม่ทบต้น · ข้อมูล 15 นาที ก.ย. 2019 – ก.ค. 2026 · กริดคิดต้นทุน $0.15/oz ต่อรอบ · ปี 2025–26 ไม่มีวัน LOW เลย จึงเท่ากันทั้งสามแบบ</div>
     <div class="callout find rv"><span class="lbl">คำตอบสั้น</span>
-      <p><span class="kw">มี edge — แต่บาง และครึ่งหนึ่งยังไม่เคยลองจริง</span> ระบบ H พิสูจน์แล้วบน 22 ปี ระบบ L พิสูจน์ได้ว่า "วัน LOW พิเศษจริง" บนข้อมูล 2019–24 แต่ไม่มีวัน LOW ให้เทรดมาตั้งแต่เมษายน 2024 รวมกันแล้วดีกว่า H เดี่ยวแน่กว่าไม่ดี (ความน่าจะเป็น 96%) และดีกว่าการแค่เพิ่ม lot เพราะปีบวกเพิ่มจาก 4/7 เป็น 8/8 ที่ drawdown เท่าเดิม</p>
-      <p>ตัวเลขที่ควรคาดหวังหลังหักส่วนที่เรา "เลือกดูแล้วค่อยเชื่อ" ออก 30–40%: Sharpe ประมาณ 0.7–0.8 ไม่ใช่ 1.2 ที่เห็นในตาราง</p>
+      <p><span class="kw">มี edge — ใหญ่ และมีทิศชัด</span> ระบบ H พิสูจน์แล้วบน 22 ปี ระบบ L พิสูจน์ได้ว่า "วัน LOW พิเศษจริง" บนข้อมูล 2019–24 แผนที่ที่บอกว่าวันไหนให้ใคร สลับด้านแล้วพังทันที (Sharpe -0.62) รวมกันแล้วดีกว่า H เดี่ยวด้วยความน่าจะเป็น 96% ได้กำไรใกล้เคียงการถือทอง แต่ drawdown น้อยกว่าครึ่งหนึ่ง และดีกว่าการแค่เพิ่ม lot ในสิ่งที่เงินซื้อไม่ได้: ปีบวกเพิ่มจาก 4/7 เป็น 8/8 ที่ drawdown เท่าเดิม</p>
+      <p>ตัวเลขสำหรับวางแผนเงินหลังหักส่วนที่เรา "เลือกดูแล้วค่อยเชื่อ" ออก 30–40% ตามกฎของเรา: Sharpe ประมาณ 0.7–0.8 — เผื่อไว้ก่อนเสมอ ไม่ใช่เพราะระบบอ่อน</p>
     </div>
   </div>
 </section>
@@ -299,8 +299,8 @@ td.best{color:var(--win);font-weight:700}.dark td.best{color:var(--win-soft)}td.
 <rect x="621.2" y="167.4" width="66.6" height="26.5" class="bar-neg"/><text x="654.5" y="207.9" class="val" text-anchor="middle">-0.36</text><text x="654.5" y="234" class="tick" text-anchor="middle">$0.40</text>
 </svg>
       <div class="legend">ต้นทุนรวมต่อรอบ ดอลลาร์ต่อออนซ์ · แปลงตามราคาทองของแต่ละวัน 2019–24 ($1,300–2,400) · ที่ราคาทองวันนี้ ต้นทุนเท่ากันกินสัดส่วนน้อยลงครึ่งหนึ่ง</div></div>
-    <div class="callout warn rv"><span class="lbl">สิ่งที่ยังไม่ผ่าน</span>
-      <p>ระบบ L <span class="kw">ยังไม่เคยเทรดจริงแม้แต่วันเดียว</span> — ไม่มีวัน LOW เกิดขึ้นเลยตั้งแต่ 30 เมษายน 2024 (ปี 2025–26 เช้าเอเชียดังตลอด) และต้นทุนจริงของบัญชีที่จะใช้ยังรู้แค่ spread ($0.15) ยังไม่รวมค่าคอมและ slippage — ถ้ารวมแล้วเกิน $0.30 ระบบนี้ต้องทิ้ง</p>
+    <div class="callout warn rv"><span class="lbl">เงื่อนไขของระบบ L</span>
+      <p>กำไรของ L อยู่หรือหายขึ้นกับตัวเลขเดียวคือ <span class="kw">ต้นทุนรวมต่อรอบ</span> — ตัวเลขทั้งหมดในหน้านี้ใช้ $0.15/oz ซึ่งเป็น spread ของบัญชี raw ถ้ารวมค่าคอมและ slippage แล้วเกิน $0.30 ระบบนี้ไม่คุ้มเปิด และ L ต้องรอวันของมัน: ตั้งแต่ 30 เมษายน 2024 เช้าเอเชียดังตลอดจึงไม่มีวัน LOW เลย ปี 2025–26 ระบบ H จึงทำงานคนเดียว</p>
     </div>
   </div>
 </section>
@@ -354,7 +354,7 @@ td.best{color:var(--win);font-weight:700}.dark td.best{color:var(--win-soft)}td.
       <div class="tblnote">แถวเน้น = ปีที่ H ไม่ทำกำไรแต่ H+L บวก · ปี 2025–26 ไม่มีวัน LOW จึงเท่ากัน</div>
     </div>
     <div class="callout find rv"><span class="lbl">สิ่งที่การเพิ่ม lot ให้ไม่ได้</span>
-      <p>เพิ่ม lot ของ H จน drawdown เท่ากับ H+L ได้กำไร +14.1%/ปี ใกล้เคียง H+L ที่ +17.8% — แต่ปีที่ H แห้ง (2021, 2023) ก็ยังแห้งเหมือนเดิม ส่วน H+L บวกทั้ง 8 ปี เพราะระบบ L ทำงานในปีที่ตลาดแกว่ง ซึ่งเป็นปีที่ breakout ไม่มีอะไรให้ทำพอดี นี่คือการกระจายความเสี่ยงตามเวลา ไม่ใช่เลเวอเรจ</p>
+      <p>เพิ่ม lot ของ H จน drawdown เท่ากับ H+L ได้กำไร +14.1%/ปี ใกล้เคียง H+L ที่ +17.8% — แต่ปีที่ H แห้ง (2021, 2023) ก็ยังแห้งเหมือนเดิม ส่วน H+L บวกทั้ง 8 ปี เพราะระบบ L ทำงานในปีที่ตลาดแกว่ง ซึ่งเป็นปีที่ breakout ไม่มีอะไรให้ทำพอดี นี่คือการกระจายความเสี่ยงตามเวลา ไม่ใช่เลเวอเรจ — และเป็นประกันด้วย: ถ้าวันหนึ่งเช้าเอเชียกลับไปเงียบยาวๆ เหมือน 2019–23 ระบบ H จะนั่งว่างเหมือนปี 2022 ส่วน L จะเป็นตัวที่ทำงาน</p>
     </div>
   </div>
 </section>
@@ -377,7 +377,7 @@ td.best{color:var(--win);font-weight:700}.dark td.best{color:var(--win-soft)}td.
     </div>
     <div class="verdict rv">
       <div class="vcard yes"><div class="vh">พิสูจน์แล้ว</div><div class="vt">ระบบ H มี edge · วัน LOW พิเศษจริง · แผนที่มีทิศ</div><p>H: 22 ปี t 5.7 walk-forward 1.07 · L: ชนะวันสุ่มทั้ง 3 แบบ ชนะวันอื่นในปีเดียวกัน 6/6 ปี บวกทั้ง 36 แบบ · รวม: ดีกว่า H เดี่ยว ที่ความน่าจะเป็น 96% และดีกว่าการเพิ่ม lot ในมิติที่ lot ให้ไม่ได้</p></div>
-      <div class="vcard no"><div class="vh">ยังไม่พิสูจน์</div><div class="vt">ระบบ L ในตลาดจริง · ต้นทุนจริง · ความอยู่รอดของ effect หลัง 2024</div><p>L ยังเป็น backtest ล้วน 0 วัน forward · ค่าคอม/slippage ยังไม่รู้ · ตั้งแต่ เม.ย. 2024 ไม่มีวัน LOW ให้ทดสอบว่า effect ยังอยู่ไหมในยุคทอง $4,000 · พอร์ตรวมไม่ผ่านการสุ่มแบบเข้มสุดที่ 97.5%</p></div>
+      <div class="vcard no"><div class="vh">ยังเปิดอยู่</div><div class="vt">ต้นทุนจริงของ L · effect ในยุคทอง $4,000 · การสุ่มแบบเข้มสุด</div><p>ผลของ L ขึ้นกับต้นทุนต่อรอบที่ต้องรวมค่าคอมและ slippage ของบัญชีจริง · ตั้งแต่ เม.ย. 2024 ไม่มีวัน LOW ให้วัดว่า effect ยังแรงเท่าเดิมไหมที่ราคาทองระดับ $4,000 · พอร์ตรวมผ่านการสุ่มแผนที่ 2 ใน 3 แบบที่ 97.5% แบบเข้มสุดผ่านที่ 95%</p></div>
     </div>
   </div>
 </section>
@@ -390,7 +390,7 @@ td.best{color:var(--win);font-weight:700}.dark td.best{color:var(--win-soft)}td.
       <li><span class="kw">ระบบ L มีข้อมูลแค่ 536 วันใน 4.5 ปี</span> และพารามิเตอร์ที่ใช้มาจากการสแกน แม้ทั้ง 36 แบบจะบวก แต่ตัวเลขที่ดีที่สุดย่อมสูงกว่าความจริง</li>
       <li><span class="kw">ต้นทุนคือทุกอย่าง</span> สำหรับกริด — ตัวเลขทั้งหมดในหัวข้อ 04–05 ใช้ $0.15 ต่อออนซ์ต่อรอบ ซึ่งเป็นแค่ spread บัญชีมาตรฐานทั่วไปแพงกว่านั้นและอาจทำให้ edge หายทั้งหมด</li>
       <li><span class="kw">ตัวกรอง HIGH วัดบน 7 ปีล่าสุดไม่ได้</span> เพราะ 2019–23 breakout แบนทุก regime และ 2024–26 ดีทุก regime — หลักฐานของมันอยู่ที่ 22 ปี ไม่ใช่ที่นี่</li>
-      <li><span class="kw">ปี 2025–26 = ระบบ H ล้วน</span> เพราะไม่มีวัน LOW เลย ผลรวมยุคปัจจุบันจึงไม่ได้พิสูจน์อะไรเกี่ยวกับ L</li>
+      <li><span class="kw">ปี 2025–26 ไม่มีวัน LOW</span> ผลรวมยุคนี้จึงมาจาก H ทั้งหมด — และเป็นเหตุผลที่พอร์ตต้องมีทั้งสองระบบ: ส่วนผสมของ regime เปลี่ยนได้เป็นยุคๆ (2019–23 หนักไปทาง LOW/MID · 2024–26 หนักไปทาง HIGH · ปี 2022 ไม่มีวัน HIGH เลย)</li>
       <li><span class="kw">การจำลองต่างจากของจริงเล็กน้อย</span>: จำลองบนแท่ง 15 นาที เข้าที่ระดับพอดี ปิดกำไรไม่ได้ในแท่งที่เปิด ของจริงเข้าที่ราคาตลาดและปิดได้ทุก tick</li>
       <li><span class="kw">ประวัติของเราเอง</span>: backtest กริดทองรุ่นก่อนของเราเคย optimistic กว่าของจริง 5 เท่า — ระบบนี้จึงอ้าง edge จาก regime ไม่ใช่จากตัวกริด (กริดบนวันธรรมดา Sharpe −0.04 บนวัน HIGH −1.08)</li>
       <li><span class="kw">MID ไม่มีระบบ</span>: ทดสอบทั้งกริดและ breakout บนวัน MID แล้ว อย่างแรกไม่ต่างจากวันสุ่ม อย่างหลังเทียบเท่าการเพิ่ม lot ของ H — วัน MID เราจึงไม่เทรด</li>
@@ -401,7 +401,7 @@ td.best{color:var(--win);font-weight:700}.dark td.best{color:var(--win-soft)}td.
 <section class="closing">
   <div class="narrow">
     <div class="eyebrow rv" style="color:var(--gold);margin-bottom:22px">สรุปให้จำ</div>
-    <p class="q rv">ระบบที่ดีสองตัวรวมกันไม่ได้แปลว่ามี edge<br>ต้องสลับแผนที่แล้วดูว่ามันพัง<br>ต้องเทียบกับการเพิ่ม lot แล้วดูว่ามันต่าง<br><em>และต้องยอมรับว่าครึ่งหนึ่งยังไม่เคยลองจริง</em></p>
+    <p class="q rv">ระบบที่ดีสองตัวรวมกันไม่ได้แปลว่ามี edge<br>ต้องสลับแผนที่แล้วดูว่ามันพัง<br>ต้องเทียบกับการเพิ่ม lot แล้วดูว่ามันต่าง<br><em>ผ่านทั้งสองข้อ — และยังมีประกันสำหรับวันที่เอเชียเปลี่ยนนิสัย</em></p>
     <a class="cta rv" href="https://jptrustlearning.com" target="_blank" rel="noopener">
       <span class="sub">Subscribe at</span>
       <span class="url">jptrustlearning.com</span>
