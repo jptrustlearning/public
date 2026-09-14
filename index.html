@@ -448,6 +448,7 @@ section[id]{scroll-margin-top:90px}
 .tab-btn.active{background:linear-gradient(160deg,#1a0a0e,#3a1520);color:var(--gold-light);border-color:rgba(212,175,55,0.55);box-shadow:0 10px 22px rgba(0,0,0,0.3)}
 .tab-panel{display:none}
 .tab-panel .entrance,.tab-panel .snap{background:none;padding:0;overflow:visible}
+.tab-panel .snap::before{inset:auto 0 -40% 0}
 .tab-panel .entrance>.wrap,.tab-panel .snap>.wrap{padding:0;max-width:none}
 .tab-panel .snap-panel{background:linear-gradient(160deg,rgba(66,25,37,0.74) 0%,rgba(32,12,18,0.86) 100%);border-radius:24px}
 /* แท็บบาร์ 6 อัน: แถวเดียวบนจอกว้าง / 3x2 บน iPad แนวตั้งและมือถือ */
@@ -544,7 +545,7 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 .snap-row.down .snap-key::before{background:#C95A68;box-shadow:0 0 8px rgba(201,90,104,0.55)}
 .snap-track{height:15px;border-radius:999px;background:rgba(0,0,0,0.34);overflow:hidden;
   box-shadow:inset 0 2px 4px rgba(0,0,0,0.45),inset 0 -1px 0 rgba(255,255,255,0.07)}
-.snap-fill{height:100%;border-radius:999px}
+.snap-fill{display:block;height:100%;border-radius:999px}
 .snap-fill.up{background:linear-gradient(90deg,#2E8B57,#5FD69A);box-shadow:0 0 14px rgba(79,196,138,0.55)}
 .snap-fill.flat{background:linear-gradient(90deg,#B8860B,#EFCF74);box-shadow:0 0 14px rgba(224,188,92,0.45)}
 .snap-fill.down{background:linear-gradient(90deg,#8E2B38,#D96C7A);box-shadow:0 0 14px rgba(201,90,104,0.45)}
