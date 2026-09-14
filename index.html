@@ -272,11 +272,23 @@ section[id]{scroll-margin-top:90px}
 .about-card{position:relative;z-index:2;border-radius:24px;
   padding:clamp(26px,3.6vw,44px) clamp(22px,3.6vw,46px);
   display:flex;flex-direction:column;gap:clamp(18px,2.4vw,26px);
-  background:linear-gradient(160deg,rgba(66,25,37,0.74) 0%,rgba(32,12,18,0.86) 100%);
+  background:
+    radial-gradient(130% 85% at 10% -8%,rgba(255,214,170,0.13),rgba(255,214,170,0) 58%),
+    radial-gradient(90% 70% at 92% 108%,rgba(212,175,55,0.10),rgba(212,175,55,0) 62%),
+    linear-gradient(155deg,rgba(94,33,48,0.86) 0%,rgba(58,21,32,0.88) 44%,rgba(26,10,14,0.93) 100%);
   -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
   border:1px solid rgba(212,175,55,0.30);
-  box-shadow:0 44px 90px rgba(0,0,0,0.55),0 14px 30px rgba(0,0,0,0.38),inset 0 1px 0 rgba(255,255,255,0.08);
+  box-shadow:0 44px 90px rgba(0,0,0,0.55),0 14px 30px rgba(0,0,0,0.38),
+    inset 0 1px 0 rgba(255,255,255,0.17),inset 0 -1px 0 rgba(212,175,55,0.16);
   text-align:left}
+/* ชั้นมันวาว: แถบแสงเฉียง + แสงขอบบน (ไม่รับ pointer, อยู่ใต้เนื้อหา) */
+.about-card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;
+  mix-blend-mode:screen;
+  background:
+    linear-gradient(118deg,rgba(255,255,255,0) 22%,rgba(255,255,255,0.09) 36%,rgba(255,240,208,0.22) 45%,rgba(255,255,255,0.09) 53%,rgba(255,255,255,0) 66%),
+    linear-gradient(180deg,rgba(255,255,255,0.11) 0%,rgba(255,255,255,0.02) 18%,rgba(255,255,255,0) 30%),
+    radial-gradient(60% 40% at 78% 96%,rgba(212,175,55,0.13),rgba(212,175,55,0) 70%)}
+.about-card>*{position:relative;z-index:1}
 .about-card::before{content:"";position:absolute;top:0;left:8%;right:8%;height:1px;
   background:linear-gradient(90deg,rgba(212,175,55,0),rgba(212,175,55,0.75),rgba(212,175,55,0))}
 
@@ -286,10 +298,9 @@ section[id]{scroll-margin-top:90px}
 .about-title .t1{color:#FFFEF8}
 .about-title .t2{color:var(--gold)}
 .about-intro{font-family:'Anuphan',sans-serif;font-size:clamp(14.5px,1.5vw,16px);color:#E8E4DC;line-height:1.75;margin:0;font-weight:400;max-width:560px}
-  border:1px solid rgba(212,175,55,0.22);box-shadow:inset 0 1px 0 rgba(255,255,255,0.05)}
 
 /* ---- แผงเราศึกษาตลาดผ่าน / ครอบคลุม ---- */
-.ap-label{font-family:'Anuphan',sans-serif;font-size:13.5px;color:rgba(244,228,186,0.85);margin:0 0 12px;font-weight:500}
+.ap-label{font-family:'Anuphan',sans-serif;font-size:13.5px;color:rgba(244,228,186,0.95);margin:0 0 12px;font-weight:500}
 .about-chip{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:14px;font-size:13.5px;font-weight:500;color:var(--gold-light);
   border:1px solid rgba(212,175,55,0.32);background:rgba(255,255,255,0.035);box-shadow:inset 0 1px 0 rgba(255,255,255,0.05)}
 .about-chip .ic{width:17px;height:17px;flex:none;display:block}
