@@ -419,9 +419,9 @@ section[id]{scroll-margin-top:90px}
   background:radial-gradient(60% 70% at 50% 40%,rgba(120,44,60,0.42),rgba(120,44,60,0) 70%)}
 .tabs-section>.wrap{position:relative;z-index:1}
 .tab-bar{display:flex;gap:clamp(5px,1.4vw,11px);max-width:780px;margin:0 auto clamp(28px,3.6vw,42px);padding:0 clamp(10px,3vw,16px)}
-.tab-btn{flex:1;min-width:0;cursor:pointer;
-  padding:13px 8px;border-radius:14px;border:1.5px solid var(--gold-border);
-  font-family:'Anuphan',sans-serif;font-weight:600;font-size:clamp(12.5px,2.6vw,16px);line-height:1.25;
+.tab-btn{flex:1;min-width:0;cursor:pointer;white-space:nowrap;
+  padding:13px 6px;border-radius:14px;border:1.5px solid var(--gold-border);
+  font-family:'Anuphan',sans-serif;font-weight:600;font-size:clamp(12px,2.4vw,15px);line-height:1.25;
   color:var(--maroon);background:var(--cream-card);
   transition:background .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease}
 .tab-btn:not(.active):hover{border-color:var(--gold);background:#FFF8EC}
@@ -430,10 +430,14 @@ section[id]{scroll-margin-top:90px}
 .tab-panel .entrance,.tab-panel .snap{background:none;padding:0;overflow:visible}
 .tab-panel .entrance>.wrap,.tab-panel .snap>.wrap{padding:0;max-width:none}
 .tab-panel .snap-panel{background:linear-gradient(160deg,rgba(66,25,37,0.74) 0%,rgba(32,12,18,0.86) 100%);border-radius:24px}
-@media (max-width:760px){
-  .tab-bar{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;justify-content:flex-start}
-  .tab-bar::-webkit-scrollbar{display:none}
-  .tab-btn{flex:0 0 auto;padding:11px 14px;white-space:nowrap}
+/* แท็บบาร์ 6 อัน: แถวเดียวบนจอกว้าง / 3x2 บน iPad แนวตั้งและมือถือ */
+@media (max-width:860px){
+  .tab-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:540px}
+  .tab-btn{padding:11px 6px;font-size:clamp(12px,3vw,15px)}
+}
+@media (max-width:360px){
+  .tab-bar{gap:6px;padding:0 12px}
+  .tab-btn{padding:10px 4px;font-size:11.5px;border-radius:12px}
 }
 .tab-panel.active{display:block;animation:tabFade .3s ease}
 .tab-sub{text-align:center;font-size:clamp(13px,1.8vw,15px);color:rgba(245,233,208,0.72);margin:0 auto clamp(20px,3vw,30px);max-width:560px}
