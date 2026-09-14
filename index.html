@@ -446,7 +446,35 @@ section[id]{scroll-margin-top:90px}
   font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;
   padding:6px 15px;border-radius:100px;background:linear-gradient(135deg,#E6C769,#D4AF37);color:#3a1520;box-shadow:0 6px 14px rgba(212,175,55,0.3)}
 .plan-cta.gold{background:linear-gradient(135deg,#E6C769,#D4AF37);color:#3a1520;box-shadow:0 8px 18px rgba(212,175,55,0.3)}
-@media(max-width:560px){.pricing-grid{grid-template-columns:1fr;max-width:340px;margin:0 auto}}
+/* --- included-benefits tray (shared by both plans) --- */
+.plan-incl{max-width:686px;margin:0 auto clamp(22px,3vw,30px);padding:clamp(18px,2.6vw,24px) clamp(16px,2.4vw,26px);
+  border-radius:20px;border:1px solid rgba(212,175,55,0.22);
+  background:linear-gradient(160deg,rgba(58,21,32,0.55),rgba(26,10,14,0.55));box-shadow:0 6px 24px rgba(0,0,0,0.26)}
+.plan-incl-head{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold-light);text-align:center;margin-bottom:14px}
+.plan-feat{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 22px}
+.plan-feat li{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.45;color:#EDE7DC}
+.plan-feat li svg{flex:0 0 15px;width:15px;height:15px;margin-top:3px;stroke:var(--gold);stroke-width:2.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.plan-feat b{color:#FFFEF8;font-weight:600}
+/* --- per-plan differences --- */
+.plan-tag{margin-top:14px;font-size:13px;color:var(--ink-muted);line-height:1.5}
+.plan-rule{height:1px;margin:16px 0 14px;background:linear-gradient(90deg,var(--gold-border),transparent)}
+.plan-pts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.plan-pts li{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.5;color:var(--ink-sub)}
+.plan-pts li::before{content:"";flex:0 0 5px;width:5px;height:5px;margin-top:7px;border-radius:50%;background:var(--gold-dark)}
+.plan-pts .muted{color:var(--ink-muted)}
+.plan-diffhead{font-family:'Cinzel',serif;font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px}
+.plan.featured .plan-tag{color:rgba(255,254,248,0.62)}
+.plan.featured .plan-rule{background:linear-gradient(90deg,rgba(212,175,55,0.45),transparent)}
+.plan.featured .plan-diffhead{color:var(--gold-light)}
+.plan.featured .plan-pts li{color:rgba(255,254,248,0.84)}
+.plan.featured .plan-pts li::before{background:var(--gold)}
+.plan.featured .plan-pts .muted{color:rgba(255,254,248,0.6)}
+.plan-pts{margin-bottom:22px}
+.plan .plan-cta{margin-top:auto}
+.plan-note{max-width:560px;margin:clamp(20px,3vw,26px) auto 0;text-align:center;font-size:13px;line-height:1.6;color:rgba(245,233,208,0.64)}
+@media(max-width:560px){.pricing-grid{grid-template-columns:1fr;max-width:340px;margin:0 auto}
+  .plan-incl{max-width:340px}.plan-feat{grid-template-columns:1fr;gap:9px}}
 /* ============ TABS (simple rounded rectangles) ============ */
 @keyframes tabFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .tabs-section{position:relative;isolation:isolate;padding:clamp(28px,4vw,50px) 0 clamp(56px,8vw,96px);scroll-margin-top:80px;
@@ -991,10 +1019,31 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
       </div>
       <div class="tab-panel" id="panel-package" role="tabpanel">
         <div class="tab-sub">เข้าถึงกลยุทธ์ เครื่องมือ และคอนเทนต์พิเศษสำหรับสมาชิก</div>
+
+        <div class="plan-incl">
+          <div class="plan-incl-head">สิทธิ์ที่ได้เท่ากันทั้งสองแพ็กเกจ</div>
+          <ul class="plan-feat">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Momentum Lab</b> · ทดสอบกลยุทธ์ย้อนหลัง 8 กลยุทธ์</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>S&amp;P 500 Scanner</b> · จัดอันดับโมเมนตัมหุ้น 500+ ตัว</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>ข่าว &amp; บทวิเคราะห์</b> · สรุปตลาดรายวัน ภาษาไทย</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Port Recorder</b> · บันทึกและติดตามพอร์ตได้ 5 พอร์ต</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Gold &amp; Macro</b> · แดชบอร์ดทองคำและภาพรวมเศรษฐกิจ</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>ห้องสมุดความรู้</b> · บทความและคอนเทนต์เฉพาะสมาชิก</span></li>
+          </ul>
+        </div>
+
     <div class="pricing-grid">
       <div class="plan">
         <span class="plan-name">รายเดือน</span>
         <div class="plan-price"><span class="cur">฿</span>150<span class="per">/ เดือน</span></div>
+        <div class="plan-tag">จ่ายเดือนต่อเดือน ไม่มีสัญญาผูกมัด</div>
+        <div class="plan-rule"></div>
+        <div class="plan-diffhead">เหมาะกับ</div>
+        <ul class="plan-pts">
+          <li>คนที่อยากทดลองใช้ก่อน ยังไม่แน่ใจว่าเหมาะไหม</li>
+          <li>หยุดต่ออายุได้ทุกเดือน ไม่ต้องจ่ายยาว</li>
+          <li class="muted">ถ้าต่อครบ 12 เดือน = ฿1,800</li>
+        </ul>
         <a class="plan-cta" href="https://app.jptrustlearning.com/new">สมัครรายเดือน</a>
       </div>
       <div class="plan featured">
@@ -1002,9 +1051,18 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
         <span class="plan-name">รายปี</span>
         <div class="plan-price"><span class="cur">฿</span>1,400<span class="per">/ ปี</span></div>
         <div class="plan-save">เฉลี่ยเดือนละ ฿117 · ประหยัด ฿400 ต่อปี</div>
+        <div class="plan-tag">จ่ายครั้งเดียว ใช้ต่อเนื่อง 12 เดือน</div>
+        <div class="plan-rule"></div>
+        <div class="plan-diffhead">เหมาะกับ</div>
+        <ul class="plan-pts">
+          <li>คนที่ตั้งใจใช้ต่อเนื่องทั้งปี ไม่ต้องจำวันต่ออายุทุกเดือน</li>
+          <li>ส่วนที่ประหยัด ฿400 เทียบเท่าค่าสมาชิกราว 2 เดือนครึ่ง</li>
+          <li class="muted">ราคาคงเดิมตลอดอายุสมาชิก แม้ค่าสมาชิกจะปรับขึ้นระหว่างปี</li>
+        </ul>
         <a class="plan-cta gold" href="https://app.jptrustlearning.com/new">สมัครรายปี</a>
       </div>
     </div>
+        <p class="plan-note">ทั้งสองแพ็กเกจใช้เนื้อหาและเครื่องมือชุดเดียวกันทั้งหมด — ต่างกันที่ราคาและรอบการต่ออายุเท่านั้น</p>
       </div>
       <div class="tab-panel" id="panel-category" role="tabpanel">
         <div class="tab-sub">เลือกหมวดที่คุณสนใจ เพื่อเข้าไปดูงานทั้งหมดในหมวดนั้น</div>
