@@ -224,21 +224,11 @@ section[id]{scroll-margin-top:90px}
 .quad-square{
   position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;
   gap:3px;padding:3px;background:linear-gradient(135deg,#D4AF37,#B8860B);
-  border-radius:24px;overflow:hidden;isolation:isolate;
+  border-radius:24px;overflow:hidden;
   box-shadow:0 22px 60px rgba(114,47,55,0.22),0 0 0 1px rgba(212,175,55,0.45);
 }
-.quad-square::before{
-  content:"";position:absolute;left:50%;top:50%;width:150%;aspect-ratio:1/1;z-index:0;
-  transform:translate(-50%,-50%) rotate(0deg);pointer-events:none;
-  background:conic-gradient(from 0deg,
-    rgba(255,248,224,0) 0deg,rgba(255,248,224,0) 296deg,
-    rgba(255,248,224,0.25) 322deg,rgba(255,250,230,0.85) 342deg,#FFFDF2 350deg,
-    rgba(255,250,230,0.85) 354deg,rgba(255,248,224,0.25) 358deg,rgba(255,248,224,0) 360deg);
-  animation:quadSpark 5.5s linear infinite;
-}
-@keyframes quadSpark{to{transform:translate(-50%,-50%) rotate(360deg)}}
 .quad{
-  position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
+  position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
   padding:clamp(14px,2.6vw,26px);text-align:center;text-decoration:none;transition:filter .25s,background .25s;
 }
 .quad .q-icon{width:clamp(28px,5vw,40px);height:clamp(28px,5vw,40px);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
@@ -893,12 +883,12 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 <section class="tabs-section" id="collection">
   <div class="wrap">
     <div class="tab-bar" role="tablist" aria-label="เมนูข้อมูล">
-      <button class="tab-btn active" data-tab="start" role="tab" aria-selected="true">ทางลัด</button>
-      <button class="tab-btn" data-tab="about" role="tab" aria-selected="false">เกี่ยวกับเรา</button>
+      <button class="tab-btn active" data-tab="about" role="tab" aria-selected="true">เกี่ยวกับเรา</button>
       <button class="tab-btn" data-tab="category" role="tab" aria-selected="false">ห้องสมุด</button>
       <button class="tab-btn" data-tab="snapshot" role="tab" aria-selected="false">สแกนล่าสุด</button>
       <button class="tab-btn" data-tab="services" role="tab" aria-selected="false">บริการ</button>
       <button class="tab-btn" data-tab="package" role="tab" aria-selected="false">แพคเกจ</button>
+      <button class="tab-btn" data-tab="start" role="tab" aria-selected="false">ทางลัด</button>
     </div>
     <div class="tab-panels">
       <div class="tab-panel" id="panel-snapshot" role="tabpanel">
@@ -1090,7 +1080,7 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 </section>
       </div>
 
-      <div class="tab-panel" id="panel-about" role="tabpanel">
+      <div class="tab-panel active" id="panel-about" role="tabpanel">
     <div class="about-stage">
       <div class="about-glow" aria-hidden="true"></div>
       <div class="about-ghost two" aria-hidden="true"></div>
@@ -1288,7 +1278,7 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
         </div>
       </div>
     
-      <div class="tab-panel active" id="panel-start" role="tabpanel">
+      <div class="tab-panel" id="panel-start" role="tabpanel">
 <section class="entrance">
   <div class="wrap">
     <div class="quad-wrap">
