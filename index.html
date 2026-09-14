@@ -261,7 +261,7 @@ section[id]{scroll-margin-top:90px}
 .quad-medal img{width:100%;height:100%;border-radius:24%;display:block}
 
 
-/* ============ ABOUT PANEL — การ์ดเต็มกว้าง สองระนาบ + กราฟวาดตัวเอง + ชั้นหลัง ============ */
+/* ============ ABOUT PANEL — แถวบน 2 คอลัมน์ + แผงหลักการ + กราฟเต็มกว้าง ============ */
 .about-stage{position:relative;z-index:1;max-width:1100px;margin:0 auto}
 .about-glow{position:absolute;inset:-60px -40px;z-index:0;pointer-events:none;
   background:radial-gradient(55% 60% at 62% 48%,rgba(212,175,55,0.18),rgba(212,175,55,0) 70%);filter:blur(26px)}
@@ -270,8 +270,8 @@ section[id]{scroll-margin-top:90px}
   transform:translate(20px,22px) scale(.985);transform-origin:center;box-shadow:0 30px 60px rgba(0,0,0,0.35)}
 .about-ghost.two{transform:translate(40px,44px) scale(.97);opacity:.55;border-color:rgba(212,175,55,0.07)}
 .about-card{position:relative;z-index:2;border-radius:24px;
-  padding:clamp(28px,4vw,46px) clamp(24px,4.4vw,52px);
-  display:grid;grid-template-columns:1.12fr .95fr;gap:clamp(24px,4vw,52px);align-items:center;
+  padding:clamp(26px,3.6vw,44px) clamp(22px,3.6vw,46px);
+  display:flex;flex-direction:column;gap:clamp(18px,2.4vw,26px);
   background:linear-gradient(160deg,rgba(66,25,37,0.74) 0%,rgba(32,12,18,0.86) 100%);
   -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
   border:1px solid rgba(212,175,55,0.30);
@@ -279,42 +279,85 @@ section[id]{scroll-margin-top:90px}
   text-align:left}
 .about-card::before{content:"";position:absolute;top:0;left:8%;right:8%;height:1px;
   background:linear-gradient(90deg,rgba(212,175,55,0),rgba(212,175,55,0.75),rgba(212,175,55,0))}
-.about-eyebrow{font-family:'Anuphan',sans-serif;font-size:11.5px;color:var(--gold);letter-spacing:.28em;text-transform:uppercase;margin-bottom:10px;font-weight:600}
-.about-title{font-family:'DM Serif Display','Anuphan',serif;font-size:clamp(26px,3.2vw,36px);color:var(--gold-light);line-height:1.12;letter-spacing:.3px;margin:0 0 14px;font-weight:400;text-shadow:0 2px 24px rgba(0,0,0,0.5)}
-.about-intro{font-family:'Anuphan',sans-serif;font-size:clamp(14.5px,1.5vw,16px);color:#E8E4DC;line-height:1.7;margin:0 0 18px;font-weight:400;max-width:520px}
-.about-row{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px}
-.about-row .lbl{font-size:12.5px;color:rgba(244,228,186,0.7);margin-right:2px;white-space:nowrap}
-.about-chip{padding:6px 13px;border-radius:100px;font-size:12.5px;font-weight:500;color:var(--gold-light);
-  border:1px solid rgba(212,175,55,0.42);background:rgba(212,175,55,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)}
-.about-chip.soft{color:rgba(232,228,220,0.85);border-color:rgba(255,255,255,0.14);background:rgba(255,255,255,0.04)}
-.about-disclaimer{font-family:'Anuphan',sans-serif;font-size:10.5px;color:rgba(232,228,220,0.58);line-height:1.5;margin:14px 0 0;font-style:italic;letter-spacing:.2px;padding-top:10px;border-top:1px dashed rgba(212,175,55,0.22)}
-/* แผ่นกราฟ — ระนาบของตัวเอง ยื่นพ้นขอบการ์ด */
-.chart-pane{position:relative;border-radius:18px;padding:18px 18px 14px;
-  margin:calc(-1*clamp(28px,4vw,46px) - 26px) calc(-1*clamp(24px,4.4vw,52px) - 22px) calc(-1*clamp(28px,4vw,46px) + 8px) 0;
-  background:linear-gradient(160deg,rgba(250,246,237,0.11),rgba(250,246,237,0.04));
+
+/* ---- แถวบน: ข้อความ + แผงหลักการ ---- */
+.about-head{display:grid;grid-template-columns:1.3fr .74fr;gap:clamp(20px,3vw,36px);align-items:stretch}
+.about-eyebrow{display:flex;align-items:center;gap:12px;font-family:'Anuphan',sans-serif;font-size:11.5px;color:var(--gold);letter-spacing:.28em;text-transform:uppercase;margin-bottom:10px;font-weight:600}
+.about-eyebrow i{flex:1;max-width:130px;height:1px;background:linear-gradient(90deg,rgba(212,175,55,.7),rgba(212,175,55,0))}
+.about-title{font-family:'DM Serif Display','Anuphan',serif;font-size:clamp(28px,3.7vw,42px);line-height:1.1;letter-spacing:.3px;margin:0 0 14px;font-weight:400;text-shadow:0 2px 24px rgba(0,0,0,0.5)}
+.about-title .t1{color:#FFFEF8}
+.about-title .t2{color:var(--gold)}
+.about-intro{font-family:'Anuphan',sans-serif;font-size:clamp(14.5px,1.5vw,16px);color:#E8E4DC;line-height:1.75;margin:0;font-weight:400;max-width:560px}
+.about-creed{position:relative;border-radius:18px;padding:16px 16px 14px;overflow:hidden;
+  display:flex;flex-direction:column;gap:10px;
+  background:linear-gradient(165deg,rgba(26,10,14,0.78),rgba(58,21,32,0.52));
+  border:1px solid rgba(212,175,55,0.22);box-shadow:inset 0 1px 0 rgba(255,255,255,0.05)}
+.creed-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.creed-words{display:flex;flex-direction:column;gap:6px;font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.3em;color:rgba(244,228,186,0.82);line-height:1.1;white-space:nowrap}
+.creed-candles{width:92px;height:auto;flex:none;display:block;opacity:.95}
+.creed-rule{width:44px;height:2px;background:linear-gradient(90deg,var(--gold),rgba(212,175,55,0));border-radius:2px}
+.creed-quote{margin:0;font-family:'Anuphan',sans-serif;font-style:italic;font-size:11.5px;line-height:1.7;color:rgba(244,228,186,0.7);text-align:right;margin-left:auto}
+
+/* ---- แผงเราศึกษาตลาดผ่าน / ครอบคลุม ---- */
+.about-panel{border-radius:18px;padding:15px 18px 17px;background:rgba(250,246,237,0.045);border:1px solid rgba(212,175,55,0.2)}
+.ap-label{font-family:'Anuphan',sans-serif;font-size:13.5px;color:rgba(244,228,186,0.85);margin:0 0 12px;font-weight:500}
+.ap-chips{display:flex;flex-wrap:wrap;gap:10px}
+.about-chip{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:14px;font-size:13.5px;font-weight:500;color:var(--gold-light);
+  border:1px solid rgba(212,175,55,0.32);background:rgba(255,255,255,0.035);box-shadow:inset 0 1px 0 rgba(255,255,255,0.05)}
+.about-chip .ic{width:17px;height:17px;flex:none;display:block}
+.about-chip.lead{color:#2a1109;font-weight:600;background:linear-gradient(135deg,#F0D98A 0%,#D4AF37 55%,#B8860B 100%);
+  border-color:rgba(240,217,138,0.8);box-shadow:0 10px 22px rgba(212,175,55,0.2),inset 0 1px 0 rgba(255,255,255,0.35)}
+.about-chip.soft{color:rgba(244,240,232,0.9);border-color:rgba(255,255,255,0.13);background:rgba(255,255,255,0.04)}
+.about-cover{display:flex;align-items:center;flex-wrap:wrap;gap:12px;padding:0 2px}
+.about-cover .ap-label{margin:0 4px 0 0}
+.chip-badge{width:24px;height:24px;border-radius:50%;flex:none;display:block}
+.about-disclaimer{font-family:'Anuphan',sans-serif;font-size:11px;color:rgba(232,228,220,0.58);line-height:1.6;margin:0;font-style:italic;letter-spacing:.2px;padding-top:14px;border-top:1px dashed rgba(212,175,55,0.22)}
+
+/* ---- แผ่นกราฟเต็มกว้าง ---- */
+.chart-pane{position:relative;border-radius:18px;padding:16px 18px 14px;margin:0;
+  background:linear-gradient(160deg,rgba(250,246,237,0.09),rgba(250,246,237,0.03));
   -webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%);
-  border:1px solid rgba(212,175,55,0.42);
-  box-shadow:0 34px 64px rgba(0,0,0,0.52),0 10px 22px rgba(0,0,0,0.32),inset 0 1px 0 rgba(255,255,255,0.12);
-  transform:rotate(-1.2deg);transition:transform .5s cubic-bezier(.22,.85,.2,1)}
-.about-card:hover .chart-pane{transform:rotate(0deg) translateY(-4px)}
-.cp-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
-.cp-head .k{font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:3px;color:var(--gold)}
-.cp-head .s{font-size:10.5px;color:rgba(244,228,186,0.55)}
+  border:1px solid rgba(212,175,55,0.34);
+  box-shadow:0 26px 54px rgba(0,0,0,0.42),0 8px 18px rgba(0,0,0,0.28),inset 0 1px 0 rgba(255,255,255,0.1);
+  transform:none;transition:transform .5s cubic-bezier(.22,.85,.2,1)}
+.about-card:hover .chart-pane{transform:translateY(-4px)}
+.cp-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.cp-head .k{font-family:'Cinzel',serif;font-size:13px;letter-spacing:4px;color:var(--gold);display:block}
+.cp-head .s{font-size:11px;color:rgba(244,228,186,0.55);display:block;margin-top:3px}
+.cp-steps{display:flex;align-items:center;gap:8px;font-family:'Anuphan',sans-serif;font-size:11.5px;color:rgba(244,228,186,0.6);white-space:nowrap}
+.cp-steps i{font-style:normal;color:var(--gold);opacity:.8}
+.cp-body{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(12px,2vw,22px);align-items:center}
+.cp-rail{display:flex;flex-direction:column;gap:4px;font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:.2em;color:rgba(244,228,186,0.45);line-height:1.2;white-space:nowrap}
+.cp-rail i{display:block;width:26px;height:2px;background:rgba(212,175,55,0.55);margin-top:8px;border-radius:2px}
 .cp-svg{width:100%;height:auto;display:block}
 .cp-svg .bar{transform-box:fill-box;transform-origin:bottom;transform:scaleY(0);transition:transform .9s cubic-bezier(.22,.85,.2,1)}
-.cp-svg .line{stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 1.6s ease-out .55s}
+.cp-svg .line{stroke-dasharray:820;stroke-dashoffset:820;transition:stroke-dashoffset 1.6s ease-out .55s}
 .cp-svg .dot{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.3);transition:opacity .35s ease,transform .45s cubic-bezier(.22,.85,.2,1)}
 .cp-svg .grid{opacity:.35}
 .chart-pane.draw .bar{transform:scaleY(1)}
 .chart-pane.draw .line{stroke-dashoffset:0}
 .chart-pane.draw .dot{opacity:1;transform:scale(1)}
-.cp-foot{display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(244,228,186,0.5);letter-spacing:.5px}
+.cp-foot{display:flex;justify-content:space-around;margin-top:6px;font-size:10px;color:rgba(244,228,186,0.5);letter-spacing:.5px}
 @media(max-width:900px){
-  .about-card{grid-template-columns:1fr;gap:26px}
-  .chart-pane{margin:0;transform:none}
-  .about-card:hover .chart-pane{transform:none}
+  .about-head{grid-template-columns:1fr;gap:20px}
+  .creed-quote{text-align:left;margin-left:0}
   .about-ghost{transform:translate(12px,14px) scale(.985)}
   .about-ghost.two{display:none}
+}
+@media(min-width:641px) and (max-width:900px){
+  .about-creed{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px 18px}
+  .creed-top{display:contents}
+  .creed-words{order:1}
+  .creed-quote{order:2;text-align:left;margin:0}
+  .creed-candles{order:3;width:118px}
+  .creed-rule{display:none}
+}
+@media(max-width:640px){
+  .cp-body{grid-template-columns:1fr}
+  .cp-rail{flex-direction:row;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:2px}
+  .cp-rail i{display:none}
+  .about-chip{font-size:12.5px;padding:8px 13px;gap:7px}
+  .about-cover{gap:9px}
 }
 @media(prefers-reduced-motion:reduce){
   .cp-svg .bar,.cp-svg .line,.cp-svg .dot{transition:none}
@@ -892,50 +935,108 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
       <div class="about-ghost two" aria-hidden="true"></div>
       <div class="about-ghost" aria-hidden="true"></div>
       <div class="about-card">
-        <div class="about-content">
-          <div class="about-eyebrow">เกี่ยวกับเรา</div>
-          <h2 class="about-title">JP Trust Learning</h2>
-          <p class="about-intro">แพลตฟอร์มวิจัยและเรียนรู้ด้าน Momentum Trading นำข้อมูลย้อนหลังมาทดสอบ เพื่อพัฒนาแนวทางวิเคราะห์ตลาดและกลยุทธ์การเทรดอย่างเป็นระบบ</p>
-          <div class="about-row"><span class="lbl">เราศึกษาตลาดผ่าน</span>
-            <span class="about-chip">Price</span><span class="about-chip">Volume</span><span class="about-chip">News</span><span class="about-chip">Market Structure</span></div>
-          <div class="about-row"><span class="lbl">ครอบคลุม</span>
-            <span class="about-chip soft">หุ้นสหรัฐฯ</span><span class="about-chip soft">Gold</span><span class="about-chip soft">Bitcoin</span><span class="about-chip soft">ดัชนีตลาด</span></div>
-          <p class="about-disclaimer">ไม่ใช่คำแนะนำในการลงทุน · ผลในอดีตไม่ใช่การรับประกันผลในอนาคต</p>
+
+        <div class="about-head">
+          <div class="about-content">
+            <div class="about-eyebrow">เกี่ยวกับเรา<i aria-hidden="true"></i></div>
+            <h2 class="about-title"><span class="t1">JP Trust</span> <span class="t2">Learning</span></h2>
+            <p class="about-intro">แพลตฟอร์มวิจัยและเรียนรู้ด้าน Momentum Trading นำข้อมูลย้อนหลังมาทดสอบ เพื่อพัฒนาแนวทางวิเคราะห์ตลาดและกลยุทธ์การเทรดอย่างเป็นระบบ</p>
+          </div>
+          <aside class="about-creed">
+            <div class="creed-top">
+              <div class="creed-words"><span>DATA</span><span>DISCIPLINE</span><span>BETTER</span><span>TRADERS</span></div>
+              <svg class="creed-candles" viewBox="0 0 92 120" aria-hidden="true">
+                <g stroke="rgba(212,175,55,.55)" stroke-width="1">
+                  <line x1="10" y1="86" x2="10" y2="108"/><line x1="24" y1="72" x2="24" y2="100"/>
+                  <line x1="38" y1="58" x2="38" y2="92"/><line x1="52" y1="44" x2="52" y2="78"/>
+                  <line x1="66" y1="26" x2="66" y2="66"/><line x1="80" y1="12" x2="80" y2="52"/>
+                </g>
+                <g fill="rgba(140,34,48,.9)" stroke="rgba(212,175,55,.5)" stroke-width=".8">
+                  <rect x="6"  y="90"  width="9" height="14" rx="1.5"/>
+                  <rect x="20" y="78"  width="9" height="16" rx="1.5"/>
+                  <rect x="34" y="64"  width="9" height="20" rx="1.5"/>
+                  <rect x="48" y="50"  width="9" height="20" rx="1.5"/>
+                  <rect x="62" y="32"  width="9" height="26" rx="1.5"/>
+                  <rect x="76" y="18"  width="9" height="26" rx="1.5"/>
+                </g>
+                <polyline points="10,96 24,84 38,72 52,58 66,42 80,28" fill="none" stroke="#D4AF37" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+              </svg>
+            </div>
+            <span class="creed-rule" aria-hidden="true"></span>
+            <p class="creed-quote">&ldquo; ความรู้วันนี้<br>สร้างโอกาสที่ดีกว่าในวันหน้า &rdquo;</p>
+          </aside>
         </div>
+
+        <div class="about-panel">
+          <div class="ap-label">เราศึกษาตลาดผ่าน</div>
+          <div class="ap-chips">
+            <span class="about-chip lead">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19V11M12 19V5M19 19v-6"/></svg>Price</span>
+            <span class="about-chip">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19v-5M12 19V9M19 19v-8"/></svg>Volume</span>
+            <span class="about-chip">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>News</span>
+            <span class="about-chip">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5.5" r="2.5"/><circle cx="5.5" cy="17" r="2.5"/><circle cx="18.5" cy="17" r="2.5"/><path d="M10.4 7.5 7 14.6M13.6 7.5 17 14.6M8 17h8"/></svg>Market Structure</span>
+          </div>
+        </div>
+
+        <div class="about-cover">
+          <div class="ap-label">ครอบคลุม</div>
+          <span class="about-chip soft">
+            <svg class="chip-badge" viewBox="0 0 24 24" aria-hidden="true"><defs><clipPath id="usFlagClip"><circle cx="12" cy="12" r="12"/></clipPath></defs><g clip-path="url(#usFlagClip)"><rect x="0" y="0" width="24" height="24" fill="#F2F2F2"/><path d="M0 12h24M0 4.4h24M0 19.6h24" stroke="#C0392B" stroke-width="2.6"/><rect x="0" y="0" width="11" height="11" fill="#2C4A7C"/></g></svg>หุ้นสหรัฐฯ</span>
+          <span class="about-chip soft">
+            <svg class="chip-badge" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="rgba(212,175,55,.16)"/><g fill="#D4AF37" stroke="#8B6914" stroke-width=".6"><rect x="4.5" y="13" width="7" height="4" rx="1"/><rect x="12.5" y="13" width="7" height="4" rx="1"/><rect x="8.5" y="8" width="7" height="4" rx="1"/></g></svg>Gold</span>
+          <span class="about-chip soft">
+            <svg class="chip-badge" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#F7931A"/><g stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M9.6 6.5v11M12.2 5.4v1.1M12.2 17.5v1.1"/><path d="M9.6 6.5h4.1a2.6 2.6 0 0 1 0 5.2H9.6h4.6a2.7 2.7 0 0 1 0 5.4H9.6" fill="none"/></g></svg>Bitcoin</span>
+          <span class="about-chip soft">
+            <svg class="chip-badge" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="rgba(212,175,55,.16)"/><g fill="#D4AF37"><rect x="5.5" y="13" width="3.4" height="5.5" rx="1"/><rect x="10.3" y="9.5" width="3.4" height="9" rx="1"/><rect x="15.1" y="6" width="3.4" height="12.5" rx="1"/></g></svg>ดัชนีตลาด</span>
+        </div>
+
+        <p class="about-disclaimer">ไม่ใช่คำแนะนำในการลงทุน · ผลในอดีตไม่ใช่การรับประกันผลในอนาคต</p>
+
         <div class="chart-pane" id="aboutChart">
-          <div class="cp-head"><span class="k">MOMENTUM</span><span class="s">ภาพประกอบแนวคิด</span></div>
-          <svg class="cp-svg" viewBox="0 0 320 170" aria-hidden="true">
-            <defs>
-              <linearGradient id="cpBarG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F4E4BA" stop-opacity=".95"/><stop offset="100%" stop-color="#D4AF37" stop-opacity=".25"/></linearGradient>
-              <linearGradient id="cpLineG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C9A85F" stop-opacity=".6"/><stop offset="100%" stop-color="#F4E4BA"/></linearGradient>
-              <filter id="cpGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
-            <g class="grid" stroke="rgba(212,175,55,.35)" stroke-width=".7" stroke-dasharray="2 4"><line x1="12" y1="40" x2="308" y2="40"/><line x1="12" y1="80" x2="308" y2="80"/><line x1="12" y1="120" x2="308" y2="120"/></g>
-            <line x1="12" y1="156" x2="308" y2="156" stroke="rgba(212,175,55,.5)" stroke-width="1"/>
-            <g fill="url(#cpBarG)">
-              <rect class="bar" x="30"  y="128" width="26" height="28"  rx="3" style="transition-delay:.05s"/>
-              <rect class="bar" x="72"  y="112" width="26" height="44"  rx="3" style="transition-delay:.15s"/>
-              <rect class="bar" x="114" y="94"  width="26" height="62"  rx="3" style="transition-delay:.25s"/>
-              <rect class="bar" x="156" y="76"  width="26" height="80"  rx="3" style="transition-delay:.35s"/>
-              <rect class="bar" x="198" y="54"  width="26" height="102" rx="3" style="transition-delay:.45s"/>
-              <rect class="bar" x="240" y="26"  width="26" height="130" rx="3" style="transition-delay:.55s"/>
-            </g>
-            <polyline class="line" points="43,118 85,102 127,84 169,66 211,44 253,16 296,10" fill="none" stroke="url(#cpLineG)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#cpGlow)"/>
-            <g>
-              <circle class="dot" cx="43"  cy="118" r="3" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1" style="transition-delay:.75s"/>
-              <circle class="dot" cx="85"  cy="102" r="3" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1" style="transition-delay:.95s"/>
-              <circle class="dot" cx="127" cy="84"  r="3" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1" style="transition-delay:1.15s"/>
-              <circle class="dot" cx="169" cy="66"  r="3" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1" style="transition-delay:1.35s"/>
-              <circle class="dot" cx="211" cy="44"  r="3" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1" style="transition-delay:1.55s"/>
-              <circle class="dot" cx="253" cy="16"  r="3" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1" style="transition-delay:1.75s"/>
-              <circle class="dot" cx="296" cy="10"  r="4.2" fill="#FFFEF8" stroke="#D4AF37" stroke-width="1.4" style="transition-delay:2.05s"/>
-              <circle class="dot" cx="296" cy="10" r="4.2" fill="none" stroke="#D4AF37" stroke-width=".9" style="transition-delay:2.1s">
-                <animate attributeName="r" values="4.2;12;4.2" dur="2.4s" begin="2.2s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values=".6;0;.6" dur="2.4s" begin="2.2s" repeatCount="indefinite"/>
-              </circle>
-            </g>
-          </svg>
-          <div class="cp-foot"><span>PRICE</span><span>VOLUME</span><span>NEWS</span><span>STRUCTURE</span></div>
+          <div class="cp-head">
+            <div><span class="k">MOMENTUM</span><span class="s">ภาพประกอบแนวคิด</span></div>
+            <div class="cp-steps"><span>Plan</span><i>&rsaquo;</i><span>Test</span><i>&rsaquo;</i><span>Improve</span></div>
+          </div>
+          <div class="cp-body">
+            <div>
+              <svg class="cp-svg" viewBox="0 0 700 240" aria-hidden="true">
+                <defs>
+                  <linearGradient id="cpBarG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F4E4BA" stop-opacity=".95"/><stop offset="100%" stop-color="#D4AF37" stop-opacity=".25"/></linearGradient>
+                  <linearGradient id="cpLineG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C9A85F" stop-opacity=".6"/><stop offset="100%" stop-color="#F4E4BA"/></linearGradient>
+                  <filter id="cpGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                </defs>
+                <g class="grid" stroke="rgba(212,175,55,.35)" stroke-width=".9" stroke-dasharray="3 6"><line x1="20" y1="56" x2="680" y2="56"/><line x1="20" y1="106" x2="680" y2="106"/><line x1="20" y1="156" x2="680" y2="156"/></g>
+                <line x1="20" y1="210" x2="680" y2="210" stroke="rgba(212,175,55,.5)" stroke-width="1.2"/>
+                <g fill="url(#cpBarG)">
+                  <rect class="bar" x="60"  y="170" width="52" height="40"  rx="4" style="transition-delay:.05s"/>
+                  <rect class="bar" x="158" y="148" width="52" height="62"  rx="4" style="transition-delay:.15s"/>
+                  <rect class="bar" x="256" y="124" width="52" height="86"  rx="4" style="transition-delay:.25s"/>
+                  <rect class="bar" x="354" y="98"  width="52" height="112" rx="4" style="transition-delay:.35s"/>
+                  <rect class="bar" x="452" y="64"  width="52" height="146" rx="4" style="transition-delay:.45s"/>
+                  <rect class="bar" x="550" y="30"  width="52" height="180" rx="4" style="transition-delay:.55s"/>
+                </g>
+                <polyline class="line" points="86,166 184,144 282,120 380,94 478,60 576,26 660,16" fill="none" stroke="url(#cpLineG)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#cpGlow)"/>
+                <g>
+                  <circle class="dot" cx="86"  cy="166" r="4.4" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1.2" style="transition-delay:.75s"/>
+                  <circle class="dot" cx="184" cy="144" r="4.4" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1.2" style="transition-delay:.95s"/>
+                  <circle class="dot" cx="282" cy="120" r="4.4" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1.2" style="transition-delay:1.15s"/>
+                  <circle class="dot" cx="380" cy="94"  r="4.4" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1.2" style="transition-delay:1.35s"/>
+                  <circle class="dot" cx="478" cy="60"  r="4.4" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1.2" style="transition-delay:1.55s"/>
+                  <circle class="dot" cx="576" cy="26"  r="4.4" fill="#FFFEF8" stroke="#C9A85F" stroke-width="1.2" style="transition-delay:1.75s"/>
+                  <circle class="dot" cx="660" cy="16"  r="6" fill="#FFFEF8" stroke="#D4AF37" stroke-width="1.6" style="transition-delay:2.05s"/>
+                  <circle class="dot" cx="660" cy="16" r="6" fill="none" stroke="#D4AF37" stroke-width="1.1" style="transition-delay:2.1s">
+                    <animate attributeName="r" values="6;17;6" dur="2.4s" begin="2.2s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values=".6;0;.6" dur="2.4s" begin="2.2s" repeatCount="indefinite"/>
+                  </circle>
+                </g>
+              </svg>
+              <div class="cp-foot"><span>PRICE</span><span>VOLUME</span><span>NEWS</span><span>STRUCTURE</span></div>
+            </div>
+            <div class="cp-rail"><span>SMALL</span><span>STEPS</span><span>BIG</span><span>PROGRESS</span><i aria-hidden="true"></i></div>
+          </div>
         </div>
       </div>
     </div>
