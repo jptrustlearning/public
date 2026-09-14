@@ -499,9 +499,12 @@ a,button,.tab-btn{-webkit-tap-highlight-color:transparent}
 .stat-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;position:relative}
 .stat-item:not(:last-child)::after{content:"";position:absolute;right:-10px;top:14%;height:72%;width:1px;
   background:linear-gradient(180deg,transparent,var(--gold-border),transparent)}
-.stat-ico{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  background:rgba(212,175,55,0.13);border:1px solid var(--gold-border);margin-bottom:4px}
+.stat-ico{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(160deg,#FFFEF8 0%,#F4ECDA 100%);border:1px solid rgba(212,175,55,0.42);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.95),0 4px 11px rgba(92,70,20,0.12);margin-bottom:4px}
 .stat-ico svg{width:22px;height:22px;fill:none;stroke:var(--gold-deep);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.stat-ico.rich svg{width:33px;height:33px;fill:initial;stroke:none;stroke-width:0}
+.stat-item:hover .stat-ico{background:linear-gradient(160deg,#FFFEF8 0%,#F7EFD8 100%)}
 .stat-num{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,40px);color:var(--maroon);line-height:1}
 .stat-num small{font-size:.5em;color:var(--gold-deep);font-family:'Anuphan',sans-serif;font-weight:600}
 .stat-lbl{font-size:13px;color:var(--ink-muted);line-height:1.35}
@@ -521,7 +524,7 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 .stats-panel.anim-ready.in .stat-item:nth-child(2) .stat-ico{animation-delay:.10s}
 .stats-panel.anim-ready.in .stat-item:nth-child(3) .stat-ico{animation-delay:.20s}
 .stats-panel.anim-ready.in .stat-item:nth-child(4) .stat-ico{animation-delay:.30s}
-.stat-item:hover .stat-ico{transform:translateY(-3px);background:rgba(212,175,55,0.20)}
+.stat-item:hover .stat-ico{transform:translateY(-3px)}
 .stat-num .cnum{font-variant-numeric:tabular-nums}
 @keyframes statPulse{
   0%{box-shadow:0 0 0 0 rgba(212,175,55,0.45)}
@@ -1163,22 +1166,98 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
   <div class="wrap">
     <div class="stats-panel">
       <a class="stat-item" href="#collection">
-        <span class="stat-ico"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2z"/><path d="M19 19H6"/><path d="M9 7h6M9 11h6"/></svg></span>
+        <span class="stat-ico rich"><svg viewBox="0 0 32 32" aria-hidden="true">
+<defs>
+<linearGradient id="bkA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B03C4E"/><stop offset="1" stop-color="#5C1327"/></linearGradient>
+<linearGradient id="bkB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F3DE95"/><stop offset=".5" stop-color="#D4AF37"/><stop offset="1" stop-color="#9C7412"/></linearGradient>
+<linearGradient id="bkC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A7091"/><stop offset="1" stop-color="#1E3346"/></linearGradient>
+</defs>
+<ellipse cx="16" cy="27.6" rx="11.5" ry="1.7" fill="#5C1327" opacity=".16"/>
+<rect x="4" y="21.2" width="24" height="5.8" rx="1.4" fill="url(#bkA)"/>
+<rect x="8.6" y="22.3" width="18" height="3.6" rx=".7" fill="#FAF6ED"/>
+<rect x="4.9" y="21.9" width="1.2" height="4.4" rx=".6" fill="#fff" opacity=".3"/>
+<rect x="3.2" y="14" width="25.6" height="6" rx="1.4" fill="url(#bkB)"/>
+<rect x="8.2" y="15.1" width="19.2" height="3.8" rx=".7" fill="#FFFEF8"/>
+<rect x="4.1" y="14.7" width="1.2" height="4.6" rx=".6" fill="#fff" opacity=".5"/>
+<g transform="rotate(-5 16 9.8)">
+<rect x="5" y="6.8" width="22.4" height="6" rx="1.4" fill="url(#bkC)"/>
+<rect x="9.8" y="7.9" width="16.2" height="3.8" rx=".7" fill="#FAF6ED"/>
+<rect x="5.9" y="7.5" width="1.2" height="4.6" rx=".6" fill="#fff" opacity=".32"/>
+<path d="M20.4 6.8h3v8.4l-1.5-1.8-1.5 1.8z" fill="#D4AF37"/>
+</g>
+</svg></span>
         <span class="stat-num"><span class="cnum" data-to="36">0</span><small> รายการ</small></span>
         <span class="stat-lbl">บทความและเครื่องมือ<br>เปิดอ่านฟรี — คลิกนับได้</span>
       </a>
       <a class="stat-item" href="#snapshot">
-        <span class="stat-ico"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="M8 15l3-4 3 2 4-6"/></svg></span>
+        <span class="stat-ico rich"><svg viewBox="0 0 32 32" aria-hidden="true">
+<defs>
+<linearGradient id="cdUp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6FE0A6"/><stop offset="1" stop-color="#1B8050"/></linearGradient>
+<linearGradient id="cdDn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9808D"/><stop offset="1" stop-color="#9C1F30"/></linearGradient>
+<linearGradient id="lensG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFEF8"/><stop offset="1" stop-color="#F0E6CE"/></linearGradient>
+</defs>
+<rect x="21.4" y="21.4" width="8.4" height="4.4" rx="2.2" transform="rotate(45 25.6 23.6)" fill="#8B6914"/>
+<circle cx="14.4" cy="13.6" r="11" fill="url(#lensG)"/>
+<g>
+<path d="M8.6 9.4v9.4M14.4 6.8v10.2M20.2 9v8.6" stroke="#2F4A3C" stroke-width="1.2" stroke-linecap="round" opacity=".8"/>
+<rect x="6.9" y="13.2" width="3.4" height="5" rx=".9" fill="url(#cdDn)"/>
+<rect x="12.7" y="9.4" width="3.4" height="6.2" rx=".9" fill="url(#cdUp)"/>
+<rect x="18.5" y="10.4" width="3.4" height="5.6" rx=".9" fill="url(#cdUp)"/>
+</g>
+<circle cx="14.4" cy="13.6" r="11" fill="none" stroke="#D4AF37" stroke-width="2.4"/>
+<path d="M6.6 5.9a11 11 0 0 1 6.2-3.2" stroke="#FFF3CE" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".85"/>
+</svg></span>
         <span class="stat-num"><span class="cnum" data-to="487">0</span><small> ตัว</small></span>
         <span class="stat-lbl">สแกนหุ้น S&amp;P 500<br>ทุกสัปดาห์ — ดูผลล่าสุดได้</span>
       </a>
       <div class="stat-item">
-        <span class="stat-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <span class="stat-ico rich"><svg viewBox="0 0 32 32" aria-hidden="true">
+<defs>
+<linearGradient id="gbT" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FBEFC0"/><stop offset=".5" stop-color="#E3C258"/><stop offset="1" stop-color="#A9800F"/></linearGradient>
+<linearGradient id="gbF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E0BC4C"/><stop offset="1" stop-color="#8E6A0C"/></linearGradient>
+</defs>
+<ellipse cx="14.5" cy="26.4" rx="11" ry="1.7" fill="#5C1327" opacity=".15"/>
+<g stroke="#6E520A" stroke-width=".7" stroke-linejoin="round">
+<path d="M6.2 19.4h16.6l1.7 6H4.5z" fill="url(#gbF)"/>
+<path d="M8 17.2h13l1.8 2.2H6.2z" fill="url(#gbT)"/>
+</g>
+<path d="M8.5 17.8h11.9l.6.9H7.9z" fill="#fff" opacity=".38"/>
+<g stroke="#6E520A" stroke-width=".7" stroke-linejoin="round">
+<path d="M9.4 11.4h10.2l1.5 5.4H7.9z" fill="url(#gbF)"/>
+<path d="M11 9.4h7l1.6 2h-10.2z" fill="url(#gbT)"/>
+</g>
+<path d="M11.5 10h6.2l.5.8h-7.2z" fill="#fff" opacity=".45"/>
+<g>
+<circle cx="24" cy="20.6" r="7.1" fill="#3A1520"/>
+<circle cx="24" cy="20.6" r="6" fill="#FFFEF8"/>
+<circle cx="24" cy="20.6" r="6" fill="none" stroke="#D4AF37" stroke-width="1.3"/>
+<g stroke="#8B6914" stroke-width=".9" stroke-linecap="round" opacity=".7"><path d="M24 15.8v1M24 24.4v1M19.2 20.6h1M27.8 20.6h1"/></g>
+<g stroke="#5C1327" stroke-width="1.5" stroke-linecap="round"><path d="M24 16.8v3.8"/><path d="M24 20.6l2.9 1.8"/></g>
+<circle cx="24" cy="20.6" r=".9" fill="#D4AF37"/>
+</g>
+</svg></span>
         <span class="stat-num"><span class="cnum" data-to="22">0</span><small> ปี</small></span>
         <span class="stat-lbl">ข้อมูลทองรายชั่วโมง<br>2004–2026 ที่ใช้ทดสอบจริง</span>
       </div>
       <div class="stat-item">
-        <span class="stat-ico"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/><path d="M9 13h6M9 17h6"/></svg></span>
+        <span class="stat-ico rich"><svg viewBox="0 0 32 32" aria-hidden="true">
+<defs>
+<linearGradient id="pgA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFEF8"/><stop offset="1" stop-color="#E4D8BC"/></linearGradient>
+<clipPath id="usClip2"><circle cx="23.2" cy="23.2" r="6"/></clipPath>
+</defs>
+<rect x="9.4" y="4.4" width="15.4" height="19.8" rx="2" fill="#D9CBAE" opacity=".6" transform="rotate(8 16 14)"/>
+<path d="M6.6 3.6h10.8l5.6 5.5v14.2a2 2 0 0 1-2 2H6.6a2 2 0 0 1-2-2V5.6a2 2 0 0 1 2-2z" fill="url(#pgA)" stroke="#C0A878" stroke-width="1"/>
+<path d="M17.4 3.6l5.6 5.5h-4.6a1 1 0 0 1-1-1z" fill="#D4C49C"/>
+<g stroke="#8B6914" stroke-width="1.5" stroke-linecap="round" opacity=".6">
+<path d="M8 13h10.4"/><path d="M8 16.6h10.4"/><path d="M8 20.2h6.4"/></g>
+<g clip-path="url(#usClip2)">
+<rect x="17.2" y="17.2" width="12" height="12" fill="#F7F7F7"/>
+<g fill="#C0392B"><rect x="17.2" y="18.6" width="12" height="1.7"/><rect x="17.2" y="22" width="12" height="1.7"/><rect x="17.2" y="25.4" width="12" height="1.7"/><rect x="17.2" y="28.8" width="12" height="1.7"/></g>
+<rect x="17.2" y="17.2" width="5.6" height="5.6" fill="#2C4A7C"/>
+</g>
+<circle cx="23.2" cy="23.2" r="6" fill="none" stroke="#FFFEF8" stroke-width="1.8"/>
+<circle cx="23.2" cy="23.2" r="6" fill="none" stroke="#D4AF37" stroke-width=".9" opacity=".85"/>
+</svg></span>
         <span class="stat-num"><span class="cnum" data-to="30">0</span><small> ปี</small></span>
         <span class="stat-lbl">ข้อมูลหุ้นสหรัฐฯ 1996–2026<br>รวมหุ้นที่ออกจากดัชนีแล้ว</span>
       </div>
