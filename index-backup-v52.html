@@ -608,27 +608,23 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
   color:rgba(255,254,248,0.5);margin-left:5px}
 .snap-listhead{font-size:13px;font-weight:700;color:rgba(255,254,248,0.72);
   border-top:1px solid rgba(212,175,55,0.24);padding-top:20px;margin-bottom:13px}
-.snap-tbl{width:100%;border-collapse:collapse;table-layout:fixed;margin-bottom:22px}
-.snap-tbl th{font-family:'Cinzel',serif;font-size:10.5px;font-weight:600;letter-spacing:1.5px;
-  text-transform:uppercase;color:rgba(212,175,55,0.92);padding:0 0 10px;
-  border-bottom:1px solid rgba(212,175,55,0.3)}
-.snap-tbl td{padding:11px 0;border-bottom:1px solid rgba(255,254,248,0.07)}
-.snap-tbl tbody tr:last-child td{border-bottom:none}
-.snap-tbl tbody tr{transition:background .22s ease}
-.snap-tbl tbody tr:hover{background:rgba(255,254,248,0.05)}
-.snap-tbl .c-r{width:26px;text-align:left}
-.snap-tbl .c-s{text-align:left;padding-right:8px}
-.snap-tbl .c-n{width:62px;text-align:right;white-space:nowrap;
-  font-variant-numeric:tabular-nums;font-weight:700;font-size:13px}
-.snap-tbl td.up{color:#8DE8B6}
-.snap-tbl td.down{color:#E9909B}
-.snap-cell{display:flex;align-items:center;gap:9px;min-width:0}
-.snap-nm{display:flex;flex-direction:column;min-width:0;line-height:1.28}
-@media(max-width:430px){
-  .snap-tbl .c-1m{display:none}
-  .snap-tbl .c-n{width:56px;font-size:12.5px}
-  .snap-tbl th{font-size:9.5px;letter-spacing:1.1px}
-}
+.snap-list{display:grid;gap:11px;margin-bottom:20px}
+.snap-item{display:grid;grid-template-columns:20px 34px 64px 1fr auto;align-items:center;gap:10px;
+  font-size:14px;padding:12px 14px;border-radius:13px;
+  background:linear-gradient(180deg,rgba(255,254,248,0.10) 0%,rgba(255,254,248,0.035) 100%);
+  border:1px solid rgba(212,175,55,0.20);border-left:3px solid #4FC48A;
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.28),
+    0 12px 26px -12px rgba(0,0,0,0.60),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+  transition:transform .3s cubic-bezier(.22,.85,.2,1),box-shadow .3s ease,background .3s ease}
+.snap-item:hover{transform:translateY(-3px);
+  background:linear-gradient(180deg,rgba(255,254,248,0.15) 0%,rgba(255,254,248,0.06) 100%);
+  box-shadow:
+    0 3px 6px rgba(0,0,0,0.30),
+    0 20px 38px -14px rgba(0,0,0,0.68),
+    inset 0 1px 0 rgba(255,255,255,0.18)}
+
 .snap-logo{width:34px;height:34px;border-radius:9px;flex:none;position:relative;overflow:hidden;
   background:rgba(255,254,248,0.10);border:1px solid rgba(212,175,55,0.20);
   display:flex;align-items:center;justify-content:center}
@@ -638,8 +634,11 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 .snap-logo.no-logo::before{content:attr(data-i)}
 @media(max-width:640px){.snap-logo{width:30px;height:30px;border-radius:8px}}
 .snap-rank{font-family:'DM Serif Display',serif;color:var(--gold);font-size:15px}
-.snap-tkr{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.6px;color:var(--light-sub);font-size:13.5px}
-.snap-co{color:rgba(255,254,248,0.55);font-size:11.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.snap-tkr{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.6px;color:var(--light-sub)}
+.snap-co{color:rgba(255,254,248,0.55);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.snap-ret{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap;color:#8DE8B6;
+  background:rgba(79,196,138,0.14);border:1px solid rgba(79,196,138,0.32);
+  border-radius:999px;padding:3px 11px;font-size:13px}
 .snap-note{font-size:12.5px;color:rgba(255,254,248,0.52);line-height:1.65;
   border-left:2px solid rgba(212,175,55,0.32);padding-left:12px;margin-bottom:22px}
 .snap-note strong{color:rgba(255,254,248,0.78)}
@@ -654,6 +653,8 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 @media(max-width:640px){
   .snap-row{grid-template-columns:96px 1fr;row-gap:4px}
   .snap-val{grid-column:2;text-align:left;min-width:0;font-size:17px}
+  .snap-item{grid-template-columns:20px 30px 58px 1fr;row-gap:4px}
+  .snap-ret{grid-column:3 / -1;justify-self:start;font-size:12.5px}
   .snap-asof{margin-left:0}
 }
 @media(prefers-reduced-motion:reduce){.snap-eyebrow::before{animation:none}}
@@ -916,93 +917,17 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
         </div>
       </div>
 
-            <div class="snap-listhead">10 อันดับแรกฝั่งขาขึ้น</div>
-      <table class="snap-tbl">
-        <thead>
-          <tr>
-            <th class="c-r" scope="col">#</th>
-            <th class="c-s" scope="col">หุ้น</th>
-            <th class="c-n c-1m" scope="col">1 เดือน</th>
-            <th class="c-n" scope="col">6 เดือน</th>
-            <th class="c-n" scope="col">1 ปี</th>
-          </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td class="c-r"><span class="snap-rank">1</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="M"><img src="logos/MRNA.png" alt="Moderna" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">MRNA</span><span class="snap-co">Moderna</span></span></span></td>
-          <td class="c-n c-1m up">+126.1%</td>
-          <td class="c-n up">+169.7%</td>
-          <td class="c-n up">+492.2%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">2</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="D"><img src="logos/DELL.png" alt="Dell Technologies" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">DELL</span><span class="snap-co">Dell Technologies</span></span></span></td>
-          <td class="c-n c-1m up">+17.1%</td>
-          <td class="c-n up">+278.4%</td>
-          <td class="c-n up">+359.5%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">3</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="V"><img src="logos/VLO.png" alt="Valero Energy" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">VLO</span><span class="snap-co">Valero Energy</span></span></span></td>
-          <td class="c-n c-1m up">+18.2%</td>
-          <td class="c-n up">+65.6%</td>
-          <td class="c-n up">+149.4%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">4</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="M"><img src="logos/MPC.png" alt="Marathon Petroleum" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">MPC</span><span class="snap-co">Marathon Petroleum</span></span></span></td>
-          <td class="c-n c-1m up">+13.7%</td>
-          <td class="c-n up">+72.1%</td>
-          <td class="c-n up">+120.1%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">5</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="H"><img src="logos/HPE.png" alt="Hewlett Packard Enterprise" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">HPE</span><span class="snap-co">Hewlett Packard Enterprise</span></span></span></td>
-          <td class="c-n c-1m up">+5.6%</td>
-          <td class="c-n up">+187.7%</td>
-          <td class="c-n up">+156.9%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">6</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="P"><img src="logos/PSX.png" alt="Phillips 66" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">PSX</span><span class="snap-co">Phillips 66</span></span></span></td>
-          <td class="c-n c-1m up">+15.0%</td>
-          <td class="c-n up">+49.0%</td>
-          <td class="c-n up">+99.1%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">7</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="I"><img src="logos/IQV.png" alt="IQVIA" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">IQV</span><span class="snap-co">IQVIA</span></span></span></td>
-          <td class="c-n c-1m up">+8.3%</td>
-          <td class="c-n up">+60.7%</td>
-          <td class="c-n up">+42.4%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">8</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="A"><img src="logos/APA.png" alt="APA Corporation" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">APA</span><span class="snap-co">APA Corporation</span></span></span></td>
-          <td class="c-n c-1m up">+11.9%</td>
-          <td class="c-n up">+33.1%</td>
-          <td class="c-n up">+96.0%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">9</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="H"><img src="logos/HPQ.png" alt="HP Inc." width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">HPQ</span><span class="snap-co">HP Inc.</span></span></span></td>
-          <td class="c-n c-1m up">+21.2%</td>
-          <td class="c-n up">+87.2%</td>
-          <td class="c-n up">+26.5%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">10</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo no-logo" data-i="R"></span><span class="snap-nm"><span class="snap-tkr">RVTY</span><span class="snap-co">Revvity</span></span></span></td>
-          <td class="c-n c-1m up">+5.5%</td>
-          <td class="c-n up">+46.7%</td>
-          <td class="c-n up">+50.9%</td>
-        </tr>
-        </tbody>
-      </table>
+      <div class="snap-listhead">5 อันดับแรกฝั่งขาขึ้น</div>
+      <div class="snap-list">
+        <div class="snap-item"><span class="snap-rank">1</span><span class="snap-logo" data-i="M"><img src="logos/MRNA.png" alt="Moderna" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-tkr">MRNA</span><span class="snap-co">Moderna</span><span class="snap-ret">6 เดือน +169.7%</span></div>
+        <div class="snap-item"><span class="snap-rank">2</span><span class="snap-logo" data-i="D"><img src="logos/DELL.png" alt="Dell Technologies" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-tkr">DELL</span><span class="snap-co">Dell Technologies</span><span class="snap-ret">6 เดือน +278.4%</span></div>
+        <div class="snap-item"><span class="snap-rank">3</span><span class="snap-logo" data-i="V"><img src="logos/VLO.png" alt="Valero Energy" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-tkr">VLO</span><span class="snap-co">Valero Energy</span><span class="snap-ret">6 เดือน +65.6%</span></div>
+        <div class="snap-item"><span class="snap-rank">4</span><span class="snap-logo" data-i="M"><img src="logos/MPC.png" alt="Marathon Petroleum" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-tkr">MPC</span><span class="snap-co">Marathon Petroleum</span><span class="snap-ret">6 เดือน +72.1%</span></div>
+        <div class="snap-item"><span class="snap-rank">5</span><span class="snap-logo" data-i="H"><img src="logos/HPE.png" alt="Hewlett Packard Enterprise" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-tkr">HPE</span><span class="snap-co">Hewlett Packard Enterprise</span><span class="snap-ret">6 เดือน +187.7%</span></div>
+      </div>
 
       <p class="snap-note">
-        ตัวเลขทุกคอลัมน์คือผลตอบแทนที่ผ่านมาของ<strong>ตัวหุ้นเอง</strong> ไม่ใช่ผลตอบแทนของกลยุทธ์ใดๆ และไม่ใช่คำแนะนำให้ซื้อ ·
+        ตัวเลข 6 เดือนคือผลตอบแทนที่ผ่านมาของ<strong>ตัวหุ้นเอง</strong> ไม่ใช่ผลตอบแทนของกลยุทธ์ใดๆ และไม่ใช่คำแนะนำให้ซื้อ ·
         นับ 487 ตัวจากสมาชิกดัชนี โดยตัดตัวที่ไลน์ข้อมูลหยุดอัปเดตออกแล้ว ·
         การลงทุนมีความเสี่ยง ผลในอดีตไม่รับประกันผลในอนาคต
       </p>
