@@ -263,8 +263,7 @@ section[id]{scroll-margin-top:90px}
 
 /* ============ ABOUT PANEL — แถวบน 2 คอลัมน์ + แผงหลักการ + กราฟเต็มกว้าง ============ */
 .about-stage{position:relative;z-index:1;max-width:1100px;margin:0 auto}
-.about-glow{position:absolute;inset:-60px 0;z-index:0;pointer-events:none;
-  background:radial-gradient(55% 60% at 62% 48%,rgba(212,175,55,0.18),rgba(212,175,55,0) 70%);filter:blur(26px)}
+.about-glow{display:none}
 .about-ghost{position:absolute;inset:0;z-index:0;border-radius:24px;pointer-events:none;
   background:rgba(18,7,11,0.55);border:1px solid rgba(212,175,55,0.12);
   transform:translate(20px,22px) scale(.985);transform-origin:center;box-shadow:0 30px 60px rgba(0,0,0,0.35)}
@@ -272,27 +271,10 @@ section[id]{scroll-margin-top:90px}
 .about-card{position:relative;z-index:2;border-radius:24px;
   padding:clamp(26px,3.6vw,44px) clamp(22px,3.6vw,46px);
   display:flex;flex-direction:column;gap:clamp(18px,2.4vw,26px);
-  background:
-    radial-gradient(120% 78% at 8% -10%,rgba(255,216,168,0.20),rgba(255,216,168,0) 52%),
-    radial-gradient(85% 65% at 96% 110%,rgba(212,175,55,0.16),rgba(212,175,55,0) 58%),
-    linear-gradient(152deg,
-      rgba(124,44,63,0.92) 0%,
-      rgba(96,33,48,0.92) 22%,
-      rgba(68,24,37,0.93) 46%,
-      rgba(44,16,24,0.94) 70%,
-      rgba(20,7,11,0.96) 100%);
-  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  background:linear-gradient(140deg,#3A0710 0%,#2A040C 24%,#1B0207 50%,#100104 74%,#070001 100%);
   border:1px solid rgba(212,175,55,0.30);
-  box-shadow:0 44px 90px rgba(0,0,0,0.55),0 14px 30px rgba(0,0,0,0.38),
-    inset 0 1px 0 rgba(255,255,255,0.17),inset 0 -1px 0 rgba(212,175,55,0.16);
+  box-shadow:0 30px 60px rgba(0,0,0,0.5);
   text-align:left}
-/* ชั้นมันวาว: แถบแสงเฉียง + แสงขอบบน (ไม่รับ pointer, อยู่ใต้เนื้อหา) */
-.about-card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;
-  mix-blend-mode:screen;
-  background:
-    linear-gradient(118deg,rgba(255,255,255,0) 22%,rgba(255,255,255,0.09) 36%,rgba(255,240,208,0.22) 45%,rgba(255,255,255,0.09) 53%,rgba(255,255,255,0) 66%),
-    linear-gradient(180deg,rgba(255,255,255,0.11) 0%,rgba(255,255,255,0.02) 18%,rgba(255,255,255,0) 30%),
-    radial-gradient(60% 40% at 78% 96%,rgba(212,175,55,0.13),rgba(212,175,55,0) 70%)}
 .about-card>*{position:relative;z-index:1}
 .about-card::before{content:"";position:absolute;top:0;left:8%;right:8%;height:1px;
   background:linear-gradient(90deg,rgba(212,175,55,0),rgba(212,175,55,0.75),rgba(212,175,55,0))}
@@ -324,12 +306,10 @@ section[id]{scroll-margin-top:90px}
 
 /* ---- แผ่นกราฟเต็มกว้าง ---- */
 .chart-pane{position:relative;border-radius:18px;padding:16px 18px 14px;margin:0;
-  background:
-    radial-gradient(100% 70% at 12% 0%,rgba(255,236,196,0.13),rgba(255,236,196,0) 62%),
-    linear-gradient(158deg,rgba(250,246,237,0.11) 0%,rgba(250,246,237,0.05) 45%,rgba(0,0,0,0.10) 100%);
+  background:linear-gradient(150deg,#42101B 0%,#2E0810 38%,#1C0409 70%,#100206 100%);
   -webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%);
   border:1px solid rgba(212,175,55,0.34);
-  box-shadow:0 26px 54px rgba(0,0,0,0.42),0 8px 18px rgba(0,0,0,0.28),inset 0 1px 0 rgba(255,255,255,0.1);
+  box-shadow:0 18px 40px rgba(0,0,0,0.42);
   transform:none;transition:transform .5s cubic-bezier(.22,.85,.2,1)}
 .about-card:hover .chart-pane{transform:translateY(-4px)}
 .cp-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:10px}
@@ -470,7 +450,7 @@ section[id]{scroll-margin-top:90px}
 /* ============ TABS (simple rounded rectangles) ============ */
 @keyframes tabFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .tabs-section{position:relative;isolation:isolate;padding:clamp(28px,4vw,50px) 0 clamp(56px,8vw,96px);scroll-margin-top:80px;
-  background:linear-gradient(180deg,#120508 0%,#2a0f18 26%,#3a1520 52%,#230c13 78%,#120508 100%)}
+  background:linear-gradient(145deg,#290008 0%,#1E0106 26%,#120205 52%,#0A0102 78%,#040000 100%)}
 .tabs-section::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:radial-gradient(60% 70% at 50% 40%,rgba(120,44,60,0.42),rgba(120,44,60,0) 70%)}
 .tabs-section>.wrap{position:relative;z-index:1}
