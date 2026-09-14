@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ผลลบ — สิ่งที่เราทดสอบแล้วไม่ผ่าน | JP Trust Learning</title>
+<meta name="description" content="บัญชีรายการงานวิจัยที่เราทดสอบแล้วพบว่าไม่มี edge หรือใช้ไม่ได้ พร้อมหลักฐานและเงื่อนไขที่จะกลับมาทดสอบใหม่ — เปิดให้อ่านฟรี">
+<meta property="og:title" content="ผลลบ — สิ่งที่เราทดสอบแล้วไม่ผ่าน | JP Trust Learning">
+<meta property="og:description" content="งานวิจัยที่ล้มเหลวของเรา เปิดทั้งหมดพร้อมหลักฐาน">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@200;300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FAF6ED; --cream-card:#FFFEF8; --cream-warm:#F5EFE0; --cream-deep:#EDE4D0; --cream-tile:#F8F2E4;
+  --gold:#D4AF37; --gold-dark:#B8860B; --gold-deep:#8B6914; --gold-light:#F4E4BA;
+  --gold-border:rgba(212,175,55,0.22);
+  --maroon:#722F37; --maroon-darkest:#1a0a0e; --maroon-mid:#2d1018; --maroon-light:#3a1520;
+  --ink:#3D3228; --ink-sub:#5A3D20; --ink-muted:#7A6F62;
+  --light:#E8E4DC; --light-sub:#F4E4BA;
+  --loss:#B03A48; --warnc:#B8860B; --stop:#6B5B7A;
+  --maroon-bg:linear-gradient(160deg,#1a0a0e 0%,#2d1018 28%,#3a1520 48%,#2d1018 70%,#1a0a0e 100%);
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Anuphan',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;
+  -webkit-font-smoothing:antialiased}
+.wrap{width:100%;max-width:900px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+a{color:inherit}
+
+/* nav */
+.topbar{background:var(--maroon-darkest);border-bottom:1px solid rgba(212,175,55,0.22)}
+.topbar .wrap{display:flex;align-items:center;gap:18px;height:58px}
+.topbar a{color:rgba(255,254,248,0.72);text-decoration:none;font-size:14px;transition:color .2s}
+.topbar a:hover{color:var(--gold-light)}
+.topbar .brand{font-family:'Cinzel',serif;font-weight:600;letter-spacing:1.6px;
+  color:var(--gold);font-size:13px;margin-right:auto}
+
+/* hero */
+.hero{background:var(--maroon-bg);padding:clamp(46px,7vw,86px) 0 clamp(40px,6vw,70px);
+  border-bottom:2px solid;border-image:linear-gradient(90deg,transparent,#D4AF37,transparent) 1}
+.eyebrow{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2.6px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px}
+.hero h1{font-size:clamp(28px,5vw,46px);font-weight:700;color:#FFFEF8;line-height:1.28;margin-bottom:18px}
+.hero .lead{font-size:clamp(15px,1.8vw,17px);color:rgba(255,254,248,0.7);max-width:66ch}
+.hero .lead b{color:var(--gold-light);font-weight:600}
+.stamp{display:inline-flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.stamp span{font-size:12.5px;color:var(--light-sub);background:rgba(255,254,248,0.07);
+  border:1px solid rgba(212,175,55,0.3);border-radius:999px;padding:5px 14px}
+
+/* body */
+.body{padding:clamp(40px,5vw,66px) 0 clamp(54px,7vw,90px)}
+.why{background:var(--cream-card);border:1px solid var(--gold-border);border-left:3px solid var(--gold);
+  border-radius:14px;padding:22px 24px;margin-bottom:40px;font-size:15px;color:var(--ink-sub)}
+.why b{color:var(--maroon)}
+h2.grp{font-size:clamp(19px,2.6vw,25px);color:var(--maroon);font-weight:700;
+  margin:44px 0 6px;display:flex;align-items:center;gap:11px}
+h2.grp:first-of-type{margin-top:0}
+h2.grp .dot{width:11px;height:11px;border-radius:3px;flex:none}
+.grp-sub{font-size:14px;color:var(--ink-muted);margin-bottom:20px}
+.card{background:var(--cream-card);border:1px solid var(--gold-border);border-radius:14px;
+  padding:18px 20px;margin-bottom:12px;
+  box-shadow:0 1px 1px rgba(58,21,32,0.03),0 8px 18px -10px rgba(92,84,74,0.26);
+  transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-2px);box-shadow:0 2px 3px rgba(58,21,32,0.05),0 16px 30px -14px rgba(92,84,74,0.34)}
+.card.no{border-left:3px solid var(--loss)}
+.card.part{border-left:3px solid var(--warnc)}
+.card.data{border-left:3px solid var(--stop)}
+.card h3{font-size:16.5px;color:var(--maroon);font-weight:700;margin-bottom:9px;line-height:1.45}
+.row{display:grid;grid-template-columns:86px 1fr;gap:6px 12px;font-size:14.5px;margin-top:7px}
+.row dt{color:var(--ink-muted);font-size:12.5px;font-weight:600;padding-top:2px}
+.row dd{color:var(--ink)}
+.row dd.revisit{color:var(--ink-muted)}
+.n{font-variant-numeric:tabular-nums;font-weight:600}
+.foot{background:var(--maroon-bg);color:rgba(255,254,248,0.6);padding:44px 0 30px;font-size:13.5px;
+  border-top:2px solid;border-image:linear-gradient(90deg,transparent,#D4AF37,transparent) 1}
+.foot a{color:var(--gold-light);text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.foot .links{display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:18px}
+@media(max-width:560px){
+  .row{grid-template-columns:1fr;gap:2px}
+  .row dt{padding-top:6px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="/">JP TRUST LEARNING</a>
+    <a href="/">หน้าแรก</a>
+    <a href="lib-method.html">ระเบียบวิธี</a>
+    <a href="corrections.html">บันทึกการแก้</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Negative Results · Open Ledger</div>
+    <h1>สิ่งที่เราทดสอบแล้ว<br>ไม่ผ่าน</h1>
+    <p class="lead">เพจการเงินส่วนใหญ่โชว์เฉพาะสิ่งที่ได้ผล หน้านี้คือด้านตรงข้าม — <b>บัญชีรายการงานที่เราลงแรงทดสอบแล้วพบว่าใช้ไม่ได้</b> พร้อมหลักฐานว่าทดสอบยังไง และเงื่อนไขที่จะทำให้เรากลับมาทดสอบใหม่</p>
+    <div class="stamp">
+      <span>ไม่มี edge · 11 รายการ</span>
+      <span>มีสัญญาณแต่ไม่ใช่ตัวทำเงิน · 2</span>
+      <span>ข้อมูลที่ห้ามใช้ · 4</span>
+    </div>
+  </div>
+</section>
+
+<section class="body">
+  <div class="wrap">
+
+    <div class="why">
+      <b>ทำไมต้องเปิดผลลบ</b> — ถ้าดูแต่สิ่งที่สำเร็จ จะแยกไม่ออกว่ากลยุทธ์หนึ่งได้ผลเพราะมันดีจริง หรือเพราะเราลองไปร้อยแบบแล้วหยิบแบบที่บังเอิญสวยที่สุดมาโชว์ บัญชีนี้ทำให้ตัวหารปรากฏตัว คุณจะเห็นว่าของที่เราเอามาเผยแพร่ ผ่านอะไรมาบ้างกว่าจะเหลือรอด และรายการนี้ยังทำหน้าที่เป็นกติกาภายในด้วย — สิ่งที่อยู่ในนี้ <b>ห้ามหยิบกลับมาทำใหม่</b> เว้นแต่จะมีข้อมูลใหม่หรือกลไกใหม่จริง ๆ
+    </div>
+
+    <h2 class="grp"><span class="dot" style="background:var(--loss)"></span>ทดสอบแล้วไม่มี edge</h2>
+    <p class="grp-sub">วัดแล้ว ไม่พบข้อได้เปรียบที่เชื่อถือได้ หรือมีแต่ต้นทุนกินหมด</p>
+
+    <div class="card no">
+      <h3>z-score รายตัวของหุ้น S&amp;P ใช้ทำนายราคาไม่ได้</h3>
+      <dl class="row">
+        <dt>ผล</dt><dd>ไม่มีข้อมูลทำนายในกรอบ <span class="n">1–13</span> สัปดาห์</dd>
+        <dt>หลักฐาน</dt><dd>ตรวจ 4 มุมแยกกัน (TP/SL พร้อมกลุ่มควบคุม · ถือครบกำหนดตายตัว · แบ่ง decile) ผลตรงกันทุกมุม</dd>
+        <dt>กลับมาเมื่อ</dt><dd class="revisit">ไม่กลับ</dd>
+      </dl>
+    </div>
+
+    <div class="card no">
+      <h3>ทิศทางราคาตามชั่วโมงของวัน (ทองคำ · ค่าเงิน)</h3>
+      <dl class="row">
+        <dt>ผล</dt><dd>ไม่มีสัญญาณตลอด <span class="n">21</span> ปี</dd>
+        <dt>หลักฐาน</dt><dd>ความสัมพันธ์ของทิศทางระหว่างครึ่งแรกกับครึ่งหลังของชุดข้อมูลอยู่ที่ราวศูนย์ · ความแรงของราคารายชั่วโมงนิ่งมากจริง แต่มันเป็นตัวช่วยลดขาดทุนสูงสุด ไม่ใช่แหล่งกำไร</dd>
+        <dt>กลับมาเมื่อ</dt><dd class="revisit">ไม่กลับ</dd>
+      </dl>
+    </div>
+
+    <div class="card no">
+      <h3>มาร์ติงเกล · วิธีวางไม้ · การเผื่อห้องแก้ไม้ ทุกรูปแบบ</h3>
+      <dl class="row">
+        <dt>ผล</dt><dd>กำไรทุกบาทมาจากทองขึ้น ไม่ได้มาจากวิธีวางไม้ · ยิ่งเผื่อห้องมากยิ่งขาดทุน (<span class="n">−58</span> → <span class="n">−550</span> ต่อปี)</dd>
+        <dt>หลักฐาน</dt><dd>รันบนราคาสุ่มที่มีแนวโน้มเท่ากัน ได้ผลไม่ต่างจากราคาจริง — แปลว่าวิธีวางไม้ไม่ได้เพิ่มอะไร · ทดสอบซ้ำสามรอบคนละชุดข้อมูล</dd>
+        <dt>กลับมาเมื่อ</dt><dd class="revisit">ไม่กลับ</dd>
+      </dl>
+    </div>
+
+    <div class="card no">
+      <h3>จุดเข้าและโครงสร้างราคา (SMC · Donchian · จังหวะย่อของสถาบัน) เป็นเจ้าของ edge</h3>
+      <dl class="row">
+        <dt>ผล</dt><dd>ไม่ใช่ — ข้อได้เปรียบที่วัดได้มาจากการถือนานกว่า วางกรอบกว้างกว่า และเลือกสภาวะตลาด ไม่ใช่จากจุดเข้า</dd>
+        <dt>หลักฐาน</dt><dd>สลับจุดเข้าเป็นแบบอื่นในโครงเดิม ผลแทบไม่เปลี่ยน · เปลี่ยนเงื่อนไขการถือและสภาวะตลาด ผลเปลี่ยนทันที</dd>
+        <dt>กลับมาเมื่อ</dt><dd class="revisit">ไม่กลับ</dd>
+      </dl>
+    </div>
+
+    <div class="card no">
+      <h3>ทองคำ — สวนกลับหลังหลุดกรอบเอเชียหลอก</h3>
+      <dl class="row">
+        <dt>ผล</dt><dd>ติดลบ <span class="n">45</span> จาก <span class="n">48</span> รูปแบบ บนข้อมูลรายชั่วโมง <span class="n">22</span> ปี · บนข้อมูล 15 นาที ติดลบทุกรูปแบบ</dd>
+        <dt>หลักฐาน</dt><dd>กวาดพารามิเตอร์ทั้งตาราง ไม่ใช่ลองแบบเดียว · เหตุผล: ทองมีความจำทิศทาง การสวนหลังหลุดกรอบเป็นตรรกะของค่าเงิน ไม่ใช่ของทอง</dd>
+        <dt>กลับมาเมื่อ</dt><dd class="revisit">ไม่กลับ</dd>
+      </dl>
+    </div>
+
+    <div class="card no">
+      <h3>ปอนด์/ดอลลาร์ — ระบบสวนทางแบบกลับด้าน และสวิตช์สภาวะตลาดที่ใช้ได้กับทอง</h3>
+      <dl class="row">
+        <dt>ผล</dt><dd>Sharpe ราวศูนย์ · สวิตช์ที่ทำงานได้ดีกับทองไม่ช่วยอะไรเลยกับคู่เงินนี้</dd>
+        <dt>หลักฐาน</dt><dd>ทดสอบนอกกลุ่มตัวอย่างช่วง 2019–2026 ด้วยข้อมูลรายชั่วโมงจากโบรกเกอร์จริง</dd>
+        <dt>กลับมาเมื่อ</dt><dd class="revisit">มีข้อมูลคู่เงินนี้ก่อนปี 2010 หรือใช้สวิตช์สภาวะตลาดตัวอื่น</dd>
+      </dl>
+    </div>
+
+    <div class="card no">
+      <h3>ปฏิทินตลาด — ผลตอบแทนช่วงรอยต่อเดือน และผลตามวันในสัปดาห์</h3>
+      <dl class="row">
+        <dt>ผล</dt><dd>ตายไปแล้ว — ช่วงรอยต่อเดือนให้ <span class="n">+4.2</span> จุดเบสิส เทียบกับวันทั่วไป <span class="n">+4.5</span> คือไม่ต่างกัน</dd>
+        <dt>หลักฐาน</dt><dd>วัดบนชุดข้อมูลหุ้นสหรัฐฯ ของเราเอง ไม่ได้อ้างงานคนอื่น</dd>
+        <dt>กลับมาเมื่อ</dt><dd class="revisit">ไม่กลับ</dd>
+      </dl>
+    </div>
+
+    <div class="card no">
+      <h3>ถือข้ามคืนใน S&amp;P — มีจริง แต่เก็บไม่ได้</h3>
+      <dl class="row">
+        <dt>ผล</dt><dd>ผลตอบแทนมีอยู่จริง <span class="n">+6.7%</span> ต่อปี แต่ค่านัยสำคัญ <span class="n">2.67</span> ต่ำกว่าเกณฑ์ที่เราตั้งไว้ และส่วนต่างราคาซื้อขายกินไปราว <span class="n">4%</span> ต่อปี</dd>
+        <dt>หลักฐาน</dt><dd>วัดบนหุ้นถ่วงน้ำหนักเท่ากันทั้งดัชนี แล้วหักต้นทุนจริงของการเทรดรายวัน</dd>
+        <dt>กลับมาเมื่อ</dt><dd class="revisit">ทำต้นทุนรวมให้ต่ำกว่า 1% ต่อปีได้จริง</dd>
+      </dl>
+    </div>
+
+    <div class="card no">
+      <h3>กลยุทธ์ยอดนิยมจาก GitHub</h3>
+      <dl class="row">
+        <dt>ผล</dt><dd>ที่ดาวเยอะเป็นโครงสร้างซอฟต์แวร์ ไม่ใช่ข้อได้เปรียบในตลาด · ยืนยันผลไม่ได้สักตัว</dd>
+        <dt>หลักฐาน</dt><dd>ไล่ดูรีโปที่ดาวสูงสุดในหมวดนี้ทั้งชุด แล้วลองรันซ้ำนอกกลุ่มตัวอย่าง</dd>
+        <dt>กลับมาเมื่อ</dt><dd class="revisit">ไม่กลับ ยกเว้นใช้เป็นแหล่งข้อมูลหรือเครื่องมือ</dd>
+      </dl>
+    </div>
+
+    <div class="card no">
+      <h3>โมเมนตัม 6 เดือน บนหุ้น NASDAQ</h3>
+      <dl class="row">
+        <dt>ผล</dt><dd>รอบแรกแพ้ QQQ <span class="n">−13.6%</span> ต่อ 6 เดือน · พอรันใหม่แบบเลือกได้เฉพาะสมาชิกดัชนี ณ วันสัญญาณ ผลขึ้นมาเท่ากับฝั่ง S&amp;P แต่การรวม universe ให้ส่วนเกินแค่ <span class="n">+2%</span> ต่อรอบ ค่านัยสำคัญ <span class="n">1.8</span> ซึ่งยังไม่มีนัย</dd>
+        <dt>หลักฐาน</dt><dd>ทดสอบ 3,122 ตัว ตลอด 135 เดือน · ที่น่าสนใจคือ 31% ของหุ้นอันดับต้น ๆ ต่อมาได้เข้า S&amp;P 500 จริง</dd>
+        <dt>กลับมาเมื่อ</dt><dd class="revisit">มีประวัติสมาชิกดัชนีย้อนหลังยาวกว่านี้ และค่านัยสำคัญเกิน 3</dd>
+      </dl>
+    </div>
+
+    <div class="card no">
+      <h3>ระบบ JPT Swing ตัวเก่าของเราเอง</h3>
+      <dl class="row">
+        <dt>ผล</dt><dd>สร้างผลเดิมขึ้นมาใหม่ไม่ได้ และเมื่อรันบน <span class="n">21</span> ปี ไม่ผ่านเกณฑ์</dd>
+        <dt>หลักฐาน</dt><dd>ไม่มีสคริปต์เก็บไว้ในรีโปไหนเลย จึงตรวจสอบย้อนหลังไม่ได้ — นี่คือที่มาของกติกาที่เราถือทุกวันนี้ว่า <b>ผลทดสอบที่ไม่ได้เก็บสคริปต์ไว้ ถือว่าไม่มีอยู่จริง</b></dd>
+        <dt>กลับมาเมื่อ</dt><dd class="revisit">ไม่กลับ</dd>
+      </dl>
+    </div>
+
+    <h2 class="grp"><span class="dot" style="background:var(--warnc)"></span>มีสัญญาณจริง แต่ไม่ใช่ตัวทำเงิน</h2>
+    <p class="grp-sub">ผ่านการวัด แต่พอแปลงเป็นเงินจริงแล้วไม่คุ้มบทบาทหลัก — เก็บไว้ใช้ในบทบาทอื่น</p>
+
+    <div class="card part">
+      <h3>ตัวกรองแนวโน้มข้าม 58 กองทุน ETF</h3>
+      <dl class="row">
+        <dt>ผล</dt><dd>ชนะเรื่อง Sharpe และขาดทุนสูงสุด แต่<b>ในหน่วยเงินจริงแพ้ขาด</b> — เงินต้นหนึ่งหมื่นดอลลาร์โตเป็น <span class="n">18,000–26,000</span> ขณะที่ถือ SPY เฉย ๆ ได้ <span class="n">73,000</span></dd>
+        <dt>หลักฐาน</dt><dd>รันแบบทบต้นจริงไม่ใช้เลเวอเรจ ปี 2008–2026 · ที่รอบแรกดูเหมือนชนะเพราะเทียบที่ระดับความผันผวนเท่ากัน ซึ่งแปลว่ามีเลเวอเรจแฝงอยู่</dd>
+        <dt>บทบาท</dt><dd class="revisit">ใช้เป็นตัวกรองสภาวะตลาดหรือคุมขาดทุน ไม่ใช่ตัวทบต้น</dd>
+      </dl>
+    </div>
+
+    <div class="card part">
+      <h3>ทองคำ — ระบบผสมถือสองวันพร้อมกลับทิศ</h3>
+      <dl class="row">
+        <dt>ผล</dt><dd>Sharpe <span class="n">0.77</span> ขาดทุนสูงสุด <span class="n">−26%</span> · พารามิเตอร์ไม่นิ่งเมื่อทดสอบแบบเลื่อนหน้าต่าง (เปลี่ยนตัวเลือก 6 จาก 15 ปี)</dd>
+        <dt>หลักฐาน</dt><dd>เทียบกับระบบทะลุกรอบที่พารามิเตอร์นิ่ง 0 จาก 15 ปี บนข้อมูลชุดเดียวกัน</dd>
+        <dt>บทบาท</dt><dd class="revisit">เก็บเป็นตัวรอง ไม่ใช่ตัวหลัก</dd>
+      </dl>
+    </div>
+
+    <h2 class="grp"><span class="dot" style="background:var(--stop)"></span>ข้อมูลที่เราห้ามตัวเองใช้</h2>
+    <p class="grp-sub">ไม่ใช่ผลวิจัย แต่เป็นกับดักที่เคยทำให้ผลผิด และจดไว้กันลืม</p>
+
+    <div class="card data">
+      <h3>สัญญาฟิวเจอร์สต่อเนื่องจาก Yahoo Finance</h3>
+      <dl class="row">
+        <dt>ปัญหา</dt><dd>ไม่ปรับราคาตอนเปลี่ยนสัญญา ทำให้เกิดช่องว่างราคาปลอมที่ระบบตามแนวโน้มอ่านเป็นสัญญาณ</dd>
+      </dl>
+    </div>
+
+    <div class="card data">
+      <h3>ไฟล์ราคาทองรายชั่วโมงชุดเก่าของเรา</h3>
+      <dl class="row">
+        <dt>ปัญหา</dt><dd>เวลาที่บันทึกเป็นเวลาฝั่งตะวันออกของสหรัฐฯ ไม่ใช่ UTC ตามที่เอกสารเคยระบุ และแท่งคืนวันอาทิตย์หายไปหลายสิบสัปดาห์ — กติกาเดียวกันรันบนไฟล์นี้กับไฟล์ที่ถูกต้อง ให้ผลพลิกกันได้</dd>
+      </dl>
+    </div>
+
+    <div class="card data">
+      <h3>ราคาทองจากสัญญาฟิวเจอร์ส เมื่อใช้ตัดสินสภาวะตลาด</h3>
+      <dl class="row">
+        <dt>ปัญหา</dt><dd>ให้คำตอบคนละอย่างกับราคาสปอตในวันเดียวกัน · ช่วง 2023–2026 ให้ผลดีผิดปกติจนเราเกือบเชื่อ — ต้องใช้ราคาสปอตเท่านั้น</dd>
+      </dl>
+    </div>
+
+    <div class="card data">
+      <h3>เว็บรวบรวมข่าวและสัญญาณต่อ ๆ กันมา</h3>
+      <dl class="row">
+        <dt>ปัญหา</dt><dd>ไม่ใช่แหล่งต้นทาง ตรวจย้อนกลับไม่ได้ว่าใครพูดเมื่อไร — ไม่รับเข้าเป็นแหล่งอ้างอิงในงานของเรา</dd>
+      </dl>
+    </div>
+
+    <div class="why" style="margin-top:44px;margin-bottom:0">
+      เจอรายการไหนที่คุณคิดว่าเราสรุปเร็วเกินไป หรือมีข้อมูล/กลไกใหม่ที่ควรทำให้เรากลับไปทดสอบซ้ำ <a href="/" style="color:var(--maroon);font-weight:600">บอกเรามาได้</a> — เงื่อนไขการกลับมาทดสอบเขียนไว้ในทุกรายการแล้ว
+    </div>
+
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="links">
+      <a href="/">หน้าแรก</a>
+      <a href="corrections.html">บันทึกการแก้ตัวเลข</a>
+      <a href="lib-method.html">ข้อมูล &amp; ระเบียบวิธี</a>
+      <a href="lib-momentum.html">กลยุทธ์ Momentum</a>
+      <a href="https://app.jptrustlearning.com">เข้าระบบสมาชิก</a>
+    </div>
+    <p>การลงทุนมีความเสี่ยง ผู้ลงทุนควรศึกษาข้อมูลก่อนตัดสินใจ · ผลการทดสอบย้อนหลังไม่รับประกันผลในอนาคต · เนื้อหาทั้งหมดเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุนรายบุคคล</p>
+    <p style="margin-top:12px">© JP Trust Learning</p>
+  </div>
+</footer>
+
+</body>
+</html>

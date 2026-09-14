@@ -448,6 +448,9 @@ section[id]{scroll-margin-top:90px}
 .stat-num{font-family:'DM Serif Display',serif;font-size:clamp(28px,4vw,40px);color:var(--maroon);line-height:1}
 .stat-num small{font-size:.5em;color:var(--gold-deep);font-family:'Anuphan',sans-serif;font-weight:600}
 .stat-lbl{font-size:13px;color:var(--ink-muted);line-height:1.35}
+a.stat-item{text-decoration:none;color:inherit;transition:transform .25s ease}
+a.stat-item:hover{transform:translateY(-2px)}
+a.stat-item:hover .stat-num{color:var(--gold-deep)}
 /* --- animation: เผยทีละช่อง + นับเลขขึ้น (เปิดเมื่อ JS ทำงานเท่านั้น) --- */
 .stats-panel.anim-ready .stat-item{opacity:0;transform:translateY(20px);
   transition:opacity .7s ease,transform .85s cubic-bezier(.22,.85,.2,1)}
@@ -469,6 +472,125 @@ section[id]{scroll-margin-top:90px}
   100%{box-shadow:0 0 0 0 rgba(212,175,55,0)}}
 @media(prefers-reduced-motion:reduce){
   .stats-panel.anim-ready .stat-item{opacity:1!important;transform:none!important}}
+
+
+/* ============ LIVE SNAPSHOT — proof above the fold ============ */
+.snap{position:relative;isolation:isolate;overflow:hidden;
+  background:linear-gradient(180deg,#F3EBD9 0%,#EDE4D0 55%,#F1E8D5 100%);
+  padding:clamp(46px,6vw,84px) 0 clamp(44px,5.5vw,72px)}
+.snap::before{content:"";position:absolute;z-index:-1;inset:auto -10% -40% -10%;height:80%;
+  background:radial-gradient(55% 70% at 50% 100%,rgba(212,175,55,0.22),transparent 72%);
+  pointer-events:none}
+.snap-panel{position:relative;background:var(--maroon-bg);
+  border:1px solid rgba(212,175,55,0.38);border-radius:var(--radius);
+  box-shadow:0 0 0 1px rgba(255,254,248,0.5),
+             0 30px 64px -20px rgba(58,21,32,0.55),
+             0 8px 20px -10px rgba(58,21,32,0.40);
+  padding:clamp(26px,3.4vw,42px) clamp(20px,3vw,40px)}
+.snap-panel::after{content:"";position:absolute;inset:0;border-radius:var(--radius);
+  pointer-events:none;background:radial-gradient(80% 60% at 50% 0%,rgba(212,175,55,0.10),transparent 70%)}
+.snap-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 14px;margin-bottom:6px}
+.snap-eyebrow{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2.4px;
+  text-transform:uppercase;color:var(--gold);position:relative;padding-left:26px}
+.snap-eyebrow::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:8px;height:8px;border-radius:50%;background:#4FC48A;
+  box-shadow:0 0 0 4px rgba(79,196,138,0.22);animation:snapPing 2.2s ease-out infinite}
+@keyframes snapPing{0%{box-shadow:0 0 0 0 rgba(79,196,138,0.50)}
+  70%{box-shadow:0 0 0 9px rgba(79,196,138,0)}100%{box-shadow:0 0 0 0 rgba(79,196,138,0)}}
+.snap-asof{margin-left:auto;font-size:12px;color:var(--light-sub);
+  background:rgba(255,254,248,0.07);border:1px solid rgba(212,175,55,0.32);
+  border-radius:999px;padding:3px 12px;white-space:nowrap}
+.snap-title{font-family:'Anuphan',sans-serif;font-weight:700;
+  font-size:clamp(19px,2.5vw,27px);color:#FFFEF8;line-height:1.35;margin:2px 0 4px}
+.snap-sub{font-size:14px;color:rgba(255,254,248,0.62);line-height:1.6;margin-bottom:24px}
+.snap-bars{display:grid;gap:13px;margin-bottom:26px}
+.snap-row{display:grid;grid-template-columns:112px 1fr auto;align-items:center;gap:12px}
+.snap-key{font-size:14px;color:var(--light);font-weight:600;display:flex;align-items:center;gap:8px}
+.snap-key::before{content:"";width:9px;height:9px;border-radius:3px;flex:none}
+.snap-row.up .snap-key::before{background:#4FC48A;box-shadow:0 0 8px rgba(79,196,138,0.6)}
+.snap-row.flat .snap-key::before{background:#E0BC5C;box-shadow:0 0 8px rgba(224,188,92,0.55)}
+.snap-row.down .snap-key::before{background:#C95A68;box-shadow:0 0 8px rgba(201,90,104,0.55)}
+.snap-track{height:15px;border-radius:999px;background:rgba(0,0,0,0.34);overflow:hidden;
+  box-shadow:inset 0 2px 4px rgba(0,0,0,0.45),inset 0 -1px 0 rgba(255,255,255,0.07)}
+.snap-fill{height:100%;border-radius:999px}
+.snap-fill.up{background:linear-gradient(90deg,#2E8B57,#5FD69A);box-shadow:0 0 14px rgba(79,196,138,0.55)}
+.snap-fill.flat{background:linear-gradient(90deg,#B8860B,#EFCF74);box-shadow:0 0 14px rgba(224,188,92,0.45)}
+.snap-fill.down{background:linear-gradient(90deg,#8E2B38,#D96C7A);box-shadow:0 0 14px rgba(201,90,104,0.45)}
+.snap-val{font-family:'DM Serif Display',serif;font-size:19px;color:var(--light-sub);
+  min-width:96px;text-align:right;font-variant-numeric:tabular-nums}
+.snap-val small{font-family:'Anuphan',sans-serif;font-size:12px;font-weight:600;
+  color:rgba(255,254,248,0.5);margin-left:5px}
+.snap-listhead{font-size:13px;font-weight:700;color:rgba(255,254,248,0.72);
+  border-top:1px solid rgba(212,175,55,0.24);padding-top:20px;margin-bottom:13px}
+.snap-list{display:grid;gap:11px;margin-bottom:20px}
+.snap-item{display:grid;grid-template-columns:20px 34px 64px 1fr auto;align-items:center;gap:10px;
+  font-size:14px;padding:12px 14px;border-radius:13px;
+  background:linear-gradient(180deg,rgba(255,254,248,0.10) 0%,rgba(255,254,248,0.035) 100%);
+  border:1px solid rgba(212,175,55,0.20);border-left:3px solid #4FC48A;
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.28),
+    0 12px 26px -12px rgba(0,0,0,0.60),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+  transition:transform .3s cubic-bezier(.22,.85,.2,1),box-shadow .3s ease,background .3s ease}
+.snap-item:hover{transform:translateY(-3px);
+  background:linear-gradient(180deg,rgba(255,254,248,0.15) 0%,rgba(255,254,248,0.06) 100%);
+  box-shadow:
+    0 3px 6px rgba(0,0,0,0.30),
+    0 20px 38px -14px rgba(0,0,0,0.68),
+    inset 0 1px 0 rgba(255,255,255,0.18)}
+
+.snap-logo{width:34px;height:34px;border-radius:9px;flex:none;position:relative;overflow:hidden;
+  background:rgba(255,254,248,0.10);border:1px solid rgba(212,175,55,0.20);
+  display:flex;align-items:center;justify-content:center}
+.snap-logo img{width:100%;height:100%;padding:4px;object-fit:contain;display:block}
+.snap-logo::before{content:"";font-family:'Cinzel',serif;font-weight:700;
+  color:var(--light-sub);font-size:15px;line-height:1}
+.snap-logo.no-logo::before{content:attr(data-i)}
+@media(max-width:640px){.snap-logo{width:30px;height:30px;border-radius:8px}}
+.snap-rank{font-family:'DM Serif Display',serif;color:var(--gold);font-size:15px}
+.snap-tkr{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.6px;color:var(--light-sub)}
+.snap-co{color:rgba(255,254,248,0.55);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.snap-ret{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap;color:#8DE8B6;
+  background:rgba(79,196,138,0.14);border:1px solid rgba(79,196,138,0.32);
+  border-radius:999px;padding:3px 11px;font-size:13px}
+.snap-note{font-size:12.5px;color:rgba(255,254,248,0.52);line-height:1.65;
+  border-left:2px solid rgba(212,175,55,0.32);padding-left:12px;margin-bottom:22px}
+.snap-note strong{color:rgba(255,254,248,0.78)}
+.snap-cta{position:relative;z-index:1;display:inline-flex;align-items:center;gap:9px;
+  text-decoration:none;background:linear-gradient(135deg,#8B6914,#D4AF37 55%,#F4E4BA);
+  color:#2d1018;font-weight:700;font-size:14.5px;padding:12px 26px;border-radius:999px;
+  box-shadow:0 10px 24px -8px rgba(212,175,55,0.55);
+  transition:transform .25s ease,box-shadow .25s ease}
+.snap-cta:hover{transform:translateY(-2px);box-shadow:0 16px 34px -10px rgba(212,175,55,0.75)}
+.snap-cta svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2.2;
+  stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:640px){
+  .snap-row{grid-template-columns:96px 1fr;row-gap:4px}
+  .snap-val{grid-column:2;text-align:left;min-width:0;font-size:17px}
+  .snap-item{grid-template-columns:20px 30px 58px 1fr;row-gap:4px}
+  .snap-ret{grid-column:3 / -1;justify-self:start;font-size:12.5px}
+  .snap-asof{margin-left:0}
+}
+@media(prefers-reduced-motion:reduce){.snap-eyebrow::before{animation:none}}
+
+.ledger{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.ledger-card{display:flex;flex-direction:column;gap:6px;text-decoration:none;
+  background:var(--cream-card);border:1px solid var(--gold-border);border-radius:14px;
+  padding:20px 22px;box-shadow:0 1px 1px rgba(58,21,32,0.04),0 10px 24px -12px rgba(92,84,74,0.30);
+  transition:transform .28s cubic-bezier(.22,.85,.2,1),box-shadow .28s ease}
+.ledger-card:hover{transform:translateY(-3px);
+  box-shadow:0 2px 4px rgba(58,21,32,0.05),0 20px 38px -16px rgba(92,84,74,0.38)}
+.ledger-eyebrow{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2.2px;
+  text-transform:uppercase;color:var(--gold-deep)}
+.ledger-title{font-weight:700;font-size:16.5px;color:var(--maroon);line-height:1.4}
+.ledger-desc{font-size:13.5px;color:var(--ink-muted);line-height:1.6}
+.ledger-go{margin-top:6px;font-size:13.5px;font-weight:600;color:var(--maroon);
+  display:inline-flex;align-items:center;gap:7px}
+.ledger-go svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.2;
+  stroke-linecap:round;stroke-linejoin:round;transition:transform .28s ease}
+.ledger-card:hover .ledger-go svg{transform:translateX(4px)}
+@media(max-width:700px){.ledger{grid-template-columns:1fr}}
+
 
 /* ============ FOOTER ============ */
 .foot{background:var(--maroon-bg);color:rgba(255,254,248,0.72);padding:clamp(48px,6vw,72px) 0 28px;
@@ -705,6 +827,74 @@ section[id]{scroll-margin-top:90px}
   </div>
 </section>
 
+
+<!-- ===== LIVE SNAPSHOT (ของจริง ไม่ต้องสมัคร) =====
+     อัปเดตตัวเลขจาก pages/scanner-summary.json : as_of · counts · pct · rows[0..4]
+     ครั้งล่าสุด as_of 2026-09-11 (generated 2026-09-14)
+     โลโก้: logos/<TICKER>.png (250x250 PNG โปร่งใส) ถ้าไม่มีไฟล์ การ์ดจะแสดงอักษรย่อแทนเอง -->
+<section class="snap" id="snapshot">
+  <div class="wrap">
+    <div class="snap-panel">
+      <div class="snap-head">
+        <span class="snap-eyebrow">Live Snapshot</span>
+        <span class="snap-asof">ข้อมูล ณ 11 ก.ย. 2026</span>
+      </div>
+      <h2 class="snap-title">สแกน S&amp;P 500 ล่าสุด — ดูได้เลย ไม่ต้องสมัคร</h2>
+      <p class="snap-sub">นี่คือผลจากไฟล์ชุดเดียวกับที่สมาชิกเห็นในแดชบอร์ด ไม่ได้ทำขึ้นใหม่เพื่อหน้านี้</p>
+
+      <div class="snap-bars">
+        <div class="snap-row up">
+          <span class="snap-key">ขาขึ้น</span>
+          <span class="snap-track"><span class="snap-fill up" style="width:32.0%"></span></span>
+          <span class="snap-val">156<small>ตัว · 32.0%</small></span>
+        </div>
+        <div class="snap-row flat">
+          <span class="snap-key">กลางๆ</span>
+          <span class="snap-track"><span class="snap-fill flat" style="width:30.0%"></span></span>
+          <span class="snap-val">146<small>ตัว · 30.0%</small></span>
+        </div>
+        <div class="snap-row down">
+          <span class="snap-key">ขาลง</span>
+          <span class="snap-track"><span class="snap-fill down" style="width:38.0%"></span></span>
+          <span class="snap-val">185<small>ตัว · 38.0%</small></span>
+        </div>
+      </div>
+
+      <div class="snap-listhead">5 อันดับแรกฝั่งขาขึ้น</div>
+      <div class="snap-list">
+        <div class="snap-item"><span class="snap-rank">1</span><span class="snap-logo" data-i="M"><img src="logos/MRNA.png" alt="Moderna" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-tkr">MRNA</span><span class="snap-co">Moderna</span><span class="snap-ret">6 เดือน +169.7%</span></div>
+        <div class="snap-item"><span class="snap-rank">2</span><span class="snap-logo" data-i="D"><img src="logos/DELL.png" alt="Dell Technologies" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-tkr">DELL</span><span class="snap-co">Dell Technologies</span><span class="snap-ret">6 เดือน +278.4%</span></div>
+        <div class="snap-item"><span class="snap-rank">3</span><span class="snap-logo" data-i="V"><img src="logos/VLO.png" alt="Valero Energy" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-tkr">VLO</span><span class="snap-co">Valero Energy</span><span class="snap-ret">6 เดือน +65.6%</span></div>
+        <div class="snap-item"><span class="snap-rank">4</span><span class="snap-logo" data-i="M"><img src="logos/MPC.png" alt="Marathon Petroleum" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-tkr">MPC</span><span class="snap-co">Marathon Petroleum</span><span class="snap-ret">6 เดือน +72.1%</span></div>
+        <div class="snap-item"><span class="snap-rank">5</span><span class="snap-logo" data-i="H"><img src="logos/HPE.png" alt="Hewlett Packard Enterprise" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-tkr">HPE</span><span class="snap-co">Hewlett Packard Enterprise</span><span class="snap-ret">6 เดือน +187.7%</span></div>
+      </div>
+
+      <p class="snap-note">
+        ตัวเลข 6 เดือนคือผลตอบแทนที่ผ่านมาของ<strong>ตัวหุ้นเอง</strong> ไม่ใช่ผลตอบแทนของกลยุทธ์ใดๆ และไม่ใช่คำแนะนำให้ซื้อ ·
+        นับ 487 ตัวจากสมาชิกดัชนี โดยตัดตัวที่ไลน์ข้อมูลหยุดอัปเดตออกแล้ว ·
+        การลงทุนมีความเสี่ยง ผลในอดีตไม่รับประกันผลในอนาคต
+      </p>
+
+      <a class="snap-cta" href="https://app.jptrustlearning.com/new">ดูตารางเต็มทั้ง 487 ตัว<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <div class="ledger">
+      <a class="ledger-card" href="negative-results.html">
+        <span class="ledger-eyebrow">Open Ledger</span>
+        <span class="ledger-title">สิ่งที่เราทดสอบแล้วไม่ผ่าน</span>
+        <span class="ledger-desc">งานวิจัยที่ล้มเหลว 17 รายการ เปิดทั้งหมดพร้อมหลักฐาน และเงื่อนไขที่จะกลับไปทดสอบใหม่</span>
+        <span class="ledger-go">อ่านบัญชีผลลบ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="ledger-card" href="corrections.html">
+        <span class="ledger-eyebrow">Open Ledger</span>
+        <span class="ledger-title">บันทึกการแก้ตัวเลขของเรา</span>
+        <span class="ledger-desc">ตัวเลขเดิม สิ่งที่ตรวจเจอ และตัวเลขที่ใช้แทน รวมครั้งที่เราหักตัวเลขตัวเองลงครึ่งหนึ่ง</span>
+        <span class="ledger-go">อ่านบันทึกการแก้ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ===== TABS : เกี่ยวกับเรา / แพคเกจ / หมวดหมู่ความรู้ ===== -->
 <section class="tabs-section" id="collection">
   <div class="wrap">
@@ -889,25 +1079,25 @@ section[id]{scroll-margin-top:90px}
 <section class="stats">
   <div class="wrap">
     <div class="stats-panel">
+      <a class="stat-item" href="#collection">
+        <span class="stat-ico"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2z"/><path d="M19 19H6"/><path d="M9 7h6M9 11h6"/></svg></span>
+        <span class="stat-num"><span class="cnum" data-to="36">0</span><small> รายการ</small></span>
+        <span class="stat-lbl">บทความและเครื่องมือ<br>เปิดอ่านฟรี — คลิกนับได้</span>
+      </a>
+      <a class="stat-item" href="#snapshot">
+        <span class="stat-ico"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="M8 15l3-4 3 2 4-6"/></svg></span>
+        <span class="stat-num"><span class="cnum" data-to="487">0</span><small> ตัว</small></span>
+        <span class="stat-lbl">สแกนหุ้น S&amp;P 500<br>ทุกสัปดาห์ — ดูผลล่าสุดได้</span>
+      </a>
+      <div class="stat-item">
+        <span class="stat-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <span class="stat-num"><span class="cnum" data-to="22">0</span><small> ปี</small></span>
+        <span class="stat-lbl">ข้อมูลทองรายชั่วโมง<br>2004–2026 ที่ใช้ทดสอบจริง</span>
+      </div>
       <div class="stat-item">
         <span class="stat-ico"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/><path d="M9 13h6M9 17h6"/></svg></span>
-        <span class="stat-num"><span class="cnum" data-to="30">0</span><small>+ ปี</small></span>
-        <span class="stat-lbl">ข้อมูลย้อนหลัง</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-ico"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="M8 15l3-4 3 2 4-6"/></svg></span>
-        <span class="stat-num"><span class="cnum" data-to="100">0</span><small>+</small></span>
-        <span class="stat-lbl">กลยุทธ์ &amp; งานวิจัย</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
-        <span class="stat-num" style="font-size:clamp(20px,3vw,28px)">ระบบ</span>
-        <span class="stat-lbl">บริหารความเสี่ยง</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3.2-6.5 7-6.5"/><path d="M19 8v6M16 11h6"/></svg></span>
-        <span class="stat-num" style="font-size:clamp(20px,3vw,28px)">สำหรับ</span>
-        <span class="stat-lbl">นักลงทุนทุกระดับ</span>
+        <span class="stat-num"><span class="cnum" data-to="30">0</span><small> ปี</small></span>
+        <span class="stat-lbl">ข้อมูลหุ้นสหรัฐฯ 1996–2026<br>รวมหุ้นที่ออกจากดัชนีแล้ว</span>
       </div>
     </div>
   </div>
@@ -932,6 +1122,8 @@ section[id]{scroll-margin-top:90px}
         <a href="lib-analysis.html">บทวิเคราะห์</a>
         <a href="lib-dashboard.html">Dashboard</a>
         <a href="lib-method.html">ข้อมูล &amp; ระเบียบวิธี</a>
+          <a href="negative-results.html">ผลลบ</a>
+          <a href="corrections.html">บันทึกการแก้ตัวเลข</a>
       </div>
       <div class="foot-col">
         <h4>Support</h4>
