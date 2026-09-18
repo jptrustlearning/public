@@ -291,6 +291,41 @@ section[id]{scroll-margin-top:90px}
 .quad.cream .q-label{color:var(--ink-sub)}
 .quad.cream .q-icon,.quad.cream .q-arrow{stroke:var(--maroon)}
 .quad.cream:hover{background:linear-gradient(160deg,#FFFEF8,#EDE1C8)}
+/* ---- กล่องทางลัดพลิกได้ (A88) — เอาเมาส์ชี้กล่องไหน กล่องนั้นพลิกโชว์ด้านหลัง ----
+   โครง: a.quad.flip (ตัวรับ hover + perspective · ไม่หมุน จึงไม่หลุด hover กลางทาง) > .q-inner (หมุน) > .q-front / .q-back
+   พื้นของ a เป็นร่องเข้ม — การ์ดคือสิ่งที่พลิก เห็นร่องด้านหลังช่วงสั้นๆ กลางทาง
+   เปิดเฉพาะอุปกรณ์ที่มีเมาส์ + ไม่ได้ขอลดการเคลื่อนไหว · จอสัมผัส = ด้านหน้าเหมือนเดิมทุกอย่าง
+   ⚠️ ด้านหลังของ Membership อ้างราคา ฿150 / ฿1,400 (ตรงกับแท็บแพคเกจ) — เปลี่ยนราคาเมื่อไหร่ต้องแก้ที่ markup ของกล่องนี้ด้วย */
+.quad.flip{background:#12060a;padding:0;perspective:900px}
+.quad-square .quad.flip:hover{filter:none;background:#12060a}
+.quad.flip .q-inner{position:absolute;inset:0;display:block;transform-style:preserve-3d;
+  transition:transform .7s cubic-bezier(.3,.75,.2,1)}
+.quad.flip .q-face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
+  padding:clamp(14px,2.6vw,26px);text-align:center;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.quad.flip .q-back{transform:rotateY(180deg)}
+.quad.maroon.flip .q-front{background:var(--maroon-bg)}
+.quad.gold.flip .q-front{background:linear-gradient(135deg,#D4AF37 0%,#E8C766 45%,#B8860B 100%)}
+.quad.cream.flip .q-front{background:linear-gradient(160deg,#FFFEF8,#F5EFE0)}
+.quad.flip .q-desc{font-weight:500;font-size:clamp(12.5px,1.9vw,15.5px);line-height:1.5}
+.quad.flip .q-go{display:inline-flex;align-items:center;gap:7px;margin-top:4px;padding:7px 15px;border-radius:100px;
+  font-weight:600;font-size:clamp(11.5px,1.6vw,13px);border:1px solid currentColor}
+.quad.flip .q-go .q-goarrow{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+.quad.flip .q-back.bk-cream{background:linear-gradient(160deg,#FFFEF8,#F1E8D2)}
+.quad.flip .q-back.bk-cream .q-eyebrow{color:var(--gold-deep)}
+.quad.flip .q-back.bk-cream .q-desc{color:#3a1520}
+.quad.flip .q-back.bk-cream .q-go{color:var(--maroon)}
+.quad.flip .q-back.bk-maroon{background:var(--maroon-bg)}
+.quad.flip .q-back.bk-maroon .q-eyebrow{color:var(--gold)}
+.quad.flip .q-back.bk-maroon .q-desc{color:var(--gold-light)}
+.quad.flip .q-back.bk-maroon .q-go{color:var(--gold)}
+.quad.flip .q-back.bk-gold{background:linear-gradient(135deg,#D4AF37 0%,#E8C766 45%,#B8860B 100%)}
+.quad.flip .q-back.bk-gold .q-eyebrow{color:#6B3410}
+.quad.flip .q-back.bk-gold .q-desc{color:#1a0a0e}
+.quad.flip .q-back.bk-gold .q-go{color:#1a0a0e}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .quad.flip:hover .q-inner,.quad.flip:focus-visible .q-inner{transform:rotateY(180deg)}
+}
+
 /* center owl medallion at the cross intersection */
 .quad-medal{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:6;pointer-events:none;
@@ -1344,29 +1379,65 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
   <div class="wrap">
     <div class="quad-wrap">
       <div class="quad-square">
-        <a class="quad maroon" href="https://app.jptrustlearning.com/whyjptrustlearning">
+        <a class="quad flip maroon" href="https://app.jptrustlearning.com/whyjptrustlearning">
+          <span class="q-inner">
+            <span class="q-face q-front">
           <svg class="q-icon" viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
           <span class="q-eyebrow">Why Us</span>
           <span class="q-label">ทำไมต้อง<br>JP Trust</span>
           <svg class="q-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+            <span class="q-face q-back bk-cream" aria-hidden="true">
+              <span class="q-eyebrow">Why Us</span>
+              <span class="q-desc">กลยุทธ์และงานวิจัย<br>ทดสอบย้อนหลังกว่า 30 ปี</span>
+              <span class="q-go">ดูเหตุผล <svg class="q-goarrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </span>
         </a>
-        <a class="quad gold" href="https://app.jptrustlearning.com/new">
+        <a class="quad flip gold" href="https://app.jptrustlearning.com/new">
+          <span class="q-inner">
+            <span class="q-face q-front">
           <svg class="q-icon" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3.2-6.5 7-6.5"/><path d="M19 8v6M16 11h6"/></svg>
           <span class="q-eyebrow">Membership</span>
           <span class="q-label">สมัครสมาชิก</span>
           <svg class="q-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+            <span class="q-face q-back bk-maroon" aria-hidden="true">
+              <span class="q-eyebrow">Membership</span>
+              <span class="q-desc">฿150 ต่อเดือน<br>หรือ ฿1,400 ต่อปี</span>
+              <span class="q-go">สมัครเลย <svg class="q-goarrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </span>
         </a>
-        <a class="quad cream" href="#collection">
+        <a class="quad flip cream" href="#collection">
+          <span class="q-inner">
+            <span class="q-face q-front">
           <svg class="q-icon" viewBox="0 0 24 24"><path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2z"/><path d="M19 19H6"/><path d="M9 7h6M9 11h6"/></svg>
           <span class="q-eyebrow">Library</span>
           <span class="q-label">ห้องสมุด</span>
           <svg class="q-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+            <span class="q-face q-back bk-maroon" aria-hidden="true">
+              <span class="q-eyebrow">Library</span>
+              <span class="q-desc">บทความและงานวิจัย<br>เปิดอ่านฟรี</span>
+              <span class="q-go">เข้าห้องสมุด <svg class="q-goarrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </span>
         </a>
-        <a class="quad maroon" href="#" id="contactDoor">
+        <a class="quad flip maroon" href="#" id="contactDoor">
+          <span class="q-inner">
+            <span class="q-face q-front">
           <svg class="q-icon" viewBox="0 0 24 24"><path d="M4 5h16v12H7l-3 3z"/><path d="M8 10h8M8 13h5"/></svg>
           <span class="q-eyebrow">Contact</span>
           <span class="q-label">ติดต่อเรา</span>
           <svg class="q-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+            <span class="q-face q-back bk-gold" aria-hidden="true">
+              <span class="q-eyebrow">Contact</span>
+              <span class="q-desc">LINE @jptrust<br>และอีเมล</span>
+              <span class="q-go">ติดต่อเรา <svg class="q-goarrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </span>
         </a>
       </div>
       <div class="quad-medal">
