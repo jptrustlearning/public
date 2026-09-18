@@ -157,6 +157,20 @@ img{max-width:100%;display:block}
   .nav-cta{display:none}
   .nav-burger{display:flex}
 }
+/* เมนูบนมี 6 รายการแล้ว (เพิ่ม Tool & Kit) — พื้นที่เนื้อหาของ nav กว้างสุดแค่ 1120px
+   ค่าเดิม (5 รายการ) ล้นขอบขวาทุกขนาดจอเมื่อเพิ่มรายการที่ 6 จึงบีบระยะลงเล็กน้อย และบีบเพิ่มในช่วงจอ 1081–1199px */
+@media(min-width:1081px){
+  .nav-inner{gap:clamp(12px,1.5vw,20px)}
+  .nav-links{gap:clamp(8px,1.1vw,16px);margin-left:clamp(4px,.8vw,10px)}
+  .nl>a{font-size:14.5px}
+}
+@media(min-width:1081px) and (max-width:1199px){
+  .nl>a{font-size:14px;padding:9px 3px}
+  .nav-cta{padding:9px 13px;font-size:13px}
+  .nav-signup{padding:10px 15px;font-size:13px}
+  .brand-name{font-size:16px;letter-spacing:.6px}
+  .brand-sub{letter-spacing:1.8px}
+}
 section[id]{scroll-margin-top:90px}
 
 /* ============ HERO ============ */
@@ -836,6 +850,7 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
         </div>
       </div>
       <div class="nl"><a href="lib-dashboard.html">Dashboard</a></div>
+      <div class="nl"><a href="https://app.jptrustlearning.com/jptrust-toolkit" target="_blank" rel="noopener">Tool &amp; Kit</a></div>
       <div class="nl"><a href="#pricing">แพ็กเกจสมาชิก</a></div>
       <div class="nl"><a href="#" id="menuContactTop">ติดต่อเรา</a></div>
     </nav>
@@ -859,6 +874,7 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
     <a href="lib-macro.html"><span>Macro &amp; ความเสี่ยง</span><span class="k">Macro</span></a>
     <a href="lib-method.html"><span>ข้อมูล &amp; ระเบียบวิธี</span><span class="k">Method</span></a>
     <a href="lib-dashboard.html"><span>Dashboard</span><span class="k">Dashboard</span></a>
+    <a href="https://app.jptrustlearning.com/jptrust-toolkit" target="_blank" rel="noopener"><span>Tool &amp; Kit</span><span class="k">Tools</span></a>
     <a href="#collection"><span>ห้องสมุด</span><span class="k">Library</span></a>
     <a href="#" id="menuContact"><span>ติดต่อเรา</span><span class="k">Contact</span></a>
     <a href="https://app.jptrustlearning.com"><span>เข้าระบบสมาชิก</span><span class="k">Login</span></a>
