@@ -224,6 +224,21 @@ section[id]{scroll-margin-top:90px}
   font-weight:700;font-size:clamp(15px,1.8vw,16px);letter-spacing:.2px;
   box-shadow:0 16px 34px rgba(0,0,0,0.46),0 4px 12px rgba(212,175,55,0.26),inset 0 1px 0 rgba(255,255,255,0.55);
   transition:transform .22s ease,box-shadow .22s ease;animation:riseIn .8s ease .38s both}
+/* แสงกะพริบดึงสายตาที่ปุ่ม "เริ่มต้นใช้งาน" (ชุดเดียวกับป้าย "ประหยัดกว่า" · A86/A87) — 3 ชิ้น:
+   (1) วงแหวนทองแผ่ออก = box-shadow ของ ::before (z-index:-1 ใต้ปุ่ม) → ไม่ไปทับ box-shadow 3 ชั้น + hover ของตัวปุ่ม
+   (2) แถบแสงวิ่งพาด = ชั้น background เพิ่ม แล้ว animate background-position → ถูกตัดตามมุมโค้งเอง ไม่ต้อง overflow:hidden (ซึ่งจะตัดวงแหวนทิ้ง)
+   (3) สว่างวาบ = filter:brightness
+   ⚠️ animation ต้องเขียนรวมในบรรทัดเดียวกับ riseIn — ประกาศแยกจะทับ riseIn ทิ้ง
+   riseIn เปลี่ยน fill จาก both → backwards: ของเดิมค้าง transform:translateY(0) ไว้หลังเล่นจบ ทำให้ hover ยกปุ่ม (-2px) ไม่ทำงานมาตลอด */
+.hero-cta{position:relative;isolation:isolate;
+  background:linear-gradient(100deg,transparent 42%,rgba(255,255,255,0.85) 50%,transparent 58%) no-repeat 160% 0/260% 100%,
+             linear-gradient(135deg,#F0D68C 0%,#D4AF37 46%,#B8860B 100%);
+  animation:riseIn .8s ease .38s backwards,ctaFlash 2.1s ease-out 1.5s infinite,ctaShine 3.15s ease-in-out 1.5s infinite}
+.hero-cta::before{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;pointer-events:none;
+  animation:ctaRing 2.1s ease-out 1.5s infinite}
+@keyframes ctaRing{0%{box-shadow:0 0 0 0 rgba(244,214,125,0.78)}70%{box-shadow:0 0 0 15px rgba(244,214,125,0)}100%{box-shadow:0 0 0 0 rgba(244,214,125,0)}}
+@keyframes ctaFlash{0%,45%,100%{filter:brightness(1)}14%{filter:brightness(1.16)}}
+@keyframes ctaShine{0%,50%{background-position:160% 0,0 0}100%{background-position:-60% 0,0 0}}
 .hero-cta:hover{transform:translateY(-2px);box-shadow:0 22px 42px rgba(0,0,0,0.5),0 6px 16px rgba(212,175,55,0.32),inset 0 1px 0 rgba(255,255,255,0.6)}
 .hero-cta svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s ease}
 .hero-cta:hover svg{transform:translateX(4px)}
