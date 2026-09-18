@@ -627,6 +627,11 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
   border-top:1px solid rgba(212,175,55,0.24);padding-top:20px;margin-bottom:4px}
 .snap-radarwrap{display:block;margin:0 auto}
 .snap-radar{width:100%;height:auto;display:block;overflow:visible}
+/* แอนิเมชันเรดาร์: JS กางรูปตามเข็มนาฬิกา (ดู "สแกนล่าสุด: เรดาร์") · จบแล้วใส่ .live ให้พื้นที่สีเขียวหายใจเบาๆ
+   prefers-reduced-motion: กฎ global *{animation:none} คุมอยู่แล้ว และ JS ไม่เล่นเลย */
+.snap-radar.live polygon[stroke="#8DE8B6"]{animation:rdBreath 3.4s ease-in-out infinite}
+@keyframes rdBreath{0%,100%{fill-opacity:1}50%{fill-opacity:.55}}
+.snap-radar .rd-sweep{pointer-events:none}
 .snap-radar .rd-lb{font-family:'Anuphan',sans-serif;font-size:12px;fill:rgba(255,254,248,0.72)}
 .snap-radar .rd-ax{font-family:'Anuphan',sans-serif;font-size:9.5px;fill:rgba(255,254,248,0.34);font-variant-numeric:tabular-nums}
 .snap-radar .rd-vl{font-family:'Anuphan',sans-serif;font-size:11px;font-weight:700;fill:#8DE8B6;
@@ -1533,6 +1538,76 @@ function cardHTML(c, i){
 }
 document.getElementById('shelfGrid').innerHTML = CATS.map(cardHTML).join('');
 
+/* ---------- สแกนล่าสุด: เรดาร์กางตามเข็มนาฬิกา ----------
+   อ่านค่าปลายทางจาก SVG ที่ฝังอยู่ (ไม่มีตัวเลขซ้ำใน JS) → regen เรดาร์ครั้งหน้าไม่ต้องแตะโค้ดนี้
+   ตราบใดที่ยังใช้สี #8DE8B6 กับรูปหลายเหลี่ยม/จุดข้อมูล และคลาส .rd-lb/.rd-vl เรียงตามแกนเหมือนเดิม
+   ถ้าหา element ไม่เจอ หรือผู้ใช้ตั้งลดการเคลื่อนไหว = ไม่ทำอะไรเลย เรดาร์แสดงเป็นภาพนิ่งตามเดิม */
+(function(){
+  var svg=document.querySelector('.snap-radar'); if(!svg) return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var poly=svg.querySelector('polygon[stroke="#8DE8B6"]'), avg=svg.querySelector('polygon[stroke-dasharray]');
+  var dots=[].slice.call(svg.querySelectorAll('circle[fill="#8DE8B6"]'));
+  var vals=[].slice.call(svg.querySelectorAll('.rd-vl')), labs=[].slice.call(svg.querySelectorAll('.rd-lb'));
+  var ax=svg.querySelector('line');
+  if(!poly||!ax||!dots.length) return;
+  var CX=+ax.getAttribute('x1'), CY=+ax.getAttribute('y1'), R=CY-(+ax.getAttribute('y2'));
+  var P0=poly.getAttribute('points'), P=P0.trim().split(/\s+/).map(function(q){return q.split(',').map(Number);});
+  var N=P.length; if(dots.length!==N) return;
+  var R0=dots.map(function(d){return +d.getAttribute('r');});
+  var V=vals.map(function(t){return parseFloat(t.textContent)||0;}), VT=vals.map(function(t){return t.textContent;});
+  var SWEEP=1500, GROW=700, raf=0, armed=false, playing=false;
+
+  /* เส้นกวาด: สร้างครั้งเดียว วางใต้รูปข้อมูล */
+  var NS='http://www.w3.org/2000/svg', g=document.createElementNS(NS,'g'); g.setAttribute('class','rd-sweep'); g.style.opacity=0;
+  [[7,.13],[1.6,.8]].forEach(function(w){var l=document.createElementNS(NS,'line');
+    l.setAttribute('x1',CX);l.setAttribute('y1',CY);l.setAttribute('x2',CX);l.setAttribute('y2',CY-R);
+    l.setAttribute('stroke','#8DE8B6');l.setAttribute('stroke-width',w[0]);l.setAttribute('stroke-opacity',w[1]);l.setAttribute('stroke-linecap','round');g.appendChild(l);});
+  svg.insertBefore(g,poly);
+
+  var back=function(t){var c=1.55;t=t-1;return 1+(c+1)*t*t*t+c*t*t;};            // easeOutBack — เด้งเกินนิดเดียวแล้วกลับ
+  var clamp=function(x){return x<0?0:x>1?1:x;};
+  function frame(k){                                                                  // k = เวลาที่ผ่านไป (ms) · k<0 = สถานะว่างก่อนเริ่ม
+    var pts=[];
+    for(var i=0;i<N;i++){
+      var u=clamp((k-SWEEP*i/N)/GROW), e=u<=0?0:back(u), lin=clamp(u*1.6);
+      var x=CX+(P[i][0]-CX)*e, y=CY+(P[i][1]-CY)*e; pts.push(x.toFixed(1)+','+y.toFixed(1));
+      dots[i].setAttribute('cx',x.toFixed(1)); dots[i].setAttribute('cy',y.toFixed(1)); dots[i].setAttribute('r',(R0[i]*clamp(u*2)).toFixed(2));
+      if(vals[i]){vals[i].textContent=Math.round(V[i]*clamp(u))+'%'; vals[i].style.opacity=lin;}
+      if(labs[i]) labs[i].style.opacity=lin;
+    }
+    poly.setAttribute('points',pts.join(' '));
+    if(avg){var a=clamp(k/650), s=a<=0?0:1-Math.pow(1-a,3);
+      avg.setAttribute('transform','translate('+CX+' '+CY+') scale('+s.toFixed(3)+') translate('+(-CX)+' '+(-CY)+')'); avg.style.opacity=a;}
+    g.setAttribute('transform','rotate('+(360*clamp(k/SWEEP)).toFixed(1)+' '+CX+' '+CY+')');
+    g.style.opacity=k<=0?0:(k<SWEEP?1:clamp(1-(k-SWEEP)/350));
+  }
+  function settle(){                                                                  // คืนค่าต้นฉบับเป๊ะ ไม่ให้เหลือเศษจากการปัดทศนิยม
+    poly.setAttribute('points',P0);
+    dots.forEach(function(d,i){d.setAttribute('cx',P[i][0]);d.setAttribute('cy',P[i][1]);d.setAttribute('r',R0[i]);});
+    vals.forEach(function(t,i){t.textContent=VT[i];t.style.opacity='';}); labs.forEach(function(t){t.style.opacity='';});
+    if(avg){avg.removeAttribute('transform');avg.style.opacity='';}
+    g.style.opacity=0; svg.classList.add('live'); playing=false;
+  }
+  function play(){
+    if(playing) return; playing=true; armed=false; svg.classList.remove('live');
+    var t0=null, END=SWEEP+GROW+120;
+    cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(function step(ts){ if(t0===null) t0=ts; var k=ts-t0;
+      if(k>=END){settle();return;} frame(k); raf=requestAnimationFrame(step); });
+  }
+  var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting&&armed) play(); });
+  },{threshold:.25}):null;
+  if(io) io.observe(svg);
+  /* เรียกทุกครั้งที่เปิดแท็บ "สแกนล่าสุด": เคลียร์เป็นสถานะว่าง แล้วรอจนเรดาร์เลื่อนเข้าจอจริงค่อยเล่น (เรดาร์อยู่ใต้ตาราง 10 แถว) */
+  window.__radarArm=function(){
+    if(playing) return;
+    svg.classList.remove('live'); frame(-1); armed=true;
+    if(!io){play();return;}
+    io.unobserve(svg); io.observe(svg);                       // บังคับให้ IO รายงานสถานะปัจจุบันอีกรอบ (กรณีอยู่ในจออยู่แล้ว)
+  };
+})();
+
 /* ---------- tabs: เกี่ยวกับเรา / แพคเกจ / หมวดหมู่ความรู้ ---------- */
 (function(){
   var sec=document.getElementById('collection');
@@ -1542,6 +1617,7 @@ document.getElementById('shelfGrid').innerHTML = CATS.map(cardHTML).join('');
     tabs.forEach(function(t){var on=t.dataset.tab===name;t.classList.toggle('active',on);t.setAttribute('aria-selected',on?'true':'false');});
     panels.forEach(function(p){p.classList.toggle('active',p.id==='panel-'+name);});
     if(name==='about'){drawAboutChart(true);typeAboutTitle(true);}
+    if(name==='snapshot'&&window.__radarArm){window.__radarArm();}
   }
   /* หัวข้อการ์ดเกี่ยวกับเรา: พิมพ์ดีดทีละตัว */
   var twTitle=document.querySelector('.about-title');
