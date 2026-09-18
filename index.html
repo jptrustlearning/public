@@ -1643,7 +1643,7 @@ document.getElementById('shelfGrid').innerHTML = CATS.map(cardHTML).join('');
     setTimeout(function(){cur.classList.remove('out');},900);
     i=(i+1)%ph.length;
     ph[i].classList.add('on');
-  },4600);
+  },3600);   /* รอบละ 3.6 วิ (เดิม 4.6 · จูนสั่งเร่ง 2 step · 1 step = 0.5 วิ) — ห้ามต่ำกว่า ~3.0 วิ: goldSweep ของคำล่างจบที่ 2.6 วิหลังเข้า */
 })();
 
 /* ---------- nav burger menu ---------- */
