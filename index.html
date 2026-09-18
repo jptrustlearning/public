@@ -469,6 +469,20 @@ section[id]{scroll-margin-top:90px}
 .plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);white-space:nowrap;
   font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;
   padding:6px 15px;border-radius:100px;background:linear-gradient(135deg,#E6C769,#D4AF37);color:#3a1520;box-shadow:0 6px 14px rgba(212,175,55,0.3)}
+/* แสงกะพริบดึงสายตาที่ป้าย "ประหยัดกว่า" — 2 ชั้น: (1) รัศมีทองแผ่ออกแล้วจางเป็นจังหวะ + สว่างวาบ (2) แถบแสงขาววิ่งพาดป้าย
+   ⚠️ ป้ายจัดกลางด้วย transform:translateX(-50%) — ห้ามใส่ transform ใน keyframes ของตัวป้าย ไม่งั้นป้ายจะกระโดดออกจากกลาง
+   prefers-reduced-motion: กฎ global *{animation:none!important} คุมอยู่แล้ว */
+.plan-badge{overflow:hidden;animation:badgeBeacon 1.9s ease-out infinite}
+.plan-badge::after{content:"";position:absolute;top:0;bottom:0;left:0;width:46%;pointer-events:none;
+  background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,0.9) 50%,transparent 100%);
+  transform:translateX(-130%) skewX(-18deg);animation:badgeShine 2.85s ease-in-out infinite}
+@keyframes badgeBeacon{
+  0%{box-shadow:0 6px 14px rgba(212,175,55,0.30),0 0 0 0 rgba(244,214,125,0.80);filter:brightness(1)}
+  16%{filter:brightness(1.22)}
+  70%{box-shadow:0 6px 18px rgba(212,175,55,0.48),0 0 0 12px rgba(244,214,125,0);filter:brightness(1)}
+  100%{box-shadow:0 6px 14px rgba(212,175,55,0.30),0 0 0 0 rgba(244,214,125,0);filter:brightness(1)}
+}
+@keyframes badgeShine{0%,52%{transform:translateX(-130%) skewX(-18deg)}100%{transform:translateX(340%) skewX(-18deg)}}
 .plan-cta.gold{background:linear-gradient(135deg,#E6C769,#D4AF37);color:#3a1520;box-shadow:0 8px 18px rgba(212,175,55,0.3)}
 /* --- included-benefits tray (shared by both plans) --- */
 .plan-incl{max-width:686px;margin:0 auto clamp(22px,3vw,30px);padding:clamp(18px,2.6vw,24px) clamp(16px,2.4vw,26px);
@@ -787,7 +801,8 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
   .hero h1 .h1-bot{font-size:28px}
 }
 @media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  /* ต้องระบุ ::before/::after ด้วย — ตัวเลือก * ไม่ครอบ pseudo-element (เดิมแอนิเมชันบน ::before/::after หลุดกฎนี้) */
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
 :focus-visible{outline:2.5px solid var(--gold);outline-offset:3px;border-radius:6px}
 
