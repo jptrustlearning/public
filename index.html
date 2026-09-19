@@ -1206,6 +1206,73 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 .foot{background:linear-gradient(180deg,var(--g-d3) 0%,var(--g-d2) 40%,var(--g-d1) 100%)}
 @media(max-width:700px){.tabs-section::after{height:120px}.stats::after{height:100px}}
 
+
+/* ===== A112 Sector Scanner → โทนกระดาษครีมเดียวกับบล็อก statement (จูน: "ตรง search ให้เป็นสีนี้ จะได้ดูไม่เหมือน AI") =====
+   override ท้ายไฟล์ · โครง/ขนาด/พฤติกรรมเดิมทั้งหมด เปลี่ยนเฉพาะสี · ถอดคืนได้ทั้งบล็อก
+   พาเลต: การ์ด #FFFEF8 · พื้นรอง #FAF6ED · เส้น rgba(61,50,40,.14) · หมึก #3D3228 · จาง #7A6F62 · ทองเข้ม #8B6914
+   quadrant ใช้ชุด sector-rotation.html #2E7D4F / #2C6E9E / #B07A00 / #A83232 (ไม่ใช่ชุดนีออนบนพื้นดำ) */
+.scn{--s-card:#FFFEF8;--s-bg:#FAF6ED;--s-line:rgba(61,50,40,.14);--s-line2:rgba(61,50,40,.22);--s-ink:#3D3228;--s-ink2:#5A3D20;--s-mute:#7A6F62;--s-soft:#9A8F82;
+     --s-gold:#8B6914;--s-goldb:#B8860B;--q-lead:#2E7D4F;--q-improv:#2C6E9E;--q-weak:#B07A00;--q-lag:#A83232}
+.scn-box{background:rgba(255,254,248,.965);-webkit-backdrop-filter:none;backdrop-filter:none;border:1px solid rgba(61,50,40,.18);
+  box-shadow:0 26px 60px rgba(26,10,14,.42)}
+.scn-top{border-bottom:1px solid var(--s-line);background:transparent}
+.scn-brand{color:var(--s-gold)}
+.scn-live{background:var(--q-lead);box-shadow:0 0 0 3px rgba(46,125,79,.16)}
+.scn-t em,.scn-asof,.scn-hint,.scn-idle s,.scn-pfoot span,.scn-dfoot span,.scn-empty p,.scn-grp,.scn-dtk s,.scn-ghead p,.scn-more{color:var(--s-mute)}
+.scn-sep{background:var(--s-line2)}
+.scn .up{color:var(--q-lead)}.scn .dn{color:var(--q-lag)}.scn .fl{color:var(--s-mute)}.scn .hot{color:var(--s-gold)}
+/* ช่องค้นหา: จากแถบเทาฝ้า → ช่องกระดาษ */
+.scn-inrow{background:var(--s-bg);border:1px solid var(--s-line2);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+.scn-inrow:focus-within{background:var(--s-card);border-color:var(--s-goldb);box-shadow:0 0 0 3px rgba(212,175,55,.16)}
+.scn-mag{stroke:var(--s-gold)}.scn-inrow:focus-within .scn-mag{stroke:var(--s-goldb)}
+.scn input{color:var(--s-ink)}.scn input::placeholder{color:var(--s-soft)}
+.scn-clear{border-color:var(--s-line2);color:var(--s-mute)}
+.scn-pick{border:1px solid var(--s-line2);background:var(--s-card);color:var(--s-ink)}
+.scn-pick:hover{border-color:var(--s-goldb);color:var(--s-ink2)}
+.scn-f{border:1px solid var(--s-line2);background:var(--s-card);color:var(--s-ink)}
+.scn-f b{color:var(--s-mute)}
+.scn-f.q-lead i,.scn-ld i.q-lead{background:var(--q-lead)}
+.scn-f.q-improv i,.scn-ld i.q-improv{background:var(--q-improv)}
+.scn-f.q-weak i,.scn-ld i.q-weak{background:var(--q-weak)}
+.scn-f.q-lag i,.scn-ld i.q-lag{background:var(--q-lag)}
+.scn-f.on.q-lead{color:var(--q-lead);background:rgba(46,125,79,.10);border-color:rgba(46,125,79,.45)}
+.scn-f.on.q-improv{color:var(--q-improv);background:rgba(44,110,158,.10);border-color:rgba(44,110,158,.45)}
+.scn-f.on.q-weak{color:var(--q-weak);background:rgba(176,122,0,.10);border-color:rgba(176,122,0,.45)}
+.scn-f.on.q-lag{color:var(--q-lag);background:rgba(168,50,50,.10);border-color:rgba(168,50,50,.45)}
+.scn-idle{border-top:1px solid var(--s-line);background:var(--s-bg)}
+.scn-idle em,.scn-stats em,.scn-etfs em,.scn-peers em,.scn-dstats em,.scn-thead span{color:var(--s-gold)}
+.scn-ld{color:var(--s-ink)}
+/* แผงผลลัพธ์ */
+.scn-panel{background:rgba(255,254,248,.975);-webkit-backdrop-filter:none;backdrop-filter:none;border:1px solid rgba(61,50,40,.18);box-shadow:0 26px 60px rgba(26,10,14,.42)}
+.scn-thead{border-bottom:1px solid var(--s-line)}
+.scn-row{border-bottom:1px solid rgba(61,50,40,.08)}
+.scn-row:hover,.scn-row.on{background:rgba(212,175,55,.09)}
+.scn-tk,.scn-dtk,.scn-empty b,.scn-ghead h4,.scn-stats b.pl,.scn-peer b{color:var(--s-ink)}
+.scn-spark.up{stroke:var(--q-lead)}.scn-spark.dn{stroke:var(--q-lag)}.scn-spark.fl{stroke:var(--s-soft)}
+.scn-pill.q-lead{color:var(--q-lead);background:rgba(46,125,79,.10);border-color:rgba(46,125,79,.45)}
+.scn-pill.q-improv{color:var(--q-improv);background:rgba(44,110,158,.10);border-color:rgba(44,110,158,.45)}
+.scn-pill.q-weak{color:var(--q-weak);background:rgba(176,122,0,.10);border-color:rgba(176,122,0,.45)}
+.scn-pill.q-lag{color:var(--q-lag);background:rgba(168,50,50,.10);border-color:rgba(168,50,50,.45)}
+.scn-chev{stroke:var(--s-goldb)}
+.scn-pfoot a,.scn-dfoot a{color:var(--maroon)}
+.scn-logo{background:var(--s-bg);border-color:var(--s-line)}.scn-logo i{color:var(--s-gold)}
+.scn-dhead{border-bottom:1px solid var(--s-line)}
+.scn-back{border-color:var(--s-line2);color:var(--s-mute)}
+.scn-gcard{background:var(--s-bg);border-color:var(--s-line)}
+.scn-rrgwrap span{color:var(--s-soft)}
+.scn-rrg .qa{fill:rgba(44,110,158,.07)}.scn-rrg .qb{fill:rgba(46,125,79,.08)}.scn-rrg .qc{fill:rgba(168,50,50,.06)}.scn-rrg .qd{fill:rgba(176,122,0,.07)}
+.scn-rrg .fr{stroke:rgba(61,50,40,.20)}.scn-rrg .ax{stroke:rgba(61,50,40,.28)}
+.scn-rrg.q-lead .tl,.scn-rrg.q-lead .hd2{stroke:var(--q-lead)}.scn-rrg.q-lead .hd{fill:var(--q-lead)}
+.scn-rrg.q-improv .tl,.scn-rrg.q-improv .hd2{stroke:var(--q-improv)}.scn-rrg.q-improv .hd{fill:var(--q-improv)}
+.scn-rrg.q-weak .tl,.scn-rrg.q-weak .hd2{stroke:var(--q-weak)}.scn-rrg.q-weak .hd{fill:var(--q-weak)}
+.scn-rrg.q-lag .tl,.scn-rrg.q-lag .hd2{stroke:var(--q-lag)}.scn-rrg.q-lag .hd{fill:var(--q-lag)}
+.scn-stats{border-top:1px solid var(--s-line);border-bottom:1px solid var(--s-line)}
+.scn-bar{background:#EDE4D0}.scn-bar i.lead{background:var(--q-lead)}.scn-bar i.weak{background:var(--q-weak)}.scn-bar i.lag{background:var(--q-lag)}
+.scn-etfs span{border-color:rgba(139,105,20,.38);background:rgba(212,175,55,.10);color:var(--s-gold)}
+.scn-peers em s{color:var(--s-soft)}
+.scn-peer{background:var(--s-bg);border-color:var(--s-line)}.scn-peer:hover{border-color:var(--s-goldb)}
+.scn-peer.me{background:rgba(212,175,55,.16);border-color:rgba(184,134,11,.6)}.scn-peer.me b{color:var(--s-ink2)}
+
 </style>
 </head>
 <body>
