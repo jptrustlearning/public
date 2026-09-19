@@ -1293,6 +1293,29 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 .sc-arrow svg{width:11px;height:11px;stroke-width:2.2}
 .shelf-card:hover .sc-arrow{background:#722F37;border-color:#722F37;color:#FFF6E4}
 
+
+/* ===== A114 Scanner: เก็บชิปกับแถบ "เงินไหลเข้ากลุ่มไหน" ไว้ข้างใน (จูน: "มันดูเยอะ") =====
+   นิ่ง = แถบบน + ช่องค้นหา เท่านั้น · กดปุ่มตัวกรอง หรือ พิมพ์ค้นหา = กางออก
+   override ท้ายไฟล์ ถอดคืนได้ทั้งบล็อก */
+.scn-chips{max-height:0;opacity:0;padding-bottom:0;overflow:hidden;
+  transition:max-height .3s cubic-bezier(.22,.85,.2,1),opacity .22s ease,padding-bottom .3s ease}
+.scn.open .scn-chips,.scn.q .scn-chips{max-height:160px;opacity:1;padding-bottom:14px}
+.scn-idle{max-height:0;opacity:0;padding-top:0;padding-bottom:0;border-top-color:transparent;overflow:hidden;
+  transition:max-height .3s cubic-bezier(.22,.85,.2,1),opacity .22s ease,padding .3s ease,border-color .3s ease}
+.scn.open .scn-idle{max-height:120px;opacity:1;padding-top:11px;padding-bottom:12px;border-top-color:var(--s-line)}
+/* ปุ่มกาง/พับ อยู่ท้ายช่องค้นหา */
+.scn-tog{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px;cursor:pointer;
+  border-radius:8px;border:1px solid var(--s-line2);background:var(--s-card);color:var(--s-mute);
+  font-family:'Anuphan',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.2px;line-height:1;
+  transition:border-color .2s ease,color .2s ease,background .2s ease}
+.scn-tog:hover{border-color:var(--s-goldb);color:var(--s-ink2)}
+.scn-tog svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
+  transition:transform .28s ease}
+.scn.open .scn-tog{border-color:var(--s-goldb);color:var(--s-ink2);background:rgba(212,175,55,.10)}
+.scn.open .scn-tog svg{transform:rotate(180deg)}
+@media(max-width:560px){.scn-tog span{display:none}.scn-tog{padding:0 8px}}
+@media(prefers-reduced-motion:reduce){.scn-chips,.scn-idle,.scn-tog svg{transition:none}}
+
 </style>
 </head>
 <body>
@@ -1387,6 +1410,7 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
           <label class="sr-only" for="scnInput">ค้นหาหุ้นในกลุ่มธีม</label>
           <input id="scnInput" type="text" autocomplete="off" spellcheck="false" placeholder="พิมพ์ชื่อหุ้น เช่น NVDA">
           <button type="button" class="scn-clear" id="scnClear" hidden aria-label="ล้างคำค้น"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+          <button type="button" class="scn-tog" id="scnTog" aria-expanded="false" aria-controls="scnFilters" aria-label="ตัวช่วยค้นหา"><span>ตัวช่วย</span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
         </div>
         <div class="scn-chips">
           <div class="scn-picks" id="scnPicks"></div>
@@ -2398,6 +2422,18 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!cm.hidden)
 })();
 
 
+
+/* ---------- Scanner: พับชิป/แถบเงินไหล ไว้ข้างใน (A114) ---------- */
+(function(){
+  var scn=document.getElementById('heroScanner'); if(!scn) return;
+  var tog=document.getElementById('scnTog'), inp=document.getElementById('scnInput');
+  function sync(){ if(inp) scn.classList.toggle('q', inp.value.trim().length>0); }
+  if(tog) tog.addEventListener('click',function(){
+    var o=scn.classList.toggle('open'); tog.setAttribute('aria-expanded',o?'true':'false');
+  });
+  ['input','keyup','change'].forEach(function(e){ if(inp) inp.addEventListener(e,sync); });
+  scn.addEventListener('click',function(){ setTimeout(sync,0); });   /* ปุ่มล้าง/ชิปลองดู ไม่ยิง input event */
+})();
 </script>
 <script src="research-download.js" defer></script>
 <script src="hero-scanner.js" defer></script>
