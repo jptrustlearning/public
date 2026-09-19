@@ -1439,6 +1439,38 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 .cp-ret i{font-size:22px;color:#7FD4A0}
 .cp-ret s{margin-top:3px}
 
+
+/* ===== A122 hero นุ่มขึ้น (จูน: "hero กับ font และพื้นหลัง ดูแข็งกระด้าง") =====
+   3 ต้นเหตุ: (1) Cinzel 700 ตัวใหญ่ + ไล่เฉดทองคอนทราสต์จัด (2) ปุ่มมีขอบเบเวลขาว + วงแหวนกะพริบแข็ง
+   (3) พื้นหลังคมขึ้นมากหลัง brightness(1.6) ของ A118 · override ท้ายไฟล์ ถอดคืนได้ */
+
+/* 1) พื้นหลัง — ลดคอนทราสต์ + เบลอบางๆ ให้ขอบแท่งเทียนไม่คม (ขยาย inset กันขอบเบลอโผล่) */
+.hero::before{inset:-14px;filter:brightness(1.62) contrast(.90) saturate(1.04) blur(1.1px)}
+/* ม่านอุ่นบางๆ ทับอีกชั้น ให้แสงฟุ้งแทนที่จะเป็นเส้นคม */
+.hero::after{background-image:
+  radial-gradient(70% 55% at 50% 44%, rgba(26,10,14,0.46), rgba(26,10,14,0.18) 64%, rgba(26,10,14,0) 84%),
+  radial-gradient(60% 45% at 62% 78%, rgba(212,175,55,0.10), rgba(212,175,55,0) 70%),
+  linear-gradient(180deg, rgba(10,4,7,0.46) 0%, rgba(10,4,7,0) 32%),
+  radial-gradient(150% 130% at 50% 40%, rgba(16,6,9,0) 50%, rgba(16,6,9,0.56) 100%)}
+
+/* 2) ตัวอักษร — ลดน้ำหนัก เพิ่มช่องไฟ ไล่เฉดทองให้ช่วงแคบลง เงาฟุ้งแทนเงาเข้ม */
+.hero h1 .h1-top{font-weight:400;letter-spacing:6px;color:#F0E3C8;opacity:.92;
+  text-shadow:0 2px 26px rgba(0,0,0,.45)}
+.hero h1 .h1-bot{font-weight:600;letter-spacing:3.5px;
+  background-image:linear-gradient(105deg,rgba(255,255,255,0) 38%,rgba(255,250,232,0.72) 48%,rgba(255,255,255,0) 58%),
+                   linear-gradient(120deg,#F6EBD2 0%,#E2C570 44%,#C89B33 100%);
+  filter:drop-shadow(0 6px 30px rgba(0,0,0,.42))}
+.hero .lead{font-weight:400;color:rgba(255,254,248,.84);text-shadow:0 2px 22px rgba(0,0,0,.5)}
+.hero .lead b{font-weight:600}
+
+/* 3) ปุ่ม — ถอดขอบเบเวลขาว ลดเงาดำ ทำมุมมนขึ้น วงแหวนจางลง */
+.hero-cta{border-radius:999px;padding:15px 32px;color:#3A1A10;
+  box-shadow:0 10px 26px rgba(26,10,14,.34),0 2px 8px rgba(212,175,55,.20);
+  background:linear-gradient(100deg,transparent 42%,rgba(255,255,255,0.55) 50%,transparent 58%) no-repeat 160% 0/260% 100%,
+             linear-gradient(135deg,#F2DFA6 0%,#DFC069 48%,#C49A33 100%)}
+.hero-cta:hover{box-shadow:0 16px 34px rgba(26,10,14,.40),0 4px 12px rgba(212,175,55,.26)}
+@keyframes ctaRing{0%{box-shadow:0 0 0 0 rgba(244,214,125,.34)}70%{box-shadow:0 0 0 13px rgba(244,214,125,0)}100%{box-shadow:0 0 0 0 rgba(244,214,125,0)}}
+
 </style>
 </head>
 <body>
