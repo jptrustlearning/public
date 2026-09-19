@@ -962,6 +962,33 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 }
 @media(prefers-reduced-motion:reduce){.snap-eyebrow::before{animation:none}}
 
+/* ---- A109.1 แผงสแกนล่าสุดกะทัดรัด: เรดาร์ซ้าย ตารางขวา (ยกกฎจากหน้าธีม editorial A108.3)
+   scope ใต้ #panel-snapshot ทั้งหมด — คลาส .snap-*/.ledger มีที่เดียวในหน้า แต่ล็อกไว้กันชนอนาคต
+   ย้อนกลับ = ลบบล็อกนี้ + ลบ .snap-cols/.snap-colL/.snap-colR ใน markup (หรือ index-backup-v72.html) ---- */
+#panel-snapshot .snap-panel{padding:clamp(24px,3vw,36px) clamp(20px,3vw,36px) clamp(18px,2.4vw,26px)}
+#panel-snapshot .snap-title{font-size:clamp(19px,2.2vw,26px);margin-bottom:6px}
+#panel-snapshot .snap-sub{margin-bottom:18px}
+#panel-snapshot .snap-stats{grid-template-columns:repeat(3,minmax(0,190px));gap:10px;margin-bottom:22px}
+#panel-snapshot .snap-stat{padding:10px 14px}
+#panel-snapshot .snap-cols{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:8px 40px;align-items:start}
+#panel-snapshot .snap-colL .snap-radarhead,#panel-snapshot .snap-colR .snap-listhead{margin-top:0}
+#panel-snapshot .snap-radarwrap{max-width:100%}
+#panel-snapshot .snap-radarnote{margin-bottom:0}
+#panel-snapshot .snap-tbl{margin-bottom:0}
+#panel-snapshot .snap-tbl td{padding:8px 0}
+#panel-snapshot .ledger{margin-top:22px;padding-top:18px;border-top:1px solid rgba(212,175,55,.24)}
+#panel-snapshot .ledger-card{flex-direction:row;align-items:center;gap:14px;padding:13px 18px}
+#panel-snapshot .ledger-card:hover{transform:none}
+#panel-snapshot .ledger-desc{display:none}
+#panel-snapshot .ledger-eyebrow{display:none}
+#panel-snapshot .ledger-go{margin:0 0 0 auto;white-space:nowrap}
+@media(max-width:900px){
+  #panel-snapshot .snap-cols{grid-template-columns:1fr;gap:0}
+  #panel-snapshot .snap-radarwrap{max-width:420px;margin:0 auto}
+  #panel-snapshot .snap-radarnote{margin-bottom:20px}
+  #panel-snapshot .snap-stats{grid-template-columns:repeat(3,1fr)}
+}
+
 .ledger{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
 .ledger-card{display:flex;flex-direction:column;gap:6px;text-decoration:none;
   background:var(--cream-card);border:1px solid var(--gold-border);border-radius:14px;
@@ -1234,6 +1261,7 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
         <div class="snap-stat down"><span class="ss-k">ขาลง</span><span class="ss-v">185</span><span class="ss-p">38.0%</span></div>
       </div>
 
+      <div class="snap-cols"><div class="snap-colL">
       <div class="snap-radarhead">สัดส่วนหุ้นขาขึ้นในแต่ละกลุ่มอุตสาหกรรม</div>
       <div class="snap-radarwrap">
         <svg class="snap-radar" viewBox="0 0 360 330" role="img" aria-label="เรดาร์สัดส่วนหุ้นขาขึ้นรายกลุ่มอุตสาหกรรม">
@@ -1293,6 +1321,7 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
       </div>
       <div class="snap-radarnote">เส้นประองทอง = ค่าเฉลี่ยทั้งตลาด 32% · กลุ่มที่ล้ำออกนอกเส้นคือกลุ่มที่แข็งแรงกว่าตลาด</div>
 
+      </div><div class="snap-colR">
       <div class="snap-listhead">10 อันดับแรกฝั่งขาขึ้น</div>
       <table class="snap-tbl">
         <thead>
@@ -1387,6 +1416,8 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
       <a class="snap-cta" href="https://app.jptrustlearning.com/new">ดูตารางเต็มทั้ง 487 ตัว<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <div data-rd-block></div>
     </div>
+
+    </div></div>
 
     <div class="ledger">
       <a class="ledger-card" href="negative-results.html">
