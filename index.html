@@ -1375,6 +1375,22 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 .snap-cta{box-shadow:0 8px 18px -8px rgba(139,105,20,.45)}
 .snap-cta:hover{box-shadow:0 12px 26px -10px rgba(139,105,20,.6)}
 
+
+/* ===== A117 การ์ด "เกี่ยวกับเรา" + แผงกราฟ SPY → โทนเลือดหมูของแบรนด์ (จูน: "BG เปลี่ยนสีหน่อย") =====
+   เดิมทั้งคู่เป็นตระกูลแดง-ดำ (#3A0710→#070001 / #42101B→#100206) คนละชุดกับ theme guide
+   — ปัญหาเดียวกับ .tabs-section ที่แก้ไปแล้วใน A111/A115 — และสองชั้นสีใกล้กันมาก
+   จนแผงกราฟไม่แยกตัวออกจากการ์ด · override ท้ายไฟล์ ถอดคืนได้ */
+.about-card{background:
+  radial-gradient(120% 90% at 85% 0%,rgba(114,47,55,.28),transparent 62%),
+  linear-gradient(145deg,#3a1520 0%,#2d1018 42%,#1f0b12 74%,#1a0a0e 100%)}
+.about-ghost{background:rgba(26,10,14,.55)}
+/* แผงกราฟ = ชั้นในที่ลึกลงไปอีกขั้น + ไฮไลต์อุ่นมุมบนซ้ายให้แยกตัวจากการ์ด */
+.chart-pane{background:
+  radial-gradient(95% 75% at 12% 0%,rgba(114,47,55,.32),transparent 58%),
+  linear-gradient(150deg,#1a0a0e 0%,#150609 55%,#100407 100%);
+  border-color:rgba(212,175,55,.28);
+  box-shadow:0 14px 34px rgba(0,0,0,.46),inset 0 1px 0 rgba(255,246,228,.05)}
+
 </style>
 </head>
 <body>
