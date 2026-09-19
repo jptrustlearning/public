@@ -1273,6 +1273,26 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 .scn-peer{background:var(--s-bg);border-color:var(--s-line)}.scn-peer:hover{border-color:var(--s-goldb)}
 .scn-peer.me{background:rgba(212,175,55,.16);border-color:rgba(184,134,11,.6)}.scn-peer.me b{color:var(--s-ink2)}
 
+
+/* ===== A113 การ์ดหมวดห้องสมุด → กระดาษครีม (จูน: "ดูรกตา") · override ท้ายไฟล์ ถอดคืนได้ทั้งบล็อก ===== */
+
+/* ===== VARIANT B — การ์ดหมวดเป็นกระดาษครีม (โทนเดียวกับ Scanner/statement) ===== */
+.shelf-card{--scrim:none;
+  background-image:none!important;background-color:#FFFEF8;
+  border:1px solid rgba(61,50,40,.14)!important;box-shadow:0 4px 14px rgba(26,10,14,.16)!important;
+  border-radius:14px;min-height:0;padding:16px 16px 0;color:#3D3228}
+.shelf-card:hover{transform:none;border-color:#B8860B!important}
+.sc-ico{width:36px;height:36px;border:1px solid rgba(139,105,20,.30);box-shadow:none;margin-bottom:12px}
+.sc-ico.rich{background:#FAF6ED;box-shadow:none}
+.sc-eye{font-size:8.5px;letter-spacing:.24em;color:#8B6914;text-shadow:none;margin-bottom:4px}
+.sc-title{font-weight:600;font-size:clamp(14.5px,3.6vw,17px);color:#5A3D20;text-shadow:none}
+.sc-desc{margin-top:6px;color:#7A6F62;text-shadow:none;line-height:1.6}
+.sc-foot{margin:14px -16px 0;padding:10px 16px;background:none;border-top:1px solid rgba(61,50,40,.12)}
+.sc-count{color:#7A6F62}.sc-count b{color:#B8860B}
+.sc-arrow{width:24px;height:24px;border:1px solid rgba(61,50,40,.18);color:#722F37}
+.sc-arrow svg{width:11px;height:11px;stroke-width:2.2}
+.shelf-card:hover .sc-arrow{background:#722F37;border-color:#722F37;color:#FFF6E4}
+
 </style>
 </head>
 <body>
