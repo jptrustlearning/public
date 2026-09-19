@@ -1181,6 +1181,31 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 @media(max-width:560px){.tiles{grid-template-columns:1fr}
 .tile.wide{grid-column:1}
 .phil{grid-template-columns:1fr;gap:26px}}
+
+/* ===== A111 ไล่เฉดสีทั้งหน้า — override ท้ายไฟล์ (ไม่แก้กฎเดิม ถอดออกได้ทั้งบล็อก) =====
+   ลำดับโทนจากบนลงล่าง: เข้มสุด (hero) → เลือดหมูค่อยสว่างขึ้น (แท็บ) → ombré เข้าครีม → ครีมสว่างสุด (statement)
+   → ครีมค่อยเข้มขึ้น (stats) → ombré เข้าเลือดหมูเข้ม (footer) · ทุกรอยต่อสีซ้ายขวาเท่ากัน ไม่มี "ตัด" */
+:root{--g-dark:#160810; --g-d1:#1a0a0e; --g-d2:#2d1018; --g-d3:#3a1520; --g-c1:#FFFEF8; --g-c2:#FAF6ED; --g-c3:#F5EFE0; --g-c4:#EDE4D0}
+
+/* 1) แท็บ: เริ่มด้วยสีฐานเดียวกับ hero (#160810) แล้วไล่ไปเลือดหมูอ่อนสุดของแบรนด์ — ของเดิม #290008→#040000 คือแดงดำอีกตระกูล ไม่ตรง theme guide */
+.tabs-section{background:linear-gradient(180deg,var(--g-dark) 0%,var(--g-d1) 22%,var(--g-d2) 64%,var(--g-d3) 100%)}
+.tabs-section::before{background:radial-gradient(60% 70% at 50% 40%,rgba(114,47,55,.38),rgba(114,47,55,0) 70%)}
+/* ombré เลือดหมู → ครีม ปลายแท็บ — ไล่ผ่านโทนอุ่นของแบรนด์ (เลือดหมูสว่าง → ทองอ่อน) ไม่ให้กลางทางเป็นเทาอมชมพู */
+.tabs-section::after{content:"";position:absolute;left:0;right:0;bottom:0;height:170px;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(58,21,32,0) 0%,#4A1E2A 22%,#7A3A3E 48%,#B98A6E 72%,#E9D9C2 90%,var(--g-c1) 100%)}
+
+/* 2) โซนครีม = gradient เดียวต่อเนื่อง สว่างสุดหลัง ombré แล้วค่อยเข้มลง */
+.state{background:linear-gradient(180deg,var(--g-c1) 0%,var(--g-c2) 100%);border-top:0;padding:88px 0 96px}
+.stats{background:linear-gradient(180deg,var(--g-c2) 0%,var(--g-c3) 55%,var(--g-c4) 100%);position:relative;padding-top:8px}
+/* ombré ครีม → เลือดหมู ก่อนเข้า footer — ผ่านทองอ่อน/น้ำตาลอุ่นเช่นกัน */
+.stats::after{content:"";position:absolute;left:0;right:0;bottom:0;height:140px;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(237,228,208,0) 0%,#E1CFB4 25%,#B98A6E 55%,#7A3A3E 82%,var(--g-d3) 100%)}
+.stats>.wrap{position:relative;z-index:1}
+
+/* 3) footer เริ่มจากโทนที่ ombré ด้านบนไล่มาถึง แล้วค่อยเข้ม */
+.foot{background:linear-gradient(180deg,var(--g-d3) 0%,var(--g-d2) 40%,var(--g-d1) 100%)}
+@media(max-width:700px){.tabs-section::after{height:120px}.stats::after{height:100px}}
+
 </style>
 </head>
 <body>
