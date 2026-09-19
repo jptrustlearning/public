@@ -1363,10 +1363,14 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 .snap-logo::before{color:var(--p-gold)}
 .snap-note{color:var(--p-mute);border-left-color:var(--p-goldb)}
 .snap-note strong{color:var(--p-ink)}
-/* ledger 2 ใบในแผง: เดิมครีมบนพื้นเข้ม → ตอนนี้พื้นขาวบนขาว ต้องมีขอบชัดขึ้น */
-#panel-snapshot .ledger{border-top-color:var(--p-line)}
-#panel-snapshot .ledger-card{background:var(--p-bg);border-color:var(--p-line2);box-shadow:none}
-#panel-snapshot .ledger-card:hover{border-color:var(--p-goldb);box-shadow:none}
+/* A116.1 FIX — `.ledger` อยู่ "นอก" .snap-panel (เป็นพี่น้องกันใน .snap>.wrap) จึงไม่เห็นตัวแปร --p-*
+   ⇒ `background:var(--p-bg)` ที่เขียนไว้เดิมกลายเป็น invalid at computed-value time → พื้นโปร่งใส
+      + border-color ตกเป็น currentColor (หมึกเข้ม) ⇒ การ์ดหายไปบนพื้นเลือดหมู
+   การ์ดคู่นี้อยู่บนพื้นเข้มเหมือนเดิม ไม่ใช่บนครีม → คืนค่าเดิมด้วย "ค่าสีตรงๆ" ห้ามใช้ var ที่ scope อยู่ในแผง */
+#panel-snapshot .ledger{border-top-color:rgba(212,175,55,.24)}
+#panel-snapshot .ledger-card{background:#FFFEF8;border-color:rgba(212,175,55,.30);
+  box-shadow:0 1px 1px rgba(58,21,32,.05),0 12px 26px -12px rgba(0,0,0,.45)}
+#panel-snapshot .ledger-card:hover{border-color:#D4AF37;box-shadow:0 2px 4px rgba(58,21,32,.06),0 18px 34px -14px rgba(0,0,0,.55)}
 /* ปุ่มทองคงเดิม แต่ลดเงาให้เข้ากับพื้นสว่าง */
 .snap-cta{box-shadow:0 8px 18px -8px rgba(139,105,20,.45)}
 .snap-cta:hover{box-shadow:0 12px 26px -10px rgba(139,105,20,.6)}
