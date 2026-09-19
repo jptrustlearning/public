@@ -1318,6 +1318,59 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 @media(max-width:560px){.scn-tog span{display:none}.scn-tog{padding:0 8px}}
 @media(prefers-reduced-motion:reduce){.scn-chips,.scn-idle,.scn-tog svg{transition:none}}
 
+
+/* ===== A116 การ์ดสแกนล่าสุด → กระดาษครีม (จูน: "เปลี่ยนสีหน่อย") · override ท้ายไฟล์ ถอดคืนได้ =====
+   ⚠️ ห้ามแก้ค่า attribute stroke="#8DE8B6" / fill="#8DE8B6" ใน SVG — JS เรดาร์ค้นหา element ด้วย selector นั้น
+   จึง override ด้วย CSS ผ่าน attribute selector แทน (selector ยังแมตช์ JS ยังหาเจอ) */
+.snap-panel{--p-card:#FFFEF8;--p-bg:#FAF6ED;--p-line:rgba(61,50,40,.14);--p-line2:rgba(61,50,40,.22);
+  --p-ink:#3D3228;--p-ink2:#5A3D20;--p-mute:#7A6F62;--p-soft:#9A8F82;--p-gold:#8B6914;--p-goldb:#B8860B;
+  --p-up:#2E7D4F;--p-flat:#B07A00;--p-dn:#A83232;
+  background:var(--p-card)!important;border:1px solid rgba(61,50,40,.16)!important;
+  box-shadow:0 24px 56px -22px rgba(58,21,32,.42),0 6px 18px -10px rgba(58,21,32,.28)!important}
+.snap-panel::after{background:none}
+.snap-eyebrow{color:var(--p-gold)}
+.snap-eyebrow::before{background:var(--p-up);box-shadow:0 0 0 4px rgba(46,125,79,.18)}
+.snap-asof{color:var(--p-mute);background:var(--p-bg);border-color:var(--p-line2)}
+.snap-title{color:var(--p-ink2)}
+.snap-sub,.snap-radarhead,.snap-listhead{color:var(--p-mute)}
+.snap-radarhead,.snap-listhead{border-top-color:var(--p-line);font-weight:600}
+.snap-stat{background:var(--p-bg);border-color:var(--p-line)}
+.ss-k{color:var(--p-mute)}.ss-v{color:var(--p-ink)}.ss-p{color:var(--p-soft)}
+.snap-stat.up .ss-k::before{background:var(--p-up)}
+.snap-stat.flat .ss-k::before{background:var(--p-flat)}
+.snap-stat.down .ss-k::before{background:var(--p-dn)}
+/* เรดาร์ */
+.snap-radar .rd-lb{fill:var(--p-ink)}
+.snap-radar .rd-ax{fill:var(--p-soft)}
+.snap-radar .rd-vl{fill:var(--p-up)}
+.snap-radar polygon[stroke="#8DE8B6"]{stroke:var(--p-up)!important;fill:rgba(46,125,79,.12)!important}
+.snap-radar circle[fill="#8DE8B6"]{fill:var(--p-up)!important}
+.snap-radar polygon[stroke-dasharray]{stroke:var(--p-goldb)!important}
+.snap-radar .rd-sweep line{stroke:var(--p-up)!important}
+.snap-radar path[stroke="rgba(255,254,248,0.10)"],.snap-radar line[stroke="rgba(255,254,248,0.10)"],
+.snap-radar polygon[stroke="rgba(255,254,248,0.10)"]{stroke:rgba(61,50,40,.16)!important}
+.snap-radar line[stroke="rgba(255,254,248,0.08)"],.snap-radar polygon[stroke="rgba(255,254,248,0.08)"]{stroke:rgba(61,50,40,.12)!important}
+.snap-radar circle[stroke="rgba(255,254,248,0.16)"]{stroke:rgba(61,50,40,.18)!important}
+.snap-radarnote{color:var(--p-soft)}
+/* ตาราง */
+.snap-tbl th{color:var(--p-gold);border-bottom-color:var(--p-line2)}
+.snap-tbl td{border-bottom-color:var(--p-line)}
+.snap-tbl tbody tr:hover{background:rgba(212,175,55,.09)}
+.snap-tbl td.up{color:var(--p-up)}.snap-tbl td.down{color:var(--p-dn)}
+.snap-rank{color:var(--p-goldb)}
+.snap-tkr{color:var(--p-ink2)}.snap-co{color:var(--p-mute)}
+.snap-logo{background:var(--p-bg);border-color:var(--p-line)}
+.snap-logo::before{color:var(--p-gold)}
+.snap-note{color:var(--p-mute);border-left-color:var(--p-goldb)}
+.snap-note strong{color:var(--p-ink)}
+/* ledger 2 ใบในแผง: เดิมครีมบนพื้นเข้ม → ตอนนี้พื้นขาวบนขาว ต้องมีขอบชัดขึ้น */
+#panel-snapshot .ledger{border-top-color:var(--p-line)}
+#panel-snapshot .ledger-card{background:var(--p-bg);border-color:var(--p-line2);box-shadow:none}
+#panel-snapshot .ledger-card:hover{border-color:var(--p-goldb);box-shadow:none}
+/* ปุ่มทองคงเดิม แต่ลดเงาให้เข้ากับพื้นสว่าง */
+.snap-cta{box-shadow:0 8px 18px -8px rgba(139,105,20,.45)}
+.snap-cta:hover{box-shadow:0 12px 26px -10px rgba(139,105,20,.6)}
+
 </style>
 </head>
 <body>
