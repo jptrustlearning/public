@@ -1761,6 +1761,18 @@ document.getElementById('shelfGrid').innerHTML = CATS.map(cardHTML).join('');
   function link(sel,name){document.querySelectorAll(sel).forEach(function(a){a.addEventListener('click',function(e){activate(name);if(sec){e.preventDefault();sec.scrollIntoView({behavior:'smooth',block:'start'});}});});}
   link('a[href="#collection"]','category');
   link('a[href="#pricing"]','package');
+  /* มาจากลิงก์ภายนอก เช่น app.jptrustlearning.com → /#pricing
+     ⚠️ #pricing ไม่ใช่ id จริงในหน้านี้ เป็นแค่ hook ให้ link() จับคลิกของลิงก์ในหน้า
+        ลิงก์จากข้างนอกจึงไม่เคยเปิดแท็บแพคเกจให้ ต้องอ่าน hash เองตอนโหลด */
+  function fromHash(){
+    var h=(location.hash||'').toLowerCase();
+    var name = h==='#pricing' ? 'package' : h==='#collection' ? 'category' : '';
+    if(!name) return;
+    activate(name);
+    if(sec) setTimeout(function(){sec.scrollIntoView({behavior:'smooth',block:'start'});},60);
+  }
+  fromHash();
+  window.addEventListener('hashchange',fromHash);
 })();
 
 /* ---------- stats strip: เผยทีละช่อง + นับเลขขึ้น ---------- */
