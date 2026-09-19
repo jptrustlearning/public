@@ -1415,6 +1415,19 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 .scn.open .scn-chips,.scn.q .scn-chips{padding-bottom:13px}
 .scn-idle{padding-left:16px;padding-right:16px}
 
+
+/* ===== A120 แผงกราฟ: เพิ่มผลตอบแทน 30 ปี ข้างราคาจริง (จูน: "30 ปี บวกราคาจริงเลย") =====
+   ตัวเลขจาก `sp500/input_benchmark_daily.csv` (SPY) 1996-01-02 Close 36.72 → 2026-09-11 Close 764.29
+   ⚠️ ไฟล์นั้นดึงด้วย yfinance `auto_adjust=True` ⇒ Close = ปรับปันผล+แตกพาร์แล้ว = total return
+      จึงต้องกำกับว่า "รวมปันผล" ห้ามเขียนลอยๆ ว่าราคาขึ้น 1,981% */
+.cp-ret{display:block;margin-top:7px;padding-top:6px;border-top:1px solid rgba(212,175,55,.22);
+  font-family:'Anuphan',sans-serif;line-height:1.3;white-space:nowrap;text-align:right}
+.cp-ret em{font-style:normal;font-size:10.5px;color:rgba(244,228,186,.55);margin-right:7px}
+.cp-ret i{font-style:normal;font-family:'DM Serif Display',serif;font-size:17px;color:#7FD4A0;
+  font-variant-numeric:tabular-nums}
+.cp-ret s{display:block;margin-top:2px;font-size:9.5px;color:rgba(244,228,186,.42);text-decoration:none}
+@media(max-width:640px){.cp-ret{text-align:left}}
+
 </style>
 </head>
 <body>
@@ -1764,7 +1777,7 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
         <div class="chart-pane" id="aboutChart">
           <div class="cp-head">
             <div><span class="k">S&amp;P 500</span><span class="s">SPY รายเดือน · 1996–2026 (30 ปี)</span></div>
-            <div class="cp-last"><b>764.29</b><span>ปิด 11 ก.ย. 2026</span></div>
+            <div class="cp-last"><b>764.29</b><span>ปิด 11 ก.ย. 2026</span><span class="cp-ret"><em>30 ปี</em><i>+1,981%</i><s>รวมปันผล · ตั้งแต่ 2 ม.ค. 1996 · เฉลี่ย 10.4% ต่อปี</s></span></div>
           </div>
           <svg class="cp-svg" viewBox="0 0 700 240" aria-hidden="true">
                 <defs>
