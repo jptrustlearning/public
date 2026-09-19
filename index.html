@@ -1428,6 +1428,17 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 .cp-ret s{display:block;margin-top:2px;font-size:9.5px;color:rgba(244,228,186,.42);text-decoration:none}
 @media(max-width:640px){.cp-ret{text-align:left}}
 
+
+/* ===== A121 ถอดราคาปิด 764.29 ออกจากแผงกราฟ (จูน: "ตัวเลขนี้ต้องเอาออกเลย") =====
+   เหตุผลเสริม: 764.29 เป็นค่า hard-code ลงวันที่ 11 ก.ย. ขณะที่ไฟล์จริงเดินถึง 18 ก.ย. แล้ว
+   = ตัวเลขค้างบนหน้าแรกที่ต้องตามอัปเดตด้วยมือตลอด · ผลตอบแทน 30 ปี ไม่ขยับรายวัน จึงเหลือตัวนี้ตัวเดียว
+   อนิเมชันนับเลขย้ายมาที่ตัวนี้แทน (แก้ในบล็อก JS เดิม ไม่ได้เพิ่มบล็อกใหม่) */
+.cp-ret{margin-top:0;padding-top:0;border-top:0}
+.cp-ret em{display:block;margin:0 0 1px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gold);opacity:.85}
+.cp-ret i{font-size:22px;color:#7FD4A0}
+.cp-ret s{margin-top:3px}
+
 </style>
 </head>
 <body>
@@ -1777,7 +1788,7 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
         <div class="chart-pane" id="aboutChart">
           <div class="cp-head">
             <div><span class="k">S&amp;P 500</span><span class="s">SPY รายเดือน · 1996–2026 (30 ปี)</span></div>
-            <div class="cp-last"><b>764.29</b><span>ปิด 11 ก.ย. 2026</span><span class="cp-ret"><em>30 ปี</em><i>+1,981%</i><s>รวมปันผล · ตั้งแต่ 2 ม.ค. 1996 · เฉลี่ย 10.4% ต่อปี</s></span></div>
+            <div class="cp-last"><span class="cp-ret"><em>30 ปี</em><i>+1,981%</i><s>รวมปันผล · 2 ม.ค. 1996 – 11 ก.ย. 2026 · เฉลี่ย 10.4% ต่อปี</s></span></div>
           </div>
           <svg class="cp-svg" viewBox="0 0 700 240" aria-hidden="true">
                 <defs>
@@ -2381,8 +2392,10 @@ document.getElementById('shelfGrid').innerHTML = CATS.map(cardHTML).join('');
   }
   /* กราฟในการ์ดเกี่ยวกับเรา: วาดเมื่อเลื่อนมาถึง และวาดใหม่ทุกครั้งที่เปิดแท็บ */
   var cp=document.getElementById('aboutChart');
-  var cpLast=cp?cp.querySelector('.cp-last b'):null;
-  var cpText=cpLast?cpLast.textContent:'', cpTarget=cpLast?parseFloat(cpText.replace(/,/g,'')):NaN, cpRaf=0;
+  /* A121 — ถอดราคาปิดออกจากแผง ตัวเลขที่นับขึ้นย้ายมาเป็นผลตอบแทน 30 ปี (.cp-ret i) */
+  var cpLast=cp?cp.querySelector('.cp-ret i'):null;
+  var cpText=cpLast?cpLast.textContent:'', cpTarget=cpLast?parseFloat(cpText.replace(/[^0-9.\-]/g,'')):NaN, cpRaf=0;
+  var cpFmt=function(v){return '+'+Math.round(v).toLocaleString('en-US')+'%';};
   function drawAboutChart(reset){
     if(!cp) return;
     if(reset){cp.classList.remove('draw'); void cp.offsetWidth;}
@@ -2393,12 +2406,12 @@ document.getElementById('shelfGrid').innerHTML = CATS.map(cardHTML).join('');
     if(reduce){cpLast.textContent=cpText; return;}
     if(cpRaf) cancelAnimationFrame(cpRaf);
     var dur=2200, t0=null;
-    cpLast.textContent='0.00';
+    cpLast.textContent=cpFmt(0);
     setTimeout(function(){
       cpRaf=requestAnimationFrame(function step(ts){
         if(t0===null)t0=ts;
         var k=Math.min((ts-t0)/dur,1), e=1-Math.pow(1-k,3);
-        cpLast.textContent=(cpTarget*e).toFixed(2);
+        cpLast.textContent=cpFmt(cpTarget*e);
         if(k<1){cpRaf=requestAnimationFrame(step);} else {cpRaf=0;cpLast.textContent=cpText;}
       });
     },300);
