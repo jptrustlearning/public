@@ -1403,6 +1403,18 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
   linear-gradient(180deg, rgba(10,4,7,0.50) 0%, rgba(10,4,7,0) 30%),
   radial-gradient(140% 120% at 50% 40%, rgba(16,6,9,0) 52%, rgba(16,6,9,0.58) 100%)}
 
+
+/* ===== A119 Scanner: ย่อให้สมส่วนกับคอลัมน์ข้อความใน hero (จูน: "ช่องเสิร์ชใหญ่เกิน ดูไม่สมมาตร") =====
+   วัดก่อนแก้: กล่อง 940px ขณะที่บรรทัดรอง 520px · ปุ่ม 184px — จัดกลางตรงกันทุกตัว (cx 720)
+   แต่ "มวล" ต่างกันมาก กล่องเลยดูโดดออกมา · 680 แคบไปจนชิปตกบรรทัดตอนกาง (สูง 245 vs 206) */
+.scn{width:min(760px,100%)}
+.scn input{font-size:17px;letter-spacing:1.2px}
+.scn-inrow{margin:12px 16px 12px;padding:10px 14px}
+.scn-top{padding:10px 16px 9px}
+.scn-chips{padding-left:16px;padding-right:16px}
+.scn.open .scn-chips,.scn.q .scn-chips{padding-bottom:13px}
+.scn-idle{padding-left:16px;padding-right:16px}
+
 </style>
 </head>
 <body>
