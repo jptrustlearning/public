@@ -697,7 +697,8 @@ a{color:inherit;text-decoration:none}
 
 /* ===== nav: dropdown ห้องสมุด + เมนูมือถือ ===== */
 .nl{position:relative}
-.nl>a svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;vertical-align:-1px;margin-left:3px}
+.nl>a{display:inline-flex;align-items:center;gap:5px}   /* global svg{display:block} ทำให้ลูกศรตกบรรทัด ข้อความลอยขึ้น */
+.nl>a svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}
 .nl-drop{position:absolute;left:-14px;top:calc(100% + 10px);min-width:250px;background:var(--cream-lt);border:1px solid var(--line);
   padding:8px 0;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .18s,transform .18s,visibility .18s;z-index:70}
 .nl.open .nl-drop,.nl:hover .nl-drop{opacity:1;visibility:visible;transform:none}
