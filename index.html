@@ -1391,6 +1391,18 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
   border-color:rgba(212,175,55,.28);
   box-shadow:0 14px 34px rgba(0,0,0,.46),inset 0 1px 0 rgba(255,246,228,.05)}
 
+
+/* ===== A118 hero สว่างขึ้น (จูน: "BG hero ดูเข้มไปมั้ย" — ใช่ วัดแล้ว) =====
+   วัดจริง: พื้นหลังใต้ h1 = RGB(15,3,5) · contrast กับตัวอักษรขาว 20:1 (AAA ต้องการแค่ 7:1) = มืดเกินจำเป็นมาก
+   ⚠️ ต้นเหตุไม่ใช่ scrim อย่างเดียว — ไฟล์ `hero-momentum.jpg` เองก็มืด (mean 10.9/255 · median 7.6)
+      ลด scrim อย่างเดียวได้ mean แค่ 8.6→11.5 ⇒ ต้องเพิ่ม brightness ที่ตัวภาพด้วย
+   ผลลัพธ์: hero mean 8.6 → 16.6 · contrast ยังอยู่ที่ 18.9:1 */
+.hero::before{filter:brightness(1.6) contrast(1.02) saturate(1.06)}
+.hero::after{background-image:
+  radial-gradient(62% 58% at 50% 46%, rgba(26,10,14,0.50), rgba(26,10,14,0.20) 62%, rgba(26,10,14,0) 82%),
+  linear-gradient(180deg, rgba(10,4,7,0.50) 0%, rgba(10,4,7,0) 30%),
+  radial-gradient(140% 120% at 50% 40%, rgba(16,6,9,0) 52%, rgba(16,6,9,0.58) 100%)}
+
 </style>
 </head>
 <body>
