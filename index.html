@@ -801,9 +801,10 @@ a,button,.tab-btn{-webkit-tap-highlight-color:transparent}
 .tab-panel .snap::before{inset:auto 0 -40% 0}
 .tab-panel .entrance>.wrap,.tab-panel .snap>.wrap{padding:0;max-width:none}
 .tab-panel .snap-panel{background:linear-gradient(160deg,rgba(66,25,37,0.74) 0%,rgba(32,12,18,0.86) 100%);border-radius:24px}
-/* แท็บบาร์ 6 อัน: แถวเดียวบนจอกว้าง / 3x2 บน iPad แนวตั้งและมือถือ */
+/* แท็บบาร์ 4 อัน (A134 ตัดห้องสมุด+แพ็กเกจออก): แถวเดียวบนจอกว้าง / 2x2 บน iPad แนวตั้งและมือถือ
+   เดิมเป็น 3 คอลัมน์ตอนมี 6 แท็บ — พอเหลือ 4 จะตกเป็น 3+1 ไม่สมดุล */
 @media (max-width:860px){
-  .tab-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:540px}
+  .tab-bar{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;max-width:420px}
   .tab-btn{padding:11px 6px;font-size:clamp(12px,3vw,15px)}
 }
 @media (max-width:360px){
@@ -813,7 +814,12 @@ a,button,.tab-btn{-webkit-tap-highlight-color:transparent}
 .tab-panel.active{display:block;animation:tabFade .3s ease}
 .tab-sub{text-align:center;font-size:clamp(13px,1.8vw,15px);color:rgba(245,233,208,0.72);margin:0 auto clamp(20px,3vw,30px);max-width:560px}
 .tab-panel .about-stage{animation:none}
-.tab-panel .shelf-card{opacity:1;transform:none;animation:none}
+.tab-panel .shelf-card,.tab-open .shelf-card{opacity:1;transform:none;animation:none}
+/* A134: บล็อกที่ยกออกจากแถบแท็บ — แสดงเสมอ เรียงต่อกันใต้แท็บ · หัวข้อใช้ .lib-head ชุดเดิมของหน้า
+   scroll-margin-top กันหัวข้อมุดใต้แถบเมนูที่ตรึงอยู่ ตอนกดลิงก์ #library / #pricing */
+.tab-open{display:block;margin-top:clamp(44px,6vw,78px);scroll-margin-top:86px}
+.tab-open .lib-head .eyebrow{color:var(--gold)}
+.tab-open .lib-head h2{color:var(--cream)}
 /* ============ STATS STRIP ============ */
 .stats{background:var(--cream);padding:0 0 clamp(52px,7vw,90px)}
 .stats-panel{
@@ -1659,7 +1665,7 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
     <nav class="nav-links" aria-label="เมนูหลัก">
       <div class="nl"><a href="/">หน้าแรก</a></div>
       <div class="nl" id="nlLib">
-        <a href="#collection">ห้องสมุด <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+        <a href="#library">ห้องสมุด <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nl-drop">
           <a href="lib-momentum.html"><span class="v">กลยุทธ์ Momentum</span><span class="k">Momentum</span></a>
           <a href="lib-analysis.html"><span class="v">บทวิเคราะห์</span><span class="k">Analysis</span></a>
@@ -1753,10 +1759,8 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
     <div class="tab-bar" role="tablist" aria-label="เมนูข้อมูล">
       <button class="tab-btn active" data-tab="start" role="tab" aria-selected="true">ทางลัด</button>
       <button class="tab-btn" data-tab="about" role="tab" aria-selected="false">เกี่ยวกับเรา</button>
-      <button class="tab-btn" data-tab="category" role="tab" aria-selected="false">ห้องสมุด</button>
       <button class="tab-btn" data-tab="snapshot" role="tab" aria-selected="false">สแกนล่าสุด</button>
       <button class="tab-btn" data-tab="services" role="tab" aria-selected="false">บริการ</button>
-      <button class="tab-btn" data-tab="package" role="tab" aria-selected="false">แพคเกจ</button>
     </div>
     <div class="tab-panels">
       <div class="tab-panel" id="panel-snapshot" role="tabpanel">
@@ -2004,57 +2008,6 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
       </div>
     </div>
       </div>
-      <div class="tab-panel" id="panel-package" role="tabpanel">
-        <div class="tab-sub">เข้าถึงกลยุทธ์ เครื่องมือ และคอนเทนต์พิเศษสำหรับสมาชิก</div>
-
-        <div class="plan-incl">
-          <div class="plan-incl-head">สิทธิ์ที่ได้เท่ากันทั้งสองแพ็กเกจ</div>
-          <ul class="plan-feat">
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Momentum Lab</b> · ทดสอบกลยุทธ์ย้อนหลัง 8 กลยุทธ์</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>S&amp;P 500 Scanner</b> · จัดอันดับโมเมนตัมหุ้น 500+ ตัว</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>ข่าว &amp; บทวิเคราะห์</b> · สรุปตลาดรายวัน ภาษาไทย</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Port Recorder</b> · บันทึกและติดตามพอร์ตได้ 5 พอร์ต</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Gold &amp; Macro</b> · แดชบอร์ดทองคำและภาพรวมเศรษฐกิจ</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>ห้องสมุดความรู้</b> · บทความและคอนเทนต์เฉพาะสมาชิก</span></li>
-          </ul>
-        </div>
-
-    <div class="pricing-grid">
-      <div class="plan">
-        <span class="plan-name">รายเดือน</span>
-        <div class="plan-price"><span class="cur">฿</span>150<span class="per">/ เดือน</span></div>
-        <div class="plan-tag">จ่ายเดือนต่อเดือน ไม่มีสัญญาผูกมัด</div>
-        <div class="plan-rule"></div>
-        <div class="plan-diffhead">เหมาะกับ</div>
-        <ul class="plan-pts">
-          <li>คนที่อยากทดลองใช้ก่อน ยังไม่แน่ใจว่าเหมาะไหม</li>
-          <li>หยุดต่ออายุได้ทุกเดือน ไม่ต้องจ่ายยาว</li>
-          <li class="muted">ถ้าต่อครบ 12 เดือน = ฿1,800</li>
-        </ul>
-        <a class="plan-cta" href="https://app.jptrustlearning.com/new">สมัครรายเดือน</a>
-      </div>
-      <div class="plan featured">
-        <span class="plan-badge">ประหยัดกว่า</span>
-        <span class="plan-name">รายปี</span>
-        <div class="plan-price"><span class="cur">฿</span>1,400<span class="per">/ ปี</span></div>
-        <div class="plan-save">เฉลี่ยเดือนละ ฿117 · ประหยัด ฿400 ต่อปี</div>
-        <div class="plan-tag">จ่ายครั้งเดียว ใช้ต่อเนื่อง 12 เดือน</div>
-        <div class="plan-rule"></div>
-        <div class="plan-diffhead">เหมาะกับ</div>
-        <ul class="plan-pts">
-          <li>คนที่ตั้งใจใช้ต่อเนื่องทั้งปี ไม่ต้องจำวันต่ออายุทุกเดือน</li>
-          <li>ส่วนที่ประหยัด ฿400 เทียบเท่าค่าสมาชิกราว 2 เดือนครึ่ง</li>
-          <li class="muted">ราคาคงเดิมตลอดอายุสมาชิก แม้ค่าสมาชิกจะปรับขึ้นระหว่างปี</li>
-        </ul>
-        <a class="plan-cta gold" href="https://app.jptrustlearning.com/new">สมัครรายปี</a>
-      </div>
-    </div>
-        <p class="plan-note">ทั้งสองแพ็กเกจใช้เนื้อหาและเครื่องมือชุดเดียวกันทั้งหมด — ต่างกันที่ราคาและรอบการต่ออายุเท่านั้น</p>
-      </div>
-      <div class="tab-panel" id="panel-category" role="tabpanel">
-        <div class="tab-sub">เลือกหมวดที่คุณสนใจ เพื่อเข้าไปดูงานทั้งหมดในหมวดนั้น</div>
-        <div class="shelf-grid" id="shelfGrid"></div>
-      </div>
       <div class="tab-panel" id="panel-services" role="tabpanel">
         <div class="svc-tray">
           <div class="svc-head">
@@ -2117,7 +2070,7 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
         </span>
       </a>
 
-      <a class="svc-card" href="#collection" aria-label="ห้องสมุดความรู้">
+      <a class="svc-card" href="#library" aria-label="ห้องสมุดความรู้">
         <span class="svc-icon rich"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="svSh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8A5A2B"/><stop offset="1" stop-color="#4E2E11"/></linearGradient></defs><rect x="3" y="4" width="26" height="24" rx="2.4" fill="url(#svSh)"/><rect x="5" y="6" width="22" height="8.4" rx="1" fill="#2E1A0A"/><rect x="5" y="17.2" width="22" height="8.4" rx="1" fill="#2E1A0A"/><g><rect x="6.4" y="7.2" width="3" height="7" rx=".6" fill="#B03C4E"/><rect x="10" y="8" width="2.6" height="6.2" rx=".6" fill="#D4AF37"/><rect x="13.2" y="7" width="3.2" height="7.2" rx=".6" fill="#3E5F7A"/><rect x="17" y="8.4" width="2.6" height="5.8" rx=".6" fill="#F5EDDC"/><rect x="20.2" y="7.4" width="3" height="6.8" rx=".6" fill="#4E9E63"/><rect x="23.8" y="8" width="2.4" height="6.2" rx=".6" fill="#C9556A"/></g><g><rect x="6.4" y="18.6" width="2.6" height="7" rx=".6" fill="#D4AF37"/><rect x="9.6" y="19.4" width="3" height="6.2" rx=".6" fill="#3E5F7A"/><rect x="13.2" y="18.4" width="2.6" height="7.2" rx=".6" fill="#B03C4E"/><rect x="16.4" y="19.8" width="3.2" height="5.8" rx=".6" fill="#F5EDDC"/><rect x="20.2" y="18.8" width="2.6" height="6.8" rx=".6" fill="#C9556A"/><rect x="23.4" y="19.4" width="2.8" height="6.2" rx=".6" fill="#4E9E63"/></g><rect x="3" y="4" width="26" height="24" rx="2.4" fill="none" stroke="#D4AF37" stroke-width="1.3"/></svg></span>
         <span class="svc-body">
           <span class="svc-eye">LIBRARY</span>
@@ -2182,7 +2135,7 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
             </span>
           </span>
         </a>
-        <a class="quad flip cream" href="#collection">
+        <a class="quad flip cream" href="#library">
           <span class="q-inner">
             <span class="q-face q-front">
           <svg class="q-icon" viewBox="0 0 24 24"><path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2z"/><path d="M19 19H6"/><path d="M9 7h6M9 11h6"/></svg>
@@ -2221,6 +2174,67 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
 </section>
       </div>
     </div>
+
+      <!-- A134: ห้องสมุด + แพ็กเกจ ออกจากแถบแท็บแล้ว (จูน: "ห้องสมุด กับ แพ็กเกจ เรามีแล้วบนแถบเมนู")
+           เนื้อหาไม่ได้ลบ — ย้ายมาเป็นบล็อกเรียงต่อกันใต้แท็บ เพื่อให้เมนูบนมีปลายทางจริง
+           pricing เพิ่งเป็น id จริงครั้งแรก (เดิมเป็นแค่ hook ให้ JS จับคลิก ลิงก์จากข้างนอกจึงไม่เคยเลื่อนมาถึง)
+           หมายเหตุ: เลี่ยงเขียน id=... เต็มรูปในคอมเมนต์ เพราะสแกนหา id ซ้ำจะนับคอมเมนต์ด้วย -->
+      <div class="tab-open" id="library">
+        <div class="lib-head"><span class="eyebrow">Library</span><h2>ห้องสมุด</h2></div>
+        <div class="tab-sub">เลือกหมวดที่คุณสนใจ เพื่อเข้าไปดูงานทั้งหมดในหมวดนั้น</div>
+        <div class="shelf-grid" id="shelfGrid"></div>
+      
+      </div>
+
+      <div class="tab-open" id="pricing">
+        <div class="lib-head"><span class="eyebrow">Membership</span><h2>แพ็กเกจสมาชิก</h2></div>
+        <div class="tab-sub">เข้าถึงกลยุทธ์ เครื่องมือ และคอนเทนต์พิเศษสำหรับสมาชิก</div>
+
+        <div class="plan-incl">
+          <div class="plan-incl-head">สิทธิ์ที่ได้เท่ากันทั้งสองแพ็กเกจ</div>
+          <ul class="plan-feat">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Momentum Lab</b> · ทดสอบกลยุทธ์ย้อนหลัง 8 กลยุทธ์</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>S&amp;P 500 Scanner</b> · จัดอันดับโมเมนตัมหุ้น 500+ ตัว</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>ข่าว &amp; บทวิเคราะห์</b> · สรุปตลาดรายวัน ภาษาไทย</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Port Recorder</b> · บันทึกและติดตามพอร์ตได้ 5 พอร์ต</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Gold &amp; Macro</b> · แดชบอร์ดทองคำและภาพรวมเศรษฐกิจ</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>ห้องสมุดความรู้</b> · บทความและคอนเทนต์เฉพาะสมาชิก</span></li>
+          </ul>
+        </div>
+
+    <div class="pricing-grid">
+      <div class="plan">
+        <span class="plan-name">รายเดือน</span>
+        <div class="plan-price"><span class="cur">฿</span>150<span class="per">/ เดือน</span></div>
+        <div class="plan-tag">จ่ายเดือนต่อเดือน ไม่มีสัญญาผูกมัด</div>
+        <div class="plan-rule"></div>
+        <div class="plan-diffhead">เหมาะกับ</div>
+        <ul class="plan-pts">
+          <li>คนที่อยากทดลองใช้ก่อน ยังไม่แน่ใจว่าเหมาะไหม</li>
+          <li>หยุดต่ออายุได้ทุกเดือน ไม่ต้องจ่ายยาว</li>
+          <li class="muted">ถ้าต่อครบ 12 เดือน = ฿1,800</li>
+        </ul>
+        <a class="plan-cta" href="https://app.jptrustlearning.com/new">สมัครรายเดือน</a>
+      </div>
+      <div class="plan featured">
+        <span class="plan-badge">ประหยัดกว่า</span>
+        <span class="plan-name">รายปี</span>
+        <div class="plan-price"><span class="cur">฿</span>1,400<span class="per">/ ปี</span></div>
+        <div class="plan-save">เฉลี่ยเดือนละ ฿117 · ประหยัด ฿400 ต่อปี</div>
+        <div class="plan-tag">จ่ายครั้งเดียว ใช้ต่อเนื่อง 12 เดือน</div>
+        <div class="plan-rule"></div>
+        <div class="plan-diffhead">เหมาะกับ</div>
+        <ul class="plan-pts">
+          <li>คนที่ตั้งใจใช้ต่อเนื่องทั้งปี ไม่ต้องจำวันต่ออายุทุกเดือน</li>
+          <li>ส่วนที่ประหยัด ฿400 เทียบเท่าค่าสมาชิกราว 2 เดือนครึ่ง</li>
+          <li class="muted">ราคาคงเดิมตลอดอายุสมาชิก แม้ค่าสมาชิกจะปรับขึ้นระหว่างปี</li>
+        </ul>
+        <a class="plan-cta gold" href="https://app.jptrustlearning.com/new">สมัครรายปี</a>
+      </div>
+    </div>
+        <p class="plan-note">ทั้งสองแพ็กเกจใช้เนื้อหาและเครื่องมือชุดเดียวกันทั้งหมด — ต่างกันที่ราคาและรอบการต่ออายุเท่านั้น</p>
+      
+      </div>
   </div>
 </section>
 
@@ -2294,7 +2308,7 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
 <section class="stats">
   <div class="wrap">
     <div class="stats-panel">
-      <a class="stat-item" href="#collection">
+      <a class="stat-item" href="#library">
         <span class="stat-ico rich"><svg viewBox="0 0 32 32" aria-hidden="true">
 <defs>
 <linearGradient id="bkA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B03C4E"/><stop offset="1" stop-color="#5C1327"/></linearGradient>
@@ -2617,20 +2631,9 @@ document.getElementById('shelfGrid').innerHTML = CATS.map(cardHTML).join('');
   }
   tabs.forEach(function(t){t.addEventListener('click',function(){activate(t.dataset.tab);});});
   function link(sel,name){document.querySelectorAll(sel).forEach(function(a){a.addEventListener('click',function(e){activate(name);if(sec){e.preventDefault();sec.scrollIntoView({behavior:'smooth',block:'start'});}});});}
-  link('a[href="#collection"]','category');
-  link('a[href="#pricing"]','package');
-  /* มาจากลิงก์ภายนอก เช่น app.jptrustlearning.com → /#pricing
-     ⚠️ #pricing ไม่ใช่ id จริงในหน้านี้ เป็นแค่ hook ให้ link() จับคลิกของลิงก์ในหน้า
-        ลิงก์จากข้างนอกจึงไม่เคยเปิดแท็บแพคเกจให้ ต้องอ่าน hash เองตอนโหลด */
-  function fromHash(){
-    var h=(location.hash||'').toLowerCase();
-    var name = h==='#pricing' ? 'package' : h==='#collection' ? 'category' : '';
-    if(!name) return;
-    activate(name);
-    if(sec) setTimeout(function(){sec.scrollIntoView({behavior:'smooth',block:'start'});},60);
-  }
-  fromHash();
-  window.addEventListener('hashchange',fromHash);
+  /* A134: ห้องสมุด/แพ็กเกจ ไม่ใช่แท็บแล้ว — `#library` กับ `#pricing` เป็น id จริงในหน้า
+     เบราว์เซอร์เลื่อนไปเองทั้งคลิกในหน้าและลิงก์จากข้างนอก จึงไม่ต้อง map hash → แท็บอีก
+     (ฟังก์ชัน link() ยังอยู่ เผื่อมีลิงก์ที่ต้องเปิดแท็บในอนาคต) */
 })();
 
 /* ---------- stats strip: เผยทีละช่อง + นับเลขขึ้น ---------- */
