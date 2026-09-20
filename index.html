@@ -144,14 +144,10 @@
 <!-- ===== TABS : เกี่ยวกับเรา / แพคเกจ / หมวดหมู่ความรู้ ===== -->
 <section class="tabs-section" id="collection">
   <div class="wrap">
-    <div class="tab-bar" role="tablist" aria-label="เมนูข้อมูล">
-      <button class="tab-btn active" data-tab="start" role="tab" aria-selected="true">ทางลัด</button>
-      <button class="tab-btn" data-tab="about" role="tab" aria-selected="false">เกี่ยวกับเรา</button>
-    </div>
-    <div class="tab-panels">
-      
-
-      <div class="tab-panel" id="panel-about" role="tabpanel">
+    <!-- A141: เลิกใช้แท็บ (จูน: "เกี่ยวกับเรา เอาออกมาโชว์ได้เลย")
+           เหลือ 2 ชิ้น การซ่อนไว้หลังปุ่มไม่คุ้ม — วางเรียงจริง: รู้จักเราก่อน แล้วค่อยเป็นทางเข้า 4 ช่อง
+           `.sec-block` = ระยะห่างระหว่างสองชิ้น · ไม่มี JS แท็บแล้ว กราฟ/พิมพ์ดีดเล่นตอนเลื่อนถึงเหมือนเดิม -->
+      <div class="sec-block">
     <div class="about-stage">
       <div class="about-glow" aria-hidden="true"></div>
       <div class="about-ghost two" aria-hidden="true"></div>
@@ -202,10 +198,10 @@
         </div>
       </div>
     </div>
-      </div>
       
-    
-      <div class="tab-panel active" id="panel-start" role="tabpanel">
+      </div>
+
+      <div class="sec-block">
 <section class="entrance">
   <div class="wrap">
     <div class="quad-wrap">
@@ -277,8 +273,8 @@
     </div>
   </div>
 </section>
+      
       </div>
-    </div>
       
 
       
@@ -723,16 +719,8 @@
   };
 })();
 
-/* ---------- tabs: เกี่ยวกับเรา / แพคเกจ / หมวดหมู่ความรู้ ---------- */
+/* ---------- การ์ดเกี่ยวกับเรา: หัวข้อพิมพ์ดีด + กราฟ 30 ปี (A141: ไม่มีแท็บแล้ว เหลือเฉพาะสองอย่างนี้) ---------- */
 (function(){
-  var sec=document.getElementById('collection');
-  var tabs=document.querySelectorAll('.tab-btn');
-  var panels=document.querySelectorAll('.tab-panel');
-  function activate(name){
-    tabs.forEach(function(t){var on=t.dataset.tab===name;t.classList.toggle('active',on);t.setAttribute('aria-selected',on?'true':'false');});
-    panels.forEach(function(p){p.classList.toggle('active',p.id==='panel-'+name);});
-    if(name==='about'){drawAboutChart(true);typeAboutTitle(true);}
-  }
   /* หัวข้อการ์ดเกี่ยวกับเรา: พิมพ์ดีดทีละตัว */
   var twTitle=document.querySelector('.about-title');
   var twA=twTitle&&twTitle.querySelector('.t1');
@@ -788,10 +776,6 @@
     if(!('IntersectionObserver' in window)){drawAboutChart(false);}
     else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){drawAboutChart(false);io.disconnect();}});},{threshold:.4});io.observe(cp);}
   }
-  tabs.forEach(function(t){t.addEventListener('click',function(){activate(t.dataset.tab);});});
-  function link(sel,name){document.querySelectorAll(sel).forEach(function(a){a.addEventListener('click',function(e){activate(name);if(sec){e.preventDefault();sec.scrollIntoView({behavior:'smooth',block:'start'});}});});}
-  /* A140: ห้องสมุด/แพ็กเกจ ย้ายไปเป็นหน้าของตัวเองแล้ว (library.html · pricing.html)
-     — ในหน้านี้ไม่มีบล็อกทั้งสองอีก ลิงก์ทุกจุดจึงชี้ไปหน้าใหม่ตรงๆ (ฟังก์ชัน link() ยังอยู่ เผื่อใช้เปิดแท็บในอนาคต) */
 })();
 
 /* ---------- stats strip: เผยทีละช่อง + นับเลขขึ้น ---------- */
