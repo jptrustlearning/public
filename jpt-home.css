@@ -1673,3 +1673,27 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
 .chart-pane{-webkit-backdrop-filter:none;backdrop-filter:none}
 .nav.solid .nav-burger{-webkit-backdrop-filter:none;backdrop-filter:none}
 
+/* ===== A146 กรอบนอกของ Sector Scanner = กระจกโปร่ง พื้นเบลอ (จูน: "กรอบข้างนอก… เป็นกรอบโปร่งสี พื้นเบลอ") =====
+   เปลี่ยนเฉพาะ "เปลือกนอก" กับแถวหัว · ช่องค้นหาข้างใน (.scn-inrow) ยังเป็นกระดาษครีมของ A112 เหมือนเดิม
+   ⚠️ ข้างในกล่อง (แผงผลการค้นหา .scn-panel และชิป) ยังเป็นโทนครีม จึงต้องให้เปลือกโปร่งพอที่จะเห็นพื้นหลัง
+      แต่ไม่จางจนตัวหนังสือในแถวหัวอ่านไม่ออก — ใช้พื้นเข้มโปร่ง 34–46% + เบลอ แล้วพลิกสีตัวอักษรแถวหัวเป็นโทนสว่าง
+   ⚠️ backdrop-filter = เบลอพื้นหลังใหม่ทุกเฟรมที่เลื่อน (บทเรียน A131) — มีแค่กล่องเดียวและหยุดเองเมื่อ hero พ้นจอ
+   ถอดคืน = ลบบล็อกนี้ทั้งก้อน กลับไปเป็นกล่องครีมทึบของ A112 */
+.scn-box{
+  background:linear-gradient(158deg,rgba(74,30,42,.46) 0%,rgba(34,13,20,.52) 55%,rgba(20,7,12,.58) 100%);
+  -webkit-backdrop-filter:blur(18px) saturate(135%);backdrop-filter:blur(18px) saturate(135%);
+  border:1px solid rgba(212,175,55,.34);
+  box-shadow:0 26px 60px rgba(12,4,8,.46),inset 0 1px 0 rgba(255,254,248,.10)}
+/* แถวหัว: เส้นคั่นทอง + ตัวอักษรโทนสว่าง (ทับค่าโทนครีมของ A112) */
+.scn-top{background:transparent;border-bottom:1px solid rgba(212,175,55,.22)}
+.scn-brand{color:var(--gold-light)}
+.scn-t em,.scn-asof{color:rgba(245,233,208,.56)}
+/* ป้าย "ลองดู" อยู่บนพื้นกระจกเหมือนกัน (แผงผลด้านล่างเป็นกระดาษครีม ไม่ต้องแตะ) */
+.scn-chips .scn-hint{color:rgba(245,233,208,.50)}
+.scn-t b{color:rgba(255,254,248,.92)}
+.scn-sep{background:rgba(212,175,55,.26)}
+.scn-top .up{color:#8DE8B6}
+.scn-top .dn{color:#E9909B}
+.scn-top .fl{color:rgba(245,233,208,.56)}
+.scn-live{background:#4FBF83;box-shadow:0 0 0 3px rgba(79,191,131,.20)}
+@media(prefers-reduced-motion:no-preference){.scn-live::before{background:rgb(79,191,131)}}
