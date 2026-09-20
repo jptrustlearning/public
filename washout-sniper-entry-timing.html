@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>เข้าตอนไหนหลังตลาดช็อก — ผลทดสอบ Washout &amp; Sniper 11 ปี | JP Trust Learning</title>
+<meta name="description" content="ตลาดลงแล้วซื้อ ทุกคนรู้ แต่คำว่า &quot;ลง&quot; ไม่มีเส้นแบ่ง ระบบนี้ไม่ได้วัดความชันของดัชนี แต่นับว่ามีหุ้นกี่ตัวถูกล้างออกไปพร้อมกัน แล้วรอจนพีคของความกลัวผ่านไปแล้วค่อยเข้า — ผลทดสอบ 2 ม.ค. 2558 ถึง 18 ก.ย. 2569: 26 สัญญาณ เข้าจริง 19 ไม้ กำไรรวม 77,619 ดอลลาร์ บนทุนไม้ละ 10,000 ดอลลาร์ เฉลี่ย +39.6% ต่อไม้ เทียบกับซื้อ SPY จังหวะเดียวกันได้ +14.2% พร้อมสิ่งที่ตัวเลขชุดนี้ยังตอบไม่ได้">
+<link rel="canonical" href="https://public.jptrustlearning.com/washout-sniper-entry-timing.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="JP Trust Learning">
+<meta property="og:title" content="เข้าตอนไหนหลังตลาดช็อก — ผลทดสอบ Washout &amp; Sniper 11 ปี">
+<meta property="og:description" content="26 สัญญาณใน 11 ปี เข้าจริง 19 ไม้ เฉลี่ย +39.6% ต่อไม้ เทียบกับ SPY จังหวะเดียวกัน +14.2% — พร้อมข้อจำกัดทุกข้อที่ตัวเลขชุดนี้ยังตอบไม่ได้">
+<meta property="og:image" content="https://public.jptrustlearning.com/og-image.png">
+<meta property="og:url" content="https://public.jptrustlearning.com/washout-sniper-entry-timing.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Cinzel:wght@500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --maroon-deep:#1a0a0e;
+  --maroon:#2d1018;
+  --maroon-soft:#3a1620;
+  --cream:#FAF6ED;
+  --cream-2:#f3ecdc;
+  --gold:#D4AF37;
+  --gold-bright:#e7c659;
+  --gold-deep:#a8842a;
+  --price:#C75B49;          /* ราคา · อารมณ์  */
+  --price-soft:#e08a78;
+  --ink:#241016;
+  --ink-soft:#5a4640;
+  --on-dark:#f1e6d3;
+  --on-dark-soft:#c9b69b;
+  --line-dark:rgba(212,175,55,.22);
+  --line-light:rgba(45,16,24,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Anuphan',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.eyebrow{
+  font-family:'Cinzel',serif;
+  text-transform:uppercase;
+  letter-spacing:.34em;
+  font-size:.72rem;
+  font-weight:600;
+}
+.num{font-family:'DM Serif Display',serif;font-weight:400;line-height:.92;letter-spacing:-.01em}
+.serif{font-family:'DM Serif Display',serif}
+section{padding:clamp(64px,9vw,128px) clamp(22px,6vw,80px)}
+.wrap{max-width:980px;margin:0 auto}
+.narrow{max-width:760px;margin:0 auto}
+
+/* ---------- dual marker (signature) ---------- */
+.tag{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-family:'Cinzel',serif;font-size:.6rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  padding:.32em .7em;border-radius:999px;white-space:nowrap;
+  vertical-align:middle;
+}
+.tag::before{content:"";width:.5em;height:.5em;border-radius:50%}
+.tag.price{color:var(--price);background:rgba(199,91,73,.1);border:1px solid rgba(199,91,73,.35)}
+.tag.price::before{background:var(--price)}
+.tag.value{color:var(--gold-deep);background:rgba(212,175,55,.12);border:1px solid rgba(168,132,42,.4)}
+.tag.value::before{background:var(--gold)}
+.dark .tag.price{color:var(--price-soft);background:rgba(199,91,73,.16);border-color:rgba(224,138,120,.4)}
+.dark .tag.value{color:var(--gold-bright);background:rgba(212,175,55,.14);border-color:var(--line-dark)}
+
+/* ---------- brand bar ---------- */
+.brandbar{display:flex;align-items:center;gap:14px;margin-bottom:clamp(34px,6vw,60px)}
+.owl{width:48px;height:48px;flex:0 0 auto;object-fit:contain;border-radius:12px;filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}
+.brandbar .wordmark{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.16em;
+  font-size:1.02rem;color:var(--gold);line-height:1.1}
+.brandbar .wordmark span{display:block;font-size:.58rem;letter-spacing:.42em;color:var(--on-dark-soft);font-weight:500}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:
+    radial-gradient(120% 90% at 88% 4%, rgba(212,175,55,.16), transparent 46%),
+    radial-gradient(90% 70% at 0% 100%, rgba(199,91,73,.14), transparent 50%),
+    linear-gradient(160deg,var(--maroon) 0%, var(--maroon-deep) 100%);
+  color:var(--on-dark);position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line-dark);
+}
+.hero .eyebrow{color:var(--gold);margin-bottom:26px}
+.hero-paradox{
+  display:flex;align-items:stretch;gap:0;margin:6px 0 34px;
+  border:1px solid var(--line-dark);border-radius:16px;overflow:hidden;
+  background:rgba(0,0,0,.18);
+}
+.hero-paradox .cell{flex:1;padding:clamp(20px,4vw,34px) clamp(18px,3.5vw,30px)}
+.hero-paradox .cell+.cell{border-left:1px solid var(--line-dark)}
+.hero-paradox .lbl{font-family:'Anuphan';font-size:.82rem;color:var(--on-dark-soft);
+  display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.hero-paradox .big{font-size:clamp(2.9rem,11vw,4.6rem)}
+.hero-paradox .cell.value .big{color:var(--gold-bright)}
+.hero-paradox .cell.price .big{color:var(--price-soft)}
+.hero-paradox .sub{font-size:.82rem;color:var(--on-dark-soft);margin-top:8px}
+.hero h1{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(2rem,6vw,3.35rem);line-height:1.12;
+  letter-spacing:-.01em;margin-bottom:22px;color:#fff;
+}
+.hero h1 em{font-style:italic;color:var(--gold-bright)}
+.hero .lens{
+  font-size:clamp(1.05rem,2.6vw,1.4rem);color:var(--on-dark);
+  border-left:2px solid var(--gold);padding-left:18px;margin-bottom:30px;
+  max-width:680px;
+}
+.hero .lens b{color:var(--gold-bright);font-weight:600}
+.hero .meta{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--on-dark-soft);line-height:2}
+
+/* ---------- section chrome ---------- */
+.dark{background:linear-gradient(170deg,var(--maroon) 0%,var(--maroon-deep) 100%);color:var(--on-dark)}
+.dark .eyebrow{color:var(--gold)}
+.light .eyebrow{color:var(--gold-deep)}
+.act-no{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--gold-deep);
+  letter-spacing:.05em;margin-bottom:6px;display:block}
+.dark .act-no{color:var(--gold)}
+h2.head{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.7rem,4.8vw,2.7rem);line-height:1.15;
+  margin:14px 0 26px;letter-spacing:-.01em;
+}
+.light h2.head{color:var(--maroon)}
+.dark h2.head{color:#fff}
+.lead{font-size:clamp(1.05rem,2.2vw,1.2rem);margin-bottom:14px}
+.light .lead{color:var(--ink)}
+.dark .lead{color:var(--on-dark)}
+p.body{margin-bottom:16px;font-size:1.02rem}
+.light p.body{color:var(--ink-soft)}
+.dark p.body{color:var(--on-dark-soft)}
+.kw{color:var(--maroon);font-weight:600}
+.dark .kw{color:var(--gold-bright)}
+
+/* section figure */
+.figure{margin:6px 0 30px;border-radius:18px;overflow:hidden;border:1px solid var(--line-dark);box-shadow:0 26px 64px -34px rgba(0,0,0,.75);position:relative}
+.figure img{display:block;width:100%;height:auto}
+.figure figcaption{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-soft);padding:11px 16px;background:rgba(0,0,0,.34);border-top:1px solid var(--line-dark);display:flex;align-items:center;gap:8px}
+.figure figcaption::before{content:"";width:.5em;height:.5em;border-radius:50%;background:var(--gold);flex:0 0 auto}
+.light .figure figcaption{color:var(--ink-soft);background:rgba(45,16,24,.05);border-top-color:var(--line-light)}
+/* pull line */
+.pull{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3.4vw,1.9rem);
+  line-height:1.3;margin:30px 0;padding:0 0 0 22px;border-left:3px solid var(--gold);
+}
+.light .pull{color:var(--maroon)}
+.dark .pull{color:#fff}
+.pull em{font-style:italic;color:var(--gold-deep)}
+.dark .pull em{color:var(--gold-bright)}
+
+/* analogy card */
+.analogy{
+  background:var(--cream-2);border:1px solid var(--line-light);border-radius:18px;
+  padding:clamp(24px,4vw,38px);margin:28px 0;position:relative;
+}
+.analogy::before{content:"\201C";font-family:'DM Serif Display',serif;
+  position:absolute;top:-.1em;left:.28em;font-size:4.5rem;color:var(--gold);opacity:.5;line-height:1}
+.analogy p{font-size:1.08rem;color:var(--ink);position:relative}
+.analogy .pv{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
+/* stat grid */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:30px 0 8px}
+.stat{
+  border:1px solid var(--line-dark);border-radius:14px;padding:22px 20px;
+  background:rgba(0,0,0,.16);position:relative;overflow:hidden;
+}
+.light .stat{background:#fff;border-color:var(--line-light);box-shadow:0 8px 24px -18px rgba(45,16,24,.4)}
+.stat .stat-num{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,5vw,2.5rem);
+  line-height:1;color:var(--gold)}
+.light .stat .stat-num{color:var(--gold-deep)}
+.stat .stat-lbl{font-size:.9rem;margin-top:10px}
+.dark .stat .stat-lbl{color:var(--on-dark-soft)}
+.light .stat .stat-lbl{color:var(--ink-soft)}
+.stat .src{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-deep);margin-top:12px;display:block;opacity:.8}
+.dark .stat .src{color:var(--on-dark-soft)}
+
+/* two-trap split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
+.trap{border:1px solid rgba(199,91,73,.34);border-radius:14px;padding:22px;background:rgba(199,91,73,.07)}
+.dark .trap{background:rgba(199,91,73,.12)}
+.trap .t{font-weight:600;color:var(--price);margin-bottom:6px;font-size:1.05rem}
+.dark .trap .t{color:var(--price-soft)}
+.trap p{font-size:.96rem}
+.light .trap p{color:var(--ink-soft)}
+.dark .trap p{color:var(--on-dark-soft)}
+.system{
+  border:1px solid var(--line-dark);border-left:3px solid var(--gold);
+  border-radius:14px;padding:24px;margin-top:20px;background:rgba(212,175,55,.06)
+}
+.dark .system{background:rgba(212,175,55,.08)}
+.system .t{font-family:'Cinzel',serif;letter-spacing:.16em;text-transform:uppercase;
+  font-size:.7rem;color:var(--gold-deep);margin-bottom:10px}
+.dark .system .t{color:var(--gold-bright)}
+
+/* paradox panel (act 2) */
+.paradox2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.pcard{border-radius:16px;padding:24px}
+.pcard.val{background:rgba(212,175,55,.1);border:1px solid rgba(168,132,42,.4)}
+.pcard.mood{background:rgba(199,91,73,.09);border:1px solid rgba(199,91,73,.35)}
+.pcard .pc-num{font-family:'DM Serif Display',serif;font-size:2rem;line-height:1;margin:8px 0}
+.pcard.val .pc-num{color:var(--gold-deep)}
+.pcard.mood .pc-num{color:var(--price)}
+.pcard p{font-size:.95rem;color:var(--ink-soft)}
+
+/* ---------- ad showcase ---------- */
+.showcase{padding:0}
+.showcase-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px);
+  align-items:center;max-width:980px;margin:0 auto;
+}
+.showcase .copy .eyebrow{margin-bottom:14px}
+.showcase .copy h3{font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.5rem,3.6vw,2.1rem);line-height:1.18;margin-bottom:16px}
+.dark.showcase-sec .copy h3{color:#fff}
+.light.showcase-sec .copy h3{color:var(--maroon)}
+.showcase .copy p{font-size:1rem;margin-bottom:18px}
+.dark.showcase-sec .copy p{color:var(--on-dark-soft)}
+.light.showcase-sec .copy p{color:var(--ink-soft)}
+.showcase .copy ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.showcase .copy li{display:flex;gap:10px;align-items:flex-start;font-size:.96rem}
+.showcase .copy li::before{content:"";flex:0 0 auto;width:7px;height:7px;border-radius:50%;
+  background:var(--gold);margin-top:.6em}
+.dark.showcase-sec .copy li{color:var(--on-dark)}
+.light.showcase-sec .copy li{color:var(--ink)}
+.shot{border-radius:20px;overflow:hidden;border:1px solid var(--line-dark);
+  box-shadow:0 30px 70px -34px rgba(0,0,0,.7);position:relative}
+.light.showcase-sec .shot{border-color:var(--line-light);box-shadow:0 30px 70px -38px rgba(45,16,24,.5)}
+.shot img{display:block;width:100%;height:auto}
+
+/* ---------- closing ---------- */
+.closing{background:
+  radial-gradient(100% 80% at 50% 0%, rgba(212,175,55,.14), transparent 55%),
+  linear-gradient(180deg,var(--maroon-deep),#120608);
+  color:var(--on-dark);text-align:center}
+.closing .q{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,4.4vw,2.5rem);
+  line-height:1.28;color:#fff;max-width:760px;margin:0 auto 26px}
+.closing .q em{font-style:italic;color:var(--gold-bright)}
+.closing .lens-final{font-size:clamp(1.05rem,2.6vw,1.3rem);color:var(--on-dark);
+  max-width:640px;margin:0 auto 44px}
+.closing .lens-final b{color:var(--gold-bright)}
+.cta{display:inline-flex;flex-direction:column;align-items:center;gap:6px;
+  border:1px solid var(--line-dark);border-radius:16px;
+  padding:24px 40px;background:rgba(0,0,0,.25);text-decoration:none}
+.cta .sub{font-family:'Cinzel',serif;letter-spacing:.3em;font-size:.6rem;
+  text-transform:uppercase;color:var(--on-dark-soft)}
+.cta .url{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.04em;
+  font-size:clamp(1.3rem,3.4vw,1.7rem);color:var(--gold)}
+.cta .tip{font-size:.84rem;color:var(--on-dark-soft);margin-top:2px}
+.cta:hover .url{color:var(--gold-bright)}
+.disclaimer{margin-top:46px;font-size:.74rem;color:var(--on-dark-soft);
+  letter-spacing:.02em;max-width:680px;margin-left:auto;margin-right:auto;
+  border-top:1px solid var(--line-dark);padding-top:22px;line-height:1.9}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:680px){
+  .hero-paradox{flex-direction:row}
+  .stats{grid-template-columns:1fr 1fr}
+  .split,.paradox2{grid-template-columns:1fr}
+  .showcase-inner{grid-template-columns:1fr}
+  .showcase .copy{order:2}
+  .showcase .shot{order:1;max-width:420px;margin:0 auto}
+}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+/* ── ตาราง trade log (เฉพาะหน้านี้) ── */
+.logwrap{margin:26px 0 8px;border:1px solid var(--line-light);border-radius:14px;overflow-x:auto;background:#fff}
+.dark .logwrap{border-color:var(--line-dark);background:rgba(255,255,255,.03)}
+table.log{width:100%;border-collapse:collapse;font-size:.86rem;min-width:520px}
+table.log th{
+  font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold-deep);text-align:left;padding:12px 14px;border-bottom:1px solid var(--line-light);white-space:nowrap;
+}
+.dark table.log th{color:var(--gold);border-bottom-color:var(--line-dark)}
+table.log td{padding:10px 14px;border-bottom:1px solid rgba(45,16,24,.07);color:var(--ink-soft);white-space:nowrap}
+.dark table.log td{border-bottom-color:rgba(212,175,55,.1);color:var(--on-dark-soft)}
+table.log tr:last-child td{border-bottom:none}
+table.log td.n{font-variant-numeric:tabular-nums;text-align:right}
+table.log td.up{color:#2E7D4F;font-weight:600}
+table.log td.flat{color:var(--ink-soft)}
+.dark table.log td.up{color:#7bd39a}
+table.log tr.open td{background:rgba(212,175,55,.09)}
+.logcap{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-soft);margin-top:10px;display:block}
+.dark .logcap{color:var(--on-dark-soft)}
+
+</style>
+<style>
+/* --- checklist (article-specific) --- */
+.stat.span2{grid-column:1/-1}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:12px;margin:24px 0 8px}
+.checklist li{display:flex;gap:12px;align-items:flex-start;font-size:1rem;line-height:1.6}
+.checklist li .ck{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:rgba(212,175,55,.14);
+  border:1px solid var(--gold);color:var(--gold-deep);display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;font-weight:700;margin-top:.1em}
+.light .checklist li{color:var(--ink-soft)}
+.checklist li b{color:var(--maroon)}
+
+/* ═══ JPT · สีลิงก์ในเนื้อบทความ (v1) ═══════════════════
+   เจาะจงเฉพาะลิงก์ที่อยู่ในย่อหน้า/รายการ เพื่อไม่ให้ไปโดน
+   .sc-cta (ปุ่ม Subscribe ที่ไม่ได้กำหนดสีของตัวเองไว้)
+   .crumb และ .foot-links a ซึ่งมีสีของตัวเองอยู่แล้ว        */
+.wrap p a,.wrap li a,.narrow p a,.narrow li a,.callout a,.tl-b a,.tl-t a{
+  color:#8B6914;text-decoration:none;
+  border-bottom:1px solid rgba(184,134,11,.42);
+  transition:color .15s ease,border-color .15s ease;
+}
+.wrap p a:hover,.wrap li a:hover,.narrow p a:hover,.narrow li a:hover,.callout a:hover,.tl-b a:hover,.tl-t a:hover{
+  color:#722F37;border-bottom-color:rgba(114,47,55,.55);
+}
+.band .wrap p a,.band .wrap li a,.band .callout a,.band .tl-b a,.band .tl-t a{
+  color:#E8D48B;border-bottom-color:rgba(232,212,139,.42);
+}
+.band .wrap p a:hover,.band .wrap li a:hover,.band .callout a:hover,
+.band .tl-b a:hover,.band .tl-t a:hover{
+  color:#FFFEF8;border-bottom-color:rgba(255,254,248,.75);
+}
+</style>
+
+<style>
+/* --- flow diagram (article-specific) --- */
+.flow{margin:34px 0 12px}
+.fnode{
+  border:1px solid var(--line-light);border-radius:14px;
+  padding:16px 18px;text-align:center;background:#fff;
+  box-shadow:0 8px 24px -18px rgba(45,16,24,.4);
+}
+.dark .fnode{border-color:var(--line-dark);background:rgba(0,0,0,.18);box-shadow:none}
+.fnode .fn-t{
+  font-family:'Cinzel',serif;letter-spacing:.16em;text-transform:uppercase;
+  font-size:.74rem;font-weight:600;color:var(--gold-deep);line-height:1.5;
+}
+.dark .fnode .fn-t{color:var(--gold)}
+.fnode .fn-s{font-size:.88rem;color:var(--ink-soft);margin-top:8px;line-height:1.7}
+.dark .fnode .fn-s{color:var(--on-dark-soft)}
+.fnode.accent{border-color:rgba(168,132,42,.55);background:rgba(212,175,55,.1)}
+.dark .fnode.accent{border-color:var(--gold);background:rgba(212,175,55,.12)}
+.fnode.accent .fn-t{font-size:.82rem}
+.fnode.term{border-color:rgba(114,47,55,.3);background:rgba(45,16,24,.05)}
+.fpair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fdrop{position:relative;height:30px}
+.fdrop::before{
+  content:"";position:absolute;left:50%;top:0;width:1px;height:100%;
+  background:linear-gradient(180deg,rgba(168,132,42,.2),var(--gold-deep));
+  transform:translateX(-.5px);
+}
+.dark .fdrop::before{background:linear-gradient(180deg,rgba(212,175,55,.2),var(--gold))}
+.fdrop::after{
+  content:"";position:absolute;left:50%;bottom:1px;width:7px;height:7px;
+  border-right:1px solid var(--gold-deep);border-bottom:1px solid var(--gold-deep);
+  transform:translate(-50%,0) rotate(45deg);
+}
+.dark .fdrop::after{border-right-color:var(--gold);border-bottom-color:var(--gold)}
+.fcap{
+  font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-soft);opacity:.75;text-align:center;margin-top:14px;
+}
+.dark .fcap{color:var(--on-dark-soft)}
+@media(max-width:520px){
+  .fpair{grid-template-columns:1fr;gap:12px}
+  .fnode{padding:14px 15px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <img class="owl" src="https://raw.githubusercontent.com/jptrustlearning/pages/main/jpt-owl-cropped.png" alt="JP Trust Learning">
+      <div class="wordmark">JP TRUST<span>LEARNING</span></div>
+    </div>
+
+    <div class="eyebrow rv">Momentum &middot; ผลทดสอบของเราเอง</div>
+    <h1 class="rv">เข้าตอนไหน<br>หลังตลาดช็อก<br><em>Washout &amp; Sniper</em></h1>
+
+    <p class="lens rv">&ldquo;ตลาดลงแล้วซื้อ&rdquo; เป็นประโยคที่ทุกคนเห็นด้วย จนกระทั่งถึงวันที่ตลาดลงจริง แล้วไม่มีใครรู้ว่าคำว่า &ldquo;ลง&rdquo; ของวันนั้นแปลว่าอะไร ระบบที่บทความนี้เปิดให้ดู<b>ไม่ได้วัดว่าดัชนีร่วงไปกี่เปอร์เซ็นต์เป็นหลัก</b> แต่นับว่ามีหุ้นกี่ตัวถูกล้างออกไปพร้อมกัน แล้วรอจนพีคของความกลัว<b>ผ่านไปแล้ว</b>ค่อยลงมือ &mdash; ข้างล่างคือกติกาทั้งหมด ผลทดสอบ 11 ปีแบบไม่ตัดไม้ไหนทิ้ง และสิ่งที่ตัวเลขชุดนี้ยังตอบไม่ได้</p>
+
+    <div class="meta rv">ผลทดสอบย้อนหลัง &middot; หมวดกลยุทธ์ Momentum &middot; ข้อมูลถึง 18 ก.ย. 2569 &middot; JP Trust Learning</div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 1 ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 1 &mdash; สิ่งที่ระบบนี้วัดจริง</span>
+    <div class="eyebrow rv">Count The Fallen</div>
+    <h2 class="head rv">ไม่ได้วัดความชันของถนน<br>แต่นับคนที่ล้มลงพร้อมกัน</h2>
+    <p class="lead rv">ดัชนีที่ลบ 5% บอกอะไรได้น้อยกว่าที่คิด เพราะดัชนีเป็นค่าเฉลี่ยถ่วงน้ำหนัก หุ้นใหญ่ไม่กี่ตัวลากมันลงได้ทั้งที่หุ้นส่วนใหญ่ยังอยู่ดี สิ่งที่บอกว่า<span class="kw">แรงขายลามไปทั้งตลาดแล้วหรือยัง</span> คือการนับหัวว่ามีหุ้นกี่ตัวที่ราคาหลุดจากพฤติกรรมปกติของตัวเองในวันเดียวกัน</p>
+
+    <p class="body rv">ตัวนับที่ใช้คือสัดส่วนหุ้นใน S&amp;P 500 ที่ราคาปิดวันนั้นต่ำกว่าค่าเฉลี่ย 60 วันของตัวเองเกินสองส่วนเบี่ยงเบนมาตรฐาน พูดเป็นภาษาคนคือ<span class="kw">หุ้นตัวนั้นหลุดกรอบที่มันเคยแกว่งจนผิดปกติ</span> วันธรรมดาตัวเลขนี้อยู่แถวไม่กี่เปอร์เซ็นต์ วันที่ตลาดโดนล้างจริงมันพุ่งขึ้นเป็นสองหลักได้ในวันเดียว</p>
+
+    <div class="stats">
+      <div class="stat rv">
+        <div class="stat-num">19%</div>
+        <div class="stat-lbl">เส้นที่ระบบเริ่ม<b>จับตา</b> &mdash; สัดส่วนหุ้นที่ถูกล้างพร้อมกัน ค่านี้คือเปอร์เซ็นไทล์ที่ 95 ของข้อมูลจริง แปลว่าเกิดขึ้นราว 1 ใน 20 วันเท่านั้น</div>
+        <span class="src">breadth · z &lt; &minus;2</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">&minus;7%</div>
+        <div class="stat-lbl">อีกทางหนึ่ง &mdash; ดัชนีห่างจาก<b>ยอดของ 60 วันล่าสุด</b>เกินเจ็ดเปอร์เซ็นต์ (เปอร์เซ็นไทล์ที่ 10 ของข้อมูลจริงอยู่ที่ &minus;8.3% เผื่อระยะไว้เล็กน้อย)</div>
+        <span class="src">drawdown 60 วัน</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">126</div>
+        <div class="stat-lbl">วันทำการที่ถือทุกไม้ ตายตัว &mdash; ประมาณ <b>6 เดือน</b> เพราะจังหวะหลังตลาดล้างต้องการเวลาให้ราคาฟื้นเต็มรอบ ไม่ใช่เด้งสองสัปดาห์</div>
+        <span class="src">holding period</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">120</div>
+        <div class="stat-lbl">วันปฏิทินที่ต้อง<b>เว้นระยะระหว่างไม้</b> ราว 4 เดือน &mdash; กันไม่ให้พายุลูกเดียวกลายเป็นการซื้อซ้ำหลายครั้งด้วยเงินก้อนเดิม</div>
+        <span class="src">min gap</span>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:26px">ทั้งสองเส้นไม่ได้ตั้งจากความรู้สึก แต่มาจากการกางข้อมูลจริงแล้วดูว่าค่าระดับไหนคือ &ldquo;ไม่ปกติ&rdquo; ของตัวมันเอง และมีข้อควรระวังที่เราต้องเขียนกำกับไว้เสมอ &mdash; <span class="kw">ห้ามเอาเปอร์เซ็นไทล์ของสองตัววัดมาเทียบกันตรงๆ</span> เพราะการที่ดัชนีห่างจากยอดนั้นค้างอยู่ได้นานหลายสัปดาห์ ขณะที่วันที่หุ้นถูกล้างพร้อมกันเกิดแค่ไม่กี่วันต่อหนึ่งพายุ นับเป็น &ldquo;จำนวนวัน&rdquo; เมื่อไหร่ก็เทียบผิดทันที</p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 2 ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 2 &mdash; กติกาเข้า</span>
+    <div class="eyebrow rv">Two Of Three</div>
+    <h2 class="head rv">ต้องมีอย่างน้อยสองเสียง<br>และพีคต้องผ่านไปแล้ว</h2>
+    <p class="lead rv">สัญญาณเดียวโดดๆ ยังไม่พอให้ลงเงิน ระบบจึงให้มีผู้ยืนยันสามตัว และต้องเห็นตรงกัน<span class="kw">อย่างน้อยสองในสาม</span> ภายในห้าวันทำการย้อนหลัง</p>
+
+    <div class="system rv">
+      <div class="t">ผู้ยืนยันสามตัว</div>
+      <p class="body" style="margin-bottom:10px"><b>หนึ่ง</b> &mdash; สัดส่วนหุ้นที่ถูกล้างพร้อมกันแตะเส้น 19% แล้ว<b>หดกลับลงมาเหลือไม่เกินครึ่งหนึ่งของพีครอบนั้น</b></p>
+      <p class="body" style="margin-bottom:10px"><b>สอง</b> &mdash; ดัชนีห่างจากยอด 60 วันเกิน 7% แล้วเริ่มฟื้นด้วยเงื่อนไขเดียวกัน</p>
+      <p class="body" style="margin-bottom:0"><b>สาม</b> &mdash; หุ้นสหรัฐหลุดจากสองอันดับแรกเมื่อเทียบผลตอบแทนหกเดือนกับทองคำ น้ำมัน และเงินเยน ซึ่งเป็นสัญญาณว่าเงินกำลังย้ายไปหาที่หลบภัย</p>
+    </div>
+
+    <p class="body rv">จุดที่ต้องอ่านช้าๆ คือข้อความว่า <span class="kw">หดกลับลงมาเหลือครึ่งหนึ่งของพีค</span> ระบบไม่ได้พยายามซื้อที่จุดต่ำสุด และไม่ได้ซื้อตอนที่ตัวเลขความกลัวสูงที่สุดด้วย มันรอจนแรงล้างเริ่มคลาย นั่นคือเหตุผลที่ชื่อของมันคือการเล็งยิง ไม่ใช่การรับมีด</p>
+
+    <p class="pull rv">ไม่เข้าไปรับมีดที่กำลังตก<br>แต่ก็ไม่ปล่อยให้ <em>ของถูกลอยไปเฉยๆ</em></p>
+
+    <p class="body rv">ยังมีกลไกกันความซ้ำอีกสองชั้น ชั้นแรก พายุลูกใหม่ต้องมีพีค<span class="kw">สูงกว่าพีคที่เคยยิงไปแล้วอย่างน้อย 1.15 เท่า</span> ไม่งั้นถือว่าเป็นคลื่นลูกเดิมที่ยังไม่จบ ชั้นที่สอง ถ้าตัวนับอยู่ต่ำกว่าเส้นติดกัน 21 วันทำการ ระบบจะลืมพีคเดิมแล้วเริ่มนับพายุลูกใหม่ทั้งหมด</p>
+
+    <p class="body rv">เมื่อสัญญาณยิง ระบบซื้อ<span class="kw">หุ้นสิบตัวที่โมเมนตัมแรงที่สุดในเวลานั้น</span> โดยคะแนนมาจากผลตอบแทนหกเดือน 70% บวกปริมาณการซื้อขาย 30% เข้าที่<b>ราคาเปิดของวันทำการถัดไป</b> ถือ 126 วันทำการแล้วขายที่ราคาเปิด ยกเว้นวันครบกำหนดนั้นตลาดยังอยู่ในโหมดหลบภัยตามผู้ยืนยันตัวที่สาม ไม้นั้นจะยืดออกไปอีกหนึ่งรอบเต็มแล้วค่อยตรวจใหม่</p>
+
+    <div class="system rv">
+      <div class="t">ทุกเงื่อนไขอ่านจากอดีตเท่านั้น</div>
+      <p class="body" style="margin-bottom:0">คะแนนโมเมนตัม ตัวนับหุ้นที่ถูกล้าง และการเทียบสี่สินทรัพย์ ใช้ราคาปิดถึง<b>วันก่อนหน้า</b>ทั้งหมด ส่วนการซื้อเกิดที่ราคาเปิดของวันถัดไป กฎข้อนี้สำคัญกว่าที่ฟัง &mdash; เราเคยเจอ backtest ที่ดูดีมาก แล้วพบว่ามันใช้ราคาปิดของวันนั้นตัดสินใจ แล้วกินผลตอบแทนของวันเดียวกัน พอแก้ให้ลงมือวันถัดไป ผลที่เคยชนะการถือยาวก็หายไปทั้งหมด</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 3 ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 3 &mdash; ผลทดสอบ</span>
+    <div class="eyebrow rv">The Ledger</div>
+    <h2 class="head rv">11 ปี 26 สัญญาณ<br>เข้าจริง 19 ไม้</h2>
+    <p class="lead rv">ช่วงทดสอบ 2 ม.ค. 2558 ถึง 18 ก.ย. 2569 ทุนไม้ละ 10,000 ดอลลาร์ต่อสัญญาณ หักค่าธรรมเนียม 0.05% ต่อข้างทุกไม้ ไม่ทบต้น &mdash; สัญญาณที่ผ่านตัวกรองมีทั้งหมด 26 ครั้ง ถูกกฎเว้นระยะ 4 เดือนตัดทิ้ง 7 ครั้ง <span class="kw">เหลือเข้าจริง 19 ไม้</span> ปิดไปแล้ว 18 ไม้ และยังถืออยู่ 1 ไม้</p>
+
+    <div class="stats">
+      <div class="stat rv">
+        <div class="stat-num">+$77,619</div>
+        <div class="stat-lbl">กำไรรวมของ 19 ไม้ (รวมกำไรลอยของไม้ที่ยังถืออยู่) จากทุน<b>ไม้ละ 10,000 ดอลลาร์</b></div>
+        <span class="src">2 ม.ค. 2558 → 18 ก.ย. 2569</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">+39.6%</div>
+        <div class="stat-lbl">ผลตอบแทน<b>เฉลี่ยต่อไม้</b>ของ 18 ไม้ที่ปิดแล้ว &mdash; ต่ำสุด +5.7% สูงสุด +82.8%</div>
+        <span class="src">ต่อรอบ 6 เดือน</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">+14.2%</div>
+        <div class="stat-lbl">ถ้าเอาเงินก้อนเดียวกันไปซื้อ <b>SPY</b> ด้วยวันเข้าและวันขายชุดเดียวกันทุกไม้ จะได้เท่านี้ต่อไม้ (รวม +$27,199) &mdash; กลยุทธ์ชนะ 17 จาก 18 ไม้</div>
+        <span class="src">เงาเปรียบเทียบไม้ต่อไม้</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">$30,000</div>
+        <div class="stat-lbl">เงินสดสูงสุดที่ต้องเตรียม &mdash; ช่วงที่สัญญาณถี่ที่สุดมีไม้ซ้อนกัน <b>3 ไม้</b> พร้อมกัน</div>
+        <span class="src">ไม้ซ้อนสูงสุดตลอดช่วง</span>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:26px">ฝั่งความเสี่ยง กำไรสะสมของพอร์ตนี้ย่อลึกที่สุด <span class="kw">&minus;9.7%</span> เมื่อวัดบนเงินที่วางอยู่บนโต๊ะจริง ณ วันนั้น (14 ก.ค. 2565) ขณะที่ SPY ในช่วงเวลาเดียวกันย่อลึกสุด &minus;33.7% ความต่างนี้ไม่ได้มาจากความเก่ง แต่มาจากธรรมชาติของระบบที่<b>ถือเงินสดเป็นส่วนใหญ่</b>และอยู่ในตลาดเฉพาะช่วงหลังพายุเท่านั้น</p>
+
+    <p class="body rv">มีสามไม้ที่ถูกยืดออกไปอีกหนึ่งรอบเพราะวันครบกำหนดตลาดยังอยู่ในโหมดหลบภัย ไม้ปี 2559 กับไม้เดือน ก.พ. 2565 คือสองในนั้น และทั้งคู่จบด้วยกำไร</p>
+
+    <div class="logwrap rv">
+      <table class="log">
+        <thead>
+          <tr><th>#</th><th>วันเข้า</th><th>วันขาย</th><th>ผลของไม้</th><th>SPY หน้าต่างเดียวกัน</th><th>หมายเหตุ</th></tr>
+        </thead>
+        <tbody>
+        <tr><td class="n">1</td><td>28 ส.ค. 58</td><td>29 ส.ค. 59</td><td class="n up">+7.7%</td><td class="n">+11.8%</td><td>ยืด 1 รอบ</td></tr>
+        <tr><td class="n">2</td><td>25 ม.ค. 59</td><td>24 ม.ค. 60</td><td class="n up">+82.8%</td><td class="n">+21.6%</td><td>ยืด 1 รอบ</td></tr>
+        <tr><td class="n">3</td><td>30 มิ.ย. 59</td><td>29 ธ.ค. 59</td><td class="n up">+32.5%</td><td class="n">+9.4%</td><td>—</td></tr>
+        <tr><td class="n">4</td><td>13 ก.พ. 61</td><td>14 ส.ค. 61</td><td class="n up">+21.0%</td><td class="n">+8.0%</td><td>—</td></tr>
+        <tr><td class="n">5</td><td>31 ต.ค. 61</td><td>6 พ.ค. 62</td><td class="n up">+26.6%</td><td class="n">+7.9%</td><td>—</td></tr>
+        <tr><td class="n">6</td><td>27 ธ.ค. 61</td><td>28 มิ.ย. 62</td><td class="n up">+31.7%</td><td class="n">+21.6%</td><td>—</td></tr>
+        <tr><td class="n">7</td><td>5 มิ.ย. 62</td><td>3 ธ.ค. 62</td><td class="n up">+11.0%</td><td class="n">+10.2%</td><td>—</td></tr>
+        <tr><td class="n">8</td><td>5 มี.ค. 63</td><td>2 ก.ย. 63</td><td class="n up">+53.5%</td><td class="n">+17.4%</td><td>—</td></tr>
+        <tr><td class="n">9</td><td>25 มี.ค. 63</td><td>23 ก.ย. 63</td><td class="n up">+65.5%</td><td class="n">+36.1%</td><td>—</td></tr>
+        <tr><td class="n">10</td><td>3 พ.ย. 63</td><td>6 พ.ค. 64</td><td class="n up">+49.1%</td><td class="n">+25.4%</td><td>—</td></tr>
+        <tr><td class="n">11</td><td>1 ก.พ. 65</td><td>2 ก.พ. 66</td><td class="n up">+24.9%</td><td class="n">&minus;6.5%</td><td>ยืด 1 รอบ</td></tr>
+        <tr><td class="n">12</td><td>16 พ.ค. 65</td><td>14 พ.ย. 65</td><td class="n up">+5.7%</td><td class="n">&minus;0.1%</td><td>—</td></tr>
+        <tr><td class="n">13</td><td>23 มิ.ย. 65</td><td>21 ธ.ค. 65</td><td class="n up">+14.3%</td><td class="n">+2.5%</td><td>—</td></tr>
+        <tr><td class="n">14</td><td>22 มี.ค. 66</td><td>21 ก.ย. 66</td><td class="n up">+30.1%</td><td class="n">+10.0%</td><td>—</td></tr>
+        <tr><td class="n">15</td><td>9 ต.ค. 66</td><td>10 เม.ย. 67</td><td class="n up">+63.7%</td><td class="n">+20.8%</td><td>—</td></tr>
+        <tr><td class="n">16</td><td>9 ส.ค. 67</td><td>11 ก.พ. 68</td><td class="n up">+56.2%</td><td class="n">+14.3%</td><td>—</td></tr>
+        <tr><td class="n">17</td><td>17 มี.ค. 68</td><td>16 ก.ย. 68</td><td class="n up">+60.8%</td><td class="n">+18.1%</td><td>—</td></tr>
+        <tr><td class="n">18</td><td>10 เม.ย. 68</td><td>10 ต.ค. 68</td><td class="n up">+76.5%</td><td class="n">+26.9%</td><td>—</td></tr>
+        <tr class="open"><td class="n">19</td><td>1 เม.ย. 69</td><td>ยังถืออยู่</td><td class="n">&mdash;</td><td class="n">&mdash;</td><td>&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <span class="logcap rv">ทุกไม้ที่ระบบยิงตั้งแต่ปี 2558 ไม่มีการตัดไม้ไหนออกจากตาราง</span>
+
+    <p class="body rv" style="margin-top:26px">ปีที่ไม่มีบรรทัดในตารางเลยคือ <span class="kw">2560 และ 2564</span> สองปีนั้นตลาดไม่เคยล้างแรงพอจะทำให้ระบบยิงสักครั้ง ซึ่งเป็นพฤติกรรมที่ถูกต้องของเครื่องมือประเภทนี้ ไม่ใช่ความผิดพลาด</p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 4 ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 4 &mdash; จังหวะ กับ การเลือกของ</span>
+    <div class="eyebrow rv">Timing vs Selection</div>
+    <h2 class="head rv">จังหวะได้เงินก้อนหนึ่ง<br>ส่วนที่เหลือมาจากของที่ซื้อ</h2>
+    <p class="lead rv">ผลของระบบนี้แยกเป็นสองชั้นที่วัดแยกกันได้ ชั้นแรกคือ<span class="kw">จังหวะเข้า</span> ชั้นที่สองคือ<span class="kw">เลือกซื้ออะไรในจังหวะนั้น</span> และตัวเลขบอกชัดว่าชั้นไหนให้เท่าไร</p>
+
+    <p class="body rv">ถ้าใช้จังหวะชุดเดียวกันเป๊ะแต่ซื้อดัชนีไปเลย คือซื้อ SPY ทุกไม้ด้วยทุนเท่ากัน ผลคือ +$27,199 หรือเฉลี่ย +14.2% ต่อไม้ นั่นคือมูลค่าของ &ldquo;จังหวะ&rdquo; ล้วนๆ ส่วนการเปลี่ยนของที่ซื้อจากดัชนีเป็น<span class="kw">หุ้นสิบตัวที่แรงที่สุดในเวลานั้น</span> ทำให้ตัวเลขเดียวกันกลายเป็น +$77,619 หรือเฉลี่ย +39.6% ต่อไม้</p>
+
+    <p class="pull rv">ทั้งสองชั้นบวก<br>แต่ชั้นที่สอง <em>ใหญ่กว่าชั้นแรกเกือบสามเท่า</em></p>
+
+    <p class="body rv">ปี 2565 เป็นตัวอย่างที่เห็นภาพที่สุด ปีนั้นดัชนีติดลบทั้งปีและไม้ทั้งสามของระบบเปิดตอนตลาดกำลังแย่ แต่หุ้นสิบตัวที่โมเมนตัมหกเดือนชี้ไปหาในเวลานั้นคือ<span class="kw">กลุ่มพลังงาน</span> ทั้ง OXY, XOM, DVN, HAL และ CTRA เพราะราคาน้ำมันเป็นสินทรัพย์เดียวที่วิ่งขึ้นในปีนั้น ไม้ทั้งสามจึงจบด้วยกำไรทั้งที่เงาของมันฝั่ง SPY แทบไม่ได้อะไรเลย</p>
+
+    <p class="body rv">พูดอีกแบบคือชั้นเลือกหุ้นไม่ได้ทำหน้าที่ &ldquo;เร่งกำไร&rdquo; อย่างเดียว แต่มันย้ายพอร์ตไปอยู่ในกลุ่มที่เงินกำลังไหลเข้าจริงในเวลานั้น ซึ่งบางรอบเป็นคนละกลุ่มกับที่ดัชนีถ่วงน้ำหนักไว้ &mdash; กลไกของโมเมนตัมและอายุของสัญญาณ เราแยกอธิบายไว้ที่ <a href="factor-decay-rank-ic.html">Factor Decay: สัญญาณโมเมนตัม 30 ปี</a></p>
+
+    <p class="body rv">และชั้นที่สองนี่เองคือจุดที่<span class="kw">อคติที่ใหญ่ที่สุดของการทดสอบซ่อนอยู่</span> ซึ่งเป็นเรื่องของส่วนถัดไป</p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 5 ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 5 &mdash; ข้อจำกัด</span>
+    <div class="eyebrow rv">What It Cannot Tell You</div>
+    <h2 class="head rv">สิ่งที่ตัวเลขชุดนี้<br>ยังตอบไม่ได้</h2>
+    <p class="lead rv">ตัวเลขข้างบนดูดีเกินกว่าจะปล่อยผ่านโดยไม่กางข้อจำกัดให้ครบ ห้าข้อนี้คือสิ่งที่เราตรวจแล้วและต้องเขียนไว้ตรงนี้</p>
+
+    <div class="split rv">
+      <div class="trap">
+        <div class="t">19 ไม้ คือตัวอย่างที่เล็กมาก</div>
+        <p>สิบเอ็ดปีให้สัญญาณเฉลี่ยไม่ถึงสองครั้งต่อปี จำนวนเท่านี้<b>ยังไม่พอสรุปว่ามีนัยทางสถิติ</b> เกณฑ์ที่เราใช้กับงานวิจัยภายในต้องการตัวอย่างมากกว่านี้หลายเท่า ตัวเลขชุดนี้จึงเป็นบันทึกผล ไม่ใช่ข้อพิสูจน์</p>
+      </div>
+      <div class="trap">
+        <div class="t">ชนะทุกไม้ ไม่ใช่คุณสมบัติของระบบ</div>
+        <p>18 ไม้ที่ปิดแล้วเป็นบวกทั้งหมด แต่นั่นคือผลของการ<b>ถือยาวหกเดือนในตลาดที่ขึ้นตลอด 11 ปี</b> บวกกับกฎยืดตอนหมี ไม้ที่เฉียดที่สุดจบที่ +5.7% เท่านั้น ถ้าช่วงทดสอบยาวพอจะมีตลาดหมีแบบหลายปี ตัวเลขนี้จะไม่เป็นแบบนี้</p>
+      </div>
+    </div>
+
+    <p class="body rv">ข้อที่สามหนักที่สุด &mdash; <span class="kw">รายชื่อหุ้นที่ใช้คัดคือสมาชิก S&amp;P 500 ชุดปัจจุบัน</span> ไม่ใช่รายชื่อสมาชิก ณ วันที่สัญญาณเกิด แปลว่าหุ้นที่เพิ่งถูกรับเข้าดัชนีทีหลังเพราะมันวิ่งมาแล้ว ก็มีสิทธิ์ถูกเลือกย้อนหลังด้วย เราตรวจเรื่องนี้กับกลยุทธ์โมเมนตัมหกเดือนของเราเองมาแล้ว และพบว่าเมื่อเปลี่ยนไปใช้รายชื่อสมาชิกจริง ณ วันนั้น <b>ส่วนเกินที่เคยวัดได้ลดลงเกือบครึ่ง</b> ข้อสรุปเดียวกันนี้ใช้กับชั้นเลือกหุ้นของระบบนี้ด้วย</p>
+
+    <div class="system rv">
+      <div class="t">ตัวเลข &ldquo;เฉลี่ยปีละ +36.8%&rdquo; หมายความว่าอะไรกันแน่</div>
+      <p class="body" style="margin-bottom:0">หน้าเครื่องมือของสมาชิกแสดงค่านี้ไว้ วิธีคิดคือเอากำไรของแต่ละปีหารด้วย<b>จำนวนไม้ที่ซ้อนกันสูงสุดในปีนั้น คูณทุนต่อไม้</b> แล้วเฉลี่ยข้ามปี ปีไหนเปิดไม้เดียวฐานก็คือ 10,000 ดอลลาร์ ตัวเลขนี้ตอบคำถามว่า &ldquo;ปีนั้นต้องมีเงินพร้อมใช้เท่าไรและได้กลับมาเท่าไร&rdquo; <b>ไม่ใช่</b> CAGR ของพอร์ตทั้งพอร์ต และไม่ได้คิดต้นทุนของเงินที่นอนรอสัญญาณอยู่เฉยๆ ตลอดปีที่ไม่มีพายุ ใครจะเอาไปเทียบกับผลตอบแทนของกองทุนต้องรู้ข้อนี้ก่อน</p>
+    </div>
+
+    <p class="body rv">ข้อที่ห้าคือช่วงทดสอบ ข้อมูลของเราเริ่มที่ปี 2558 <span class="kw">จึงไม่มีวิกฤตปี 2551 อยู่ในนั้นเลย</span> พายุที่ใหญ่ที่สุดที่ระบบเคยเจอคือเดือน มี.ค. 2563 ซึ่งฟื้นเร็วผิดปกติเมื่อเทียบกับวิกฤตในอดีต การทดสอบย้อนไปถึงปี 2539 เป็นงานที่เรากำลังทำต่อ และจะเป็นด่านจริงของระบบนี้</p>
+
+    <p class="body rv">สุดท้าย ค่าธรรมเนียมที่ใช้คือ 0.05% ต่อข้าง ไม่รวมภาษีเงินปันผล ส่วนต่างอัตราแลกเปลี่ยน และไม่ได้จำลองว่าราคาเปิดที่ได้จริงอาจต่างจากราคาเปิดในไฟล์ข้อมูล</p>
+
+    <div class="system rv">
+      <div class="t">ถ้าถอดกฎเว้นระยะ 4 เดือนออก</div>
+      <p class="body" style="margin-bottom:0">เราลองยิงทุกสัญญาณทั้ง 26 ครั้งโดยไม่เว้นระยะ ผลคือกำไรรวมขึ้นไปที่ <b>+$89,055</b> แต่ต้องเตรียมเงินสดถึง <b>70,000 ดอลลาร์</b> เพราะมีช่วงที่ไม้ซ้อนกันถึงเจ็ดไม้ และกำไรสะสมย่อลึกขึ้นเป็น &minus;15.7% เมื่อคิดเป็นผลตอบแทนต่อเงินที่ต้องวางจริง กฎเว้นระยะจึง<b>แลกกำไรรวมที่หายไปราว 11,400 ดอลลาร์ กับเงินทุนที่ต้องเตรียมน้อยลงกว่าครึ่ง</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 6 ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 6 &mdash; สถานะล่าสุด</span>
+    <div class="eyebrow rv">As Of Today</div>
+    <h2 class="head rv">ตอนนี้ระบบบอกว่า<br>ยังไม่มีพายุ</h2>
+    <p class="lead rv">ข้อมูลล่าสุดที่ใช้ในบทความนี้คือราคาปิดวันที่ 18 ก.ย. 2569 และทั้งสามผู้ยืนยัน<span class="kw">ยังไม่มีตัวไหนติดสถานะจับตา</span></p>
+
+    <div class="stats">
+      <div class="stat rv">
+        <div class="stat-num">14.9%</div>
+        <div class="stat-lbl">สัดส่วนหุ้นที่ถูกล้างพร้อมกัน &mdash; <b>ต่ำกว่าเส้น 19%</b> ที่ใช้เริ่มจับตา</div>
+        <span class="src">18 ก.ย. 2569</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">&minus;2.1%</div>
+        <div class="stat-lbl">ระยะห่างจากยอด 60 วันของดัชนี &mdash; <b>ตื้นกว่าเส้น &minus;7%</b> อยู่มาก</div>
+        <span class="src">18 ก.ย. 2569</span>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:26px">ผู้ยืนยันตัวที่สามก็ยังเป็นปกติ คือหุ้นสหรัฐยังอยู่ในสองอันดับแรกเมื่อเทียบผลตอบแทนหกเดือนกับทองคำ น้ำมัน และเงินเยน ระหว่างนี้ระบบมีไม้ที่ยังถืออยู่หนึ่งไม้ ซึ่งเข้าเมื่อ 1 เม.ย. 2569 และยังไม่ถึงวันครบกำหนด</p>
+
+    <p class="body rv">สิ่งที่ต้องเฝ้าจึงเหลือแค่สามบรรทัดเดิม &mdash; ตัวนับหุ้นที่ถูกล้างแตะ 19% เมื่อไหร่ ดัชนีห่างจากยอด 60 วันเกิน 7% เมื่อไหร่ และหุ้นสหรัฐหลุดสองอันดับแรกเมื่อเทียบกับที่หลบภัยเมื่อไหร่ ถ้าสองในสามเกิดขึ้นแล้วพีคเริ่มหดลง นั่นคือเวลาของเครื่องมือชิ้นนี้</p>
+
+    <div class="system rv">
+      <div class="t">บทบาทของระบบนี้ในพอร์ต</div>
+      <p class="body" style="margin-bottom:0">ออกแบบมาเพื่อ<b>เก็บผลตอบแทนจากปีที่ตลาดช็อก</b> ไม่ใช่เพื่อเอาชนะ S&amp;P 500 ทุกปี ถือหกเดือนเพราะจังหวะหลังตลาดล้างต้องการเวลาให้ราคาฟื้นเต็มรอบ และวันเข้าถูกกำหนดโดยตลาดไม่ใช่ปฏิทิน &mdash; ควรใช้เป็น<b>ตัวเสริมพอร์ต ไม่ใช่ตัวหลักตัวเดียว</b></p>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="narrow">
+    <div class="eyebrow rv" style="color:var(--gold);margin-bottom:24px">สรุปให้จำ</div>
+    <p class="q rv">ไม่ต้องรู้ว่าก้นอยู่ตรงไหน<br>แค่รู้ว่า <em>พีคผ่านไปหรือยัง</em></p>
+    <p class="lens-final rv">ระบบนี้นับ<b>จำนวนหุ้นที่ถูกล้างพร้อมกัน</b> ไม่ใช่ความชันของดัชนี และเข้าเมื่อพีคของความกลัวหดลงเหลือครึ่งหนึ่งแล้ว<br>ต้องมีผู้ยืนยัน<b>อย่างน้อยสองในสาม</b> ถือ 6 เดือน ยืดต่อถ้าวันครบกำหนดตลาดยังอยู่ในโหมดหลบภัย<br>11 ปี 26 สัญญาณ เข้าจริง 19 ไม้ เฉลี่ย <b>+39.6% ต่อไม้</b> ขณะที่ซื้อดัชนีในจังหวะเดียวกันได้ +14.2%<br>และ 19 ไม้<b>ยังเล็กเกินกว่าจะเรียกว่าข้อพิสูจน์</b> &mdash; รายชื่อหุ้นที่ใช้คัดยังเป็นสมาชิกดัชนีชุดปัจจุบัน และช่วงทดสอบยังไม่มีปี 2551</p>
+
+    <a class="cta rv" href="https://jptrustlearning.com" target="_blank" rel="noopener">
+      <span class="sub">Subscribe at</span>
+      <span class="url">jptrustlearning.com</span>
+      <span class="tip">ดูสถานะของระบบนี้แบบวันต่อวันได้ในแอปสมาชิก</span>
+    </a>
+
+    <p class="disclaimer rv">การลงทุนมีความเสี่ยง &middot; เนื้อหาเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน &middot; ผลในอดีตไม่ได้การันตีผลในอนาคต<br>ตัวเลขทั้งหมดในบทความมาจากการทดสอบย้อนหลัง (backtest) บนข้อมูลราคารายวันของหุ้นใน S&amp;P 500 และราคา SPY จากชุดข้อมูลของ JP Trust Learning ช่วง 2 ม.ค. 2558 ถึง 18 ก.ย. 2569 &middot; ทุนสมมติไม้ละ 10,000 ดอลลาร์ หักค่าธรรมเนียม 0.05% ต่อข้าง ไม่รวมภาษี ส่วนต่างอัตราแลกเปลี่ยน และ slippage &middot; รายชื่อหุ้นที่ใช้คัดเป็นสมาชิกดัชนีชุดปัจจุบัน ซึ่งทำให้ผลการทดสอบสูงกว่าความเป็นจริง &middot; ผลตอบแทนเฉลี่ยรายปีคิดบนฐานไม้ซ้อนสูงสุดของแต่ละปี ไม่ใช่ CAGR ของพอร์ต &middot; เรียบเรียงโดย JP Trust Learning</p>
+  </div>
+</section>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach((el,i)=>{
+  const sib=[...el.parentElement.children].filter(c=>c.classList.contains('rv'));
+  el.style.transitionDelay=(Math.min(sib.indexOf(el),5)*60)+'ms';
+  io.observe(el);
+});
+</script>
+<style>
+/* ═══ JPT · แถบนำทางกลับ (v1) ═══ */
+.jpt-libnav{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 26px;
+  margin:0;padding:26px 20px calc(26px + env(safe-area-inset-bottom,0px));
+  background:linear-gradient(135deg,#1a0a0e 0%,#2d1018 55%,#3a1520 100%);
+  border-top:1px solid rgba(212,175,55,.35);
+  font-family:'Anuphan',system-ui,-apple-system,sans-serif;
+  font-size:14.5px;line-height:1.9;text-align:center;
+}
+.jpt-libnav a{
+  color:#D4AF37;text-decoration:none;
+  border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease;
+}
+.jpt-libnav a:hover{color:#E8D48B;border-bottom-color:rgba(232,212,139,.6);}
+.jpt-libnav .sep{color:rgba(212,175,55,.35);}
+</style>
+<!-- JPT · แถบนำทางกลับ -->
+<nav class="jpt-libnav">
+  <a href="lib-momentum.html">← ห้องสมุด กลยุทธ์ Momentum</a>
+  <a href="index.html">หน้าแรกห้องสมุด</a>
+  <a href="https://app.jptrustlearning.com">เข้าระบบสมาชิก</a>
+</nav>
+</body>
+</html>
