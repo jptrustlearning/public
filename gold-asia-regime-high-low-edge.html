@@ -26,6 +26,48 @@ tbody th{background:transparent;font-size:14px;font-weight:500;color:var(--ink);
 @media(max-width:720px){.table-scroll:before,.svg-scroll:before{content:"เลื่อนซ้าย–ขวาเพื่อดูข้อมูลครบ ↔";display:block;position:sticky;left:0;padding:9px 12px;background:#f1ece5;color:#8b777e;font-size:10px;line-height:1.5;border-bottom:1px solid var(--line);width:100%}.svg-scroll:before{border-radius:4px;margin-bottom:10px}}
 
 @media(max-width:1000px){.has-js .nav-extra{display:none}}@media(max-width:720px){.brand{flex-shrink:0}.wordmark{white-space:nowrap}.topmeta{max-width:105px}}
+
+/* ===== A147 แกลเลอรีภาพสรุป 7 แผ่น (ชุดเดียวกับที่โพสต์โซเชียล) =====
+   แถบเลื่อนแนวนอนใช้ scroll-snap ล้วน — ไม่มี JS ก็ยังเลื่อนดูได้ครบทุกแผ่น (ปุ่ม/จุด/ไลท์บ็อกซ์เป็นของแถมที่มาเมื่อมี JS)
+   ภาพ 1080×1080 · ใบแรก eager ที่เหลือ lazy · ใส่ width/height ไว้กันหน้ากระตุกตอนโหลด */
+.deck-chapter{padding-top:8px}
+.deck-track{display:grid;grid-auto-flow:column;grid-auto-columns:min(420px,78vw);gap:18px;
+  overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 14px;margin-top:26px;
+  scrollbar-width:thin;scrollbar-color:var(--gold) transparent}
+.deck-track::-webkit-scrollbar{height:8px}
+.deck-track::-webkit-scrollbar-thumb{background:var(--gold);border-radius:8px}
+.deck-track::-webkit-scrollbar-track{background:#00000008;border-radius:8px}
+.deck-slide{scroll-snap-align:center;background:var(--white);border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.deck-shot{display:block;padding:0;border:0;background:none;width:100%;line-height:0;cursor:zoom-in}
+.deck-shot img{width:100%;height:auto;display:block;transition:transform .5s cubic-bezier(.22,.85,.2,1)}
+@media (hover:hover) and (pointer:fine){.deck-shot:hover img{transform:scale(1.02)}}
+.deck-slide figcaption{padding:14px 18px 16px;border-top:1px solid var(--line)}
+.deck-slide figcaption b{display:block;font-size:15px;line-height:1.5;color:var(--burgundy)}
+.deck-slide figcaption span{display:block;margin-top:4px;font-size:13px;color:var(--muted)}
+.deck-bar{display:flex;align-items:center;gap:14px;margin-top:6px}
+.deck-arrow{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--white);
+  color:var(--burgundy);font-size:16px;line-height:1;box-shadow:var(--shadow)}
+.deck-arrow:disabled{opacity:.35;cursor:default}
+.deck-dots{display:flex;gap:7px;flex:1}
+.deck-dots i{width:7px;height:7px;border-radius:50%;background:var(--line);transition:background .25s ease,width .25s ease}
+.deck-dots i.on{background:var(--gold);width:20px;border-radius:7px}
+.deck-count{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.deck-count b{color:var(--burgundy)}
+.deck-lightbox{position:fixed;inset:0;z-index:200;background:#1a0d14f2;display:flex;align-items:center;justify-content:center;padding:24px}
+.deck-lightbox img{max-width:min(92vw,900px);max-height:88vh;border-radius:10px;box-shadow:0 30px 80px #0009}
+.deck-x{position:absolute;top:18px;right:20px;width:42px;height:42px;border-radius:50%;border:1px solid #ffffff33;
+  background:#ffffff14;color:#fff;font-size:24px;line-height:1}
+.deck-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;
+  border:1px solid #ffffff33;background:#ffffff14;color:#fff;font-size:18px}
+.deck-nav.prev{left:18px}.deck-nav.next{right:18px}
+.deck-lb-count{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:#f5ecd8b3;font-size:13px}
+.deck-lb-count b{color:#fff}
+@media(max-width:760px){
+  .deck-track{grid-auto-columns:min(340px,86vw);gap:14px}
+  .deck-nav{width:40px;height:40px}.deck-nav.prev{left:8px}.deck-nav.next{right:8px}
+}
+@media(prefers-reduced-motion:reduce){.deck-shot img{transition:none}}
 </style>
 </head>
 <body>
@@ -69,6 +111,70 @@ tbody th{background:transparent;font-size:14px;font-weight:500;color:var(--ink);
  </div><div class="nav-extra js-only"><button id="expand-details" type="button" aria-expanded="false">เปิดรายละเอียดทั้งหมด</button></div></div><div class="progress" id="progress" aria-hidden="true"></div>
 </nav>
 <main class="article">
+
+<section class="chapter deck-chapter" id="deck" aria-labelledby="deck-title">
+ <div class="section-head"><span class="section-no">00</span><div><div class="section-kicker">THE NOTE IN 7 CARDS</div><h2 id="deck-title">สรุปงานวิจัยใน 7 ภาพ</h2></div></div>
+ <p class="lede">ชุดเดียวกับที่เผยแพร่บนโซเชียล ไล่ตั้งแต่แนวคิดจนถึงด่านทดสอบ · เลื่อนดูทีละแผ่น หรือกดที่ภาพเพื่อขยาย</p>
+ <div class="deck-track" id="deck-track" tabindex="0" role="group" aria-label="ภาพสรุปงานวิจัย 7 แผ่น เลื่อนแนวนอน">
+   <figure class="deck-slide" id="deck-01">
+    <button class="deck-shot" type="button" data-deck-open="0" aria-label="ขยายภาพสรุปแผ่นที่ 1 จาก 7">
+     <img src="img/gold-asia/gold-asia-01.jpg" alt="สรุปหน้า 1: ทองคำไม่ได้เคลื่อนไหวเหมือนกันทุกวัน — HIGH ตามการหลุดกรอบ, LOW เก็บการแกว่งกลับ, MID เว้นวันที่หลักฐานไม่ชัด" width="1080" height="1080" loading="eager" decoding="async">
+    </button>
+    <figcaption><b>ทองคำไม่ได้เคลื่อนไหวเหมือนกันทุกวัน</b><span>เข้าใจสภาวะตลาด ก่อนเลือกวิธี</span></figcaption>
+   </figure>
+   <figure class="deck-slide" id="deck-02">
+    <button class="deck-shot" type="button" data-deck-open="1" aria-label="ขยายภาพสรุปแผ่นที่ 2 จาก 7">
+     <img src="img/gold-asia/gold-asia-02.jpg" alt="สรุปหน้า 2: Asia share คือสัดส่วนช่วงราคาเอเชียเทียบช่วงราคาทั้งวัน ใช้ข้อมูลวันที่จบแล้วเทียบกับประวัติของตัวเอง" width="1080" height="1080" loading="lazy" decoding="async">
+    </button>
+    <figcaption><b>Asia share อ่านสภาวะของตลาด</b><span>ใช้ข้อมูลย้อนหลัง ไม่ใช้ข้อมูลอนาคต</span></figcaption>
+   </figure>
+   <figure class="deck-slide" id="deck-03">
+    <button class="deck-shot" type="button" data-deck-open="2" aria-label="ขยายภาพสรุปแผ่นที่ 3 จาก 7">
+     <img src="img/gold-asia/gold-asia-03.jpg" alt="สรุปหน้า 3: ระบบ H ศึกษาการเคลื่อนไหวต่อเนื่องในวัน HIGH ระบบ L ศึกษาการแกว่งกลับในวัน LOW" width="1080" height="1080" loading="lazy" decoding="async">
+    </button>
+    <figcaption><b>H + L เติมช่วงที่อีกระบบอ่อนแรง</b><span>สองระบบ ทำงานคนละสภาวะ</span></figcaption>
+   </figure>
+   <figure class="deck-slide" id="deck-04">
+    <button class="deck-shot" type="button" data-deck-open="3" aria-label="ขยายภาพสรุปแผ่นที่ 4 จาก 7">
+     <img src="img/gold-asia/gold-asia-04.jpg" alt="สรุปหน้า 4: ผลตอบแทนรายปี H เดี่ยวเทียบ H + L ปีบวก 8/8 เทียบกับ 4/8" width="1080" height="1080" loading="lazy" decoding="async">
+    </button>
+    <figcaption><b>L เติมผลตอบแทนในบางปีที่ H อ่อนแรง</b><span>ผลตอบแทนรายปี ก.ย. 2019 – ก.ค. 2026</span></figcaption>
+   </figure>
+   <figure class="deck-slide" id="deck-05">
+    <button class="deck-shot" type="button" data-deck-open="4" aria-label="ขยายภาพสรุปแผ่นที่ 5 จาก 7">
+     <img src="img/gold-asia/gold-asia-05.jpg" alt="สรุปหน้า 5: ผลตอบแทนสะสม H เดี่ยว +81% · H + L +122% · ถือทอง +112% พร้อม Max Drawdown ของแต่ละแบบ" width="1080" height="1080" loading="lazy" decoding="async">
+    </button>
+    <figcaption><b>ผลสะสมเท่ากัน แต่ Drawdown ต่างกัน</b><span>H + L +122% · Max DD −11.3%</span></figcaption>
+   </figure>
+   <figure class="deck-slide" id="deck-06">
+    <button class="deck-shot" type="button" data-deck-open="5" aria-label="ขยายภาพสรุปแผ่นที่ 6 จาก 7">
+     <img src="img/gold-asia/gold-asia-06.jpg" alt="สรุปหน้า 6: ด่านทดสอบการสุ่ม 3 แบบ ผ่านเกณฑ์ 97.5% สองแบบ ส่วนการสุ่มในปีเดียวกันได้ p = 0.041" width="1080" height="1080" loading="lazy" decoding="async">
+    </button>
+    <figcaption><b>พอร์ตรวมผ่านด่านสุ่ม 2 ใน 3 แบบ</b><span>p-value เทียบเกณฑ์ 0.025</span></figcaption>
+   </figure>
+   <figure class="deck-slide" id="deck-07">
+    <button class="deck-shot" type="button" data-deck-open="6" aria-label="ขยายภาพสรุปแผ่นที่ 7 จาก 7">
+     <img src="img/gold-asia/gold-asia-07.jpg" alt="สรุปหน้า 7: สรุประบบ H, ระบบ L และพอร์ตรวม H + L พร้อมข้อจำกัดที่ต้องดูควบคู่" width="1080" height="1080" loading="lazy" decoding="async">
+    </button>
+    <figcaption><b>Edge ที่น่าเชื่อถือต้องมีหลักฐานรองรับ</b><span>ดูทั้งผลทดสอบ ต้นทุน และข้อจำกัด</span></figcaption>
+   </figure>
+ </div>
+ <div class="deck-bar">
+  <button class="deck-arrow js-only" type="button" id="deck-prev" aria-label="แผ่นก่อนหน้า">←</button>
+  <div class="deck-dots" id="deck-dots" aria-hidden="true"></div>
+  <span class="deck-count js-only"><b id="deck-now">1</b> / 7</span>
+  <button class="deck-arrow js-only" type="button" id="deck-next" aria-label="แผ่นถัดไป">→</button>
+ </div>
+ <p class="caption">ภาพสรุปย่อจากรายงานฉบับเต็มด้านล่าง ตัวเลขทุกตัวอ้างอิงหัวข้อเดียวกันในหน้านี้ · ผลจำลองย้อนหลัง ไม่ใช่การรับประกันผลในอนาคต</p>
+</section>
+
+<div class="deck-lightbox" id="deck-lightbox" hidden role="dialog" aria-modal="true" aria-label="ภาพสรุปขนาดเต็ม">
+ <button class="deck-x" id="deck-close" type="button" aria-label="ปิด">&times;</button>
+ <button class="deck-nav prev" id="deck-lb-prev" type="button" aria-label="แผ่นก่อนหน้า">←</button>
+ <img id="deck-lb-img" src="" alt="">
+ <button class="deck-nav next" id="deck-lb-next" type="button" aria-label="แผ่นถัดไป">→</button>
+ <div class="deck-lb-count"><b id="deck-lb-now">1</b> / 7</div>
+</div>
 
 <section class="chapter" id="idea">
  <div class="section-head"><span class="section-no">01</span><div><div class="section-kicker">THE IDEA</div><h2>เลือกวิธีให้ตรงกับสภาวะตลาด<br>ก่อนถามว่าระบบทำกำไรได้เท่าไร</h2></div></div>
@@ -365,6 +471,67 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 document.getElementById('expand-details').addEventListener('click',function(){const all=[...document.querySelectorAll('details')],open=!all.every(d=>d.open);all.forEach(d=>d.open=open);this.textContent=open?'ย่อรายละเอียด':'เปิดรายละเอียดทั้งหมด';this.setAttribute('aria-expanded',String(open));updateScroll();});
 let savedOpen=[];addEventListener('beforeprint',()=>{savedOpen=[...document.querySelectorAll('details')].map(d=>d.open);document.querySelectorAll('details').forEach(d=>d.open=true);});
 addEventListener('afterprint',()=>{document.querySelectorAll('details').forEach((d,i)=>d.open=savedOpen[i]);});
+
+/* ---------- A147 แกลเลอรีภาพสรุป ---------- */
+(function(){
+ var track=document.getElementById('deck-track'); if(!track) return;
+ var slides=[].slice.call(track.querySelectorAll('.deck-slide'));
+ var imgs=slides.map(function(s){var im=s.querySelector('img');return {src:im.getAttribute('src'),alt:im.getAttribute('alt')};});
+ var dots=document.getElementById('deck-dots'), now=document.getElementById('deck-now');
+ var prev=document.getElementById('deck-prev'), next=document.getElementById('deck-next');
+ slides.forEach(function(_,i){var d=document.createElement('i'); if(!i)d.className='on'; dots.appendChild(d);});
+ var cur=0;
+ function mark(i){
+   cur=i; if(now) now.textContent=i+1;
+   [].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===i);});
+   if(prev) prev.disabled=(i===0); if(next) next.disabled=(i===slides.length-1);
+ }
+ function go(i){ i=Math.max(0,Math.min(slides.length-1,i));
+   track.scrollTo({left:slides[i].offsetLeft-track.offsetLeft,behavior:'smooth'}); mark(i); }
+ if(prev) prev.addEventListener('click',function(){go(cur-1);});
+ if(next) next.addEventListener('click',function(){go(cur+1);});
+ /* จอกว้างเห็นพร้อมกันหลายแผ่น — ถือว่า "แผ่นปัจจุบัน" คือแผ่นที่ขอบซ้ายใกล้ขอบซ้ายของแถบที่สุด
+    (เคยใช้ IntersectionObserver แล้วตัวนับกระโดด เพราะมี 2-3 แผ่นเข้าเกณฑ์พร้อมกัน) */
+ var tick=0;
+ track.addEventListener('scroll',function(){
+   if(tick) return;
+   tick=requestAnimationFrame(function(){
+     tick=0;
+     var x=track.scrollLeft, best=0, d=Infinity;
+     slides.forEach(function(s,i){
+       var dd=Math.abs((s.offsetLeft-track.offsetLeft)-x);
+       if(dd<d){d=dd;best=i;}
+     });
+     mark(best);
+   });
+ },{passive:true});
+ track.addEventListener('keydown',function(e){
+   if(e.key==='ArrowRight'){e.preventDefault();go(cur+1);}
+   if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1);}
+ });
+ /* ไลท์บ็อกซ์ */
+ var lb=document.getElementById('deck-lightbox'), lbImg=document.getElementById('deck-lb-img'),
+     lbNow=document.getElementById('deck-lb-now'), lbPrev=document.getElementById('deck-lb-prev'),
+     lbNext=document.getElementById('deck-lb-next'), lbX=document.getElementById('deck-close'), lastFocus=null;
+ function show(i){ i=(i+imgs.length)%imgs.length; lbImg.src=imgs[i].src; lbImg.alt=imgs[i].alt;
+   lbNow.textContent=i+1; lb.dataset.i=i; }
+ function open(i){ lastFocus=document.activeElement; show(i); lb.hidden=false;
+   document.body.style.overflow='hidden'; lbX.focus(); }
+ function close(){ lb.hidden=true; document.body.style.overflow=''; if(lastFocus) lastFocus.focus(); }
+ track.querySelectorAll('[data-deck-open]').forEach(function(b){
+   b.addEventListener('click',function(){open(+b.dataset.deckOpen);});
+ });
+ lbX.addEventListener('click',close);
+ lbPrev.addEventListener('click',function(){show(+lb.dataset.i-1);});
+ lbNext.addEventListener('click',function(){show(+lb.dataset.i+1);});
+ lb.addEventListener('click',function(e){if(e.target===lb)close();});
+ document.addEventListener('keydown',function(e){
+   if(lb.hidden) return;
+   if(e.key==='Escape') close();
+   if(e.key==='ArrowRight') show(+lb.dataset.i+1);
+   if(e.key==='ArrowLeft') show(+lb.dataset.i-1);
+ });
+})();
 </script>
 <nav class="jpt-libnav" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 26px;margin:0;padding:26px 20px calc(26px + env(safe-area-inset-bottom,0px));background:linear-gradient(135deg,#1a0a0e 0%,#2d1018 55%,#3a1520 100%);border-top:1px solid rgba(212,175,55,.35);font-family:Sarabun,Tahoma,sans-serif;font-size:14.5px;line-height:1.9;text-align:center"><a href="lib-method.html" style="color:#D4AF37;text-decoration:none">← ห้องสมุดข้อมูล &amp; ระเบียบวิธี</a><a href="index.html" style="color:#D4AF37;text-decoration:none">หน้าแรกห้องสมุด</a><a href="https://app.jptrustlearning.com" style="color:#D4AF37;text-decoration:none">เข้าระบบสมาชิก</a></nav>
 </body></html>
