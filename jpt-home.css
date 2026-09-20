@@ -1105,7 +1105,10 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 .svc-desc{font-size:clamp(15px,2vw,17px);color:#B3A9A0;line-height:1.8;max-width:640px;margin:14px auto 0}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,26px)}
 /* A135: การ์ดบริการย้ายเข้ามาอยู่ในบล็อกแพ็กเกจ (ไม่มี .svc-tray ครอบแล้ว) — จัดกึ่งกลางและเว้นระยะก่อนตารางราคา */
-#pricing .svc-grid{max-width:1000px;margin:0 auto clamp(30px,4vw,46px)}
+/* A144 (จูน: "ตรงนี้ card มันซ้อนกัน"): ระยะใต้การ์ดบริการเคย scope ไว้กับ #pricing ซึ่งเป็นเปลือกของบล็อกในหน้าแรก
+   พอยกเนื้อหาไปเป็น pricing.html (A140) เปลือกหายไป ระยะเลยเป็น 0 การ์ดราคาชนการ์ดบริการพอดี
+   และป้าย "ประหยัดกว่า" ซึ่งเป็น absolute top:-12px ทับขึ้นไปบนการ์ดแถวบน · ผูกกับคลาสตรงๆ จะไม่หลุดอีกเวลาย้ายที่ */
+.svc-grid{margin-bottom:clamp(34px,4.4vw,56px)}
 .svc-card{background:linear-gradient(160deg,rgba(58,21,32,0.55),rgba(26,10,14,0.55));border:1px solid rgba(212,175,55,0.14);border-radius:20px;box-shadow:0 6px 24px rgba(0,0,0,0.28);backdrop-filter:blur(4px);overflow:hidden;text-decoration:none;padding:16px 16px 0;min-height:186px;text-align:left;display:flex;flex-direction:column;align-items:stretch;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
 .svc-card:hover{transform:translateY(-6px);box-shadow:0 12px 34px rgba(0,0,0,0.35),0 0 40px rgba(212,175,55,0.06);border-color:rgba(212,175,55,0.4)}
 .svc-icon{width:clamp(40px,5vw,48px);height:clamp(40px,5vw,48px);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 30%,#9c4450 0%,#7a323c 55%,#5c1327 100%);box-shadow:0 4px 12px rgba(0,0,0,0.35),inset 0 0 0 1.5px rgba(212,175,55,0.6);margin-bottom:11px}
