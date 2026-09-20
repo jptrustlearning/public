@@ -765,22 +765,24 @@ a,button,.tab-btn{-webkit-tap-highlight-color:transparent}
 .tab-btn:focus{outline:none}
 .tab-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .tab-btn.active{background:linear-gradient(160deg,#1a0a0e,#3a1520);color:var(--gold-light);border-color:rgba(212,175,55,0.55);box-shadow:0 10px 22px rgba(0,0,0,0.3)}
-/* A141: ไม่มีแท็บแล้ว — กฎ .tab-panel/.tab-bar/.tab-btn ที่เหลือไว้เผื่อหน้าอื่น ไม่มีใครใช้ในหน้านี้
-   layout ใหม่ของบล็อกนี้ (จูน: "บล็อกนี้นายจัด layout"):
-   จอกว้าง = การ์ดเกี่ยวกับเราอยู่ซ้าย · กล่องทางลัด 4 ช่องเป็นคอลัมน์ขวา (เดิมซ้อนกันกลางจอ เหลือที่ว่างสองข้างเป็นพันพิกเซล)
-   กล่องทางลัดเป็นสี่เหลี่ยมจัตุรัส (aspect-ratio 1/1) จึงล็อกคอลัมน์ขวาไว้ 360–420px ไม่ให้ยืดจนสูงเกินการ์ดซ้าย
-   แคบกว่า 1000px = กลับไปเรียงบนล่างเหมือนเดิม */
-.sec-block+.sec-block{margin-top:clamp(52px,7vw,96px)}
+/* A142: บล็อกนี้ใช้ทรงเดียวกับบล็อกงานวิจัย (.state) — หัวเต็มความกว้าง แล้วการ์ด 2 คอลัมน์
+   จูน: "ไม่สวยเลย ทำให้เหมือนภาพ 2 จัดให้ดูดี" · ของเดิม (A141) เป็นการ์ดใหญ่ซ้อนเงาอยู่ซ้าย กล่องทางลัดอยู่ขวา
+   ถอดคืน = index-backup-v104.html + jpt-home-backup-v2.css */
+.sec-head{margin-bottom:clamp(34px,4.5vw,60px)}
+.sec-head .about-eyebrow{margin-bottom:14px}
+.sec-head .about-title{margin:0;max-width:16ch}
+.sec-head .about-intro{margin-top:16px;max-width:52ch}
+.sec-head .about-cover{margin-top:0}
+@media(max-width:999px){.sec-head .about-cover{margin-top:20px}}   /* จอแคบ ชิปมาต่อท้ายคำโปรย ต้องมีระยะคั่น */
+.sec-head .about-disclaimer{margin-top:16px;padding-top:14px;border-top:1px dashed rgba(212,175,55,0.22)}
+.sec-cards{display:grid;grid-template-columns:1fr;gap:clamp(18px,2.4vw,26px)}
+.sec-cards .quad-wrap{max-width:540px;margin:0 auto}
 @media(min-width:1000px){
-  .tabs-section>.wrap{display:grid;grid-template-columns:minmax(0,1fr) clamp(340px,29vw,420px);
-    gap:clamp(28px,3.4vw,52px);align-items:start}
-  .sec-block+.sec-block{margin-top:0;align-self:center}   /* กล่องทางลัดเตี้ยกว่าการ์ดซ้าย — จัดกลางแนวตั้งให้สองฝั่งดูถ่วงกัน */
-  .sec-block .quad-wrap{max-width:none}
-  .sec-block .about-stage{max-width:none}
+  .sec-head{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+    gap:clamp(28px,4vw,64px);align-items:start}
+  .sec-cards{grid-template-columns:minmax(0,1fr) clamp(320px,26vw,380px);align-items:center}
+  .sec-cards .quad-wrap{max-width:none;margin:0}
 }
-.sec-block .entrance,.sec-block .snap{background:none;padding:0;overflow:visible}
-.sec-block .entrance>.wrap{padding:0;max-width:none}
-.sec-block .about-stage{animation:none}
 .tab-panel{display:none}
 .tab-panel .entrance,.tab-panel .snap,.tab-open .snap{background:none;padding:0;overflow:visible}
 .tab-panel .snap::before,.tab-open .snap::before{inset:auto 0 -40% 0}
