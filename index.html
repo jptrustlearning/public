@@ -797,14 +797,14 @@ a,button,.tab-btn{-webkit-tap-highlight-color:transparent}
 .tab-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .tab-btn.active{background:linear-gradient(160deg,#1a0a0e,#3a1520);color:var(--gold-light);border-color:rgba(212,175,55,0.55);box-shadow:0 10px 22px rgba(0,0,0,0.3)}
 .tab-panel{display:none}
-.tab-panel .entrance,.tab-panel .snap{background:none;padding:0;overflow:visible}
-.tab-panel .snap::before{inset:auto 0 -40% 0}
-.tab-panel .entrance>.wrap,.tab-panel .snap>.wrap{padding:0;max-width:none}
-.tab-panel .snap-panel{background:linear-gradient(160deg,rgba(66,25,37,0.74) 0%,rgba(32,12,18,0.86) 100%);border-radius:24px}
-/* แท็บบาร์ 3 อัน (A134 ตัดห้องสมุด+แพ็กเกจ · A135 ตัดบริการ): แถวเดียวทุกขนาดจอ
+.tab-panel .entrance,.tab-panel .snap,.tab-open .snap{background:none;padding:0;overflow:visible}
+.tab-panel .snap::before,.tab-open .snap::before{inset:auto 0 -40% 0}
+.tab-panel .entrance>.wrap,.tab-panel .snap>.wrap,.tab-open .snap>.wrap{padding:0;max-width:none}
+.tab-panel .snap-panel,.tab-open .snap-panel{background:linear-gradient(160deg,rgba(66,25,37,0.74) 0%,rgba(32,12,18,0.86) 100%);border-radius:24px}
+/* แท็บบาร์ 2 อัน (A134 ตัดห้องสมุด+แพ็กเกจ · A135 ตัดบริการ · A136 ตัดสแกนล่าสุด): แถวเดียวทุกขนาดจอ
    จำนวนแท็บเปลี่ยนเมื่อไหร่ ต้องแก้จำนวนคอลัมน์ตรงนี้ด้วย ไม่งั้นแถวสุดท้ายตกเหลือปุ่มเดียว */
 @media (max-width:860px){
-  .tab-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:540px}
+  .tab-bar{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;max-width:400px}
   .tab-btn{padding:11px 6px;font-size:clamp(12px,3vw,15px)}
 }
 @media (max-width:360px){
@@ -818,6 +818,8 @@ a,button,.tab-btn{-webkit-tap-highlight-color:transparent}
 /* A134: บล็อกที่ยกออกจากแถบแท็บ — แสดงเสมอ เรียงต่อกันใต้แท็บ · หัวข้อใช้ .lib-head ชุดเดิมของหน้า
    scroll-margin-top กันหัวข้อมุดใต้แถบเมนูที่ตรึงอยู่ ตอนกดลิงก์ #library / #pricing */
 .tab-open{display:block;margin-top:clamp(44px,6vw,78px);scroll-margin-top:86px}
+/* A136: #snapshot ย้ายออกจากแท็บแล้ว ลิงก์จากแถบสถิติเลื่อนมาหา section นี้ตรงๆ */
+#snapshot{scroll-margin-top:86px}
 .tab-open .lib-head .eyebrow{color:var(--gold)}
 .tab-open .lib-head h2{color:var(--cream)}
 /* ============ STATS STRIP ============ */
@@ -974,30 +976,31 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
 @media(prefers-reduced-motion:reduce){.snap-eyebrow::before{animation:none}}
 
 /* ---- A109.1 แผงสแกนล่าสุดกะทัดรัด: เรดาร์ซ้าย ตารางขวา (ยกกฎจากหน้าธีม editorial A108.3)
-   scope ใต้ #panel-snapshot ทั้งหมด — คลาส .snap-*/.ledger มีที่เดียวในหน้า แต่ล็อกไว้กันชนอนาคต
-   ย้อนกลับ = ลบบล็อกนี้ + ลบ .snap-cols/.snap-colL/.snap-colR ใน markup (หรือ index-backup-v72.html) ---- */
-#panel-snapshot .snap-panel{padding:clamp(24px,3vw,36px) clamp(20px,3vw,36px) clamp(18px,2.4vw,26px)}
-#panel-snapshot .snap-title{font-size:clamp(19px,2.2vw,26px);margin-bottom:6px}
-#panel-snapshot .snap-sub{margin-bottom:18px}
-#panel-snapshot .snap-stats{grid-template-columns:repeat(3,minmax(0,190px));gap:10px;margin-bottom:22px}
-#panel-snapshot .snap-stat{padding:10px 14px}
-#panel-snapshot .snap-cols{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:8px 40px;align-items:start}
-#panel-snapshot .snap-colL .snap-radarhead,#panel-snapshot .snap-colR .snap-listhead{margin-top:0}
-#panel-snapshot .snap-radarwrap{max-width:100%}
-#panel-snapshot .snap-radarnote{margin-bottom:0}
-#panel-snapshot .snap-tbl{margin-bottom:0}
-#panel-snapshot .snap-tbl td{padding:8px 0}
-#panel-snapshot .ledger{margin-top:22px;padding-top:18px;border-top:1px solid rgba(212,175,55,.24)}
-#panel-snapshot .ledger-card{flex-direction:row;align-items:center;gap:14px;padding:13px 18px}
-#panel-snapshot .ledger-card:hover{transform:none}
-#panel-snapshot .ledger-desc{display:none}
-#panel-snapshot .ledger-eyebrow{display:none}
-#panel-snapshot .ledger-go{margin:0 0 0 auto;white-space:nowrap}
+   scope ใต้ #snapshot ทั้งหมด — คลาส .snap-*/.ledger มีที่เดียวในหน้า แต่ล็อกไว้กันชนอนาคต
+   A136: selector เดิมยึด #panel-snapshot (ตัวห่อแท็บ) — ย้ายออกจากแท็บแล้วจึงยึด #snapshot แทน
+     ย้อนกลับ = ลบบล็อกนี้ + ลบ .snap-cols/.snap-colL/.snap-colR ใน markup (หรือ index-backup-v72.html) ---- */
+#snapshot .snap-panel{padding:clamp(24px,3vw,36px) clamp(20px,3vw,36px) clamp(18px,2.4vw,26px)}
+#snapshot .snap-title{font-size:clamp(19px,2.2vw,26px);margin-bottom:6px}
+#snapshot .snap-sub{margin-bottom:18px}
+#snapshot .snap-stats{grid-template-columns:repeat(3,minmax(0,190px));gap:10px;margin-bottom:22px}
+#snapshot .snap-stat{padding:10px 14px}
+#snapshot .snap-cols{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:8px 40px;align-items:start}
+#snapshot .snap-colL .snap-radarhead,#snapshot .snap-colR .snap-listhead{margin-top:0}
+#snapshot .snap-radarwrap{max-width:100%}
+#snapshot .snap-radarnote{margin-bottom:0}
+#snapshot .snap-tbl{margin-bottom:0}
+#snapshot .snap-tbl td{padding:8px 0}
+#snapshot .ledger{margin-top:22px;padding-top:18px;border-top:1px solid rgba(212,175,55,.24)}
+#snapshot .ledger-card{flex-direction:row;align-items:center;gap:14px;padding:13px 18px}
+#snapshot .ledger-card:hover{transform:none}
+#snapshot .ledger-desc{display:none}
+#snapshot .ledger-eyebrow{display:none}
+#snapshot .ledger-go{margin:0 0 0 auto;white-space:nowrap}
 @media(max-width:900px){
-  #panel-snapshot .snap-cols{grid-template-columns:1fr;gap:0}
-  #panel-snapshot .snap-radarwrap{max-width:420px;margin:0 auto}
-  #panel-snapshot .snap-radarnote{margin-bottom:20px}
-  #panel-snapshot .snap-stats{grid-template-columns:repeat(3,1fr)}
+  #snapshot .snap-cols{grid-template-columns:1fr;gap:0}
+  #snapshot .snap-radarwrap{max-width:420px;margin:0 auto}
+  #snapshot .snap-radarnote{margin-bottom:20px}
+  #snapshot .snap-stats{grid-template-columns:repeat(3,1fr)}
 }
 
 .ledger{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
@@ -1377,10 +1380,10 @@ a.stat-item:hover .stat-num{color:var(--gold-deep)}
    ⇒ `background:var(--p-bg)` ที่เขียนไว้เดิมกลายเป็น invalid at computed-value time → พื้นโปร่งใส
       + border-color ตกเป็น currentColor (หมึกเข้ม) ⇒ การ์ดหายไปบนพื้นเลือดหมู
    การ์ดคู่นี้อยู่บนพื้นเข้มเหมือนเดิม ไม่ใช่บนครีม → คืนค่าเดิมด้วย "ค่าสีตรงๆ" ห้ามใช้ var ที่ scope อยู่ในแผง */
-#panel-snapshot .ledger{border-top-color:rgba(212,175,55,.24)}
-#panel-snapshot .ledger-card{background:#FFFEF8;border-color:rgba(212,175,55,.30);
+#snapshot .ledger{border-top-color:rgba(212,175,55,.24)}
+#snapshot .ledger-card{background:#FFFEF8;border-color:rgba(212,175,55,.30);
   box-shadow:0 1px 1px rgba(58,21,32,.05),0 12px 26px -12px rgba(0,0,0,.45)}
-#panel-snapshot .ledger-card:hover{border-color:#D4AF37;box-shadow:0 2px 4px rgba(58,21,32,.06),0 18px 34px -14px rgba(0,0,0,.55)}
+#snapshot .ledger-card:hover{border-color:#D4AF37;box-shadow:0 2px 4px rgba(58,21,32,.06),0 18px 34px -14px rgba(0,0,0,.55)}
 /* ปุ่มทองคงเดิม แต่ลดเงาให้เข้ากับพื้นสว่าง */
 .snap-cta{box-shadow:0 8px 18px -8px rgba(139,105,20,.45)}
 .snap-cta:hover{box-shadow:0 12px 26px -10px rgba(139,105,20,.6)}
@@ -1761,201 +1764,9 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
     <div class="tab-bar" role="tablist" aria-label="เมนูข้อมูล">
       <button class="tab-btn active" data-tab="start" role="tab" aria-selected="true">ทางลัด</button>
       <button class="tab-btn" data-tab="about" role="tab" aria-selected="false">เกี่ยวกับเรา</button>
-      <button class="tab-btn" data-tab="snapshot" role="tab" aria-selected="false">สแกนล่าสุด</button>
     </div>
     <div class="tab-panels">
-      <div class="tab-panel" id="panel-snapshot" role="tabpanel">
-<section class="snap" id="snapshot">
-  <div class="wrap">
-    <div class="snap-panel">
-      <div class="snap-head">
-        <span class="snap-eyebrow">Live Snapshot</span>
-        <span class="snap-asof">ข้อมูล ณ 11 ก.ย. 2026</span>
-      </div>
-      <h2 class="snap-title">สแกน S&amp;P 500 ล่าสุด — ดูได้เลย ไม่ต้องสมัคร</h2>
-      <p class="snap-sub">นี่คือผลจากไฟล์ชุดเดียวกับที่สมาชิกเห็นในแดชบอร์ด ไม่ได้ทำขึ้นใหม่เพื่อหน้านี้</p>
-
-      <div class="snap-stats">
-        <div class="snap-stat up"><span class="ss-k">ขาขึ้น</span><span class="ss-v">156</span><span class="ss-p">32.0%</span></div>
-        <div class="snap-stat flat"><span class="ss-k">กลางๆ</span><span class="ss-v">146</span><span class="ss-p">30.0%</span></div>
-        <div class="snap-stat down"><span class="ss-k">ขาลง</span><span class="ss-v">185</span><span class="ss-p">38.0%</span></div>
-      </div>
-
-      <div class="snap-cols"><div class="snap-colL">
-      <div class="snap-radarhead">สัดส่วนหุ้นขาขึ้นในแต่ละกลุ่มอุตสาหกรรม</div>
-      <div class="snap-radarwrap">
-        <svg class="snap-radar" viewBox="0 0 360 330" role="img" aria-label="เรดาร์สัดส่วนหุ้นขาขึ้นรายกลุ่มอุตสาหกรรม">
-        <polygon points="180.0,133.0 192.4,136.7 200.9,146.4 202.8,159.3 197.4,171.1 186.5,178.1 173.5,178.1 162.6,171.1 157.2,159.3 159.1,146.4 167.6,136.7" fill="none" stroke="rgba(255,254,248,0.08)" stroke-width="1"/>
-        <polygon points="180.0,110.0 204.9,117.3 221.8,136.9 225.5,162.5 214.8,186.1 193.0,200.1 167.0,200.1 145.2,186.1 134.5,162.5 138.2,136.9 155.1,117.3" fill="none" stroke="rgba(255,254,248,0.08)" stroke-width="1"/>
-        <polygon points="180.0,87.0 217.3,98.0 242.8,127.3 248.3,165.8 232.1,201.2 199.4,222.2 160.6,222.2 127.9,201.2 111.7,165.8 117.2,127.3 142.7,98.0" fill="none" stroke="rgba(255,254,248,0.08)" stroke-width="1"/>
-        <polygon points="180.0,64.0 229.7,78.6 263.7,117.8 271.1,169.1 249.5,216.2 205.9,244.3 154.1,244.3 110.5,216.2 88.9,169.1 96.3,117.8 130.3,78.6" fill="none" stroke="rgba(255,254,248,0.16)" stroke-width="1"/>
-        <line x1="180" y1="156" x2="180.0" y2="64.0" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
-        <line x1="180" y1="156" x2="229.7" y2="78.6" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
-        <line x1="180" y1="156" x2="263.7" y2="117.8" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
-        <line x1="180" y1="156" x2="271.1" y2="169.1" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
-        <line x1="180" y1="156" x2="249.5" y2="216.2" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
-        <line x1="180" y1="156" x2="205.9" y2="244.3" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
-        <line x1="180" y1="156" x2="154.1" y2="244.3" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
-        <line x1="180" y1="156" x2="110.5" y2="216.2" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
-        <line x1="180" y1="156" x2="88.9" y2="169.1" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
-        <line x1="180" y1="156" x2="96.3" y2="117.8" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
-        <line x1="180" y1="156" x2="130.3" y2="78.6" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
-        <polygon points="180.0,126.6 195.9,131.2 206.8,143.8 209.1,160.2 202.2,175.3 188.3,184.2 171.7,184.2 157.8,175.3 150.9,160.2 153.2,143.8 164.1,131.2" fill="none" stroke="rgba(212,175,55,0.55)" stroke-width="1.2" stroke-dasharray="4 4"/>
-        <polygon points="180.0,90.3 195.9,131.2 195.9,148.7 197.4,158.5 201.7,174.8 193.4,201.6 172.0,183.1 147.3,184.4 142.8,161.4 174.6,153.5 174.9,148.0" fill="rgba(143,232,182,0.20)" stroke="#8DE8B6" stroke-width="2" stroke-linejoin="round"/>
-        <text x="185" y="67" class="rd-ax">100%</text>
-        <text x="185" y="113" class="rd-ax">50%</text>
-        <circle cx="180.0" cy="90.3" r="3.1" fill="#8DE8B6"/>
-        <circle cx="195.9" cy="131.2" r="3.1" fill="#8DE8B6"/>
-        <circle cx="195.9" cy="148.7" r="3.1" fill="#8DE8B6"/>
-        <circle cx="197.4" cy="158.5" r="3.1" fill="#8DE8B6"/>
-        <circle cx="201.7" cy="174.8" r="3.1" fill="#8DE8B6"/>
-        <circle cx="193.4" cy="201.6" r="3.1" fill="#8DE8B6"/>
-        <circle cx="172.0" cy="183.1" r="3.1" fill="#8DE8B6"/>
-        <circle cx="147.3" cy="184.4" r="3.1" fill="#8DE8B6"/>
-        <circle cx="142.8" cy="161.4" r="3.1" fill="#8DE8B6"/>
-        <circle cx="174.6" cy="153.5" r="3.1" fill="#8DE8B6"/>
-        <circle cx="174.9" cy="148.0" r="3.1" fill="#8DE8B6"/>
-        <text x="180.0" y="45.0" text-anchor="middle" class="rd-lb">พลังงาน</text>
-        <text x="180.0" y="57.0" text-anchor="middle" class="rd-vl">71%</text>
-        <text x="241.4" y="69.1" text-anchor="start" class="rd-lb">วัสดุ</text>
-        <text x="241.4" y="81.1" text-anchor="start" class="rd-vl">32%</text>
-        <text x="281.2" y="115.1" text-anchor="start" class="rd-lb">อุตสาหกรรม</text>
-        <text x="281.2" y="127.1" text-anchor="start" class="rd-vl">19%</text>
-        <text x="289.9" y="175.4" text-anchor="start" class="rd-lb">ฟุ่มเฟือย</text>
-        <text x="289.9" y="187.4" text-anchor="start" class="rd-vl">19%</text>
-        <text x="264.6" y="230.7" text-anchor="start" class="rd-lb">สินค้าจำเป็น</text>
-        <text x="264.6" y="242.7" text-anchor="start" class="rd-vl">31%</text>
-        <text x="213.4" y="263.6" text-anchor="start" class="rd-lb">สุขภาพ</text>
-        <text x="213.4" y="275.6" text-anchor="start" class="rd-vl">52%</text>
-        <text x="146.6" y="263.6" text-anchor="end" class="rd-lb">การเงิน</text>
-        <text x="146.6" y="275.6" text-anchor="end" class="rd-vl">31%</text>
-        <text x="95.4" y="230.7" text-anchor="end" class="rd-lb">เทคโนโลยี</text>
-        <text x="95.4" y="242.7" text-anchor="end" class="rd-vl">47%</text>
-        <text x="70.1" y="175.4" text-anchor="end" class="rd-lb">สื่อสาร</text>
-        <text x="70.1" y="187.4" text-anchor="end" class="rd-vl">41%</text>
-        <text x="78.8" y="115.1" text-anchor="end" class="rd-lb">สาธารณูปโภค</text>
-        <text x="78.8" y="127.1" text-anchor="end" class="rd-vl">6%</text>
-        <text x="118.6" y="69.1" text-anchor="end" class="rd-lb">อสังหาฯ</text>
-        <text x="118.6" y="81.1" text-anchor="end" class="rd-vl">10%</text>
-        </svg>
-      </div>
-      <div class="snap-radarnote">เส้นประองทอง = ค่าเฉลี่ยทั้งตลาด 32% · กลุ่มที่ล้ำออกนอกเส้นคือกลุ่มที่แข็งแรงกว่าตลาด</div>
-
-      </div><div class="snap-colR">
-      <div class="snap-listhead">10 อันดับแรกฝั่งขาขึ้น</div>
-      <table class="snap-tbl">
-        <thead>
-          <tr>
-            <th class="c-r" scope="col">#</th>
-            <th class="c-s" scope="col">หุ้น</th>
-            <th class="c-n c-1m" scope="col">1 เดือน</th>
-            <th class="c-n" scope="col">6 เดือน</th>
-            <th class="c-n" scope="col">1 ปี</th>
-          </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td class="c-r"><span class="snap-rank">1</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="M"><img src="logos/MRNA.png" alt="Moderna" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">MRNA</span><span class="snap-co">Moderna</span></span></span></td>
-          <td class="c-n c-1m up">+126.1%</td>
-          <td class="c-n up">+169.7%</td>
-          <td class="c-n up">+492.2%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">2</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="D"><img src="logos/DELL.png" alt="Dell Technologies" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">DELL</span><span class="snap-co">Dell Technologies</span></span></span></td>
-          <td class="c-n c-1m up">+17.1%</td>
-          <td class="c-n up">+278.4%</td>
-          <td class="c-n up">+359.5%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">3</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="V"><img src="logos/VLO.png" alt="Valero Energy" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">VLO</span><span class="snap-co">Valero Energy</span></span></span></td>
-          <td class="c-n c-1m up">+18.2%</td>
-          <td class="c-n up">+65.6%</td>
-          <td class="c-n up">+149.4%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">4</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="M"><img src="logos/MPC.png" alt="Marathon Petroleum" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">MPC</span><span class="snap-co">Marathon Petroleum</span></span></span></td>
-          <td class="c-n c-1m up">+13.7%</td>
-          <td class="c-n up">+72.1%</td>
-          <td class="c-n up">+120.1%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">5</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="H"><img src="logos/HPE.png" alt="Hewlett Packard Enterprise" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">HPE</span><span class="snap-co">Hewlett Packard Enterprise</span></span></span></td>
-          <td class="c-n c-1m up">+5.6%</td>
-          <td class="c-n up">+187.7%</td>
-          <td class="c-n up">+156.9%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">6</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="P"><img src="logos/PSX.png" alt="Phillips 66" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">PSX</span><span class="snap-co">Phillips 66</span></span></span></td>
-          <td class="c-n c-1m up">+15.0%</td>
-          <td class="c-n up">+49.0%</td>
-          <td class="c-n up">+99.1%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">7</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="I"><img src="logos/IQV.png" alt="IQVIA" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">IQV</span><span class="snap-co">IQVIA</span></span></span></td>
-          <td class="c-n c-1m up">+8.3%</td>
-          <td class="c-n up">+60.7%</td>
-          <td class="c-n up">+42.4%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">8</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="A"><img src="logos/APA.png" alt="APA Corporation" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">APA</span><span class="snap-co">APA Corporation</span></span></span></td>
-          <td class="c-n c-1m up">+11.9%</td>
-          <td class="c-n up">+33.1%</td>
-          <td class="c-n up">+96.0%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">9</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="H"><img src="logos/HPQ.png" alt="HP Inc." width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">HPQ</span><span class="snap-co">HP Inc.</span></span></span></td>
-          <td class="c-n c-1m up">+21.2%</td>
-          <td class="c-n up">+87.2%</td>
-          <td class="c-n up">+26.5%</td>
-        </tr>
-        <tr>
-          <td class="c-r"><span class="snap-rank">10</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo no-logo" data-i="R"></span><span class="snap-nm"><span class="snap-tkr">RVTY</span><span class="snap-co">Revvity</span></span></span></td>
-          <td class="c-n c-1m up">+5.5%</td>
-          <td class="c-n up">+46.7%</td>
-          <td class="c-n up">+50.9%</td>
-        </tr>
-        </tbody>
-      </table>
-
-      <p class="snap-note">
-        ตัวเลขทุกคอลัมน์คือผลตอบแทนที่ผ่านมาของ<strong>ตัวหุ้นเอง</strong> ไม่ใช่ผลตอบแทนของกลยุทธ์ใดๆ และไม่ใช่คำแนะนำให้ซื้อ ·
-        นับ 487 ตัวจากสมาชิกดัชนี โดยตัดตัวที่ไลน์ข้อมูลหยุดอัปเดตออกแล้ว ·
-        การลงทุนมีความเสี่ยง ผลในอดีตไม่รับประกันผลในอนาคต
-      </p>
-
-      <a class="snap-cta" href="https://app.jptrustlearning.com/new">ดูตารางเต็มทั้ง 487 ตัว<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <div data-rd-block></div>
-    </div>
-
-    </div></div>
-
-    <div class="ledger">
-      <a class="ledger-card" href="negative-results.html">
-        <span class="ledger-eyebrow">Open Ledger</span>
-        <span class="ledger-title">สิ่งที่เราทดสอบแล้วไม่ผ่าน</span>
-        <span class="ledger-desc">งานวิจัยที่ล้มเหลว 17 รายการ เปิดทั้งหมดพร้อมหลักฐาน และเงื่อนไขที่จะกลับไปทดสอบใหม่</span>
-        <span class="ledger-go">อ่านบัญชีผลลบ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="ledger-card" href="corrections.html">
-        <span class="ledger-eyebrow">Open Ledger</span>
-        <span class="ledger-title">บันทึกการแก้ตัวเลขของเรา</span>
-        <span class="ledger-desc">ตัวเลขเดิม สิ่งที่ตรวจเจอ และตัวเลขที่ใช้แทน รวมครั้งที่เราหักตัวเลขตัวเองลงครึ่งหนึ่ง</span>
-        <span class="ledger-go">อ่านบันทึกการแก้ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-    </div>
-  </div>
-</section>
-      </div>
+      
 
       <div class="tab-panel" id="panel-about" role="tabpanel">
     <div class="about-stage">
@@ -2286,6 +2097,204 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
         </div>
       </div>
     </div>
+
+      <!-- A136: สแกนล่าสุด ย้ายมารวมกับบล็อกนี้ (จูน: "สแกนล่าสุด เอามารวมกับบล็อกนี้")
+           เดิมเป็นแท็บ · เนื้อหาเหมือนเดิมทั้งก้อน รวมบัญชีผลลบ (Open Ledger) ที่อยู่ท้ายแท็บด้วย
+           วางต่อจาก .state-grid ในกล่อง .wrap เดียวกัน — ข้อความ "เราทดสอบกลยุทธ์ย้อนหลัง 30 ปี" แล้วตามด้วยของจริงที่สแกนได้ -->
+      <div class="tab-open">
+
+<section class="snap" id="snapshot">
+  <div class="wrap">
+    <div class="snap-panel">
+      <div class="snap-head">
+        <span class="snap-eyebrow">Live Snapshot</span>
+        <span class="snap-asof">ข้อมูล ณ 11 ก.ย. 2026</span>
+      </div>
+      <h2 class="snap-title">สแกน S&amp;P 500 ล่าสุด — ดูได้เลย ไม่ต้องสมัคร</h2>
+      <p class="snap-sub">นี่คือผลจากไฟล์ชุดเดียวกับที่สมาชิกเห็นในแดชบอร์ด ไม่ได้ทำขึ้นใหม่เพื่อหน้านี้</p>
+
+      <div class="snap-stats">
+        <div class="snap-stat up"><span class="ss-k">ขาขึ้น</span><span class="ss-v">156</span><span class="ss-p">32.0%</span></div>
+        <div class="snap-stat flat"><span class="ss-k">กลางๆ</span><span class="ss-v">146</span><span class="ss-p">30.0%</span></div>
+        <div class="snap-stat down"><span class="ss-k">ขาลง</span><span class="ss-v">185</span><span class="ss-p">38.0%</span></div>
+      </div>
+
+      <div class="snap-cols"><div class="snap-colL">
+      <div class="snap-radarhead">สัดส่วนหุ้นขาขึ้นในแต่ละกลุ่มอุตสาหกรรม</div>
+      <div class="snap-radarwrap">
+        <svg class="snap-radar" viewBox="0 0 360 330" role="img" aria-label="เรดาร์สัดส่วนหุ้นขาขึ้นรายกลุ่มอุตสาหกรรม">
+        <polygon points="180.0,133.0 192.4,136.7 200.9,146.4 202.8,159.3 197.4,171.1 186.5,178.1 173.5,178.1 162.6,171.1 157.2,159.3 159.1,146.4 167.6,136.7" fill="none" stroke="rgba(255,254,248,0.08)" stroke-width="1"/>
+        <polygon points="180.0,110.0 204.9,117.3 221.8,136.9 225.5,162.5 214.8,186.1 193.0,200.1 167.0,200.1 145.2,186.1 134.5,162.5 138.2,136.9 155.1,117.3" fill="none" stroke="rgba(255,254,248,0.08)" stroke-width="1"/>
+        <polygon points="180.0,87.0 217.3,98.0 242.8,127.3 248.3,165.8 232.1,201.2 199.4,222.2 160.6,222.2 127.9,201.2 111.7,165.8 117.2,127.3 142.7,98.0" fill="none" stroke="rgba(255,254,248,0.08)" stroke-width="1"/>
+        <polygon points="180.0,64.0 229.7,78.6 263.7,117.8 271.1,169.1 249.5,216.2 205.9,244.3 154.1,244.3 110.5,216.2 88.9,169.1 96.3,117.8 130.3,78.6" fill="none" stroke="rgba(255,254,248,0.16)" stroke-width="1"/>
+        <line x1="180" y1="156" x2="180.0" y2="64.0" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
+        <line x1="180" y1="156" x2="229.7" y2="78.6" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
+        <line x1="180" y1="156" x2="263.7" y2="117.8" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
+        <line x1="180" y1="156" x2="271.1" y2="169.1" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
+        <line x1="180" y1="156" x2="249.5" y2="216.2" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
+        <line x1="180" y1="156" x2="205.9" y2="244.3" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
+        <line x1="180" y1="156" x2="154.1" y2="244.3" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
+        <line x1="180" y1="156" x2="110.5" y2="216.2" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
+        <line x1="180" y1="156" x2="88.9" y2="169.1" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
+        <line x1="180" y1="156" x2="96.3" y2="117.8" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
+        <line x1="180" y1="156" x2="130.3" y2="78.6" stroke="rgba(255,254,248,0.10)" stroke-width="1"/>
+        <polygon points="180.0,126.6 195.9,131.2 206.8,143.8 209.1,160.2 202.2,175.3 188.3,184.2 171.7,184.2 157.8,175.3 150.9,160.2 153.2,143.8 164.1,131.2" fill="none" stroke="rgba(212,175,55,0.55)" stroke-width="1.2" stroke-dasharray="4 4"/>
+        <polygon points="180.0,90.3 195.9,131.2 195.9,148.7 197.4,158.5 201.7,174.8 193.4,201.6 172.0,183.1 147.3,184.4 142.8,161.4 174.6,153.5 174.9,148.0" fill="rgba(143,232,182,0.20)" stroke="#8DE8B6" stroke-width="2" stroke-linejoin="round"/>
+        <text x="185" y="67" class="rd-ax">100%</text>
+        <text x="185" y="113" class="rd-ax">50%</text>
+        <circle cx="180.0" cy="90.3" r="3.1" fill="#8DE8B6"/>
+        <circle cx="195.9" cy="131.2" r="3.1" fill="#8DE8B6"/>
+        <circle cx="195.9" cy="148.7" r="3.1" fill="#8DE8B6"/>
+        <circle cx="197.4" cy="158.5" r="3.1" fill="#8DE8B6"/>
+        <circle cx="201.7" cy="174.8" r="3.1" fill="#8DE8B6"/>
+        <circle cx="193.4" cy="201.6" r="3.1" fill="#8DE8B6"/>
+        <circle cx="172.0" cy="183.1" r="3.1" fill="#8DE8B6"/>
+        <circle cx="147.3" cy="184.4" r="3.1" fill="#8DE8B6"/>
+        <circle cx="142.8" cy="161.4" r="3.1" fill="#8DE8B6"/>
+        <circle cx="174.6" cy="153.5" r="3.1" fill="#8DE8B6"/>
+        <circle cx="174.9" cy="148.0" r="3.1" fill="#8DE8B6"/>
+        <text x="180.0" y="45.0" text-anchor="middle" class="rd-lb">พลังงาน</text>
+        <text x="180.0" y="57.0" text-anchor="middle" class="rd-vl">71%</text>
+        <text x="241.4" y="69.1" text-anchor="start" class="rd-lb">วัสดุ</text>
+        <text x="241.4" y="81.1" text-anchor="start" class="rd-vl">32%</text>
+        <text x="281.2" y="115.1" text-anchor="start" class="rd-lb">อุตสาหกรรม</text>
+        <text x="281.2" y="127.1" text-anchor="start" class="rd-vl">19%</text>
+        <text x="289.9" y="175.4" text-anchor="start" class="rd-lb">ฟุ่มเฟือย</text>
+        <text x="289.9" y="187.4" text-anchor="start" class="rd-vl">19%</text>
+        <text x="264.6" y="230.7" text-anchor="start" class="rd-lb">สินค้าจำเป็น</text>
+        <text x="264.6" y="242.7" text-anchor="start" class="rd-vl">31%</text>
+        <text x="213.4" y="263.6" text-anchor="start" class="rd-lb">สุขภาพ</text>
+        <text x="213.4" y="275.6" text-anchor="start" class="rd-vl">52%</text>
+        <text x="146.6" y="263.6" text-anchor="end" class="rd-lb">การเงิน</text>
+        <text x="146.6" y="275.6" text-anchor="end" class="rd-vl">31%</text>
+        <text x="95.4" y="230.7" text-anchor="end" class="rd-lb">เทคโนโลยี</text>
+        <text x="95.4" y="242.7" text-anchor="end" class="rd-vl">47%</text>
+        <text x="70.1" y="175.4" text-anchor="end" class="rd-lb">สื่อสาร</text>
+        <text x="70.1" y="187.4" text-anchor="end" class="rd-vl">41%</text>
+        <text x="78.8" y="115.1" text-anchor="end" class="rd-lb">สาธารณูปโภค</text>
+        <text x="78.8" y="127.1" text-anchor="end" class="rd-vl">6%</text>
+        <text x="118.6" y="69.1" text-anchor="end" class="rd-lb">อสังหาฯ</text>
+        <text x="118.6" y="81.1" text-anchor="end" class="rd-vl">10%</text>
+        </svg>
+      </div>
+      <div class="snap-radarnote">เส้นประองทอง = ค่าเฉลี่ยทั้งตลาด 32% · กลุ่มที่ล้ำออกนอกเส้นคือกลุ่มที่แข็งแรงกว่าตลาด</div>
+
+      </div><div class="snap-colR">
+      <div class="snap-listhead">10 อันดับแรกฝั่งขาขึ้น</div>
+      <table class="snap-tbl">
+        <thead>
+          <tr>
+            <th class="c-r" scope="col">#</th>
+            <th class="c-s" scope="col">หุ้น</th>
+            <th class="c-n c-1m" scope="col">1 เดือน</th>
+            <th class="c-n" scope="col">6 เดือน</th>
+            <th class="c-n" scope="col">1 ปี</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="c-r"><span class="snap-rank">1</span></td>
+          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="M"><img src="logos/MRNA.png" alt="Moderna" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">MRNA</span><span class="snap-co">Moderna</span></span></span></td>
+          <td class="c-n c-1m up">+126.1%</td>
+          <td class="c-n up">+169.7%</td>
+          <td class="c-n up">+492.2%</td>
+        </tr>
+        <tr>
+          <td class="c-r"><span class="snap-rank">2</span></td>
+          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="D"><img src="logos/DELL.png" alt="Dell Technologies" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">DELL</span><span class="snap-co">Dell Technologies</span></span></span></td>
+          <td class="c-n c-1m up">+17.1%</td>
+          <td class="c-n up">+278.4%</td>
+          <td class="c-n up">+359.5%</td>
+        </tr>
+        <tr>
+          <td class="c-r"><span class="snap-rank">3</span></td>
+          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="V"><img src="logos/VLO.png" alt="Valero Energy" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">VLO</span><span class="snap-co">Valero Energy</span></span></span></td>
+          <td class="c-n c-1m up">+18.2%</td>
+          <td class="c-n up">+65.6%</td>
+          <td class="c-n up">+149.4%</td>
+        </tr>
+        <tr>
+          <td class="c-r"><span class="snap-rank">4</span></td>
+          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="M"><img src="logos/MPC.png" alt="Marathon Petroleum" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">MPC</span><span class="snap-co">Marathon Petroleum</span></span></span></td>
+          <td class="c-n c-1m up">+13.7%</td>
+          <td class="c-n up">+72.1%</td>
+          <td class="c-n up">+120.1%</td>
+        </tr>
+        <tr>
+          <td class="c-r"><span class="snap-rank">5</span></td>
+          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="H"><img src="logos/HPE.png" alt="Hewlett Packard Enterprise" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">HPE</span><span class="snap-co">Hewlett Packard Enterprise</span></span></span></td>
+          <td class="c-n c-1m up">+5.6%</td>
+          <td class="c-n up">+187.7%</td>
+          <td class="c-n up">+156.9%</td>
+        </tr>
+        <tr>
+          <td class="c-r"><span class="snap-rank">6</span></td>
+          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="P"><img src="logos/PSX.png" alt="Phillips 66" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">PSX</span><span class="snap-co">Phillips 66</span></span></span></td>
+          <td class="c-n c-1m up">+15.0%</td>
+          <td class="c-n up">+49.0%</td>
+          <td class="c-n up">+99.1%</td>
+        </tr>
+        <tr>
+          <td class="c-r"><span class="snap-rank">7</span></td>
+          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="I"><img src="logos/IQV.png" alt="IQVIA" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">IQV</span><span class="snap-co">IQVIA</span></span></span></td>
+          <td class="c-n c-1m up">+8.3%</td>
+          <td class="c-n up">+60.7%</td>
+          <td class="c-n up">+42.4%</td>
+        </tr>
+        <tr>
+          <td class="c-r"><span class="snap-rank">8</span></td>
+          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="A"><img src="logos/APA.png" alt="APA Corporation" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">APA</span><span class="snap-co">APA Corporation</span></span></span></td>
+          <td class="c-n c-1m up">+11.9%</td>
+          <td class="c-n up">+33.1%</td>
+          <td class="c-n up">+96.0%</td>
+        </tr>
+        <tr>
+          <td class="c-r"><span class="snap-rank">9</span></td>
+          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="H"><img src="logos/HPQ.png" alt="HP Inc." width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">HPQ</span><span class="snap-co">HP Inc.</span></span></span></td>
+          <td class="c-n c-1m up">+21.2%</td>
+          <td class="c-n up">+87.2%</td>
+          <td class="c-n up">+26.5%</td>
+        </tr>
+        <tr>
+          <td class="c-r"><span class="snap-rank">10</span></td>
+          <td class="c-s"><span class="snap-cell"><span class="snap-logo no-logo" data-i="R"></span><span class="snap-nm"><span class="snap-tkr">RVTY</span><span class="snap-co">Revvity</span></span></span></td>
+          <td class="c-n c-1m up">+5.5%</td>
+          <td class="c-n up">+46.7%</td>
+          <td class="c-n up">+50.9%</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <p class="snap-note">
+        ตัวเลขทุกคอลัมน์คือผลตอบแทนที่ผ่านมาของ<strong>ตัวหุ้นเอง</strong> ไม่ใช่ผลตอบแทนของกลยุทธ์ใดๆ และไม่ใช่คำแนะนำให้ซื้อ ·
+        นับ 487 ตัวจากสมาชิกดัชนี โดยตัดตัวที่ไลน์ข้อมูลหยุดอัปเดตออกแล้ว ·
+        การลงทุนมีความเสี่ยง ผลในอดีตไม่รับประกันผลในอนาคต
+      </p>
+
+      <a class="snap-cta" href="https://app.jptrustlearning.com/new">ดูตารางเต็มทั้ง 487 ตัว<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div data-rd-block></div>
+    </div>
+
+    </div></div>
+
+    <div class="ledger">
+      <a class="ledger-card" href="negative-results.html">
+        <span class="ledger-eyebrow">Open Ledger</span>
+        <span class="ledger-title">สิ่งที่เราทดสอบแล้วไม่ผ่าน</span>
+        <span class="ledger-desc">งานวิจัยที่ล้มเหลว 17 รายการ เปิดทั้งหมดพร้อมหลักฐาน และเงื่อนไขที่จะกลับไปทดสอบใหม่</span>
+        <span class="ledger-go">อ่านบัญชีผลลบ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="ledger-card" href="corrections.html">
+        <span class="ledger-eyebrow">Open Ledger</span>
+        <span class="ledger-title">บันทึกการแก้ตัวเลขของเรา</span>
+        <span class="ledger-desc">ตัวเลขเดิม สิ่งที่ตรวจเจอ และตัวเลขที่ใช้แทน รวมครั้งที่เราหักตัวเลขตัวเองลงครึ่งหนึ่ง</span>
+        <span class="ledger-go">อ่านบันทึกการแก้ <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+      
+      </div>
   </div>
 </section>
 
@@ -2539,6 +2548,9 @@ document.getElementById('shelfGrid').innerHTML = CATS.map(cardHTML).join('');
     es.forEach(function(e){ if(e.isIntersecting&&armed) play(); });
   },{threshold:.25}):null;
   if(io) io.observe(svg);
+  /* A136: เดิมเรดาร์ถูกติดอาวุธตอนกดแท็บ "สแกนล่าสุด" — ตอนนี้ไม่มีแท็บแล้ว จึงตั้งท่าไว้ตั้งแต่โหลด
+     แล้วปล่อยให้ IO ข้างบนเล่นตอนเลื่อนมาถึงจริง (ถ้าไม่มี IO = แสดงเป็นภาพนิ่งตามเดิม) */
+  if(io){ frame(-1); armed=true; }
   /* เรียกทุกครั้งที่เปิดแท็บ "สแกนล่าสุด": เคลียร์เป็นสถานะว่าง แล้วรอจนเรดาร์เลื่อนเข้าจอจริงค่อยเล่น (เรดาร์อยู่ใต้ตาราง 10 แถว) */
   window.__radarArm=function(){
     if(playing) return;
@@ -2557,7 +2569,6 @@ document.getElementById('shelfGrid').innerHTML = CATS.map(cardHTML).join('');
     tabs.forEach(function(t){var on=t.dataset.tab===name;t.classList.toggle('active',on);t.setAttribute('aria-selected',on?'true':'false');});
     panels.forEach(function(p){p.classList.toggle('active',p.id==='panel-'+name);});
     if(name==='about'){drawAboutChart(true);typeAboutTitle(true);}
-    if(name==='snapshot'&&window.__radarArm){window.__radarArm();}
   }
   /* หัวข้อการ์ดเกี่ยวกับเรา: พิมพ์ดีดทีละตัว */
   var twTitle=document.querySelector('.about-title');
