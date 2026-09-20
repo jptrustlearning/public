@@ -1592,6 +1592,54 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
 .hero .lead{font-weight:300}
 .hero .lead b{font-weight:400}
 
+/* ===== A131 perf — มือถือหน่วง (จูน: "ในมือถือ เวปมันหน่วงมากครับ") =====
+   วัดแล้ว (Chromium จำลองมือถือ 390px DPR3): หน้าวางนิ่งเฉยๆ กิน CPU ~50% ของ 1 core ตลอดเวลา ทุกตำแหน่งของหน้า
+   ต้นเหตุ = animation วนไม่จบ 6 ตัวใน hero + ทางลัด · 3 ตัวเป็น box-shadow / background-position (paint ใหม่ทุกเฟรมบน main thread)
+   และทุกตัววิ่งต่อแม้เลื่อนพ้นจอไปแล้ว · ปิด animation ทั้งหมด = เหลือ ~5% ⇒ ไม่ใช่เรื่องขนาดไฟล์/รูป
+   แก้ 4 ชั้น หน้าตาเดิม · override ท้ายไฟล์ ถอดคืนได้ทั้งบล็อก (คู่กับ span.cta-fx ในปุ่ม + บล็อก JS "A131 perf") */
+
+/* 1) section ที่พ้นจอ → หยุด animation ข้างในทั้งหมด (JS ใส่/ถอด .fx-off) · กลับเข้าจอแล้วเล่นต่อจากเฟรมเดิม */
+.fx-off,.fx-off *,.fx-off::before,.fx-off::after,.fx-off *::before,.fx-off *::after{animation-play-state:paused!important}
+
+/* 2) ปุ่ม "เริ่มต้นใช้งาน" — วงแหวน + แถบแสง ย้ายจาก box-shadow / background-position → transform + opacity (compositor ล้วน ไม่ paint)
+      โครงชั้นในปุ่ม (isolation:isolate เดิม): พื้นทองของปุ่ม → ::before วงแหวน (z:-1) → span.cta-fx (z:-1 · ทาพื้นทองซ้ำทับด้านในวงแหวน + ตัดแถบแสงตามมุมโค้ง) → ตัวหนังสือ
+      วงแหวน: แผ่นทองทึบขยาย scale(1.14,1.46) = +13px ทุกด้านของปุ่ม ~180×56 (เท่า spread 13px เดิม) จาง .34→0 · ส่วนในถูก cta-fx บัง เหลือเห็นเฉพาะขอบที่แผ่ออก
+      แถบแสง: แถบกว้าง 37% เอียง 100deg เท่าเดิม วิ่ง -390%→561% = ตำแหน่งเดียวกับ background-position 160%→-60% ของเดิม
+      ctaFlash (filter:brightness) คงไว้ — พอเนื้อในปุ่มไม่ถูก paint ใหม่ทุกเฟรมแล้ว filter เป็นงาน GPU ล้วน */
+.hero-cta{background:linear-gradient(135deg,#F2DFA6 0%,#DFC069 48%,#C49A33 100%);
+  animation:riseIn .8s ease .38s backwards,ctaFlash 2.1s ease-out 1.5s infinite}
+.hero-cta .cta-fx{position:absolute;inset:0;z-index:-1;border-radius:inherit;overflow:hidden;pointer-events:none;background:inherit}
+.hero-cta .cta-fx::before{content:"";position:absolute;top:0;bottom:0;left:0;width:37%;
+  background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,0.55) 50%,transparent 100%);
+  transform:translateX(-390%);animation:ctaShine2 3.15s ease-in-out 1.5s infinite}
+.hero-cta::before{box-shadow:none;background:#F4D67D;opacity:0;animation:ctaRing2 2.1s ease-out 1.5s infinite}
+@keyframes ctaShine2{0%,50%{transform:translateX(-390%)}100%{transform:translateX(561%)}}
+@keyframes ctaRing2{0%{opacity:.34;transform:scale(1)}70%,100%{opacity:0;transform:scale(1.14,1.46)}}
+
+/* 3) จุดเขียว SECTOR SCANNER — วงเรืองจาก box-shadow → ::before ขยาย/จาง (ค่าเดิม: 3px α.20 ↔ 7px α.05 = เส้นผ่านศูนย์กลาง 12→20px = scale 1.667)
+      ::after ทาจุดซ้ำทับด้านบน สีจุดจึงไม่เพี้ยน · ครอบด้วย no-preference: ผู้ใช้ที่ตั้งลดการเคลื่อนไหวได้วงนิ่งของ A112 ตามเดิม */
+@media(prefers-reduced-motion:no-preference){
+  .scn-live{position:relative;box-shadow:none;animation:none}
+  .scn-live::before{content:"";position:absolute;inset:-3px;border-radius:50%;background:rgb(79,191,131);opacity:.20;
+    animation:scnPulse2 2.6s ease-in-out infinite}
+  .scn-live::after{content:"";position:absolute;inset:0;border-radius:50%;background:inherit}
+}
+@keyframes scnPulse2{0%,100%{opacity:.20;transform:scale(1)}50%{opacity:.05;transform:scale(1.667)}}
+
+/* 4) มือถือ: ปิดอนิเมชันพื้นหลังหนัก 2 ตัว (จูนเคาะ 20 ก.ย.) — ซูม hero + เส้นแสงหมุนกล่องทางลัด
+      ภาพ 1920px ถูก paint ใหม่ทุกเฟรมตลอด 30 วิ เพื่อขยาย 5% ซึ่งบนจอ 390px แทบมองไม่เห็น · เดสก์ท็อปคงไว้เหมือนเดิม
+      inset:0 ของ A124 คงไว้ (ไม่มี blur ให้ขอบโผล่) · ถ้าจะเอาคืน ลบทั้งบล็อก @media นี้ */
+@media(max-width:900px){
+  .hero::before{animation:none}
+  /* เส้นแสงหมุนรอบกล่องทางลัด (จูนเคาะ 20 ก.ย. "ปิดเส้นแสงเลย") — ตัวที่เหลือซึ่งกินเครื่องมากสุด
+     conic-gradient 537×537 หมุนตลอด paint ใหม่ทุกเฟรม และวิ่งอยู่แม้อยู่ท้ายหน้า · ปิดแล้ววงทองนิ่งของ .quad-square ยังอยู่ครบ */
+  .quad-square::before{animation:none;opacity:0}
+}
+
+/* 5) backdrop-filter ที่ไม่มีผลกับภาพแต่เสียรอบ blur ทุกเฟรมที่เลื่อน: แผ่นกราฟพื้นทึบ 100% · ปุ่ม burger ตอน nav เป็นครีมทึบ */
+.chart-pane{-webkit-backdrop-filter:none;backdrop-filter:none}
+.nav.solid .nav-burger{-webkit-backdrop-filter:none;backdrop-filter:none}
+
 </style>
 </head>
 <body>
@@ -1670,7 +1718,7 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
       <span class="phrase"><span class="h1-top">Risk</span><span class="h1-bot">Control</span></span>
     </h1>
     <p class="lead">กลยุทธ์และงานวิจัยที่ทดสอบย้อนหลัง <b>กว่า 30 ปี</b></p>
-    <a class="hero-cta" href="https://app.jptrustlearning.com/new">เริ่มต้นใช้งาน<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="hero-cta" href="https://app.jptrustlearning.com/new"><span class="cta-fx" aria-hidden="true"></span>เริ่มต้นใช้งาน<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <div style="margin-top:14px"><a class="rd-link" href="#" data-rd-open hidden>หรือดาวน์โหลดงานวิจัยฟรี →</a></div>
 
     <!-- ===== SECTOR SCANNER (A105) — เติมข้อมูลโดย hero-scanner.js ===== -->
@@ -2622,6 +2670,18 @@ document.getElementById('shelfGrid').innerHTML = CATS.map(cardHTML).join('');
   io.observe(panel);
 })();
 
+/* ---------- A131 perf: section ที่พ้นจอ → ใส่ .fx-off (CSS หยุด animation ข้างในทั้งหมด) ----------
+   เผื่อขอบ 80px ให้เริ่มเล่นก่อนเข้าจอเล็กน้อย · ไม่มี IntersectionObserver = ไม่ทำอะไร หน้าทำงานแบบเดิม
+   ⚠️ เพิ่ม section ระดับบนใหม่ในหน้า → เติม selector ตรงนี้ด้วย ไม่งั้น animation ในนั้นจะวิ่งตลอด */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var secs=[].slice.call(document.querySelectorAll('.hero,.tabs-section,.state,.stats,.foot'));
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ e.target.classList.toggle('fx-off',!e.isIntersecting); });
+  },{rootMargin:'80px 0px'});
+  secs.forEach(function(s){ io.observe(s); });
+})();
+
 /* ---------- nav: โปร่ง → ครีมเมื่อเลื่อน ---------- */
 (function(){
   var nav=document.querySelector('.nav');
@@ -2650,7 +2710,9 @@ document.getElementById('shelfGrid').innerHTML = CATS.map(cardHTML).join('');
   if(!ph.length) return;
   var i=0; ph[0].classList.add('on');
   if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var heroSec=document.querySelector('.hero');   /* A131 perf: hero พ้นจอ/แท็บถูกซ่อน = ไม่สลับข้อความ (ไม่มีใครเห็น) */
   setInterval(function(){
+    if(document.hidden||(heroSec&&heroSec.classList.contains('fx-off'))) return;
     var cur=ph[i];
     cur.classList.remove('on'); cur.classList.add('out');
     setTimeout(function(){cur.classList.remove('out');},900);
