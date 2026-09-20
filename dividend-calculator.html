@@ -52,6 +52,7 @@ body{
   border:1px solid rgba(212,175,55,.34);border-radius:999px;background:rgba(212,175,55,.08);
   font-size:12.5px;color:#D9C69A}
 .pill-safe b{color:#F4E4BA;font-weight:600}
+.pill-safe svg{width:14px;height:14px;flex:0 0 14px;fill:none;stroke:var(--gold);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- summary ---------- */
 .sum{
@@ -97,6 +98,7 @@ body{
 .row-x{flex:0 0 auto;border:0;background:transparent;color:#B08A8A;cursor:pointer;
   font-size:19px;line-height:1;padding:4px 6px;border-radius:8px}
 .row-x:hover{background:rgba(168,50,50,.09);color:var(--red)}
+.row-x svg{width:15px;height:15px;display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 .flds{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
 @media(min-width:560px){.flds{grid-template-columns:repeat(4,1fr)}}
 .f{min-width:0}
@@ -145,7 +147,7 @@ input::placeholder{color:#B8AFA2}
     <div class="lbl k-en">Dividend Calculator</div>
     <h1>เครื่องคำนวณปันผล</h1>
     <p>ใส่หุ้นที่ถือ จำนวนหุ้น ต้นทุน และปันผลต่อหุ้น แล้วดูว่าจะได้รับเงินปันผลปีละเท่าไร เฉลี่ยเดือนละเท่าไร และคิดเป็นกี่ % ของเงินที่ลงไป</p>
-    <div class="pill-safe">🔒 <span><b>ไม่บันทึกอะไรทั้งสิ้น</b> — ปิดหน้านี้แล้วตัวเลขหายหมด</span></div>
+    <div class="pill-safe"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.2"/><path d="M8.2 10.5V7.4a3.8 3.8 0 017.6 0v3.1"/></svg><span><b>ไม่บันทึกอะไรทั้งสิ้น</b> — ปิดหน้านี้แล้วตัวเลขหายหมด</span></div>
   </div>
 </div>
 
@@ -263,7 +265,7 @@ input::placeholder{color:#B8AFA2}
         '<div class="row-top">' +
           '<div class="row-i">' + (i+1) + '</div>' +
           '<div class="row-nm"><input type="text" data-f="tk" placeholder="ชื่อหุ้น เช่น AAPL / PTT" maxlength="14" value="' + esc(r.tk) + '"></div>' +
-          '<button class="row-x" data-x="1" title="ลบแถวนี้" aria-label="ลบแถวนี้">✕</button>' +
+          '<button class="row-x" data-x="1" title="ลบแถวนี้" aria-label="ลบแถวนี้"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
         '</div>' +
         '<div class="flds">' +
           fld('จำนวนหุ้น','sh',r.sh,'0') +
@@ -400,7 +402,7 @@ input::placeholder{color:#B8AFA2}
     if(t > 0) lines.push('(หักภาษี ณ ที่จ่าย ' + (t*100) + '% แล้ว)');
     var txt = lines.join('\n');
     var btn = this;
-    var done = function(){ btn.textContent = 'คัดลอกแล้ว ✓'; setTimeout(function(){ btn.textContent = 'คัดลอกสรุป'; }, 1600); };
+    var done = function(){ btn.textContent = 'คัดลอกแล้ว'; setTimeout(function(){ btn.textContent = 'คัดลอกสรุป'; }, 1600); };
     if(navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(txt).then(done, function(){ prompt('คัดลอกข้อความนี้', txt); });
     } else { prompt('คัดลอกข้อความนี้', txt); }
