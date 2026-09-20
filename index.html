@@ -154,6 +154,8 @@ img{max-width:100%;display:block}
 .nav-menu a span.k{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:var(--gold-deep);text-transform:uppercase}
 @media(max-width:1080px){
   .nav-links{display:none}
+  /* A127: ⚠️ ห้ามเปิดปุ่มนี้บนมือถือ — วัดแล้วดัน .nav-burger หลุดขอบจอ (360px: ขอบขวา 396px)
+     ลิงก์เข้าระบบสมาชิกจึงต้องอยู่ในเมนู burger เท่านั้น ห้ามถอดออก */
   .nav-cta{display:none}
   .nav-burger{display:flex}
 }
@@ -1642,18 +1644,10 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
     </div>
   </div>
   <nav class="nav-menu" id="navMenu" aria-label="เมนูหลัก">
-    <a href="/"><span>หน้าแรก</span><span class="k">Home</span></a>
-    <a href="#pricing"><span>แพ็กเกจสมาชิก</span><span class="k">Plans</span></a>
-    <a href="lib-momentum.html"><span>กลยุทธ์ Momentum</span><span class="k">Momentum</span></a>
-    <a href="lib-analysis.html"><span>บทวิเคราะห์</span><span class="k">Analysis</span></a>
-    <a href="lib-curated.html"><span>งานวิจัยคัดสรร</span><span class="k">Curated</span></a>
-    <a href="lib-macro.html"><span>Macro &amp; ความเสี่ยง</span><span class="k">Macro</span></a>
-    <a href="lib-method.html"><span>ข้อมูล &amp; ระเบียบวิธี</span><span class="k">Method</span></a>
     <a href="https://app.jptrustlearning.com/sector-rotation" target="_blank" rel="noopener"><span>Dashboard</span><span class="k">Dashboard</span></a>
     <a href="https://app.jptrustlearning.com/jptrust-toolkit" target="_blank" rel="noopener"><span>Tool &amp; Kit</span><span class="k">Tools</span></a>
     <a href="dividend-calculator.html"><span>เครื่องคำนวณปันผล</span><span class="k">Dividend</span></a>
-    <a href="#collection"><span>ห้องสมุด</span><span class="k">Library</span></a>
-    <a href="#" id="menuContact"><span>ติดต่อเรา</span><span class="k">Contact</span></a>
+    <a href="#pricing"><span>แพ็กเกจสมาชิก</span><span class="k">Plans</span></a>
     <a href="https://app.jptrustlearning.com"><span>เข้าระบบสมาชิก</span><span class="k">Login</span></a>
   </nav>
 </header>
