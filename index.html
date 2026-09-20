@@ -1627,8 +1627,14 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
           <a href="lib-dashboard.html"><span class="v">แดชบอร์ดและเครื่องมือ</span><span class="k">Dashboard</span></a>
         </div>
       </div>
-      <div class="nl"><a href="https://app.jptrustlearning.com/sector-rotation" target="_blank" rel="noopener">Dashboard</a></div>
-      <div class="nl"><a href="https://app.jptrustlearning.com/jptrust-toolkit" target="_blank" rel="noopener">Tool &amp; Kit</a></div>
+      <div class="nl" id="nlTools">
+        <a href="https://app.jptrustlearning.com/jptrust-toolkit" target="_blank" rel="noopener">เครื่องมือ <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nl-drop">
+          <a href="https://app.jptrustlearning.com/sector-rotation" target="_blank" rel="noopener"><span class="v">Dashboard</span><span class="k">Dashboard</span></a>
+          <a href="https://app.jptrustlearning.com/jptrust-toolkit" target="_blank" rel="noopener"><span class="v">Tool &amp; Kit</span><span class="k">Tools</span></a>
+          <a href="dividend-calculator.html"><span class="v">เครื่องคำนวณปันผล</span><span class="k">Dividend</span></a>
+        </div>
+      </div>
       <div class="nl"><a href="#pricing">แพ็กเกจสมาชิก</a></div>
       <div class="nl"><a href="#" id="menuContactTop">ติดต่อเรา</a></div>
     </nav>
@@ -2625,10 +2631,17 @@ document.getElementById('shelfGrid').innerHTML = CATS.map(cardHTML).join('');
 
 /* ---------- dropdown ห้องสมุด ---------- */
 (function(){
-  var lib=document.getElementById('nlLib'); if(!lib) return;
-  lib.addEventListener('mouseenter',function(){lib.classList.add('open');});
-  lib.addEventListener('mouseleave',function(){lib.classList.remove('open');});
-  document.addEventListener('click',function(e){if(!lib.contains(e.target))lib.classList.remove('open');});
+  /* A128: เดิมผูกกับ #nlLib ตัวเดียว — ตอนนี้มี dropdown 2 ตัว (ห้องสมุด + เครื่องมือ)
+     จึงจับทุก .nl ที่มี .nl-drop ข้างใน · เพิ่ม dropdown ใหม่ได้โดยไม่ต้องแตะ JS อีก */
+  var drops=[].slice.call(document.querySelectorAll('.nl')).filter(function(n){return n.querySelector('.nl-drop');});
+  if(!drops.length) return;
+  drops.forEach(function(nl){
+    nl.addEventListener('mouseenter',function(){nl.classList.add('open');});
+    nl.addEventListener('mouseleave',function(){nl.classList.remove('open');});
+  });
+  document.addEventListener('click',function(e){
+    drops.forEach(function(nl){ if(!nl.contains(e.target)) nl.classList.remove('open'); });
+  });
 })();
 
 /* ---------- hero: หัวเรื่องสลับข้อความ ---------- */
