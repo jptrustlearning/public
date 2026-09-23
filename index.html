@@ -35,6 +35,38 @@
 }
 </script>
 <link rel="stylesheet" href="jpt-home.css">
+<style id="snap-lock-css">
+/* A179: อันดับ 1–5 ในตาราง 10 อันดับ ล็อกไว้สำหรับสมาชิก — ไม่มีชื่อ/ตัวเลขจริงใน HTML (ดู source ก็ไม่เห็น)
+   แถวที่ล็อกสร้างจาก reference/weekly-scan/patch_public_snapshot.py (LOCK_TOP) ใน jptrustdocs */
+.snap-tbl tr.snap-lock:hover{background:none}
+.snap-tbl tr.snap-lock td{border-bottom-color:var(--p-line,rgba(61,50,40,.14))}
+.snap-tbl tr.snap-lock .snap-rank{opacity:.55}
+.snap-logo.snap-lockic{display:flex;align-items:center;justify-content:center;background:var(--p-bg,#FAF6ED)}
+.snap-logo.snap-lockic::before{content:none}
+.snap-lockic svg,.slb-ic svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;display:block}
+.snap-lockic svg{width:16px;height:16px;color:var(--p-goldb,#B8860B)}
+.snap-sk{display:block;height:9px;border-radius:5px;max-width:100%;
+  background:linear-gradient(90deg,rgba(61,50,40,.10),rgba(61,50,40,.05))}
+.snap-sk.sk-c{height:7px;margin-top:6px;opacity:.7}
+.snap-sk.sk-n{width:42px;margin-left:auto}
+.snap-tbl td.c-n .snap-sk.sk-n{display:inline-block;vertical-align:middle}
+.slb{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:12px;margin:0 0 12px;
+  background:var(--p-bg,#FAF6ED);border:1px solid rgba(184,134,11,.35)}
+.slb-ic{flex:none;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:#2d1018;color:#D4AF37}
+.slb-ic svg{width:17px;height:17px}
+.slb-tx{display:flex;flex-direction:column;min-width:0;line-height:1.35}
+.slb-tx b{font-weight:600;font-size:14px;color:var(--p-ink2,#5A3D20)}
+.slb-tx small{font-size:12px;color:var(--p-mute,#7A6F62)}
+.slb-go{margin-left:auto;flex:none;font-size:13px;font-weight:600;color:#FFFEF8;background:#722F37;
+  padding:8px 14px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .2s}
+.slb-go:hover{background:#5A1F26}
+@media(max-width:430px){
+  .slb{flex-wrap:wrap;gap:10px 12px}
+  .slb-go{margin-left:46px}
+  .snap-sk.sk-n{width:34px}
+}
+</style>
 </head>
 <body>
 
@@ -337,6 +369,7 @@
              ออกจากแผงมาแล้วตัวแปรจะว่าง สีตัวเลขขึ้น/ลงจะหาย -->
         <div class="tile wide snapscope snaplist" id="snapshot">
           <div class="snap-listhead">10 อันดับแรกฝั่งขาขึ้น</div>
+          <div class="slb" id="snapLock"><span class="slb-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path d="M8.2 10.5V7.8a3.8 3.8 0 0 1 7.6 0v2.7"/><path d="M12 14.6v2.4"/></svg></span><span class="slb-tx"><b>อันดับ 1–5 เปิดให้เฉพาะสมาชิก</b><small>รายชื่อและตัวเลขเต็มอยู่ในแอปสมาชิก</small></span><a class="slb-go" href="https://app.jptrustlearning.com">เข้าระบบสมาชิก</a></div>
           <table class="snap-tbl">
           <thead>
           <tr>
@@ -348,40 +381,40 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
+          <tr class="snap-lock" aria-hidden="true">
           <td class="c-r"><span class="snap-rank">1</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="D"><img src="logos/DELL.png" alt="Dell Technologies" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">DELL</span><span class="snap-co">Dell Technologies</span></span></span></td>
-          <td class="c-n c-1m up">+29.8%</td>
-          <td class="c-n up">+262.4%</td>
-          <td class="c-n up">+339.3%</td>
+          <td class="c-s"><span class="snap-cell"><span class="snap-logo snap-lockic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path d="M8.2 10.5V7.8a3.8 3.8 0 0 1 7.6 0v2.7"/><path d="M12 14.6v2.4"/></svg></span><span class="snap-nm"><span class="snap-sk" style="width:46px"></span><span class="snap-sk sk-c" style="width:118px"></span></span></span></td>
+          <td class="c-n c-1m"><span class="snap-sk sk-n"></span></td>
+          <td class="c-n"><span class="snap-sk sk-n"></span></td>
+          <td class="c-n"><span class="snap-sk sk-n"></span></td>
           </tr>
-          <tr>
+          <tr class="snap-lock" aria-hidden="true">
           <td class="c-r"><span class="snap-rank">2</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="V"><img src="logos/VLO.png" alt="Valero Energy" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">VLO</span><span class="snap-co">Valero Energy</span></span></span></td>
-          <td class="c-n c-1m up">+19.4%</td>
-          <td class="c-n up">+70.7%</td>
-          <td class="c-n up">+155.7%</td>
+          <td class="c-s"><span class="snap-cell"><span class="snap-logo snap-lockic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path d="M8.2 10.5V7.8a3.8 3.8 0 0 1 7.6 0v2.7"/><path d="M12 14.6v2.4"/></svg></span><span class="snap-nm"><span class="snap-sk" style="width:38px"></span><span class="snap-sk sk-c" style="width:96px"></span></span></span></td>
+          <td class="c-n c-1m"><span class="snap-sk sk-n"></span></td>
+          <td class="c-n"><span class="snap-sk sk-n"></span></td>
+          <td class="c-n"><span class="snap-sk sk-n"></span></td>
           </tr>
-          <tr>
+          <tr class="snap-lock" aria-hidden="true">
           <td class="c-r"><span class="snap-rank">3</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="M"><img src="logos/MPC.png" alt="Marathon Petroleum" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">MPC</span><span class="snap-co">Marathon Petroleum</span></span></span></td>
-          <td class="c-n c-1m up">+17.8%</td>
-          <td class="c-n up">+80.2%</td>
-          <td class="c-n up">+132.4%</td>
+          <td class="c-s"><span class="snap-cell"><span class="snap-logo snap-lockic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path d="M8.2 10.5V7.8a3.8 3.8 0 0 1 7.6 0v2.7"/><path d="M12 14.6v2.4"/></svg></span><span class="snap-nm"><span class="snap-sk" style="width:42px"></span><span class="snap-sk sk-c" style="width:132px"></span></span></span></td>
+          <td class="c-n c-1m"><span class="snap-sk sk-n"></span></td>
+          <td class="c-n"><span class="snap-sk sk-n"></span></td>
+          <td class="c-n"><span class="snap-sk sk-n"></span></td>
           </tr>
-          <tr>
+          <tr class="snap-lock" aria-hidden="true">
           <td class="c-r"><span class="snap-rank">4</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="H"><img src="logos/HPE.png" alt="Hewlett Packard Enterprise" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">HPE</span><span class="snap-co">Hewlett Packard Enterprise</span></span></span></td>
-          <td class="c-n c-1m up">+14.4%</td>
-          <td class="c-n up">+174.7%</td>
-          <td class="c-n up">+148.5%</td>
+          <td class="c-s"><span class="snap-cell"><span class="snap-logo snap-lockic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path d="M8.2 10.5V7.8a3.8 3.8 0 0 1 7.6 0v2.7"/><path d="M12 14.6v2.4"/></svg></span><span class="snap-nm"><span class="snap-sk" style="width:36px"></span><span class="snap-sk sk-c" style="width:104px"></span></span></span></td>
+          <td class="c-n c-1m"><span class="snap-sk sk-n"></span></td>
+          <td class="c-n"><span class="snap-sk sk-n"></span></td>
+          <td class="c-n"><span class="snap-sk sk-n"></span></td>
           </tr>
-          <tr>
+          <tr class="snap-lock" aria-hidden="true">
           <td class="c-r"><span class="snap-rank">5</span></td>
-          <td class="c-s"><span class="snap-cell"><span class="snap-logo" data-i="P"><img src="logos/PSX.png" alt="Phillips 66" width="34" height="34" loading="lazy" onerror="this.parentNode.classList.add('no-logo');this.remove()"></span><span class="snap-nm"><span class="snap-tkr">PSX</span><span class="snap-co">Phillips 66</span></span></span></td>
-          <td class="c-n c-1m up">+12.7%</td>
-          <td class="c-n up">+53.1%</td>
-          <td class="c-n up">+106.9%</td>
+          <td class="c-s"><span class="snap-cell"><span class="snap-logo snap-lockic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path d="M8.2 10.5V7.8a3.8 3.8 0 0 1 7.6 0v2.7"/><path d="M12 14.6v2.4"/></svg></span><span class="snap-nm"><span class="snap-sk" style="width:50px"></span><span class="snap-sk sk-c" style="width:88px"></span></span></span></td>
+          <td class="c-n c-1m"><span class="snap-sk sk-n"></span></td>
+          <td class="c-n"><span class="snap-sk sk-n"></span></td>
+          <td class="c-n"><span class="snap-sk sk-n"></span></td>
           </tr>
           <tr>
           <td class="c-r"><span class="snap-rank">6</span></td>
