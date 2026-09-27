@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แพ็กเกจสมาชิก · JP Trust Learning</title>
+<meta name="description" content="ค่าสมาชิก JP Trust Learning รายเดือนและรายปี พร้อมสิทธิ์ที่ได้ทั้งหมด — Momentum Lab, S&P 500 Scanner, Port Recorder, ข่าวและบทวิเคราะห์">
+<meta name="theme-color" content="#1a0a0e">
+<meta property="og:type" content="website">
+<meta property="og:title" content="แพ็กเกจสมาชิก · JP Trust Learning">
+<meta property="og:description" content="ค่าสมาชิก JP Trust Learning รายเดือนและรายปี พร้อมสิทธิ์ที่ได้ทั้งหมด — Momentum Lab, S&P 500 Scanner, Port Recorder, ข่าวและบทวิเคราะห์">
+<meta property="og:site_name" content="JP Trust Learning">
+<meta property="og:url" content="https://public.jptrustlearning.com/pricing.html">
+<meta property="og:image" content="https://public.jptrustlearning.com/og-home.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://public.jptrustlearning.com/pricing.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@200;300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<!-- A140: ธีมทั้งหมดอยู่ในไฟล์ร่วมกับหน้าแรก — ห้ามก๊อป CSS มาวางซ้ำในหน้านี้ -->
+<link rel="stylesheet" href="jpt-home.css">
+<style>
+/* เฉพาะหน้านี้: หัวเรื่องบนพื้นเข้มชุดเดียวกับบล็อกแท็บของหน้าแรก */
+.pagehead{background:linear-gradient(145deg,#290008 0%,#1E0106 26%,#120205 52%,#0A0102 78%,#040000 100%);
+  padding:clamp(86px,10vw,124px) 0 clamp(26px,3vw,38px);text-align:center}
+.pagehead .eyebrow{color:var(--gold);display:block;margin-bottom:10px}
+.pagehead h1{font-weight:500;font-size:clamp(26px,4.4vw,42px);color:var(--cream);line-height:1.3}
+.pagehead p{margin:12px auto 0;max-width:620px;font-size:clamp(14px,1.9vw,16px);color:rgba(245,233,208,0.72)}
+.pagebody{background:linear-gradient(180deg,#040000 0%,#0A0102 30%,#120205 70%,#1E0106 100%);
+  padding:0 0 clamp(56px,7vw,96px)}
+.crumb-row{padding:18px 0 0}
+.crumb-row a{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:rgba(245,233,208,0.66)}
+.crumb-row a:hover{color:var(--gold-light)}
+.crumb-row svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+/* A181 · ตารางเปรียบเทียบ ฟรี vs สมาชิก */
+.cmp-head{text-align:center;margin:clamp(22px,3vw,34px) auto 18px;max-width:640px}
+.cmp-head h2{font-family:'Anuphan',sans-serif;font-weight:500;font-size:clamp(20px,3vw,26px);color:var(--cream);line-height:1.35}
+.cmp-head p{margin-top:8px;font-size:13.5px;line-height:1.6;color:rgba(245,233,208,0.64)}
+.cmp-box{max-width:760px;margin:0 auto;border:1px solid rgba(212,175,55,0.22);border-radius:22px;overflow:hidden;
+  background:linear-gradient(160deg,rgba(58,21,32,0.55),rgba(20,4,8,0.75))}
+.cmp{width:100%;border-collapse:collapse;table-layout:fixed}
+.cmp col.c-f,.cmp col.c-m{width:24%}
+.cmp th,.cmp td{padding:14px 12px;border-bottom:1px solid rgba(212,175,55,0.10);vertical-align:middle}
+.cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:0}
+.cmp thead th{padding:18px 8px 14px;text-align:center;border-bottom:1px solid rgba(212,175,55,0.22);font-weight:400}
+.cmp thead .h{display:block;font-family:'Anuphan',sans-serif;font-size:16px;font-weight:600;color:var(--cream)}
+.cmp thead th.m .h{color:var(--gold-light)}
+.cmp thead small{display:block;margin-top:3px;font-size:11px;white-space:nowrap;color:rgba(245,233,208,0.56)}
+.cmp tbody th{text-align:left;font-weight:400;padding-left:18px}
+.cmp tbody th b{display:block;font-size:14.5px;font-weight:500;color:var(--cream);line-height:1.4}
+.cmp tbody th small{display:block;margin-top:2px;font-size:12px;line-height:1.5;color:rgba(245,233,208,0.56)}
+.cmp td{text-align:center}
+.cmp .m{background:rgba(212,175,55,0.06)}
+.cmp .ic{width:20px;height:20px;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+.cmp .ic.y{stroke:var(--gold)}
+.cmp .ic.n{stroke:rgba(245,233,208,0.28)}
+.cmp .tx{font-size:12.5px;line-height:1.4;color:rgba(245,233,208,0.72)}
+.cmp .tx.g{color:var(--gold-light);font-weight:500}
+.cmp .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.cmp-cta{text-align:center;margin-top:16px}
+.cmp-free{display:inline-flex;align-items:center;padding:11px 22px;border-radius:999px;border:1px solid rgba(212,175,55,0.45);
+  font-size:13.5px;color:var(--gold-light)}
+.cmp-free:hover{background:rgba(212,175,55,0.08)}
+.cmp-plans{font-family:'Anuphan',sans-serif;letter-spacing:.5px;text-transform:none;font-size:14px;margin-top:clamp(34px,5vw,48px)}
+@media(max-width:560px){
+  .cmp col.c-f,.cmp col.c-m{width:27%}
+  .cmp th,.cmp td{padding:12px 6px}
+  .cmp tbody th{padding-left:14px}
+  .cmp tbody th b{font-size:13.5px}
+  .cmp tbody th small{font-size:11px}
+  .cmp .tx{font-size:11.5px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/">
+      <!-- A133: โลโก้จริงของแบรนด์ (จูน: "ต้องเป็น logo เราครับ") — เดิมเป็นนกฮูกวาดเส้นเองใน SVG ไม่ใช่โลโก้ JPT
+           ไฟล์ต้นฉบับ jpt-owl-line-gold.png มาจาก repo `pages` (ชุดเดียวกับที่แอปสมาชิกใช้) -->
+      <img class="brand-owl" src="jpt-owl-line-gold.png" alt="JP Trust Learning" width="126" height="129" decoding="async">
+      <span class="brand-text">
+        <span class="brand-name">JP Trust Learning</span>
+        <span class="brand-sub">MOMENTUM RESEARCH</span>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="เมนูหลัก">
+      <div class="nl"><a href="/">หน้าแรก</a></div>
+      <div class="nl" id="nlLib">
+        <a href="library.html">ห้องสมุด <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nl-drop">
+          <a href="lib-momentum.html"><span class="v">กลยุทธ์ Momentum</span><span class="k">Momentum</span></a>
+          <a href="lib-analysis.html"><span class="v">บทวิเคราะห์</span><span class="k">Analysis</span></a>
+          <a href="lib-curated.html"><span class="v">งานวิจัยคัดสรร</span><span class="k">Curated</span></a>
+          <a href="lib-macro.html"><span class="v">Macro &amp; ความเสี่ยง</span><span class="k">Macro</span></a>
+          <a href="lib-method.html"><span class="v">ข้อมูล &amp; ระเบียบวิธี</span><span class="k">Method</span></a>
+          <a href="lib-dashboard.html"><span class="v">แดชบอร์ดและเครื่องมือ</span><span class="k">Dashboard</span></a>
+        </div>
+      </div>
+      <div class="nl" id="nlTools">
+        <a href="https://app.jptrustlearning.com/jptrust-toolkit" target="_blank" rel="noopener">เครื่องมือ <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="nl-drop">
+          <a href="https://app.jptrustlearning.com/sector-rotation" target="_blank" rel="noopener"><span class="v">Dashboard</span><span class="k">Dashboard</span></a>
+          <a href="https://app.jptrustlearning.com/jptrust-toolkit" target="_blank" rel="noopener"><span class="v">Tool &amp; Kit</span><span class="k">Tools</span></a>
+          <a href="dividend-calculator.html"><span class="v">เครื่องคำนวณปันผล</span><span class="k">Dividend</span></a>
+        </div>
+      </div>
+      <div class="nl"><a href="pricing.html">แพ็กเกจสมาชิก</a></div>
+      <div class="nl"><a href="#" id="menuContactTop">ติดต่อเรา</a></div>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-cta" href="https://app.jptrustlearning.com">
+        <svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
+        เข้าระบบสมาชิก
+      </a>
+      <a class="nav-signup" href="https://app.jptrustlearning.com/new">สมัครสมาชิก</a>
+      <button class="nav-burger" id="navBurger" aria-label="เมนู" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-menu" id="navMenu" aria-label="เมนูหลัก">
+    <a href="https://app.jptrustlearning.com/sector-rotation" target="_blank" rel="noopener"><span>Dashboard</span><span class="k">Dashboard</span></a>
+    <a href="https://app.jptrustlearning.com/jptrust-toolkit" target="_blank" rel="noopener"><span>Tool &amp; Kit</span><span class="k">Tools</span></a>
+    <a href="dividend-calculator.html"><span>เครื่องคำนวณปันผล</span><span class="k">Dividend</span></a>
+    <a href="pricing.html"><span>แพ็กเกจสมาชิก</span><span class="k">Plans</span></a>
+    <a href="https://app.jptrustlearning.com"><span>เข้าระบบสมาชิก</span><span class="k">Login</span></a>
+  </nav>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <span class="eyebrow">Membership</span>
+    <h1>แพ็กเกจสมาชิก</h1>
+    <p>เข้าถึงกลยุทธ์ เครื่องมือ และคอนเทนต์พิเศษสำหรับสมาชิก</p>
+  </div>
+</section>
+
+<section class="pagebody">
+  <div class="wrap">
+    <div class="crumb-row"><a href="index.html"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>กลับหน้าแรก</a></div>
+
+
+                
+        <!-- A181: เปรียบเทียบ ฟรี vs สมาชิก แทนการ์ดบริการ 6 ใบ (จูนสั่ง "ใช้การเปรียบเทียบ free กับ member แทน") · ย้อนกลับ = pricing-backup-v2.html -->
+        <div class="cmp-head">
+          <h2>ฟรี กับ สมาชิก ต่างกันอย่างไร</h2>
+          <p>เครื่องมือพื้นฐานเปิดให้ใช้ฟรีโดยไม่ต้องสมัคร · สมาชิกได้กลยุทธ์ ข้อมูลเต็ม และเครื่องมือในแอป</p>
+        </div>
+        <div class="cmp-box">
+        <table class="cmp">
+          <colgroup><col><col class="c-f"><col class="c-m"></colgroup>
+          <thead><tr><th scope="col"><span class="sr">รายการ</span></th>
+            <th scope="col"><span class="h">ฟรี</span><small>ไม่ต้องสมัคร</small></th>
+            <th scope="col" class="m"><span class="h">สมาชิก</span><small>เฉลี่ย ฿117/เดือน</small></th></tr></thead>
+          <tbody>
+        <tr><th scope="row"><b>ห้องสมุดความรู้</b><small>บทความการลงทุน มาโคร และงานวิจัย</small></th><td><svg class="ic y" viewBox="0 0 24 24" aria-label="มี"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td><td class="m"><svg class="ic y" viewBox="0 0 24 24" aria-label="มี"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
+        <tr><th scope="row"><b>Tool &amp; Kit</b><small>ราคาทอง โซนแนวรับ–แนวต้าน ค่าเงิน ปฏิทินเศรษฐกิจ</small></th><td><svg class="ic y" viewBox="0 0 24 24" aria-label="มี"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td><td class="m"><svg class="ic y" viewBox="0 0 24 24" aria-label="มี"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
+        <tr><th scope="row"><b>Dashboard กลุ่มอุตสาหกรรม</b><small>Sector Rotation หุ้น S&amp;P 500</small></th><td><svg class="ic y" viewBox="0 0 24 24" aria-label="มี"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td><td class="m"><svg class="ic y" viewBox="0 0 24 24" aria-label="มี"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
+        <tr><th scope="row"><b>เครื่องคำนวณปันผล</b><small>คำนวณปันผลต่อปี ต่อเดือน และ Yield on Cost</small></th><td><svg class="ic y" viewBox="0 0 24 24" aria-label="มี"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td><td class="m"><svg class="ic y" viewBox="0 0 24 24" aria-label="มี"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
+        <tr><th scope="row"><b>สแกนหุ้นรายสัปดาห์</b><small>ตาราง 10 อันดับขาขึ้นบนหน้าแรก</small></th><td><span class="tx">อันดับ 6–10</span></td><td class="m"><span class="tx g">ครบทุกอันดับ</span></td></tr>
+        <tr><th scope="row"><b>ข่าว &amp; บทวิเคราะห์</b><small>ข่าวการเงินและตลาดหุ้นสหรัฐฯ ภาษาไทย รายวัน</small></th><td><span class="tx">สรุปสั้นรายวัน</span></td><td class="m"><span class="tx g">ข่าวเต็มทุกวัน</span></td></tr>
+        <tr><th scope="row"><b>Momentum Lab</b><small>backtest กลยุทธ์ Momentum หุ้น S&amp;P 500 ด้วยข้อมูลจริง</small></th><td><svg class="ic n" viewBox="0 0 24 24" aria-label="ไม่มี"><path d="M7 12h10"/></svg></td><td class="m"><svg class="ic y" viewBox="0 0 24 24" aria-label="มี"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
+        <tr><th scope="row"><b>S&amp;P 500 Scanner</b><small>จัดอันดับหุ้น 500+ ตัว กรอง Bull / Neutral / Bear</small></th><td><svg class="ic n" viewBox="0 0 24 24" aria-label="ไม่มี"><path d="M7 12h10"/></svg></td><td class="m"><svg class="ic y" viewBox="0 0 24 24" aria-label="มี"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
+        <tr><th scope="row"><b>Gold &amp; Macro</b><small>แดชบอร์ดทองคำ น้ำมัน ดอลลาร์ ดอกเบี้ย</small></th><td><svg class="ic n" viewBox="0 0 24 24" aria-label="ไม่มี"><path d="M7 12h10"/></svg></td><td class="m"><svg class="ic y" viewBox="0 0 24 24" aria-label="มี"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
+        <tr><th scope="row"><b>Port Recorder</b><small>บันทึกและติดตามพอร์ตสูงสุด 5 พอร์ต ซิงก์ Google Drive</small></th><td><svg class="ic n" viewBox="0 0 24 24" aria-label="ไม่มี"><path d="M7 12h10"/></svg></td><td class="m"><svg class="ic y" viewBox="0 0 24 24" aria-label="มี"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
+        <tr><th scope="row"><b>Roadmap 90 วัน</b><small>แผนเรียนรู้รายวัน พร้อมสะสม Points</small></th><td><svg class="ic n" viewBox="0 0 24 24" aria-label="ไม่มี"><path d="M7 12h10"/></svg></td><td class="m"><svg class="ic y" viewBox="0 0 24 24" aria-label="มี"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="cmp-cta">
+          <a class="cmp-free" href="https://app.jptrustlearning.com/jptrust-toolkit" target="_blank" rel="noopener">เริ่มใช้ Tool &amp; Kit ฟรี</a>
+        </div>
+        <div class="plan-incl-head cmp-plans">เลือกแพ็กเกจสมาชิก</div>
+
+    <div class="pricing-grid">
+      <div class="plan">
+        <span class="plan-name">รายเดือน</span>
+        <div class="plan-price"><span class="cur">฿</span>150<span class="per">/ เดือน</span></div>
+        <div class="plan-tag">จ่ายเดือนต่อเดือน ไม่มีสัญญาผูกมัด</div>
+        <div class="plan-rule"></div>
+        <div class="plan-diffhead">เหมาะกับ</div>
+        <ul class="plan-pts">
+          <li>คนที่อยากทดลองใช้ก่อน ยังไม่แน่ใจว่าเหมาะไหม</li>
+          <li>หยุดต่ออายุได้ทุกเดือน ไม่ต้องจ่ายยาว</li>
+          <li class="muted">ถ้าต่อครบ 12 เดือน = ฿1,800</li>
+        </ul>
+        <a class="plan-cta" href="https://app.jptrustlearning.com/new">สมัครรายเดือน</a>
+      </div>
+      <div class="plan featured">
+        <span class="plan-badge">ประหยัดกว่า</span>
+        <span class="plan-name">รายปี</span>
+        <div class="plan-price"><span class="cur">฿</span>1,400<span class="per">/ ปี</span></div>
+        <div class="plan-save">เฉลี่ยเดือนละ ฿117 · ประหยัด ฿400 ต่อปี</div>
+        <div class="plan-tag">จ่ายครั้งเดียว ใช้ต่อเนื่อง 12 เดือน</div>
+        <div class="plan-rule"></div>
+        <div class="plan-diffhead">เหมาะกับ</div>
+        <ul class="plan-pts">
+          <li>คนที่ตั้งใจใช้ต่อเนื่องทั้งปี ไม่ต้องจำวันต่ออายุทุกเดือน</li>
+          <li>ส่วนที่ประหยัด ฿400 เทียบเท่าค่าสมาชิกราว 2 เดือนครึ่ง</li>
+          <li class="muted">ราคาคงเดิมตลอดอายุสมาชิก แม้ค่าสมาชิกจะปรับขึ้นระหว่างปี</li>
+        </ul>
+        <a class="plan-cta gold" href="https://app.jptrustlearning.com/new">สมัครรายปี</a>
+      </div>
+    </div>
+        <p class="plan-note">ทั้งสองแพ็กเกจใช้เนื้อหาและเครื่องมือชุดเดียวกันทั้งหมด — ต่างกันที่ราคาและรอบการต่ออายุเท่านั้น</p>
+
+      
+      
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-name" style="font-family:'Cinzel',serif;background:linear-gradient(135deg,#F4E4BA,#D4AF37);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:600">JP Trust Learning</span>
+        <span class="brand-sub">MOMENTUM RESEARCH</span>
+        <p class="foot-disc">แพลตฟอร์มวิจัยและเรียนรู้ด้าน Momentum Trading — ศึกษาการเคลื่อนไหวของตลาดผ่าน Price · Volume · News · Market Structure ทดสอบกับข้อมูลจริงย้อนหลัง · เนื้อหาเพื่อการศึกษาเท่านั้น <strong>ไม่ใช่คำแนะนำในการลงทุน</strong> · ผลในอดีตไม่ใช่การรับประกันผลในอนาคต</p>
+      </div>
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <a href="/">หน้าแรก</a>
+        <a href="lib-momentum.html">กลยุทธ์ Momentum</a>
+        <a href="lib-analysis.html">บทวิเคราะห์</a>
+        <a href="lib-dashboard.html">Dashboard</a>
+        <a href="lib-method.html">ข้อมูล &amp; ระเบียบวิธี</a>
+        <a href="dividend-calculator.html">เครื่องคำนวณปันผล</a>
+          <a href="negative-results.html">ผลลบ</a>
+          <a href="corrections.html">บันทึกการแก้ตัวเลข</a>
+        <a href="policy.html">นโยบายและข้อกำหนด</a>
+      </div>
+    </div>
+
+    <!-- SOCIAL: ไอคอนที่มี URL จริงเท่านั้น · ตัวที่ comment ไว้รอ URL จากจูน แล้วเอา comment ออก -->
+    <div class="foot-social">
+      <!-- <a href="TODO_FACEBOOK_URL" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M15.12 5.32H17V2.14A26.11 26.11 0 0 0 14.26 2C11.54 2 9.68 3.66 9.68 6.7v2.62H6.61v3.56h3.07V22h3.68v-9.12h3.06l.46-3.56h-3.52V7.05c0-1.03.28-1.73 1.76-1.73z"/></svg></a> -->
+      <!-- <a href="TODO_YOUTUBE_URL" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M21.58 7.19a2.5 2.5 0 0 0-1.76-1.77C18.25 5 12 5 12 5s-6.25 0-7.82.42A2.5 2.5 0 0 0 2.42 7.19 26 26 0 0 0 2 12a26 26 0 0 0 .42 4.81 2.5 2.5 0 0 0 1.76 1.77C5.75 19 12 19 12 19s6.25 0 7.82-.42a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.42-4.81zM10 15.02V8.98L15.2 12z"/></svg></a> -->
+      <a href="https://line.me/R/ti/p/@jptrust" target="_blank" rel="noopener" aria-label="LINE"><svg viewBox="0 0 24 24"><path d="M12 3C6.48 3 2 6.58 2 11c0 3.95 3.55 7.26 8.35 7.89.32.07.76.21.87.49.1.25.07.63.03.88l-.14.85c-.04.25-.2.99.87.54 1.06-.45 5.69-3.36 7.77-5.75C21.14 14.38 22 12.8 22 11c0-4.42-4.48-8-10-8zM8.1 13.37H6.13a.52.52 0 0 1-.52-.52V9.15a.52.52 0 0 1 1.04 0v3.18H8.1a.52.52 0 0 1 0 1.04zm2.04-.52a.52.52 0 0 1-1.04 0V9.15a.52.52 0 0 1 1.04 0zm4.31 0a.52.52 0 0 1-.94.31l-2.02-2.75v2.44a.52.52 0 0 1-1.04 0V9.15a.52.52 0 0 1 .94-.31l2.02 2.75V9.15a.52.52 0 0 1 1.04 0zm3.26-2.37a.52.52 0 0 1 0 1.04h-1.45v.93h1.45a.52.52 0 0 1 0 1.04h-1.97a.52.52 0 0 1-.52-.52V9.15a.52.52 0 0 1 .52-.52h1.97a.52.52 0 0 1 0 1.04h-1.45v.81z"/></svg></a>
+      <!-- <a href="TODO_X_URL" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M17.53 3h3.04l-6.64 7.59L21.75 21h-5.9l-4.62-6.04L5.94 21H2.9l7.1-8.12L2.25 3h6.05l4.18 5.52zm-1.07 16.2h1.68L7.62 4.71H5.82z"/></svg></a> -->
+      <!-- <a href="TODO_INSTAGRAM_URL" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 3.18a6.66 6.66 0 1 0 0 13.32 6.66 6.66 0 0 0 0-13.32zm0 10.99a4.33 4.33 0 1 1 0-8.66 4.33 4.33 0 0 1 0 8.66zm8.48-11.25a1.56 1.56 0 1 1-3.11 0 1.56 1.56 0 0 1 3.11 0z"/></svg></a> -->
+      <!-- <a href="TODO_TIKTOK_URL" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 1 1 .73-5.07v-3.2a5.76 5.76 0 0 0-.73-.05A5.72 5.72 0 1 0 15.54 15.4V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.29 4.29 0 0 1-3.24-1.48z"/></svg></a> -->
+      <a href="#" id="footContact" aria-label="ติดต่อเรา"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v.35l-10 6.1-10-6.1V6a1 1 0 0 1 1-1zm-1 3.7 9.48 5.78a1 1 0 0 0 1.04 0L22 8.7V18a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/></svg></a>
+    </div>
+    <div class="foot-bottom">© 2026 JP Trust Learning · Public Research Library · เนื้อหาเพื่อการศึกษาเท่านั้น</div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="contactModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-label="ติดต่อเรา">
+    <button class="modal-x" id="contactClose" aria-label="ปิด">&times;</button>
+    <span class="eyebrow">Contact</span>
+    <h3>ติดต่อเรา</h3>
+    <a class="contact-item" href="https://line.me/R/ti/p/@jptrust" target="_blank" rel="noopener">
+      <span class="contact-ico"><svg viewBox="0 0 24 24"><path d="M21 11c0 4-4 7.2-9 7.2-.9 0-1.8-.1-2.7-.3L4 19.5l1.1-3.4C3.8 14.8 3 13 3 11c0-4 4-7.2 9-7.2s9 3.2 9 7.2z"/></svg></span>
+      <span class="contact-text"><span class="ct-label">Line</span><br><span class="ct-val">@jptrust</span></span>
+    </a>
+    <a class="contact-item" href="mailto:jptrustlearning@gmail.com">
+      <span class="contact-ico"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg></span>
+      <span class="contact-text"><span class="ct-label">Email</span><br><span class="ct-val">jptrustlearning@gmail.com</span></span>
+    </a>
+  </div>
+</div>
+
+<script>
+/* ---------- dropdown ห้องสมุด ---------- */
+(function(){
+  /* A128: เดิมผูกกับ #nlLib ตัวเดียว — ตอนนี้มี dropdown 2 ตัว (ห้องสมุด + เครื่องมือ)
+     จึงจับทุก .nl ที่มี .nl-drop ข้างใน · เพิ่ม dropdown ใหม่ได้โดยไม่ต้องแตะ JS อีก */
+  var drops=[].slice.call(document.querySelectorAll('.nl')).filter(function(n){return n.querySelector('.nl-drop');});
+  if(!drops.length) return;
+  drops.forEach(function(nl){
+    nl.addEventListener('mouseenter',function(){nl.classList.add('open');});
+    nl.addEventListener('mouseleave',function(){nl.classList.remove('open');});
+  });
+  document.addEventListener('click',function(e){
+    drops.forEach(function(nl){ if(!nl.contains(e.target)) nl.classList.remove('open'); });
+  });
+})();
+
+/* ---------- nav burger menu ---------- */
+var burger=document.getElementById('navBurger');
+var menu=document.getElementById('navMenu');
+burger.addEventListener('click',function(){
+  var open=menu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open?'true':'false');
+});
+menu.querySelectorAll('a').forEach(function(a){
+  if(a.id!=='menuContact') a.addEventListener('click',function(){menu.classList.remove('open');burger.setAttribute('aria-expanded','false');});
+});
+
+/* ---------- contact modal ---------- */
+var cm=document.getElementById('contactModal');
+function openContact(e){if(e)e.preventDefault();cm.hidden=false;document.body.style.overflow='hidden';}
+function closeContact(){cm.hidden=true;document.body.style.overflow='';}
+['contactDoor','footContact','menuContact','menuContactTop'].forEach(function(id){
+  var el=document.getElementById(id);
+  if(el) el.addEventListener('click',function(e){openContact(e);menu.classList.remove('open');burger.setAttribute('aria-expanded','false');});
+});
+document.getElementById('contactClose').addEventListener('click',closeContact);
+cm.addEventListener('click',function(e){if(e.target===cm)closeContact();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!cm.hidden)closeContact();});
+
+
+
+</script>
+</body>
+</html>
