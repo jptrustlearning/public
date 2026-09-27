@@ -1709,13 +1709,13 @@ h1,h2,h3,h4,h5,h6{font-weight:500}
    .q-head = หัวข้อที่เป็นคำถามของลูกค้า ในบล็อก statement · ย้อนกลับ = jpt-home-backup-v5.css */
 .hero-eyebrow{font-family:'Anuphan',sans-serif;font-weight:500;font-size:clamp(13px,1.6vw,15px);letter-spacing:.14em;
   color:var(--gold-light);margin:0 0 16px;text-shadow:0 2px 14px rgba(0,0,0,.6);animation:riseIn .8s ease .05s both}
-.hero h1.hero-h1{font-family:'Anuphan',sans-serif;font-weight:500;font-size:clamp(28px,4.6vw,52px);line-height:1.32;
-  letter-spacing:0;color:var(--cream);max-width:900px;margin:0 auto 20px;text-shadow:0 3px 30px rgba(0,0,0,.7);
+.hero h1.hero-h1{font-family:'Anuphan',sans-serif;font-weight:500;font-size:clamp(24px,6.2vw,52px);line-height:1.32;
+  letter-spacing:0;color:var(--cream);max-width:900px;margin:0 auto 20px;padding:0 16px;text-shadow:0 3px 30px rgba(0,0,0,.7);
   animation:riseIn .8s ease .12s both}
 .hero h1.hero-h1 .hl{display:block;color:#E9C766}
 .hero h1.hero-h1 .nb{white-space:nowrap}
 .hero .lead.hero-sub{max-width:600px}
-.hero-acts{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 14px}
+.hero-acts{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 14px;padding:0 16px}
 .hero-cta2{display:inline-flex;align-items:center;padding:14px 26px;border-radius:999px;border:1px solid rgba(212,175,55,.6);
   color:var(--gold-light);font-weight:500;font-size:clamp(15px,1.8vw,16px);background:rgba(26,10,14,.35);text-decoration:none;
   transition:background .2s ease,border-color .2s ease;animation:riseIn .8s ease .45s both}
