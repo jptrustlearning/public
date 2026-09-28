@@ -67,6 +67,39 @@
   .snap-sk.sk-n{width:34px}
 }
 </style>
+<style id="mo-carousel-css">
+/* ===== A190 การ์ดโมเมนตัมรายตัว: Mag 7 เลื่อนดูได้ (scroll-snap · ไม่มี animation วนไม่จบ ตามกติกา A132) =====
+   ถอดคืน = ลบบล็อกนี้ + markup #moTile + IIFE "A190" ท้ายหน้า แล้วใช้ index-backup-v112.html เทียบ */
+.tile.mo{display:flex;flex-direction:column;min-width:0}
+.mo [hidden]{display:none!important}
+.mo-head{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:28px}
+.mo-nav{display:flex;align-items:center;gap:6px;flex:0 0 auto}
+.mo-count{font-family:var(--num);font-size:13px;color:var(--muted);margin-right:6px;white-space:nowrap}
+.mo-arw{width:28px;height:28px;padding:0;display:grid;place-items:center;border:1px solid var(--line);background:transparent;
+  color:var(--maroon);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.mo-arw svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mo-arw:hover:not(:disabled){border-color:var(--maroon);background:var(--maroon);color:#FFF6E4}
+.mo-arw:disabled{opacity:.32;cursor:default}
+.mo-arw:focus-visible,.mo-chip:focus-visible,.mo-track:focus-visible{outline:2px solid var(--gold-deep);outline-offset:3px}
+.mo-track{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.mo-track::-webkit-scrollbar{display:none}
+.mo-slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always}
+.mo-tt{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.mo-win{font-size:10.5px;color:var(--muted);white-space:nowrap}
+.mo-spark{display:block;width:100%;height:40px;margin:12px 0 10px}
+.mo-f2{margin-top:4px}
+.mo-tabs{display:flex;gap:3px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.mo-chip{flex:1 1 auto;padding:6px 3px;border:1px solid transparent;background:transparent;cursor:pointer;
+  font-family:var(--serif);font-weight:600;font-size:10px;letter-spacing:.05em;color:var(--muted);white-space:nowrap;
+  transition:background .2s,color .2s,border-color .2s}
+@media(max-width:420px){.mo-tabs{gap:2px}.mo-chip{padding:6px 2px;letter-spacing:.02em}}
+@media(max-width:380px){.mo-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}}
+.mo-chip:hover{color:var(--maroon);border-color:var(--line)}
+.mo-chip[aria-current="true"]{background:var(--maroon);border-color:var(--maroon);color:#FFF6E4}
+.mo-note{margin:10px 0 0;font-size:10.5px;line-height:1.6;color:var(--muted)}
+@media(prefers-reduced-motion:reduce){.mo-arw,.mo-chip{transition:none}}
+</style>
 </head>
 <body>
 
@@ -330,14 +363,32 @@
       </div>
 
       <div class="tiles">
-        <div class="tile">
-          <span class="tile-k">โมเมนตัมรายตัว</span>
-          <div class="tile-t">MSFT</div>
-          <svg viewBox="0 0 120 40" width="100%" height="40" preserveAspectRatio="none" aria-hidden="true" style="margin:12px 0 10px">
-            <polyline class="spark-line" pathLength="100" points="0,4 6.3,13.6 12.6,23.6 18.9,30 25.3,9.2 31.6,25.6 37.9,34.4 44.2,38 50.5,36.8 56.8,31.6 63.2,16.8 69.5,29.6 75.8,40 82.1,28.4 88.4,34.8 94.7,22.4 101.1,28 107.4,24 113.7,28.4 120,0"
-              fill="none" stroke="#722F37" stroke-width="1.6" stroke-linejoin="round"/>
-          </svg>
-          <div class="tile-f"><span>ผลตอบแทน 3 เดือน</span><b class="num">+38.39%</b></div>
+        <!-- A190: โมเมนตัมรายตัว = Mag 7 เลื่อนดูได้ (จูนเลือกข้อ 3 · 28 ก.ย.)
+             JS อ่าน sector-latest.json เอง (groups n="Mag 7" .tk + ticks) เรียงตาม 3 เดือนมาก→น้อย ⇒ รอบอัปเดตรายสัปดาห์ไม่ต้องแก้ตัวเลขการ์ดนี้
+             markup ข้างล่าง = fallback ตอน fetch ล้มเท่านั้น (MSFT as_of 25 ก.ย.) · ปุ่มเลื่อน/ชิป/หมายเหตุ สร้างโดย JS
+             กราฟ = ราคา 20 วันทำการล่าสุด (ticks.s) คู่กับ 1 เดือน (m) · 3 เดือน (q) แยกบรรทัด — แก้ป้ายเดิมที่กราฟ 20 วันแต่ติดป้าย 3 เดือน -->
+        <div class="tile mo" id="moTile" role="region" aria-roledescription="carousel" aria-label="โมเมนตัมรายตัว กลุ่ม Mag 7">
+          <div class="mo-head">
+            <span class="tile-k">โมเมนตัมรายตัว</span>
+            <div class="mo-nav" hidden>
+              <span class="mo-count num" aria-hidden="true"></span>
+              <button type="button" class="mo-arw" data-d="-1" aria-label="หุ้นก่อนหน้า"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6l-6 6 6 6"/></svg></button>
+              <button type="button" class="mo-arw" data-d="1" aria-label="หุ้นถัดไป"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6"/></svg></button>
+            </div>
+          </div>
+          <div class="mo-track" id="moTrack">
+            <div class="mo-slide on" role="group" aria-roledescription="slide" aria-label="MSFT">
+              <div class="mo-tt"><span class="tile-t">MSFT</span><span class="mo-win">ราคา 20 วันทำการล่าสุด</span></div>
+              <svg class="mo-spark" viewBox="0 -2 120 44" preserveAspectRatio="none" aria-hidden="true">
+                <polyline class="spark-line" pathLength="100" points="0,4 6.3,13.6 12.6,23.6 18.9,30 25.3,9.2 31.6,25.6 37.9,34.4 44.2,38 50.5,36.8 56.8,31.6 63.2,16.8 69.5,29.6 75.8,40 82.1,28.4 88.4,34.8 94.7,22.4 101.1,28 107.4,24 113.7,28.4 120,0"
+                  fill="none" stroke="#722F37" stroke-width="1.6" stroke-linejoin="round"/>
+              </svg>
+              <div class="tile-f"><span>ผลตอบแทน 1 เดือน</span><b class="num">+3.99%</b></div>
+              <div class="tile-f mo-f2"><span>ผลตอบแทน 3 เดือน</span><b class="num">+38.39%</b></div>
+            </div>
+          </div>
+          <div class="mo-tabs" hidden></div>
+          <p class="mo-note" hidden></p>
         </div>
 
         <div class="tile">
@@ -942,11 +993,86 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!cm.hidden)
   }
   function fire(){
     sec.classList.add('in'); if(reduce) return;
-    sec.querySelectorAll('.tile-f b').forEach(function(b,i){count(b,350+i*120);});
+    /* A190: นับเฉพาะตัวเลขที่มองเห็น — สไลด์ Mag 7 ที่ยังไม่ได้เลื่อนมาไม่ต้องนับ */
+    [].filter.call(sec.querySelectorAll('.tile-f b'),function(b){var s=b.closest('.mo-slide');return !s||s.classList.contains('on');})
+      .forEach(function(b,i){count(b,350+i*120);});
   }
   if(reduce||!('IntersectionObserver' in window)){fire();return;}
   var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){fire();io.disconnect();}});},{threshold:.2});
   io.observe(sec);
+})();
+
+/* ---------- A190 การ์ดโมเมนตัมรายตัว: Mag 7 เลื่อนดูได้ ----------
+   ข้อมูล: sector-latest.json (URL เดียวกับ hero-scanner.js ⇒ ใช้ cache ร่วมกัน) · กลุ่ม n="Mag 7" → tk → ticks[tk]
+   s = ราคา 20 วันทำการ normalize 0–100 · m = 1 เดือน · q = 3 เดือน · เรียง q มาก→น้อย
+   fetch ล้ม / ไม่มีกลุ่ม = คง MSFT ใน markup ไว้ ไม่โชว์ปุ่มเลื่อน */
+(function(){
+  var tile=document.getElementById('moTile'); if(!tile||!window.fetch) return;
+  var track=document.getElementById('moTrack'), nav=tile.querySelector('.mo-nav'), cnt=tile.querySelector('.mo-count'),
+      tabs=tile.querySelector('.mo-tabs'), note=tile.querySelector('.mo-note'), arws=tile.querySelectorAll('.mo-arw');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var MON=['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+  var cur=0, N=0, raf=0, target=-1, unlock=0;
+
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function pct(v){return (v>0?'+':v<0?'−':'')+Math.abs(v).toFixed(2)+'%';}
+  function pts(s){var n=s.length;return s.map(function(v,i){return +(i*120/(n-1)).toFixed(1)+','+(+(40-v*.4).toFixed(1));}).join(' ');}
+  function thDate(iso){var p=String(iso||'').split('-');return p.length===3?(+p[2])+' '+MON[+p[1]-1]+' '+p[0]:'';}
+  function f(label,v,extra){return '<div class="tile-f'+(extra||'')+'"><span>'+label+'</span><b class="num'+(v<0?' dn':'')+'">'+pct(v)+'</b></div>';}
+
+  function set(i){
+    cur=i;
+    [].forEach.call(track.children,function(s,j){s.classList.toggle('on',j===i);s.setAttribute('aria-hidden',j===i?'false':'true');});
+    [].forEach.call(tabs.children,function(c,j){if(j===i)c.setAttribute('aria-current','true');else c.removeAttribute('aria-current');});
+    cnt.textContent=(i+1)+' / '+N;
+    arws[0].disabled=i<=0; arws[1].disabled=i>=N-1;
+  }
+  function go(i){
+    i=Math.max(0,Math.min(N-1,i)); if(i===cur&&target<0) return;
+    target=i; clearTimeout(unlock); unlock=setTimeout(function(){target=-1;},900);   /* กันตัวนับกระโดดผ่านสไลด์กลางทางตอนกดชิปไกลๆ */
+    track.scrollTo({left:i*track.clientWidth,behavior:reduce?'auto':'smooth'});
+    set(i);
+  }
+  function onScroll(){
+    raf=0; var w=track.clientWidth||1, i=Math.round(track.scrollLeft/w);
+    if(target>=0){ if(Math.abs(track.scrollLeft-target*w)>2) return; target=-1; }
+    if(i!==cur&&i>=0&&i<N) set(i);
+  }
+
+  function build(D){
+    var g=(D&&D.groups||[]).filter(function(x){return x&&x.n==='Mag 7';})[0]; if(!g||!g.tk) return;
+    var T=D.ticks||{};
+    var list=g.tk.filter(function(t){var k=T[t];return k&&k.s&&k.s.length>1&&typeof k.m==='number'&&typeof k.q==='number';})
+                 .sort(function(a,b){return T[b].q-T[a].q;});
+    if(list.length<2) return;
+    N=list.length;
+    track.innerHTML=list.map(function(t,i){var k=T[t];
+      return '<div class="mo-slide" role="group" aria-roledescription="slide" aria-label="'+esc(t)+' '+(i+1)+' จาก '+N+'">'+
+        '<div class="mo-tt"><span class="tile-t">'+esc(t)+'</span><span class="mo-win">ราคา 20 วันทำการล่าสุด</span></div>'+
+        '<svg class="mo-spark" viewBox="0 -2 120 44" preserveAspectRatio="none" aria-hidden="true"><polyline class="spark-line" pathLength="100" points="'+pts(k.s)+
+        '" fill="none" stroke="#722F37" stroke-width="1.6" stroke-linejoin="round"/></svg>'+
+        f('ผลตอบแทน 1 เดือน',k.m)+f('ผลตอบแทน 3 เดือน',k.q,' mo-f2')+'</div>';}).join('');
+    tabs.innerHTML=list.map(function(t,i){return '<button type="button" class="mo-chip" data-i="'+i+'" aria-label="ดู '+esc(t)+'">'+esc(t)+'</button>';}).join('');
+    var d=thDate(D.as_of);
+    note.textContent='Mag 7 เรียงตามผลตอบแทน 3 เดือน'+(d?' · ข้อมูลถึง '+d:'');
+    nav.hidden=false; tabs.hidden=false; note.hidden=false;
+    track.tabIndex=0; track.scrollLeft=0; set(0);
+
+    arws.forEach(function(b){b.addEventListener('click',function(){go(cur+(+b.getAttribute('data-d')));});});
+    tabs.addEventListener('click',function(e){var c=e.target.closest('.mo-chip');if(c)go(+c.getAttribute('data-i'));});
+    track.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(onScroll);},{passive:true});
+    track.addEventListener('scrollend',function(){target=-1;onScroll();});
+    track.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'){e.preventDefault();go(cur+1);} else if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1);}
+      else if(e.key==='Home'){e.preventDefault();go(0);} else if(e.key==='End'){e.preventDefault();go(N-1);}
+    });
+    window.addEventListener('resize',function(){track.scrollLeft=cur*track.clientWidth;},{passive:true});
+  }
+
+  fetch('sector-latest.json?v='+new Date().toISOString().slice(0,10))
+    .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+    .then(build)
+    .catch(function(){ /* คง fallback MSFT ไว้ */ });
 })();
 
 
