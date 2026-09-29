@@ -87,8 +87,8 @@ main.wrap{display:grid;gap:clamp(22px,3vw,34px);padding-block:4px 40px}
 .h1c{display:block;font:700 clamp(23px,3.6vw,40px)/1.3 var(--body);color:var(--ink);margin-top:8px}
 .lede{color:var(--ink-2);max-width:56ch}
 .lede b{color:var(--ink);font-weight:500}
-.hero-row{display:grid;grid-template-columns:200px 220px minmax(300px,400px);grid-template-areas:"badge gauge lights";gap:clamp(10px,2.4vw,30px);align-items:center;margin-top:6px}
-.badge{grid-area:badge}.gauge{grid-area:gauge}.lights{grid-area:lights}
+.hero-row{display:grid;grid-template-columns:200px 220px;gap:clamp(10px,3vw,34px);align-items:center;margin-top:6px}
+@media (max-width:520px){.hero-row{grid-template-columns:minmax(0,1fr) minmax(0,1.12fr)}}
 .badge{position:relative;overflow:hidden;width:100%;aspect-ratio:1;border-radius:50%;display:grid;place-content:center;justify-items:center;text-align:center;gap:1px;padding:18px;
   background:radial-gradient(circle at 50% 28%,rgba(36,82,178,.65),rgba(6,16,42,.92) 70%);border:2px solid rgba(56,214,255,.65);box-shadow:0 0 34px rgba(56,214,255,.35),inset 0 0 28px rgba(47,107,255,.35)}
 .badge .cal{width:26px;height:26px;color:var(--cyan);margin-bottom:4px}
@@ -101,43 +101,7 @@ main.wrap{display:grid;gap:clamp(22px,3vw,34px);padding-block:4px 40px}
 .gauge{margin:0;width:100%}
 .gauge svg{display:block;width:100%;height:auto;overflow:visible}
 .gauge figcaption{font-size:11.5px;line-height:1.4;color:var(--muted);margin-top:4px}
-@media (max-width:900px){
-  .hero-row{grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);grid-template-areas:"badge badge" "gauge lights";align-items:center}
-  .badge{aspect-ratio:auto;border-radius:999px;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:4px 10px;padding:10px 20px;justify-self:start;width:auto;max-width:100%}
-  .badge .cal{margin:0}.badge .b2{font-size:18px}.badge .b4,.badge .bwave{display:none}.badge .b5{margin:0}
-}
-/* traffic-light panel: one row per signal, beside the gauge */
-.lights{position:relative;display:grid;gap:6px;padding:12px 12px 10px;border-radius:18px;background:linear-gradient(180deg,rgba(20,44,102,.82),rgba(5,14,38,.92));border:1px solid var(--edge-hi);box-shadow:0 0 34px -10px rgba(56,214,255,.5),inset 0 1px 0 rgba(255,255,255,.08);min-width:0}
-.lights-h{display:flex;justify-content:space-between;align-items:baseline;gap:6px;padding:0 6px 4px;border-bottom:1px solid var(--line)}
-.lights-h b{font:600 14px var(--body);color:var(--ink)}
-.lights-h span{font-size:11.5px;color:var(--muted);white-space:nowrap}
-.lrows{display:grid;gap:1px}
-.lrow{display:grid;grid-template-columns:20px minmax(0,1fr) auto auto;gap:8px;align-items:center;min-height:25px;padding:1px 6px;border:0;border-radius:8px;background:none;color:var(--ink);font:inherit;text-align:left;cursor:pointer;width:100%}
-.lrow:hover,.lrow:focus-visible{background:rgba(56,214,255,.09)}
-.lrow .n{font:700 10.5px/1 var(--caps);color:var(--muted);letter-spacing:.04em}
-.lrow .l{font:500 13px/1.25 var(--body);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.lrow .v{font:600 12px/1 var(--body);color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
-.lrow.st-y .l{color:#FFE3A1}.lrow.st-r .l,.lrow.st-x .l{color:#FFB3B6}
-.lamps{display:flex;gap:6px;padding:3px 5px;border-radius:999px;background:#030713;border:1px solid rgba(120,160,230,.22);box-shadow:inset 0 1px 4px rgba(0,0,0,.9)}
-.lamp{width:13px;height:13px;border-radius:50%;flex:none;background:radial-gradient(circle at 34% 30%,rgba(255,255,255,.16),rgba(255,255,255,0) 46%),var(--off);box-shadow:inset 0 0 3px rgba(0,0,0,.85)}
-.lamp.g{--off:#0A2A1F;--on:#3DF0A8;--core:#D9FFEF;--deep:#0E8F5E}
-.lamp.y{--off:#2B2208;--on:#FFC53D;--core:#FFF4CF;--deep:#B97A00}
-.lamp.r{--off:#2D0A0E;--on:#FF4D5A;--core:#FFE0E2;--deep:#A8121F}
-.lamp.on{background:radial-gradient(circle at 36% 32%,var(--core) 0 14%,var(--on) 48%,var(--deep) 100%);box-shadow:0 0 5px var(--on),0 0 12px var(--on),0 0 24px var(--on)}
-.lamp.on.g{animation:breathe 3.2s ease-in-out infinite}
-.lamp.on.y{animation:blink 1.5s ease-in-out infinite}
-.lamp.on.r{animation:blink .85s ease-in-out infinite}
-@keyframes breathe{0%,100%{filter:brightness(.92)}50%{filter:brightness(1.22)}}
-@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 5px var(--on),0 0 14px var(--on),0 0 30px var(--on)}50%{opacity:.38;box-shadow:0 0 2px var(--on),0 0 4px var(--on)}}
-.lights-f{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 6px 0;border-top:1px solid var(--line)}
-.lights-f .ov{display:flex;align-items:center;gap:8px;font:600 14px var(--body)}
-.lights-f .ov .lamp{width:16px;height:16px}
-.lights-f a{font-size:12px;color:var(--cyan-2);white-space:nowrap}
-@media (max-width:900px){.lrow{grid-template-columns:minmax(0,1fr) auto;gap:6px;min-height:22px;padding:1px 4px}.lrow .n,.lrow .v{display:none}.lrow .l{font-size:12px}.lamps{gap:4px;padding:2px 4px}.lamp{width:11px;height:11px}.lights{padding:10px 8px 8px}.lights-h span{display:none}.lights-f a{display:none}}
-@media (prefers-reduced-motion:reduce){.lamp.on{animation:none!important}}
-.sig li{transition:background .3s}
-.sig li.flash{animation:sigflash 2.2s ease-out}
-@keyframes sigflash{0%,30%{background:rgba(56,214,255,.16);box-shadow:inset 3px 0 0 var(--cyan)}100%{background:transparent;box-shadow:none}}
+@media (max-width:420px){.badge{padding:10px}.badge .b4{display:none}.badge .b2{font-size:18px}.badge .cal{width:22px;height:22px}}
 
 /* status */
 .status{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:20px 36px;padding:clamp(18px,2.6vw,30px);border-color:var(--edge-hi);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 0 1px rgba(56,214,255,.06),0 0 46px -12px rgba(56,214,255,.45),0 24px 50px -28px rgba(0,0,0,.9)}
@@ -405,7 +369,6 @@ details.entry summary{cursor:pointer;padding:12px 14px;font-weight:600;color:var
     <div class="hero-row">
       <div class="badge" id="badge"><span class="b1">อัปเดตล่าสุด</span><span class="b2">กำลังโหลด</span></div>
       <figure class="gauge" id="gauge"></figure>
-      <div class="lights" id="lights" aria-label="สัญญาณเตือน 11 ข้อ"></div>
     </div>
   </div>
 </header>
@@ -605,17 +568,17 @@ const NORMAL = {c2_sep:1361, c2_oct:1815, c2_year:22669};
 const Y68 = {c2_year:38989};
 
 const SIGNALS = [
-  {short:'น้ำเหนือ C.2', key:'c2', name:'น้ำเหนือ C.2 นครสวรรค์', unit:'ลบ.ม./วิ', y:3000, r:4000, why:'ปี 65 พีค ~3,054 · ปลาย ก.ย. 54 ~4,254'},
-  {short:'ระบาย C.13', key:'c13', name:'ระบายท้ายเขื่อนเจ้าพระยา C.13', unit:'ลบ.ม./วิ', y:2500, r:3000, why:'กรอบบนที่ กนช. เห็นชอบ 2,500 · ปี 65 พีค 3,164 · ปี 54 พีค 3,721'},
-  {short:'เหนือนนท์ C.29B', key:'c29b', name:'เจ้าพระยาเหนือนนทบุรี (สามโคก/บางไทร)', unit:'ลบ.ม./วิ', y:2500, r:3500, why:'กรมชลฯ: 2,500 นนทบุรีนอกคันเริ่มท่วม · 3,500 กระทบ กทม. (อ้างในข่าว)'},
-  {short:'เขื่อนป่าสัก', key:'pasak_pct', name:'เขื่อนป่าสักชลสิทธิ์', unit:'% ความจุ', dec:1, y:100, r:120, why:'เกิน 100% ต้องเร่งระบายลงป่าสัก · 26 ก.ย. 54 อยู่ที่ 132%'},
-  {short:'ที่ว่างเขื่อนหลัก', key:'bs_room', name:'ภูมิพล+สิริกิติ์ รับน้ำได้อีก', unit:'ล้าน ลบ.ม.', dir:'down', y:3000, r:1500, why:'26 ก.ย. 54 เหลือที่รับน้ำเพียง 1,413'},
-  {short:'เจ้าพระยาใกล้บ้าน', key:'cpy014', name:'เจ้าพระยาใกล้บ้าน สะพานนวลฉวี', unit:'ม.รทก. สูงสุดรายวัน', dec:2, y:2.5, r:3.0, why:'ตลิ่ง 2.50 · สถิติปี 54 ที่ปากเกร็ด 3.38 (ข่าว)'},
-  {short:'คลองพระพิมล', key:'phraphimon', name:'คลองพระพิมล ไทรน้อย', unit:'ม.รทก.', dec:2, y:3.55, r:4.05, why:'ตลิ่ง 4.05 · ปี 54 น้ำเข้าบางบัวทองทางคลองพระพิมล'},
-  {short:'C.2 ล้นตลิ่งติดกัน', key:'c2days', name:'C.2 ล้นตลิ่งติดต่อกัน', unit:'วัน', y:7, r:14, why:'ปี 54 ล้นตลิ่งรวม 44 วัน (16 ก.ย.–29 ต.ค.) บางบัวทองเริ่มท่วมหนักหลังล้นไปราว 3–5 สัปดาห์'},
-  {short:'พายุเข้าใน 3 วัน', key:'storm', flag:true, level:'y', name:'พายุหรือดีเปรสชันเข้าภาคเหนือ-กลางใน 3 วัน', why:'ปี 54 พายุไห่ถาง เนสาด นาลแก เข้าซ้ำช่วง ก.ย.–ต.ค.'},
-  {short:'เขตภัยพิบัติ', key:'disaster_zone', flag:true, level:'y', name:'บางบัวทองอยู่ในเขตประกาศภัยพิบัติ', why:'แปลว่ามีน้ำท่วมขังในพื้นที่แล้ว แม้น้ำเหนือยังไม่มาก'},
-  {short:'ประกาศอพยพ', key:'order', flag:true, level:'x', name:'อำเภอหรือจังหวัดประกาศให้อพยพ', why:'ทำตามประกาศทันที ไม่ต้องรอสัญญาณอื่น'}
+  {key:'c2', name:'น้ำเหนือ C.2 นครสวรรค์', unit:'ลบ.ม./วิ', y:3000, r:4000, why:'ปี 65 พีค ~3,054 · ปลาย ก.ย. 54 ~4,254'},
+  {key:'c13', name:'ระบายท้ายเขื่อนเจ้าพระยา C.13', unit:'ลบ.ม./วิ', y:2500, r:3000, why:'กรอบบนที่ กนช. เห็นชอบ 2,500 · ปี 65 พีค 3,164 · ปี 54 พีค 3,721'},
+  {key:'c29b', name:'เจ้าพระยาเหนือนนทบุรี (สามโคก/บางไทร)', unit:'ลบ.ม./วิ', y:2500, r:3500, why:'กรมชลฯ: 2,500 นนทบุรีนอกคันเริ่มท่วม · 3,500 กระทบ กทม. (อ้างในข่าว)'},
+  {key:'pasak_pct', name:'เขื่อนป่าสักชลสิทธิ์', unit:'% ความจุ', dec:1, y:100, r:120, why:'เกิน 100% ต้องเร่งระบายลงป่าสัก · 26 ก.ย. 54 อยู่ที่ 132%'},
+  {key:'bs_room', name:'ภูมิพล+สิริกิติ์ รับน้ำได้อีก', unit:'ล้าน ลบ.ม.', dir:'down', y:3000, r:1500, why:'26 ก.ย. 54 เหลือที่รับน้ำเพียง 1,413'},
+  {key:'cpy014', name:'เจ้าพระยาใกล้บ้าน สะพานนวลฉวี', unit:'ม.รทก. สูงสุดรายวัน', dec:2, y:2.5, r:3.0, why:'ตลิ่ง 2.50 · สถิติปี 54 ที่ปากเกร็ด 3.38 (ข่าว)'},
+  {key:'phraphimon', name:'คลองพระพิมล ไทรน้อย', unit:'ม.รทก.', dec:2, y:3.55, r:4.05, why:'ตลิ่ง 4.05 · ปี 54 น้ำเข้าบางบัวทองทางคลองพระพิมล'},
+  {key:'c2days', name:'C.2 ล้นตลิ่งติดต่อกัน', unit:'วัน', y:7, r:14, why:'ปี 54 ล้นตลิ่งรวม 44 วัน (16 ก.ย.–29 ต.ค.) บางบัวทองเริ่มท่วมหนักหลังล้นไปราว 3–5 สัปดาห์'},
+  {key:'storm', flag:true, level:'y', name:'พายุหรือดีเปรสชันเข้าภาคเหนือ-กลางใน 3 วัน', why:'ปี 54 พายุไห่ถาง เนสาด นาลแก เข้าซ้ำช่วง ก.ย.–ต.ค.'},
+  {key:'disaster_zone', flag:true, level:'y', name:'บางบัวทองอยู่ในเขตประกาศภัยพิบัติ', why:'แปลว่ามีน้ำท่วมขังในพื้นที่แล้ว แม้น้ำเหนือยังไม่มาก'},
+  {key:'order', flag:true, level:'x', name:'อำเภอหรือจังหวัดประกาศให้อพยพ', why:'ทำตามประกาศทันที ไม่ต้องรอสัญญาณอื่น'}
 ];
 const LEVELS = [
   {name:'ปกติ', cls:'g', ic:'<svg viewBox="0 0 12 12" width="30" height="30" aria-hidden="true"><path d="M2.3 6.3l2.4 2.4 5-5.2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>', todo:['ติดตามข่าวตามปกติ','เปิดแอพวันละครั้ง']},
@@ -1175,7 +1138,7 @@ function renderSignals(sig){
   $('#sigList').innerHTML = sig.map(s => {
     const th = s.flag ? (s.level === 'x' ? '<b>ประกาศ</b> = อพยพทันที' : '<b>ใช่</b> = เหลือง') :
       (s.dir === 'down' ? 'เหลือง ≤ <b>'+fmt(s.y, s.dec)+'</b> · แดง ≤ <b>'+fmt(s.r, s.dec)+'</b>' : 'เหลือง ≥ <b>'+fmt(s.y, s.dec)+'</b> · แดง ≥ <b>'+fmt(s.r, s.dec)+'</b>')+'<br>'+esc(s.unit);
-    return '<li id="sig-'+s.key+'"><span class="c1">'+chip(s.lvl)+'</span><div><div class="nm">'+esc(s.name)+'</div><div class="why">'+esc(s.why)+'</div></div>'+
+    return '<li><span class="c1">'+chip(s.lvl)+'</span><div><div class="nm">'+esc(s.name)+'</div><div class="why">'+esc(s.why)+'</div></div>'+
       '<div class="now tnum">'+esc(s.disp)+'<small>'+esc(s.sub || '')+'</small></div><div class="th">'+th+'</div></li>';
   }).join('');
 }
@@ -1221,31 +1184,8 @@ function renderLog(){
   $('#entryBox').hidden = mode !== 'db' || !canWrite;
 }
 
-function lampSet(l){
-  const on = k => (l === k || (k === 'r' && l === 'x')) ? ' on' : '';
-  return '<span class="lamps" aria-hidden="true"><i class="lamp g'+on('g')+'"></i><i class="lamp y'+on('y')+'"></i><i class="lamp r'+on('r')+'"></i></span>';
-}
-const LNAME = {g:'ปกติ', y:'เหลือง', r:'แดง', x:'ประกาศ', n:'ไม่มีข้อมูล'};
-function renderLights(sig){
-  const el = $('#lights'); if(!el) return;
-  if(!R.length && !S){ el.innerHTML = '<div class="lights-h"><b>สัญญาณ 11 ข้อ</b></div><div class="empty">กำลังโหลด</div>'; return; }
-  const y = sig.filter(s => s.lvl === 'y').length, r = sig.filter(s => s.lvl === 'r' || s.lvl === 'x').length;
-  const rows = sig.map((s, i) => {
-    let v = s.flag ? s.disp : (s.val != null ? fmt(s.val, s.dec) : '–');
-    if(s.key === 'c2days' && s.val != null) v += ' วัน';
-    if(s.key === 'c13' && s.disp && s.disp.indexOf('→') > -1) v = '→ '+v;
-    const th = s.flag ? '' : (s.dir === 'down' ? 'เหลือง ≤ '+fmt(s.y, s.dec)+' · แดง ≤ '+fmt(s.r, s.dec) : 'เหลือง ≥ '+fmt(s.y, s.dec)+' · แดง ≥ '+fmt(s.r, s.dec))+' '+s.unit;
-    const tipH = '<b>'+esc(s.name)+'</b><br>ตอนนี้: '+esc(s.disp)+(s.flag ? '' : ' '+esc(s.unit))+' · '+LNAME[s.lvl]+(th ? '<br>'+esc(th) : '');
-    return '<button type="button" class="lrow st-'+s.lvl+'" data-sig="'+s.key+'" data-tip="'+esc(tipH)+'" aria-label="'+esc(s.name+': '+LNAME[s.lvl]+' '+s.disp)+'">'+
-      '<span class="n">'+String(i + 1).padStart(2, '0')+'</span><span class="l">'+esc(s.short)+'</span><span class="v">'+esc(v)+'</span>'+lampSet(s.lvl)+'</button>';
-  }).join('');
-  const L = overallLevel(sig), lv = LEVELS[L];
-  el.innerHTML = '<div class="lights-h"><b>สัญญาณ 11 ข้อ</b><span>เหลือง '+y+' · แดง '+r+'</span></div><div class="lrows">'+rows+'</div>'+
-    '<div class="lights-f"><span class="ov"><i class="lamp '+(lv.cls === 'x' ? 'r' : lv.cls)+' on"></i>'+esc(lv.name)+'</span><a href="#signals">ดูเกณฑ์</a></div>';
-}
 function renderAll(){
   const sig = evalSignals();
-  renderLights(sig);
   renderBadge(); renderGauge(); renderStatus(sig); renderRoute(sig);
   renderGantt(); renderVolume(); renderDams(); renderTrend(); renderSignals(sig);
   renderAhead(); renderLocal(); renderY54(); renderLog();
@@ -1260,14 +1200,6 @@ document.addEventListener('click', e => {
   try{ navigator.clipboard.writeText(text).then(done, () => selectText(el)); }catch(_){ selectText(el); }
 });
 function selectText(el){ if(!el) return; const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
-document.addEventListener('click', e => {
-  const b = e.target.closest && e.target.closest('button[data-sig]'); if(!b) return;
-  const li = document.getElementById('sig-'+b.getAttribute('data-sig')); if(!li) return;
-  tip.hidden = true;
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  li.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
-  li.classList.remove('flash'); void li.offsetWidth; li.classList.add('flash');
-});
 document.addEventListener('click', e => {
   const b = e.target.closest && e.target.closest('button[data-go]'); if(!b) return;
   const k = b.getAttribute('data-go'); if(!STATIONS[k]) return;
