@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#040A18">
+<meta name="description" content="เฝ้าระวังน้ำรายวันสำหรับบางบัวทอง นนทบุรี เทียบน้ำเหนือ น้ำสะสม และวันล้นตลิ่งปี 2569 กับมหาอุทกภัยปี 2554 จากข้อมูลกรมชลประทาน สสน. และ สทนช.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Flood Watch บางบัวทอง นนทบุรี">
+<meta property="og:description" content="น้ำปีนี้ จะซ้ำรอยปี 54 ไหม · เทียบน้ำเหนือ น้ำสะสม และวันล้นตลิ่ง จากข้อมูลทางการ อัปเดตรายวัน">
+<meta property="og:url" content="https://public.jptrustlearning.com/studio/flood_bangbuathong/">
+<meta property="og:image" content="https://public.jptrustlearning.com/studio/flood_bangbuathong/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<title>Flood Watch บางบัวทอง</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap">
+<style>
+/* Layout: one night-blue canvas. Hero scene (dam at night) sits behind the headline; glass panels float on it.
+   Order: verdict → river path 01–05 → what made 2554 different → trend → signals → what's coming → local → 2554 story → log.
+   Single dark look by design (matches the mockup), so every color is set explicitly here. */
+:root{
+  --bg:#040A18; --bg-2:#07122B;
+  --card:#0D1D44; --halo:#0D1D44;
+  --glass-a:rgba(22,48,108,.62); --glass-b:rgba(8,20,52,.82);
+  --edge:rgba(96,160,255,.26); --edge-hi:rgba(120,196,255,.55);
+  --ink:#EEF4FF; --ink-2:#B9C8E6; --muted:#8395BA; --line:rgba(120,160,230,.18); --grid:rgba(120,160,230,.14);
+  --cyan:#38D6FF; --cyan-2:#8BE8FF; --blue:#2F6BFF; --navy:#9CC2FF; --navy-2:#8BE8FF; --navy-soft:rgba(47,107,255,.16);
+  --mark:#38D6FF; --mark-wash:rgba(56,214,255,.12); --ref:#6F83AD; --ref-ink:#A6B6D6;
+  --ok:#34D399; --ok-bg:rgba(52,211,153,.14); --warn:#FFC53D; --warn-bg:rgba(255,197,61,.14); --bad:#FF5A5F; --bad-bg:rgba(255,90,95,.15);
+  --watch:rgba(255,197,61,.12); --water:#38D6FF; --water-wash:rgba(56,214,255,.28);
+  --pill-bg:#2F6BFF; --pill-fg:#FFFFFF; --glyph:#081330;
+  --band:#030817; --band-fg:#FFFFFF; --band-2:#9FB3D8;
+  --display:"Montserrat","Prompt",system-ui,sans-serif;
+  --body:"Prompt","Noto Sans Thai",Tahoma,system-ui,sans-serif;
+  --caps:"Montserrat","Prompt",system-ui,sans-serif;
+  --r:18px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{background:radial-gradient(1100px 640px at 90% -6%,rgba(47,107,255,.2),transparent 62%),radial-gradient(900px 700px at -12% 42%,rgba(56,214,255,.06),transparent 60%),var(--bg);color:var(--ink);font:400 15px/1.62 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--cyan-2)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+p{margin:0}
+h2,h3{margin:0;text-wrap:balance}
+h2{font:700 clamp(21px,2.5vw,27px)/1.3 var(--body);color:var(--ink)}
+h3{font:600 17px/1.35 var(--body);color:var(--ink)}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:clamp(16px,3.5vw,32px)}
+main.wrap{display:grid;gap:clamp(22px,3vw,34px);padding-block:4px 40px}
+.glass,.card{position:relative;background:linear-gradient(180deg,var(--glass-a),var(--glass-b));border:1px solid var(--edge);border-radius:var(--r);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 22px 44px -28px rgba(0,0,0,.9),0 0 32px -14px rgba(47,107,255,.5);min-width:0}
+.card{padding:clamp(16px,2.4vw,26px)}
+.caps{font:600 10.5px/1.35 var(--caps);letter-spacing:.2em;text-transform:uppercase;color:var(--cyan-2);opacity:.8}
+.muted{color:var(--muted)}
+.small{font-size:13px;line-height:1.55}
+.tnum{font-variant-numeric:tabular-nums}
+.i{width:18px;height:18px;flex:none}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:10px 16px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head p{color:var(--ink-2);max-width:60ch}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,22px)}
+@media (max-width:860px){.grid2{grid-template-columns:1fr}}
+.stack{display:grid;gap:14px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;z-index:-1;top:0;right:0;width:min(72%,980px);height:100%}
+.hero-bg svg{display:block;width:100%;height:100%}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,rgba(4,10,24,.75) 26%,rgba(4,10,24,.18) 60%,rgba(4,10,24,.06) 100%),linear-gradient(0deg,var(--bg) 0%,rgba(4,10,24,0) 32%),linear-gradient(180deg,rgba(4,10,24,.55) 0%,rgba(4,10,24,0) 18%)}
+@media (max-width:760px){.hero-bg{width:92%;height:520px}.hero-bg::after{background:linear-gradient(90deg,var(--bg) 0%,rgba(4,10,24,.7) 34%,rgba(4,10,24,.2) 70%,rgba(4,10,24,.1) 100%),linear-gradient(0deg,var(--bg) 0%,rgba(4,10,24,0) 40%)}}
+.flow path{animation:flow 6s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-200}}
+@media (prefers-reduced-motion:reduce){.flow path{animation:none}}
+.hero-in{padding-block:18px 30px;display:grid;gap:12px}
+.logo{display:flex;gap:11px;align-items:center;color:var(--ink)}
+.logo svg{width:30px;height:30px;flex:none;color:var(--ink)}
+.lk{font:700 15px/1.1 var(--caps);letter-spacing:.2em}
+.tg{font:600 9.5px/1.4 var(--caps);letter-spacing:.3em;color:var(--ink-2);margin-top:5px}
+.lk.th{font:600 19px/1.15 var(--body);letter-spacing:0}
+.logo svg{color:var(--cyan)}
+.hero h1{margin:6px 0 0;max-width:720px}
+.h1a{display:block;font:800 clamp(42px,8.6vw,104px)/.98 var(--display);color:var(--ink);letter-spacing:-.01em;text-shadow:0 0 26px rgba(56,214,255,.35)}
+.h1b{display:block;font:800 clamp(28px,4.8vw,56px)/1.1 var(--display);color:var(--cyan);margin-top:6px;text-shadow:0 0 22px rgba(56,214,255,.45)}
+.h1c{display:block;font:700 clamp(23px,3.6vw,40px)/1.3 var(--body);color:var(--ink);margin-top:8px}
+.lede{color:var(--ink-2);max-width:56ch}
+.lede b{color:var(--ink);font-weight:500}
+.hero-row{display:grid;grid-template-columns:200px 220px;gap:clamp(10px,3vw,34px);align-items:center;margin-top:6px}
+@media (max-width:520px){.hero-row{grid-template-columns:minmax(0,1fr) minmax(0,1.12fr)}}
+.badge{position:relative;overflow:hidden;width:100%;aspect-ratio:1;border-radius:50%;display:grid;place-content:center;justify-items:center;text-align:center;gap:1px;padding:18px;
+  background:radial-gradient(circle at 50% 28%,rgba(36,82,178,.65),rgba(6,16,42,.92) 70%);border:2px solid rgba(56,214,255,.65);box-shadow:0 0 34px rgba(56,214,255,.35),inset 0 0 28px rgba(47,107,255,.35)}
+.badge .cal{width:26px;height:26px;color:var(--cyan);margin-bottom:4px}
+.badge .b1{font-size:13px;color:var(--ink-2)}
+.badge .b2{font:700 clamp(19px,2.2vw,24px)/1.15 var(--body);color:var(--ink)}
+.badge .b3{font-size:14px;color:var(--cyan-2);font-weight:600}
+.badge .b4{font-size:11px;line-height:1.35;color:var(--ink-2);margin-top:4px;position:relative;z-index:1}
+.badge .b5{font-size:12px;font-weight:600;color:var(--warn);margin-top:4px;position:relative;z-index:1}
+.bwave{position:absolute;left:0;right:0;bottom:0;width:100%;height:36px}
+.gauge{margin:0;width:100%}
+.gauge svg{display:block;width:100%;height:auto;overflow:visible}
+.gauge figcaption{font-size:11.5px;line-height:1.4;color:var(--muted);margin-top:4px}
+@media (max-width:420px){.badge{padding:10px}.badge .b4{display:none}.badge .b2{font-size:18px}.badge .cal{width:22px;height:22px}}
+
+/* status */
+.status{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:20px 36px;padding:clamp(18px,2.6vw,30px);border-color:var(--edge-hi);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 0 1px rgba(56,214,255,.06),0 0 46px -12px rgba(56,214,255,.45),0 24px 50px -28px rgba(0,0,0,.9)}
+@media (max-width:900px){.status{grid-template-columns:1fr}}
+.st-left{display:grid;gap:14px;align-content:start}
+.st-top{display:flex;gap:16px;align-items:center}
+.bang{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;font:800 34px/1 var(--display);flex:none;color:#2A1A00;background:radial-gradient(circle at 38% 32%,#FFE7A0,#F5A70F);box-shadow:0 0 28px rgba(255,197,61,.55)}
+.bang.g{background:radial-gradient(circle at 38% 32%,#B8F5DA,#16B77A);color:#032116;box-shadow:0 0 28px rgba(52,211,153,.5)}
+.bang.r,.bang.x{background:radial-gradient(circle at 38% 32%,#FFB3B5,#E0353B);color:#2B0406;box-shadow:0 0 28px rgba(255,90,95,.55)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tg1{background:var(--blue);color:#fff;border-radius:6px;padding:1px 9px;font-size:12px;font-weight:600}
+.tg2{border:1px solid var(--edge-hi);color:var(--ink-2);border-radius:6px;padding:1px 9px;font:600 10.5px/1.7 var(--caps);letter-spacing:.16em}
+.lvl{font:700 clamp(32px,4vw,46px)/1.15 var(--body);margin-top:4px}
+.lvl.g{color:var(--ok);text-shadow:0 0 22px rgba(52,211,153,.4)}
+.lvl.y{color:var(--warn);text-shadow:0 0 22px rgba(255,197,61,.4)}
+.lvl.r,.lvl.x{color:var(--bad);text-shadow:0 0 22px rgba(255,90,95,.45)}
+.st-sum{color:var(--ink);font-size:15.5px;line-height:1.65}
+.scale{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+.scale div{height:9px;border-radius:5px;background:rgba(120,160,230,.2)}
+.scale div.on.g{background:var(--ok);box-shadow:0 0 12px var(--ok)} .scale div.on.y{background:var(--warn);box-shadow:0 0 12px var(--warn)} .scale div.on.r,.scale div.on.x{background:var(--bad);box-shadow:0 0 12px var(--bad)}
+.scale-l{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin-top:-6px;font-size:12px;line-height:1.3;color:var(--muted);text-align:center}
+.scale-l span.on{color:var(--ink);font-weight:600}
+.watchpill{justify-self:start;background:var(--blue);color:#fff;border-radius:999px;padding:8px 20px;font-size:15px;font-weight:600;box-shadow:0 0 22px rgba(47,107,255,.6)}
+.st-right{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:14px 16px;align-content:start}
+@media (max-width:560px){.st-right{grid-template-columns:minmax(0,1fr) 100px}}
+.st-lists{min-width:0}
+.st-todo{grid-column:1/-1}
+.st-h{display:flex;gap:4px 8px;align-items:center;flex-wrap:wrap;font-weight:600;color:var(--ink)}
+.st-h .i{color:var(--cyan)}
+.st-h span{font-weight:400;color:var(--muted);white-space:nowrap}
+.st-right ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:9px}
+.st-right li{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.45}
+.st-right li b{font-weight:600;display:block}
+.st-right li small{display:block;color:var(--muted);font-size:12.5px}
+.st-map{align-self:center}
+.st-map svg{display:block;width:100%;height:auto;filter:drop-shadow(0 0 18px rgba(56,214,255,.25))}
+.more{grid-column:1/-1;display:inline-flex;gap:6px;align-items:center;font-weight:600;color:var(--cyan-2);justify-self:start}
+.dot{width:10px;height:10px;border-radius:50%;flex:none;margin-top:6px}
+.dot.g{background:var(--ok);box-shadow:0 0 8px var(--ok)} .dot.y{background:var(--warn);box-shadow:0 0 8px var(--warn)} .dot.r,.dot.x{background:var(--bad);box-shadow:0 0 8px var(--bad)} .dot.n{background:var(--ref)}
+
+/* chips */
+.chip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:3px 12px 3px 4px;font-size:12.5px;font-weight:600;line-height:1.6;white-space:nowrap}
+.chip i{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font:700 11px/1 var(--caps);font-style:normal;color:var(--glyph)}
+.chip.g{background:var(--ok-bg);color:var(--ok)} .chip.g i{background:var(--ok);box-shadow:0 0 8px var(--ok)}
+.chip.y{background:var(--warn-bg);color:var(--warn)} .chip.y i{background:var(--warn);box-shadow:0 0 8px var(--warn)}
+.chip.r,.chip.x{background:var(--bad-bg);color:var(--bad)} .chip.r i,.chip.x i{background:var(--bad)}
+.chip.n{background:rgba(120,160,230,.14);color:var(--muted)} .chip.n i{background:var(--ref)}
+
+/* route cards */
+.route{display:grid;gap:16px}
+.rc{overflow:hidden;container-type:inline-size}
+.rc-art{position:absolute;top:0;right:0;width:64%;height:176px;z-index:0;pointer-events:none}
+.rc-art svg{display:block;width:100%;height:100%}
+.rc-art::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,40,94,1) 0%,rgba(18,40,94,.6) 38%,rgba(18,40,94,.05) 100%),linear-gradient(0deg,rgba(15,34,80,1) 0%,rgba(15,34,80,0) 60%)}
+.rc-in{position:relative;z-index:1;padding:18px 18px 16px;display:grid;gap:14px}
+.rc-h{display:flex;align-items:center;gap:14px}
+.rc-n{font:800 42px/1 var(--display);color:var(--ink);text-shadow:0 0 18px rgba(56,214,255,.3)}
+.rc-div{width:1px;align-self:stretch;background:var(--edge-hi)}
+.rc-code{font:800 22px/1.15 var(--display);color:var(--ink)}
+.rc-name{font-size:13px;line-height:1.4;color:var(--ink-2)}
+.rc-val{display:flex;gap:14px;align-items:center}
+.rc-ic{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:var(--cyan);background:radial-gradient(circle at 50% 40%,rgba(47,107,255,.45),rgba(12,30,72,.8));border:1px solid var(--edge-hi);box-shadow:0 0 18px rgba(56,214,255,.35);flex:none}
+.rc-ic .i{width:24px;height:24px}
+.rc-num{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.rc-num b{font:700 38px/1 var(--body);color:var(--ink);letter-spacing:-.01em}
+.rc-num span{font-size:13px;color:var(--ink-2)}
+.rc-at{display:flex;gap:4px 12px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2);margin-top:4px}
+.trend{color:var(--cyan);font-weight:600}
+.trend.down{color:var(--ok)}
+.rc-meter{display:grid;gap:6px;justify-items:center}
+.meter{position:relative;height:9px;border-radius:5px;background:rgba(120,160,230,.2);width:100%}
+.meter i{position:absolute;inset:0 auto 0 0;border-radius:5px;background:linear-gradient(90deg,#1E8BFF,#38D6FF);box-shadow:0 0 14px rgba(56,214,255,.65)}
+.meter i.over{background:linear-gradient(90deg,#FF8A5B,#FF5A5F);box-shadow:0 0 14px rgba(255,90,95,.6)}
+.meter s{position:absolute;right:0;top:-5px;bottom:-5px;width:2px;background:var(--ref-ink)}
+.meter-l{display:flex;justify-content:space-between;width:100%;font-size:11.5px;color:var(--muted)}
+.pill{background:var(--pill-bg);color:var(--pill-fg);font:600 16px/1 var(--body);padding:8px 18px;border-radius:999px;white-space:nowrap;box-shadow:0 0 20px rgba(47,107,255,.6);margin-top:-2px}
+.rc-cap{font:600 9.5px/1.3 var(--caps);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.rc-facts{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:13.5px;line-height:1.5;color:var(--ink-2);text-shadow:0 1px 2px rgba(0,0,0,.5)}
+.rc-facts li{display:flex;gap:9px;align-items:flex-start}
+.rc-facts .i{width:16px;height:16px;color:var(--cyan);margin-top:3px}
+.rc-facts b{color:var(--ink);font-weight:600}
+.rc-f{display:flex;gap:10px 14px;align-items:center;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:12px}
+.eta{display:inline-flex;gap:6px;align-items:center;font-size:12.5px;color:var(--muted)}
+.eta .i{width:15px;height:15px}
+.go{margin-left:auto;font:600 13px var(--body);color:var(--ink);background:rgba(47,107,255,.16);border:1px solid var(--edge-hi);border-radius:999px;padding:7px 14px;display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+.go:hover{background:rgba(47,107,255,.3)}
+.go .i{width:16px;height:16px}
+@container (min-width:780px){
+  .rc-in{grid-template-columns:minmax(0,1fr) minmax(0,.9fr) minmax(0,1.15fr);column-gap:28px;align-items:center}
+  .rc-h{grid-column:1;grid-row:1} .rc-val{grid-column:1;grid-row:2}
+  .rc-meter{grid-column:2;grid-row:1 / span 2}
+  .rc-facts{grid-column:3;grid-row:1 / span 2}
+  .rc-f{grid-column:1/-1;grid-row:3}
+  .rc-art{width:42%;height:100%;opacity:.55}
+}
+
+/* three */
+.three-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 18px;align-items:center;padding:16px clamp(16px,2.4vw,26px)}
+.big3{font:800 clamp(56px,8vw,92px)/.85 var(--display);color:var(--cyan);text-shadow:0 0 24px rgba(56,214,255,.45);grid-column:1;grid-row:1 / span 2}
+.three-head h2{grid-column:2;grid-row:1}
+.three-head p{grid-column:2;grid-row:2;color:var(--ink-2);max-width:72ch;font-size:14px}
+.keys{display:flex;gap:8px 18px;flex-wrap:wrap;grid-column:1/-1;grid-row:3;margin-top:8px;padding:0;list-style:none}
+.keys li{display:flex;gap:8px;align-items:center;font-weight:600;font-size:14px;color:var(--ink)}
+.keys li span{width:28px;height:28px;border-radius:50%;background:rgba(47,107,255,.25);border:1px solid var(--edge-hi);color:var(--cyan);display:grid;place-items:center;font:700 14px/1 var(--display)}
+@media (max-width:560px){.big3{grid-row:1;font-size:54px}.three-head{column-gap:12px}.three-head p{grid-column:1/-1}}
+.panel-h{display:flex;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;align-items:baseline;margin-bottom:6px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:18px;height:8px;border-radius:2px;display:inline-block}
+.sw.now{background:var(--mark);box-shadow:0 0 8px var(--mark)} .sw.y54{background:var(--ref)} .sw.watch{background:var(--watch);border:1px solid var(--warn)}
+.chart{width:100%;min-width:0;position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+@media (max-width:520px){.tiles{grid-template-columns:1fr}}
+.tile{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.tile.now{background:rgba(47,107,255,.14);border-color:var(--edge-hi)}
+.tile .v{font:700 28px/1.1 var(--body);color:var(--ink);margin-top:4px}
+.tile.now .v{color:var(--cyan)}
+.tile .v small{font:500 12.5px var(--body);color:var(--ink-2);margin-left:5px}
+.tile p{font-size:12.5px;color:var(--ink-2);margin-top:4px;line-height:1.5}
+
+/* bars */
+.bars{display:grid;gap:9px;margin-top:10px}
+.bar{display:grid;grid-template-columns:minmax(110px,40%) minmax(0,1fr);gap:10px;align-items:center;font-size:13px}
+.bar .lab{color:var(--ink-2);line-height:1.3}
+.bar .track{position:relative;height:16px}
+.bar .fill{position:absolute;left:0;top:2px;height:12px;border-radius:0 4px 4px 0;background:var(--ref)}
+.bar.now .fill{background:var(--mark);box-shadow:0 0 10px rgba(56,214,255,.5)}
+.bar.now .lab{color:var(--ink);font-weight:600}
+.bar .val{position:absolute;top:-1px;font-size:12.5px;font-weight:600;color:var(--ink);white-space:nowrap;padding-left:6px}
+.bar .val.in{color:#fff;padding-left:0;padding-right:6px;transform:translateX(-100%)}
+.bar.now .val.in{color:var(--glyph)}
+
+/* dumbbell */
+.db-row{display:grid;grid-template-columns:minmax(96px,30%) minmax(0,1fr);gap:10px;align-items:center;font-size:13px;min-height:42px}
+.db-l{line-height:1.3;color:var(--ink-2)}
+.db-l b{display:block;font:700 17px/1.2 var(--body);color:var(--cyan)}
+.db-track{position:relative;height:26px}
+.db-track .axis{position:absolute;left:0;right:0;top:12px;height:1px;background:var(--grid)}
+.db-track .full{position:absolute;top:0;bottom:0;width:0;border-left:1px dashed var(--ref-ink)}
+.db-track .link{position:absolute;top:11px;height:3px;background:rgba(120,160,230,.3);border-radius:2px}
+.db-track .pt{position:absolute;top:6px;width:14px;height:14px;border-radius:50%;transform:translateX(-50%);border:2px solid var(--card)}
+.db-track .pt.y54{background:var(--ref)}
+.db-track .pt.now{background:var(--mark);box-shadow:0 0 10px var(--mark)}
+.db-scale{display:grid;grid-template-columns:minmax(96px,30%) minmax(0,1fr);gap:10px;font-size:11px;color:var(--muted)}
+.db-scale div{position:relative;height:14px}
+.db-scale span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+
+/* trend */
+.seg{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 12px}
+.seg button{font:600 13px/1 var(--body);padding:9px 13px;border-radius:999px;border:1px solid var(--edge);background:rgba(255,255,255,.03);color:var(--ink-2);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 0 16px rgba(47,107,255,.55)}
+
+/* signals */
+.sig{list-style:none;margin:14px 0 0;padding:0;display:grid}
+.sig li{display:grid;grid-template-columns:120px minmax(0,1fr) minmax(90px,auto) minmax(150px,auto);gap:6px 16px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.sig .nm{font-weight:600;font-size:14.5px;line-height:1.4}
+.sig .why{font-size:12.5px;color:var(--muted);line-height:1.45;margin-top:2px}
+.sig .now{font:700 20px/1.1 var(--body);color:var(--ink);text-align:right;white-space:nowrap}
+.sig .now small{display:block;font:500 11.5px var(--body);color:var(--muted);margin-top:3px}
+.sig .th{font-size:12px;color:var(--ink-2);text-align:right;line-height:1.5}
+.sig .th b{font-weight:600;color:var(--ink)}
+@media (max-width:760px){
+  .sig li{grid-template-columns:minmax(0,1fr);gap:6px}
+  .sig .now{text-align:left;display:flex;gap:4px 10px;align-items:baseline;flex-wrap:wrap;white-space:normal}
+  .sig .now small{margin-top:0}
+  .sig .th{text-align:left}
+  .sig .th br{display:none}
+}
+.rulebox{display:flex;gap:10px 22px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:var(--ink-2)}
+.rulebox span{display:inline-flex;gap:8px;align-items:flex-start}
+.note{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:13px;color:var(--ink-2);margin-top:14px;line-height:1.55}
+
+/* timelines */
+.tl{list-style:none;margin:12px 0 0;padding:0;display:grid}
+.tl li{display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.5}
+.tl li:first-child{border-top:0}
+.tl .when{font:600 13px/1.4 var(--body);color:var(--cyan-2)}
+.tag{display:inline-block;font:600 10px/1.6 var(--caps);letter-spacing:.08em;text-transform:uppercase;padding:0 7px;border-radius:4px;background:rgba(120,160,230,.16);color:var(--ink-2);margin-left:6px;vertical-align:1px}
+.tag.local{background:rgba(56,214,255,.16);color:var(--cyan-2)}
+.tl li.local .txt{font-weight:600}
+.chain{list-style:none;margin:12px 0 0;padding:0}
+.chain li{position:relative;padding-left:30px}
+.chain .node{padding-block:4px}
+.chain .node::before{content:"";position:absolute;left:5px;top:10px;width:12px;height:12px;border-radius:50%;background:var(--mark);box-shadow:0 0 10px var(--mark)}
+.chain .node.home::before{background:var(--warn);box-shadow:0 0 10px var(--warn)}
+.chain .node b{display:block;font-size:14.5px}
+.chain .node span{font-size:12.5px;color:var(--muted)}
+.chain .hop{font-size:12.5px;color:var(--ink-2);padding-block:6px}
+.chain .hop::before{content:"";position:absolute;left:10px;top:0;bottom:0;border-left:2px dotted var(--ref)}
+.arrive{margin-top:12px;background:rgba(47,107,255,.16);border:1px solid var(--edge-hi);border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.55}
+.arrive b{color:var(--cyan)}
+.tambons{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tambons span{background:rgba(47,107,255,.2);border:1px solid var(--edge);color:var(--ink);border-radius:999px;padding:2px 12px;font-size:13px;font-weight:500}
+.bul{margin:12px 0 0;padding-left:18px;display:grid;gap:6px;font-size:14px;line-height:1.55;color:var(--ink-2)}
+.contacts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px}
+@media (max-width:520px){.contacts{grid-template-columns:1fr}.ct{grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:10px}.ct .caps{grid-column:1/-1}.ct button{justify-self:end}}
+.ct{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:grid;gap:4px}
+.ct .v{font:700 21px/1.15 var(--body);color:var(--cyan);user-select:all;word-break:break-all}
+.ct button{justify-self:start;font:600 12px/1 var(--body);padding:6px 11px;border-radius:999px;border:1px solid var(--edge);background:rgba(47,107,255,.14);color:var(--ink);cursor:pointer}
+.alerts{list-style:none;margin:12px 0 0;padding:0;display:grid}
+.alerts li{padding:11px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.5}
+.alerts li:first-child{border-top:0}
+.alerts .d{font-size:12px;color:var(--muted)}
+.alerts .t{font-weight:600;margin-top:1px}
+.alerts .x{color:var(--ink-2);font-size:13.5px;margin-top:2px}
+.alerts .s{font-size:12px;margin-top:3px}
+.lesson{margin-top:14px;border:1px solid var(--edge-hi);background:rgba(47,107,255,.12);border-radius:12px;padding:12px 16px;font-size:14.5px;line-height:1.6}
+.lesson b{color:var(--cyan)}
+.y54grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}
+@media (max-width:860px){.y54grid{grid-template-columns:1fr}}
+
+/* table + form */
+.tablewrap{overflow-x:auto;margin-top:12px;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums;min-width:860px}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:600;color:var(--ink-2);background:#0F2250;position:sticky;top:0}
+td:first-child,th:first-child{text-align:left}
+td.src{text-align:left;white-space:normal;min-width:340px;color:var(--muted);font-size:12px}
+tr:last-child td{border-bottom:0}
+details.entry{margin-top:16px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.03)}
+details.entry summary{cursor:pointer;padding:12px 14px;font-weight:600;color:var(--cyan-2)}
+.form{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px 12px;padding:4px 14px 14px}
+.form label{display:grid;gap:4px;font-size:12.5px;color:var(--ink-2)}
+.form input[type=number],.form input[type=date],.form input[type=text]{font:500 14px var(--body);padding:8px 10px;border-radius:8px;border:1px solid var(--edge);background:rgba(4,10,24,.6);color:var(--ink);width:100%;min-width:0}
+.form .wide{grid-column:1/-1}
+.form .checks{grid-column:1/-1;display:flex;gap:10px 20px;flex-wrap:wrap}
+.form .checks label{display:flex;gap:6px;align-items:center;font-size:13.5px;color:var(--ink)}
+.btn{font:600 14px var(--body);padding:10px 20px;border-radius:999px;border:0;background:var(--blue);color:#fff;cursor:pointer;box-shadow:0 0 18px rgba(47,107,255,.5)}
+.form-msg{font-size:13px;color:var(--ink-2);align-self:center}
+.empty{padding:14px;border:1px dashed var(--edge);border-radius:12px;color:var(--muted);font-size:13.5px;text-align:center}
+
+/* footer */
+.band{background:var(--band);color:var(--band-fg);margin-top:8px;border-top:1px solid var(--edge)}
+.band .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding-block:20px}
+.band .it{display:flex;gap:12px;align-items:center;min-width:0}
+.band .it + .it{border-left:1px solid var(--line);padding-left:18px}
+.band svg{width:28px;height:28px;flex:none;color:var(--cyan)}
+.band b{display:block;font-size:16px;font-weight:600;line-height:1.3}
+.band span{display:block;font-size:12.5px;color:var(--band-2);line-height:1.45}
+.band .lk{color:var(--band-fg);font-size:16px}
+.band .tg{color:var(--band-2)}
+@media (max-width:760px){.band .wrap{grid-template-columns:1fr}.band .it + .it{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:14px}}
+.fine{padding-block:14px 30px;font-size:12px;line-height:1.7;color:var(--muted)}
+.fine p + p{margin-top:8px}
+.fine a{color:var(--cyan-2);margin-right:10px;white-space:nowrap}
+
+#tip{position:fixed;z-index:50;max-width:260px;background:#0E1F48;color:var(--ink);border:1px solid var(--edge-hi);font-size:12.5px;line-height:1.45;padding:8px 10px;border-radius:10px;pointer-events:none;box-shadow:0 10px 26px rgba(0,0,0,.5),0 0 18px rgba(56,214,255,.2)}
+#tip b{font-weight:600}
+.hit{cursor:crosshair}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-bg"><svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><defs><linearGradient id="hsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050E26"/><stop offset=".42" stop-color="#15356C"/><stop offset=".58" stop-color="#2E5C9E"/><stop offset=".7" stop-color="#16366C"/><stop offset="1" stop-color="#07142F"/></linearGradient><linearGradient id="hriv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A64AE"/><stop offset=".5" stop-color="#123874"/><stop offset="1" stop-color="#050E26"/></linearGradient><linearGradient id="hface" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6F86B2"/><stop offset="1" stop-color="#344B78"/></linearGradient><filter id="hb16" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="16"/></filter><filter id="hb7" x="-20%" y="-100%" width="140%" height="300%"><feGaussianBlur stdDeviation="7"/></filter><filter id="hb2"><feGaussianBlur stdDeviation="1.6"/></filter></defs><rect width="800" height="600" fill="url(#hsky)"/><g filter="url(#hb16)" fill="#8FB0E6"><ellipse cx="560" cy="120" rx="240" ry="38" opacity=".32"/><ellipse cx="730" cy="190" rx="170" ry="30" opacity=".28"/><ellipse cx="360" cy="210" rx="170" ry="22" opacity=".2"/></g><path d="M0 300 L80 262 L160 282 L250 236 L340 268 L430 222 L520 256 L610 208 L700 238 L800 196 L800 340 L0 340Z" fill="#1B3B72" opacity=".9"/><path d="M330 336 L420 292 L500 306 L590 252 L680 262 L750 214 L800 222 L800 360 L330 360Z" fill="#0D234D"/><g fill="#0A1B3E"><circle cx="150" cy="337" r="7"/><circle cx="167" cy="338" r="12"/><circle cx="184" cy="339" r="11"/><circle cx="201" cy="340" r="10"/><circle cx="218" cy="341" r="9"/><circle cx="235" cy="342" r="8"/><circle cx="252" cy="343" r="7"/><circle cx="269" cy="335" r="12"/><circle cx="286" cy="336" r="11"/><circle cx="303" cy="337" r="10"/><circle cx="320" cy="338" r="9"/><circle cx="337" cy="339" r="8"/><circle cx="354" cy="340" r="7"/><circle cx="371" cy="341" r="12"/><circle cx="388" cy="342" r="11"/><circle cx="405" cy="343" r="10"/><circle cx="422" cy="335" r="9"/><circle cx="439" cy="336" r="8"/><circle cx="456" cy="337" r="7"/><circle cx="473" cy="338" r="12"/><circle cx="490" cy="339" r="11"/><circle cx="507" cy="340" r="10"/><circle cx="524" cy="341" r="9"/><circle cx="541" cy="342" r="8"/><circle cx="558" cy="343" r="7"/><circle cx="575" cy="335" r="12"/><circle cx="592" cy="336" r="11"/><circle cx="609" cy="337" r="10"/><circle cx="626" cy="338" r="9"/><circle cx="643" cy="339" r="8"/><circle cx="660" cy="340" r="7"/><circle cx="677" cy="341" r="12"/><circle cx="694" cy="342" r="11"/><circle cx="711" cy="343" r="10"/><circle cx="728" cy="335" r="9"/><circle cx="745" cy="336" r="8"/><circle cx="762" cy="337" r="7"/><circle cx="779" cy="338" r="12"/><circle cx="796" cy="339" r="11"/></g><polygon points="150.0,352.0 800.0,300.0 800.0,318.0 150.0,366.0" fill="#A9BCDD"/><polygon points="150.0,366.0 800.0,318.0 800.0,382.0 150.0,414.0" fill="url(#hface)"/><g fill="#0A1838"><polygon points="160.6,371.2 198.5,368.4 198.5,411.6 160.6,413.5"/><polygon points="219.7,366.9 257.5,364.1 257.5,408.7 219.7,410.6"/><polygon points="278.8,362.5 316.6,359.7 316.6,405.8 278.8,407.7"/><polygon points="337.9,358.1 375.7,355.3 375.7,402.9 337.9,404.7"/><polygon points="397.0,353.8 434.8,351.0 434.8,400.0 397.0,401.8"/><polygon points="456.1,349.4 493.9,346.6 493.9,397.1 456.1,398.9"/><polygon points="515.2,345.0 553.0,342.2 553.0,394.2 515.2,396.0"/><polygon points="574.3,340.7 612.1,337.9 612.1,391.3 574.3,393.1"/><polygon points="633.4,336.3 671.2,333.5 671.2,388.3 633.4,390.2"/><polygon points="692.5,331.9 730.3,329.1 730.3,385.4 692.5,387.3"/><polygon points="751.5,327.6 789.4,324.8 789.4,382.5 751.5,384.4"/></g><rect x="709" y="281" width="54" height="26" fill="#7F96C0"/><rect x="715" y="287" width="8" height="6" fill="#FFD27A" opacity=".9"/><rect x="731" y="287" width="8" height="6" fill="#FFD27A" opacity=".75"/><g fill="#9FE9FF"><circle cx="196.4" cy="346.3" r="1.8"/><circle cx="242.9" cy="342.6" r="1.8"/><circle cx="289.3" cy="338.9" r="1.8"/><circle cx="335.7" cy="335.1" r="1.8"/><circle cx="382.1" cy="331.4" r="1.8"/><circle cx="428.6" cy="327.7" r="1.8"/><circle cx="475.0" cy="324.0" r="1.8"/><circle cx="521.4" cy="320.3" r="1.8"/><circle cx="567.9" cy="316.6" r="1.8"/><circle cx="614.3" cy="312.9" r="1.8"/><circle cx="660.7" cy="309.1" r="1.8"/><circle cx="707.1" cy="305.4" r="1.8"/><circle cx="753.6" cy="301.7" r="1.8"/></g><g fill="#E6F1FF" opacity=".78" filter="url(#hb7)"><rect x="161.5" y="408.5" width="36" height="46" rx="10"/><rect x="220.6" y="405.6" width="36" height="46" rx="10"/><rect x="279.7" y="402.7" width="36" height="46" rx="10"/><rect x="338.8" y="399.8" width="36" height="46" rx="10"/><rect x="397.9" y="396.9" width="36" height="46" rx="10"/><rect x="457.0" y="394.0" width="36" height="46" rx="10"/><rect x="516.1" y="391.1" width="36" height="46" rx="10"/><rect x="575.2" y="388.2" width="36" height="46" rx="10"/><rect x="634.3" y="385.3" width="36" height="46" rx="10"/><rect x="693.4" y="382.4" width="36" height="46" rx="10"/><rect x="752.5" y="379.5" width="36" height="46" rx="10"/></g><path d="M0 430 L800 396 L800 600 L0 600Z" fill="url(#hriv)"/><g filter="url(#hb16)" fill="#EAF4FF"><ellipse cx="470" cy="434" rx="300" ry="26" opacity=".55"/><ellipse cx="640" cy="452" rx="190" ry="22" opacity=".4"/></g><g class="flow" fill="none" stroke="#DCEBFF" stroke-linecap="round" stroke-width="3" opacity=".42" filter="url(#hb2)"><path d="M180 470 C 300 458, 420 474, 560 452" stroke-dasharray="60 40"/><path d="M120 500 C 260 488, 380 505, 520 486" stroke-dasharray="60 40"/><path d="M300 530 C 420 518, 560 532, 720 506" stroke-dasharray="60 40"/><path d="M60 545 C 200 535, 330 552, 470 538" stroke-dasharray="60 40"/><path d="M420 480 C 520 468, 620 482, 780 460" stroke-dasharray="60 40"/><path d="M220 575 C 360 566, 520 580, 700 560" stroke-dasharray="60 40"/></g></svg></div>
+  <div class="wrap hero-in">
+    <div class="logo">
+      <svg viewBox="0 0 30 30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 27s-8.5-7.4-8.5-13.2a8.5 8.5 0 0 1 17 0C23.5 19.6 15 27 15 27z"/><path d="M10.5 14.5c1.5-1.4 3-1.4 4.5 0s3 1.4 4.5 0"/></svg>
+      <div><div class="lk th">บางบัวทอง นนทบุรี</div><div class="tg">BANG BUA THONG · NONTHABURI</div></div>
+    </div>
+    <h1><span class="h1a">FLOOD WATCH</span><span class="h1b">2569 vs 2554</span><span class="h1c">น้ำปีนี้ จะซ้ำรอยปี 54 ไหม</span></h1>
+    <p class="lede"><b>Flood Watch บางบัวทอง นนทบุรี</b><br>เทียบน้ำเหนือ น้ำสะสม และวันล้นตลิ่ง กับมหาอุทกภัยปี 54 จากข้อมูลกรมชลประทาน สสน. และ สทนช. อัปเดตรายวันสำหรับบ้านที่บางบัวทอง</p>
+    <div class="hero-row">
+      <div class="badge" id="badge"><span class="b1">อัปเดตล่าสุด</span><span class="b2">กำลังโหลด</span></div>
+      <figure class="gauge" id="gauge"></figure>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="status glass" id="status" aria-live="polite">
+    <div class="st-left"><div class="caps">ภาพรวมวันนี้ · Overall</div><div class="empty">กำลังโหลดข้อมูลรายวัน เมื่อโหลดเสร็จจะแสดงระดับเตือนภัยและเหตุผล</div></div>
+  </section>
+
+  <section aria-labelledby="h-route">
+    <div class="sec-head">
+      <div><div class="caps">Upstream ⇄ Home ⇄ Stations</div><h2 id="h-route">เส้นทางน้ำ จากนครสวรรค์ถึงบ้าน</h2></div>
+      <p class="small">เรียงจากต้นน้ำลงมาถึงนนทบุรี แถบสีฟ้าคือค่าวันนี้เทียบกับปี 54 ณ ช่วงเวลาเดียวกัน</p>
+    </div>
+    <div class="route" id="route"><div class="empty">กำลังโหลดค่าสถานี</div></div>
+  </section>
+  <section class="stack" aria-labelledby="h-three">
+    <div class="three-head glass">
+      <span class="big3" aria-hidden="true">3</span>
+      <h2 id="h-three">สิ่งที่ทำให้ปี 54 ต่างจากปีอื่น</h2>
+      <p>ยอดสูงสุดของปี 54 ไม่ใช่สถิติ (ปี 49 ที่นครสวรรค์พีค 5,960 ลบ.ม./วิ สูงกว่า) แต่น้ำมามากต่อเนื่องหลายเดือน ล้นตลิ่งนาน และเขื่อนเต็มจนไม่มีที่พักน้ำ สามเรื่องนี้คือสิ่งที่ต้องเฝ้าดู</p>
+      <ul class="keys"><li><span>1</span>ล้นตลิ่งนานแค่ไหน</li><li><span>2</span>น้ำสะสมมากแค่ไหน</li><li><span>3</span>เขื่อนเต็มแค่ไหน</li></ul>
+    </div>
+
+    <div class="card">
+      <div class="panel-h">
+        <h3>1 · ล้นตลิ่งนานแค่ไหน</h3>
+        <div class="legend"><span><i class="sw y54"></i>ปี 2554</span><span><i class="sw now"></i>ปี 2569</span><span><i class="sw watch"></i>ช่วงจับตา</span></div>
+      </div>
+      <p class="small muted">แกนเวลาเดียวกันทั้งสองปี (1 ก.ย. – 31 ธ.ค.) เส้นตั้งคือวันนี้ ใช้อ่านได้ว่าปี 54 ณ วันเดียวกันล้นมาแล้วกี่วัน</p>
+      <div class="chart" id="gantt"></div>
+      <div class="tiles" id="durTiles"></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>2 · น้ำสะสม ผ่านนครสวรรค์ (C.2)</h3>
+        <p class="small muted" style="margin-top:4px">อัตราไหลเฉลี่ย ลบ.ม./วินาที · ปี 54 น้ำมากกว่าปกติ 2–3 เท่าต่อเนื่องทั้งเดือน</p>
+        <div class="bars" id="flowBars"></div>
+        <div class="tiles" id="volTiles"></div>
+        <p class="small muted" style="margin-top:16px">ปริมาณน้ำทั้งปีน้ำ (เม.ย.–มี.ค.) ล้าน ลบ.ม.</p>
+        <div class="bars" id="yearBars"></div>
+      </div>
+      <div class="card">
+        <h3>3 · เขื่อนเต็มแค่ไหน</h3>
+        <p class="small muted" style="margin-top:4px">% ความจุ · ปี 54 = 26 ก.ย. 54 · ปี 69 = ค่าล่าสุด · เส้นประ = เต็มความจุ 100%</p>
+        <div class="legend" style="margin-top:10px"><span><i class="sw y54"></i>ปี 2554</span><span><i class="sw now"></i>ปี 2569</span></div>
+        <div id="dams" style="margin-top:8px"></div>
+        <div class="tiles" id="roomTiles"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="trend-card" aria-labelledby="h-trend">
+    <div class="panel-h"><h2 id="h-trend">แนวโน้มรายวัน</h2><span class="small muted">แตะหรือชี้ที่จุดเพื่อดูค่า · จุดโปร่งคือแผนระบายที่กรมชลฯ ประกาศ</span></div>
+    <div class="seg" id="seg" role="group" aria-label="เลือกสถานี"></div>
+    <div class="chart" id="trend"></div>
+    <p class="small muted" id="trendNote" style="margin-top:8px"></p>
+  </section>
+
+  <section class="card" id="signals" aria-labelledby="h-sig">
+    <div class="panel-h"><h2 id="h-sig">สัญญาณเตือน ที่ใช้ตัดสินใจ</h2><span class="caps">Evacuation signals</span></div>
+    <p class="small" style="color:var(--ink-2);max-width:78ch">ตอบคำถามว่า “ต้องดูอะไรบ้าง” ครบทั้งน้ำเหนือ เขื่อน แม่น้ำใกล้บ้าน คลอง ความยาวนาน อากาศ และประกาศทางการ ภาพรวมด้านบนคำนวณจากรายการนี้</p>
+    <div class="rulebox">
+      <span><i class="dot y"></i>เหลือง 1–2 ข้อ = เฝ้าระวัง</span>
+      <span><i class="dot y"></i>เหลือง 3 ข้อขึ้นไป หรือแดง 1 ข้อ = เตรียมพร้อม</span>
+      <span><i class="dot r"></i>แดง 2 ข้อขึ้นไป = เตรียมอพยพ</span>
+      <span><i class="dot x"></i>ประกาศอพยพทางการ = อพยพทันที</span>
+    </div>
+    <ul class="sig" id="sigList"></ul>
+    <p class="note">เกณฑ์เหลือง/แดงเป็นจุดอ้างอิงที่ตั้งจากตัวเลขทางการและเหตุการณ์ปี 54 เพื่อช่วยตัดสินใจเร็วขึ้น ไม่ใช่คำสั่งของหน่วยงาน หากอำเภอหรือจังหวัดประกาศให้อพยพ ให้ทำตามประกาศทันที</p>
+  </section>
+
+  <section class="grid2">
+    <div class="card">
+      <h2>ช่วงที่ต้องจับตา</h2>
+      <p class="small muted" style="margin-top:4px">เหตุการณ์ที่ประกาศหรือพยากรณ์ไว้ในวันข้างหน้า</p>
+      <ul class="tl" id="ahead"></ul>
+    </div>
+    <div class="card">
+      <h2>น้ำเดินทางกี่วันถึงบ้าน</h2>
+      <p class="small muted" style="margin-top:4px">เวลาเดินทางของมวลน้ำตามที่ศูนย์ SWOC กรมชลฯ ใช้ประเมิน (อ้างในข่าว)</p>
+      <ul class="chain" id="chain"></ul>
+      <div class="arrive" id="arrive"></div>
+    </div>
+  </section>
+
+  <section class="grid2">
+    <div class="card" id="local">
+      <h2>บางบัวทองตอนนี้</h2>
+      <div class="empty" style="margin-top:12px">กำลังโหลดสถานะพื้นที่</div>
+    </div>
+    <div class="card">
+      <h2>ประกาศและคำเตือนล่าสุด</h2>
+      <ul class="alerts" id="alerts"></ul>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="h-54">
+    <div class="panel-h"><h2 id="h-54">ย้อนดูปี 54 ที่บางบัวทอง</h2><span class="caps">2011 timeline</span></div>
+    <div class="y54grid"><ul class="tl" id="y54a"></ul><ul class="tl" id="y54b"></ul></div>
+    <div class="lesson" id="lesson"></div>
+  </section>
+
+  <section class="card" aria-labelledby="h-log">
+    <div class="panel-h"><h2 id="h-log">บันทึกข้อมูลรายวัน</h2><span class="small muted" id="srcMode"></span></div>
+    <p class="small muted">ตารางนี้คือข้อมูลชุดเดียวกับที่ใช้วาดกราฟ ค่า ลบ.ม./วิ คือรายงาน 06:00 น. ของกรมชลฯ เว้นแต่ระบุในคอลัมน์ที่มา</p>
+    <div class="tablewrap"><table id="logTable"></table></div>
+    <details class="entry" id="entryBox">
+      <summary>เพิ่มหรือแก้ค่าของวัน</summary>
+      <form class="form" id="entry">
+        <label>วันที่<input type="date" id="f-date" required></label>
+        <label>C.2 นครสวรรค์ (ลบ.ม./วิ)<input type="number" id="f-c2" step="1" inputmode="decimal"></label>
+        <label>C.2 ต่ำกว่าตลิ่ง (ม.) ติดลบ = ล้น<input type="number" id="f-c2_below" step="0.01" inputmode="decimal"></label>
+        <label>C.13 ระบาย (ลบ.ม./วิ)<input type="number" id="f-c13" step="1" inputmode="decimal"></label>
+        <label>C.13 ระดับเหนือเขื่อน (ม.รทก.)<input type="number" id="f-c13_up" step="0.01" inputmode="decimal"></label>
+        <label>พระรามหก (ลบ.ม./วิ)<input type="number" id="f-rama6" step="1" inputmode="decimal"></label>
+        <label>C.29B สามโคก (ลบ.ม./วิ)<input type="number" id="f-c29b" step="1" inputmode="decimal"></label>
+        <label>ป่าสักชลสิทธิ์ (%)<input type="number" id="f-pasak_pct" step="0.01" inputmode="decimal"></label>
+        <label>ภูมิพล (%)<input type="number" id="f-bhumibol_pct" step="0.1" inputmode="decimal"></label>
+        <label>สิริกิติ์ (%)<input type="number" id="f-sirikit_pct" step="0.1" inputmode="decimal"></label>
+        <label>แควน้อยฯ (%)<input type="number" id="f-kwaenoi_pct" step="0.1" inputmode="decimal"></label>
+        <label>ภูมิพล+สิริกิติ์ รับได้อีก (ล้าน ลบ.ม.)<input type="number" id="f-bs_room" step="1" inputmode="decimal"></label>
+        <label>สะพานนวลฉวี สูงสุด (ม.รทก.)<input type="number" id="f-cpy014" step="0.01" inputmode="decimal"></label>
+        <label>คลองพระพิมล (ม.รทก.)<input type="number" id="f-phraphimon" step="0.01" inputmode="decimal"></label>
+        <label class="wide">ที่มา / หมายเหตุ<input type="text" id="f-src" maxlength="300"></label>
+        <div class="checks">
+          <label><input type="checkbox" id="f-flag-order"> มีประกาศอพยพจากอำเภอ/จังหวัด</label>
+          <label><input type="checkbox" id="f-flag-storm"> มีพายุเข้าเหนือ-กลางใน 3 วัน</label>
+          <label><input type="checkbox" id="f-flag-disaster_zone"> บางบัวทองอยู่ในเขตประกาศภัยพิบัติ</label>
+        </div>
+        <div class="checks"><button class="btn" type="submit">บันทึก</button><span class="form-msg" id="formMsg"></span></div>
+      </form>
+    </details>
+  </section>
+</main>
+
+<footer class="band">
+  <div class="wrap">
+    <div class="it">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><path d="M7 3h14v22l-7-5-7 5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      <div><b>เปิดดูทุกเช้า</b><span>รายงานกรมชลฯ ออกราว 06:00–07:00 น. และแจ้งเตือนเพิ่มระหว่างวัน</span></div>
+    </div>
+    <div class="it">
+      <svg viewBox="0 0 28 28" aria-hidden="true"><path d="M8 3l4 5-2.5 2.5a13 13 0 008 8L20 16l5 4-2 4c-9 1-20-10-19-19z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      <div><b>สายด่วน ปภ. 1784</b><span>LINE @1784DDPM · กรมชลประทาน 1460</span></div>
+    </div>
+    <div class="it">
+      <svg viewBox="0 0 30 30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 27s-8.5-7.4-8.5-13.2a8.5 8.5 0 0 1 17 0C23.5 19.6 15 27 15 27z"/><path d="M10.5 14.5c1.5-1.4 3-1.4 4.5 0s3 1.4 4.5 0"/></svg>
+      <div><div class="lk th">บางบัวทอง นนทบุรี</div><div class="tg">WATCH · PREPARE · STAY SAFE</div></div>
+    </div>
+  </div>
+</footer>
+<div class="wrap fine">
+  <p>แหล่งข้อมูล:
+    <a href="https://water.rid.go.th/flood/flood/daily.pdf" target="_blank" rel="noopener">รายงานน้ำประจำวัน SWOC กรมชลประทาน</a>
+    <a href="https://app.rid.go.th/reservoir/" target="_blank" rel="noopener">อ่างเก็บน้ำ กรมชลฯ</a>
+    <a href="https://www.thaiwater.net" target="_blank" rel="noopener">คลังข้อมูลน้ำแห่งชาติ thaiwater</a>
+    <a href="https://tiwrmdev.hii.or.th/current/2011/waterlevel.html" target="_blank" rel="noopener">มหาอุทกภัย 2554 แม่น้ำ (สสน.)</a>
+    <a href="https://tiwrmdev.hii.or.th/current/2011/dam.html" target="_blank" rel="noopener">มหาอุทกภัย 2554 เขื่อน (สสน.)</a>
+    <a href="https://water.rid.go.th/hyd/PORTAL/trend/trend_C.2.pdf" target="_blank" rel="noopener">สถิติ 30 ปี C.2</a>
+    <a href="https://water.rid.go.th/hyd/PORTAL/trend/trend_C.13.pdf" target="_blank" rel="noopener">สถิติ 30 ปี C.13</a>
+    <a href="https://news.trueid.net/detail/bWA70ZRVdBxM" target="_blank" rel="noopener">เทียบ 2569/2554 (TNN)</a>
+    <a href="https://www.bangkokbiznews.com/news/961443" target="_blank" rel="noopener">เกณฑ์บางไทร 2,500/3,500 (ข่าว)</a>
+    <a href="https://www.springnews.co.th/keep-the-world/climate-change/830717" target="_blank" rel="noopener">เวลาเดินทางน้ำ (ข่าว)</a>
+    <a href="https://hilight.kapook.com/view/63642" target="_blank" rel="noopener">บางบัวทองปี 54 (ข่าว)</a>
+  </p>
+  <p>ตัวเลขที่มาจากข่าวระบุไว้ว่าเป็นข่าว เกณฑ์เตือนภัยในหน้านี้เป็นจุดอ้างอิงเพื่อช่วยตัดสินใจ ไม่ใช่คำสั่งทางการ</p>
+</div>
+<div id="tip" role="tooltip" hidden></div>
+
+
+<script>
+(function(){
+"use strict";
+const $ = (s, r) => (r || document).querySelector(s);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeUrl = u => (typeof u === 'string' && /^https:\/\/[^\s"'<>]+$/.test(u)) ? u : null;
+const TH_M = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+const isISO = s => typeof s === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(s);
+function parseD(s){ const p = s.split('-').map(Number); return new Date(Date.UTC(p[0], p[1]-1, p[2])); }
+function isoD(dt){ return dt.toISOString().slice(0,10); }
+function addDays(s, n){ const d = parseD(s); d.setUTCDate(d.getUTCDate()+n); return isoD(d); }
+function diffDays(a, b){ return Math.round((parseD(b) - parseD(a)) / 864e5); }
+function thD(s, yr){ if(!isISO(s)) return ''; const d = parseD(s); return d.getUTCDate()+' '+TH_M[d.getUTCMonth()]+(yr ? ' '+(d.getUTCFullYear()+543) : ''); }
+function fmt(v, dec){ dec = dec || 0; return (v == null || !isFinite(v)) ? '–' : Number(v).toLocaleString('en-US', {minimumFractionDigits:dec, maximumFractionDigits:dec}); }
+function bkkToday(){ return new Date(Date.now() + 7*3600e3).toISOString().slice(0,10); }
+const num = v => (typeof v === 'number' && isFinite(v)) ? v : null;
+
+/* ---------- reference constants: 2554, normals, thresholds ---------- */
+const Y54 = {
+  c2_same:4254, c13_same:3697, c2_peak:4686, bangsai_peak:3860, pakkret:3.38,
+  dams:{bhumibol:90, sirikit:99, kwaenoi:96, pasak_pct:132}, bs_room:1413,
+  c2_sep:3764, c2_oct:4376, c2_year:52683
+};
+const NORMAL = {c2_sep:1361, c2_oct:1815, c2_year:22669};
+const Y68 = {c2_year:38989};
+
+const SIGNALS = [
+  {key:'c2', name:'น้ำเหนือ C.2 นครสวรรค์', unit:'ลบ.ม./วิ', y:3000, r:4000, why:'ปี 65 พีค ~3,054 · ปลาย ก.ย. 54 ~4,254'},
+  {key:'c13', name:'ระบายท้ายเขื่อนเจ้าพระยา C.13', unit:'ลบ.ม./วิ', y:2500, r:3000, why:'กรอบบนที่ กนช. เห็นชอบ 2,500 · ปี 65 พีค 3,164 · ปี 54 พีค 3,721'},
+  {key:'c29b', name:'เจ้าพระยาเหนือนนทบุรี (สามโคก/บางไทร)', unit:'ลบ.ม./วิ', y:2500, r:3500, why:'กรมชลฯ: 2,500 นนทบุรีนอกคันเริ่มท่วม · 3,500 กระทบ กทม. (อ้างในข่าว)'},
+  {key:'pasak_pct', name:'เขื่อนป่าสักชลสิทธิ์', unit:'% ความจุ', dec:1, y:100, r:120, why:'เกิน 100% ต้องเร่งระบายลงป่าสัก · 26 ก.ย. 54 อยู่ที่ 132%'},
+  {key:'bs_room', name:'ภูมิพล+สิริกิติ์ รับน้ำได้อีก', unit:'ล้าน ลบ.ม.', dir:'down', y:3000, r:1500, why:'26 ก.ย. 54 เหลือที่รับน้ำเพียง 1,413'},
+  {key:'cpy014', name:'เจ้าพระยาใกล้บ้าน สะพานนวลฉวี', unit:'ม.รทก. สูงสุดรายวัน', dec:2, y:2.5, r:3.0, why:'ตลิ่ง 2.50 · สถิติปี 54 ที่ปากเกร็ด 3.38 (ข่าว)'},
+  {key:'phraphimon', name:'คลองพระพิมล ไทรน้อย', unit:'ม.รทก.', dec:2, y:3.55, r:4.05, why:'ตลิ่ง 4.05 · ปี 54 น้ำเข้าบางบัวทองทางคลองพระพิมล'},
+  {key:'c2days', name:'C.2 ล้นตลิ่งติดต่อกัน', unit:'วัน', y:7, r:14, why:'ปี 54 ล้นตลิ่งรวม 44 วัน (16 ก.ย.–29 ต.ค.) บางบัวทองเริ่มท่วมหนักหลังล้นไปราว 3–5 สัปดาห์'},
+  {key:'storm', flag:true, level:'y', name:'พายุหรือดีเปรสชันเข้าภาคเหนือ-กลางใน 3 วัน', why:'ปี 54 พายุไห่ถาง เนสาด นาลแก เข้าซ้ำช่วง ก.ย.–ต.ค.'},
+  {key:'disaster_zone', flag:true, level:'y', name:'บางบัวทองอยู่ในเขตประกาศภัยพิบัติ', why:'แปลว่ามีน้ำท่วมขังในพื้นที่แล้ว แม้น้ำเหนือยังไม่มาก'},
+  {key:'order', flag:true, level:'x', name:'อำเภอหรือจังหวัดประกาศให้อพยพ', why:'ทำตามประกาศทันที ไม่ต้องรอสัญญาณอื่น'}
+];
+const LEVELS = [
+  {name:'ปกติ', cls:'g', ic:'<svg viewBox="0 0 12 12" width="30" height="30" aria-hidden="true"><path d="M2.3 6.3l2.4 2.4 5-5.2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>', todo:['ติดตามข่าวตามปกติ','เปิดแอพวันละครั้ง']},
+  {name:'เฝ้าระวัง', cls:'y', ic:'!', todo:['เปิดแอพเช้าและเย็น','เตรียมกระเป๋าฉุกเฉิน: ยา เอกสาร ไฟฉาย แบตสำรอง']},
+  {name:'เตรียมพร้อม', cls:'y', ic:'!', todo:['ยกของมีค่าและเครื่องใช้ไฟฟ้าขึ้นที่สูง','ย้ายรถไปจุดจอดที่สูง','ตกลงจุดนัดพบและที่พักสำรองกับครอบครัว','สำรองน้ำดื่มและอาหารแห้ง 3–5 วัน']},
+  {name:'เตรียมอพยพ', cls:'r', ic:'×', todo:['ยืนยันที่พักสำรอง','ออกก่อนถนนหลักถูกตัด','ปิดเบรกเกอร์ชั้นล่างก่อนออกจากบ้าน']},
+  {name:'อพยพตามประกาศ', cls:'x', ic:'×', todo:['ทำตามประกาศของอำเภอหรือจังหวัดทันที','โทร 1784 หากต้องการความช่วยเหลือ']}
+];
+const STATIONS = {
+  c2:{tab:'C.2 นครสวรรค์', unit:'ลบ.ม./วิ', dec:0, zero:true, refs:[{v:4254,l:'26 ก.ย. 54 · 4,254'},{v:3000,l:'เกณฑ์เหลือง 3,000'}], note:'ค่า 06:00 น. จากรายงานกรมชลฯ · 23–25 ก.ย. จากข่าวที่อ้างกรมชลฯ · ปี 54 ช่วงเดียวกันอยู่ราว 4,254'},
+  c13:{tab:'C.13 เขื่อนเจ้าพระยา', unit:'ลบ.ม./วิ', dec:0, zero:true, refs:[{v:3697,l:'26 ก.ย. 54 · 3,697'},{v:2500,l:'กรอบบน กนช. 2,500'}], note:'อัตราระบายท้ายเขื่อน · จุดโปร่ง = แผนระบายที่ประกาศ'},
+  rama6:{tab:'พระรามหก (ป่าสัก)', unit:'ลบ.ม./วิ', dec:0, zero:true, refs:[{v:633,l:'ความจุลำน้ำ ~633 (thaiwater)'}], note:'ท้ายเขื่อนพระรามหก สถานี S.26 · จุดโปร่ง = แผนเพิ่มระบาย 1–3 ต.ค.'},
+  c29b:{tab:'C.29B สามโคก', unit:'ลบ.ม./วิ', dec:0, zero:true, refs:[{v:3500,l:'3,500 · กระทบ กทม.'},{v:2500,l:'2,500 · นนทบุรีนอกคันเริ่มท่วม'}], note:'จุดวัดเหนือนนทบุรี · ปี 54 บางไทรพีค 3,860 (15 ต.ค. 54)'},
+  cpy014:{tab:'สะพานนวลฉวี', unit:'ม.รทก.', dec:2, zero:false, yMin:1.5, yMax:3.6, refs:[{v:3.38,l:'ปี 54 ปากเกร็ด 3.38'},{v:2.5,l:'ตลิ่ง 2.50'}], note:'ระดับสูงสุดของวัน (มักเป็นช่วงน้ำขึ้น) · ค่า 26–28 ก.ย. เป็นค่าประมาณจาก thaiwater'}
+};
+const TRAVEL = [
+  {name:'C.2 นครสวรรค์', sub:'ปิง วัง ยม น่าน รวมกัน'},
+  {hop:'~24 ชม. · 98 กม.'},
+  {name:'C.13 เขื่อนเจ้าพระยา ชัยนาท', sub:'จุดคุมการระบายลงภาคกลาง'},
+  {hop:'~24 ชม.'},
+  {name:'C.35 อยุธยา', sub:'แม่น้ำป่าสักไหลมาสมทบ'},
+  {hop:'~8 ชม.'},
+  {name:'ปทุมธานี (C.29B สามโคก)', sub:'จุดวัดเหนือนนทบุรี'},
+  {hop:'~24 ชม.'},
+  {name:'นนทบุรี · บางบัวทอง', sub:'บางบัวทองอยู่ห่างแม่น้ำ น้ำเข้าทางคลองและทุ่งฝั่งตะวันตก', home:true}
+];
+const Y54_TL = [
+  {d:'16 ก.ย. 54', t:'C.2 นครสวรรค์เริ่มล้นตลิ่ง และล้นต่อเนื่อง 44 วัน', tag:'สสน.'},
+  {d:'23 ก.ย. 54', t:'เขื่อนป่าสักชลสิทธิ์น้ำเกินความจุ นาน 72 วัน', tag:'สสน.'},
+  {d:'26 ก.ย. 54', t:'C.2 ราว 4,254 ลบ.ม./วิ · ภูมิพล+สิริกิติ์ 94% เหลือที่รับน้ำ 1,413 ล้าน ลบ.ม.', tag:'ข่าว'},
+  {d:'10 ต.ค. 54', t:'คันดินหลังโรงพยาบาลบางบัวทองแตก ราว 150 หลังคาเรือน น้ำสูงกว่า 1 ม.', tag:'ข่าว', local:true},
+  {d:'13 ต.ค. 54', t:'C.2 พีคสูงสุดของปี 4,686 ลบ.ม./วิ', tag:'สสน.'},
+  {d:'15 ต.ค. 54', t:'บางไทร C.29A พีค 3,860 ลบ.ม./วิ', tag:'ข่าว'},
+  {d:'18 ต.ค. 54', t:'คันกั้นน้ำวัดละหารพัง ตลาดบางบัวทองน้ำสูงราว 1 ม.', tag:'ข่าว', local:true},
+  {d:'20 ต.ค. 54', t:'เกือบทั้งอำเภอจมน้ำ 1.5–2 ม. น้ำข้ามแนวป้องกันคลองประปา', tag:'ข่าว', local:true},
+  {d:'29 ต.ค. 54', t:'C.2 กลับมาต่ำกว่าตลิ่ง', tag:'สสน.'},
+  {d:'10 พ.ย. 54', t:'บางบัวทองน้ำลด 50–80 ซม. แต่ยังลึกระดับเอวถึงอก หลังท่วมมากว่า 1 เดือน', tag:'ข่าว', local:true}
+];
+/* season axis: 1 Sep → 31 Dec, same for every year */
+const SEASON_DAYS = 30+31+30+31;
+function dayIdx(md){ const p = md.split('-').map(Number); const starts = {9:0, 10:30, 11:61, 12:91}; return starts[p[0]] + p[1] - 1; }
+const OVER54 = [
+  {label:'C.2 นครสวรรค์ ล้นตลิ่ง', a:'09-16', b:'10-29', days:44},
+  {label:'C.13 เขื่อนเจ้าพระยา ล้นตลิ่ง', a:'09-11', b:'11-08', days:59},
+  {label:'เขื่อนป่าสักชลสิทธิ์ เกินความจุ', a:'09-23', b:'12-03', days:72},
+  {label:'บางบัวทองน้ำท่วม', a:'10-10', b:'11-10', open:true, text:'มากกว่า 1 เดือน'}
+];
+
+/* ---------- state ---------- */
+let R = [];      // daily readings, ascending by date
+let S = null;    // status/current document
+let mode = 'loading';
+let dbRef = null;
+let station = 'c2';
+let canWrite = true;
+
+function latestReading(key){ for(let i = R.length-1; i >= 0; i--){ const v = num(R[i][key]); if(v != null) return {v, date:R[i].date}; } return null; }
+function cur(key){
+  const d = latestReading(key);
+  const L = S && S.live && S.live[key];
+  if(L && num(L.v) != null && (!d || !isISO(L.date) || L.date >= d.date)) return {v:L.v, at:L.at || thD(L.date), date:L.date || (d && d.date), plan:num(L.plan), planAt:L.plan_at, note:L.note};
+  if(d) return {v:d.v, at:thD(d.date)+' · รายงานรายวัน', date:d.date};
+  return null;
+}
+function dailyDelta(key){
+  const pts = R.filter(r => num(r[key]) != null); if(pts.length < 2) return null;
+  const a = pts[pts.length-2], b = pts[pts.length-1];
+  return {d:b[key]-a[key], from:a.date, to:b.date, v:b[key]};
+}
+function asOf(){ return (S && isISO(S.as_of)) ? S.as_of : (R.length ? R[R.length-1].date : bkkToday()); }
+function c2OverDays(){ let n = 0; for(let i = R.length-1; i >= 0; i--){ const g = num(R[i].c2_below); if(g == null) continue; if(g < 0) n++; else break; } return n; }
+function runStart(key, pred){ let s = null; for(let i = R.length-1; i >= 0; i--){ const v = num(R[i][key]); if(v == null) continue; if(pred(v)) s = R[i].date; else break; } return s; }
+
+function evalSignals(){
+  const flags = (S && S.flags) || {};
+  return SIGNALS.map(s => {
+    const o = Object.assign({}, s, {lvl:'n', disp:'ไม่มีข้อมูล', sub:''});
+    if(s.flag){
+      const on = !!flags[s.key];
+      o.lvl = on ? s.level : 'g'; o.disp = on ? 'ใช่' : 'ไม่';
+      return o;
+    }
+    let v = null;
+    if(s.key === 'c2days'){ v = R.some(r => num(r.c2_below) != null) ? c2OverDays() : null; if(v != null) o.sub = v === 0 ? 'ยังต่ำกว่าตลิ่ง' : 'ติดต่อกัน'; }
+    else {
+      const c = cur(s.key);
+      if(c){ v = c.v; o.sub = c.at || '';
+        if(s.key === 'c13' && c.plan != null && c.plan > v){ o.sub = 'แผน '+fmt(c.plan)+(c.planAt ? ' '+c.planAt : ''); v = c.plan; o.disp = fmt(c.v)+' → '+fmt(c.plan); }
+      }
+    }
+    if(v == null) return o;
+    if(s.dir === 'down') o.lvl = v <= s.r ? 'r' : v <= s.y ? 'y' : 'g';
+    else o.lvl = v >= s.r ? 'r' : v >= s.y ? 'y' : 'g';
+    if(o.disp === 'ไม่มีข้อมูล') o.disp = fmt(v, s.dec);
+    o.val = v;
+    return o;
+  });
+}
+function overallLevel(sig){
+  if(sig.some(s => s.lvl === 'x')) return 4;
+  const r = sig.filter(s => s.lvl === 'r').length, y = sig.filter(s => s.lvl === 'y').length;
+  if(r >= 2) return 3; if(r === 1 || y >= 3) return 2; if(y >= 1) return 1; return 0;
+}
+const CHK = '<svg viewBox="0 0 12 12" width="1em" height="1em" aria-hidden="true"><path d="M2.3 6.3l2.4 2.4 5-5.2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const CHIP = {g:[CHK,'ปกติ'], y:['!','เหลือง'], r:['×','แดง'], x:['×','ประกาศ'], n:['–','ไม่มีข้อมูล']};
+const chip = (l, text) => '<span class="chip '+l+'"><i>'+CHIP[l][0]+'</i>'+esc(text || CHIP[l][1])+'</span>';
+
+/* ---------- tooltip ---------- */
+const tip = $('#tip');
+function showTip(el, x, y){ const h = el.getAttribute('data-tip'); if(!h) return; tip.innerHTML = h; tip.hidden = false; placeTip(x, y); }
+function placeTip(x, y){ const w = tip.offsetWidth, hh = tip.offsetHeight; let L = x + 14, T = y - hh - 12; if(L + w > innerWidth - 8) L = x - w - 14; if(L < 8) L = 8; if(T < 8) T = y + 16; tip.style.left = L+'px'; tip.style.top = T+'px'; }
+document.addEventListener('pointerover', e => { const el = e.target.closest && e.target.closest('[data-tip]'); if(el) showTip(el, e.clientX, e.clientY); });
+document.addEventListener('pointermove', e => { if(!tip.hidden) placeTip(e.clientX, e.clientY); });
+document.addEventListener('pointerout', e => { const el = e.target.closest && e.target.closest('[data-tip]'); if(el && !(e.relatedTarget && el.contains(e.relatedTarget))) tip.hidden = true; });
+document.addEventListener('focusin', e => { const el = e.target.closest && e.target.closest('[data-tip]'); if(el){ const r = el.getBoundingClientRect(); showTip(el, r.left + r.width/2, r.top); } });
+document.addEventListener('focusout', () => { tip.hidden = true; });
+addEventListener('scroll', () => { tip.hidden = true; }, {passive:true});
+
+/* ---------- renderers ---------- */
+const ICON = {
+  drop:'<path d="M12 3c3 4.5 6 7.6 6 11a6 6 0 0 1-12 0c0-3.4 3-6.5 6-11z"/>',
+  dam:'<path d="M3 6h18M5 6v11M9.5 6v11M14.5 6v11M19 6v11M3 18.5c2 1.6 4 1.6 6 0s4-1.6 6 0 4 1.6 6 0"/>',
+  lake:'<path d="M3 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 14c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 19c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>',
+  river:'<path d="M8 3c4 4-4 7 0 11s-4 7 0 7M16 3c4 4-4 7 0 11s-4 7 0 7"/>',
+  home:'<path d="M4 11l8-7 8 7v9H4zM10 20v-5h4v5"/>',
+  level:'<path d="M4 20h16M12 4v11m-4-4 4 4 4-4"/>',
+  trend:'<path d="M3 17l6-6 4 4 8-8M15 7h6v6"/>',
+  clock:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',
+  pin:'<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+  cal:'<rect x="4" y="5.5" width="16" height="14.5" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4M8 13.5h2M11 13.5h2M14 13.5h2M8 16.5h2M11 16.5h2"/>',
+  arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+  info:'<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/>',
+  gauge:'<path d="M9 3h6v18H9zM15 7h-3M15 11h-3M15 15h-3"/>'
+};
+const ic = (k, cls) => '<svg class="i '+(cls || '')+'" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+ICON[k]+'</svg>';
+
+/* small night-time illustrations for the station cards (decorative) */
+function scene(kind, u){
+  const defs = '<linearGradient id="s'+u+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#071531"/><stop offset=".5" stop-color="#28558F"/><stop offset=".6" stop-color="#1A3B70"/><stop offset="1" stop-color="#071531"/></linearGradient>'+
+    '<linearGradient id="w'+u+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A89D6"/><stop offset="1" stop-color="#0A2250"/></linearGradient>'+
+    '<filter id="b'+u+'" x="-20%" y="-80%" width="140%" height="260%"><feGaussianBlur stdDeviation="3"/></filter>';
+  let b = '<rect width="320" height="160" fill="url(#s'+u+')"/>'+
+    '<g filter="url(#b'+u+')" fill="#9BB8E6" opacity=".35"><ellipse cx="220" cy="30" rx="90" ry="9"/><ellipse cx="90" cy="44" rx="70" ry="7"/></g>'+
+    '<path d="M0 86 L40 68 L80 78 L130 58 L180 76 L230 56 L280 72 L320 60 L320 98 L0 98Z" fill="#17335F"/>';
+  const trees = (x0, x1, y) => { let t = ''; for(let x = x0; x < x1; x += 11){ t += '<circle cx="'+x+'" cy="'+(y - (x * 7) % 5)+'" r="'+(5 + (x * 3) % 4)+'"/>'; } return '<g fill="#0B1D40">'+t+'</g>'; };
+  if(kind === 'river'){
+    b += '<rect y="96" width="320" height="64" fill="#0B1C3F"/>'+trees(0, 130, 100)+trees(196, 330, 99)+
+      '<path d="M146 94 C 138 112, 96 132, 26 160 L 304 160 C 238 132, 196 112, 180 94 Z" fill="url(#w'+u+')"/>'+
+      '<g stroke="#A8EEFF" stroke-width="1.3" opacity=".55" stroke-linecap="round"><path d="M150 122 H182"/><path d="M118 142 H176"/><path d="M190 134 H234"/><path d="M160 108 H176"/></g>'+
+      '<path d="M40 106 L290 101" stroke="#8FA8D2" stroke-width="3"/><path d="M70 106 q15 -9 30 0 M110 105 q15 -9 30 0 M150 104.5 q15 -9 30 0 M190 103.5 q15 -9 30 0 M230 103 q15 -9 30 0" stroke="#8FA8D2" stroke-width="1.4" fill="none"/>'+
+      '<g fill="#9FE9FF"><circle cx="60" cy="104" r="1.3"/><circle cx="110" cy="103" r="1.3"/><circle cx="160" cy="102" r="1.3"/><circle cx="210" cy="101" r="1.3"/><circle cx="260" cy="100.5" r="1.3"/></g>';
+  } else if(kind === 'dam'){
+    b += '<rect y="108" width="320" height="52" fill="url(#w'+u+')"/>'+
+      '<rect x="14" y="76" width="306" height="6" fill="#A9BCDD"/><rect x="14" y="82" width="306" height="24" fill="#4F6792"/>';
+    for(let i = 0; i < 9; i++) b += '<rect x="'+(24 + i * 33)+'" y="85" width="21" height="17" fill="#0B1A3A"/>';
+    b += '<rect x="262" y="62" width="30" height="14" fill="#7089B6"/><rect x="268" y="66" width="5" height="4" fill="#FFD27A"/>'+
+      '<g filter="url(#b'+u+')" fill="#E8F2FF"><rect x="20" y="100" width="296" height="16" opacity=".72"/><ellipse cx="170" cy="122" rx="150" ry="9" opacity=".55"/></g>'+
+      '<g stroke="#E0EEFF" stroke-width="1.4" opacity=".4" stroke-linecap="round"><path d="M40 138 H120"/><path d="M150 146 H250"/><path d="M90 152 H170"/></g>'+
+      '<g fill="#9FE9FF">'+[30,70,110,150,190,230].map(x => '<circle cx="'+x+'" cy="75" r="1.3"/>').join('')+'</g>';
+  } else if(kind === 'lake'){
+    b += '<rect y="92" width="320" height="68" fill="url(#w'+u+')"/>'+
+      '<path d="M0 92 L40 104 L80 98 L130 112 L180 100 L230 114 L280 102 L320 108 L320 92Z" fill="#17335F" opacity=".45"/>'+
+      '<rect x="232" y="85" width="88" height="7" fill="#9DB1D4"/><rect x="232" y="92" width="88" height="4" fill="#4F6792"/>'+
+      '<g stroke="#A8EEFF" stroke-width="1.2" opacity=".45" stroke-linecap="round"><path d="M30 124 H90"/><path d="M130 132 H210"/><path d="M60 146 H150"/><path d="M200 150 H290"/></g>'+
+      trees(0, 90, 94);
+  } else if(kind === 'city'){
+    b += '<rect y="96" width="320" height="64" fill="url(#w'+u+')"/>';
+    const blds = [[10,18,20],[32,14,30],[50,22,16],[112,16,26],[132,24,18],[160,14,34],[178,20,22],[204,18,28],[226,26,16],[256,16,24],[276,22,32],[300,20,18]];
+    b += '<g fill="#0E2248">'+blds.map(q => '<rect x="'+q[0]+'" y="'+(96 - q[2])+'" width="'+q[1]+'" height="'+q[2]+'"/>').join('')+'<path d="M76 96 L90 50 L104 96Z"/><rect x="88" y="44" width="4" height="8"/></g>'+
+      '<g fill="#FFD27A" opacity=".85">'+blds.filter((q, i) => i % 2 === 0).map(q => '<rect x="'+(q[0] + 4)+'" y="'+(96 - q[2] + 5)+'" width="3" height="3"/>').join('')+'</g>'+
+      '<g stroke="#FFD27A" stroke-width="1.5" opacity=".35" stroke-linecap="round">'+blds.filter((q, i) => i % 2 === 0).map(q => '<path d="M'+(q[0] + 5.5)+' 104 V'+(118 + (q[0] % 12))+'"/>').join('')+'</g>'+
+      '<g stroke="#A8EEFF" stroke-width="1.2" opacity=".45" stroke-linecap="round"><path d="M20 136 H110"/><path d="M150 146 H260"/></g>';
+  } else {
+    b += '<path d="M0 120 L320 110 L320 160 L0 160Z" fill="url(#w'+u+')"/><path d="M0 98 L320 98 L320 111 L0 121Z" fill="#0B1C3F"/>';
+    const hs = [[20,70,34,28],[62,78,28,22],[128,66,40,32],[180,76,30,22],[228,68,36,30],[272,74,30,24]];
+    b += hs.map(h => '<path d="M'+h[0]+' '+(h[1] + h[3])+' V'+(h[1] + h[3] * .42)+' L'+(h[0] + h[2] / 2)+' '+h[1]+' L'+(h[0] + h[2])+' '+(h[1] + h[3] * .42)+' V'+(h[1] + h[3])+'Z" fill="#132A58"/><rect x="'+(h[0] + h[2] * .35)+'" y="'+(h[1] + h[3] * .55)+'" width="'+(h[2] * .3)+'" height="'+(h[3] * .22)+'" fill="#FFC96B" opacity=".85"/>').join('')+
+      '<path d="M96 116 q30 -16 60 0" stroke="#8FA8D2" stroke-width="2" fill="none"/>'+
+      '<g stroke="#FFC96B" stroke-width="1.4" opacity=".3" stroke-linecap="round"><path d="M160 128 V142"/><path d="M246 124 V138"/><path d="M34 130 V146"/></g>'+
+      '<g stroke="#A8EEFF" stroke-width="1.2" opacity=".4" stroke-linecap="round"><path d="M60 146 H140"/><path d="M190 150 H290"/></g>';
+  }
+  return '<svg viewBox="0 0 320 160" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><defs>'+defs+'</defs>'+b+'</svg>';
+}
+
+function mapArt(){
+  const T = [110,52], Rr = [200,97], B = [110,142], L = [20,97];
+  const lp = (a, b, t) => [(a[0] + (b[0] - a[0]) * t).toFixed(1), (a[1] + (b[1] - a[1]) * t).toFixed(1)];
+  let grid = '';
+  [.25,.5,.75].forEach(t => { const a = lp(T, L, t), b = lp(Rr, B, t), c = lp(T, Rr, t), d = lp(L, B, t); grid += '<path d="M'+a+' L'+b+' M'+c+' L'+d+'"/>'; });
+  const box = (x, y, h) => '<path d="M'+x+' '+y+' l8 4 l8 -4 l-8 -4z" fill="#3E73C8"/><path d="M'+x+' '+y+' v'+h+' l8 4 v-'+h+'z" fill="#1C3F84"/><path d="M'+(x+8)+' '+(y+4)+' v'+h+' l8 -4 v-'+h+'z" fill="#285096"/>';
+  return '<svg viewBox="0 0 220 170" aria-hidden="true" focusable="false"><defs>'+
+    '<radialGradient id="mg"><stop offset="0" stop-color="#38D6FF" stop-opacity=".6"/><stop offset="1" stop-color="#38D6FF" stop-opacity="0"/></radialGradient>'+
+    '<linearGradient id="mt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1F55AA" stop-opacity=".6"/><stop offset="1" stop-color="#0B2254" stop-opacity=".8"/></linearGradient></defs>'+
+    '<path d="M20 97 L110 142 L110 155 L20 110Z" fill="#0A1A42"/><path d="M110 142 L200 97 L200 110 L110 155Z" fill="#10295C"/>'+
+    '<path d="M110 52 L200 97 L110 142 L20 97Z" fill="url(#mt)" stroke="#5FB8FF" stroke-opacity=".7"/>'+
+    '<g stroke="#5FB8FF" stroke-opacity=".25" fill="none">'+grid+'</g>'+
+    '<path d="M36 90 C 64 106, 88 92, 110 108 S 158 124, 184 104" fill="none" stroke="#38D6FF" stroke-width="3" stroke-linecap="round" opacity=".95"/>'+
+    box(52, 80, 8)+box(142, 76, 12)+box(150, 110, 6)+box(70, 108, 10)+
+    '<ellipse cx="112" cy="104" rx="34" ry="15" fill="url(#mg)"/>'+
+    '<path d="M112 100 C 106 92, 98 84, 98 74 A14 14 0 0 1 126 74 C 126 84, 118 92, 112 100 Z" fill="#2F8BFF" stroke="#A8EEFF" stroke-width="1.5"/><circle cx="112" cy="74" r="5" fill="#E9F7FF"/></svg>';
+}
+
+function renderBadge(){
+  const a = asOf(); const today = bkkToday(); const age = diffDays(a, today);
+  const lab = (S && S.updated_label) ? S.updated_label : thD(a, true);
+  const parts = String(lab).split('·');
+  let fresh = '';
+  if(mode === 'none') fresh = 'ยังไม่มีข้อมูล';
+  else if(age >= 2) fresh = 'ข้อมูลเก่า '+age+' วัน';
+  else if(age === 1) fresh = 'ยังไม่อัปเดตของวันนี้';
+  $('#badge').innerHTML = ic('cal', 'cal')+'<span class="b1">อัปเดตล่าสุด</span><span class="b2">'+esc(parts[0].trim())+'</span>'+
+    '<span class="b3">'+esc(parts[1] ? parts[1].replace('ข้อมูลถึง', '').trim() : '')+'</span>'+
+    (fresh ? '<span class="b5">'+esc(fresh)+'</span>' : '<span class="b4">ข้อมูลจากกรมชลประทาน<br>และหน่วยงานที่เกี่ยวข้อง</span>')+
+    '<svg class="bwave" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18 C 30 8, 50 28, 80 18 S 130 8, 160 18 S 190 26, 200 20 V40 H0Z" fill="rgba(56,214,255,.16)"/><path d="M0 26 C 34 16, 60 34, 96 25 S 150 16, 200 28 V40 H0Z" fill="rgba(47,107,255,.22)"/></svg>';
+}
+
+function renderGauge(){
+  const c = cur('cpy014');
+  const lo = 1.0, hi = 3.6, top = 16, bot = 292, x0 = 96, w = 44;
+  const Y = v => bot - (v - lo) / (hi - lo) * (bot - top);
+  let ticks = '', blocks = '';
+  for(let v = lo; v <= hi + 1e-9; v += 0.1){
+    const vv = Math.round(v * 10) / 10, y = Y(vv), major = Math.abs(vv * 2 - Math.round(vv * 2)) < 1e-6;
+    ticks += '<line x1="'+(x0 + w + 6)+'" x2="'+(x0 + w + (major ? 18 : 11))+'" y1="'+y+'" y2="'+y+'" stroke="#9FC4FF" stroke-opacity="'+(major ? .9 : .5)+'" stroke-width="'+(major ? 1.5 : 1)+'"/>';
+    if(major) ticks += '<text x="'+(x0 + w + 23)+'" y="'+(y + 4)+'" font-size="12" fill="'+(vv === 2.5 ? '#EEF4FF' : '#B9C8E6')+'" font-weight="'+(vv === 2.5 ? 700 : 500)+'" font-family="var(--caps)">'+vv.toFixed(1)+(vv === 2.5 ? ' ตลิ่ง' : '')+'</text>';
+  }
+  for(let v = lo; v < hi - 1e-9; v += 0.2){ const y1 = Y(v + 0.2), y0 = Y(v); blocks += '<rect x="'+(x0 + 11)+'" y="'+(y1 + 2.5)+'" width="'+(w - 22)+'" height="'+(y0 - y1 - 5)+'" rx="2" fill="#2F6BFF" opacity=".55"/>'; }
+  let water = '', lab = '';
+  if(c){
+    const yv = Y(Math.max(lo, Math.min(hi, c.v)));
+    water = '<g clip-path="url(#gclip)"><rect x="'+x0+'" y="'+yv+'" width="'+w+'" height="'+(bot - yv)+'" fill="url(#gwat)"/>'+
+      '<path d="M'+(x0 - 4)+' '+yv+' q 6 -4 12 0 t 12 0 t 12 0 t 12 0 V '+(yv + 8)+' H '+(x0 - 4)+' Z" fill="#9FEFFF" opacity=".55"/></g>'+
+      '<line x1="'+(x0 - 10)+'" x2="'+(x0 + w + 4)+'" y1="'+yv+'" y2="'+yv+'" stroke="#38D6FF" stroke-width="2" filter="url(#gglow)"/>';
+    lab = '<text x="'+(x0 - 14)+'" y="'+(yv - 2)+'" text-anchor="end" font-family="var(--body)" fill="#38D6FF"><tspan font-size="20" font-weight="700">'+fmt(c.v, 2)+'</tspan><tspan font-size="12" dx="3">ม.</tspan></text>'+
+      '<text x="'+(x0 - 14)+'" y="'+(yv + 15)+'" text-anchor="end" font-size="12" fill="#B9C8E6" font-family="var(--body)">(วันนี้)</text>';
+  }
+  const yr = Y(Y54.pakkret);
+  const rec = '<line x1="'+(x0 - 10)+'" x2="'+(x0 + w + 4)+'" y1="'+yr+'" y2="'+yr+'" stroke="#FF5A5F" stroke-width="1.6" stroke-dasharray="4 3"/>'+
+    '<text x="'+(x0 - 14)+'" y="'+(yr - 2)+'" text-anchor="end" font-family="var(--body)" fill="#FF6B70"><tspan font-size="18" font-weight="700">3.38</tspan><tspan font-size="12" dx="3">ม.</tspan></text>'+
+    '<text x="'+(x0 - 14)+'" y="'+(yr + 15)+'" text-anchor="end" font-size="12" fill="#B9C8E6" font-family="var(--body)">(สูงสุดปี 54)</text>';
+  const tipTxt = '<b>เจ้าพระยา สะพานนวลฉวี (CPY014)</b><br>'+(c ? 'วันนี้ '+fmt(c.v, 2)+' ม.รทก. · '+esc(c.at)+'<br>' : '')+'ตลิ่ง 2.50 · สถิติปี 54 ที่ปากเกร็ด 3.38 (ข่าว)';
+  $('#gauge').innerHTML = '<svg viewBox="0 0 210 304" role="img" aria-label="ไม้วัดระดับน้ำเจ้าพระยาใกล้บ้าน'+(c ? ' ระดับวันนี้ '+fmt(c.v, 2)+' เมตร รทก.' : '')+'"><defs>'+
+    '<linearGradient id="gtube" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8CC4FF" stop-opacity=".28"/><stop offset=".5" stop-color="#16366E" stop-opacity=".25"/><stop offset="1" stop-color="#8CC4FF" stop-opacity=".22"/></linearGradient>'+
+    '<linearGradient id="gwat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38D6FF" stop-opacity=".85"/><stop offset="1" stop-color="#1B5BFF" stop-opacity=".65"/></linearGradient>'+
+    '<clipPath id="gclip"><rect x="'+x0+'" y="'+top+'" width="'+w+'" height="'+(bot - top)+'" rx="10"/></clipPath>'+
+    '<filter id="gglow" x="-20%" y="-400%" width="140%" height="900%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>'+
+    '<rect x="'+x0+'" y="'+top+'" width="'+w+'" height="'+(bot - top)+'" rx="10" fill="url(#gtube)"/>'+blocks+water+
+    '<rect x="'+x0+'" y="'+top+'" width="'+w+'" height="'+(bot - top)+'" rx="10" fill="none" stroke="#A9D2FF" stroke-opacity=".75" stroke-width="1.6"/>'+
+    ticks+rec+lab+
+    '<rect x="0" y="0" width="210" height="304" fill="transparent" class="hit" tabindex="0" data-tip="'+esc(tipTxt)+'"/></svg>'+
+    '<figcaption>* ระดับเจ้าพระยา สะพานนวลฉวี ใกล้บ้าน<br>ม.รทก. สูงสุดของวัน</figcaption>';
+}
+
+function renderStatus(sig){
+  if(!R.length && !S){
+    const msg = mode === 'loading' ? 'กำลังโหลดข้อมูลรายวัน เมื่อโหลดเสร็จจะแสดงระดับเตือนภัยและเหตุผล' : 'ยังไม่มีข้อมูลรายวัน เมื่อมีการบันทึกค่าจากรายงานกรมชลฯ ระดับเตือนภัยจะแสดงที่นี่';
+    $('#status').innerHTML = '<div class="st-left"><div class="caps">ภาพรวมวันนี้ · Overall</div><div class="empty">'+msg+'</div></div>';
+    return;
+  }
+  const L = overallLevel(sig), lv = LEVELS[L];
+  const on = sig.filter(s => s.lvl === 'y' || s.lvl === 'r' || s.lvl === 'x');
+  const summary = S && S.summary ? S.summary : '';
+  const scale = LEVELS.map((l, i) => '<div class="'+(i === L ? 'on '+l.cls : '')+'"></div>').join('');
+  const scaleL = LEVELS.map((l, i) => '<span class="'+(i === L ? 'on' : '')+'">'+esc(l.name)+'</span>').join('');
+  const why = on.length ? on.map(s => '<li><i class="dot '+s.lvl+'"></i><span><b>'+esc(s.name)+'</b><small>'+esc(s.disp)+' '+esc(s.flag ? '' : s.unit)+'</small></span></li>').join('') : '<li><i class="dot g"></i><span>ยังไม่มีสัญญาณเหลืองหรือแดง</span></li>';
+  const todo = lv.todo.map(t => '<li><i class="dot '+lv.cls+'"></i><span>'+esc(t)+'</span></li>').join('');
+  const watch = S && S.watch_window ? '<div class="watchpill">ช่วงเสี่ยง '+esc(S.watch_window)+'</div>' : '';
+  $('#status').innerHTML =
+    '<div class="st-left">'+
+      '<div class="st-top"><div class="bang '+lv.cls+'" aria-hidden="true">'+lv.ic+'</div><div><div class="tags"><span class="tg1">การแจ้งเตือน</span><span class="tg2">OVERALL</span></div><div class="lvl '+lv.cls+'">'+esc(lv.name)+'</div></div></div>'+
+      (summary ? '<p class="st-sum">'+esc(summary)+'</p>' : '')+
+      '<div class="scale" aria-hidden="true">'+scale+'</div><div class="scale-l">'+scaleL+'</div>'+watch+
+    '</div>'+
+    '<div class="st-right">'+
+      '<div class="st-lists"><div class="st-h">'+ic('pin')+'สัญญาณที่ขึ้นแล้ว <span>'+on.length+' จาก '+sig.length+'</span></div><ul>'+why+'</ul></div>'+
+      '<div class="st-map">'+mapArt()+'</div>'+
+      '<div class="st-todo"><div class="st-h">'+ic('info')+'ควรทำตอนนี้</div><ul class="todo">'+todo+'</ul></div>'+
+      '<a class="more" href="#signals">ดูรายละเอียดทั้งหมด '+ic('arrow')+'</a>'+
+    '</div>';
+}
+
+function same54Text(){
+  const t = dayIdx(asOf().slice(5)), a = dayIdx('09-16'), b = dayIdx('10-29');
+  if(t < a) return 'ปี 54 ที่นี่เริ่มล้นตลิ่ง 16 ก.ย.';
+  if(t > b) return 'ปี 54 ที่นี่ล้นตลิ่งรวม 44 วัน';
+  return 'วันเดียวกันปี 54 ที่นี่ล้นตลิ่งมาแล้ว '+(t - a + 1)+' วัน';
+}
+function deltaText(key, dec, unit){
+  const d = dailyDelta(key); if(!d) return '';
+  const sign = d.d > 0 ? '+' : d.d < 0 ? '−' : '±';
+  return '<b>'+sign+fmt(Math.abs(d.d), dec)+'</b> '+esc(unit)+' จาก '+esc(thD(d.from))+' ถึง '+esc(thD(d.to));
+}
+function trendWord(key){
+  const d = dailyDelta(key); if(!d) return '';
+  if(d.d > 0) return '<span class="trend">แนวโน้มเพิ่มขึ้น ↑</span>';
+  if(d.d < 0) return '<span class="trend down">แนวโน้มลดลง ↓</span>';
+  return '<span class="trend">ทรงตัว</span>';
+}
+let cardSeq = 0;
+function routeCard(n, o){
+  const pct = o.ref ? Math.max(0, o.meterVal) / o.ref : null;
+  const w = pct == null ? 0 : Math.min(1, pct) * 100;
+  const u = 'c' + (++cardSeq);
+  const meter = o.ref ? '<div class="meter" aria-hidden="true"><i class="'+(pct > 1 ? 'over' : '')+'" style="width:'+w.toFixed(1)+'%"></i><s></s></div><div class="meter-l"><span>'+esc(o.meterLo || '0')+'</span><span>'+esc(o.refLabel)+'</span></div>' : '';
+  return '<article class="rc glass"><div class="rc-art">'+scene(o.art, u)+'</div><div class="rc-in">'+
+    '<header class="rc-h"><span class="rc-n">'+n+'</span><span class="rc-div"></span><div><div class="rc-code">'+esc(o.code)+'</div><div class="rc-name">'+esc(o.name)+'</div></div></header>'+
+    '<div class="rc-val"><span class="rc-ic">'+ic(o.icon)+'</span><div><div class="rc-num"><b>'+o.valText+'</b><span>'+esc(o.unit)+'</span></div><div class="rc-at"><span>'+esc(o.at || '')+'</span>'+(o.trend || '')+'</div></div></div>'+
+    '<div class="rc-meter">'+meter+(o.pill ? '<div class="pill">'+esc(o.pill)+'</div>' : '')+'<div class="rc-cap">'+esc(o.cap || '')+'</div></div>'+
+    '<ul class="rc-facts">'+o.facts.map(f => '<li>'+ic(f[0])+'<span>'+f[1]+'</span></li>').join('')+'</ul>'+
+    '<footer class="rc-f">'+chip(o.lvl, o.lvlText)+'<span class="eta">'+ic('clock')+esc(o.eta || '')+'</span><button type="button" class="go" data-go="'+o.go+'">ดูกราฟเพิ่มเติม '+ic('arrow')+'</button></footer></div></article>';
+}
+function renderRoute(sig){
+  cardSeq = 0;
+  const lvlOf = k => (sig.find(s => s.key === k) || {lvl:'n'}).lvl;
+  const F = (i, t) => t ? [i, t] : null;
+  const cards = [];
+  const c2 = cur('c2'), below = latestReading('c2_below');
+  cards.push(routeCard('01', {code:'C.2', name:'นครสวรรค์ · น้ำเหนือรวม ปิง วัง ยม น่าน', unit:'ลบ.ม./วิ', art:'river', icon:'drop', go:'c2',
+    valText: c2 ? fmt(c2.v) : '–', at: c2 ? c2.at : 'ไม่มีข้อมูล', trend: trendWord('c2'), meterVal: c2 ? c2.v : 0, ref:Y54.c2_same, refLabel:'ปี 54 = 4,254',
+    pill: c2 ? Math.round(c2.v / Y54.c2_same * 100)+'% ของปี 54' : '', cap:'vs 26 Sep 2011',
+    facts:[ below ? F('level', below.v >= 0 ? 'ต่ำกว่าตลิ่ง <b>'+fmt(below.v, 2)+' ม.</b> ('+esc(thD(below.date))+')' : '<b>ล้นตลิ่ง '+fmt(-below.v, 2)+' ม.</b> ('+esc(thD(below.date))+')') : null,
+      F('trend', deltaText('c2', 0, 'ลบ.ม./วิ')), F('info', same54Text())].filter(Boolean),
+    lvl:lvlOf('c2'), eta:'ถึงนนทบุรี ~3 วัน'}));
+  const c13 = cur('c13'), up = cur('c13_up');
+  cards.push(routeCard('02', {code:'C.13', name:'เขื่อนเจ้าพระยา ชัยนาท · ระบายท้ายเขื่อน', unit:'ลบ.ม./วิ', art:'dam', icon:'dam', go:'c13',
+    valText: c13 ? fmt(c13.v) : '–', at: c13 ? c13.at : 'ไม่มีข้อมูล', trend: trendWord('c13'), meterVal: c13 ? c13.v : 0, ref:Y54.c13_same, refLabel:'ปี 54 = 3,697',
+    pill: c13 ? Math.round(c13.v / Y54.c13_same * 100)+'% ของปี 54' : '', cap:'vs 26 Sep 2011',
+    facts:[ (c13 && c13.plan && c13.plan > c13.v) ? F('trend', 'แผนเพิ่มเป็น <b>'+fmt(c13.plan)+' ลบ.ม./วิ</b> '+esc(c13.planAt || '')+' ('+Math.round(c13.plan / Y54.c13_same * 100)+'% ของปี 54)') : null,
+      up ? F('level', 'ระดับน้ำเหนือเขื่อน <b>+'+fmt(up.v, 2)+' ม.รทก.</b> เกณฑ์ควบคุม +18.00') : null,
+      F('info', 'กนช. เห็นชอบกรอบระบาย 2,000–2,500 กรมชลฯ พยายามคุมไม่เกิน 2,200')].filter(Boolean),
+    lvl:lvlOf('c13'), eta:'ถึงนนทบุรี ~2–2.5 วัน'}));
+  const pk = cur('pasak_pct'), r6 = cur('rama6');
+  cards.push(routeCard('03', {code:'ป่าสัก', name:'เขื่อนป่าสักชลสิทธิ์ → เขื่อนพระรามหก', unit:'% ความจุ', art:'lake', icon:'lake', go:'rama6',
+    valText: pk ? fmt(pk.v, 1)+'%' : '–', at: pk ? pk.at : 'ไม่มีข้อมูล', trend: trendWord('pasak_pct'), meterVal: pk ? pk.v : 0, ref:Y54.dams.pasak_pct, refLabel:'ปี 54 = 132%',
+    pill: pk ? 'ปี 54: 132%' : '', cap:'storage vs 26 Sep 2011',
+    facts:[ r6 ? F('drop', 'ท้ายเขื่อนพระรามหก <b>'+fmt(r6.v)+' ลบ.ม./วิ</b> ('+esc(r6.at)+')') : null,
+      (S && S.live && S.live.rama6 && S.live.rama6.note) ? F('trend', esc(S.live.rama6.note)) : null,
+      F('info', 'ตัวชี้วัดเดียวที่ใกล้ปี 54 เขื่อนเกินความจุต้องเร่งระบาย น้ำลงเจ้าพระยาที่อยุธยา')].filter(Boolean),
+    lvl:lvlOf('pasak_pct'), eta:'ถึงนนทบุรี ~1.5 วัน'}));
+  const c29 = cur('c29b');
+  cards.push(routeCard('04', {code:'C.29B', name:'สามโคก ปทุมธานี · เหนือนนทบุรี', unit:'ลบ.ม./วิ', art:'city', icon:'river', go:'c29b',
+    valText: c29 ? fmt(c29.v) : '–', at: c29 ? c29.at : 'ไม่มีข้อมูล', trend: trendWord('c29b'), meterVal: c29 ? c29.v : 0, ref:Y54.bangsai_peak, refLabel:'พีคปี 54 = 3,860',
+    pill: c29 ? Math.round(c29.v / Y54.bangsai_peak * 100)+'% ของพีคปี 54' : '', cap:'vs 2011 peak',
+    facts:[ F('info', 'กรมชลฯ: เกิน <b>2,500</b> พื้นที่นอกคันกั้นน้ำนนทบุรีเริ่มท่วม · เกิน <b>3,500</b> กระทบ กทม. (อ้างในข่าว)'), F('trend', deltaText('c29b', 0, 'ลบ.ม./วิ'))].filter(Boolean),
+    lvl:lvlOf('c29b'), eta:'ถึงนนทบุรี ~1 วัน'}));
+  const cp = cur('cpy014'), pp = cur('phraphimon');
+  const rank = {r:3, y:2, g:1, n:0};
+  cards.push(routeCard('05', {code:'ใกล้บ้าน', name:'เจ้าพระยา สะพานนวลฉวี · คลองพระพิมล', unit:'ม.รทก.', art:'home', icon:'home', go:'cpy014',
+    valText: cp ? fmt(cp.v, 2) : '–', at: cp ? cp.at : 'ไม่มีข้อมูล', trend: trendWord('cpy014'), meterVal: cp ? cp.v - 1 : 0, ref:Y54.pakkret - 1, meterLo:'1.00', refLabel:'ปี 54 = 3.38',
+    pill: cp ? (cp.v < Y54.pakkret ? 'ต่ำกว่าปี 54 '+fmt(Y54.pakkret - cp.v, 2)+' ม.' : 'สูงกว่าปี 54') : '', cap:'below 2011 record',
+    facts:[ cp ? F('level', cp.v >= 2.5 ? 'แตะหรือเกินตลิ่ง <b>2.50</b> ในช่วงน้ำขึ้น' : 'ต่ำกว่าตลิ่ง 2.50 อยู่ '+fmt(2.5 - cp.v, 2)+' ม.') : null,
+      pp ? F('river', 'คลองพระพิมล (ไทรน้อย) <b>'+fmt(pp.v, 2)+'</b> ต่ำกว่าตลิ่ง '+fmt(4.05 - pp.v, 2)+' ม.') : null,
+      F('info', 'สถิติปี 54 ที่ปากเกร็ด 3.38 เป็นตัวเลขจากข่าว')].filter(Boolean),
+    lvl: rank[lvlOf('cpy014')] >= rank[lvlOf('phraphimon')] ? lvlOf('cpy014') : lvlOf('phraphimon'), eta:'น้ำขึ้นสูงสุดช่วงน้ำทะเลหนุน'}));
+  $('#route').innerHTML = cards.join('');
+}
+
+/* Gantt: overbank / flooded durations */
+function renderGantt(){
+  const el = $('#gantt'); const W = Math.max(300, el.clientWidth || 600);
+  const narrow = W < 640, labelW = narrow ? 0 : 214;
+  const m = {l:labelW + 6, r:56, t:30, b:12};
+  const X = d => m.l + d / SEASON_DAYS * (W - m.l - m.r);
+  const today = asOf(), tMD = today.slice(5), tIdx = dayIdx(tMD);
+  const rows = [];
+  rows.push({head:'ปี 2554'});
+  OVER54.forEach(o => rows.push(Object.assign({y:'54'}, o)));
+  rows.push({head:'ปี 2569 · ถึง '+thD(today)});
+  const below = latestReading('c2_below'), c2d = c2OverDays();
+  if(c2d > 0){ rows.push({y:'69', label:'C.2 นครสวรรค์ ล้นตลิ่ง', a:addDays(today, -(c2d-1)).slice(5), b:tMD, days:c2d}); }
+  else rows.push({y:'69', label:'C.2 นครสวรรค์ ล้นตลิ่ง', none:true, text: below ? 'ยังไม่ล้น · ต่ำกว่าตลิ่ง '+fmt(below.v,2)+' ม.' : 'ยังไม่มีข้อมูลตลิ่ง'});
+  const ps = runStart('pasak_pct', v => v > 100);
+  if(ps) rows.push({y:'69', label:'เขื่อนป่าสักชลสิทธิ์ เกินความจุ', a:ps.slice(5), b:tMD, days:diffDays(ps, today)+1});
+  else rows.push({y:'69', label:'เขื่อนป่าสักชลสิทธิ์ เกินความจุ', none:true, text:'ยังไม่เกิน 100%'});
+  const fs = S && S.local && isISO(S.local.flood_since) ? S.local.flood_since : null;
+  if(fs) rows.push({y:'69', label:'บางบัวทองน้ำท่วมขัง', a:fs.slice(5), b:tMD, days:diffDays(fs, today)+1});
+  const rowH = narrow ? 44 : 30, headH = 26;
+  let y = m.t, body = '';
+  rows.forEach(r => {
+    if(r.head){ body += '<text x="0" y="'+(y+17)+'" font-size="12.5" font-weight="700" fill="var(--navy)" font-family="var(--body)">'+esc(r.head)+'</text>'; y += headH; return; }
+    const by = narrow ? y + 20 : y + 9;
+    const lab = '<text x="'+(narrow ? m.l : 0)+'" y="'+(narrow ? y + 13 : y + 19)+'" font-size="13" fill="var(--ink-2)" font-family="var(--body)" paint-order="stroke" stroke="var(--card)" stroke-width="4" stroke-linejoin="round">'+esc(r.label)+'</text>';
+    body += lab;
+    if(r.none){
+      body += '<text x="'+(X(Math.min(tIdx, SEASON_DAYS - 40) + 1) + 6)+'" y="'+(by+10)+'" font-size="12" fill="var(--muted)" font-family="var(--body)">'+esc(r.text)+'</text>';
+    } else {
+      const a = dayIdx(r.a), b = dayIdx(r.b) + 1, col = r.y === '54' ? 'var(--ref)' : 'var(--mark)';
+      const x1 = X(a), x2 = X(b);
+      if(r.open){
+        body += '<defs><linearGradient id="fade" x1="0" x2="1"><stop offset="0" stop-color="var(--ref)" stop-opacity=".9"/><stop offset="1" stop-color="var(--ref)" stop-opacity="0"/></linearGradient></defs>';
+        body += '<rect x="'+x2+'" y="'+by+'" width="'+(X(Math.min(SEASON_DAYS, b + 24)) - x2)+'" height="12" fill="url(#fade)"/>';
+      }
+      body += '<rect x="'+x1+'" y="'+by+'" width="'+Math.max(3, x2 - x1)+'" height="12" rx="3" fill="'+col+'"/>';
+      const txt = r.text || (r.days + ' วัน');
+      const tx = r.open ? X(Math.min(SEASON_DAYS, b + 24)) + 4 : x2 + 6;
+      const fits = tx + 60 < W;
+      body += '<text x="'+(fits ? tx : x1 - 6)+'" y="'+(by+10.5)+'" font-size="12.5" font-weight="600" text-anchor="'+(fits ? 'start' : 'end')+'" fill="var(--ink)" font-family="var(--body)">'+esc(txt)+'</text>';
+      const tipH = '<b>'+esc(r.label)+' · ปี '+(r.y === '54' ? '2554' : '2569')+'</b><br>'+esc(thD((r.y === '54' ? '2011-' : '2026-')+r.a))+' – '+(r.open ? esc(thD('2011-'+r.b))+' และท่วมต่อ' : esc(thD((r.y === '54' ? '2011-' : '2026-')+r.b)))+'<br>'+esc(txt);
+      body += '<rect class="hit" x="'+x1+'" y="'+(by-8)+'" width="'+Math.max(16, x2 - x1)+'" height="28" fill="transparent" tabindex="0" data-tip="'+esc(tipH)+'"/>';
+    }
+    y += rowH;
+  });
+  const H = y + m.b;
+  // month grid + labels
+  let grid = '';
+  [['ก.ย.',0],['ต.ค.',30],['พ.ย.',61],['ธ.ค.',91]].forEach(p => {
+    grid += '<line x1="'+X(p[1])+'" x2="'+X(p[1])+'" y1="'+(m.t-6)+'" y2="'+(H-m.b)+'" stroke="var(--grid)"/><text x="'+(X(p[1])+4)+'" y="'+(m.t-12)+'" font-size="11.5" fill="var(--muted)" font-family="var(--body)">'+p[0]+'</text>';
+  });
+  // watch window band
+  let band = '';
+  if(S && S.watch_from && S.watch_to && isISO(S.watch_from) && isISO(S.watch_to)){
+    const a = dayIdx(S.watch_from.slice(5)), b = dayIdx(S.watch_to.slice(5)) + 1;
+    band = '<rect x="'+X(a)+'" y="'+(m.t-6)+'" width="'+(X(b)-X(a))+'" height="'+(H-m.b-m.t+6)+'" fill="var(--watch)"/>';
+  }
+  const tx = X(tIdx + 0.5);
+  const todayL = '<line x1="'+tx+'" x2="'+tx+'" y1="'+(m.t-22)+'" y2="'+(H-m.b)+'" stroke="var(--ink)" stroke-width="1.5"/>'+
+    '<text x="'+(tx+5)+'" y="'+(m.t-24)+'" font-size="11.5" font-weight="700" fill="var(--ink)" font-family="var(--body)">วันนี้ '+esc(thD(today))+'</text>';
+  el.innerHTML = '<svg viewBox="0 -18 '+W+' '+(H+18)+'" width="'+W+'" height="'+(H+18)+'" role="img" aria-label="แผนภูมิระยะเวลาล้นตลิ่ง ปี 2554 เทียบ 2569">'+band+grid+todayL+body+'</svg>';
+
+  // counters for "same day" comparison
+  const same = OVER54.slice(0,3).map(o => { const a = dayIdx(o.a), b = dayIdx(o.b); const n = tIdx < a ? 0 : Math.min(tIdx, b) - a + 1; return {l:o.label.split(' ')[0]+(o.label.includes('ป่าสัก') ? ' ป่าสัก' : ''), n}; });
+  const psDays = ps ? diffDays(ps, today) + 1 : 0, fsDays = fs ? diffDays(fs, today) + 1 : 0;
+  $('#durTiles').innerHTML =
+    '<div class="tile"><div class="caps">ณ '+esc(thD(today))+' ปี 54</div><div class="v">'+same[0].n+'<small>วัน ที่ C.2 ล้นตลิ่งมาแล้ว</small></div><p>C.13 เขื่อนเจ้าพระยาล้นมาแล้ว '+same[1].n+' วัน · เขื่อนป่าสักฯ เกินความจุ '+same[2].n+' วัน</p></div>'+
+    '<div class="tile now"><div class="caps">ปี 69 ถึงวันนี้</div><div class="v">'+c2d+'<small>วัน ที่ C.2 ล้นตลิ่ง</small></div><p>เขื่อนป่าสักฯ เกินความจุ '+psDays+' วัน'+(fs ? ' · บางบัวทองน้ำท่วมขัง '+fsDays+' วัน (จากฝนหนักและน้ำเจ้าพระยาสูง)' : '')+'</p></div>';
+}
+
+function barRows(items, max){
+  return items.map(it => {
+    const w = Math.max(0.5, it.v / max * 100);
+    const inside = w > 78;
+    return '<div class="bar'+(it.now ? ' now' : '')+'"><span class="lab">'+esc(it.l)+'</span><span class="track hit" tabindex="0" data-tip="'+esc('<b>'+it.l+'</b><br>'+fmt(it.v)+' '+(it.u || '')+(it.t ? '<br>'+it.t : ''))+'"><span class="fill" style="width:'+w.toFixed(1)+'%"></span><span class="val'+(inside ? ' in' : '')+'" style="left:'+w.toFixed(1)+'%">'+fmt(it.v)+'</span></span></div>';
+  }).join('');
+}
+function sevenDay(){
+  const pts = R.filter(r => num(r.c2) != null);
+  if(!pts.length) return null;
+  const end = pts[pts.length-1].date, start = addDays(end, -6);
+  const inWin = pts.filter(p => p.date >= start);
+  if(inWin.length < 3) return null;
+  // linear interpolation for missing calendar days inside the known range
+  const first = inWin[0].date; let vals = [];
+  for(let d = first; d <= end; d = addDays(d, 1)){
+    const hit = pts.find(p => p.date === d);
+    if(hit){ vals.push(hit.c2); continue; }
+    const prev = [...pts].reverse().find(p => p.date < d), next = pts.find(p => p.date > d);
+    if(prev && next){ const t = diffDays(prev.date, d) / diffDays(prev.date, next.date); vals.push(prev.c2 + (next.c2 - prev.c2) * t); }
+  }
+  const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
+  return {mean, days:vals.length, vol:vals.reduce((a, b) => a + b, 0) * 0.0864, from:first, to:end, measured:inWin.length};
+}
+function renderVolume(){
+  const s7 = sevenDay();
+  const items = [
+    {l:'ก.ย. ปีปกติ (เฉลี่ย 30 ปี)', v:NORMAL.c2_sep, u:'ลบ.ม./วิ', t:'ค่าเฉลี่ยรายเดือน 2539–2568 · กรมชลฯ'},
+    {l:'ต.ค. ปีปกติ', v:NORMAL.c2_oct, u:'ลบ.ม./วิ', t:'ค่าเฉลี่ยรายเดือน 2539–2568 · กรมชลฯ'},
+    {l:'ก.ย. ปี 54', v:Y54.c2_sep, u:'ลบ.ม./วิ', t:'คำนวณจากปริมาณรายเดือนของกรมชลฯ'},
+    {l:'ต.ค. ปี 54', v:Y54.c2_oct, u:'ลบ.ม./วิ', t:'คำนวณจากปริมาณรายเดือนของกรมชลฯ'}
+  ];
+  if(s7) items.push({l:s7.days+' วันล่าสุด ปี 69', v:Math.round(s7.mean), u:'ลบ.ม./วิ', now:true, t:thD(s7.from)+' – '+thD(s7.to)+' · วัดจริง '+s7.measured+' วัน ที่เหลือประมาณเส้นตรง'});
+  $('#flowBars').innerHTML = barRows(items, 4700);
+  const v54 = s7 ? Y54.c2_sep * s7.days * 0.0864 : null;
+  $('#volTiles').innerHTML = s7 ?
+    '<div class="tile now"><div class="caps">น้ำผ่าน C.2 · '+s7.days+' วันล่าสุด</div><div class="v">'+fmt(s7.vol)+'<small>ล้าน ลบ.ม.</small></div><p>'+esc(thD(s7.from))+' – '+esc(thD(s7.to))+' · สูงกว่า ก.ย. ปีปกติ '+Math.round((s7.mean / NORMAL.c2_sep - 1) * 100)+'%</p></div>'+
+    '<div class="tile"><div class="caps">ช่วงเดียวกันปี 54</div><div class="v">~'+fmt(v54)+'<small>ล้าน ลบ.ม.</small></div><p>คิดจากค่าเฉลี่ย ก.ย. 54 · ปีนี้ราว '+Math.round(s7.vol / v54 * 100)+'% ของปี 54</p></div>'
+    : '<div class="empty" style="grid-column:1/-1">ต้องมีค่า C.2 อย่างน้อย 3 วันเพื่อคำนวณน้ำสะสม</div>';
+  $('#yearBars').innerHTML = barRows([
+    {l:'ปีปกติ (เฉลี่ย 30 ปี)', v:NORMAL.c2_year, u:'ล้าน ลบ.ม.', t:'2539–2568 · กรมชลฯ'},
+    {l:'ปี 68', v:Y68.c2_year, u:'ล้าน ลบ.ม.', t:'สูงเป็นอันดับ 2 ในรอบ 30 ปี · กรมชลฯ'},
+    {l:'ปี 54', v:Y54.c2_year, u:'ล้าน ลบ.ม.', t:'2.3 เท่าของปีปกติ · กรมชลฯ (สสน. ให้ 48,615 แบบปีปฏิทิน)'}
+  ], 56000) + '<p class="small muted" style="margin-top:2px">ปี 69 ยังไม่มีตัวเลขสะสมทั้งปีทางการ แอพสะสมจากค่ารายวันที่บันทึก</p>';
+}
+function renderDams(){
+  const rows = [
+    {k:'bhumibol_pct', l:'ภูมิพล', y54:Y54.dams.bhumibol},
+    {k:'sirikit_pct', l:'สิริกิติ์', y54:Y54.dams.sirikit},
+    {k:'kwaenoi_pct', l:'แควน้อยบำรุงแดน', y54:Y54.dams.kwaenoi},
+    {k:'pasak_pct', l:'ป่าสักชลสิทธิ์', y54:Y54.dams.pasak_pct}
+  ];
+  const max = 140, P = v => (Math.min(max, Math.max(0, v)) / max * 100).toFixed(2)+'%';
+  let h = '';
+  rows.forEach(r => {
+    const c = cur(r.k); const now = c ? c.v : null;
+    const lo = now == null ? r.y54 : Math.min(now, r.y54), hi = now == null ? r.y54 : Math.max(now, r.y54);
+    const tipH = '<b>'+esc(r.l)+'</b><br>ปี 54 (26 ก.ย.): '+r.y54+'%<br>ปี 69: '+(now == null ? 'ไม่มีข้อมูล' : fmt(now, 1)+'% · '+esc(c.at));
+    h += '<div class="db-row"><span class="db-l">'+esc(r.l)+(now != null ? '<b class="tnum">'+fmt(now, 0)+'%</b>' : '')+'</span><div class="db-track hit" tabindex="0" data-tip="'+esc(tipH)+'"><span class="axis"></span><span class="full" style="left:'+P(100)+'"></span>'+
+      '<span class="link" style="left:'+P(lo)+';width:calc('+P(hi)+' - '+P(lo)+')"></span><span class="pt y54" style="left:'+P(r.y54)+'"></span>'+(now != null ? '<span class="pt now" style="left:'+P(now)+'"></span>' : '')+'</div></div>';
+  });
+  h += '<div class="db-scale"><span></span><div><span style="left:0;transform:none">0</span><span style="left:'+P(50)+'">50</span><span style="left:'+P(100)+'">100%</span><span style="left:100%;transform:translateX(-100%)">140</span></div></div>';
+  $('#dams').innerHTML = h;
+  const room = cur('bs_room');
+  $('#roomTiles').innerHTML =
+    '<div class="tile now"><div class="caps">ภูมิพล+สิริกิติ์ รับได้อีก · ปี 69</div><div class="v">'+(room ? fmt(room.v) : '–')+'<small>ล้าน ลบ.ม.</small></div><p>'+(room ? esc(room.at) : 'ไม่มีข้อมูล')+'</p></div>'+
+    '<div class="tile"><div class="caps">ช่วงเดียวกันปี 54</div><div class="v">'+fmt(Y54.bs_room)+'<small>ล้าน ลบ.ม.</small></div><p>'+(room ? 'ปีนี้มีที่พักน้ำมากกว่า '+fmt(room.v / Y54.bs_room, 1)+' เท่า' : '26 ก.ย. 54')+'</p></div>';
+}
+
+/* line chart for one station */
+function niceStep(range, n){ const raw = range / n, p = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / p; return (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p; }
+function renderTrend(){
+  const cfg = STATIONS[station];
+  $('#seg').innerHTML = Object.keys(STATIONS).map(k => '<button type="button" data-st="'+k+'" aria-pressed="'+(k === station)+'">'+esc(STATIONS[k].tab)+'</button>').join('');
+  const pts = R.filter(r => num(r[station]) != null).map(r => ({date:r.date, v:r[station], src:r.src}));
+  const plans = ((S && S.plans && S.plans[station]) || []).filter(p => isISO(p.date) && num(p.v) != null && (!pts.length || p.date > pts[pts.length-1].date));
+  const el = $('#trend');
+  if(!pts.length){ el.innerHTML = '<div class="empty">ยังไม่มีค่ารายวันของสถานีนี้</div>'; $('#trendNote').textContent = cfg.note; return; }
+  const first = pts[0].date, last = plans.length ? plans[plans.length-1].date : pts[pts.length-1].date;
+  const nDays = diffDays(first, last) + 1;
+  const W = Math.max(300, el.clientWidth || 600), H = W < 560 ? 250 : 290;
+  const m = {t:18, r:18, b:34, l:48};
+  const all = pts.map(p => p.v).concat(plans.map(p => p.v)).concat(cfg.refs.map(r => r.v));
+  let lo = cfg.zero ? 0 : (cfg.yMin != null ? cfg.yMin : Math.min.apply(null, all) - 0.2);
+  let hiRaw = cfg.yMax != null ? Math.max(cfg.yMax, Math.max.apply(null, all) + 0.1) : Math.max.apply(null, all) * 1.08;
+  const step = niceStep(hiRaw - lo, 4); const hi = Math.ceil(hiRaw / step) * step;
+  const X = d => m.l + (diffDays(first, d) + 0.5) * (W - m.l - m.r) / nDays;
+  const Yv = v => m.t + (1 - (v - lo) / (hi - lo)) * (H - m.t - m.b);
+  let g = '';
+  for(let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step){
+    g += '<line x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+Yv(v)+'" y2="'+Yv(v)+'" stroke="var(--grid)"/><text x="'+(m.l-8)+'" y="'+(Yv(v)+4)+'" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--body)" class="tnum">'+fmt(v, cfg.dec)+'</text>';
+  }
+  cfg.refs.forEach(r => {
+    if(r.v < lo || r.v > hi) return;
+    g += '<line x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+Yv(r.v)+'" y2="'+Yv(r.v)+'" stroke="var(--ref-ink)" stroke-dasharray="5 4"/>'+
+      '<text x="'+(W-m.r)+'" y="'+(Yv(r.v)-5)+'" text-anchor="end" font-size="11" fill="var(--ref-ink)" font-family="var(--body)" paint-order="stroke" stroke="var(--card)" stroke-width="4">'+esc(r.l)+'</text>';
+  });
+  const bandPx = (W - m.l - m.r) / nDays, shortLab = bandPx < 52;
+  const every = Math.max(1, Math.ceil((shortLab ? 26 : 50) / bandPx));
+  let lastMonth = -1;
+  for(let i = 0; i < nDays; i++){ if(i % every) continue; const d = addDays(first, i); const dt = parseD(d);
+    const lab = (!shortLab || dt.getUTCMonth() !== lastMonth) ? thD(d) : String(dt.getUTCDate()); lastMonth = dt.getUTCMonth();
+    g += '<text x="'+X(d)+'" y="'+(H-12)+'" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="var(--body)">'+esc(lab)+'</text>'; }
+  const path = pts.map((p, i) => (i ? 'L' : 'M')+X(p.date).toFixed(1)+' '+Yv(p.v).toFixed(1)).join(' ');
+  let area = '';
+  if(cfg.zero){ area = '<path d="'+path+' L'+X(pts[pts.length-1].date).toFixed(1)+' '+Yv(lo)+' L'+X(pts[0].date).toFixed(1)+' '+Yv(lo)+' Z" fill="var(--mark-wash)"/>'; }
+  let planG = '';
+  if(plans.length){
+    const lp = pts[pts.length-1];
+    planG = '<path d="M'+X(lp.date)+' '+Yv(lp.v)+' '+plans.map(p => 'L'+X(p.date)+' '+Yv(p.v)).join(' ')+'" fill="none" stroke="var(--mark)" stroke-width="2" stroke-dasharray="4 4"/>'+
+      plans.map(p => '<circle cx="'+X(p.date)+'" cy="'+Yv(p.v)+'" r="5" fill="var(--card)" stroke="var(--mark)" stroke-width="2"/>').join('');
+    const lpl = plans[plans.length-1];
+    planG += '<text x="'+X(lpl.date)+'" y="'+(Yv(lpl.v)-12)+'" text-anchor="middle" font-size="12" font-weight="600" fill="var(--ink)" font-family="var(--body)" paint-order="stroke" stroke="var(--card)" stroke-width="4">แผน '+fmt(lpl.v, cfg.dec)+'</text>';
+  }
+  const dots = pts.map(p => '<circle cx="'+X(p.date)+'" cy="'+Yv(p.v)+'" r="4.5" fill="var(--mark)" stroke="var(--card)" stroke-width="2"/>').join('');
+  const lp = pts[pts.length-1];
+  const endL = '<text x="'+X(lp.date)+'" y="'+(Yv(lp.v)-12)+'" text-anchor="'+(plans.length ? 'end' : 'middle')+'" font-size="13" font-weight="700" fill="var(--ink)" font-family="var(--body)" paint-order="stroke" stroke="var(--card)" stroke-width="4">'+fmt(lp.v, cfg.dec)+'</text>';
+  const band = (W - m.l - m.r) / nDays;
+  let hits = '';
+  for(let i = 0; i < nDays; i++){
+    const d = addDays(first, i); const p = pts.find(q => q.date === d); const pl = plans.find(q => q.date === d);
+    if(!p && !pl) continue;
+    const tipH = '<b>'+esc(thD(d, true))+'</b><br>'+(p ? fmt(p.v, cfg.dec)+' '+esc(cfg.unit)+(p.src ? '<br><span style="opacity:.8">'+esc(p.src)+'</span>' : '') : 'แผน '+fmt(pl.v, cfg.dec)+' '+esc(cfg.unit)+' (ประกาศล่วงหน้า)');
+    hits += '<rect class="hit" x="'+(X(d) - band/2)+'" y="'+m.t+'" width="'+band+'" height="'+(H - m.t - m.b)+'" fill="transparent" tabindex="0" data-tip="'+esc(tipH)+'"/>';
+  }
+  el.innerHTML = '<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" role="img" aria-label="'+esc(cfg.tab)+' รายวัน">'+g+area+'<path d="'+path+'" fill="none" stroke="var(--mark)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>'+planG+dots+endL+hits+'</svg>';
+  $('#trendNote').textContent = cfg.unit+' · '+cfg.note;
+}
+
+function renderSignals(sig){
+  $('#sigList').innerHTML = sig.map(s => {
+    const th = s.flag ? (s.level === 'x' ? '<b>ประกาศ</b> = อพยพทันที' : '<b>ใช่</b> = เหลือง') :
+      (s.dir === 'down' ? 'เหลือง ≤ <b>'+fmt(s.y, s.dec)+'</b> · แดง ≤ <b>'+fmt(s.r, s.dec)+'</b>' : 'เหลือง ≥ <b>'+fmt(s.y, s.dec)+'</b> · แดง ≥ <b>'+fmt(s.r, s.dec)+'</b>')+'<br>'+esc(s.unit);
+    return '<li><span class="c1">'+chip(s.lvl)+'</span><div><div class="nm">'+esc(s.name)+'</div><div class="why">'+esc(s.why)+'</div></div>'+
+      '<div class="now tnum">'+esc(s.disp)+'<small>'+esc(s.sub || '')+'</small></div><div class="th">'+th+'</div></li>';
+  }).join('');
+}
+const KIND = {official:'ทางการ', news:'ข่าวอ้างหน่วยงาน', est:'ประมาณการ', forecast:'พยากรณ์'};
+function renderAhead(){
+  const up = (S && Array.isArray(S.upcoming)) ? S.upcoming : [];
+  $('#ahead').innerHTML = up.length ? up.map(u => '<li><span class="when">'+esc(u.when)+'</span><span>'+esc(u.what)+(KIND[u.kind] ? '<span class="tag">'+KIND[u.kind]+'</span>' : '')+'</span></li>').join('') : '<li><span></span><span class="muted">ยังไม่มีรายการ</span></li>';
+  $('#chain').innerHTML = TRAVEL.map(t => t.hop ? '<li class="hop">'+esc(t.hop)+'</li>' : '<li class="node'+(t.home ? ' home' : '')+'"><b>'+esc(t.name)+'</b><span>'+esc(t.sub)+'</span></li>').join('');
+  const today = asOf();
+  $('#arrive').innerHTML = 'น้ำที่ผ่านนครสวรรค์วันนี้ ('+esc(thD(today))+') จะมาถึงแม่น้ำช่วงนนทบุรีราว <b>'+esc(thD(addDays(today, 3)))+' – '+esc(thD(addDays(today, 4)))+'</b> รวมราว 3–3.5 วัน ใช้เป็นเวลาเตรียมตัวล่วงหน้า';
+}
+function renderLocal(){
+  const L = S && S.local;
+  const contacts = (S && Array.isArray(S.contacts) && S.contacts.length) ? S.contacts : [{label:'สายด่วน ปภ.', value:'1784'},{label:'LINE ปภ.', value:'@1784DDPM'},{label:'สายด่วนกรมชลประทาน', value:'1460'}];
+  let h = '<h2>บางบัวทองตอนนี้</h2>';
+  if(L){
+    h += '<p style="margin-top:8px;font-weight:600">'+esc(L.title)+'</p>';
+    if(Array.isArray(L.tambons)) h += '<div class="tambons">'+L.tambons.map(t => '<span>'+esc(t)+'</span>').join('')+'</div>';
+    if(L.cause) h += '<p class="small" style="margin-top:10px;color:var(--ink-2)">'+esc(L.cause)+'</p>';
+    if(Array.isArray(L.points)) h += '<ul class="bul">'+L.points.map(p => '<li>'+esc(p)+'</li>').join('')+'</ul>';
+    if(Array.isArray(L.links)) h += '<p class="small" style="margin-top:8px">'+L.links.map(l => { const u = safeUrl(l.url); return u ? '<a href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(l.label)+'</a>' : ''; }).join(' · ')+'</p>';
+  } else h += '<div class="empty" style="margin-top:12px">ยังไม่มีสถานะพื้นที่</div>';
+  h += '<div class="contacts">'+contacts.map((c, i) => '<div class="ct"><span class="caps">'+esc(c.label)+'</span><span class="v" id="ct'+i+'">'+esc(c.value)+'</span><button type="button" data-copy="ct'+i+'">คัดลอก</button></div>').join('')+'</div>';
+  $('#local').innerHTML = h;
+  const al = (S && Array.isArray(S.alerts)) ? S.alerts : [];
+  $('#alerts').innerHTML = al.length ? al.map(a => { const u = safeUrl(a.url); return '<li><div class="d">'+esc(a.date)+'</div><div class="t">'+esc(a.title)+'</div>'+(a.detail ? '<div class="x">'+esc(a.detail)+'</div>' : '')+'<div class="s">'+(u ? '<a href="'+esc(u)+'" target="_blank" rel="noopener">'+esc(a.src || 'แหล่งข่าว')+'</a>' : esc(a.src || ''))+'</div></li>'; }).join('') : '<li class="muted">ยังไม่มีประกาศ</li>';
+}
+function renderY54(){
+  const li = t => '<li class="'+(t.local ? 'local' : '')+'"><span class="when">'+esc(t.d)+'</span><span><span class="txt">'+esc(t.t)+'</span><span class="tag'+(t.local ? ' local' : '')+'">'+esc(t.tag)+'</span></span></li>';
+  const half = Math.ceil(Y54_TL.length / 2);
+  $('#y54a').innerHTML = Y54_TL.slice(0, half).map(li).join('');
+  $('#y54b').innerHTML = Y54_TL.slice(half).map(li).join('');
+  const c2d = c2OverDays();
+  $('#lesson').innerHTML = '<b>บทเรียนจากปี 54:</b> บางบัวทองเริ่มท่วมหนักหลัง C.2 ล้นตลิ่งต่อเนื่องราว 3–5 สัปดาห์ ขณะที่เขื่อนหลักเต็มเกือบ 100% ปีนี้ C.2 '+(c2d ? 'ล้นตลิ่งมาแล้ว '+c2d+' วัน' : 'ยังไม่ล้นตลิ่ง')+' น้ำท่วมขังที่บางบัวทองตอนนี้มาจากฝนหนักในพื้นที่และระดับเจ้าพระยาที่สูง ซึ่งต่างจากกลไกของปี 54';
+}
+const COLS = [['date','วันที่'],['c2','C.2'],['c2_below','C.2 ต่ำกว่าตลิ่ง (ม.)'],['c13','C.13'],['c13_up','เหนือเขื่อน (ม.รทก.)'],['rama6','พระรามหก'],['c29b','C.29B'],['pasak_pct','ป่าสัก %'],['bhumibol_pct','ภูมิพล %'],['sirikit_pct','สิริกิติ์ %'],['bs_room','รับได้อีก'],['cpy014','นวลฉวี'],['phraphimon','พระพิมล'],['src','ที่มา']];
+const DEC = {c2_below:2, c13_up:2, pasak_pct:1, bhumibol_pct:0, sirikit_pct:0, kwaenoi_pct:0, cpy014:2, phraphimon:2};
+function renderLog(){
+  const rows = R.slice().reverse();
+  $('#logTable').innerHTML = '<thead><tr>'+COLS.map(c => '<th scope="col">'+esc(c[1])+'</th>').join('')+'</tr></thead><tbody>'+
+    (rows.length ? rows.map(r => '<tr>'+COLS.map(c => c[0] === 'date' ? '<td>'+esc(thD(r.date, true))+'</td>' : c[0] === 'src' ? '<td class="src">'+esc(r.src || '')+'</td>' : '<td>'+(num(r[c[0]]) != null ? fmt(r[c[0]], DEC[c[0]] || 0) : '–')+'</td>').join('')+'</tr>').join('') : '<tr><td colspan="'+COLS.length+'" class="src">ยังไม่มีข้อมูลรายวัน</td></tr>')+'</tbody>';
+  $('#srcMode').textContent = mode === 'db' ? 'ข้อมูลเก็บในแอพ อัปเดตได้ทุกวัน' : mode === 'json' ? 'อ่านจาก data.json' : mode === 'none' ? 'ยังเชื่อมที่เก็บข้อมูลไม่ได้' : 'กำลังโหลด';
+  $('#entryBox').hidden = mode !== 'db' || !canWrite;
+}
+
+function renderAll(){
+  const sig = evalSignals();
+  renderBadge(); renderGauge(); renderStatus(sig); renderRoute(sig);
+  renderGantt(); renderVolume(); renderDams(); renderTrend(); renderSignals(sig);
+  renderAhead(); renderLocal(); renderY54(); renderLog();
+}
+
+/* ---------- interactions ---------- */
+$('#seg').addEventListener('click', e => { const b = e.target.closest('button[data-st]'); if(!b) return; station = b.getAttribute('data-st'); try{ localStorage.setItem('fw-station', station); }catch(_){} renderTrend(); const nb = $('#seg button[data-st="'+station+'"]'); if(nb) nb.focus(); });
+document.addEventListener('click', e => {
+  const b = e.target.closest('button[data-copy]'); if(!b) return;
+  const el = document.getElementById(b.getAttribute('data-copy')); const text = el ? el.textContent : '';
+  const done = () => { b.textContent = 'คัดลอกแล้ว'; setTimeout(() => { b.textContent = 'คัดลอก'; }, 1600); };
+  try{ navigator.clipboard.writeText(text).then(done, () => selectText(el)); }catch(_){ selectText(el); }
+});
+function selectText(el){ if(!el) return; const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+document.addEventListener('click', e => {
+  const b = e.target.closest && e.target.closest('button[data-go]'); if(!b) return;
+  const k = b.getAttribute('data-go'); if(!STATIONS[k]) return;
+  station = k; try{ localStorage.setItem('fw-station', station); }catch(_){}
+  renderTrend();
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  $('#trend-card').scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'});
+});
+try{ const s = localStorage.getItem('fw-station'); if(s && STATIONS[s]) station = s; }catch(_){}
+let rsz = null, lastW = 0;
+new ResizeObserver(() => { const w = $('#trend').clientWidth; if(Math.abs(w - lastW) < 4) return; lastW = w; clearTimeout(rsz); rsz = setTimeout(() => { renderGantt(); renderTrend(); }, 120); }).observe(document.querySelector('main'));
+
+const FIELDS = ['c2','c2_below','c13','c13_up','rama6','c29b','pasak_pct','bhumibol_pct','sirikit_pct','kwaenoi_pct','bs_room','cpy014','phraphimon'];
+$('#f-date').value = bkkToday();
+$('#entry').addEventListener('submit', async e => {
+  e.preventDefault();
+  const msg = $('#formMsg');
+  if(!dbRef){ msg.textContent = 'ยังเชื่อมที่เก็บข้อมูลไม่ได้'; return; }
+  const date = $('#f-date').value;
+  if(!isISO(date)){ msg.textContent = 'เลือกวันที่ก่อนบันทึก'; return; }
+  const existing = R.find(r => r.date === date) || {};
+  const doc = Object.assign({}, existing, {date});
+  delete doc.id;
+  FIELDS.forEach(f => { const v = $('#f-'+f).value; if(v !== '') doc[f] = Number(v); });
+  const src = $('#f-src').value.trim(); if(src) doc.src = src;
+  msg.textContent = 'กำลังบันทึก';
+  try{
+    await dbRef.doc('readings/'+date).set(doc);
+    const flags = {order:$('#f-flag-order').checked, storm:$('#f-flag-storm').checked, disaster_zone:$('#f-flag-disaster_zone').checked};
+    const cf = (S && S.flags) || {};
+    if(cf.order !== flags.order || cf.storm !== flags.storm || cf.disaster_zone !== flags.disaster_zone){
+      if(S) await dbRef.doc('status/current').update({flags});
+      else await dbRef.doc('status/current').set({flags});
+    }
+    msg.textContent = 'บันทึกแล้ว';
+  }catch(err){
+    const code = err && err.code;
+    msg.textContent = code === 'invalid_argument' ? 'บัญชีนี้ดูได้อย่างเดียว บันทึกไม่ได้' : code === 'quota_exceeded' ? 'ที่เก็บข้อมูลเต็ม ลบวันที่เก่าก่อน' : 'บันทึกไม่สำเร็จ ลองอีกครั้ง';
+  }
+});
+function syncFlagInputs(){ const f = (S && S.flags) || {}; $('#f-flag-order').checked = !!f.order; $('#f-flag-storm').checked = !!f.storm; $('#f-flag-disaster_zone').checked = !!f.disaster_zone; }
+
+/* ---------- data loading: db inside Claude, data.json when hosted elsewhere ---------- */
+async function loadJson(){
+  try{
+    const pth = location.pathname;
+    const url = (pth.endsWith('/') || /\.[a-z0-9]+$/i.test(pth)) ? 'data.json' : pth + '/data.json';
+    const r = await fetch(url, {cache:'no-store'});
+    if(r.ok){ const j = await r.json(); R = (j.readings || []).filter(x => isISO(x.date)).sort((a, b) => a.date < b.date ? -1 : 1); S = j.status || null; mode = 'json'; renderAll(); return; }
+  }catch(_){}
+  mode = 'none'; renderAll();
+}
+async function init(){
+  renderAll();
+  let db = null;
+  try{ db = (window.claude && typeof window.claude.use === 'function') ? await window.claude.use('db') : null; }catch(_){ db = null; }
+  if(!db){ loadJson(); return; }
+  dbRef = db; mode = 'db';
+  let fellBack = false;
+  db.collection('readings').onSnapshot(snap => {
+    if(fellBack) return;
+    const rows = snap.docs.map(d => Object.assign({}, d.data(), {date:(d.data() || {}).date || d.id})).filter(x => isISO(x.date)).sort((a, b) => a.date < b.date ? -1 : 1);
+    if(!rows.length && !(snap.metadata && snap.metadata.fromCache)){ fellBack = true; loadJson(); return; }
+    R = rows; renderAll();
+  }, () => { if(!fellBack){ fellBack = true; loadJson(); } });
+  (async () => { try{ const u = await window.claude.use('user'); if(u){ const c = await u.can('data.write'); if(c === false){ canWrite = false; renderAll(); } } }catch(_){} })();
+  db.doc('status/current').onSnapshot(snap => { if(fellBack) return; if(snap.exists){ S = snap.data(); syncFlagInputs(); renderAll(); } }, () => {});
+}
+init();
+})();
+</script>
+
+</body>
+</html>
