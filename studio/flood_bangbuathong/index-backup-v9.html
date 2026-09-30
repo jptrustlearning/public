@@ -954,7 +954,7 @@ function renderRoute(sig){
     pill: c13 ? Math.round(c13.v / Y54.c13_same * 100)+'% ของปี 54' : '', cap:'vs 26 Sep 2011',
     facts:[ (c13 && c13.plan && c13.plan > c13.v) ? F('trend', 'แผนเพิ่มเป็น <b>'+fmt(c13.plan)+' ลบ.ม./วิ</b> '+esc(c13.planAt || '')+' ('+Math.round(c13.plan / Y54.c13_same * 100)+'% ของปี 54)') : null,
       up ? F('level', 'ระดับน้ำเหนือเขื่อน <b>+'+fmt(up.v, 2)+' ม.รทก.</b> เกณฑ์ควบคุม +18.00') : null,
-      F('info', 'กรอบระบายที่ กนช. เห็นชอบ 2,000–2,500 ลบ.ม./วิ')].filter(Boolean),
+      F('info', 'กนช. เห็นชอบกรอบระบาย 2,000–2,500 กรมชลฯ พยายามคุมไม่เกิน 2,200')].filter(Boolean),
     lvl:lvlOf('c13'), eta:'ถึงนนทบุรี ~2–2.5 วัน'}));
   const pk = cur('pasak_pct'), r6 = cur('rama6');
   cards.push(routeCard('03', {code:'ป่าสัก', name:'เขื่อนป่าสักชลสิทธิ์ → เขื่อนพระรามหก', unit:'% ความจุ', art:'lake', icon:'lake', go:'rama6',
