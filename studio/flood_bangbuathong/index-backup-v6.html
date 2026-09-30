@@ -469,7 +469,7 @@ details.entry summary{cursor:pointer;padding:12px 14px;font-weight:600;color:var
   </section>
 
   <section class="card" id="trend-card" aria-labelledby="h-trend">
-    <div class="panel-h"><h2 id="h-trend">แนวโน้มรายวัน</h2><span class="small muted">แตะหรือชี้ที่จุดเพื่อดูค่า · จุดโปร่งคือแผนหรือค่าคาดการณ์ที่กรมชลฯ ประกาศ</span></div>
+    <div class="panel-h"><h2 id="h-trend">แนวโน้มรายวัน</h2><span class="small muted">แตะหรือชี้ที่จุดเพื่อดูค่า · จุดโปร่งคือแผนระบายที่กรมชลฯ ประกาศ</span></div>
     <div class="seg" id="seg" role="group" aria-label="เลือกสถานี"></div>
     <div class="chart" id="trend"></div>
     <p class="small muted" id="trendNote" style="margin-top:8px"></p>
@@ -713,7 +713,6 @@ function evalSignals(){
     else {
       const c = cur(s.key);
       if(c){ v = c.v; o.sub = c.at || '';
-        if(s.key === 'c2' && c.plan != null && c.plan > v){ o.sub = (c.at || '')+' · คาดสูงสุด ~'+fmt(c.plan)+(c.planAt ? ' '+c.planAt : ''); }
         if(s.key === 'c13' && c.plan != null && c.plan > v){ o.sub = 'แผน '+fmt(c.plan)+(c.planAt ? ' '+c.planAt : ''); v = c.plan; o.disp = fmt(c.v)+' → '+fmt(c.plan); }
       }
     }
@@ -944,8 +943,7 @@ function renderRoute(sig){
   cards.push(routeCard('01', {code:'C.2', name:'นครสวรรค์ · น้ำเหนือรวม ปิง วัง ยม น่าน', unit:'ลบ.ม./วิ', art:'river', icon:'drop', go:'c2',
     valText: c2 ? fmt(c2.v) : '–', at: c2 ? c2.at : 'ไม่มีข้อมูล', trend: trendWord('c2'), meterVal: c2 ? c2.v : 0, ref:Y54.c2_same, refLabel:'ปี 54 = 4,254',
     pill: c2 ? Math.round(c2.v / Y54.c2_same * 100)+'% ของปี 54' : '', cap:'vs 26 Sep 2011',
-    facts:[ (c2 && c2.plan && c2.plan > c2.v) ? F('trend', 'กรมชลฯ คาดสูงสุดราว <b>'+fmt(c2.plan)+' ลบ.ม./วิ</b> '+esc(c2.planAt || '')+' ('+Math.round(c2.plan / Y54.c2_same * 100)+'% ของปี 54)') : null,
-      below ? F('level', below.v >= 0 ? 'ต่ำกว่าตลิ่ง <b>'+fmt(below.v, 2)+' ม.</b> ('+esc(thD(below.date))+')' : '<b>ล้นตลิ่ง '+fmt(-below.v, 2)+' ม.</b> ('+esc(thD(below.date))+')') : null,
+    facts:[ below ? F('level', below.v >= 0 ? 'ต่ำกว่าตลิ่ง <b>'+fmt(below.v, 2)+' ม.</b> ('+esc(thD(below.date))+')' : '<b>ล้นตลิ่ง '+fmt(-below.v, 2)+' ม.</b> ('+esc(thD(below.date))+')') : null,
       F('trend', deltaText('c2', 0, 'ลบ.ม./วิ')), F('info', same54Text())].filter(Boolean),
     lvl:lvlOf('c2'), eta:'ถึงนนทบุรี ~3 วัน'}));
   const c13 = cur('c13'), up = cur('c13_up');
@@ -1146,9 +1144,8 @@ function renderTrend(){
   }
   cfg.refs.forEach(r => {
     if(r.v < lo || r.v > hi) return;
-    const planNear = plans.some(p => Math.abs(Yv(r.v) - Yv(p.v)) < 18);
     g += '<line x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+Yv(r.v)+'" y2="'+Yv(r.v)+'" stroke="var(--ref-ink)" stroke-dasharray="5 4"/>'+
-      '<text x="'+(planNear ? m.l+6 : W-m.r)+'" y="'+(Yv(r.v)-5)+'" text-anchor="'+(planNear ? 'start' : 'end')+'" font-size="11" fill="var(--ref-ink)" font-family="var(--body)" paint-order="stroke" stroke="var(--card)" stroke-width="4">'+esc(r.l)+'</text>';
+      '<text x="'+(W-m.r)+'" y="'+(Yv(r.v)-5)+'" text-anchor="end" font-size="11" fill="var(--ref-ink)" font-family="var(--body)" paint-order="stroke" stroke="var(--card)" stroke-width="4">'+esc(r.l)+'</text>';
   });
   const bandPx = (W - m.l - m.r) / nDays, shortLab = bandPx < 52;
   const every = Math.max(1, Math.ceil((shortLab ? 26 : 50) / bandPx));
@@ -1165,7 +1162,7 @@ function renderTrend(){
     planG = '<path d="M'+X(lp.date)+' '+Yv(lp.v)+' '+plans.map(p => 'L'+X(p.date)+' '+Yv(p.v)).join(' ')+'" fill="none" stroke="var(--mark)" stroke-width="2" stroke-dasharray="4 4"/>'+
       plans.map(p => '<circle cx="'+X(p.date)+'" cy="'+Yv(p.v)+'" r="5" fill="var(--card)" stroke="var(--mark)" stroke-width="2"/>').join('');
     const lpl = plans[plans.length-1];
-    planG += '<text x="'+X(lpl.date)+'" y="'+(Yv(lpl.v)-12)+'" text-anchor="middle" font-size="12" font-weight="600" fill="var(--ink)" font-family="var(--body)" paint-order="stroke" stroke="var(--card)" stroke-width="4">'+esc(lpl.lbl || 'แผน')+' '+fmt(lpl.v, cfg.dec)+'</text>';
+    planG += '<text x="'+X(lpl.date)+'" y="'+(Yv(lpl.v)-12)+'" text-anchor="middle" font-size="12" font-weight="600" fill="var(--ink)" font-family="var(--body)" paint-order="stroke" stroke="var(--card)" stroke-width="4">แผน '+fmt(lpl.v, cfg.dec)+'</text>';
   }
   const dots = pts.map(p => '<circle cx="'+X(p.date)+'" cy="'+Yv(p.v)+'" r="4.5" fill="var(--mark)" stroke="var(--card)" stroke-width="2"/>').join('');
   const lp = pts[pts.length-1];
@@ -1175,7 +1172,7 @@ function renderTrend(){
   for(let i = 0; i < nDays; i++){
     const d = addDays(first, i); const p = pts.find(q => q.date === d); const pl = plans.find(q => q.date === d);
     if(!p && !pl) continue;
-    const tipH = '<b>'+esc(thD(d, true))+'</b><br>'+(p ? fmt(p.v, cfg.dec)+' '+esc(cfg.unit)+(p.src ? '<br><span style="opacity:.8">'+esc(p.src)+'</span>' : '') : esc(pl.lbl || 'แผน')+' '+fmt(pl.v, cfg.dec)+' '+esc(cfg.unit)+' ('+esc(pl.note || 'ประกาศล่วงหน้า')+')');
+    const tipH = '<b>'+esc(thD(d, true))+'</b><br>'+(p ? fmt(p.v, cfg.dec)+' '+esc(cfg.unit)+(p.src ? '<br><span style="opacity:.8">'+esc(p.src)+'</span>' : '') : 'แผน '+fmt(pl.v, cfg.dec)+' '+esc(cfg.unit)+' (ประกาศล่วงหน้า)');
     hits += '<rect class="hit" x="'+(X(d) - band/2)+'" y="'+m.t+'" width="'+band+'" height="'+(H - m.t - m.b)+'" fill="transparent" tabindex="0" data-tip="'+esc(tipH)+'"/>';
   }
   el.innerHTML = '<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" role="img" aria-label="'+esc(cfg.tab)+' รายวัน">'+g+area+'<path d="'+path+'" fill="none" stroke="var(--mark)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>'+planG+dots+endL+hits+'</svg>';
