@@ -438,14 +438,6 @@ td.lv-y{color:var(--warn)} td.lv-r{color:#FF8A8F} td.lv-n{color:var(--muted)}
 td.bbt{text-align:left;white-space:normal;min-width:220px;color:var(--ink-2);font-size:12.5px}
 #histTable th{white-space:normal;vertical-align:bottom;line-height:1.35}
 tr.now td{background:rgba(56,214,255,.07)} tr.ref td{background:rgba(255,90,95,.06)}
-.crits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0 0;padding:0;list-style:none}
-@media (max-width:860px){.crits{grid-template-columns:1fr}}
-.crits li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:rgba(255,255,255,.03)}
-.crits .k{font:700 11px/1.9 var(--caps);color:var(--muted)}
-.crits b{color:var(--ink);font-weight:600}
-.crits .th{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:6px 0 4px}
-.crits .th .u{font-size:12px;color:var(--muted)}
-.crits p{font-size:13px;color:var(--ink-2)}
 .learn{display:grid;gap:12px;margin:12px 0 0;padding:0;list-style:none}
 .learn li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;color:var(--ink-2);font-size:14px}
 .learn li b{color:var(--ink)}
@@ -555,7 +547,7 @@ tr.now td{background:rgba(56,214,255,.07)} tr.ref td{background:rgba(255,90,95,.
       <span><i class="dot x"></i>ประกาศอพยพทางการ = อพยพทันที</span>
     </div>
     <ul class="sig" id="sigList"></ul>
-    <p class="note">เกณฑ์เหลือง/แดงเป็นจุดอ้างอิงที่ตั้งจากตัวเลขทางการและเหตุการณ์ปี 54 เพื่อช่วยตัดสินใจเร็วขึ้น ไม่ใช่คำสั่งของหน่วยงาน หากอำเภอหรือจังหวัดประกาศให้อพยพ ให้ทำตามประกาศทันที · <a href="#history">ดูว่าเกณฑ์นี้ให้ผลอย่างไรย้อนหลัง 14 ปี</a></p>
+    <p class="note">เกณฑ์เหลือง/แดงเป็นจุดอ้างอิงที่ตั้งจากตัวเลขทางการและเหตุการณ์ปี 54 เพื่อช่วยตัดสินใจเร็วขึ้น ไม่ใช่คำสั่งของหน่วยงาน หากอำเภอหรือจังหวัดประกาศให้อพยพ ให้ทำตามประกาศทันที · ปรับเกณฑ์ป่าสัก คลองพระพิมล และไฟรวม เมื่อ 30 ก.ย. 2569 หลังเทียบย้อนหลัง 14 ปี <a href="#history">ดูผลย้อนหลังและเหตุผล</a></p>
   </section>
 
   <section class="grid2">
@@ -631,16 +623,10 @@ tr.now td{background:rgba(56,214,255,.07)} tr.ref td{background:rgba(255,90,95,.
   </section>
 
   <section class="card" aria-labelledby="h-hmat">
-    <div class="panel-h"><h2 id="h-hmat">ไฟรายปี</h2><span class="small muted">ใช้ค่าสูงสุดของแต่ละปี วัดด้วยเกณฑ์เดียวกับหน้าวันนี้ · แตะที่ไฟเพื่อดูค่า · เลขคอลัมน์ตรงกับเกณฑ์ด้านล่าง</span></div>
+    <div class="panel-h"><h2 id="h-hmat">ไฟรายปี</h2><span class="small muted">ใช้ค่าสูงสุดของแต่ละปี วัดด้วยเกณฑ์ชุดปัจจุบัน · แตะที่ไฟเพื่อดูค่า</span></div>
     <div class="hmat" id="hmat"></div>
     <div class="hlegend"><span><i class="lamp g on"></i>ปกติ</span><span><i class="lamp y on"></i>เหลือง</span><span><i class="lamp r on"></i>แดง</span><span><i class="lamp nd"></i>ไม่มีข้อมูล</span><span><i class="lamp ex"></i>ไม่นับย้อนหลัง (พายุ)</span><span><b style="font:700 10px var(--caps)">~</b>&nbsp;น่าจะ หรือใช้ค่าใกล้เคียง</span></div>
-  </section>
-
-  <section class="card" aria-labelledby="h-crit">
-    <div class="panel-h"><h2 id="h-crit">เกณฑ์ไฟแต่ละดวง</h2><span class="caps">11 signals</span></div>
-    <p class="small" style="color:var(--ink-2);max-width:80ch;margin-top:4px"><b style="color:var(--warn)">เหลือง</b> = ถึงระดับที่ปีน้ำมากเคยถึง ต้องจับตาและเตรียมตัว · <b style="color:#FF8A8F">แดง</b> = ระดับที่เฉพาะปีหนักที่สุดเคยถึง หรือเข้าใกล้ปี 54</p>
-    <div class="rulebox"><span><i class="dot y"></i>เหลือง 1–2 ดวง = เฝ้าระวัง</span><span><i class="dot y"></i>เหลือง 3 ดวงขึ้นไป หรือแดง 1 ดวง = เตรียมพร้อม</span><span><i class="dot r"></i>แดง 2 ดวงขึ้นไป หรือเหลือง+แดงรวม 7 ดวงขึ้นไป = เตรียมอพยพ</span><span><i class="dot x"></i>ประกาศอพยพทางการ = อพยพทันที</span></div>
-    <ol class="crits" id="crits"></ol>
+    <ol class="hkey" id="hkey"></ol>
   </section>
 
   <section class="card" aria-labelledby="h-hval">
@@ -649,22 +635,34 @@ tr.now td{background:rgba(56,214,255,.07)} tr.ref td{background:rgba(255,90,95,.
     <p class="small muted" style="margin-top:10px">C.2 และเขื่อนเจ้าพระยาจากตารางค่าสูงสุดรายปีของกรมชลฯ · เขื่อนจากข้อมูลอ่างเก็บน้ำกรมชลฯ ย้อนหลังรายวัน · ป่าสักคิดเป็น % ของ 871.5 ล้าน ลบ.ม. ฐานเดียวกับที่กรมชลฯ ใช้ตอนนี้ · ภูมิพล+สิริกิติ์ รวมที่ว่างต่ำสุดของแต่ละเขื่อนซึ่งเกิดคนละวัน จึงเป็นค่าต่ำสุดที่เป็นไปได้ · นวลฉวีและคลองพระพิมลจากสถานี thaiwater มีข้อมูลตั้งแต่ปี 64</p>
   </section>
 
-  <section class="card" aria-labelledby="h-learn">
-    <h2 id="h-learn">สิ่งที่เห็นจากการย้อนดู</h2>
-    <ul class="learn">
-      <li><span class="k">1</span><span><b>ปีที่หนักที่สุดหลังปี 54 คือ 2565</b> เขื่อนเจ้าพระยา 3,295 · บางไทร 3,218 · นวลฉวี 2.93 บางบัวทองถูกประกาศเขตภัยพิบัติทั้งอำเภอและคันกั้นน้ำชั่วคราวที่ปากคลองโต๊ะใหม่พัง แต่ไม่มีคำสั่งอพยพ</span></li>
-      <li><span class="k">2</span><span><b>ปี 2568 เขื่อนภูมิพลกับสิริกิติ์เกือบเต็ม 100%</b> เต็มกว่าปี 54 แต่น้ำเหนือไม่มากเท่า ยอดน้ำมาช้าถึง 11 พ.ย. และบางบัวทองไม่ถูกประกาศเขตภัย</span></li>
-      <li><span class="k">3</span><span><b>ยอดน้ำของปีหนักมักมาเดือน ต.ค.–พ.ย.</b> ปี 60 ปลาย ต.ค. · ปี 65 8–13 ต.ค. · ปี 68 11 พ.ย. ปีนี้มีไฟเหลืองตั้งแต่ปลาย ก.ย. ฤดูน้ำยังเหลืออีกยาว</span></li>
-      <li><span class="k">4</span><span><b>เขื่อนป่าสักเกิน 100% เกือบทุกปีที่ฝนดี</b> ปี 56 และ 65 ขึ้นถึง 124–125% สูงกว่าปี 54 (ราว 119%) โดยที่ไม่ได้ท่วมหนักแบบปี 54 เส้นแดงของป่าสักจึงอยู่ที่ 130%</span></li>
-      <li><span class="k">5</span><span><b>คลองพระพิมลขึ้นไม่สูงแม้ในปีที่ชุมชนท่วม</b> ปี 65 ที่คันพัง คลองอยู่ราว 2.8–2.9 ห่างตลิ่ง (4.05) กว่า 1 เมตร จุดวัดนี้จับปัญหาในคลองระดับชุมชนไม่ได้ทั้งหมด ต้องดูน้ำในซอยด้วยตาควบคู่ไปด้วย</span></li>
-    </ul>
+  <section class="grid2">
+    <div class="card">
+      <h2>สิ่งที่เห็นจากการย้อนดู</h2>
+      <ul class="learn">
+        <li><span class="k">1</span><span><b>ปีที่หนักที่สุดหลังปี 54 คือ 2565</b> เขื่อนเจ้าพระยา 3,295 · บางไทร 3,218 · นวลฉวี 2.93 บางบัวทองถูกประกาศเขตภัยพิบัติทั้งอำเภอและคันกั้นน้ำชั่วคราวที่ปากคลองโต๊ะใหม่พัง แต่ไม่มีคำสั่งอพยพ</span></li>
+        <li><span class="k">2</span><span><b>ปี 2568 เขื่อนภูมิพลกับสิริกิติ์เกือบเต็ม 100%</b> เต็มกว่าปี 54 แต่น้ำเหนือไม่มากเท่า ยอดน้ำมาช้าถึง 11 พ.ย. และบางบัวทองไม่ถูกประกาศเขตภัย</span></li>
+        <li><span class="k">3</span><span><b>ยอดน้ำของปีหนักมักมาเดือน ต.ค.–พ.ย.</b> ปี 60 ปลาย ต.ค. · ปี 65 8–13 ต.ค. · ปี 68 11 พ.ย. ปีนี้มีไฟเหลืองตั้งแต่ปลาย ก.ย. ฤดูน้ำยังเหลืออีกยาว</span></li>
+        <li><span class="k">4</span><span><b>เขื่อนป่าสักเกิน 100% เกือบทุกปีที่ฝนดี</b> และปี 56 กับ 65 สูงกว่าปี 54 ด้วย (124% และ 125% เทียบปี 54 ราว 119%) เส้นแดงเดิม 120% จึงไวเกินไป</span></li>
+        <li><span class="k">5</span><span><b>คลองพระพิมลไม่เคยถึงเส้นเหลืองเดิม</b> แม้ปี 65 ที่คันพัง คลองขึ้นแค่ราว 2.8–2.9 จุดวัดนี้จับปัญหาในคลองระดับชุมชนไม่ได้ทั้งหมด ต้องดูน้ำในซอยด้วยตาควบคู่ไปด้วย</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>เกณฑ์ที่ปรับ 30 ก.ย. 2569</h2>
+      <p class="small muted" style="margin-top:4px">ปรับหลังเทียบกับข้อมูลย้อนหลังด้านบน หลักคือ เหลือง = ระดับที่ปีน้ำมากเคยถึง ต้องเตรียมตัว · แดง = สูงกว่าทุกปีหลังปี 54 หรือใกล้ปี 54</p>
+      <div class="chg">
+        <div class="it"><b>เขื่อนป่าสัก</b><span class="ft">แดง <s>120%</s> → 130% · เหลืองคงที่ 100%</span><span class="why">ปี 56 และ 65 เกินปี 54 แต่ไม่ได้หนักเท่าปี 54 · 130% คือสูงกว่าทุกปีที่เคยมี</span></div>
+        <div class="it"><b>คลองพระพิมล</b><span class="ft">เหลือง <s>3.55</s> → 2.80 · แดง <s>4.05</s> → 3.55 ม.รทก.</span><span class="why">ปี 64–65 ที่บางบัวทองมีน้ำท่วมในชุมชน คลองขึ้นราว 2.8–2.9 · แดงเมื่อน้ำห่างตลิ่ง (4.05) ไม่ถึง 50 ซม.</span></div>
+        <div class="it"><b>ไฟรวม</b><span class="ft">เพิ่ม: เหลือง+แดงรวม 7 ดวงขึ้นไป = เตรียมอพยพ</span><span class="why">เดิมเหลืองกี่ดวงก็เป็นแค่เตรียมพร้อม · ถ้าใช้เกณฑ์ใหม่ ปี 65 ซึ่งหนักที่สุดหลังปี 54 จะขึ้นเตรียมอพยพ ส่วนปีอื่นไม่ถึง</span></div>
+        <div class="it"><b>สะพานนวลฉวี</b><span class="ft">คงเดิม เหลือง 2.50 · แดง 3.00</span><span class="why">ปีน้ำมากเกินตลิ่งทุกครั้ง แต่สูงสุดหลังปี 54 คือ 2.93 (ปี 65) เส้นแดง 3.00 จึงหมายถึงสูงกว่าทุกปีหลังปี 54 อยู่แล้ว</span></div>
+      </div>
+    </div>
   </section>
 
   <section class="card" aria-labelledby="h-qa">
     <div class="panel-h"><h2 id="h-qa">คำถามที่คุยกัน</h2><span class="caps">Q&amp;A</span></div>
 
     <details class="qa" open><summary>ไฟเขียว เหลือง แดง หมายถึงอะไร และไฟรวมคิดยังไง</summary><div class="ans">
-      <ul><li><b>เขียว</b> = ปกติ</li><li><b>เหลือง</b> = ถึงระดับที่ปีน้ำมากเคยถึง ต้องจับตาและเตรียมตัว</li><li><b>แดง</b> = ระดับที่เฉพาะปีหนักที่สุดเคยถึง หรือเข้าใกล้ระดับปี 54</li></ul>
+      <ul><li><b>เขียว</b> = ปกติ</li><li><b>เหลือง</b> = ถึงระดับที่ปีน้ำมากเคยถึง ต้องจับตาและเตรียมตัว</li><li><b>แดง</b> = สูงกว่าทุกปีหลังปี 54 หรือเข้าใกล้ระดับปี 54</li></ul>
       <p>ไฟรวมคิดจากทุกดวง: เหลือง 1–2 ดวง = <b>เฝ้าระวัง</b> · เหลือง 3 ดวงขึ้นไปหรือแดง 1 ดวง = <b>เตรียมพร้อม</b> · แดง 2 ดวงขึ้นไป หรือเหลือง+แดงรวม 7 ดวงขึ้นไป = <b>เตรียมอพยพ</b> · มีคำสั่งอพยพจากทางการ = <b>อพยพ</b></p>
       <p>เป็นเกณฑ์ที่ตั้งขึ้นเองเพื่อช่วยตัดสินใจ ไม่ใช่คำสั่งทางการ ถ้าอำเภอหรือจังหวัดประกาศให้อพยพ ให้ทำตามทันที</p>
     </div></details>
@@ -675,7 +673,7 @@ tr.now td{background:rgba(56,214,255,.07)} tr.ref td{background:rgba(255,90,95,.
     </div></details>
 
     <details class="qa"><summary>ถ้าวันนี้คือ 2 ต.ค. ต้องอพยพหรือยัง</summary><div class="ans">
-      <p class="stamp">ถามเมื่อ 30 ก.ย. 2569 บ่าย หลังกรมชลฯ เพิ่มระบายเขื่อนเจ้าพระยาเป็น 2,500</p>
+      <p class="stamp">ถามเมื่อ 30 ก.ย. 2569 บ่าย หลังกรมชลฯ เพิ่มระบายเขื่อนเจ้าพระยาเป็น 2,500 · คิดด้วยเกณฑ์ที่ปรับแล้ว</p>
       <p>ถ้าตัวเลขเป็นไปตามที่กรมชลฯ คาด <b>ยังไม่ถึงขั้นอพยพ</b> ไฟรวมน่าจะเป็นเตรียมพร้อม</p>
       <ul class="proj">
         <li><span>น้ำเหนือ C.2 ราว 3,000 (กรมชลฯ คาด)</span><span class="chip y"><i>!</i>เหลือง</span></li>
@@ -684,7 +682,7 @@ tr.now td{background:rgba(56,214,255,.07)} tr.ref td{background:rgba(255,90,95,.
         <li><span>ป่าสัก ราว 110% (ประมาณเอง)</span><span class="chip y"><i>!</i>เหลือง</span></li>
         <li><span>สะพานนวลฉวี หัวค่ำ ราว 2.7–2.9 (ประมาณจากประกาศนนทบุรี +0.20–0.40 ม.)</span><span class="chip y"><i>!</i>เหลือง</span></li>
         <li><span>เขตภัยพิบัติบางบัวทอง</span><span class="chip y"><i>!</i>เหลือง</span></li>
-        <li><span>คลองพระพิมล ราว 2.3 ใกล้ระดับวันนี้</span><span class="chip g"><i><svg viewBox="0 0 12 12" width="1em" height="1em" aria-hidden="true"><path d="M2.3 6.3l2.4 2.4 5-5.2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></i>ปกติ</span></li>
+        <li><span>คลองพระพิมล ใกล้เดิม ราว 2.3</span><span class="chip g"><i><svg viewBox="0 0 12 12" width="1em" height="1em" aria-hidden="true"><path d="M2.3 6.3l2.4 2.4 5-5.2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></i>ปกติ</span></li>
       </ul>
       <p>เหลือง 6 ดวง ไม่มีแดง = <b>เตรียมพร้อม</b> แต่<b>ถ้ากรมชลฯ เพิ่มระบายเขื่อนเจ้าพระยาถึง 3,000</b> ไฟดวงนั้นจะแดง รวมเป็น 7 ดวง = <b>เตรียมอพยพ</b></p>
       <p>ทำไมต้องจับตา: น้ำเหนือเขื่อนคาดว่าจะถึง 3,600–3,700 หักที่ผันเข้าคลองชลประทาน 550–580 แล้วยังเหลือราว 3,000 มากกว่า 2,500 ที่ระบายอยู่ ส่วนต่างต้องพักในทุ่งรับน้ำ จึงมีโอกาสที่จะเพิ่มระบายอีก</p>
@@ -1472,30 +1470,6 @@ const HIST = [
     a:['pasak_pct'], n:{pasak_pct:'อย่างน้อย 114% (6 พ.ย. 68)', bs_room:'ภูมิพล 99.54% สิริกิติ์ 97.95% (14 พ.ย. 68)', cpy014:'9 พ.ย. 68', phraphimon:'ข้อมูลสถานีปีนี้แกว่งผิดปกติ ใช้ไม่ได้', c13:'11 พ.ย. 68 · ระบายเกินความจุลำน้ำ 9–17 พ.ย.'},
     bbt:'ไม่ถูกประกาศ (นนทบุรีประกาศ อ.เมือง ปากเกร็ด บางกรวย) · เขื่อนภูมิพลและสิริกิติ์เกือบเต็ม 100%'}
 ];
-const CRIT_WHY = {
-  c2:'ปีน้ำมากหลังปี 54 ขึ้นถึงราว 3,000–3,141 (ปี 60, 65, 68) · ปี 54 สูงสุด 4,689',
-  c13:'2,500 คือเพดานกรอบระบายที่ กนช. เห็นชอบ · ปี 65 สูงสุด 3,295 · ปี 54 สูงสุด 3,726',
-  c29b:'จุดวัดเหนือนนทบุรี กรมชลฯ ใช้ 2,500 เป็นระดับที่พื้นที่นอกคันกั้นน้ำในนนทบุรีเริ่มท่วม และ 3,500 กระทบกรุงเทพฯ (อ้างในข่าว) · ปี 65 สูงสุด 3,218 · ปี 54 3,860',
-  pasak_pct:'เกิน 100% เขื่อนต้องเร่งระบายลงแม่น้ำป่าสัก ซึ่งเกิดเกือบทุกปีที่ฝนดี · สูงสุดหลังปี 54 คือ 125% (ปี 65) · ปี 54 ราว 119%',
-  bs_room:'ถ้าเขื่อนใหญ่ต้นน้ำใกล้เต็ม จะพักน้ำฝนก้อนใหม่ไม่ได้ · ปลาย ก.ย. 54 เหลือ 1,413 · ปี 68 เหลือราว 260',
-  cpy014:'2.50 คือระดับตลิ่งที่สะพานนวลฉวี · ปีน้ำมากเกินตลิ่งทุกครั้ง สูงสุดหลังปี 54 คือ 2.93 (ปี 65) · ปี 54 ปากเกร็ด 3.38',
-  phraphimon:'ปี 64–65 ที่บางบัวทองมีน้ำท่วมในชุมชน คลองขึ้นราว 2.8–2.9 · แดงเมื่อน้ำห่างตลิ่ง (4.05) ไม่ถึง 50 ซม. · ปี 54 น้ำเข้าบางบัวทองทางคลองนี้',
-  c2days:'หลังปี 54 C.2 ไม่เคยล้นตลิ่งเลย · ปี 54 ล้นติดกัน 44 วัน',
-  storm:'ฝนจากพายุเติมน้ำเข้าลุ่มเจ้าพระยาเร็ว ปี 54 มีพายุต่อเนื่องปลาย ก.ย.–ต้น ต.ค.',
-  disaster_zone:'แปลว่ามีน้ำท่วมขังในพื้นที่แล้ว แม้น้ำเหนือยังไม่มาก',
-  order:'ทำตามประกาศของอำเภอหรือจังหวัดทันที ไม่ต้องรอสัญญาณอื่น'
-};
-const thNum = (v, sd) => (sd.dec || 0) >= 2 ? fmt(v, sd.dec) : Number.isInteger(v) ? fmt(v, 0) : fmt(v, sd.dec || 1);
-function renderCriteria(){
-  const el = $('#crits'); if(!el) return;
-  el.innerHTML = SIGNALS.map((sd, i) => {
-    let th;
-    if(sd.key === 'order') th = chip('x', 'มีประกาศ = อพยพทันที');
-    else if(sd.flag) th = chip('y', 'เหลือง เมื่อใช่');
-    else { const op = sd.dir === 'down' ? '≤' : '≥'; th = chip('y', 'เหลือง '+op+' '+thNum(sd.y, sd)) + chip('r', 'แดง '+op+' '+thNum(sd.r, sd)) + '<span class="u">'+esc(sd.unit)+'</span>'; }
-    return '<li><span class="k">'+String(i + 1).padStart(2, '0')+'</span><div><b>'+esc(sd.name)+'</b><div class="th">'+th+'</div><p>'+esc(CRIT_WHY[sd.key] || sd.why || '')+'</p></div></li>';
-  }).join('');
-}
 const HIST_NOTE = {pasak_pct:'% ของ 871.5 ล้าน ลบ.ม. (ฐานที่กรมชลฯ ใช้ตอนนี้)', bs_room:'รวมที่ว่างต่ำสุดของแต่ละเขื่อน'};
 function histLevel(sd, v){
   if(sd.key === 'storm') return 'ex';
@@ -1541,7 +1515,7 @@ function renderHistory(sig){
     const aria = h.yr+' '+lv.name+' เหลือง '+row.y+' แดง '+row.r;
     return '<div class="hrow'+(h.ref ? ' ref' : '')+(h.now ? ' now' : '')+'" role="group" aria-label="'+esc(aria)+'"><span class="yr">'+h.yr+label+'</span>'+cells+'<span class="lv">'+chip(lv.cls, lv.name)+'</span></div>';
   }).join('');
-  renderCriteria();
+  $('#hkey').innerHTML = SIGNALS.map((sd, i) => '<li><b>'+String(i + 1).padStart(2, '0')+'</b>'+esc(sd.short)+(sd.flag ? '' : ' <span class="muted">('+(sd.dir === 'down' ? '≤' : '≥')+' '+fmt(sd.y, sd.dec)+' / '+fmt(sd.r, sd.dec)+')</span>')+'</li>').join('');
 
   /* summary of the 14 years after 2554 */
   const post = rows.filter(r => !r.h.ref);
