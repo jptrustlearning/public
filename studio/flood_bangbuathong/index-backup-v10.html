@@ -400,67 +400,6 @@ details.entry summary{cursor:pointer;padding:12px 14px;font-weight:600;color:var
 #tip{position:fixed;z-index:50;max-width:260px;background:#0E1F48;color:var(--ink);border:1px solid var(--edge-hi);font-size:12.5px;line-height:1.45;padding:8px 10px;border-radius:10px;pointer-events:none;box-shadow:0 10px 26px rgba(0,0,0,.5),0 0 18px rgba(56,214,255,.2)}
 #tip b{font-weight:600}
 .hit{cursor:crosshair}
-[hidden]{display:none!important}
-/* view tabs */
-.tabs{position:relative;z-index:2;display:flex;gap:8px;flex-wrap:wrap;padding-block:14px 2px}
-.tab{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;border:1px solid var(--edge);background:rgba(8,20,52,.78);color:var(--ink-2);font:600 14px/1.2 var(--body);text-decoration:none;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.tab:hover{color:var(--ink);border-color:var(--edge-hi)}
-.tab[aria-selected="true"]{background:linear-gradient(180deg,#3A78FF,#1F4FD8);color:#fff;border-color:var(--edge-hi);box-shadow:0 0 18px rgba(56,214,255,.35)}
-@media (max-width:420px){.tab{padding:8px 12px;font-size:13px}}
-/* history view */
-.hist-hero{display:grid;gap:10px;padding-block:18px 0}
-.hist-hero h2{font:700 clamp(24px,3.4vw,34px)/1.25 var(--body)}
-.hist-hero .lede2{color:var(--ink-2);max-width:72ch}
-.sumrow{display:flex;flex-wrap:wrap;gap:8px}
-.hmat{display:grid;gap:2px;margin-top:12px}
-.hrow{display:grid;grid-template-columns:54px repeat(11,minmax(0,1fr)) 112px;align-items:center;column-gap:2px;padding:5px 6px;border-radius:10px}
-.hrow.head{padding-block:2px 8px;border-bottom:1px solid var(--line);border-radius:0;margin-bottom:2px}
-.hrow.head span{font:700 10px/1 var(--caps);color:var(--muted);text-align:center;letter-spacing:.03em}
-.hrow .yr{font:600 14px/1.1 var(--body);font-variant-numeric:tabular-nums}
-.hrow .yr small{display:block;font-size:10px;color:var(--muted);font-weight:500;margin-top:2px}
-.hrow .c{display:grid;place-items:center;min-height:22px;position:relative}
-.hrow .c sup{position:absolute;top:-2px;right:calc(50% - 13px);font:700 9px/1 var(--caps);color:var(--ink-2)}
-.hrow .lamp{width:12px;height:12px}
-.hmat .lamp.on,.hlegend .lamp.on{animation:none}
-.lamp.nd{background:transparent!important;box-shadow:inset 0 0 0 1.5px var(--ref)!important}
-.lamp.ex{box-shadow:none;width:9px!important;height:2px!important;border-radius:2px;background:var(--ref)}
-.hlegend .lamp{width:11px;height:11px}
-.hrow .lv{justify-self:end}
-.hrow.ref{background:rgba(255,90,95,.08)}
-.hrow.now{background:rgba(56,214,255,.1);box-shadow:inset 0 0 0 1px var(--edge-hi)}
-.hrow:not(.head):hover{background:rgba(56,214,255,.07)}
-.hkey{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:4px 16px;margin:14px 0 0;padding:0;list-style:none;font-size:12.5px;color:var(--ink-2)}
-.hkey b{font:700 10.5px var(--caps);color:var(--muted);margin-right:6px}
-.hlegend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;font-size:12.5px;color:var(--ink-2)}
-.hlegend span{display:inline-flex;align-items:center;gap:6px}
-@media (max-width:560px){.hrow{grid-template-columns:40px repeat(11,minmax(0,1fr)) 74px;padding:4px 2px}.hrow .lamp{width:10px;height:10px}.hrow .yr{font-size:12.5px}.hrow .lv .chip{padding:2px 7px;font-size:10.5px;gap:0}.hrow .lv .chip i{display:none}.hrow.head span{font-size:9px}}
-td.lv-y{color:var(--warn)} td.lv-r{color:#FF8A8F} td.lv-n{color:var(--muted)}
-td.bbt{text-align:left;white-space:normal;min-width:220px;color:var(--ink-2);font-size:12.5px}
-#histTable th{white-space:normal;vertical-align:bottom;line-height:1.35}
-tr.now td{background:rgba(56,214,255,.07)} tr.ref td{background:rgba(255,90,95,.06)}
-.learn{display:grid;gap:12px;margin:12px 0 0;padding:0;list-style:none}
-.learn li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;color:var(--ink-2);font-size:14px}
-.learn li b{color:var(--ink)}
-.learn .k{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:700 13px var(--caps);background:var(--navy-soft);color:var(--cyan-2);border:1px solid var(--edge)}
-.chg{display:grid;gap:10px;margin-top:12px}
-.chg .it{border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:rgba(255,255,255,.03);display:grid;gap:4px}
-.chg .it b{color:var(--ink);font-weight:600}
-.chg .ft{font-size:13.5px;color:var(--ink)}
-.chg .ft s{color:var(--muted)}
-.chg .why{font-size:13px;color:var(--ink-2)}
-.qa{margin-top:10px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.03)}
-.qa summary{cursor:pointer;padding:12px 14px;font-weight:600;color:var(--ink);list-style:none;display:grid;grid-template-columns:18px minmax(0,1fr);gap:10px}
-.qa summary::-webkit-details-marker{display:none}
-.qa summary::before{content:"+";font:700 17px/1.3 var(--caps);color:var(--cyan)}
-.qa[open] summary::before{content:"–"}
-.qa .ans{padding:0 14px 14px 42px;color:var(--ink-2);display:grid;gap:10px;font-size:14px}
-.qa .ans ul{margin:0;padding-left:18px;display:grid;gap:4px}
-.qa .ans b{color:var(--ink)}
-.qa .stamp{font-size:12px;color:var(--muted)}
-.proj{display:grid;gap:4px;margin:0;padding:0;list-style:none}
-.proj li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,.03);font-size:13.5px}
-.srcl{display:grid;gap:6px;margin:10px 0 0;padding-left:18px;font-size:13.5px}
-@media (max-width:560px){.qa .ans{padding-left:14px}}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -468,9 +407,8 @@ tr.now td{background:rgba(56,214,255,.07)} tr.ref td{background:rgba(255,90,95,.
 
 <header class="hero">
   <div class="place"><div class="wrap place-in"><svg class="place-pin" viewBox="0 0 30 30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 27s-8.5-7.4-8.5-13.2a8.5 8.5 0 0 1 17 0C23.5 19.6 15 27 15 27z"/><path d="M10.5 14.5c1.5-1.4 3-1.4 4.5 0s3 1.4 4.5 0"/></svg><div class="place-t"><b>บางบัวทอง</b><span>นนทบุรี</span></div><div class="place-en">BANG BUA THONG · NONTHABURI</div></div></div>
-  <nav class="wrap tabs" role="tablist" aria-label="เลือกหน้า"><a class="tab" role="tab" id="tab-today" href="#today" aria-controls="view-today" aria-selected="true">สถานการณ์วันนี้</a><a class="tab" role="tab" id="tab-history" href="#history" aria-controls="view-history" aria-selected="false">ย้อนหลัง 14 ปี · คำอธิบาย</a></nav>
   <div class="hero-bg"><svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><defs><linearGradient id="hsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050E26"/><stop offset=".42" stop-color="#15356C"/><stop offset=".58" stop-color="#2E5C9E"/><stop offset=".7" stop-color="#16366C"/><stop offset="1" stop-color="#07142F"/></linearGradient><linearGradient id="hriv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A64AE"/><stop offset=".5" stop-color="#123874"/><stop offset="1" stop-color="#050E26"/></linearGradient><linearGradient id="hface" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6F86B2"/><stop offset="1" stop-color="#344B78"/></linearGradient><filter id="hb16" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="16"/></filter><filter id="hb7" x="-20%" y="-100%" width="140%" height="300%"><feGaussianBlur stdDeviation="7"/></filter><filter id="hb2"><feGaussianBlur stdDeviation="1.6"/></filter></defs><rect width="800" height="600" fill="url(#hsky)"/><g filter="url(#hb16)" fill="#8FB0E6"><ellipse cx="560" cy="120" rx="240" ry="38" opacity=".32"/><ellipse cx="730" cy="190" rx="170" ry="30" opacity=".28"/><ellipse cx="360" cy="210" rx="170" ry="22" opacity=".2"/></g><path d="M0 300 L80 262 L160 282 L250 236 L340 268 L430 222 L520 256 L610 208 L700 238 L800 196 L800 340 L0 340Z" fill="#1B3B72" opacity=".9"/><path d="M330 336 L420 292 L500 306 L590 252 L680 262 L750 214 L800 222 L800 360 L330 360Z" fill="#0D234D"/><g fill="#0A1B3E"><circle cx="150" cy="337" r="7"/><circle cx="167" cy="338" r="12"/><circle cx="184" cy="339" r="11"/><circle cx="201" cy="340" r="10"/><circle cx="218" cy="341" r="9"/><circle cx="235" cy="342" r="8"/><circle cx="252" cy="343" r="7"/><circle cx="269" cy="335" r="12"/><circle cx="286" cy="336" r="11"/><circle cx="303" cy="337" r="10"/><circle cx="320" cy="338" r="9"/><circle cx="337" cy="339" r="8"/><circle cx="354" cy="340" r="7"/><circle cx="371" cy="341" r="12"/><circle cx="388" cy="342" r="11"/><circle cx="405" cy="343" r="10"/><circle cx="422" cy="335" r="9"/><circle cx="439" cy="336" r="8"/><circle cx="456" cy="337" r="7"/><circle cx="473" cy="338" r="12"/><circle cx="490" cy="339" r="11"/><circle cx="507" cy="340" r="10"/><circle cx="524" cy="341" r="9"/><circle cx="541" cy="342" r="8"/><circle cx="558" cy="343" r="7"/><circle cx="575" cy="335" r="12"/><circle cx="592" cy="336" r="11"/><circle cx="609" cy="337" r="10"/><circle cx="626" cy="338" r="9"/><circle cx="643" cy="339" r="8"/><circle cx="660" cy="340" r="7"/><circle cx="677" cy="341" r="12"/><circle cx="694" cy="342" r="11"/><circle cx="711" cy="343" r="10"/><circle cx="728" cy="335" r="9"/><circle cx="745" cy="336" r="8"/><circle cx="762" cy="337" r="7"/><circle cx="779" cy="338" r="12"/><circle cx="796" cy="339" r="11"/></g><polygon points="150.0,352.0 800.0,300.0 800.0,318.0 150.0,366.0" fill="#A9BCDD"/><polygon points="150.0,366.0 800.0,318.0 800.0,382.0 150.0,414.0" fill="url(#hface)"/><g fill="#0A1838"><polygon points="160.6,371.2 198.5,368.4 198.5,411.6 160.6,413.5"/><polygon points="219.7,366.9 257.5,364.1 257.5,408.7 219.7,410.6"/><polygon points="278.8,362.5 316.6,359.7 316.6,405.8 278.8,407.7"/><polygon points="337.9,358.1 375.7,355.3 375.7,402.9 337.9,404.7"/><polygon points="397.0,353.8 434.8,351.0 434.8,400.0 397.0,401.8"/><polygon points="456.1,349.4 493.9,346.6 493.9,397.1 456.1,398.9"/><polygon points="515.2,345.0 553.0,342.2 553.0,394.2 515.2,396.0"/><polygon points="574.3,340.7 612.1,337.9 612.1,391.3 574.3,393.1"/><polygon points="633.4,336.3 671.2,333.5 671.2,388.3 633.4,390.2"/><polygon points="692.5,331.9 730.3,329.1 730.3,385.4 692.5,387.3"/><polygon points="751.5,327.6 789.4,324.8 789.4,382.5 751.5,384.4"/></g><rect x="709" y="281" width="54" height="26" fill="#7F96C0"/><rect x="715" y="287" width="8" height="6" fill="#FFD27A" opacity=".9"/><rect x="731" y="287" width="8" height="6" fill="#FFD27A" opacity=".75"/><g fill="#9FE9FF"><circle cx="196.4" cy="346.3" r="1.8"/><circle cx="242.9" cy="342.6" r="1.8"/><circle cx="289.3" cy="338.9" r="1.8"/><circle cx="335.7" cy="335.1" r="1.8"/><circle cx="382.1" cy="331.4" r="1.8"/><circle cx="428.6" cy="327.7" r="1.8"/><circle cx="475.0" cy="324.0" r="1.8"/><circle cx="521.4" cy="320.3" r="1.8"/><circle cx="567.9" cy="316.6" r="1.8"/><circle cx="614.3" cy="312.9" r="1.8"/><circle cx="660.7" cy="309.1" r="1.8"/><circle cx="707.1" cy="305.4" r="1.8"/><circle cx="753.6" cy="301.7" r="1.8"/></g><g fill="#E6F1FF" opacity=".78" filter="url(#hb7)"><rect x="161.5" y="408.5" width="36" height="46" rx="10"/><rect x="220.6" y="405.6" width="36" height="46" rx="10"/><rect x="279.7" y="402.7" width="36" height="46" rx="10"/><rect x="338.8" y="399.8" width="36" height="46" rx="10"/><rect x="397.9" y="396.9" width="36" height="46" rx="10"/><rect x="457.0" y="394.0" width="36" height="46" rx="10"/><rect x="516.1" y="391.1" width="36" height="46" rx="10"/><rect x="575.2" y="388.2" width="36" height="46" rx="10"/><rect x="634.3" y="385.3" width="36" height="46" rx="10"/><rect x="693.4" y="382.4" width="36" height="46" rx="10"/><rect x="752.5" y="379.5" width="36" height="46" rx="10"/></g><path d="M0 430 L800 396 L800 600 L0 600Z" fill="url(#hriv)"/><g filter="url(#hb16)" fill="#EAF4FF"><ellipse cx="470" cy="434" rx="300" ry="26" opacity=".55"/><ellipse cx="640" cy="452" rx="190" ry="22" opacity=".4"/></g><g class="flow" fill="none" stroke="#DCEBFF" stroke-linecap="round" stroke-width="3" opacity=".42" filter="url(#hb2)"><path d="M180 470 C 300 458, 420 474, 560 452" stroke-dasharray="60 40"/><path d="M120 500 C 260 488, 380 505, 520 486" stroke-dasharray="60 40"/><path d="M300 530 C 420 518, 560 532, 720 506" stroke-dasharray="60 40"/><path d="M60 545 C 200 535, 330 552, 470 538" stroke-dasharray="60 40"/><path d="M420 480 C 520 468, 620 482, 780 460" stroke-dasharray="60 40"/><path d="M220 575 C 360 566, 520 580, 700 560" stroke-dasharray="60 40"/></g></svg></div>
-  <div class="wrap hero-in" data-view="today">
+  <div class="wrap hero-in">
     <h1><span class="h1a">FLOOD WATCH</span><span class="h1b">2569 vs 2554</span><span class="h1c">น้ำปีนี้ จะซ้ำรอยปี 54 ไหม</span></h1>
     <p class="lede"><b>Flood Watch บางบัวทอง นนทบุรี</b><br>เทียบน้ำเหนือ น้ำสะสม และวันล้นตลิ่ง กับมหาอุทกภัยปี 54 จากข้อมูลกรมชลประทาน สสน. และ สทนช. อัปเดตรายวันสำหรับบ้านที่บางบัวทอง</p>
     <div class="hero-row">
@@ -481,7 +419,7 @@ tr.now td{background:rgba(56,214,255,.07)} tr.ref td{background:rgba(255,90,95,.
   </div>
 </header>
 
-<main class="wrap" id="view-today" data-view="today">
+<main class="wrap">
   <section class="status glass" id="status" aria-live="polite">
     <div class="st-left"><div class="caps">ภาพรวมวันนี้ · Overall</div><div class="empty">กำลังโหลดข้อมูลรายวัน เมื่อโหลดเสร็จจะแสดงระดับเตือนภัยและเหตุผล</div></div>
   </section>
@@ -543,11 +481,11 @@ tr.now td{background:rgba(56,214,255,.07)} tr.ref td{background:rgba(255,90,95,.
     <div class="rulebox">
       <span><i class="dot y"></i>เหลือง 1–2 ข้อ = เฝ้าระวัง</span>
       <span><i class="dot y"></i>เหลือง 3 ข้อขึ้นไป หรือแดง 1 ข้อ = เตรียมพร้อม</span>
-      <span><i class="dot r"></i>แดง 2 ข้อขึ้นไป หรือเหลือง+แดงรวม 7 ข้อขึ้นไป = เตรียมอพยพ</span>
+      <span><i class="dot r"></i>แดง 2 ข้อขึ้นไป = เตรียมอพยพ</span>
       <span><i class="dot x"></i>ประกาศอพยพทางการ = อพยพทันที</span>
     </div>
     <ul class="sig" id="sigList"></ul>
-    <p class="note">เกณฑ์เหลือง/แดงเป็นจุดอ้างอิงที่ตั้งจากตัวเลขทางการและเหตุการณ์ปี 54 เพื่อช่วยตัดสินใจเร็วขึ้น ไม่ใช่คำสั่งของหน่วยงาน หากอำเภอหรือจังหวัดประกาศให้อพยพ ให้ทำตามประกาศทันที · ปรับเกณฑ์ป่าสัก คลองพระพิมล และไฟรวม เมื่อ 30 ก.ย. 2569 หลังเทียบย้อนหลัง 14 ปี <a href="#history">ดูผลย้อนหลังและเหตุผล</a></p>
+    <p class="note">เกณฑ์เหลือง/แดงเป็นจุดอ้างอิงที่ตั้งจากตัวเลขทางการและเหตุการณ์ปี 54 เพื่อช่วยตัดสินใจเร็วขึ้น ไม่ใช่คำสั่งของหน่วยงาน หากอำเภอหรือจังหวัดประกาศให้อพยพ ให้ทำตามประกาศทันที</p>
   </section>
 
   <section class="grid2">
@@ -614,120 +552,6 @@ tr.now td{background:rgba(56,214,255,.07)} tr.ref td{background:rgba(255,90,95,.
   </section>
 </main>
 
-<main class="wrap" id="view-history" data-view="history" hidden aria-labelledby="h-hist">
-  <section class="hist-hero">
-    <div class="caps">History 2555–2568 · same 11 signals</div>
-    <h2 id="h-hist">ย้อนหลัง 14 ปี <span style="white-space:nowrap">ถ้าใช้ไฟ 11 ดวงชุดนี้</span></h2>
-    <p class="lede2" id="histLede">กำลังคำนวณ</p>
-    <div class="sumrow" id="histSum"></div>
-  </section>
-
-  <section class="card" aria-labelledby="h-hmat">
-    <div class="panel-h"><h2 id="h-hmat">ไฟรายปี</h2><span class="small muted">ใช้ค่าสูงสุดของแต่ละปี วัดด้วยเกณฑ์ชุดปัจจุบัน · แตะที่ไฟเพื่อดูค่า</span></div>
-    <div class="hmat" id="hmat"></div>
-    <div class="hlegend"><span><i class="lamp g on"></i>ปกติ</span><span><i class="lamp y on"></i>เหลือง</span><span><i class="lamp r on"></i>แดง</span><span><i class="lamp nd"></i>ไม่มีข้อมูล</span><span><i class="lamp ex"></i>ไม่นับย้อนหลัง (พายุ)</span><span><b style="font:700 10px var(--caps)">~</b>&nbsp;น่าจะ หรือใช้ค่าใกล้เคียง</span></div>
-    <ol class="hkey" id="hkey"></ol>
-  </section>
-
-  <section class="card" aria-labelledby="h-hval">
-    <div class="panel-h"><h2 id="h-hval">ตัวเลขสูงสุดของแต่ละปี</h2><span class="small muted">เลื่อนตารางไปทางขวาได้</span></div>
-    <div class="tablewrap"><table id="histTable"></table></div>
-    <p class="small muted" style="margin-top:10px">C.2 และเขื่อนเจ้าพระยาจากตารางค่าสูงสุดรายปีของกรมชลฯ · เขื่อนจากข้อมูลอ่างเก็บน้ำกรมชลฯ ย้อนหลังรายวัน · ป่าสักคิดเป็น % ของ 871.5 ล้าน ลบ.ม. ฐานเดียวกับที่กรมชลฯ ใช้ตอนนี้ · ภูมิพล+สิริกิติ์ รวมที่ว่างต่ำสุดของแต่ละเขื่อนซึ่งเกิดคนละวัน จึงเป็นค่าต่ำสุดที่เป็นไปได้ · นวลฉวีและคลองพระพิมลจากสถานี thaiwater มีข้อมูลตั้งแต่ปี 64</p>
-  </section>
-
-  <section class="grid2">
-    <div class="card">
-      <h2>สิ่งที่เห็นจากการย้อนดู</h2>
-      <ul class="learn">
-        <li><span class="k">1</span><span><b>ปีที่หนักที่สุดหลังปี 54 คือ 2565</b> เขื่อนเจ้าพระยา 3,295 · บางไทร 3,218 · นวลฉวี 2.93 บางบัวทองถูกประกาศเขตภัยพิบัติทั้งอำเภอและคันกั้นน้ำชั่วคราวที่ปากคลองโต๊ะใหม่พัง แต่ไม่มีคำสั่งอพยพ</span></li>
-        <li><span class="k">2</span><span><b>ปี 2568 เขื่อนภูมิพลกับสิริกิติ์เกือบเต็ม 100%</b> เต็มกว่าปี 54 แต่น้ำเหนือไม่มากเท่า ยอดน้ำมาช้าถึง 11 พ.ย. และบางบัวทองไม่ถูกประกาศเขตภัย</span></li>
-        <li><span class="k">3</span><span><b>ยอดน้ำของปีหนักมักมาเดือน ต.ค.–พ.ย.</b> ปี 60 ปลาย ต.ค. · ปี 65 8–13 ต.ค. · ปี 68 11 พ.ย. ปีนี้มีไฟเหลืองตั้งแต่ปลาย ก.ย. ฤดูน้ำยังเหลืออีกยาว</span></li>
-        <li><span class="k">4</span><span><b>เขื่อนป่าสักเกิน 100% เกือบทุกปีที่ฝนดี</b> และปี 56 กับ 65 สูงกว่าปี 54 ด้วย (124% และ 125% เทียบปี 54 ราว 119%) เส้นแดงเดิม 120% จึงไวเกินไป</span></li>
-        <li><span class="k">5</span><span><b>คลองพระพิมลไม่เคยถึงเส้นเหลืองเดิม</b> แม้ปี 65 ที่คันพัง คลองขึ้นแค่ราว 2.8–2.9 จุดวัดนี้จับปัญหาในคลองระดับชุมชนไม่ได้ทั้งหมด ต้องดูน้ำในซอยด้วยตาควบคู่ไปด้วย</span></li>
-      </ul>
-    </div>
-    <div class="card">
-      <h2>เกณฑ์ที่ปรับ 30 ก.ย. 2569</h2>
-      <p class="small muted" style="margin-top:4px">ปรับหลังเทียบกับข้อมูลย้อนหลังด้านบน หลักคือ เหลือง = ระดับที่ปีน้ำมากเคยถึง ต้องเตรียมตัว · แดง = สูงกว่าทุกปีหลังปี 54 หรือใกล้ปี 54</p>
-      <div class="chg">
-        <div class="it"><b>เขื่อนป่าสัก</b><span class="ft">แดง <s>120%</s> → 130% · เหลืองคงที่ 100%</span><span class="why">ปี 56 และ 65 เกินปี 54 แต่ไม่ได้หนักเท่าปี 54 · 130% คือสูงกว่าทุกปีที่เคยมี</span></div>
-        <div class="it"><b>คลองพระพิมล</b><span class="ft">เหลือง <s>3.55</s> → 2.80 · แดง <s>4.05</s> → 3.55 ม.รทก.</span><span class="why">ปี 64–65 ที่บางบัวทองมีน้ำท่วมในชุมชน คลองขึ้นราว 2.8–2.9 · แดงเมื่อน้ำห่างตลิ่ง (4.05) ไม่ถึง 50 ซม.</span></div>
-        <div class="it"><b>ไฟรวม</b><span class="ft">เพิ่ม: เหลือง+แดงรวม 7 ดวงขึ้นไป = เตรียมอพยพ</span><span class="why">เดิมเหลืองกี่ดวงก็เป็นแค่เตรียมพร้อม · ถ้าใช้เกณฑ์ใหม่ ปี 65 ซึ่งหนักที่สุดหลังปี 54 จะขึ้นเตรียมอพยพ ส่วนปีอื่นไม่ถึง</span></div>
-        <div class="it"><b>สะพานนวลฉวี</b><span class="ft">คงเดิม เหลือง 2.50 · แดง 3.00</span><span class="why">ปีน้ำมากเกินตลิ่งทุกครั้ง แต่สูงสุดหลังปี 54 คือ 2.93 (ปี 65) เส้นแดง 3.00 จึงหมายถึงสูงกว่าทุกปีหลังปี 54 อยู่แล้ว</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="card" aria-labelledby="h-qa">
-    <div class="panel-h"><h2 id="h-qa">คำถามที่คุยกัน</h2><span class="caps">Q&amp;A</span></div>
-
-    <details class="qa" open><summary>ไฟเขียว เหลือง แดง หมายถึงอะไร และไฟรวมคิดยังไง</summary><div class="ans">
-      <ul><li><b>เขียว</b> = ปกติ</li><li><b>เหลือง</b> = ถึงระดับที่ปีน้ำมากเคยถึง ต้องจับตาและเตรียมตัว</li><li><b>แดง</b> = สูงกว่าทุกปีหลังปี 54 หรือเข้าใกล้ระดับปี 54</li></ul>
-      <p>ไฟรวมคิดจากทุกดวง: เหลือง 1–2 ดวง = <b>เฝ้าระวัง</b> · เหลือง 3 ดวงขึ้นไปหรือแดง 1 ดวง = <b>เตรียมพร้อม</b> · แดง 2 ดวงขึ้นไป หรือเหลือง+แดงรวม 7 ดวงขึ้นไป = <b>เตรียมอพยพ</b> · มีคำสั่งอพยพจากทางการ = <b>อพยพ</b></p>
-      <p>เป็นเกณฑ์ที่ตั้งขึ้นเองเพื่อช่วยตัดสินใจ ไม่ใช่คำสั่งทางการ ถ้าอำเภอหรือจังหวัดประกาศให้อพยพ ให้ทำตามทันที</p>
-    </div></details>
-
-    <details class="qa"><summary>“threshold ปี 54” บนปรอทหมายถึงอะไร น้ำท่วมสูงระดับปี 54 หรือระดับน้ำเริ่มท่วม</summary><div class="ans">
-      <p>เส้น <b>3.38 ม.</b> บนปรอท คือระดับสูงสุดที่ปากเกร็ดวัดได้ในปี 54 เป็นยอดของน้ำท่วมใหญ่ครั้งนั้น <b>ไม่ใช่ระดับที่น้ำเริ่มท่วม</b></p>
-      <p>ระดับที่น้ำเริ่มล้นคือ <b>เส้นตลิ่ง 2.50 ม.</b> ที่สะพานนวลฉวี ตัวเลขบนปรอทคือค่าสูงสุดใน 24 ชั่วโมง ซึ่งมักเกิดตอนน้ำขึ้นช่วงหัวค่ำ ถ้าแตะ 2.50 แปลว่าน้ำเริ่มล้นตลิ่งริมแม่น้ำ ยังห่างระดับปี 54 อีกราว 0.9 ม.</p>
-    </div></details>
-
-    <details class="qa"><summary>ถ้าวันนี้คือ 2 ต.ค. ต้องอพยพหรือยัง</summary><div class="ans">
-      <p class="stamp">ถามเมื่อ 30 ก.ย. 2569 บ่าย หลังกรมชลฯ เพิ่มระบายเขื่อนเจ้าพระยาเป็น 2,500 · คิดด้วยเกณฑ์ที่ปรับแล้ว</p>
-      <p>ถ้าตัวเลขเป็นไปตามที่กรมชลฯ คาด <b>ยังไม่ถึงขั้นอพยพ</b> ไฟรวมน่าจะเป็นเตรียมพร้อม</p>
-      <ul class="proj">
-        <li><span>น้ำเหนือ C.2 ราว 3,000 (กรมชลฯ คาด)</span><span class="chip y"><i>!</i>เหลือง</span></li>
-        <li><span>เขื่อนเจ้าพระยา 2,500 ถ้าไม่เพิ่มอีก</span><span class="chip y"><i>!</i>เหลือง</span></li>
-        <li><span>บางไทร ราว 2,600–2,900 (ประมาณเอง)</span><span class="chip y"><i>!</i>เหลือง</span></li>
-        <li><span>ป่าสัก ราว 110% (ประมาณเอง)</span><span class="chip y"><i>!</i>เหลือง</span></li>
-        <li><span>สะพานนวลฉวี หัวค่ำ ราว 2.7–2.9 (ประมาณจากประกาศนนทบุรี +0.20–0.40 ม.)</span><span class="chip y"><i>!</i>เหลือง</span></li>
-        <li><span>เขตภัยพิบัติบางบัวทอง</span><span class="chip y"><i>!</i>เหลือง</span></li>
-        <li><span>คลองพระพิมล ใกล้เดิม ราว 2.3</span><span class="chip g"><i><svg viewBox="0 0 12 12" width="1em" height="1em" aria-hidden="true"><path d="M2.3 6.3l2.4 2.4 5-5.2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></i>ปกติ</span></li>
-      </ul>
-      <p>เหลือง 6 ดวง ไม่มีแดง = <b>เตรียมพร้อม</b> แต่<b>ถ้ากรมชลฯ เพิ่มระบายเขื่อนเจ้าพระยาถึง 3,000</b> ไฟดวงนั้นจะแดง รวมเป็น 7 ดวง = <b>เตรียมอพยพ</b></p>
-      <p>ทำไมต้องจับตา: น้ำเหนือเขื่อนคาดว่าจะถึง 3,600–3,700 หักที่ผันเข้าคลองชลประทาน 550–580 แล้วยังเหลือราว 3,000 มากกว่า 2,500 ที่ระบายอยู่ ส่วนต่างต้องพักในทุ่งรับน้ำ จึงมีโอกาสที่จะเพิ่มระบายอีก</p>
-      <p><b>ช่วงที่น่าห่วงกว่า 2 ต.ค. คือ 3–5 ต.ค.</b> น้ำ 2,500 ที่ปล่อยตอนเที่ยง 30 ก.ย. จะมาถึงนนทบุรีราว 2–3 ต.ค. · เขื่อนพระรามหกเพิ่มเป็น 800 วันที่ 3 ต.ค. · น้ำทะเลหนุนสูงถึง 4 ต.ค. · ฝนกลับมา 4–5 ต.ค.</p>
-    </div></details>
-
-    <details class="qa"><summary>เมื่อไหร่ควรออกจากบ้าน</summary><div class="ans">
-      <p>ออกเมื่อเจออย่างใดอย่างหนึ่ง:</p>
-      <ul>
-        <li>อำเภอหรือจังหวัดประกาศให้อพยพ</li>
-        <li>ไฟรวมขึ้น <b>เตรียมอพยพ</b></li>
-        <li>สะพานนวลฉวีเกิน 3.00 หรือคลองพระพิมลเกิน 3.55 และยังขึ้นต่อ</li>
-        <li><b>น้ำในซอยสูงจนใกล้ขับรถออกไม่ได้</b> ข้อนี้สำคัญที่สุด เพราะทางออกมักถูกตัดก่อนน้ำเข้าบ้าน</li>
-        <li>ถ้าที่บ้านมีผู้สูงอายุ เด็ก หรือสัตว์เลี้ยง ให้ออกตั้งแต่ขั้นเตรียมอพยพ ไม่ต้องรอคำสั่ง</li>
-      </ul>
-      <p>ระหว่างขั้น <b>เตรียมพร้อม</b>: จัดกระเป๋าฉุกเฉิน รวมเอกสารสำคัญและยา ย้ายรถไปที่สูง ยกของขึ้นชั้นบน และตกลงไว้ก่อนว่าจะไปพักที่ไหน</p>
-    </div></details>
-
-    <details class="qa"><summary>ข้อมูลย้อนหลังมีข้อจำกัดอะไร</summary><div class="ans">
-      <ul>
-        <li>ไม่นับไฟ “พายุ” ย้อนหลัง เพราะนิยามให้ตรงกันย้อนหลังได้ยาก</li>
-        <li>สะพานนวลฉวีและคลองพระพิมลมีข้อมูลสถานีตั้งแต่ปี 64 ปีก่อนหน้าแสดงเป็นไม่มีข้อมูล</li>
-        <li>บางไทรไม่มีค่าสูงสุดทางการหลายปี บางปีใช้ค่ารายวันจากข่าวแทน (มีเครื่องหมาย ~)</li>
-        <li>เขื่อนเจ้าพระยาใช้ค่าที่สถานีท้ายเขื่อนวัดได้ บางปีต่างจากตัวเลขที่ประกาศเล็กน้อย เช่น ปี 60 วัดได้ 2,571 ประกาศ 2,697 แตะที่ไฟเพื่อดูทั้งสองค่า</li>
-        <li>เขตภัยพิบัติปี 56 และ 60 อิงสถิติของ ปภ. ที่นับอำเภอที่น้ำท่วม ไม่พบประกาศรายตำบล</li>
-        <li>ปี 54 ใช้ค่าจากหลายแหล่ง ระดับน้ำใกล้บ้านใช้ปากเกร็ด 3.38 (ข่าว) แทนนวลฉวี</li>
-      </ul>
-    </div></details>
-  </section>
-
-  <section class="card" aria-labelledby="h-hsrc">
-    <h2 id="h-hsrc">แหล่งข้อมูลย้อนหลัง</h2>
-    <ol class="srcl">
-      <li><a href="http://water.rid.go.th/hyd/Q_Peak/CPY_QPeak.pdf" target="_blank" rel="noopener">กรมชลประทาน: ปริมาณน้ำไหลสูงสุดรายปี ลุ่มเจ้าพระยา (C.2, C.13)</a></li>
-      <li><a href="https://app.rid.go.th/reservoir/" target="_blank" rel="noopener">กรมชลประทาน: ข้อมูลอ่างเก็บน้ำย้อนหลังรายวัน</a> และ <a href="https://tiwrm.hii.or.th/DATA/REPORT/php/rid_bigcm_raw.php?sdate=2013-10-09" target="_blank" rel="noopener">รายงานสถานภาพน้ำเขื่อน (สสน.)</a></li>
-      <li><a href="https://www.thaiwater.net" target="_blank" rel="noopener">thaiwater: สถานีสะพานนวลฉวีและคลองพระพิมล</a></li>
-      <li><a href="http://tiwrmdev.hii.or.th/current/2017/floodOct2017/body.html" target="_blank" rel="noopener">สสน.: สถานการณ์น้ำท่วม ต.ค. 2560</a> · <a href="https://www.matichon.co.th/local/news_717340" target="_blank" rel="noopener">มติชน: บางไทร 30 ต.ค. 2560</a></li>
-      <li><a href="https://catalog.disaster.go.th/dataset/e11a5fcd-2350-41c8-b951-2e64f140c131/resource/b374cbf6-0084-4c17-8fd4-63545d4b7c91/download/54_.pdf" target="_blank" rel="noopener">ปภ.: แผนเผชิญเหตุนนทบุรี สถิติน้ำท่วมรายปี</a></li>
-      <li><a href="https://www.matichon.co.th/region/news_2995939" target="_blank" rel="noopener">มติชน: ฝนท่วมหมู่บ้านบางบัวทอง ต.ค. 2564</a></li>
-      <li><a href="https://www.thaipost.net/general-news/240370/" target="_blank" rel="noopener">ไทยโพสต์: ประกาศเขตภัยพิบัติบางบัวทอง ต.ค. 2565</a> · <a href="https://www.thaipbs.or.th/news/content/320898" target="_blank" rel="noopener">Thai PBS: คันกั้นน้ำคลองโต๊ะใหม่พัง</a></li>
-      <li><a href="https://www.khaosod.co.th/around-thailand/news_10017247" target="_blank" rel="noopener">ข่าวสด: นนทบุรีประกาศเขตภัย 3 อำเภอ ปี 2568</a> · <a href="https://www.thaipbs.or.th/news/content/358455" target="_blank" rel="noopener">Thai PBS: ภูมิพล 99.54% พ.ย. 2568</a></li>
-    </ol>
-  </section>
-</main>
-
 <footer class="band">
   <div class="wrap">
     <div class="it">
@@ -790,13 +614,13 @@ const NORMAL = {c2_sep:1361, c2_oct:1815, c2_year:22669};
 const Y68 = {c2_year:38989};
 
 const SIGNALS = [
-  {short:'น้ำเหนือ C.2', key:'c2', name:'น้ำเหนือ C.2 นครสวรรค์', unit:'ลบ.ม./วิ', y:3000, r:4000, why:'หลังปี 54 สูงสุด 3,141 (ปี 65) · ปลาย ก.ย. 54 ราว 4,254 (ข่าว) · ปี 54 สูงสุด 4,689'},
-  {short:'ระบาย C.13', key:'c13', name:'ระบายท้ายเขื่อนเจ้าพระยา C.13', unit:'ลบ.ม./วิ', y:2500, r:3000, why:'กรอบบนที่ กนช. เห็นชอบ 2,500 · ปี 65 สูงสุด 3,295 · ปี 54 สูงสุด 3,726 (ตารางค่าสูงสุดรายปี กรมชลฯ)'},
+  {short:'น้ำเหนือ C.2', key:'c2', name:'น้ำเหนือ C.2 นครสวรรค์', unit:'ลบ.ม./วิ', y:3000, r:4000, why:'ปี 65 สูงสุดราว 3,054–3,059 · ปลาย ก.ย. 54 ราว 4,254 (ข่าว)'},
+  {short:'ระบาย C.13', key:'c13', name:'ระบายท้ายเขื่อนเจ้าพระยา C.13', unit:'ลบ.ม./วิ', y:2500, r:3000, why:'กรอบบนที่ กนช. เห็นชอบ 2,500 · ปี 65 สูงสุด 3,164 · ปี 54 สูงสุด 3,721'},
   {short:'เหนือนนท์ C.29B', key:'c29b', name:'เจ้าพระยาเหนือนนทบุรี (สามโคก/บางไทร)', unit:'ลบ.ม./วิ', y:2500, r:3500, why:'กรมชลฯ: 2,500 นนทบุรีนอกคันเริ่มท่วม · 3,500 กระทบ กทม. (อ้างในข่าว)'},
-  {short:'เขื่อนป่าสัก', key:'pasak_pct', name:'เขื่อนป่าสักชลสิทธิ์', unit:'% ความจุ', dec:1, y:100, r:130, why:'เกิน 100% ต้องเร่งระบายลงป่าสัก · ปีฝนดีเกิน 100% เกือบทุกปี สูงสุด 125% (ปี 65) · ปี 54 ≈119% · แดงที่ 130% = สูงกว่าทุกปีที่เคยมี'},
-  {short:'ที่ว่างเขื่อนหลัก', key:'bs_room', name:'ภูมิพล+สิริกิติ์ รับน้ำได้อีก', unit:'ล้าน ลบ.ม.', dir:'down', y:3000, r:1500, why:'26 ก.ย. 54 เหลือที่รับน้ำเพียง 1,413 · พ.ย. 68 เหลือราว 260 (เขื่อนเกือบเต็ม)'},
-  {short:'เจ้าพระยาใกล้บ้าน', key:'cpy014', name:'เจ้าพระยาใกล้บ้าน สะพานนวลฉวี', unit:'ม.รทก. สูงสุดรายวัน', dec:2, y:2.5, r:3.0, why:'ตลิ่ง 2.50 · ปีน้ำมากเกินตลิ่งทุกครั้ง สูงสุดหลังปี 54 คือ 2.93 (ปี 65) · สถิติปี 54 ที่ปากเกร็ด 3.38 (ข่าว)'},
-  {short:'คลองพระพิมล', key:'phraphimon', name:'คลองพระพิมล ไทรน้อย', unit:'ม.รทก.', dec:2, y:2.8, r:3.55, why:'ปี 64–65 ที่บางบัวทองมีน้ำท่วมในชุมชน คลองขึ้นราว 2.8–2.9 · แดงเมื่อห่างตลิ่ง 4.05 ไม่ถึง 50 ซม. · ปี 54 น้ำเข้าบางบัวทองทางคลองพระพิมล'},
+  {short:'เขื่อนป่าสัก', key:'pasak_pct', name:'เขื่อนป่าสักชลสิทธิ์', unit:'% ความจุ', dec:1, y:100, r:120, why:'เกิน 100% ต้องเร่งระบายลงป่าสัก · 26 ก.ย. 54 ราว 1,035 ล้าน ลบ.ม. ≈ 119% ของความจุที่กรมชลฯ ใช้ตอนนี้ (ข่าว)'},
+  {short:'ที่ว่างเขื่อนหลัก', key:'bs_room', name:'ภูมิพล+สิริกิติ์ รับน้ำได้อีก', unit:'ล้าน ลบ.ม.', dir:'down', y:3000, r:1500, why:'26 ก.ย. 54 เหลือที่รับน้ำเพียง 1,413'},
+  {short:'เจ้าพระยาใกล้บ้าน', key:'cpy014', name:'เจ้าพระยาใกล้บ้าน สะพานนวลฉวี', unit:'ม.รทก. สูงสุดรายวัน', dec:2, y:2.5, r:3.0, why:'ตลิ่ง 2.50 · สถิติปี 54 ที่ปากเกร็ด 3.38 (ข่าว)'},
+  {short:'คลองพระพิมล', key:'phraphimon', name:'คลองพระพิมล ไทรน้อย', unit:'ม.รทก.', dec:2, y:3.55, r:4.05, why:'ตลิ่ง 4.05 · ปี 54 น้ำเข้าบางบัวทองทางคลองพระพิมล'},
   {short:'C.2 ล้นตลิ่งติดกัน', key:'c2days', name:'C.2 ล้นตลิ่งติดต่อกัน', unit:'วัน', y:7, r:14, why:'ปี 54 ล้นตลิ่งรวม 44 วัน (16 ก.ย.–29 ต.ค.) บางบัวทองเริ่มท่วมหนักหลังล้นไปราว 3–5 สัปดาห์'},
   {short:'พายุเข้าใน 3 วัน', key:'storm', flag:true, level:'y', name:'พายุหรือดีเปรสชันเข้าภาคเหนือ-กลางใน 3 วัน', why:'ปี 54 พายุไห่ถาง เนสาด นาลแก ส่งผลต่อเนื่องปลาย ก.ย.–ต้น ต.ค. เติมฝนเข้าเขื่อนที่เต็มอยู่แล้ว'},
   {short:'เขตภัยพิบัติ', key:'disaster_zone', flag:true, level:'y', name:'บางบัวทองอยู่ในเขตประกาศภัยพิบัติ', why:'แปลว่ามีน้ำท่วมขังในพื้นที่แล้ว แม้น้ำเหนือยังไม่มาก'},
@@ -904,7 +728,7 @@ function evalSignals(){
 function overallLevel(sig){
   if(sig.some(s => s.lvl === 'x')) return 4;
   const r = sig.filter(s => s.lvl === 'r').length, y = sig.filter(s => s.lvl === 'y').length;
-  if(r >= 2 || r + y >= 7) return 3; if(r === 1 || y >= 3) return 2; if(y >= 1) return 1; return 0;
+  if(r >= 2) return 3; if(r === 1 || y >= 3) return 2; if(y >= 1) return 1; return 0;
 }
 const CHK = '<svg viewBox="0 0 12 12" width="1em" height="1em" aria-hidden="true"><path d="M2.3 6.3l2.4 2.4 5-5.2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const CHIP = {g:[CHK,'ปกติ'], y:['!','เหลือง'], r:['×','แดง'], x:['×','ประกาศ'], n:['–','ไม่มีข้อมูล']};
@@ -1436,105 +1260,6 @@ function renderAll(){
   renderBadge(); renderGauge(); renderStatus(sig); renderRoute(sig);
   renderGantt(); renderVolume(); renderDams(); renderTrend(); renderSignals(sig);
   renderAhead(); renderLocal(); renderY54(); renderLog();
-  renderHistory(sig);
-}
-
-/* ---------- history: annual peaks 2554–2568, scored with the current SIGNALS ---------- */
-/* v = values per signal key (null = no data). n = per-cell notes for the tooltip. a = keys marked "~" (approximate / likely). */
-const HIST = [
-  {yr:2554, ref:true, v:{c2:4689, c13:3726, c29b:3860, pasak_pct:119, bs_room:140, cpy014:3.38, phraphimon:null, c2days:44, disaster_zone:true, order:null},
-    a:['pasak_pct','bs_room','cpy014'], n:{c29b:'13 ต.ค. 54 (ข่าวอ้างกรมชลฯ)', pasak_pct:'ราว 1,035 ล้าน ลบ.ม. (ข่าว)', bs_room:'ราว · ปลาย ต.ค. 54 ภูมิพล 99% สิริกิติ์ 100% (ข่าว)', cpy014:'ปากเกร็ด 3.38 (ข่าว) คนละจุดกับนวลฉวี', order:'ไม่ได้ตรวจสอบคำสั่งทางการ'},
-    bbt:'คันกั้นน้ำแตกหลายจุด 20 ต.ค. จมเกือบทั้งอำเภอ สูงถึง 1.5 ม. ท่วมนานกว่า 1 เดือน'},
-  {yr:2555, v:{c2:1886, c13:1960, c29b:null, pasak_pct:90.1, bs_room:7668, cpy014:null, phraphimon:null, c2days:0, disaster_zone:false, order:false}, bbt:''},
-  {yr:2556, v:{c2:1806, c13:2266, c29b:null, pasak_pct:123.6, bs_room:9503, cpy014:null, phraphimon:null, c2days:0, disaster_zone:true, order:false},
-    a:['disaster_zone'], n:{disaster_zone:'ปภ. นับว่านนทบุรีท่วม 6 อำเภอ ไม่พบประกาศรายตำบล', pasak_pct:'1,077 ล้าน ลบ.ม. (9 ต.ค. 56)'}, bbt:'ปภ. นับว่านนทบุรีท่วมครบ 6 อำเภอ 31,325 ครัวเรือน'},
-  {yr:2557, v:{c2:1408, c13:1127, c29b:null, pasak_pct:106.1, bs_room:10727, cpy014:null, phraphimon:null, c2days:0, disaster_zone:false, order:false}, bbt:'ฝนน้อยที่สุดในรอบ 10 ปีของภาคกลาง'},
-  {yr:2558, v:{c2:882, c13:734, c29b:null, pasak_pct:73.4, bs_room:13034, cpy014:null, phraphimon:null, c2days:0, disaster_zone:false, order:false}, bbt:'ปีแล้งหนัก'},
-  {yr:2559, v:{c2:2259, c13:2200, c29b:null, pasak_pct:114.9, bs_room:7992, cpy014:null, phraphimon:null, c2days:0, disaster_zone:false, order:false}, bbt:'เกาะเกร็ด (ปากเกร็ด) ท่วมจากน้ำทะเลหนุน'},
-  {yr:2560, v:{c2:3052, c13:2571, c29b:2795, pasak_pct:110.2, bs_room:3449, cpy014:null, phraphimon:null, c2days:0, disaster_zone:true, order:false},
-    a:['c29b','disaster_zone'], n:{c13:'สถานีวัด 2,571 · กรมชลฯ ประกาศระบาย 2,697 (24–30 ต.ค.)', c29b:'ค่า 30 ต.ค. 60 (ข่าว) ไม่ใช่ค่าสูงสุดของปี', cpy014:'ไม่มีข้อมูลสถานี · ข่าวว่าเมืองนนท์ล้นตลิ่งสูงกว่าหลายปี', disaster_zone:'ปภ. นับ 4 อำเภอรวมบางบัวทอง ไม่พบประกาศรายตำบล'},
-    bbt:'ปภ. นับบางบัวทองในพื้นที่ท่วม · เมืองนนท์ล้นตลิ่ง'},
-  {yr:2561, v:{c2:1355, c13:898, c29b:null, pasak_pct:85.2, bs_room:4827, cpy014:null, phraphimon:null, c2days:0, disaster_zone:false, order:false}, bbt:''},
-  {yr:2562, v:{c2:1476, c13:952, c29b:null, pasak_pct:50.6, bs_room:11568, cpy014:null, phraphimon:null, c2days:0, disaster_zone:false, order:false}, bbt:''},
-  {yr:2563, v:{c2:1172, c13:882, c29b:null, pasak_pct:87.9, bs_room:11443, cpy014:null, phraphimon:null, c2days:0, disaster_zone:false, order:false}, bbt:''},
-  {yr:2564, v:{c2:2700, c13:2651, c29b:2873, pasak_pct:116.6, bs_room:10009, cpy014:2.67, phraphimon:2.90, c2days:0, disaster_zone:false, order:false},
-    a:['c29b'], n:{c13:'สถานีวัด 2,651 · รายงานระบาย 2,784 (1 ต.ค.)', c29b:'สถานีที่อยุธยา 2,873 ณ 30 ก.ย. 64 (ข่าว ไม่ระบุรหัสสถานี)', cpy014:'23 ต.ค. 64', phraphimon:'25 ต.ค. 64'},
-    bbt:'ฝนจากพายุคมปาซุ ท่วมหมู่บ้านในบางรักพัฒนาราว 1,000 ครัวเรือน ~30 ซม. ไม่ประกาศเขตภัย'},
-  {yr:2565, v:{c2:3141, c13:3295, c29b:3218, pasak_pct:125.4, bs_room:3938, cpy014:2.93, phraphimon:2.82, c2days:0, disaster_zone:true, order:false},
-    n:{c13:'สถานีวัด 3,295 · รายงานระบาย 3,169 (13 ต.ค.)', c29b:'4 ต.ค. 65', pasak_pct:'1,093 ล้าน ลบ.ม. (9 ต.ค. 65)', cpy014:'10 และ 13 ต.ค. 65', phraphimon:'28–29 ต.ค. 65 วันที่คันพัง', disaster_zone:'ประกาศ 11 ต.ค. 65'},
-    bbt:'ประกาศเขตภัยพิบัติทั้ง 8 ตำบล (11 ต.ค.) · 28 ต.ค. คันกั้นน้ำชั่วคราวปากคลองโต๊ะใหม่ ต.พิมลราช พัง · ไม่มีคำสั่งอพยพ'},
-  {yr:2566, v:{c2:2302, c13:1800, c29b:null, pasak_pct:117.2, bs_room:6407, cpy014:null, phraphimon:null, c2days:0, disaster_zone:false, order:false}, bbt:''},
-  {yr:2567, v:{c2:2463, c13:2143, c29b:2056, pasak_pct:111.1, bs_room:2725, cpy014:2.24, phraphimon:1.73, c2days:0, disaster_zone:false, order:false},
-    a:['c29b'], n:{c13:'สถานีวัด 2,143 · ประกาศ 2,199', c29b:'ค่ารายวัน 8 ต.ค. 67 (ข่าว)', bs_room:'สิริกิติ์ 97% (10 พ.ย. 67)'}, bbt:''},
-  {yr:2568, v:{c2:3011, c13:2900, c29b:null, pasak_pct:114.1, bs_room:258, cpy014:2.82, phraphimon:null, c2days:0, disaster_zone:false, order:false},
-    a:['pasak_pct'], n:{pasak_pct:'อย่างน้อย 114% (6 พ.ย. 68)', bs_room:'ภูมิพล 99.54% สิริกิติ์ 97.95% (14 พ.ย. 68)', cpy014:'9 พ.ย. 68', phraphimon:'ข้อมูลสถานีปีนี้แกว่งผิดปกติ ใช้ไม่ได้', c13:'11 พ.ย. 68 · ระบายเกินความจุลำน้ำ 9–17 พ.ย.'},
-    bbt:'ไม่ถูกประกาศ (นนทบุรีประกาศ อ.เมือง ปากเกร็ด บางกรวย) · เขื่อนภูมิพลและสิริกิติ์เกือบเต็ม 100%'}
-];
-const HIST_NOTE = {pasak_pct:'% ของ 871.5 ล้าน ลบ.ม. (ฐานที่กรมชลฯ ใช้ตอนนี้)', bs_room:'รวมที่ว่างต่ำสุดของแต่ละเขื่อน'};
-function histLevel(sd, v){
-  if(sd.key === 'storm') return 'ex';
-  if(v == null) return 'n';
-  if(sd.flag){ if(sd.key === 'order') return v ? 'x' : 'g'; return v ? sd.level : 'g'; }
-  if(sd.dir === 'down') return v <= sd.r ? 'r' : v <= sd.y ? 'y' : 'g';
-  return v >= sd.r ? 'r' : v >= sd.y ? 'y' : 'g';
-}
-function histFmt(sd, v){
-  if(v == null) return 'ไม่มีข้อมูล';
-  if(sd.flag) return v ? 'ใช่' : 'ไม่';
-  return fmt(v, sd.dec)+(sd.key === 'c2days' ? ' วัน' : '');
-}
-function scoreYear(h){
-  const cells = SIGNALS.map(sd => {
-    const v = h.v[sd.key]; const lvl = histLevel(sd, v);
-    return {sd, v, lvl, approx: !!(h.a && h.a.indexOf(sd.key) > -1), note: (h.n && h.n[sd.key]) || ''};
-  });
-  const counted = cells.filter(c => c.lvl !== 'ex').map(c => ({lvl:c.lvl}));
-  return {cells, L: overallLevel(counted), y: counted.filter(c => c.lvl === 'y').length, r: counted.filter(c => c.lvl === 'r' || c.lvl === 'x').length};
-}
-function lampHtml(lvl){
-  if(lvl === 'n') return '<i class="lamp nd"></i>';
-  if(lvl === 'ex') return '<i class="lamp ex"></i>';
-  return '<i class="lamp '+(lvl === 'x' ? 'r' : lvl)+' on"></i>';
-}
-function renderHistory(sig){
-  const mat = $('#hmat'); if(!mat) return;
-  const rows = HIST.map(h => Object.assign({h}, scoreYear(h)));
-  /* this year's row comes from the live signals */
-  const nowCells = sig.map(s => ({sd:s, v:(s.flag ? (s.lvl === 'n' ? null : s.disp === 'ใช่') : s.val), lvl:s.lvl, approx:false, note:s.sub || ''}));
-  const nowRow = {h:{yr:2569, now:true, bbt:(S && S.local && S.local.title) || ''}, cells:nowCells, L:overallLevel(sig), y:sig.filter(s => s.lvl === 'y').length, r:sig.filter(s => s.lvl === 'r' || s.lvl === 'x').length};
-  const all = rows.concat([nowRow]);
-  const head = '<div class="hrow head" aria-hidden="true"><span></span>'+SIGNALS.map((sd, i) => '<span title="'+esc(sd.short)+'">'+String(i + 1).padStart(2, '0')+'</span>').join('')+'<span style="text-align:right">ไฟรวม</span></div>';
-  mat.innerHTML = head + all.map(row => {
-    const h = row.h, lv = LEVELS[row.L];
-    const label = h.ref ? '<small>อ้างอิง</small>' : h.now ? '<small>ถึงวันนี้</small>' : '';
-    const cells = row.cells.map(c => {
-      const extra = [c.note, c.sd.key && HIST_NOTE[c.sd.key] && !h.now ? HIST_NOTE[c.sd.key] : ''].filter(Boolean).join(' · ');
-      const tipH = '<b>'+esc(h.yr+' · '+c.sd.name)+'</b><br>'+(c.lvl === 'ex' ? 'ไม่นับย้อนหลัง' : esc((c.approx ? '~ ' : '')+histFmt(c.sd, c.v))+(c.sd.flag || c.v == null ? '' : ' '+esc(c.sd.unit))+' · '+LNAME[c.lvl === 'n' ? 'n' : c.lvl])+(extra ? '<br><span style="opacity:.8">'+esc(extra)+'</span>' : '');
-      return '<span class="c" data-tip="'+esc(tipH)+'">'+lampHtml(c.lvl)+(c.approx && c.lvl !== 'n' ? '<sup>~</sup>' : '')+'</span>';
-    }).join('');
-    const aria = h.yr+' '+lv.name+' เหลือง '+row.y+' แดง '+row.r;
-    return '<div class="hrow'+(h.ref ? ' ref' : '')+(h.now ? ' now' : '')+'" role="group" aria-label="'+esc(aria)+'"><span class="yr">'+h.yr+label+'</span>'+cells+'<span class="lv">'+chip(lv.cls, lv.name)+'</span></div>';
-  }).join('');
-  $('#hkey').innerHTML = SIGNALS.map((sd, i) => '<li><b>'+String(i + 1).padStart(2, '0')+'</b>'+esc(sd.short)+(sd.flag ? '' : ' <span class="muted">('+(sd.dir === 'down' ? '≤' : '≥')+' '+fmt(sd.y, sd.dec)+' / '+fmt(sd.r, sd.dec)+')</span>')+'</li>').join('');
-
-  /* summary of the 14 years after 2554 */
-  const post = rows.filter(r => !r.h.ref);
-  const cnt = [0,0,0,0,0]; post.forEach(r => cnt[r.L]++);
-  const evac = post.filter(r => r.L >= 3).map(r => r.h.yr);
-  $('#histSum').innerHTML = LEVELS.slice(0, 4).map((lv, i) => chip(lv.cls, lv.name+' '+cnt[i]+' ปี')).join('');
-  const lvNow = LEVELS[nowRow.L];
-  $('#histLede').innerHTML = 'ถ้าเอาไฟ 11 ดวงชุดนี้ไปวัดค่าสูงสุดของทุกปีหลังปี 54 (2555–2568) มีแค่ '+(evac.length ? '<b>ปี '+evac.join(', ')+'</b>' : 'ไม่มีปีไหน')+' ที่ถึงขั้นเตรียมอพยพ และไม่พบคำสั่งอพยพที่บางบัวทองเลยในช่วงนี้ · <b>ปีนี้ถึง '+esc(thD(asOf(), true))+'</b> อยู่ระดับ <b>'+esc(lvNow.name)+'</b> (เหลือง '+nowRow.y+' แดง '+nowRow.r+') ขณะที่ยอดน้ำของปีหนักๆ มักมาเดือน ต.ค.–พ.ย.';
-
-  /* values table */
-  const COLS = ['c2','c13','c29b','pasak_pct','bs_room','cpy014','phraphimon'];
-  const SD = k => SIGNALS.find(x => x.key === k);
-  const thead = '<thead><tr><th scope="col">ปี</th><th scope="col">C.2 นครสวรรค์</th><th scope="col">เขื่อนเจ้าพระยา</th><th scope="col">บางไทร</th><th scope="col">ป่าสัก %</th><th scope="col">ภูมิพล+สิริกิติ์ รับได้อีก</th><th scope="col">นวลฉวี</th><th scope="col">คลองพระพิมล</th><th scope="col">ไฟรวม</th><th scope="col" style="text-align:left">บางบัวทองเกิดอะไร</th></tr></thead>';
-  const body = all.map(row => {
-    const h = row.h, lv = LEVELS[row.L];
-    const tds = COLS.map(k => { const c = row.cells.find(x => x.sd.key === k); const lvl = c.lvl; return '<td class="lv-'+lvl+'">'+(c.v == null ? '–' : (c.approx ? '~' : '')+fmt(c.v, SD(k).dec))+'</td>'; }).join('');
-    return '<tr class="'+(h.ref ? 'ref' : h.now ? 'now' : '')+'"><td><b>'+h.yr+'</b>'+(h.ref ? ' <span class="muted">อ้างอิง</span>' : h.now ? ' <span class="muted">ถึงวันนี้</span>' : '')+'</td>'+tds+'<td>'+chip(lv.cls, lv.name)+'</td><td class="bbt">'+esc(h.bbt || '–')+'</td></tr>';
-  }).join('');
-  $('#histTable').innerHTML = thead+'<tbody>'+body+'</tbody>';
 }
 
 /* ---------- interactions ---------- */
@@ -1564,17 +1289,7 @@ document.addEventListener('click', e => {
 });
 try{ const s = localStorage.getItem('fw-station'); if(s && STATIONS[s]) station = s; }catch(_){}
 let rsz = null, lastW = 0;
-new ResizeObserver(() => { const w = $('#trend').clientWidth; if(!w || Math.abs(w - lastW) < 4) return; lastW = w; clearTimeout(rsz); rsz = setTimeout(() => { renderGantt(); renderTrend(); }, 120); }).observe(document.querySelector('main'));
-/* ---------- tabs: today / history (hash #history) ---------- */
-function setView(){
-  const v = location.hash === '#history' ? 'history' : 'today';
-  document.querySelectorAll('[data-view]').forEach(el => { el.hidden = el.getAttribute('data-view') !== v; });
-  document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', String(t.id === 'tab-'+v)));
-  if(v === 'today'){ lastW = 0; renderGantt(); renderTrend(); }
-  return v;
-}
-addEventListener('hashchange', () => { const h = location.hash; setView(); if(h === '#history' || h === '#today'){ tip.hidden = true; scrollTo(0, 0); } });
-
+new ResizeObserver(() => { const w = $('#trend').clientWidth; if(Math.abs(w - lastW) < 4) return; lastW = w; clearTimeout(rsz); rsz = setTimeout(() => { renderGantt(); renderTrend(); }, 120); }).observe(document.querySelector('main'));
 
 const FIELDS = ['c2','c2_below','c13','c13_up','rama6','c29b','pasak_pct','bhumibol_pct','sirikit_pct','kwaenoi_pct','bs_room','cpy014','phraphimon'];
 $('#f-date').value = bkkToday();
@@ -1632,7 +1347,6 @@ async function init(){
   (async () => { try{ const u = await window.claude.use('user'); if(u){ const c = await u.can('data.write'); if(c === false){ canWrite = false; renderAll(); } } }catch(_){} })();
   db.doc('status/current').onSnapshot(snap => { if(fellBack) return; if(snap.exists){ S = snap.data(); syncFlagInputs(); renderAll(); } }, () => {});
 }
-setView();
 init();
 })();
 </script>
