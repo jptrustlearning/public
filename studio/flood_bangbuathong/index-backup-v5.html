@@ -857,7 +857,7 @@ function renderGauge(){
       '<path d="M'+(x0 - 4)+' '+yv+' q 6 -4 12 0 t 12 0 t 12 0 t 12 0 V '+(yv + 8)+' H '+(x0 - 4)+' Z" fill="#9FEFFF" opacity=".55"/></g>'+
       '<line x1="'+(x0 - 10)+'" x2="'+(x0 + w + 4)+'" y1="'+yv+'" y2="'+yv+'" stroke="#38D6FF" stroke-width="2" filter="url(#gglow)"/>';
     lab = '<text x="'+(x0 - 14)+'" y="'+(yv - 2)+'" text-anchor="end" font-family="var(--body)" fill="#38D6FF"><tspan font-size="20" font-weight="700">'+fmt(c.v, 2)+'</tspan><tspan font-size="12" dx="3">ม.</tspan></text>'+
-      '<text x="'+(x0 - 14)+'" y="'+(yv + 15)+'" text-anchor="end" font-size="12" fill="#B9C8E6" font-family="var(--body)">(24 ชม.)</text>';
+      '<text x="'+(x0 - 14)+'" y="'+(yv + 15)+'" text-anchor="end" font-size="12" fill="#B9C8E6" font-family="var(--body)">(วันนี้)</text>';
   }
   const yr = Y(Y54.pakkret);
   const rec = '<line x1="'+(x0 - 10)+'" x2="'+(x0 + w + 4)+'" y1="'+yr+'" y2="'+yr+'" stroke="#FF5A5F" stroke-width="1.6" stroke-dasharray="4 3"/>'+
@@ -873,7 +873,7 @@ function renderGauge(){
     '<rect x="'+x0+'" y="'+top+'" width="'+w+'" height="'+(bot - top)+'" rx="10" fill="none" stroke="#A9D2FF" stroke-opacity=".75" stroke-width="1.6"/>'+
     ticks+rec+lab+
     '<rect x="0" y="0" width="210" height="304" fill="transparent" class="hit" tabindex="0" data-tip="'+esc(tipTxt)+'"/></svg>'+
-    '<figcaption>* ระดับเจ้าพระยา สะพานนวลฉวี ใกล้บ้าน<br>ม.รทก. สูงสุดใน 24 ชม.</figcaption>';
+    '<figcaption>* ระดับเจ้าพระยา สะพานนวลฉวี ใกล้บ้าน<br>ม.รทก. สูงสุดของวัน</figcaption>';
 }
 
 function renderStatus(sig){
