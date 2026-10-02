@@ -144,10 +144,8 @@ main.wrap{display:grid;gap:clamp(22px,3vw,34px);padding-block:4px 40px}
 .lights-f{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 6px 0;border-top:1px solid var(--line)}
 .lights-f .ov{display:flex;align-items:center;gap:8px;font:600 14px var(--body)}
 .lights-f .ov .lamp{width:16px;height:16px}
-.lights-f .ov small{font:400 11.5px var(--body);color:var(--muted)}
-.lights-f .ov b{font-weight:700}.lights-f .ov b.g{color:var(--ok)}.lights-f .ov b.y{color:var(--warn)}.lights-f .ov b.r,.lights-f .ov b.x{color:var(--bad)}
 .lights-f a{font-size:12px;color:var(--cyan-2);white-space:nowrap}
-@media (max-width:900px){.lrow{grid-template-columns:minmax(0,1fr) auto;gap:6px;min-height:22px;padding:1px 4px}.lrow .n,.lrow .v{display:none}.lrow .l{font-size:12px}.lamps{gap:4px;padding:2px 4px}.lamp{width:11px;height:11px}.lights{padding:10px 8px 8px}.lights-h{flex-wrap:wrap;row-gap:0}.lights-h span{font-size:11px}.lights-f a{display:none}}
+@media (max-width:900px){.lrow{grid-template-columns:minmax(0,1fr) auto;gap:6px;min-height:22px;padding:1px 4px}.lrow .n,.lrow .v{display:none}.lrow .l{font-size:12px}.lamps{gap:4px;padding:2px 4px}.lamp{width:11px;height:11px}.lights{padding:10px 8px 8px}.lights-h span{display:none}.lights-f a{display:none}}
 @media (prefers-reduced-motion:reduce){.lamp.on{animation:none!important}}
 .sig li{transition:background .3s}
 .sig li.flash{animation:sigflash 2.2s ease-out}
@@ -190,7 +188,6 @@ main.wrap{display:grid;gap:clamp(22px,3vw,34px);padding-block:4px 40px}
 .st-map svg{display:block;width:100%;height:auto;filter:drop-shadow(0 0 18px rgba(56,214,255,.25))}
 .more{grid-column:1/-1;display:inline-flex;gap:6px;align-items:center;font-weight:600;color:var(--cyan-2);justify-self:start}
 .dot{width:10px;height:10px;border-radius:50%;flex:none;margin-top:6px}
-.todo-n{width:20px;height:20px;border-radius:50%;flex:none;display:grid;place-items:center;font:700 11px/1 var(--body);font-style:normal;color:var(--cyan-2);border:1px solid var(--edge-hi);margin-top:1px}
 .dot.g{background:var(--ok);box-shadow:0 0 8px var(--ok)} .dot.y{background:var(--warn);box-shadow:0 0 8px var(--warn)} .dot.r,.dot.x{background:var(--bad);box-shadow:0 0 8px var(--bad)} .dot.n{background:var(--ref)}
 
 /* chips */
@@ -312,13 +309,13 @@ main.wrap{display:grid;gap:clamp(22px,3vw,34px);padding-block:4px 40px}
 .sig .nm{font-weight:600;font-size:14.5px;line-height:1.4}
 .sig .why{font-size:12.5px;color:var(--muted);line-height:1.45;margin-top:2px}
 .sig .now{font:700 20px/1.1 var(--body);color:var(--ink);text-align:right;white-space:nowrap}
-.sig .now small{display:block;font:500 11.5px var(--body);color:var(--muted);margin-top:3px;white-space:normal;max-width:240px;margin-left:auto;line-height:1.45}
+.sig .now small{display:block;font:500 11.5px var(--body);color:var(--muted);margin-top:3px}
 .sig .th{font-size:12px;color:var(--ink-2);text-align:right;line-height:1.5}
 .sig .th b{font-weight:600;color:var(--ink)}
 @media (max-width:760px){
   .sig li{grid-template-columns:minmax(0,1fr);gap:6px}
   .sig .now{text-align:left;display:flex;gap:4px 10px;align-items:baseline;flex-wrap:wrap;white-space:normal}
-  .sig .now small{margin-top:0;max-width:none;margin-left:0}
+  .sig .now small{margin-top:0}
   .sig .th{text-align:left}
   .sig .th br{display:none}
 }
@@ -1070,7 +1067,7 @@ function renderStatus(sig){
   const scale = LEVELS.map((l, i) => '<div class="'+(i === L ? 'on '+l.cls : '')+'"></div>').join('');
   const scaleL = LEVELS.map((l, i) => '<span class="'+(i === L ? 'on' : '')+'">'+esc(l.name)+'</span>').join('');
   const why = on.length ? on.map(s => '<li><i class="dot '+s.lvl+'"></i><span><b>'+esc(s.name)+'</b><small>'+esc(s.disp)+' '+esc(s.flag ? '' : s.unit)+'</small></span></li>').join('') : '<li><i class="dot g"></i><span>ยังไม่มีสัญญาณเหลืองหรือแดง</span></li>';
-  const todo = lv.todo.map((t, i) => '<li><i class="todo-n">'+(i + 1)+'</i><span>'+esc(t)+'</span></li>').join('');
+  const todo = lv.todo.map(t => '<li><i class="dot '+lv.cls+'"></i><span>'+esc(t)+'</span></li>').join('');
   const watch = S && S.watch_window ? '<div class="watchpill">ช่วงเสี่ยง '+esc(S.watch_window)+'</div>' : '';
   $('#status').innerHTML =
     '<div class="st-left">'+
@@ -1433,7 +1430,7 @@ function renderLights(sig){
   }).join('');
   const L = overallLevel(sig), lv = LEVELS[L];
   el.innerHTML = '<div class="lights-h"><b>สัญญาณ 11 ข้อ</b><span>เหลือง '+y+' · แดง '+r+'</span></div><div class="lrows">'+rows+'</div>'+
-    '<div class="lights-f"><span class="ov"><small>ไฟรวม</small><b class="'+lv.cls+'">'+esc(lv.name)+'</b></span><a href="#signals">ดูเกณฑ์</a></div>';
+    '<div class="lights-f"><span class="ov"><i class="lamp '+(lv.cls === 'x' ? 'r' : lv.cls)+' on"></i>'+esc(lv.name)+'</span><a href="#signals">ดูเกณฑ์</a></div>';
 }
 function renderAll(){
   const sig = evalSignals();
