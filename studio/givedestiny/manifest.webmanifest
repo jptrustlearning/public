@@ -1,0 +1,16 @@
+{
+  "name": "GiveDestiny",
+  "short_name": "GiveDestiny",
+  "description": "ให้ชะตาเลือกที่ทำบุญ รวมที่บริจาคที่ตรวจลิงก์แล้ว",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "lang": "th",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
