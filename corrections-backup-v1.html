@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>บันทึกการแก้ตัวเลขของเรา | JP Trust Learning</title>
+<meta name="description" content="ทุกครั้งที่เราตรวจเจอว่าตัวเลขของตัวเองผิดหรือสูงเกินจริง เราบันทึกไว้ที่นี่ — ตัวเลขเดิม สิ่งที่เจอ และตัวเลขที่ใช้แทน">
+<meta property="og:title" content="บันทึกการแก้ตัวเลขของเรา | JP Trust Learning">
+<meta property="og:description" content="ตัวเลขเดิม สิ่งที่ตรวจเจอ และตัวเลขที่ใช้แทน — เปิดทั้งหมด">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@200;300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FAF6ED; --cream-card:#FFFEF8; --cream-warm:#F5EFE0; --cream-deep:#EDE4D0; --cream-tile:#F8F2E4;
+  --gold:#D4AF37; --gold-deep:#8B6914; --gold-light:#F4E4BA; --gold-border:rgba(212,175,55,0.22);
+  --maroon:#722F37; --maroon-darkest:#1a0a0e;
+  --ink:#3D3228; --ink-sub:#5A3D20; --ink-muted:#7A6F62;
+  --light-sub:#F4E4BA; --was:#B03A48; --now:#2E8B57;
+  --maroon-bg:linear-gradient(160deg,#1a0a0e 0%,#2d1018 28%,#3a1520 48%,#2d1018 70%,#1a0a0e 100%);
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Anuphan',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;
+  -webkit-font-smoothing:antialiased}
+.wrap{width:100%;max-width:900px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+a{color:inherit}
+.topbar{background:var(--maroon-darkest);border-bottom:1px solid rgba(212,175,55,0.22)}
+.topbar .wrap{display:flex;align-items:center;gap:18px;height:58px}
+.topbar a{color:rgba(255,254,248,0.72);text-decoration:none;font-size:14px;transition:color .2s}
+.topbar a:hover{color:var(--gold-light)}
+.topbar .brand{font-family:'Cinzel',serif;font-weight:600;letter-spacing:1.6px;
+  color:var(--gold);font-size:13px;margin-right:auto}
+.hero{background:var(--maroon-bg);padding:clamp(46px,7vw,86px) 0 clamp(40px,6vw,70px);
+  border-bottom:2px solid;border-image:linear-gradient(90deg,transparent,#D4AF37,transparent) 1}
+.eyebrow{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2.6px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px}
+.hero h1{font-size:clamp(28px,5vw,46px);font-weight:700;color:#FFFEF8;line-height:1.28;margin-bottom:18px}
+.hero .lead{font-size:clamp(15px,1.8vw,17px);color:rgba(255,254,248,0.7);max-width:66ch}
+.hero .lead b{color:var(--gold-light);font-weight:600}
+.body{padding:clamp(40px,5vw,66px) 0 clamp(54px,7vw,90px)}
+.why{background:var(--cream-card);border:1px solid var(--gold-border);border-left:3px solid var(--gold);
+  border-radius:14px;padding:22px 24px;margin-bottom:40px;font-size:15px;color:var(--ink-sub)}
+.why b{color:var(--maroon)}
+.entry{background:var(--cream-card);border:1px solid var(--gold-border);border-radius:16px;
+  padding:22px 24px;margin-bottom:16px;
+  box-shadow:0 1px 1px rgba(58,21,32,0.03),0 10px 22px -12px rgba(92,84,74,0.28)}
+.date{font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--gold-deep);margin-bottom:8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tag{font-family:'Anuphan',sans-serif;letter-spacing:0;text-transform:none;font-size:11.5px;
+  border:1px solid var(--gold-border);border-radius:999px;padding:2px 10px;color:var(--ink-muted)}
+.entry h3{font-size:18px;color:var(--maroon);font-weight:700;line-height:1.45;margin-bottom:14px}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.cellb{border-radius:12px;padding:12px 14px;font-size:14.5px}
+.cellb .k{font-size:11.5px;font-weight:700;letter-spacing:.4px;margin-bottom:3px;display:block}
+.cellb.was{background:rgba(176,58,72,0.07);border:1px solid rgba(176,58,72,0.24)}
+.cellb.was .k{color:var(--was)}
+.cellb.now{background:rgba(46,139,87,0.08);border:1px solid rgba(46,139,87,0.26)}
+.cellb.now .k{color:var(--now)}
+.n{font-variant-numeric:tabular-nums;font-weight:700}
+.det{font-size:14.5px;color:var(--ink);margin-bottom:9px}
+.det .k{color:var(--ink-muted);font-size:12.5px;font-weight:600;display:block;margin-bottom:1px}
+.det:last-child{margin-bottom:0}
+.det a{color:var(--maroon);font-weight:600}
+.foot{background:var(--maroon-bg);color:rgba(255,254,248,0.6);padding:44px 0 30px;font-size:13.5px;
+  border-top:2px solid;border-image:linear-gradient(90deg,transparent,#D4AF37,transparent) 1}
+.foot a{color:var(--gold-light);text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.foot .links{display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:18px}
+@media(max-width:560px){.ba{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="/">JP TRUST LEARNING</a>
+    <a href="/">หน้าแรก</a>
+    <a href="negative-results.html">ผลลบ</a>
+    <a href="lib-method.html">ระเบียบวิธี</a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Corrections · Open Ledger</div>
+    <h1>บันทึกการแก้<br>ตัวเลขของเรา</h1>
+    <p class="lead">ทุกครั้งที่เราตรวจเจอว่าตัวเลขของตัวเองผิด สูงเกินจริง หรือสรุปเร็วเกินไป เราบันทึกไว้ที่นี่ — <b>ตัวเลขเดิมที่เคยพูด สิ่งที่ตรวจเจอ และตัวเลขที่ใช้แทน</b> ไม่ลบของเดิมทิ้ง</p>
+  </div>
+</section>
+
+<section class="body">
+  <div class="wrap">
+
+    <div class="why">
+      <b>ทำไมต้องมีหน้านี้</b> — ใครก็ประกาศตัวเลขสวย ๆ ได้ สิ่งที่แยกงานที่เชื่อถือได้ออกจากงานโฆษณา คือจะเกิดอะไรขึ้นเมื่อเจ้าของงานตรวจเจอว่าตัวเองผิด หน้านี้คือคำตอบของเราในรูปแบบที่ตรวจสอบได้ · สังเกตว่ามีรายการที่การแก้ทำให้ผลของเรา<b>ดูแย่ลง</b> และรายการที่ทำให้<b>ดูดีขึ้น</b> เราลงทั้งสองแบบ เพราะถ้าลงแต่แบบหลังก็ไม่ต่างจากโฆษณา
+    </div>
+
+    <div class="entry">
+      <div class="date">กันยายน 2026 <span class="tag">ตรวจเจอเอง</span> <span class="tag">ผลแย่ลง</span></div>
+      <h3>ส่วนเกินของกลยุทธ์โมเมนตัม 6 เดือน สูงเกินจริงราวครึ่งหนึ่ง</h3>
+      <div class="ba">
+        <div class="cellb was"><span class="k">เคยบอกว่า</span>ชนะดัชนี <span class="n">+11.5%</span> ต่อรอบ 6 เดือน</div>
+        <div class="cellb now"><span class="k">ตอนนี้คือ</span>ชนะดัชนี <span class="n">+6.4%</span> ต่อรอบ 6 เดือน</div>
+      </div>
+      <p class="det"><span class="k">ตรวจเจอว่า</span>การทดสอบเดิมเลือกหุ้นจากรายชื่อสมาชิกดัชนี<b>ชุดปัจจุบัน</b> ซึ่งทำให้ระบบหยิบหุ้นอย่าง NFLX, TSLA, BKNG ตั้งแต่ช่วงที่หุ้นเหล่านั้นยังไม่ได้เข้าดัชนีด้วยซ้ำ — เป็นการเลือกที่นักลงทุนในเวลานั้นทำไม่ได้จริง เมื่อบังคับให้เลือกได้เฉพาะสมาชิก ณ วันให้สัญญาณ ส่วนเกินหายไปครึ่งหนึ่ง</p>
+      <p class="det"><span class="k">ผลที่ตามมา</span>ตัวเลขที่ใช้สื่อสารภายนอกเปลี่ยนเป็นส่วนเกิน <span class="n">+6–9%</span> ต่อรอบ และเราห้ามตัวเองใช้ตัวเลขเดิมทุกกรณี · บทความที่ยังอ้างตัวเลขชุดเก่าได้ติดคำแก้ไว้แล้ว ดู <a href="factor-decay-rank-ic.html#erratum">Factor Decay</a></p>
+    </div>
+
+    <div class="entry">
+      <div class="date">กันยายน 2026 <span class="tag">ตรวจเจอเอง</span> <span class="tag">ผลแย่ลง</span></div>
+      <h3>ผลทดสอบกริดของเราสูงเกินจริงประมาณ 5 เท่า</h3>
+      <div class="ba">
+        <div class="cellb was"><span class="k">เคยบอกว่า</span>กำไร <span class="n">809</span> ดอลลาร์</div>
+        <div class="cellb now"><span class="k">ตอนนี้คือ</span>กำไร <span class="n">171</span> ดอลลาร์</div>
+      </div>
+      <p class="det"><span class="k">ตรวจเจอว่า</span>โปรแกรมทดสอบเปิดไม้ใหม่หลังปิดทำกำไร โดยใช้ราคาเปิดของวันนั้น ซึ่งเป็นราคา<b>ก่อน</b>ที่ไม้เดิมจะปิดด้วยซ้ำ เท่ากับได้ราคาที่ดีกว่าความเป็นจริงทุกรอบ พอแก้ให้เป็นคำสั่งรอจริง ตัวเลขก็ยุบ</p>
+      <p class="det"><span class="k">ผลที่ตามมา</span>ตัวเลขกริดทุกตัวที่เคยประกาศก่อนหน้านี้ถูกยกเลิกทั้งชุด ห้ามอ้างอีก และผลิตภัณฑ์ที่วางแผนไว้บนตัวเลขนั้นถูกพับไป</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">กันยายน 2026 <span class="tag">ตรวจเจอเอง</span> <span class="tag">ผลแย่ลง</span></div>
+      <h3>"ชนะการถือยาว" ที่จริงแล้วชนะเฉพาะบนกระดาษ</h3>
+      <div class="ba">
+        <div class="cellb was"><span class="k">เคยบอกว่า</span>ตัวกรองแนวโน้มชนะการถือ SPY เฉย ๆ</div>
+        <div class="cellb now"><span class="k">ตอนนี้คือ</span>เงินต้น 10,000 โตเป็น <span class="n">18,000–26,000</span> ขณะที่ถือ SPY ได้ <span class="n">73,000</span></div>
+      </div>
+      <p class="det"><span class="k">ตรวจเจอว่า</span>ที่ดูเหมือนชนะเพราะเราเทียบกันที่ระดับความผันผวนเท่ากัน ซึ่งแปลว่ามีการยืมเงินลงทุนแฝงอยู่ในสมมติฐาน พอรันเป็นเงินจริงแบบไม่มีเลเวอเรจ ผลกลับด้าน</p>
+      <p class="det"><span class="k">ผลที่ตามมา</span>เปลี่ยนคำอธิบายจาก "ตัวทบต้น" เป็น "เครื่องมือคุมขาดทุน" ซึ่งเป็นสิ่งที่มันทำได้จริง — ขาดทุนสูงสุด <span class="n">−10%</span> เทียบกับ <span class="n">−46%</span></p>
+    </div>
+
+    <div class="entry">
+      <div class="date">กันยายน 2026 <span class="tag">ตรวจเจอเอง</span> <span class="tag">ผลแย่ลง</span></div>
+      <h3>ตัวเลขที่เห็นตอนสำรวจ สูงกว่าตัวเลขจากสคริปต์จริงราว 25%</h3>
+      <div class="ba">
+        <div class="cellb was"><span class="k">เคยเห็นว่า</span>Sharpe <span class="n">0.97</span> · <span class="n">+16.4%</span> ต่อปี</div>
+        <div class="cellb now"><span class="k">ตอนนี้คือ</span>Sharpe <span class="n">0.74</span> · <span class="n">+13.0%</span> ต่อปี</div>
+      </div>
+      <p class="det"><span class="k">ตรวจเจอว่า</span>ตัวเลขชุดแรกมาจากการคำนวณสำรวจที่ยังไม่ได้เก็บเป็นสคริปต์ และมีแท่งราคาวันเสาร์ปนอยู่ในหน้าต่างที่ใช้ตัดสินสภาวะตลาด พอเขียนเป็นสคริปต์ที่รันซ้ำได้จริง ตัวเลขลดลง</p>
+      <p class="det"><span class="k">ผลที่ตามมา</span>ตั้งเป็นกติกาถาวรว่า <b>ตัวเลขที่ยังไม่ผ่านสคริปต์ที่เก็บไว้ ถือว่ายังไม่ใช่ตัวเลข</b> ห้ามนำไปพูดที่ไหน</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">13 กันยายน 2026 <span class="tag">ตรวจเจอเอง</span> <span class="tag">แก้หลังเผยแพร่</span></div>
+      <h3>แก้ข่าวประจำวัน 5 จุด หลังเผยแพร่ไปแล้ว</h3>
+      <p class="det"><span class="k">ตรวจเจอว่า</span>หลังเผยแพร่ เราไล่เทียบกับแหล่งข่าวต้นทางอีกรอบแล้วพบว่าดัชนีความผันผวนปิดที่ <span class="n">15.84</span> ไม่ใช่ราว 18 ตามที่ลง · ถ้อยคำในแถลงการณ์กลุ่ม BRICS สรุปแรงกว่าต้นฉบับ · ตัวเลขราคาทองในประเทศมีข้อความที่ยืนยันแหล่งที่มาไม่ได้ · ราคาทองโลกและยอดขายสุทธิของนักลงทุนต่างชาติคลาดเคลื่อน</p>
+      <p class="det"><span class="k">ผลที่ตามมา</span>แก้ทั้ง 5 จุดพร้อมสำรองไฟล์เดิมไว้ · เพิ่มขั้นตอนว่าต้องดึงข้อมูลล่าสุดมาเทียบก่อนเขียนทุกครั้ง หลังพบว่าต้นเหตุคือมีสองกระบวนการทำงานซ้อนกัน ฝั่งหนึ่งเผยแพร่ไปก่อนที่อีกฝั่งจะตรวจข้อเท็จจริงเสร็จ</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">กันยายน 2026 <span class="tag">ตรวจเจอเอง</span> <span class="tag">ผลดีขึ้น</span></div>
+      <h3>วิธีทดสอบนัยสำคัญของเราเอง ตั้งจำนวนรอบน้อยเกินไป</h3>
+      <div class="ba">
+        <div class="cellb was"><span class="k">เคยสรุปว่า</span>ระบบนี้<b>ไม่ผ่าน</b>การทดสอบเทียบกับความบังเอิญ</div>
+        <div class="cellb now"><span class="k">ตอนนี้คือ</span><b>ผ่าน</b>ทั้งสามวิธีสุ่ม (ค่า p <span class="n">0.006–0.024</span>)</div>
+      </div>
+      <p class="det"><span class="k">ตรวจเจอว่า</span>เราสุ่มเทียบแค่ 20 รอบ ซึ่งน้อยเกินกว่าจะประเมินขอบบนได้อย่างมีความหมาย — เกณฑ์ที่ได้จึงเท่ากับค่าสูงสุดของ 20 รอบนั้นโดยบังเอิญ และวิธีสับข้อมูลยังทำให้บางวันหลุดออกจากการนับ พอเพิ่มเป็น 200 และ 5,000 รอบ พร้อมสุ่มสามแบบที่ต่างกัน ผลกลับด้าน</p>
+      <p class="det"><span class="k">ผลที่ตามมา</span>รายการนี้แก้ไปในทางที่ทำให้ผลของเรา<b>ดูดีขึ้น</b> เราจึงบันทึกไว้ให้ชัดว่าเป็นการแก้วิธีวัด ไม่ใช่การค้นพบใหม่ · และระบบที่ "ผ่าน" นี้สุดท้ายก็ยัง<b>ไม่ถูกนำไปใช้จริง</b> เพราะไปตกด่านต้นทุนการเทรดในขั้นถัดไป</p>
+    </div>
+
+    <div class="entry">
+      <div class="date">กันยายน 2026 <span class="tag">ตรวจเจอเอง</span> <span class="tag">ผลดีขึ้น</span></div>
+      <h3>ข้อสรุปเรื่องหุ้น NASDAQ รุนแรงเกินกว่าหลักฐาน</h3>
+      <div class="ba">
+        <div class="cellb was"><span class="k">เคยสรุปว่า</span>ใช้ไม่ได้ ปิดเรื่องนี้ไปเลย</div>
+        <div class="cellb now"><span class="k">ตอนนี้คือ</span>เท่ากับฝั่ง S&amp;P แต่ยังไม่มีนัยสำคัญพอ (ค่านัยสำคัญ <span class="n">1.8</span>)</div>
+      </div>
+      <p class="det"><span class="k">ตรวจเจอว่า</span>รอบแรกเราทดสอบบนรายชื่อหุ้นชุดปัจจุบัน ซึ่งเป็นความผิดพลาดแบบเดียวกับรายการแรกในหน้านี้ พอรันใหม่ให้ถูกต้อง ผลไม่ได้แย่อย่างที่สรุปไว้</p>
+      <p class="det"><span class="k">ผลที่ตามมา</span>ลดระดับข้อสรุปจาก "ใช้ไม่ได้" เป็น "ยังไม่พอ" และระบุเงื่อนไขที่จะกลับมาทดสอบใหม่ไว้ใน <a href="negative-results.html">หน้าผลลบ</a></p>
+    </div>
+
+    <div class="why" style="margin-top:44px;margin-bottom:0">
+      หน้านี้จะยาวขึ้นเรื่อย ๆ นั่นคือเรื่องปกติ ไม่ใช่เรื่องน่ากังวล — งานวิจัยที่ไม่เคยต้องแก้อะไรเลยตลอดหลายปี มักแปลว่าไม่มีใครตรวจ มากกว่าจะแปลว่าถูกมาตั้งแต่แรก
+    </div>
+
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="links">
+      <a href="/">หน้าแรก</a>
+      <a href="negative-results.html">ผลลบ — สิ่งที่ทดสอบแล้วไม่ผ่าน</a>
+      <a href="lib-method.html">ข้อมูล &amp; ระเบียบวิธี</a>
+      <a href="lib-momentum.html">กลยุทธ์ Momentum</a>
+      <a href="https://app.jptrustlearning.com">เข้าระบบสมาชิก</a>
+    </div>
+    <p>การลงทุนมีความเสี่ยง ผู้ลงทุนควรศึกษาข้อมูลก่อนตัดสินใจ · ผลการทดสอบย้อนหลังไม่รับประกันผลในอนาคต · เนื้อหาทั้งหมดเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุนรายบุคคล</p>
+    <p style="margin-top:12px">© JP Trust Learning</p>
+  </div>
+</footer>
+
+</body>
+</html>

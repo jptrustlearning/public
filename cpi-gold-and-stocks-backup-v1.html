@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>CPI ส่งผลต่อทองคำและหุ้นอย่างไร? | JP Trust Learning</title>
+<meta name="description" content="เงินเฟ้อขึ้นแล้วทองต้องขึ้น เงินเฟ้อลงแล้วหุ้นต้องขึ้น — ทั้งสองประโยคผิดทั้งคู่ ปี 2022 เงินเฟ้อสหรัฐสูงสุดในรอบ 41 ปี แต่ทองแทบไม่ขยับทั้งปี และวันที่ 13 ก.ย. 2022 เงินเฟ้อออกมาลดลงจริง แต่ S&amp;P 500 ร่วง 4.3% แย่ที่สุดในรอบสองปี · CPI เดินเข้าหาราคาสินทรัพย์ผ่านดอกเบี้ยที่ตลาดคาดเสมอ · ทองไม่ได้แข่งกับเงินเฟ้อ แต่แข่งกับดอกเบี้ยหลังหักเงินเฟ้อ (real yield) · และจุดที่สูตรนี้ใช้ไม่ได้ตั้งแต่ปี 2022">
+<link rel="canonical" href="https://public.jptrustlearning.com/cpi-gold-and-stocks.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="JP Trust Learning">
+<meta property="og:title" content="CPI ส่งผลต่อทองคำและหุ้นอย่างไร?">
+<meta property="og:description" content="ปี 2022 เงินเฟ้อสหรัฐสูงสุดในรอบ 41 ปี แต่ทองแทบไม่ขยับ — เพราะทองไม่ได้แข่งกับเงินเฟ้อ แต่แข่งกับดอกเบี้ยหลังหักเงินเฟ้อ">
+<meta property="og:image" content="https://public.jptrustlearning.com/og-image.png">
+<meta property="og:url" content="https://public.jptrustlearning.com/cpi-gold-and-stocks.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Cinzel:wght@500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --maroon-deep:#1a0a0e;
+  --maroon:#2d1018;
+  --maroon-soft:#3a1620;
+  --cream:#FAF6ED;
+  --cream-2:#f3ecdc;
+  --gold:#D4AF37;
+  --gold-bright:#e7c659;
+  --gold-deep:#a8842a;
+  --price:#C75B49;          /* ราคา · อารมณ์  */
+  --price-soft:#e08a78;
+  --ink:#241016;
+  --ink-soft:#5a4640;
+  --on-dark:#f1e6d3;
+  --on-dark-soft:#c9b69b;
+  --line-dark:rgba(212,175,55,.22);
+  --line-light:rgba(45,16,24,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Anuphan',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.eyebrow{
+  font-family:'Cinzel',serif;
+  text-transform:uppercase;
+  letter-spacing:.34em;
+  font-size:.72rem;
+  font-weight:600;
+}
+.num{font-family:'DM Serif Display',serif;font-weight:400;line-height:.92;letter-spacing:-.01em}
+.serif{font-family:'DM Serif Display',serif}
+section{padding:clamp(64px,9vw,128px) clamp(22px,6vw,80px)}
+.wrap{max-width:980px;margin:0 auto}
+.narrow{max-width:760px;margin:0 auto}
+
+/* ---------- dual marker (signature) ---------- */
+.tag{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-family:'Cinzel',serif;font-size:.6rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  padding:.32em .7em;border-radius:999px;white-space:nowrap;
+  vertical-align:middle;
+}
+.tag::before{content:"";width:.5em;height:.5em;border-radius:50%}
+.tag.price{color:var(--price);background:rgba(199,91,73,.1);border:1px solid rgba(199,91,73,.35)}
+.tag.price::before{background:var(--price)}
+.tag.value{color:var(--gold-deep);background:rgba(212,175,55,.12);border:1px solid rgba(168,132,42,.4)}
+.tag.value::before{background:var(--gold)}
+.dark .tag.price{color:var(--price-soft);background:rgba(199,91,73,.16);border-color:rgba(224,138,120,.4)}
+.dark .tag.value{color:var(--gold-bright);background:rgba(212,175,55,.14);border-color:var(--line-dark)}
+
+/* ---------- brand bar ---------- */
+.brandbar{display:flex;align-items:center;gap:14px;margin-bottom:clamp(34px,6vw,60px)}
+.owl{width:48px;height:48px;flex:0 0 auto;object-fit:contain;border-radius:12px;filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}
+.brandbar .wordmark{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.16em;
+  font-size:1.02rem;color:var(--gold);line-height:1.1}
+.brandbar .wordmark span{display:block;font-size:.58rem;letter-spacing:.42em;color:var(--on-dark-soft);font-weight:500}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:
+    radial-gradient(120% 90% at 88% 4%, rgba(212,175,55,.16), transparent 46%),
+    radial-gradient(90% 70% at 0% 100%, rgba(199,91,73,.14), transparent 50%),
+    linear-gradient(160deg,var(--maroon) 0%, var(--maroon-deep) 100%);
+  color:var(--on-dark);position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line-dark);
+}
+.hero .eyebrow{color:var(--gold);margin-bottom:26px}
+.hero-paradox{
+  display:flex;align-items:stretch;gap:0;margin:6px 0 34px;
+  border:1px solid var(--line-dark);border-radius:16px;overflow:hidden;
+  background:rgba(0,0,0,.18);
+}
+.hero-paradox .cell{flex:1;padding:clamp(20px,4vw,34px) clamp(18px,3.5vw,30px)}
+.hero-paradox .cell+.cell{border-left:1px solid var(--line-dark)}
+.hero-paradox .lbl{font-family:'Anuphan';font-size:.82rem;color:var(--on-dark-soft);
+  display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.hero-paradox .big{font-size:clamp(2.9rem,11vw,4.6rem)}
+.hero-paradox .cell.value .big{color:var(--gold-bright)}
+.hero-paradox .cell.price .big{color:var(--price-soft)}
+.hero-paradox .sub{font-size:.82rem;color:var(--on-dark-soft);margin-top:8px}
+.hero h1{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(2rem,6vw,3.35rem);line-height:1.12;
+  letter-spacing:-.01em;margin-bottom:22px;color:#fff;
+}
+.hero h1 em{font-style:italic;color:var(--gold-bright)}
+.hero .lens{
+  font-size:clamp(1.05rem,2.6vw,1.4rem);color:var(--on-dark);
+  border-left:2px solid var(--gold);padding-left:18px;margin-bottom:30px;
+  max-width:680px;
+}
+.hero .lens b{color:var(--gold-bright);font-weight:600}
+.hero .meta{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--on-dark-soft);line-height:2}
+
+/* ---------- section chrome ---------- */
+.dark{background:linear-gradient(170deg,var(--maroon) 0%,var(--maroon-deep) 100%);color:var(--on-dark)}
+.dark .eyebrow{color:var(--gold)}
+.light .eyebrow{color:var(--gold-deep)}
+.act-no{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--gold-deep);
+  letter-spacing:.05em;margin-bottom:6px;display:block}
+.dark .act-no{color:var(--gold)}
+h2.head{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.7rem,4.8vw,2.7rem);line-height:1.15;
+  margin:14px 0 26px;letter-spacing:-.01em;
+}
+.light h2.head{color:var(--maroon)}
+.dark h2.head{color:#fff}
+.lead{font-size:clamp(1.05rem,2.2vw,1.2rem);margin-bottom:14px}
+.light .lead{color:var(--ink)}
+.dark .lead{color:var(--on-dark)}
+p.body{margin-bottom:16px;font-size:1.02rem}
+.light p.body{color:var(--ink-soft)}
+.dark p.body{color:var(--on-dark-soft)}
+.kw{color:var(--maroon);font-weight:600}
+.dark .kw{color:var(--gold-bright)}
+
+/* section figure */
+.figure{margin:6px 0 30px;border-radius:18px;overflow:hidden;border:1px solid var(--line-dark);box-shadow:0 26px 64px -34px rgba(0,0,0,.75);position:relative}
+.figure img{display:block;width:100%;height:auto}
+.figure figcaption{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-soft);padding:11px 16px;background:rgba(0,0,0,.34);border-top:1px solid var(--line-dark);display:flex;align-items:center;gap:8px}
+.figure figcaption::before{content:"";width:.5em;height:.5em;border-radius:50%;background:var(--gold);flex:0 0 auto}
+.light .figure figcaption{color:var(--ink-soft);background:rgba(45,16,24,.05);border-top-color:var(--line-light)}
+/* pull line */
+.pull{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3.4vw,1.9rem);
+  line-height:1.3;margin:30px 0;padding:0 0 0 22px;border-left:3px solid var(--gold);
+}
+.light .pull{color:var(--maroon)}
+.dark .pull{color:#fff}
+.pull em{font-style:italic;color:var(--gold-deep)}
+.dark .pull em{color:var(--gold-bright)}
+
+/* analogy card */
+.analogy{
+  background:var(--cream-2);border:1px solid var(--line-light);border-radius:18px;
+  padding:clamp(24px,4vw,38px);margin:28px 0;position:relative;
+}
+.analogy::before{content:"\201C";font-family:'DM Serif Display',serif;
+  position:absolute;top:-.1em;left:.28em;font-size:4.5rem;color:var(--gold);opacity:.5;line-height:1}
+.analogy p{font-size:1.08rem;color:var(--ink);position:relative}
+.analogy .pv{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
+/* stat grid */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:30px 0 8px}
+.stat{
+  border:1px solid var(--line-dark);border-radius:14px;padding:22px 20px;
+  background:rgba(0,0,0,.16);position:relative;overflow:hidden;
+}
+.light .stat{background:#fff;border-color:var(--line-light);box-shadow:0 8px 24px -18px rgba(45,16,24,.4)}
+.stat .stat-num{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,5vw,2.5rem);
+  line-height:1;color:var(--gold)}
+.light .stat .stat-num{color:var(--gold-deep)}
+.stat .stat-lbl{font-size:.9rem;margin-top:10px}
+.dark .stat .stat-lbl{color:var(--on-dark-soft)}
+.light .stat .stat-lbl{color:var(--ink-soft)}
+.stat .src{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-deep);margin-top:12px;display:block;opacity:.8}
+.dark .stat .src{color:var(--on-dark-soft)}
+
+/* two-trap split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
+.trap{border:1px solid rgba(199,91,73,.34);border-radius:14px;padding:22px;background:rgba(199,91,73,.07)}
+.dark .trap{background:rgba(199,91,73,.12)}
+.trap .t{font-weight:600;color:var(--price);margin-bottom:6px;font-size:1.05rem}
+.dark .trap .t{color:var(--price-soft)}
+.trap p{font-size:.96rem}
+.light .trap p{color:var(--ink-soft)}
+.dark .trap p{color:var(--on-dark-soft)}
+.system{
+  border:1px solid var(--line-dark);border-left:3px solid var(--gold);
+  border-radius:14px;padding:24px;margin-top:20px;background:rgba(212,175,55,.06)
+}
+.dark .system{background:rgba(212,175,55,.08)}
+.system .t{font-family:'Cinzel',serif;letter-spacing:.16em;text-transform:uppercase;
+  font-size:.7rem;color:var(--gold-deep);margin-bottom:10px}
+.dark .system .t{color:var(--gold-bright)}
+
+/* paradox panel (act 2) */
+.paradox2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.pcard{border-radius:16px;padding:24px}
+.pcard.val{background:rgba(212,175,55,.1);border:1px solid rgba(168,132,42,.4)}
+.pcard.mood{background:rgba(199,91,73,.09);border:1px solid rgba(199,91,73,.35)}
+.pcard .pc-num{font-family:'DM Serif Display',serif;font-size:2rem;line-height:1;margin:8px 0}
+.pcard.val .pc-num{color:var(--gold-deep)}
+.pcard.mood .pc-num{color:var(--price)}
+.pcard p{font-size:.95rem;color:var(--ink-soft)}
+
+/* ---------- ad showcase ---------- */
+.showcase{padding:0}
+.showcase-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px);
+  align-items:center;max-width:980px;margin:0 auto;
+}
+.showcase .copy .eyebrow{margin-bottom:14px}
+.showcase .copy h3{font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.5rem,3.6vw,2.1rem);line-height:1.18;margin-bottom:16px}
+.dark.showcase-sec .copy h3{color:#fff}
+.light.showcase-sec .copy h3{color:var(--maroon)}
+.showcase .copy p{font-size:1rem;margin-bottom:18px}
+.dark.showcase-sec .copy p{color:var(--on-dark-soft)}
+.light.showcase-sec .copy p{color:var(--ink-soft)}
+.showcase .copy ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.showcase .copy li{display:flex;gap:10px;align-items:flex-start;font-size:.96rem}
+.showcase .copy li::before{content:"";flex:0 0 auto;width:7px;height:7px;border-radius:50%;
+  background:var(--gold);margin-top:.6em}
+.dark.showcase-sec .copy li{color:var(--on-dark)}
+.light.showcase-sec .copy li{color:var(--ink)}
+.shot{border-radius:20px;overflow:hidden;border:1px solid var(--line-dark);
+  box-shadow:0 30px 70px -34px rgba(0,0,0,.7);position:relative}
+.light.showcase-sec .shot{border-color:var(--line-light);box-shadow:0 30px 70px -38px rgba(45,16,24,.5)}
+.shot img{display:block;width:100%;height:auto}
+
+/* ---------- closing ---------- */
+.closing{background:
+  radial-gradient(100% 80% at 50% 0%, rgba(212,175,55,.14), transparent 55%),
+  linear-gradient(180deg,var(--maroon-deep),#120608);
+  color:var(--on-dark);text-align:center}
+.closing .q{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,4.4vw,2.5rem);
+  line-height:1.28;color:#fff;max-width:760px;margin:0 auto 26px}
+.closing .q em{font-style:italic;color:var(--gold-bright)}
+.closing .lens-final{font-size:clamp(1.05rem,2.6vw,1.3rem);color:var(--on-dark);
+  max-width:640px;margin:0 auto 44px}
+.closing .lens-final b{color:var(--gold-bright)}
+.cta{display:inline-flex;flex-direction:column;align-items:center;gap:6px;
+  border:1px solid var(--line-dark);border-radius:16px;
+  padding:24px 40px;background:rgba(0,0,0,.25);text-decoration:none}
+.cta .sub{font-family:'Cinzel',serif;letter-spacing:.3em;font-size:.6rem;
+  text-transform:uppercase;color:var(--on-dark-soft)}
+.cta .url{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.04em;
+  font-size:clamp(1.3rem,3.4vw,1.7rem);color:var(--gold)}
+.cta .tip{font-size:.84rem;color:var(--on-dark-soft);margin-top:2px}
+.cta:hover .url{color:var(--gold-bright)}
+.disclaimer{margin-top:46px;font-size:.74rem;color:var(--on-dark-soft);
+  letter-spacing:.02em;max-width:680px;margin-left:auto;margin-right:auto;
+  border-top:1px solid var(--line-dark);padding-top:22px;line-height:1.9}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:680px){
+  .hero-paradox{flex-direction:row}
+  .stats{grid-template-columns:1fr 1fr}
+  .split,.paradox2{grid-template-columns:1fr}
+  .showcase-inner{grid-template-columns:1fr}
+  .showcase .copy{order:2}
+  .showcase .shot{order:1;max-width:420px;margin:0 auto}
+}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+<style>
+/* --- checklist (article-specific) --- */
+.stat.span2{grid-column:1/-1}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:12px;margin:24px 0 8px}
+.checklist li{display:flex;gap:12px;align-items:flex-start;font-size:1rem;line-height:1.6}
+.checklist li .ck{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:rgba(212,175,55,.14);
+  border:1px solid var(--gold);color:var(--gold-deep);display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;font-weight:700;margin-top:.1em}
+.light .checklist li{color:var(--ink-soft)}
+.checklist li b{color:var(--maroon)}
+
+/* ═══ JPT · สีลิงก์ในเนื้อบทความ (v1) ═══════════════════
+   เจาะจงเฉพาะลิงก์ที่อยู่ในย่อหน้า/รายการ เพื่อไม่ให้ไปโดน
+   .sc-cta (ปุ่ม Subscribe ที่ไม่ได้กำหนดสีของตัวเองไว้)
+   .crumb และ .foot-links a ซึ่งมีสีของตัวเองอยู่แล้ว        */
+.wrap p a,.wrap li a,.narrow p a,.narrow li a,.callout a,.tl-b a,.tl-t a{
+  color:#8B6914;text-decoration:none;
+  border-bottom:1px solid rgba(184,134,11,.42);
+  transition:color .15s ease,border-color .15s ease;
+}
+.wrap p a:hover,.wrap li a:hover,.narrow p a:hover,.narrow li a:hover,.callout a:hover,.tl-b a:hover,.tl-t a:hover{
+  color:#722F37;border-bottom-color:rgba(114,47,55,.55);
+}
+.band .wrap p a,.band .wrap li a,.band .callout a,.band .tl-b a,.band .tl-t a{
+  color:#E8D48B;border-bottom-color:rgba(232,212,139,.42);
+}
+.band .wrap p a:hover,.band .wrap li a:hover,.band .callout a:hover,
+.band .tl-b a:hover,.band .tl-t a:hover{
+  color:#FFFEF8;border-bottom-color:rgba(255,254,248,.75);
+}
+</style>
+
+<style>
+/* --- flow diagram (article-specific) --- */
+.flow{margin:34px 0 12px}
+.fnode{
+  border:1px solid var(--line-light);border-radius:14px;
+  padding:16px 18px;text-align:center;background:#fff;
+  box-shadow:0 8px 24px -18px rgba(45,16,24,.4);
+}
+.dark .fnode{border-color:var(--line-dark);background:rgba(0,0,0,.18);box-shadow:none}
+.fnode .fn-t{
+  font-family:'Cinzel',serif;letter-spacing:.16em;text-transform:uppercase;
+  font-size:.74rem;font-weight:600;color:var(--gold-deep);line-height:1.5;
+}
+.dark .fnode .fn-t{color:var(--gold)}
+.fnode .fn-s{font-size:.88rem;color:var(--ink-soft);margin-top:8px;line-height:1.7}
+.dark .fnode .fn-s{color:var(--on-dark-soft)}
+.fnode.accent{border-color:rgba(168,132,42,.55);background:rgba(212,175,55,.1)}
+.dark .fnode.accent{border-color:var(--gold);background:rgba(212,175,55,.12)}
+.fnode.accent .fn-t{font-size:.82rem}
+.fnode.term{border-color:rgba(114,47,55,.3);background:rgba(45,16,24,.05)}
+.fpair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fdrop{position:relative;height:30px}
+.fdrop::before{
+  content:"";position:absolute;left:50%;top:0;width:1px;height:100%;
+  background:linear-gradient(180deg,rgba(168,132,42,.2),var(--gold-deep));
+  transform:translateX(-.5px);
+}
+.dark .fdrop::before{background:linear-gradient(180deg,rgba(212,175,55,.2),var(--gold))}
+.fdrop::after{
+  content:"";position:absolute;left:50%;bottom:1px;width:7px;height:7px;
+  border-right:1px solid var(--gold-deep);border-bottom:1px solid var(--gold-deep);
+  transform:translate(-50%,0) rotate(45deg);
+}
+.dark .fdrop::after{border-right-color:var(--gold);border-bottom-color:var(--gold)}
+.fcap{
+  font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-soft);opacity:.75;text-align:center;margin-top:14px;
+}
+.dark .fcap{color:var(--on-dark-soft)}
+@media(max-width:520px){
+  .fpair{grid-template-columns:1fr;gap:12px}
+  .fnode{padding:14px 15px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <img class="owl" src="https://raw.githubusercontent.com/jptrustlearning/pages/main/jpt-owl-cropped.png" alt="JP Trust Learning">
+      <div class="wordmark">JP TRUST<span>LEARNING</span></div>
+    </div>
+
+    <div class="eyebrow rv">Macro &amp; Risk &middot; พื้นฐานการลงทุน</div>
+    <h1 class="rv">CPI ส่งผลต่อ<br>ทองคำและหุ้น<br><em>อย่างไร?</em></h1>
+
+    <p class="lens rv">คำตอบที่ได้ยินบ่อยที่สุดมีสองประโยค &mdash; เงินเฟ้อขึ้นแล้วทองขึ้น เงินเฟ้อลงแล้วหุ้นขึ้น แต่ปี 2022 เงินเฟ้อสหรัฐพุ่งไปสูงที่สุดในรอบ 41 ปี <b>ทองกลับแทบไม่ขยับทั้งปี</b> และในปีเดียวกันนั้นเอง มีวันที่ตัวเลขเงินเฟ้อออกมา<b>ลดลง</b> แล้วหุ้นดิ่งแรงที่สุดในรอบสองปี บทความนี้ไล่ดูว่า CPI เดินทางเข้าหาราคาสินทรัพย์ทางไหน ทำไมทองกับหุ้นถึงตอบสนองคนละแบบ และตรงไหนที่กรอบนี้เริ่มอธิบายไม่ได้</p>
+
+    <div class="meta rv">ความรู้พื้นฐาน &middot; หมวด Macro &amp; ความเสี่ยง &middot; เรียบเรียงโดย JP Trust Learning</div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 1 ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 1 &mdash; สิ่งที่ตลาดซื้อขายจริง</span>
+    <div class="eyebrow rv">Not The Number</div>
+    <h2 class="head rv">สองวันในปีเดียวกัน<br>เงินเฟ้อลดทั้งคู่ ตลาดไปคนละทาง</h2>
+    <p class="lead rv">เริ่มจากของจริงก่อน ปี 2022 คือปีที่ตัวเลขเงินเฟ้อสหรัฐกลายเป็นข่าวใหญ่ที่สุดของตลาดทุกเดือน และมีสองวันที่<span class="kw">ตัวเลขออกมาลดลงจากเดือนก่อนเหมือนกันทั้งคู่</span> แต่ตลาดตอบสนองตรงข้ามกันสุดขั้ว</p>
+
+    <div class="stats">
+      <div class="stat rv">
+        <div class="stat-num">8.3%</div>
+        <div class="stat-lbl"><b>13 ก.ย. 2022</b> &mdash; CPI เดือน ส.ค. ลดลงจาก 8.5% ของเดือนก่อน แต่<b>สูงกว่า</b>ที่นักเศรษฐศาสตร์คาดไว้ที่ 8.1%</div>
+        <span class="src">BLS &middot; Dow Jones consensus</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">&minus;4.3%</div>
+        <div class="stat-lbl">S&amp;P 500 <b>ในวันเดียวกัน</b> แย่ที่สุดนับตั้งแต่ มิ.ย. 2020 &mdash; หุ้นในดัชนีปิดลบกว่า 490 ตัวจาก 500 ตัว</div>
+        <span class="src">13 ก.ย. 2022</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">7.7%</div>
+        <div class="stat-lbl"><b>10 พ.ย. 2022</b> &mdash; CPI เดือน ต.ค. ลดลงจาก 8.2% และ<b>ต่ำกว่า</b>ที่คาดไว้ที่ 7.9%</div>
+        <span class="src">BLS &middot; Dow Jones consensus</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">+5.5%</div>
+        <div class="stat-lbl">S&amp;P 500 <b>ในวันนั้น</b> ดีที่สุดนับตั้งแต่ เม.ย. 2020 &mdash; Nasdaq +7.35% และยีลด์พันธบัตร 10 ปี ร่วงลงต่ำกว่า 4%</div>
+        <span class="src">10 พ.ย. 2022</span>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:26px">สังเกตให้ดี วันที่หุ้นดิ่ง เงินเฟ้ออยู่ที่ 8.3% ส่วนวันที่หุ้นพุ่ง เงินเฟ้ออยู่ที่ 7.7% ทั้งสองตัวเลข<span class="kw">ต่ำกว่าเดือนก่อนหน้าของตัวเองทั้งคู่</span> ถ้าตลาดซื้อขาย &ldquo;ระดับ&rdquo; ของเงินเฟ้อจริง ทั้งสองวันควรเป็นวันบวก</p>
+
+    <p class="body rv">สิ่งที่ต่างกันมีอย่างเดียว คือระยะห่างระหว่างตัวเลขที่ออกมา กับตัวเลขที่ถูกคิดไว้ล่วงหน้าแล้ว ราคาปิดของเมื่อวานได้รวมความคาดหวังเรื่องเงินเฟ้อเอาไว้เรียบร้อย เมื่อของจริงตรงกับที่คิด ราคาก็ไม่มีเหตุผลต้องขยับ สิ่งที่ทำให้ราคาเคลื่อนคือ<span class="kw">ส่วนที่คิดไว้ผิด</span></p>
+
+    <p class="pull rv">ตลาดไม่ได้ตอบสนองต่อเงินเฟ้อ<br>มันตอบสนองต่อ <em>ส่วนที่คาดไม่ถึง</em></p>
+
+    <p class="body rv">หลักเดียวกันนี้ทำให้ราคาของในพอร์ตขยับได้ทั้งที่ธนาคารกลางไม่ได้ทำอะไรเลยสักครั้ง เราเจาะกลไกการคิดราคาใหม่ล่วงหน้าไว้ในบทความ <a href="fed-yellow-light-repricing.html">ดอกเบี้ยไม่ขยับสักครั้ง แต่ทำไมของในพอร์ตขยับหมด</a></p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 2 ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 2 &mdash; ทางเดินของ CPI</span>
+    <div class="eyebrow rv">The Only Route</div>
+    <h2 class="head rv">CPI ไม่ได้แตะราคาหุ้นโดยตรง<br>มันแตะคนสั่งยาก่อน</h2>
+    <p class="lead rv">CPI คือใบสรุปราคาสินค้าและบริการของ<span class="kw">เดือนที่ผ่านไปแล้ว</span> ตัวมันเองไม่ได้ซื้อหรือขายหุ้นแม้แต่หุ้นเดียว สิ่งที่ทำให้ราคาขยับคือสิ่งที่ตัวเลขนี้เปลี่ยนในหัวคนอื่น</p>
+
+    <div class="analogy rv">
+      <p>ให้คิดว่า CPI คือ<b>ตัวเลขบนปรอทวัดไข้</b> ธนาคารกลางคือ<b>หมอ</b> และดอกเบี้ยคือ<b>ยา</b> คนไข้ไม่ได้เจ็บเพราะเห็นตัวเลขบนปรอท แต่เจ็บเพราะยาที่ตามมา ฉะนั้นทุกครั้งที่ตัวเลขไข้ประกาศออกมา คำถามเดียวที่ตลาดถามคือ &mdash; แล้วหมอจะสั่งยาแรงขึ้นหรือเบาลงกว่าที่เราคิดไว้เมื่อวาน</p>
+    </div>
+
+    <p class="body rv">พอผ่านหมอแล้ว ดอกเบี้ยจึงค่อยเข้าหาหุ้นสองทางพร้อมกัน ทางแรกคือ<span class="kw">ตัวคูณที่ตลาดยอมจ่ายต่อกำไรหนึ่งบาท</span> ดอกเบี้ยที่สูงขึ้นทำให้กำไรในอนาคตถูกทอนค่าลง หุ้นที่กำไรอยู่ไกลออกไปข้างหน้าจึงเจ็บก่อนและเจ็บกว่า ทางที่สองคือ<span class="kw">ตัวกำไรจริงของบริษัท</span> ทั้งต้นทุนกู้ที่แพงขึ้นและกำลังซื้อของลูกค้าที่ถูกค่าครองชีพกินไป กลไกฝั่งมูลค่าเราอธิบายไว้เต็มแล้วที่ <a href="interest-rates-and-stocks.html">ดอกเบี้ยส่งผลต่อตลาดหุ้นอย่างไร</a></p>
+
+    <p class="body rv">ตัวอย่างสดที่สุดคือรายงาน CPI เดือนสิงหาคม 2026 ที่ประกาศวันที่ 11 กันยายน ตัวเลขพาดหัวอยู่ที่ 3.4% เท่าเดือนก่อนและตรงกับที่ตลาดคาดไว้เป๊ะ ถ้าดูแค่บรรทัดนั้นแปลว่าไม่มีอะไรเปลี่ยน แต่<span class="kw">เงินเฟ้อแกนกลางรายเดือนออกมาที่ 0.3% สูงกว่าที่คาดไว้หนึ่งในสิบจุด</span> เท่านั้นเอง ยีลด์พันธบัตรเด้งขึ้นทันที และโอกาสที่ตลาดให้กับการขึ้นดอกเบี้ยในการประชุมถัดไปขยับจากราว 70% ก่อนตัวเลขออก ไปอยู่ที่ราว 89% หลังตัวเลขออก</p>
+
+    <p class="pull rv">หนึ่งในสิบจุดที่คิดไว้ผิด<br>เปลี่ยนความน่าจะเป็นของยา <em>เกือบยี่สิบจุด</em></p>
+
+    <div class="system rv">
+      <div class="t">ทำไมต้องดูตัวเลขแกนกลาง</div>
+      <p class="body" style="margin-bottom:0">เงินเฟ้อแกนกลาง (core CPI) คือตัวเลขที่<span class="kw">ตัดหมวดอาหารกับพลังงานออก</span> ไม่ใช่เพราะสองอย่างนี้ไม่สำคัญกับชีวิตคน แต่เพราะมันเหวี่ยงแรงตามฤดูกาลและเหตุการณ์ภายนอกจนกลบแนวโน้มที่แท้จริง หมอต้องแยกให้ออกว่าไข้ขึ้นเพราะโรคที่รักษาได้ หรือเพราะเพิ่งวิ่งมา ในรายงานเดือนสิงหาคม 2026 แกนกลางรายปีอยู่ที่ 2.4% ต่ำที่สุดนับตั้งแต่เดือน มี.ค. 2021 และค่าเฉลี่ยสามเดือนล่าสุดคิดเป็นรายปีอยู่ราว 2.0% ขณะที่ตัวเลขพาดหัวยังค้างที่ 3.4%</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 3 ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 3 &mdash; ฝั่งทองคำ</span>
+    <div class="eyebrow rv">Real Yield</div>
+    <h2 class="head rv">ทองไม่ได้แข่งกับเงินเฟ้อ<br>มันแข่งกับดอกเบี้ยหลังหักเงินเฟ้อ</h2>
+    <p class="lead rv">ทองคำไม่จ่ายดอกเบี้ย ไม่จ่ายปันผล ไม่มีกำไรให้เติบโต ถือไว้ร้อยปีก็ยังเป็นทองก้อนเดิม คู่แข่งที่แท้จริงของมันจึงไม่ใช่เงินเฟ้อ แต่คือ<span class="kw">สินทรัพย์ที่จ่ายผลตอบแทนได้</span> โดยเฉพาะพันธบัตรรัฐบาลสหรัฐ</p>
+
+    <p class="body rv">และผลตอบแทนของพันธบัตรที่ใช้เทียบกับทองได้จริง ต้องเป็นผลตอบแทนหลังหักเงินเฟ้อออกแล้ว ตัวเลขนั้นเรียกว่า<span class="kw">ดอกเบี้ยจริง</span> (real yield) วัดกันที่พันธบัตรชดเชยเงินเฟ้ออายุ 10 ปี หรือ TIPS ถ้าพันธบัตรให้ 5% แต่เงินเฟ้อ 6% ดอกเบี้ยจริงคือติดลบ 1% &mdash; ถือเงินไว้เฉย ๆ แล้วจนลง ทองที่ไม่ให้อะไรเลยกลับกลายเป็นตัวเลือกที่ดีกว่าทันที กลับกัน ถ้าพันธบัตรให้ 6% ขณะเงินเฟ้อ 3% ทองจะแข่งกับส่วนต่างสามเปอร์เซ็นต์นั้นไม่ไหว</p>
+
+    <div class="paradox2 rv">
+      <div class="pcard val">
+        <div class="fn-t" style="font-family:'Cinzel',serif;letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;color:var(--gold-deep)">เงินเฟ้อสหรัฐ &middot; 2022</div>
+        <div class="pc-num">41 ปี</div>
+        <p>สูงที่สุดในรอบ 41 ปี CPI แตะจุดสูงสุดที่ 9.1% ในเดือน มิ.ย. 2022 &mdash; ไข้ขึ้นสูงสุดในรอบชีวิตการทำงานของคนส่วนใหญ่</p>
+      </div>
+      <div class="pcard mood">
+        <div class="fn-t" style="font-family:'Cinzel',serif;letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;color:var(--price)">ราคาทองคำ &middot; 2022</div>
+        <div class="pc-num">แทบไม่ขยับ</div>
+        <p>ทั้งปีวนอยู่แถว 1,800 ดอลลาร์ต่อออนซ์ เพราะดอกเบี้ยจริง 10 ปี วิ่งจากติดลบ 1.0% ขึ้นไปบวก 1.5% ราว 250 bp ในปีเดียว</p>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:26px">ปีนั้นจึงเป็นบทเรียนที่ชัดที่สุดของกรอบนี้ &mdash; ไข้สูงที่สุดในรอบ 41 ปี แต่หมอสั่งยาแรงและเร็วพอที่จะทำให้ดอกเบี้ยจริงกลับมาเป็นบวก ทองเลยไม่ได้ไปไหน (ปีเดียวกัน S&amp;P 500 ติดลบราว 18% และ Nasdaq ติดลบราว 33% ทองที่ &ldquo;ไม่ขยับ&rdquo; จึงยังชนะหุ้นในปีนั้น)</p>
+
+    <p class="body rv">ถ้าไล่ย้อนไปไกลกว่านั้น ทุกช่วงใหญ่ของทองอธิบายได้ด้วยดอกเบี้ยจริงเกือบทั้งหมด</p>
+
+    <div class="stats">
+      <div class="stat rv">
+        <div class="stat-num">+2,300%</div>
+        <div class="stat-lbl"><b>ทศวรรษ 1970</b> &mdash; ทองจาก 35 ดอลลาร์ต่อออนซ์ ไปแตะ 850 ดอลลาร์ในเดือน ม.ค. 1980 ยุคที่เงินเฟ้อทะลุ 14% และดอกเบี้ยจริงติดลบยาว</div>
+        <span class="src">LBMA &middot; ราคาในรูปดอลลาร์</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">&minus;70%</div>
+        <div class="stat-lbl"><b>1980&ndash;1999</b> &mdash; ทองลงยี่สิบปี <b>ทั้งที่ราคาสินค้ายังขึ้นทุกปี</b> เพราะ Volcker ดันดอกเบี้ยขึ้นจนดอกเบี้ยจริงเป็นบวกแรง</div>
+        <span class="src">ราคาในรูปดอลลาร์ &middot; หักเงินเฟ้อแล้วราว &minus;85%</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">+86%</div>
+        <div class="stat-lbl"><b>วิกฤต 2008&ndash;09</b> &mdash; ดอกเบี้ยจริง 10 ปี ลดลงราว 230 bp ทองขึ้นจากราว 700 ไปราว 1,300 ดอลลาร์</div>
+        <span class="src">TIPS 10 ปี 1.8% &rarr; &minus;0.5%</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">+38%</div>
+        <div class="stat-lbl"><b>ปี 2020</b> &mdash; ดอกเบี้ยจริงลดลงราว 150 bp ทองขึ้นจากราว 1,500 ไป 2,070 ดอลลาร์ ทำจุดสูงสุดใหม่ตอนนั้น</div>
+        <span class="src">TIPS 10 ปี 0.5% &rarr; &minus;1.0%</span>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:26px">ช่วงปี 1995 ถึง 2022 ความสัมพันธ์นี้แน่นมาก ค่าสหสัมพันธ์ระหว่างราคาทองกับดอกเบี้ยจริงอยู่ราวติดลบ 0.70 ถึง 0.85 และโดยคร่าว ๆ ทุก 100 bp ที่ดอกเบี้ยจริงขยับ ราคาทองมักขยับสวนทางราว 15&ndash;25% เกณฑ์คร่าว ๆ ที่นักลงทุนสถาบันใช้กันคือ ดอกเบี้ยจริงต่ำกว่า 1% เป็นลมส่งให้ทอง อยู่ระหว่าง 1&ndash;2% คือเป็นกลางถึงกดดัน และเหนือ 2% คือกดดันหนัก</p>
+
+    <p class="pull rv">ปี 1980 ถึง 1999 ของแพงขึ้นทุกปี<br>แต่ทอง <em>ลงตลอดยี่สิบปี</em></p>
+
+    <div class="system rv">
+      <div class="t">สำหรับคนที่ถือทองเป็นเงินบาท</div>
+      <p class="body" style="margin-bottom:0">ราคาทองในไทยไม่ได้เคลื่อนตามราคาทองโลกอย่างเดียว มันเป็นผลคูณของสองแรง &mdash; <span class="kw">ราคาทองโลกที่เป็นดอลลาร์ กับอัตราแลกเปลี่ยนบาทต่อดอลลาร์</span> เวลารายงาน CPI สหรัฐออกมาร้อนกว่าคาด ทองโลกมักถูกกด แต่ดอลลาร์มักแข็งขึ้นพร้อมกัน บาทที่อ่อนลงจึงช่วยพยุงราคาทองไทยไว้บางส่วน สองแรงนี้หักล้างกันบ่อยจนราคาทองไทยขยับน้อยกว่าที่พาดหัวข่าวทองโลกทำให้รู้สึก และบางวันก็เดินคนละทางกันไปเลย</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 4 ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 4 &mdash; ขีดจำกัดของกรอบนี้</span>
+    <div class="eyebrow rv">Where It Breaks</div>
+    <h2 class="head rv">ตั้งแต่ปี 2022<br>สูตรเดิมอธิบายทองได้ไม่หมดแล้ว</h2>
+    <p class="lead rv">ถ้าจบบทความตรงส่วนที่แล้วก็จะดูสวยเกินจริง เพราะความสัมพันธ์ที่แน่นมาเกือบสามสิบปี<span class="kw">หลวมลงชัดเจนตั้งแต่ปี 2022</span> และเราคิดว่าต้องพูดถึงมันตรง ๆ</p>
+
+    <p class="body rv">ในรอบดอกเบี้ยขาขึ้นปี 2022&ndash;2023 ดอกเบี้ยจริงขยับขึ้นแรงมาก ตามสูตรเดิมทองควรร่วง แต่ทองกลับยืนได้ และหลังจากนั้นก็ปรับขึ้นต่อทั้งที่ดอกเบี้ยจริงยังไม่ได้ลงมาช่วย ค่าสหสัมพันธ์ระยะสั้นที่เคยอยู่แถวติดลบ 0.70&ndash;0.85 เหลือเพียงราวติดลบ 0.20&ndash;0.30 และถ้าเอาโมเดลที่ใช้ดอกเบี้ยจริงกับดอลลาร์ล้วน ๆ มาตีมูลค่าทองในปี 2026 ตัวเลขที่ได้จะอยู่แถว 1,800&ndash;2,200 ดอลลาร์ต่อออนซ์ ขณะที่ราคาจริงวิ่งอยู่เหนือ 4,000 ดอลลาร์</p>
+
+    <p class="body rv">คำอธิบายที่ถูกยกมาบ่อยที่สุดคือมีผู้ซื้อกลุ่มใหม่ที่ไม่สนใจดอกเบี้ย &mdash; <span class="kw">ธนาคารกลางทั่วโลกซื้อทองในระดับราว 1,000 ตันต่อปีตั้งแต่ปี 2022 เป็นต้นมา สูงที่สุดนับตั้งแต่ปี 1967</span> การซื้อของธนาคารกลางเป็นการซื้อเพื่อสำรอง ไม่ได้เทียบผลตอบแทนกับพันธบัตรแบบนักลงทุนทั่วไป เมื่อมีแรงซื้อที่ไม่สนใจราคาเข้ามาต่อเนื่องหลายปี สมการเดิมที่มีแค่ดอกเบี้ยจริงกับดอลลาร์จึงอธิบายได้ไม่ครบ</p>
+
+    <div class="split rv">
+      <div class="trap">
+        <div class="t">กับดักที่ 1 &mdash; &ldquo;เงินเฟ้อขึ้น ต้องซื้อทอง&rdquo;</div>
+        <p>ปี 2022 หักล้างประโยคนี้ไปแล้ว เงินเฟ้อสูงสุดในรอบ 41 ปี แต่ทองแทบไม่ขยับ เพราะสิ่งที่ชี้ขาดคือดอกเบี้ยจริง ไม่ใช่ตัวเลขเงินเฟ้อ</p>
+      </div>
+      <div class="trap">
+        <div class="t">กับดักที่ 2 &mdash; &ldquo;เงินเฟ้อลง หุ้นต้องขึ้น&rdquo;</div>
+        <p>13 ก.ย. 2022 เงินเฟ้อลดลงจริงจาก 8.5% เหลือ 8.3% แต่หุ้นมีวันที่แย่ที่สุดในรอบสองปี เพราะมันลดน้อยกว่าที่ทุกคนคิดไว้แล้ว</p>
+      </div>
+    </div>
+
+    <p class="body rv">มีอีกชั้นที่ต้องแยกให้ออก คือ<span class="kw">เงินเฟ้อก้อนนี้มาจากไหน</span> เงินเฟ้อที่มาจากคนแย่งกันซื้อ กับเงินเฟ้อที่มาจากของขาดหรือน้ำมันแพง เป็นคนละโรคกันแม้ตัวเลขบนปรอทจะเท่ากัน ดอกเบี้ยเป็นยาที่ออกฤทธิ์กับอย่างแรกได้ดี แต่แทบไม่ช่วยอย่างหลัง เพราะการขึ้นดอกเบี้ยไม่ได้ทำให้โลกผลิตน้ำมันได้มากขึ้น</p>
+
+    <p class="body rv">รายงานเดือนสิงหาคม 2026 เป็นตัวอย่างที่สะอาดมาก ตัวเลขพาดหัวค้างที่ 3.4% โดยที่<span class="kw">น้ำมันเบนซินขึ้น 27.4% เทียบปีก่อน น้ำมันเตาขึ้น 52% และหมวดพลังงานรวมขึ้น 16.3%</span> ขณะที่แกนกลางลงมาอยู่ที่ 2.4% ต่ำสุดในรอบกว่าสี่ปี พูดง่าย ๆ คือไข้ส่วนที่เหลืออยู่เกือบทั้งหมดมาจากปั๊มน้ำมัน ไม่ใช่จากเศรษฐกิจที่ร้อนเกินไป</p>
+
+    <div class="system rv">
+      <div class="t">เราใช้ CPI ทำอะไรกับพอร์ต</div>
+      <p class="body" style="margin-bottom:0">เราไม่ใช้ CPI ทำนายว่าพรุ่งนี้ตลาดจะขึ้นหรือลง เพราะตัวเลขที่คาดได้ถูกใส่ไว้ในราคาแล้ว และส่วนที่คาดไม่ได้ก็คือส่วนที่คาดไม่ได้จริง ๆ สิ่งที่มันใช้ตอบได้ดีกว่ามากคือ<span class="kw">ตอนนี้ควรกล้าแค่ไหน</span> &mdash; เงินเฟ้อที่กำลังลงพร้อมดอกเบี้ยจริงที่ผ่อนคลาย เป็นสนามคนละแบบกับเงินเฟ้อที่ค้างสูงจนหมอลดยาไม่ได้ วิธีวางเงินเฟ้อไว้ในภาพใหญ่ทั้งกระดาน อ่านต่อได้ที่ <a href="what-is-macro.html">Macro คืออะไร และทำไมคนลงทุนต้องเข้าใจ Macro</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 5 ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 5 &mdash; วิธีอ่านวันที่ตัวเลขออก</span>
+    <div class="eyebrow rv">Reading The Print</div>
+    <h2 class="head rv">สี่ช่องที่ต้องดู<br>ก่อนตัดสินว่าเป็นข่าวดีหรือข่าวร้าย</h2>
+    <p class="lead rv">รายงาน CPI ออกเดือนละครั้ง เวลา 8:30 น. ตามเวลาสหรัฐ ซึ่งตรงกับช่วงหัวค่ำถึงคืนของบ้านเรา สี่ช่องนี้คือสิ่งที่ควรดูตามลำดับ ก่อนจะสรุปว่าตัวเลขวันนี้ดีหรือร้ายกับของที่ถืออยู่</p>
+
+    <ul class="checklist rv">
+      <li><span class="ck">1</span><span><b>เทียบกับที่คาด ไม่ใช่เทียบกับเดือนก่อน</b> &mdash; ตัวเลขที่ลดลงแต่ลดน้อยกว่าที่คาด คือข่าวร้าย ส่วนตัวเลขที่ยังสูงแต่ต่ำกว่าที่คาด คือข่าวดี สองวันในปี 2022 ที่ยกมาข้างต้นคือหลักฐานของข้อนี้ทั้งคู่</span></li>
+      <li><span class="ck">2</span><span><b>ดูแกนกลางก่อนพาดหัว</b> &mdash; ธนาคารกลางให้น้ำหนักกับแกนกลางและแนวโน้มสามเดือนล่าสุดมากกว่าตัวเลขรายปีบนพาดหัว หลายครั้งพาดหัวสวยแต่แกนกลางร้อน แล้วตลาดตอบสนองตามแกนกลาง</span></li>
+      <li><span class="ck">3</span><span><b>ถามว่าเงินเฟ้อก้อนนี้มาจากไหน</b> &mdash; พลังงาน ค่าเช่าบ้าน หรือค่าจ้าง สามอย่างนี้บอกคนละเรื่องกันเรื่องว่าหมอจะทำอะไรต่อ ส่วนที่มาจากพลังงานคือส่วนที่ยาไม่ตรงโรคที่สุด</span></li>
+      <li><span class="ck">4</span><span><b>ดูยีลด์กับดอลลาร์ในสิบนาทีแรก</b> &mdash; พันธบัตรกับค่าเงินสะท้อนการคิดใหม่เรื่องดอกเบี้ยได้เร็วและตรงกว่าดัชนีหุ้น ถ้าจะเดาทิศทองในคืนนั้น ให้ดูดอกเบี้ยจริงกับดอลลาร์ ไม่ใช่ดูตัวเลข CPI</span></li>
+    </ul>
+
+    <p class="body rv" style="margin-top:24px">และข้อที่ห้าที่ไม่ได้ใส่ในรายการ เพราะมันไม่ใช่ตัวเลข &mdash; ตลาดยืนอยู่ตรงไหนก่อนตัวเลขออก ถ้าทุกคนกลัวเหมือนกันหมดมาทั้งสัปดาห์ ตัวเลขที่ออกมาแย่พอ ๆ กับที่กลัว มักไม่ทำให้ราคาลงต่อเท่าไร เพราะคนที่จะขายได้ขายไปแล้ว</p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 6 ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 6 &mdash; ภาพ ณ กันยายน 2026</span>
+    <div class="eyebrow rv">Where We Are</div>
+    <h2 class="head rv">รอบนี้หมอกำลังจะเพิ่มยา<br>ทั้งที่ไข้ส่วนใหญ่มาจากปั๊มน้ำมัน</h2>
+    <p class="lead rv">ตัวเลขชุดล่าสุดที่ธนาคารกลางสหรัฐได้เห็นก่อนการประชุมรอบนี้ คือ CPI เดือนสิงหาคม 2026 ที่ประกาศเมื่อวันที่ 11 กันยายน</p>
+
+    <div class="stats">
+      <div class="stat rv">
+        <div class="stat-num">3.4%</div>
+        <div class="stat-lbl">เงินเฟ้อพาดหัวรายปี เท่ากับเดือน ก.ค. และตรงกับที่ตลาดคาด (รายเดือน +0.4%)</div>
+        <span class="src">BLS &middot; 11 ก.ย. 2026</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">2.4%</div>
+        <div class="stat-lbl">เงินเฟ้อ<b>แกนกลาง</b>รายปี ต่ำที่สุดนับตั้งแต่ มี.ค. 2021 แต่รายเดือน +0.3% ร้อนกว่าคาดหนึ่งในสิบจุด</div>
+        <span class="src">BLS &middot; 11 ก.ย. 2026</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">+27.4%</div>
+        <div class="stat-lbl">ราคาน้ำมันเบนซินเทียบปีก่อน คิดเป็นกว่าหนึ่งในสามของการขยับรายเดือนทั้งหมด</div>
+        <span class="src">BLS &middot; หมวดพลังงานรวม +16.3%</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">89%</div>
+        <div class="stat-lbl">ความน่าจะเป็นที่ตลาดสัญญาซื้อขายล่วงหน้าให้กับการขึ้นดอกเบี้ยในการประชุม 15&ndash;16 ก.ย. หลังตัวเลขออก จากราว 70% ก่อนหน้านั้น</div>
+        <span class="src">Fed funds futures &middot; 11 ก.ย. 2026</span>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:26px">ดอกเบี้ยนโยบายตอนนี้อยู่ที่ 3.50&ndash;3.75% และประธานธนาคารกลางคนปัจจุบันย้ำหลายครั้งว่ายึดเป้าหมายเงินเฟ้อที่ 2% ภาพรวมจึงเป็นสถานการณ์ที่หมอถูกบีบให้เพิ่มยา ทั้งที่ไข้ส่วนที่เหลืออยู่เกือบทั้งหมดมาจากราคาน้ำมัน &mdash; ซึ่งเป็นโรคที่ยาตัวนี้รักษาไม่ได้</p>
+
+    <p class="body rv">เราไม่ฟันธงว่ารอบนี้จะจบแบบไหน แต่สามคำถามข้างล่างคือสิ่งที่จะบอกเราก่อนคนอื่น</p>
+
+    <ul class="checklist rv">
+      <li><span class="ck">1</span><span><b>แกนกลางจะลงต่อไหมถ้าน้ำมันหยุดขึ้น</b> &mdash; ถ้าใช่ แปลว่าไข้จริงลดแล้ว และยาที่กำลังจะเพิ่มคือยาเกินขนาด</span></li>
+      <li><span class="ck">2</span><span><b>ดอกเบี้ยจริงจะขึ้นไปถึงไหน</b> &mdash; นี่คือตัวแปรเดียวที่กดทองได้จริงตามกรอบดั้งเดิม ไม่ใช่ตัวเลข CPI บนพาดหัว</span></li>
+      <li><span class="ck">3</span><span><b>ทองจะยังไม่สนใจดอกเบี้ยจริงต่อไปอีกนานแค่ไหน</b> &mdash; ถ้าดอกเบี้ยจริงขึ้นแล้วทองยังไม่ลง แปลว่าแรงซื้อกลุ่มใหม่ยังใหญ่กว่ากลไกเดิม และกรอบที่เราอธิบายในส่วนที่ 3 ก็ต้องถูกลดน้ำหนักลงอีก</span></li>
+    </ul>
+
+    <div class="system rv">
+      <div class="t">หมายเหตุเรื่องเวลา</div>
+      <p class="body" style="margin-bottom:0">ตัวเลขในส่วนนี้เป็นภาพ ณ วันที่ 14 กันยายน 2026 ก่อนผลการประชุม 15&ndash;16 กันยายน จะออก ความน่าจะเป็นจากตลาดสัญญาซื้อขายล่วงหน้าเปลี่ยนได้ทุกวัน และควรถือเป็นบริบทของบทความ ไม่ใช่ข้อสรุป</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section class="closing">
+  <div class="narrow">
+    <div class="eyebrow rv" style="color:var(--gold);margin-bottom:24px">สรุปให้จำ</div>
+    <p class="q rv">เงินเฟ้อไม่ใช่ยา<br>มันคือ <em>ตัวเลขบนปรอท</em></p>
+    <p class="lens-final rv">CPI ไม่ได้แตะราคาสินทรัพย์โดยตรง มันแตะ<b>ดอกเบี้ยที่ตลาดคาด</b>ก่อนเสมอ<br>หุ้นตอบสนองต่อ<b>ส่วนที่คาดไม่ถึง</b> ไม่ใช่ระดับของเงินเฟ้อ &mdash; 13 ก.ย. กับ 10 พ.ย. 2022 เงินเฟ้อลดทั้งคู่ แต่ตลาดไปคนละทาง<br>ทองไม่ได้แข่งกับเงินเฟ้อ แต่แข่งกับ<b>ดอกเบี้ยหลังหักเงินเฟ้อ</b> &mdash; ปี 1980&ndash;1999 ของแพงขึ้นทุกปี แต่ทองลงยี่สิบปี<br>และตั้งแต่ปี 2022 กรอบนี้<b>อธิบายทองได้ไม่หมด</b> ใช้มันวัดแรงกดดันได้ แต่อย่าใช้ตั้งราคาเป้าหมาย</p>
+
+    <a class="cta rv" href="https://jptrustlearning.com" target="_blank" rel="noopener">
+      <span class="sub">Subscribe at</span>
+      <span class="url">jptrustlearning.com</span>
+      <span class="tip">เริ่มต้นเส้นทางการลงทุนอย่างมีระบบไปกับเรา</span>
+    </a>
+
+    <p class="disclaimer rv">การลงทุนมีความเสี่ยง &middot; เนื้อหาเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน &middot; ผลในอดีตไม่ได้การันตีผลในอนาคต<br>ตัวเลขเงินเฟ้ออ้างอิงรายงาน Consumer Price Index ของ U.S. Bureau of Labor Statistics &middot; ปฏิกิริยาตลาดวันที่ 13 ก.ย. 2022 และ 10 พ.ย. 2022 อ้างอิงรายงานข่าวสาธารณะของ CNBC, NBC News และ CNN Business &middot; ตัวเลขดอกเบี้ยจริงอ้างอิงผลตอบแทนพันธบัตรชดเชยเงินเฟ้อ (TIPS) อายุ 10 ปี ของ U.S. Treasury &middot; ราคาทองในอดีตอ้างอิงข้อมูลสาธารณะของ LBMA และรายงานของ World Gold Council &middot; ตัวเลขการซื้อทองของธนาคารกลางอ้างอิง World Gold Council &middot; ค่าสหสัมพันธ์และช่วงประเมินมูลค่าจากโมเดลดอกเบี้ยจริงเป็นค่าประมาณจากงานวิเคราะห์สาธารณะ ไม่ใช่ค่าที่คำนวณโดย JP Trust Learning &middot; ตัวเลขสถานการณ์ปัจจุบันเป็นภาพ ณ วันที่ 14 กันยายน 2026 ซึ่งเปลี่ยนแปลงได้ตลอดเวลา &middot; เรียบเรียงโดย JP Trust Learning</p>
+  </div>
+</section>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach((el,i)=>{
+  const sib=[...el.parentElement.children].filter(c=>c.classList.contains('rv'));
+  el.style.transitionDelay=(Math.min(sib.indexOf(el),5)*60)+'ms';
+  io.observe(el);
+});
+</script>
+<style>
+/* ═══ JPT · แถบนำทางกลับ (v1) ═══ */
+.jpt-libnav{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 26px;
+  margin:0;padding:26px 20px calc(26px + env(safe-area-inset-bottom,0px));
+  background:linear-gradient(135deg,#1a0a0e 0%,#2d1018 55%,#3a1520 100%);
+  border-top:1px solid rgba(212,175,55,.35);
+  font-family:'Anuphan',system-ui,-apple-system,sans-serif;
+  font-size:14.5px;line-height:1.9;text-align:center;
+}
+.jpt-libnav a{
+  color:#D4AF37;text-decoration:none;
+  border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease;
+}
+.jpt-libnav a:hover{color:#E8D48B;border-bottom-color:rgba(232,212,139,.6);}
+.jpt-libnav .sep{color:rgba(212,175,55,.35);}
+</style>
+<!-- JPT · แถบนำทางกลับ -->
+<nav class="jpt-libnav">
+  <a href="lib-macro.html">← ห้องสมุด Macro &amp; ความเสี่ยง</a>
+  <a href="index.html">หน้าแรกห้องสมุด</a>
+  <a href="https://app.jptrustlearning.com">เข้าระบบสมาชิก</a>
+</nav>
+</body>
+</html>

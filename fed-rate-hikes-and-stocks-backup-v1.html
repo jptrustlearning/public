@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Fed ขึ้นดอกเบี้ย ตลาดหุ้นมักเกิดอะไรขึ้น? | JP Trust Learning</title>
+<meta name="description" content="สถิติจริงสวนความรู้สึกคนส่วนใหญ่ — S&amp;P 500 ให้ผลตอบแทนเป็นบวกใน 8 จาก 9 รอบที่ Fed ขึ้นดอกเบี้ย และทุกรอบตั้งแต่ยุค 90s ก็ยังบวก เพราะเบรกจะถูกเหยียบก็ต่อเมื่อรถกำลังวิ่งเร็ว · ปี 1994 กำไรโต 20% แต่ดัชนีได้ 1% · สิ่งที่ค่าเฉลี่ยซ่อนไว้ (2022 ระหว่างทางลงราว 25%) · สัญญาณอันตรายจริงคือเส้นโค้งดอกเบี้ยกลับหัว ไม่ใช่จำนวนครั้งที่ขึ้น · และรอบ ก.ย. 2026 ต้องถามอะไร">
+<link rel="canonical" href="https://public.jptrustlearning.com/fed-rate-hikes-and-stocks.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="JP Trust Learning">
+<meta property="og:title" content="Fed ขึ้นดอกเบี้ย ตลาดหุ้นมักเกิดอะไรขึ้น?">
+<meta property="og:description" content="คนส่วนใหญ่คิดว่า Fed ขึ้นดอกเบี้ยแล้วหุ้นต้องลง แต่สถิติ 9 รอบบอกตรงกันข้าม — เพราะเบรกจะถูกเหยียบก็ต่อเมื่อรถกำลังวิ่งเร็ว">
+<meta property="og:image" content="https://public.jptrustlearning.com/og-image.png">
+<meta property="og:url" content="https://public.jptrustlearning.com/fed-rate-hikes-and-stocks.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Cinzel:wght@500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --maroon-deep:#1a0a0e;
+  --maroon:#2d1018;
+  --maroon-soft:#3a1620;
+  --cream:#FAF6ED;
+  --cream-2:#f3ecdc;
+  --gold:#D4AF37;
+  --gold-bright:#e7c659;
+  --gold-deep:#a8842a;
+  --price:#C75B49;          /* ราคา · อารมณ์  */
+  --price-soft:#e08a78;
+  --ink:#241016;
+  --ink-soft:#5a4640;
+  --on-dark:#f1e6d3;
+  --on-dark-soft:#c9b69b;
+  --line-dark:rgba(212,175,55,.22);
+  --line-light:rgba(45,16,24,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Anuphan',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.eyebrow{
+  font-family:'Cinzel',serif;
+  text-transform:uppercase;
+  letter-spacing:.34em;
+  font-size:.72rem;
+  font-weight:600;
+}
+.num{font-family:'DM Serif Display',serif;font-weight:400;line-height:.92;letter-spacing:-.01em}
+.serif{font-family:'DM Serif Display',serif}
+section{padding:clamp(64px,9vw,128px) clamp(22px,6vw,80px)}
+.wrap{max-width:980px;margin:0 auto}
+.narrow{max-width:760px;margin:0 auto}
+
+/* ---------- dual marker (signature) ---------- */
+.tag{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-family:'Cinzel',serif;font-size:.6rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  padding:.32em .7em;border-radius:999px;white-space:nowrap;
+  vertical-align:middle;
+}
+.tag::before{content:"";width:.5em;height:.5em;border-radius:50%}
+.tag.price{color:var(--price);background:rgba(199,91,73,.1);border:1px solid rgba(199,91,73,.35)}
+.tag.price::before{background:var(--price)}
+.tag.value{color:var(--gold-deep);background:rgba(212,175,55,.12);border:1px solid rgba(168,132,42,.4)}
+.tag.value::before{background:var(--gold)}
+.dark .tag.price{color:var(--price-soft);background:rgba(199,91,73,.16);border-color:rgba(224,138,120,.4)}
+.dark .tag.value{color:var(--gold-bright);background:rgba(212,175,55,.14);border-color:var(--line-dark)}
+
+/* ---------- brand bar ---------- */
+.brandbar{display:flex;align-items:center;gap:14px;margin-bottom:clamp(34px,6vw,60px)}
+.owl{width:48px;height:48px;flex:0 0 auto;object-fit:contain;border-radius:12px;filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}
+.brandbar .wordmark{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.16em;
+  font-size:1.02rem;color:var(--gold);line-height:1.1}
+.brandbar .wordmark span{display:block;font-size:.58rem;letter-spacing:.42em;color:var(--on-dark-soft);font-weight:500}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:
+    radial-gradient(120% 90% at 88% 4%, rgba(212,175,55,.16), transparent 46%),
+    radial-gradient(90% 70% at 0% 100%, rgba(199,91,73,.14), transparent 50%),
+    linear-gradient(160deg,var(--maroon) 0%, var(--maroon-deep) 100%);
+  color:var(--on-dark);position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line-dark);
+}
+.hero .eyebrow{color:var(--gold);margin-bottom:26px}
+.hero-paradox{
+  display:flex;align-items:stretch;gap:0;margin:6px 0 34px;
+  border:1px solid var(--line-dark);border-radius:16px;overflow:hidden;
+  background:rgba(0,0,0,.18);
+}
+.hero-paradox .cell{flex:1;padding:clamp(20px,4vw,34px) clamp(18px,3.5vw,30px)}
+.hero-paradox .cell+.cell{border-left:1px solid var(--line-dark)}
+.hero-paradox .lbl{font-family:'Anuphan';font-size:.82rem;color:var(--on-dark-soft);
+  display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.hero-paradox .big{font-size:clamp(2.9rem,11vw,4.6rem)}
+.hero-paradox .cell.value .big{color:var(--gold-bright)}
+.hero-paradox .cell.price .big{color:var(--price-soft)}
+.hero-paradox .sub{font-size:.82rem;color:var(--on-dark-soft);margin-top:8px}
+.hero h1{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(2rem,6vw,3.35rem);line-height:1.12;
+  letter-spacing:-.01em;margin-bottom:22px;color:#fff;
+}
+.hero h1 em{font-style:italic;color:var(--gold-bright)}
+.hero .lens{
+  font-size:clamp(1.05rem,2.6vw,1.4rem);color:var(--on-dark);
+  border-left:2px solid var(--gold);padding-left:18px;margin-bottom:30px;
+  max-width:680px;
+}
+.hero .lens b{color:var(--gold-bright);font-weight:600}
+.hero .meta{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--on-dark-soft);line-height:2}
+
+/* ---------- section chrome ---------- */
+.dark{background:linear-gradient(170deg,var(--maroon) 0%,var(--maroon-deep) 100%);color:var(--on-dark)}
+.dark .eyebrow{color:var(--gold)}
+.light .eyebrow{color:var(--gold-deep)}
+.act-no{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--gold-deep);
+  letter-spacing:.05em;margin-bottom:6px;display:block}
+.dark .act-no{color:var(--gold)}
+h2.head{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.7rem,4.8vw,2.7rem);line-height:1.15;
+  margin:14px 0 26px;letter-spacing:-.01em;
+}
+.light h2.head{color:var(--maroon)}
+.dark h2.head{color:#fff}
+.lead{font-size:clamp(1.05rem,2.2vw,1.2rem);margin-bottom:14px}
+.light .lead{color:var(--ink)}
+.dark .lead{color:var(--on-dark)}
+p.body{margin-bottom:16px;font-size:1.02rem}
+.light p.body{color:var(--ink-soft)}
+.dark p.body{color:var(--on-dark-soft)}
+.kw{color:var(--maroon);font-weight:600}
+.dark .kw{color:var(--gold-bright)}
+
+/* section figure */
+.figure{margin:6px 0 30px;border-radius:18px;overflow:hidden;border:1px solid var(--line-dark);box-shadow:0 26px 64px -34px rgba(0,0,0,.75);position:relative}
+.figure img{display:block;width:100%;height:auto}
+.figure figcaption{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-soft);padding:11px 16px;background:rgba(0,0,0,.34);border-top:1px solid var(--line-dark);display:flex;align-items:center;gap:8px}
+.figure figcaption::before{content:"";width:.5em;height:.5em;border-radius:50%;background:var(--gold);flex:0 0 auto}
+.light .figure figcaption{color:var(--ink-soft);background:rgba(45,16,24,.05);border-top-color:var(--line-light)}
+/* pull line */
+.pull{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3.4vw,1.9rem);
+  line-height:1.3;margin:30px 0;padding:0 0 0 22px;border-left:3px solid var(--gold);
+}
+.light .pull{color:var(--maroon)}
+.dark .pull{color:#fff}
+.pull em{font-style:italic;color:var(--gold-deep)}
+.dark .pull em{color:var(--gold-bright)}
+
+/* analogy card */
+.analogy{
+  background:var(--cream-2);border:1px solid var(--line-light);border-radius:18px;
+  padding:clamp(24px,4vw,38px);margin:28px 0;position:relative;
+}
+.analogy::before{content:"\201C";font-family:'DM Serif Display',serif;
+  position:absolute;top:-.1em;left:.28em;font-size:4.5rem;color:var(--gold);opacity:.5;line-height:1}
+.analogy p{font-size:1.08rem;color:var(--ink);position:relative}
+.analogy .pv{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
+/* stat grid */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:30px 0 8px}
+.stat{
+  border:1px solid var(--line-dark);border-radius:14px;padding:22px 20px;
+  background:rgba(0,0,0,.16);position:relative;overflow:hidden;
+}
+.light .stat{background:#fff;border-color:var(--line-light);box-shadow:0 8px 24px -18px rgba(45,16,24,.4)}
+.stat .stat-num{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,5vw,2.5rem);
+  line-height:1;color:var(--gold)}
+.light .stat .stat-num{color:var(--gold-deep)}
+.stat .stat-lbl{font-size:.9rem;margin-top:10px}
+.dark .stat .stat-lbl{color:var(--on-dark-soft)}
+.light .stat .stat-lbl{color:var(--ink-soft)}
+.stat .src{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-deep);margin-top:12px;display:block;opacity:.8}
+.dark .stat .src{color:var(--on-dark-soft)}
+
+/* two-trap split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
+.trap{border:1px solid rgba(199,91,73,.34);border-radius:14px;padding:22px;background:rgba(199,91,73,.07)}
+.dark .trap{background:rgba(199,91,73,.12)}
+.trap .t{font-weight:600;color:var(--price);margin-bottom:6px;font-size:1.05rem}
+.dark .trap .t{color:var(--price-soft)}
+.trap p{font-size:.96rem}
+.light .trap p{color:var(--ink-soft)}
+.dark .trap p{color:var(--on-dark-soft)}
+.system{
+  border:1px solid var(--line-dark);border-left:3px solid var(--gold);
+  border-radius:14px;padding:24px;margin-top:20px;background:rgba(212,175,55,.06)
+}
+.dark .system{background:rgba(212,175,55,.08)}
+.system .t{font-family:'Cinzel',serif;letter-spacing:.16em;text-transform:uppercase;
+  font-size:.7rem;color:var(--gold-deep);margin-bottom:10px}
+.dark .system .t{color:var(--gold-bright)}
+
+/* paradox panel (act 2) */
+.paradox2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.pcard{border-radius:16px;padding:24px}
+.pcard.val{background:rgba(212,175,55,.1);border:1px solid rgba(168,132,42,.4)}
+.pcard.mood{background:rgba(199,91,73,.09);border:1px solid rgba(199,91,73,.35)}
+.pcard .pc-num{font-family:'DM Serif Display',serif;font-size:2rem;line-height:1;margin:8px 0}
+.pcard.val .pc-num{color:var(--gold-deep)}
+.pcard.mood .pc-num{color:var(--price)}
+.pcard p{font-size:.95rem;color:var(--ink-soft)}
+
+/* ---------- ad showcase ---------- */
+.showcase{padding:0}
+.showcase-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px);
+  align-items:center;max-width:980px;margin:0 auto;
+}
+.showcase .copy .eyebrow{margin-bottom:14px}
+.showcase .copy h3{font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.5rem,3.6vw,2.1rem);line-height:1.18;margin-bottom:16px}
+.dark.showcase-sec .copy h3{color:#fff}
+.light.showcase-sec .copy h3{color:var(--maroon)}
+.showcase .copy p{font-size:1rem;margin-bottom:18px}
+.dark.showcase-sec .copy p{color:var(--on-dark-soft)}
+.light.showcase-sec .copy p{color:var(--ink-soft)}
+.showcase .copy ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.showcase .copy li{display:flex;gap:10px;align-items:flex-start;font-size:.96rem}
+.showcase .copy li::before{content:"";flex:0 0 auto;width:7px;height:7px;border-radius:50%;
+  background:var(--gold);margin-top:.6em}
+.dark.showcase-sec .copy li{color:var(--on-dark)}
+.light.showcase-sec .copy li{color:var(--ink)}
+.shot{border-radius:20px;overflow:hidden;border:1px solid var(--line-dark);
+  box-shadow:0 30px 70px -34px rgba(0,0,0,.7);position:relative}
+.light.showcase-sec .shot{border-color:var(--line-light);box-shadow:0 30px 70px -38px rgba(45,16,24,.5)}
+.shot img{display:block;width:100%;height:auto}
+
+/* ---------- closing ---------- */
+.closing{background:
+  radial-gradient(100% 80% at 50% 0%, rgba(212,175,55,.14), transparent 55%),
+  linear-gradient(180deg,var(--maroon-deep),#120608);
+  color:var(--on-dark);text-align:center}
+.closing .q{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,4.4vw,2.5rem);
+  line-height:1.28;color:#fff;max-width:760px;margin:0 auto 26px}
+.closing .q em{font-style:italic;color:var(--gold-bright)}
+.closing .lens-final{font-size:clamp(1.05rem,2.6vw,1.3rem);color:var(--on-dark);
+  max-width:640px;margin:0 auto 44px}
+.closing .lens-final b{color:var(--gold-bright)}
+.cta{display:inline-flex;flex-direction:column;align-items:center;gap:6px;
+  border:1px solid var(--line-dark);border-radius:16px;
+  padding:24px 40px;background:rgba(0,0,0,.25);text-decoration:none}
+.cta .sub{font-family:'Cinzel',serif;letter-spacing:.3em;font-size:.6rem;
+  text-transform:uppercase;color:var(--on-dark-soft)}
+.cta .url{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.04em;
+  font-size:clamp(1.3rem,3.4vw,1.7rem);color:var(--gold)}
+.cta .tip{font-size:.84rem;color:var(--on-dark-soft);margin-top:2px}
+.cta:hover .url{color:var(--gold-bright)}
+.disclaimer{margin-top:46px;font-size:.74rem;color:var(--on-dark-soft);
+  letter-spacing:.02em;max-width:680px;margin-left:auto;margin-right:auto;
+  border-top:1px solid var(--line-dark);padding-top:22px;line-height:1.9}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:680px){
+  .hero-paradox{flex-direction:row}
+  .stats{grid-template-columns:1fr 1fr}
+  .split,.paradox2{grid-template-columns:1fr}
+  .showcase-inner{grid-template-columns:1fr}
+  .showcase .copy{order:2}
+  .showcase .shot{order:1;max-width:420px;margin:0 auto}
+}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+<style>
+/* --- checklist (article-specific) --- */
+.stat.span2{grid-column:1/-1}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:12px;margin:24px 0 8px}
+.checklist li{display:flex;gap:12px;align-items:flex-start;font-size:1rem;line-height:1.6}
+.checklist li .ck{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:rgba(212,175,55,.14);
+  border:1px solid var(--gold);color:var(--gold-deep);display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;font-weight:700;margin-top:.1em}
+.light .checklist li{color:var(--ink-soft)}
+.checklist li b{color:var(--maroon)}
+
+/* ═══ JPT · สีลิงก์ในเนื้อบทความ (v1) ═══════════════════
+   เจาะจงเฉพาะลิงก์ที่อยู่ในย่อหน้า/รายการ เพื่อไม่ให้ไปโดน
+   .sc-cta (ปุ่ม Subscribe ที่ไม่ได้กำหนดสีของตัวเองไว้)
+   .crumb และ .foot-links a ซึ่งมีสีของตัวเองอยู่แล้ว        */
+.wrap p a,.wrap li a,.narrow p a,.narrow li a,.callout a,.tl-b a,.tl-t a{
+  color:#8B6914;text-decoration:none;
+  border-bottom:1px solid rgba(184,134,11,.42);
+  transition:color .15s ease,border-color .15s ease;
+}
+.wrap p a:hover,.wrap li a:hover,.narrow p a:hover,.narrow li a:hover,.callout a:hover,.tl-b a:hover,.tl-t a:hover{
+  color:#722F37;border-bottom-color:rgba(114,47,55,.55);
+}
+.band .wrap p a,.band .wrap li a,.band .callout a,.band .tl-b a,.band .tl-t a{
+  color:#E8D48B;border-bottom-color:rgba(232,212,139,.42);
+}
+.band .wrap p a:hover,.band .wrap li a:hover,.band .callout a:hover,
+.band .tl-b a:hover,.band .tl-t a:hover{
+  color:#FFFEF8;border-bottom-color:rgba(255,254,248,.75);
+}
+</style>
+
+<style>
+/* --- flow diagram (article-specific) --- */
+.flow{margin:34px 0 12px}
+.fnode{
+  border:1px solid var(--line-light);border-radius:14px;
+  padding:16px 18px;text-align:center;background:#fff;
+  box-shadow:0 8px 24px -18px rgba(45,16,24,.4);
+}
+.dark .fnode{border-color:var(--line-dark);background:rgba(0,0,0,.18);box-shadow:none}
+.fnode .fn-t{
+  font-family:'Cinzel',serif;letter-spacing:.16em;text-transform:uppercase;
+  font-size:.74rem;font-weight:600;color:var(--gold-deep);line-height:1.5;
+}
+.dark .fnode .fn-t{color:var(--gold)}
+.fnode .fn-s{font-size:.88rem;color:var(--ink-soft);margin-top:8px;line-height:1.7}
+.dark .fnode .fn-s{color:var(--on-dark-soft)}
+.fnode.accent{border-color:rgba(168,132,42,.55);background:rgba(212,175,55,.1)}
+.dark .fnode.accent{border-color:var(--gold);background:rgba(212,175,55,.12)}
+.fnode.accent .fn-t{font-size:.82rem}
+.fnode.term{border-color:rgba(114,47,55,.3);background:rgba(45,16,24,.05)}
+.fpair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fdrop{position:relative;height:30px}
+.fdrop::before{
+  content:"";position:absolute;left:50%;top:0;width:1px;height:100%;
+  background:linear-gradient(180deg,rgba(168,132,42,.2),var(--gold-deep));
+  transform:translateX(-.5px);
+}
+.dark .fdrop::before{background:linear-gradient(180deg,rgba(212,175,55,.2),var(--gold))}
+.fdrop::after{
+  content:"";position:absolute;left:50%;bottom:1px;width:7px;height:7px;
+  border-right:1px solid var(--gold-deep);border-bottom:1px solid var(--gold-deep);
+  transform:translate(-50%,0) rotate(45deg);
+}
+.dark .fdrop::after{border-right-color:var(--gold);border-bottom-color:var(--gold)}
+.fcap{
+  font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-soft);opacity:.75;text-align:center;margin-top:14px;
+}
+.dark .fcap{color:var(--on-dark-soft)}
+@media(max-width:520px){
+  .fpair{grid-template-columns:1fr;gap:12px}
+  .fnode{padding:14px 15px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <img class="owl" src="https://raw.githubusercontent.com/jptrustlearning/pages/main/jpt-owl-cropped.png" alt="JP Trust Learning">
+      <div class="wordmark">JP TRUST<span>LEARNING</span></div>
+    </div>
+
+    <div class="eyebrow rv">Macro &amp; Risk &middot; พื้นฐานการลงทุน</div>
+    <h1 class="rv">Fed ขึ้นดอกเบี้ย<br>ตลาดหุ้น<br><em>มักเกิดอะไรขึ้น?</em></h1>
+
+    <p class="lens rv">คำตอบที่เกือบทุกคนเดาคือ &ldquo;หุ้นลง&rdquo; แต่ถ้าไล่ดูทุกรอบที่ธนาคารกลางสหรัฐขึ้นดอกเบี้ยจริง ๆ ตัวเลขกลับบอกตรงกันข้าม <b>หุ้นมักจะบวก</b> ระหว่างรอบขึ้นดอกเบี้ย และรอบที่เจ็บหนักก็ไม่ได้เจ็บเพราะจำนวนครั้งที่ขึ้น บทความนี้ไล่ดูว่าสถิติบอกอะไร ทำไมมันถึงสวนความรู้สึก และตรงไหนคือสัญญาณที่ต้องระวังจริง</p>
+
+    <div class="meta rv">ความรู้พื้นฐาน &middot; หมวด Macro &amp; ความเสี่ยง &middot; เรียบเรียงโดย JP Trust Learning</div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 1 — สถิติ ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 1 &mdash; สิ่งที่สถิติบอก</span>
+    <div class="eyebrow rv">Against Intuition</div>
+    <h2 class="head rv">หุ้นมักไม่ลง<br>ในรอบที่ Fed ขึ้นดอกเบี้ย</h2>
+    <p class="lead rv">เริ่มจากตัวเลขก่อน ไม่ต้องเชื่อความรู้สึก งานศึกษาที่ไล่ดูทุกรอบขึ้นดอกเบี้ยของธนาคารกลางสหรัฐย้อนไปถึงต้นยุค 70 พบว่า<span class="kw">ผลตอบแทนของ S&amp;P 500 ระหว่างรอบขึ้นดอกเบี้ยเป็นบวกแทบทุกครั้ง</span></p>
+
+    <div class="stats">
+      <div class="stat rv">
+        <div class="stat-num">8 ใน 9</div>
+        <div class="stat-lbl">จำนวนรอบขึ้นดอกเบี้ยที่ S&amp;P 500 ให้ผลตอบแทนรวม<b>เป็นบวก</b> นับตั้งแต่ปี 1971</div>
+        <span class="src">วัดตลอดช่วงรอบขึ้นดอกเบี้ย</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">+11.8%</div>
+        <div class="stat-lbl">ผลตอบแทนรวม<b>เฉลี่ยต่อปี</b>ระหว่างรอบขึ้นดอกเบี้ย (ค่ากลางอยู่ที่ 7.5%)</div>
+        <span class="src">ค่าเฉลี่ยของทั้ง 9 รอบ</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">+5.6%</div>
+        <div class="stat-lbl">ค่ากลางของผลตอบแทนต่อปี วัดจาก<b>วันที่ขึ้นครั้งแรกถึงวันที่ขึ้นครั้งสุดท้าย</b> เฉพาะรอบตั้งแต่ยุค 90s</div>
+        <span class="src">Barclays &middot; ส.ค. 2026</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">0 รอบ</div>
+        <div class="stat-lbl">จำนวนรอบตั้งแต่ยุค 90s ที่ให้ผลตอบแทน<b>ติดลบ</b> &mdash; ทุกรอบอยู่ในช่วง 0.1% ถึง 7.8% ต่อปี</div>
+        <span class="src">Barclays &middot; ส.ค. 2026</span>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:26px">ตัวเลขชุดนี้ไม่ได้แปลว่าดอกเบี้ยไม่สำคัญ และไม่ได้แปลว่าถือหุ้นแล้วสบายใจได้ทุกรอบ มันแปลแค่ว่า<span class="kw">การขึ้นดอกเบี้ยไม่ใช่สวิตช์ที่กดแล้วตลาดลงอัตโนมัติ</span> ถ้าเป็นแบบนั้นจริง ตัวเลข 8 ใน 9 ข้างบนคงกลับด้าน คำถามที่น่าสนใจกว่าจึงเป็นว่า แล้วทำไมมันถึงเป็นแบบนี้</p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 2 — เหตุผล ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 2 &mdash; เหตุผลเบื้องหลัง</span>
+    <div class="eyebrow rv">Why It Happens</div>
+    <h2 class="head rv">เพราะเบรกจะถูกเหยียบ<br>ก็ต่อเมื่อรถวิ่งเร็ว</h2>
+    <p class="lead rv">กุญแจอยู่ตรงนี้ &mdash; ธนาคารกลางไม่ได้ขึ้นดอกเบี้ยแบบสุ่ม แต่ขึ้นเมื่อเศรษฐกิจ<span class="kw">ร้อนแรงพอที่จะต้องถูกชะลอ</span> ซึ่งช่วงเวลาแบบนั้นก็คือช่วงที่ยอดขายดี คนมีงานทำ และกำไรบริษัทกำลังโต</p>
+
+    <div class="analogy rv">
+      <p>ลองคิดว่าดอกเบี้ยคือ<b>เบรก</b> ส่วนกำไรของบริษัทคือ<b>ความเร็วของรถ</b> คนขับจะแตะเบรกก็ต่อเมื่อรถวิ่งเร็วเกินไป ไม่มีใครแตะเบรกตอนรถจอดนิ่ง ฉะนั้นทุกครั้งที่เห็นเบรกถูกเหยียบ แปลว่าก่อนหน้านั้นรถกำลังมีความเร็วอยู่ &mdash; และรถที่มีความเร็วมากพอ ก็ยังเคลื่อนไปข้างหน้าได้แม้เบรกจะถูกเหยียบ</p>
+    </div>
+
+    <p class="body rv">อีกบทหนึ่งของเราอธิบายฝั่งมูลค่าไว้แล้วว่า ดอกเบี้ยที่สูงขึ้นทำให้กำไรในอนาคตถูกทอนค่าลง ตัวคูณที่ตลาดยอมจ่ายต่อกำไรหนึ่งบาทจึงหด (อ่านกลไกเต็มได้ที่ <a href="interest-rates-and-stocks.html">ดอกเบี้ยส่งผลต่อตลาดหุ้นอย่างไร</a>) แต่นั่นเป็นแค่ครึ่งเดียวของสมการ อีกครึ่งคือ<span class="kw">ตัวกำไรเองที่กำลังโต</span> ระหว่างรอบขึ้นดอกเบี้ย ทั้งสองแรงนี้ดันกันคนละทาง ผลลัพธ์สุดท้ายจึงขึ้นอยู่กับว่าแรงไหนชนะ</p>
+
+    <p class="body rv">ปี 1994 คือตัวอย่างที่เห็นภาพชัดที่สุด ปีนั้นธนาคารกลางสหรัฐขึ้นดอกเบี้ยเจ็ดครั้งรวด จาก 3% ไปเป็น 6% ภายในเวลาราวหนึ่งปี ถือเป็นการเหยียบเบรกที่แรงและกะทันหันที่สุดครั้งหนึ่งในประวัติศาสตร์สมัยใหม่ ตลาดพันธบัตรเจ็บหนักถึงขั้นมีเทศมณฑลหนึ่งในแคลิฟอร์เนียยื่นล้มละลายปลายปีนั้น แต่ฝั่งหุ้นกลับ<span class="kw">แทบไม่ขยับ</span></p>
+
+    <div class="paradox2 rv">
+      <div class="pcard val">
+        <div class="fn-t" style="font-family:'Cinzel',serif;letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;color:var(--gold-deep)">กำไร S&amp;P 500 &middot; 1994</div>
+        <div class="pc-num">+20%</div>
+        <p>ความเร็วของรถ &mdash; กำไรบริษัทในดัชนีโตแรงมากในปีนั้น เศรษฐกิจอยู่ในปีที่สามของการฟื้นตัว</p>
+      </div>
+      <div class="pcard mood">
+        <div class="fn-t" style="font-family:'Cinzel',serif;letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;color:var(--price)">ดัชนี S&amp;P 500 &middot; 1994</div>
+        <div class="pc-num">+1%</div>
+        <p>แรงเบรก &mdash; ดอกเบี้ยที่ขึ้นเท่าตัวกินกำไรที่โตไปเกือบหมด เหลือผลตอบแทนทั้งปีแค่ราวหนึ่งเปอร์เซ็นต์</p>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:26px">ผลตอบแทน 1% ในปีที่กำไรโต 20% ฟังดูน่าผิดหวัง แต่ให้สังเกตว่ามัน<span class="kw">ไม่ติดลบ</span> ทั้งที่เบรกถูกเหยียบแรงที่สุดครั้งหนึ่ง และเมื่อการขึ้นดอกเบี้ยจบลงโดยเศรษฐกิจไม่ถดถอย ปีถัดมาดัชนีก็บวกกว่า 34% พร้อมทำจุดสูงสุดใหม่ 77 ครั้งในปีเดียว &mdash; รถที่มีความเร็วสะสมไว้พอ พอปล่อยเบรกก็พุ่งต่อทันที</p>
+
+    <p class="pull rv">เบรกไม่ได้ทำให้รถถอยหลัง<br>มันทำให้รถ <em>วิ่งช้าลง</em></p>
+
+    <div class="system rv">
+      <div class="t">อีกเหตุผลที่คนมักลืม</div>
+      <p class="body" style="margin-bottom:0">ราคาหุ้นวันนี้ได้รวมสิ่งที่ตลาดคาดว่าดอกเบี้ยจะเป็นไว้ล่วงหน้าแล้ว เมื่อธนาคารกลางขึ้นดอกเบี้ยตามที่ทุกคนคาดไว้อยู่แล้ว จึงแทบไม่มีเหตุผลที่ราคาต้องขยับเพิ่ม สิ่งที่ทำให้ตลาดเคลื่อนคือ<span class="kw">ส่วนต่างระหว่างสิ่งที่เกิดขึ้นจริงกับสิ่งที่ถูกคิดไว้แล้ว</span> เรื่องนี้เราเจาะไว้ในบทความ <a href="fed-yellow-light-repricing.html">ดอกเบี้ยไม่ขยับสักครั้ง แต่ทำไมของในพอร์ตขยับหมด</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 3 — ค่าเฉลี่ยซ่อนอะไร ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 3 &mdash; สิ่งที่ค่าเฉลี่ยซ่อนไว้</span>
+    <div class="eyebrow rv">What The Average Hides</div>
+    <h2 class="head rv">ตัวเลขสวยนั้นจริง<br>แต่ไม่ใช่สิ่งที่เราต้องอยู่กับมัน</h2>
+    <p class="lead rv">ก่อนจะเอาสถิติในส่วนที่ 1 ไปใช้ ต้องรู้ก่อนว่ามันถูกวัดอย่างไร &mdash; ตัวเลขพวกนั้นวัดจาก<span class="kw">วันที่ขึ้นครั้งแรกถึงวันที่ขึ้นครั้งสุดท้าย</span> ซึ่งไม่ใช่ช่วงเวลาที่นักลงทุนจริงถือหุ้นอยู่</p>
+
+    <p class="body rv">รอบ 2022&ndash;2023 เป็นตัวอย่างที่ดีที่สุด รอบนั้นดอกเบี้ยขึ้นจากเกือบศูนย์ไปถึงกรอบ 5.25&ndash;5.50% ในเวลาไม่ถึงปีครึ่ง ถ้าวัดแบบสถิติข้างบน ผลตอบแทนของดัชนี<span class="kw">ยังเป็นบวก</span> และเข้าข่าย &ldquo;ทุกรอบตั้งแต่ยุค 90s บวกหมด&rdquo; ได้เต็มปาก แต่ระหว่างทางเรื่องราวเป็นคนละเรื่อง</p>
+
+    <div class="paradox2 rv">
+      <div class="pcard val">
+        <div class="fn-t" style="font-family:'Cinzel',serif;letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;color:var(--gold-deep)">วัดหัวถึงท้ายรอบ</div>
+        <div class="pc-num">บวก</div>
+        <p>จากวันขึ้นครั้งแรก (มี.ค. 2022) ถึงวันขึ้นครั้งสุดท้าย (ก.ค. 2023) ดัชนีอยู่สูงกว่าจุดเริ่ม &mdash; เข้าเกณฑ์ &ldquo;รอบขึ้นดอกเบี้ยหุ้นบวก&rdquo;</p>
+      </div>
+      <div class="pcard mood">
+        <div class="fn-t" style="font-family:'Cinzel',serif;letter-spacing:.14em;text-transform:uppercase;font-size:.7rem;color:var(--price)">วัดจากยอดถึงก้น</div>
+        <div class="pc-num">&minus;25%</div>
+        <p>จากจุดสูงสุด ม.ค. 2022 ถึงจุดต่ำสุด ต.ค. 2022 คือสิ่งที่คนถือหุ้นต้องนั่งดูจริง &mdash; ปีปฏิทิน 2022 ปิดที่ &minus;19.4% แย่ที่สุดนับจากปี 2008</p>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:26px">สองตัวเลขนี้มาจากรอบเดียวกันเป๊ะ ต่างกันแค่จุดที่เริ่มจับเวลา <span class="kw">ค่าเฉลี่ยของทั้งรอบไม่ได้บอกอะไรเลยเกี่ยวกับความเจ็บระหว่างทาง</span> และไม่มีใครในโลกจริงเข้าซื้อพอดีวันแรกที่ประกาศขึ้นดอกเบี้ยแล้วขายพอดีวันที่ขึ้นครั้งสุดท้าย</p>
+
+    <p class="body rv">บทเรียนไม่ใช่ว่าสถิติผิด แต่คือ<span class="kw">สถิติตอบคำถามคนละข้อกับที่เรากำลังถาม</span> มันตอบว่า &ldquo;ถ้าถือตลอดรอบจะได้เท่าไร&rdquo; ไม่ได้ตอบว่า &ldquo;ระหว่างทางจะต้องทนอะไรบ้าง&rdquo; สำหรับพอร์ตจริงที่มีวันขายและมีเพดานความอดทน คำถามที่สองสำคัญกว่า</p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 4 — สัญญาณอันตราย ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 4 &mdash; สัญญาณที่ต้องระวัง</span>
+    <div class="eyebrow rv">The Real Warning</div>
+    <h2 class="head rv">สัญญาณอันตรายจริง<br>ไม่ใช่จำนวนครั้งที่ขึ้น</h2>
+    <p class="lead rv">ตลาดหมีเคยเริ่มต้นระหว่างรอบขึ้นดอกเบี้ยจริง &mdash; ม.ค. 1973 &middot; พ.ย. 1980 &middot; มี.ค. 2000 แต่จุดร่วมของทั้งสามครั้งไม่ใช่จำนวนครั้งที่ขึ้น มันคือ<span class="kw">รูปทรงของเส้นโค้งดอกเบี้ย</span></p>
+
+    <p class="body rv">ปกติดอกเบี้ยระยะยาวจะสูงกว่าระยะสั้น เพราะการให้ยืมเงินนานกว่าย่อมต้องได้ผลตอบแทนมากกว่า แต่บางครั้งธนาคารกลางดันปลายสั้นขึ้นเร็วจนแซงปลายยาว เรียกภาวะนี้ว่า <span class="kw">inverted yield curve (เส้นโค้งดอกเบี้ยกลับหัว &mdash; ดอกเบี้ยระยะสั้นสูงกว่าผลตอบแทนพันธบัตร 10 ปี)</span> ทั้งสามครั้งข้างบนเกิดขึ้นหลังจากเส้นโค้งกลับหัวทั้งสิ้น</p>
+
+    <div class="system rv">
+      <div class="t">ทำไมเส้นโค้งกลับหัวถึงสำคัญ</div>
+      <p class="body" style="margin-bottom:0">ธนาคารทำกำไรจากการกู้เงินระยะสั้นมาปล่อยกู้ระยะยาว เมื่อต้นทุนระยะสั้นแซงผลตอบแทนระยะยาว ธุรกิจนี้ก็ขาดทุนโดยธรรมชาติ ธนาคารจึงปล่อยกู้น้อยลง เงินในระบบตึงตัวขึ้นเอง <span class="kw">โดยที่ธนาคารกลางไม่ต้องทำอะไรเพิ่มเลย</span> ในภาษารถของเรา นี่ไม่ใช่แค่แตะเบรก แต่คือเบรกจนล้อล็อก รถจึงไม่ได้แค่ช้าลง แต่เสียการทรงตัว</p>
+    </div>
+
+    <p class="body rv" style="margin-top:22px">อีกเรื่องที่ตัวเลขบอกไว้ชัดคือ <span class="kw">ตลาดหมีแทบไม่เคยเริ่มทันทีหลังการขึ้นดอกเบี้ยครั้งแรก</span> ส่วนใหญ่กินเวลาหลายเดือนหรือเป็นปีกว่าจะเริ่ม การรีบขายทิ้งเพราะได้ยินคำว่า &ldquo;จะขึ้นดอกเบี้ย&rdquo; จึงมักเป็นการออกจากตลาดเร็วเกินไปหลายเดือน ในขณะที่คนที่รอสัญญาณจากเส้นโค้งดอกเบี้ยยังมีเวลาเหลืออีกพอสมควร</p>
+
+    <p class="body rv">และรอบ 2022 ก็ยืนยันหลักเดียวกัน สิ่งที่ทำให้รอบนั้นเจ็บกว่ารอบอื่นไม่ใช่จำนวนครั้ง แต่คือ<span class="kw">เหตุผลที่ต้องขึ้น</span> &mdash; รอบนั้นขึ้นเพื่อไล่เงินเฟ้อที่พุ่งไปแล้ว ไม่ได้ขึ้นเพราะเศรษฐกิจกำลังโตร้อน กำไรบริษัทจึงไม่มีความเร็วสะสมไว้พอจะชดเชยแรงเบรก ต่างจากปี 1994 หรือ 2015&ndash;2018 ที่การขึ้นดอกเบี้ยเดินคู่มากับกำไรที่โตจริง</p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 5 — กลุ่มไหน ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ส่วนที่ 5 &mdash; ระดับกลุ่มอุตสาหกรรม</span>
+    <div class="eyebrow rv">Who Keeps Running</div>
+    <h2 class="head rv">กลุ่มที่คนคิดว่าจะเจ็บสุด<br>กลับนำในหลายรอบ</h2>
+    <p class="lead rv">ถ้าดูจากกลไกมูลค่าอย่างเดียว หุ้นเทคโนโลยีควรเป็นกลุ่มที่เจ็บหนักที่สุดเมื่อดอกเบี้ยขึ้น เพราะกำไรก้อนใหญ่อยู่ไกลในอนาคต แต่ถ้าดูสถิติของทุกรอบรวมกัน <span class="kw">เทคโนโลยีกลับเป็นกลุ่มที่ให้ผลตอบแทนค่ากลางสูงที่สุด</span></p>
+
+    <div class="stats">
+      <div class="stat rv">
+        <div class="stat-num">+14%</div>
+        <div class="stat-lbl">ผลตอบแทน<b>ค่ากลาง</b>ต่อปีของกลุ่มเทคโนโลยีระหว่างรอบขึ้นดอกเบี้ย &mdash; สูงสุดในบรรดากลุ่มอุตสาหกรรม</div>
+        <span class="src">Barclays &middot; ทุกรอบตั้งแต่ยุค 90s</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">+8.8%</div>
+        <div class="stat-lbl">ผลตอบแทนค่ากลางต่อปีของ<b>กลุ่มพลังงาน</b> รองลงมาเป็นอันดับสอง</div>
+        <span class="src">Barclays &middot; ทุกรอบตั้งแต่ยุค 90s</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">&minus;1.5%</div>
+        <div class="stat-lbl">ผลตอบแทนต่อปีของกลุ่มเทคโนโลยีใน<b>รอบที่แย่ที่สุด</b> &mdash; ความเหวี่ยงระหว่างรอบสูงมาก</div>
+        <span class="src">Barclays &middot; รอบแย่สุด</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">&minus;2%</div>
+        <div class="stat-lbl">ผลตอบแทนต่อปีของกลุ่มพลังงานในรอบที่แย่ที่สุด &mdash; ค่ากลางสวย แต่ไม่ได้แปลว่าปลอดภัย</div>
+        <span class="src">Barclays &middot; รอบแย่สุด</span>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:26px">ตัวเลขคู่นี้อ่านคู่กันแล้วได้บทเรียนที่สำคัญกว่าอ่านทีละตัว &mdash; ค่ากลางบอกว่ากลุ่มเทคมัก<b>นำ</b>ในรอบขึ้นดอกเบี้ย เพราะช่วงที่เศรษฐกิจร้อนพอให้ต้องขึ้นดอกเบี้ย มักเป็นช่วงที่กำไรของกลุ่มนี้โตเร็วพอชดเชยตัวคูณที่หดลง แต่ตัวเลขรอบแย่สุดบอกว่า<span class="kw">เมื่อความเร็วนั้นหายไป กลุ่มเดียวกันก็กลายเป็นกลุ่มที่เจ็บที่สุดได้ทันที</span></p>
+
+    <p class="body rv">ปี 2022 คือหน้าตาของกรณีหลัง ปีนั้นดัชนีที่หนักไปทางหุ้นเติบโตร่วงเกือบสองเท่าของตลาดรวม ขณะที่พลังงานเป็นกลุ่มเดียวในสิบเอ็ดกลุ่มที่ปิดบวก กลไกเบื้องหลังเรื่องระยะเวลาของกระแสเงินสด เราอธิบายไว้ละเอียดในบทความ <a href="interest-rates-and-stocks.html">ดอกเบี้ยส่งผลต่อตลาดหุ้นอย่างไร</a></p>
+
+    <p class="body rv">สรุปสั้นที่ใช้ได้จริงคือ อย่าเหมาว่า &ldquo;ดอกเบี้ยขึ้น = ขายหุ้นเทค&rdquo; และก็อย่าเหมากลับว่าเทคชนะทุกรอบ <span class="kw">ตัวแปรที่ตัดสินคือกำไรของกลุ่มนั้นยังโตอยู่หรือไม่ ไม่ใช่ตัวดอกเบี้ยเอง</span></p>
+  </div>
+</section>
+
+<!-- ===================== ส่วนที่ 6 — JPTrust Insight ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">JPTrust Insight</span>
+    <div class="eyebrow rv">How We Use It</div>
+    <h2 class="head rv">JPTrust อ่านรอบ<br>ขึ้นดอกเบี้ยอย่างไร</h2>
+    <p class="lead rv">เรื่องนี้ไม่ใช่ทฤษฎีย้อนหลัง เพราะ ณ เดือนสิงหาคม 2026 ตลาดกำลังเถียงกันอยู่ว่าธนาคารกลางสหรัฐจะกลับมาขึ้นดอกเบี้ย<span class="kw">ครั้งแรกนับตั้งแต่กลางปี 2023</span> หรือไม่</p>
+
+    <div class="stats">
+      <div class="stat rv">
+        <div class="stat-num">3.50&ndash;3.75%</div>
+        <div class="stat-lbl">ดอกเบี้ยนโยบายสหรัฐ &mdash; คงที่ระดับนี้ต่อเนื่องมาห้าการประชุมแล้ว</div>
+        <span class="src">ข้อมูล ส.ค. 2026</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">9 : 3</div>
+        <div class="stat-lbl">มติที่ประชุมเดือน ก.ค. &mdash; มีกรรมการ<b>สามเสียงค้าน</b> โดยขอให้ขึ้นดอกเบี้ยทันที</div>
+        <span class="src">FOMC ก.ค. 2026</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">&asymp;60%</div>
+        <div class="stat-lbl">โอกาสที่ตลาดสัญญาซื้อขายล่วงหน้าให้กับการ<b>ขึ้นดอกเบี้ยเดือน ก.ย.</b> (แกว่งในช่วง 48&ndash;82% ตลอดเดือน)</div>
+        <span class="src">CME FedWatch &middot; ปลาย ก.ค. 2026</span>
+      </div>
+      <div class="stat rv">
+        <div class="stat-num">&asymp;4.7%</div>
+        <div class="stat-lbl">ผลตอบแทนพันธบัตรสหรัฐ 10 ปี &mdash; ยัง<b>สูงกว่า</b>ดอกเบี้ยนโยบาย เส้นโค้งจึงยังไม่กลับหัว</div>
+        <span class="src">ข้อมูล ส.ค. 2026</span>
+      </div>
+    </div>
+
+    <p class="body rv" style="margin-top:26px">หลักที่เรายึดคือ ใช้ดอกเบี้ย<span class="kw">จัดระดับความเสี่ยง</span> ไม่ใช้ทำนายทิศทางตลาด เมื่อมีคำถามเรื่องรอบขึ้นดอกเบี้ย เราจึงไม่เริ่มจากการเดาว่าการประชุมครั้งหน้าจะออกมาอย่างไร แต่เริ่มจากสามคำถามที่ตอบได้จากข้อมูลจริง</p>
+
+    <p class="body rv"><span class="kw">หนึ่ง &mdash; ขึ้นเพราะอะไร</span> เศรษฐกิจร้อนจนต้องชะลอ หรือของแพงขึ้นจากฝั่งอุปทาน สองกรณีนี้ดอกเบี้ยขึ้นเหมือนกัน แต่กรณีแรกมาพร้อมกำไรที่โต ส่วนกรณีหลังไม่มีความเร็วสะสมมาชดเชยแรงเบรก</p>
+
+    <p class="body rv"><span class="kw">สอง &mdash; เส้นโค้งดอกเบี้ยกลับหัวหรือยัง</span> ตราบใดที่ผลตอบแทนพันธบัตร 10 ปียังยืนสูงกว่าดอกเบี้ยนโยบาย แรงกดที่เกิดขึ้นยังเป็นการชะลอ ไม่ใช่การล็อกล้อ</p>
+
+    <p class="body rv"><span class="kw">สาม &mdash; กำไรยังโตอยู่ไหม</span> ตัวนี้สำคัญที่สุดและเป็นตัวที่คนดูน้อยที่สุด เพราะเป็นตัวเดียวที่บอกว่ารถยังมีความเร็วเหลือให้เบรกกินหรือเปล่า</p>
+
+    <p class="pull rv">สิ่งที่ต้องดูไม่ใช่จำนวนครั้ง<br>แต่คือ <em>รูปทรงของเส้นโค้ง</em></p>
+
+    <div class="system rv">
+      <div class="t">ข้อจำกัดที่ต้องพูดตรง</div>
+      <p class="body" style="margin-bottom:0">สถิติทั้งหมดในบทความนี้มาจากกลุ่มตัวอย่างที่<b>เล็กมาก</b> &mdash; รอบขึ้นดอกเบี้ยของสหรัฐมีเพียงราวสิบรอบในห้าสิบปี และแต่ละรอบเกิดในบริบทเศรษฐกิจที่ต่างกันคนละเรื่อง ตัวเลข &ldquo;8 ใน 9&rdquo; จึงเป็นภาพรวมทางประวัติศาสตร์ ไม่ใช่กฎที่จะซ้ำรอบหน้า <span class="kw">การใช้มันที่ถูกต้องคือใช้ลดความตื่นตระหนกเมื่อได้ยินข่าวขึ้นดอกเบี้ย ไม่ใช่ใช้เป็นเหตุผลให้ถือหุ้นเต็มพอร์ตโดยไม่ดูอย่างอื่น</span></p>
+    </div>
+
+    <p class="body rv" style="margin-top:22px">อยากดูเครื่องมือฝั่ง Macro ที่เราเผยแพร่ไว้แล้ว เข้าไปที่หมวด <a href="lib-macro.html">Macro &amp; ความเสี่ยง</a> ของห้องสมุด หรือถ้าอยากเริ่มจากภาพใหญ่ก่อน อ่านได้ที่ <a href="what-is-macro.html">Macro คืออะไร และทำไมคนลงทุนต้องเข้าใจ Macro</a></p>
+  </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section class="closing">
+  <div class="narrow">
+    <div class="eyebrow rv" style="color:var(--gold);margin-bottom:24px">สรุปให้จำ</div>
+    <p class="q rv">เบรกถูกเหยียบ เพราะรถกำลังวิ่งเร็ว<br>คำถามคือ <em>รถมีความเร็วพอไหม</em></p>
+    <p class="lens-final rv">Fed ขึ้นดอกเบี้ยแล้วหุ้นบวกใน 8 จาก 9 รอบ เพราะดอกเบี้ยขึ้นตอนกำไรกำลังโต<br>แต่ค่าเฉลี่ยของทั้งรอบ<b>ไม่ได้บอกความเจ็บระหว่างทาง</b> รอบ 2022 บวกหัวถึงท้าย ทั้งที่ลงราว 25% ระหว่างทาง<br>สัญญาณอันตรายจริงคือ<b>เส้นโค้งดอกเบี้ยกลับหัว</b> ไม่ใช่จำนวนครั้งที่ขึ้น<br>เราไม่ใช้มันทำนายอนาคต แต่ใช้ตอบว่า <b>ตอนนี้ควรกล้าแค่ไหน</b></p>
+
+    <a class="cta rv" href="https://jptrustlearning.com" target="_blank" rel="noopener">
+      <span class="sub">Subscribe at</span>
+      <span class="url">jptrustlearning.com</span>
+      <span class="tip">เริ่มต้นเส้นทางการลงทุนอย่างมีระบบไปกับเรา</span>
+    </a>
+
+    <p class="disclaimer rv">การลงทุนมีความเสี่ยง &middot; เนื้อหาเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน &middot; ผลในอดีตไม่ได้การันตีผลในอนาคต<br>สถิติผลตอบแทนระหว่างรอบขึ้นดอกเบี้ยอ้างอิงงานศึกษาที่เผยแพร่ต่อสาธารณะของ Fisher Investments (ข้อมูล Federal Reserve Bank of St. Louis, Global Financial Data และ FactSet) และ Barclays &middot; ตัวเลขดัชนีและอัตราดอกเบี้ยอ้างอิงข้อมูลสาธารณะของ Federal Reserve, U.S. Treasury และดัชนี S&amp;P 500 &middot; ตัวเลขสถานการณ์ปัจจุบันเป็นภาพ ณ เดือนสิงหาคม 2026 ซึ่งเปลี่ยนแปลงได้ตลอดเวลา &middot; กลุ่มตัวอย่างของรอบขึ้นดอกเบี้ยมีจำนวนจำกัดมาก ค่าเฉลี่ยและค่ากลางจึงเป็นภาพทางประวัติศาสตร์ ไม่ใช่กฎที่จะเกิดซ้ำ &middot; เรียบเรียงโดย JP Trust Learning</p>
+  </div>
+</section>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach((el,i)=>{
+  const sib=[...el.parentElement.children].filter(c=>c.classList.contains('rv'));
+  el.style.transitionDelay=(Math.min(sib.indexOf(el),5)*60)+'ms';
+  io.observe(el);
+});
+</script>
+<style>
+/* ═══ JPT · แถบนำทางกลับ (v1) ═══ */
+.jpt-libnav{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 26px;
+  margin:0;padding:26px 20px calc(26px + env(safe-area-inset-bottom,0px));
+  background:linear-gradient(135deg,#1a0a0e 0%,#2d1018 55%,#3a1520 100%);
+  border-top:1px solid rgba(212,175,55,.35);
+  font-family:'Anuphan',system-ui,-apple-system,sans-serif;
+  font-size:14.5px;line-height:1.9;text-align:center;
+}
+.jpt-libnav a{
+  color:#D4AF37;text-decoration:none;
+  border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease;
+}
+.jpt-libnav a:hover{color:#E8D48B;border-bottom-color:rgba(232,212,139,.6);}
+.jpt-libnav .sep{color:rgba(212,175,55,.35);}
+</style>
+<!-- JPT · แถบนำทางกลับ -->
+<nav class="jpt-libnav">
+  <a href="lib-macro.html">← ห้องสมุด Macro &amp; ความเสี่ยง</a>
+  <a href="index.html">หน้าแรกห้องสมุด</a>
+  <a href="https://app.jptrustlearning.com">เข้าระบบสมาชิก</a>
+</nav>
+</body>
+</html>
