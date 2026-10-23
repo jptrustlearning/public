@@ -72,6 +72,9 @@ button.card:hover{transform:translateY(-2px)}
 .nm.set{font-size:13px;letter-spacing:0;text-transform:none;color:var(--card-ink);font-weight:600}
 .pos{font-weight:700;font-size:13.5px;line-height:1.3;text-wrap:balance}
 .unit{font-size:11.5px;color:var(--card-muted);line-height:1.3;text-wrap:balance}
+/* รับงาน = ตาราง "งานแบบไหน → ทีมไหน" (A273) */
+.take{align-self:stretch;margin-top:5px;padding:5px 6px;border-radius:5px;background:var(--chip);font-size:11px;line-height:1.35;color:var(--card-ink);text-align:left;text-wrap:pretty}
+.take b{display:block;font-size:10px;letter-spacing:.04em;color:var(--card-muted);font-weight:700}
 /* หัวการ์ด = ชื่อฝ่าย/ทีม ตัวเด่นบนสุด (จูน 23 ต.ค. 19:39) */
 .hd{align-self:stretch;margin:-12px -10px 9px;padding:9px 10px 8px;background:var(--c,var(--line));color:var(--card-ink);font-weight:700;font-size:15px;line-height:1.25;text-wrap:balance}
 .hd small{display:block;font-size:11px;font-weight:600;letter-spacing:.03em;opacity:.78;margin-bottom:1px}
@@ -254,6 +257,39 @@ const ORG={
   outside:{title:'นอกผัง',sub:'ขึ้นตรงกับจูน',teams:[]}
 };
 
+/* รับงานอะไร = ตาราง "งานแบบไหน → ทีมไหน" ที่แชทใช้หาทีม (จูน 24 ต.ค. 2026 01:21 "จริงๆแล้วเธอก็ต้องจากตัวงานมั้ย แล้วไปเรียกทีม" · A273)
+   ชื่อ key = ชื่อทีมตรงตัว · แก้ที่นี่แล้วสร้าง ORG-CHART §1.7 ใหม่ · ทุกทีมต้องมี */
+const TAKE={
+  'งานเช้า 08:23':'อัปเดตศูนย์ควบคุมรายวัน · สมุดบัญชีรายวัน · ตรวจบัญชีรายวัน',
+  'วางแผน KPI':'ตั้งเป้าและทบทวน KPI บริษัท',
+  'บัญชีและการเงิน':'รายรับรายจ่าย · ค่าบริการที่บริษัทจ่าย · สรุปการเงิน',
+  'กฎหมายและสัญญา':'คำถามกฎหมาย/ข้อบังคับ · ต่อสัญญาและบัญชีบริการ (โฮสต์เว็บ · Supabase · GitHub · โดเมน)',
+  'Cyber Security':'ความปลอดภัย repo · บัญชี · รหัสลับ · สิทธิ์เข้าถึง',
+  'ท่อข้อมูล':'ข้อมูลราคาหุ้น ทอง BTC รายวัน',
+  'เฝ้าข้อมูล':'เช็คข้อมูลตลาดมาครบและตรงเวลา',
+  'Lab โมเมนตัม':'หน้ากลยุทธ์ Lab · สัญญาณ · ล็อต',
+  'ออกโพยรายเดือน':'โพยรายเดือน · ล็อตใหม่ของกลยุทธ์',
+  'ช่องทางการขาย':'ช่องทางขายและสมัครสมาชิก (รอจูนกำหนดขอบเขต)',
+  'ระบบสมาชิก':'สมัคร · อนุมัติ · ต่ออายุ · โค้ดส่วนลด',
+  'JPTrust App':'แก้/เพิ่มหน้าในแอปสมาชิก',
+  'Portfolio Recorder':'บันทึกพอร์ต · อ่านสลิป · ราคา',
+  'Roadmap':'Roadmap 90 วัน · แอนิเมชันหัวข้อ',
+  'คู่มือ':'คู่มือใช้งานแอป (appguide)',
+  'วางแผนการตลาด':'แผนคอนเทนต์ · แคมเปญ · KPI การตลาด · ตรวจ Brand Policy',
+  'ข่าว':'ข่าวในแอปตามรอบ',
+  'โพสต์โซเชียล':'ข้อความโพสต์ FB/โซเชียล · แคปชั่น · Market Check',
+  'หนังสือ + วารสาร':'หนังสือภาพ B5 · วารสาร · เกลาภาษาบทความ',
+  'เว็บไซต์':'หน้าเว็บ public · ห้องสมุด · หน้าราคา · SEO',
+  'คลิปหุ้น/ข่าว':'คลิปหุ้น/ข่าว · ภาพประกอบโพสต์ · ภาพนิ่ง · ปก · render (ภาพทุกชิ้นใช้สไตล์บ้าน)',
+  'HTML anime / ฉากบรรยาย':'HTML anime · ฉากประกอบบรรยาย',
+  'บทพูด Reels/TikTok':'บทพูด Reels/TikTok',
+  'วิจัยในแชท':'วิจัย · backtest · ตัวเลขที่ต้องคำนวณเอง',
+  'วิจัยอัตโนมัติ (ยังไม่เปิด)':'ยังไม่รับงาน (ยังไม่เปิด)',
+  'ระบบเทรด':'EA บนบัญชีจริง · พอร์ตหุ้นตามระบบ · เฝ้าระบบทอง',
+  'รายงาน P&L':'รายงานกำไรขาดทุนการเทรด',
+  'วิจัย/แก้ EA':'แก้/สร้าง EA · ทดสอบกลยุทธ์ทอง'
+};
+
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const PERSON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 19.5c1.2-3.6 3.9-5.4 7-5.4s5.8 1.8 7 5.4"/></svg>';
 const DOWN='<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>';
@@ -293,7 +329,8 @@ function memberRow(p){
 }
 function teamLi(t,liStyle,prefix){
   const n=t.members.length, id='m'+(++uid);
-  const inner=cardInner(t.head,'<small>'+(prefix||'ทีม')+'</small>'+esc(t.name), n?more(n+' คน'):'','team');
+  const tk=TAKE[t.name]?'<span class="take"><b>รับงาน</b>'+esc(TAKE[t.name])+'</span>':'';
+  const inner=cardInner(t.head,'<small>'+(prefix||'ทีม')+'</small>'+esc(t.name), tk+(n?more(n+' คน'):''),'team');
   const cls='card'+(isVac(t.head)?' vac':'');
   const open='<li'+(liStyle?' style="'+liStyle+'"':'')+'>';
   if(!n) return open+'<div class="'+cls+'">'+inner+'</div></li>';
