@@ -169,10 +169,11 @@ const ORG={
       T('ออกโพยรายเดือน','ยังไม่มีคู่มือ · ต้องทำคู่มือ + สคริปต์คำนวณล็อต',P('16','เจ้าหน้าที่โพย','sched',{vacant:true}))
     ]),
     D(4,'การตลาดและการสื่อสาร',P('17','ผู้อำนวยการการตลาด','skill',{note:'แชท + skill jpt-marketing-director'}),[
-      T('วางแผนการตลาด','skill <code>jpt-marketing-director</code> + <code>jpt-source-of-truth</code>',REF('17','ผู้อำนวยการการตลาด'),[
+      T('วางแผนการตลาด','skill <code>jpt-marketing-director</code> + <code>jpt-source-of-truth</code> + Brand Policy <code>company/marketing/BRAND-POLICY.md</code>',REF('17','ผู้อำนวยการการตลาด'),[
         P('18','ผู้ดูแลข้อเท็จจริงกลาง','chat',{vacant:true}),
         P('19','นักวิจัยตลาดและลูกค้า','chat',{vacant:true,note:'ผู้อำนวยการทำแทน'}),
-        P('20','ผู้ดูแลการเติบโต','chat',{vacant:true,note:'ผู้อำนวยการทำแทน'})]),
+        P('20','ผู้ดูแลการเติบโต','chat',{vacant:true,note:'ผู้อำนวยการทำแทน'}),
+        P('31','ผู้ดูแล Brand Policy','skill',{note:'ตรวจตามนโยบายเมื่อจูนสั่ง · เดิมทีมด่านแบรนด์ (A270.2)'})]),
       T('ข่าว','<code>news/NEWS-INSTRUCTION.md</code> + <code>MACRO-FRAMEWORK.md</code>',P('21','นักข่าว','sched',{note:'25 รอบ/สัปดาห์ · ลงมือเอง'})),
       T('โพสต์โซเชียล','<code>articles/SOCIAL-POST-TEAM.md</code>',P('22','หัวหน้าทีมโพสต์','chat',{note:'เขียนเอง'}),[
         P('23','ผู้อ่าน active read','agent')]),
@@ -182,8 +183,8 @@ const ORG={
         P('27','ผู้ตรวจตัวเลข','agent'),
         P('28','ผู้อ่าน active read','agent'),
         P('29','ผู้อ่านออกเสียง','agent'),
-        P('30','ผู้ตรวจหน้า','agent')]),
-      T('ด่านแบรนด์','skill <code>jpt-brand-guardian</code>',P('31','ผู้คุมแบรนด์','skill'))
+        P('30','ผู้ตรวจหน้า','agent')])
+      /* ทีมด่านแบรนด์ [31] รวมเข้าทีมวางแผนการตลาด เป็นผู้ดูแล Brand Policy (จูน 23 ต.ค. 2026 22:46 · A270.2) */
     ]),
     D(5,'สตูดิโอวิดีโอ',P('32','หัวหน้าสตูดิโอ','skill',{note:'แชท + skill jpt-studio-lead'}),[
       T('คลิปหุ้น/ข่าว','<code>htmlanim/STOCK-VIDEO-PLAYBOOK.md</code>',REF('32','หัวหน้าสตูดิโอ'),[
