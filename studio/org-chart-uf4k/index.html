@@ -76,6 +76,8 @@ button.card:hover{transform:translateY(-2px)}
 .hd{align-self:stretch;margin:-12px -10px 9px;padding:9px 10px 8px;background:var(--c,var(--line));color:var(--card-ink);font-weight:700;font-size:15px;line-height:1.25;text-wrap:balance}
 .hd small{display:block;font-size:11px;font-weight:600;letter-spacing:.03em;opacity:.78;margin-bottom:1px}
 .hd.team{background:color-mix(in srgb,var(--c,var(--line)) 30%,#ffffff)}
+/* แผนก = หน่วยย่อยใต้ฝ่าย มีทีมของตัวเอง (A270.3) */
+.hd.sub{background:color-mix(in srgb,var(--c,var(--line)) 62%,#ffffff)}
 .c-lead .hd{background:var(--gold)}
 .pn{font-size:11px;font-weight:700;color:var(--card-muted);font-variant-numeric:tabular-nums;margin-right:4px}
 .tag{font-size:11px;font-weight:700;color:var(--vacant);border:1px solid var(--vacant);border-radius:999px;padding:0 7px;margin-top:2px}
@@ -106,7 +108,7 @@ button.card:hover{transform:translateY(-2px)}
 <body>
 <div class="top">
   <h1>ผังองค์กร JP Trust Learning</h1>
-  <p class="lede">กดที่การ์ดฝ่ายเพื่อดูทีม กดที่การ์ดทีมเพื่อดูคนในทีม · มุมซ้ายบนของการ์ดคือเลขตำแหน่ง ใช้อ้างตอนตั้งชื่อ</p>
+  <p class="lede">กดที่การ์ดฝ่ายหรือแผนกเพื่อดูทีม กดที่การ์ดทีมเพื่อดูคนในทีม · มุมซ้ายบนของการ์ดคือเลขตำแหน่ง ใช้อ้างตอนตั้งชื่อ</p>
   <div class="stats" id="stats"></div>
   <div class="bar">
     <button class="ctl" id="openDepts" type="button">กางทุกฝ่าย</button>
@@ -143,6 +145,7 @@ const P=(n,role,who,o={})=>Object.assign({n,role,who,name:''},o);
 const T=(name,manual,head,members=[])=>({kind:'team',name,manual,head,members});
 const D=(no,name,head,teams)=>({kind:'dept',no,name,head,teams});
 const REF=(n,role)=>({ref:n,role});
+const S=(name,manual,head,teams)=>({kind:'sub',name,manual,head,teams}); /* แผนกใต้ฝ่าย (A270.3) */
 
 const ORG={
   owner:{title:'จูนปลา',sub:'เจ้าของบริษัท · กด 7 เรื่องเองเสมอ'},
@@ -162,11 +165,22 @@ const ORG={
       T('เฝ้าข้อมูล','ยังไม่มีคู่มือ · ต้องทำคู่มือเฝ้าข้อมูล',P('10','ผู้เฝ้าข้อมูล','sched',{vacant:true}))
       /* ทีม dev แอป/เว็บ [11] ย้ายไปฝ่าย 8 Application เป็นทีม JPTrust App (A270) */
     ]),
-    D(3,'สินค้า',P('12','หัวหน้าฝ่ายสินค้า','chat',{vacant:true,note:'จูนคุมเอง'}),[
+    /* ฝ่าย 3: เปลี่ยนชื่อ สินค้า → สินค้าและบริการ · ฝ่าย Application ย้ายมาเป็นแผนกใต้ฝ่ายนี้ · เพิ่มทีมช่องทางการขาย (จูน 23 ต.ค. 2026 23:02 · A270.3) */
+    D(3,'สินค้าและบริการ',P('12','หัวหน้าฝ่ายสินค้าและบริการ','chat',{vacant:true,note:'จูนคุมเอง'}),[
       /* ระบบสมาชิก [13][15] ย้ายไปฝ่าย 8 Application (A270) · Lab อยู่ที่เดิม ผู้เฝ้า [13] เฝ้าควบ */
       T('Lab โมเมนตัม','ยังไม่มีคู่มือ · ต้องทำคู่มือเฝ้าระบบสมาชิก + Lab',REF('13','ผู้เฝ้าระบบสมาชิก + Lab'),[
         P('14','หน้ากลยุทธ์ Lab','machine')]),
-      T('ออกโพยรายเดือน','ยังไม่มีคู่มือ · ต้องทำคู่มือ + สคริปต์คำนวณล็อต',P('16','เจ้าหน้าที่โพย','sched',{vacant:true}))
+      T('ออกโพยรายเดือน','ยังไม่มีคู่มือ · ต้องทำคู่มือ + สคริปต์คำนวณล็อต',P('16','เจ้าหน้าที่โพย','sched',{vacant:true})),
+      T('ช่องทางการขาย','ยังไม่มีคู่มือ · ต้องทำคู่มือช่องทางการขาย',P('77','หัวหน้าทีมช่องทางการขาย','chat',{vacant:true,note:'ทีมใหม่ A270.3'})),
+      S('Application','แอปสมาชิก app.jptrustlearning.com · เดิมฝ่าย 8 (A270)',P('71','หัวหน้าแผนก Application','chat',{vacant:true,note:'จูนคุมเอง'}),[
+        T('ระบบสมาชิก','ยังไม่มีคู่มือ · ต้องทำคู่มือเฝ้าระบบสมาชิก + Lab',P('13','ผู้เฝ้าระบบสมาชิก + Lab','sched',{vacant:true,note:'เฝ้าหน้า Lab ให้ทีม Lab ด้วย'}),[
+          P('15','ระบบสมาชิก','machine',{note:'สมัคร · อนุมัติ · เตือนหมดอายุ · โค้ดส่วนลด'})]),
+        T('JPTrust App','<code>app/ARCHITECTURE.md</code> + <code>THEME-GUIDE.md</code>',P('11','หัวหน้าทีม JPTrust App','chat',{note:'ลงมือเอง · แอปสมาชิก app.jptrustlearning.com · เว็บ public ย้ายไปทีมเว็บไซต์ (A270.3)'})),
+        T('Portfolio Recorder','ยังไม่มีคู่มือ · ต้องทำคู่มือ Port Recorder',P('72','หัวหน้าทีม Portfolio Recorder','chat',{note:'ลงมือเอง'}),[
+          P('73','Worker ราคา + อ่านสลิป','machine',{note:'Cloudflare Worker · จูนวางโค้ดเอง'})]),
+        T('Roadmap','<code>htmlanim/roadmap-task/README.md</code> · มีแค่ส่วนแอนิเมชันหัวข้อ',P('74','หัวหน้าทีม Roadmap','chat',{note:'ลงมือเอง'}),[
+          P('75','ผู้ตรวจแอนิเมชัน Roadmap','script',{note:'check_anim.py'})]),
+        T('คู่มือ','<code>htmlanim/STORY-ANIMATION-GUIDE.md</code> (โหมด Guide) + <code>handoff/appguide/</code>',P('76','หัวหน้าทีมคู่มือ','chat',{note:'ลงมือเอง · คู่มือใช้งานแอพ appguide'}))])
     ]),
     D(4,'การตลาดและการสื่อสาร',P('17','ผู้อำนวยการการตลาด','skill',{note:'แชท + skill jpt-marketing-director'}),[
       T('วางแผนการตลาด','skill <code>jpt-marketing-director</code> + <code>jpt-source-of-truth</code> + Brand Policy <code>company/marketing/BRAND-POLICY.md</code>',REF('17','ผู้อำนวยการการตลาด'),[
@@ -183,7 +197,8 @@ const ORG={
         P('27','ผู้ตรวจตัวเลข','agent'),
         P('28','ผู้อ่าน active read','agent'),
         P('29','ผู้อ่านออกเสียง','agent'),
-        P('30','ผู้ตรวจหน้า','agent')])
+        P('30','ผู้ตรวจหน้า','agent')]),
+      T('เว็บไซต์','ยังไม่มีคู่มือเฉพาะ · ใช้ <code>app/ARCHITECTURE.md</code> + <code>THEME-GUIDE.md</code> ไปก่อน · ต้องทำคู่มือเว็บ public',P('78','หัวหน้าทีมเว็บไซต์','chat',{note:'ลงมือเอง · public.jptrustlearning.com หน้าแรก ราคา ห้องสมุด studio · ทีมใหม่ A270.3'}))
       /* ทีมด่านแบรนด์ [31] รวมเข้าทีมวางแผนการตลาด เป็นผู้ดูแล Brand Policy (จูน 23 ต.ค. 2026 22:46 · A270.2) */
     ]),
     D(5,'สตูดิโอวิดีโอ',P('32','หัวหน้าสตูดิโอ','skill',{note:'แชท + skill jpt-studio-lead'}),[
@@ -227,18 +242,8 @@ const ORG={
       T('เฝ้าระบบทอง','<code>research/gold-scenario-table/MONITOR-23.md</code>',P('67','ผู้เฝ้าทอง #23','sched',{note:'พุธ · เสาร์ 10:53'})),
       T('วิจัย/แก้ EA','<code>ea/README.md</code> + <code>library/BETA.md</code>',P('68','หัวหน้าทีม EA','chat',{note:'ลงมือเอง'}),[
         P('69','ผู้ตรวจซ้ำอิสระ','agent')])
-    ]),
-    /* ฝ่าย 8 Application — จูนสั่ง 23 ต.ค. 2026 19:53 (A270) · เลขตำแหน่งเดิมคงไว้ ตำแหน่งใหม่ต่อเลข 71– */
-    D(8,'Application',P('71','หัวหน้าฝ่าย Application','chat',{vacant:true,note:'จูนคุมเอง'}),[
-      T('ระบบสมาชิก','ยังไม่มีคู่มือ · ต้องทำคู่มือเฝ้าระบบสมาชิก + Lab',P('13','ผู้เฝ้าระบบสมาชิก + Lab','sched',{vacant:true,note:'เฝ้าหน้า Lab ให้ฝ่ายสินค้าด้วย'}),[
-        P('15','ระบบสมาชิก','machine',{note:'สมัคร · อนุมัติ · เตือนหมดอายุ · โค้ดส่วนลด'})]),
-      T('JPTrust App','<code>app/ARCHITECTURE.md</code> + <code>THEME-GUIDE.md</code>',P('11','หัวหน้าทีม JPTrust App','chat',{note:'ลงมือเอง · เดิมทีม dev แอป/เว็บ'})),
-      T('Portfolio Recorder','ยังไม่มีคู่มือ · ต้องทำคู่มือ Port Recorder',P('72','หัวหน้าทีม Portfolio Recorder','chat',{note:'ลงมือเอง'}),[
-        P('73','Worker ราคา + อ่านสลิป','machine',{note:'Cloudflare Worker · จูนวางโค้ดเอง'})]),
-      T('Roadmap','<code>htmlanim/roadmap-task/README.md</code> · มีแค่ส่วนแอนิเมชันหัวข้อ',P('74','หัวหน้าทีม Roadmap','chat',{note:'ลงมือเอง'}),[
-        P('75','ผู้ตรวจแอนิเมชัน Roadmap','script',{note:'check_anim.py'})]),
-      T('คู่มือ','<code>htmlanim/STORY-ANIMATION-GUIDE.md</code> (โหมด Guide) + <code>handoff/appguide/</code>',P('76','หัวหน้าทีมคู่มือ','chat',{note:'ลงมือเอง · คู่มือใช้งานแอพ appguide'}))
     ])
+    /* ฝ่าย 8 Application ย้ายไปเป็นแผนกใต้ฝ่าย 3 สินค้าและบริการ (A270.3) */
   ],
   outside:{title:'นอกผัง',sub:'ขึ้นตรงกับจูน',teams:[
     T('Flood Watch','skill <code>flood-watch-bangbuathong</code> + <code>FLOOD-WATCH-GUIDE.md</code>',P('70','เจ้าหน้าที่เฝ้าน้ำ','sched',{note:'07:27 · 21:27'}))
@@ -253,7 +258,8 @@ const DEPT_C=['var(--c1)','var(--c2)','var(--c3)','var(--c4)','var(--c5)','var(-
 /* ตำแหน่งทั้งหมด (ใช้หาชื่อของหัวหน้าที่ "ควบ") */
 function allPositions(){
   const out=[ORG.boss];
-  ORG.depts.forEach(d=>{ if(!d.head.ref) out.push(d.head); d.teams.forEach(t=>{ if(!t.head.ref) out.push(t.head); out.push(...t.members); }); });
+  const addTeam=t=>{ if(!t.head.ref) out.push(t.head); if(t.kind==='sub') t.teams.forEach(addTeam); else out.push(...t.members); };
+  ORG.depts.forEach(d=>{ if(!d.head.ref) out.push(d.head); d.teams.forEach(addTeam); });
   ORG.outside.teams.forEach(t=>{ if(!t.head.ref) out.push(t.head); out.push(...t.members); });
   return out;
 }
@@ -290,16 +296,25 @@ function teamLi(t,liStyle,prefix){
   return open+'<button type="button" class="'+cls+'" aria-expanded="false" aria-controls="'+id+'" data-key="t:'+esc(t.name)+'">'+inner+'</button>'
     +'<div class="members" id="'+id+'" hidden>'+t.members.map(memberRow).join('')+'</div></li>';
 }
+const countTeams=list=>list.reduce((a,t)=>a+(t.kind==='sub'?countTeams(t.teams):1),0);
+const unitLabel=list=>{ const subs=list.filter(t=>t.kind==='sub').length, n=countTeams(list); return n+' ทีม'+(subs?' · '+subs+' แผนก':''); };
+const unitLi=t=>t.kind==='sub'?subLi(t):teamLi(t);
+function subLi(sd){
+  const id='s'+(++uid);
+  const inner=cardInner(sd.head,'<small>แผนก</small>'+esc(sd.name), more(sd.teams.length+' ทีม'),'sub');
+  return '<li><button type="button" class="card'+(isVac(sd.head)?' vac':'')+'" aria-expanded="false" aria-controls="'+id+'" data-key="s:'+esc(sd.name)+'">'+inner+'</button>'
+    +'<ul id="'+id+'" hidden>'+sd.teams.map(unitLi).join('')+'</ul></li>';
+}
 function deptLi(d,i){
   const id='d'+(++uid);
-  const inner=cardInner(d.head,'<small>ฝ่าย '+d.no+'</small>'+esc(d.name), more(d.teams.length+' ทีม'));
+  const inner=cardInner(d.head,'<small>ฝ่าย '+d.no+'</small>'+esc(d.name), more(unitLabel(d.teams)));
   return '<li style="--c:'+DEPT_C[i]+'"><button type="button" class="card'+(isVac(d.head)?' vac':'')+'" aria-expanded="false" aria-controls="'+id+'" data-key="d:'+d.no+'">'+inner+'</button>'
-    +'<ul id="'+id+'" hidden>'+d.teams.map(t=>teamLi(t)).join('')+'</ul></li>';
+    +'<ul id="'+id+'" hidden>'+d.teams.map(unitLi).join('')+'</ul></li>';
 }
 function render(){
   uid=0;
   const b=ORG.boss;
-  const stripes='<span class="stripes">'+DEPT_C.concat('var(--c8)').map(c=>'<i style="background:'+c+'"></i>').join('')+'</span>';
+  const stripes='<span class="stripes">'+DEPT_C.slice(0,ORG.depts.length).concat('var(--c8)').map(c=>'<i style="background:'+c+'"></i>').join('')+'</span>';
   const lead='<li><div class="card c-lead"><span class="hd">เจ้าของบริษัท</span><span class="av">'+PERSON+'</span><span class="nm set">'+esc(ORG.owner.title)+'</span><span class="unit">กด 7 เรื่องเองเสมอ</span>'+stripes+'</div><ul>'
     +'<li style="--c:var(--line)"><div class="card'+(b.vacant?' vac':'')+'">'+cardInner(b,'<small>ผู้บริหาร</small>หัวหน้าใหญ่',"<span class=\"unit\">ตอนนี้จูนปลาคุมเอง</span>")+'</div><ul>'+ORG.depts.map(deptLi).join('')+'</ul></li>'
     +ORG.outside.teams.map(t=>teamLi(t,'--c:var(--c8)','นอกผัง · ขึ้นตรงกับจูนปลา')).join('')
@@ -308,8 +323,9 @@ function render(){
 }
 function stats(){
   const ps=allPositions(), vac=ps.filter(p=>p.vacant).length, named=ps.filter(p=>p.name).length;
-  const teams=ORG.depts.reduce((a,d)=>a+d.teams.length,0)+ORG.outside.teams.length;
-  document.getElementById('stats').innerHTML=[[ps.length,'ตำแหน่ง'],[ps.length-vac,'มีคนทำแล้ว'],[vac,'ยังว่าง'],[ORG.depts.length,'ฝ่าย'],[teams,'ทีม'],[named,'ตั้งชื่อแล้ว']]
+  const teams=ORG.depts.reduce((a,d)=>a+countTeams(d.teams),0)+ORG.outside.teams.length;
+  const subs=ORG.depts.reduce((a,d)=>a+d.teams.filter(t=>t.kind==='sub').length,0);
+  document.getElementById('stats').innerHTML=[[ps.length,'ตำแหน่ง'],[ps.length-vac,'มีคนทำแล้ว'],[vac,'ยังว่าง'],[ORG.depts.length,'ฝ่าย'],[subs,'แผนก'],[teams,'ทีม'],[named,'ตั้งชื่อแล้ว']]
     .map(([v,l])=>'<span><b>'+v+'</b>'+l+'</span>').join('');
 }
 
@@ -329,8 +345,8 @@ document.getElementById('tree').addEventListener('click',e=>{
   if(open){ const li=btn.closest('li'); try{li.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});}catch(_){} }
 });
 document.getElementById('openDepts').addEventListener('click',()=>{all('d:').forEach(b=>setOpen(b,true));saveState();});
-document.getElementById('openAll').addEventListener('click',()=>{all('d:').forEach(b=>setOpen(b,true));all('t:').forEach(b=>setOpen(b,true));saveState();});
-document.getElementById('closeAll').addEventListener('click',()=>{all('t:').forEach(b=>setOpen(b,false));all('d:').forEach(b=>setOpen(b,false));saveState();center();});
+document.getElementById('openAll').addEventListener('click',()=>{all('d:').forEach(b=>setOpen(b,true));all('s:').forEach(b=>setOpen(b,true));all('t:').forEach(b=>setOpen(b,true));saveState();});
+document.getElementById('closeAll').addEventListener('click',()=>{all('t:').forEach(b=>setOpen(b,false));all('s:').forEach(b=>setOpen(b,false));all('d:').forEach(b=>setOpen(b,false));saveState();center();});
 
 /* ซูม */
 let z=1;
