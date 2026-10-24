@@ -147,7 +147,7 @@ const svg=k=>'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-
 /* (เดิม) */ const CHEV_OLD='<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5"/></svg>';
 
 /* ข้อมูลผัง — แก้ชื่อได้ที่ช่อง name ของแต่ละตำแหน่ง (เลข n ตรงกับ ORG-CHART §1.6) */
-/* ชื่อผู้อำนวยการ 7 ฝ่าย (จูน 24 ต.ค. 2026 14:05 · A284): name = ชื่อไทย · name_en = ชื่ออังกฤษ (ขึ้นใต้ชื่อไทย) · sex = ญ/ช · ฝ่าย 1 สำนักงานกลางใช้ตำแหน่ง [01] คุมควบ ชื่อจึงอยู่ที่ [01] */
+/* ชื่อผู้อำนวยการ 7 ฝ่าย (จูน 24 ต.ค. 2026 14:05 · A284): name = ชื่อไทย · name_en = ชื่ออังกฤษ (ขึ้นใต้ชื่อไทย) · sex = ญ/ช · ฝ่าย 1 สำนักงานกลางมีหัวหน้าฝ่ายของตัวเอง [82] แยกจากผู้จัดการ [01] (จูน 24 ต.ค. 14:18 "คนละตำแหน่งค่ะ" · A284.1) ชื่อคุณวีรดาจึงอยู่ที่ [82] · [01] ยังไม่ตั้งชื่อ */
 const P=(n,role,who,o={})=>Object.assign({n,role,who,name:''},o);
 const T=(name,manual,head,members=[])=>({kind:'team',name,manual,head,members});
 const D=(no,name,head,teams)=>({kind:'dept',no,name,head,teams});
@@ -156,9 +156,9 @@ const S=(name,manual,head,teams)=>({kind:'sub',name,manual,head,teams}); /* แ�
 
 const ORG={
   owner:{title:'จูนปลา',sub:'เจ้าของบริษัท · กด 7 เรื่องเองเสมอ'},
-  boss:P('01','ผู้จัดการ','sched',{name:'คุณวีรดา บุบผา',name_en:'Veerada Bubpha',sex:'ญ',vacant:true,label:'หัวหน้าใหญ่',note:'ตอนนี้จูนคุมเอง · รายงานวันละครั้งต่อท้ายงานเช้า 08:23 (จูนเคาะ 24 ต.ค. A274) · คู่มือ company/MANAGER.md ร่างแล้ว รอจูนสั่งเปิด'}),
+  boss:P('01','ผู้จัดการ','sched',{vacant:true,label:'หัวหน้าใหญ่',note:'ตอนนี้จูนคุมเอง · รายงานวันละครั้งต่อท้ายงานเช้า 08:23 (จูนเคาะ 24 ต.ค. A274) · คู่มือ company/MANAGER.md ร่างแล้ว รอจูนสั่งเปิด'}),
   depts:[
-    D(1,'สำนักงานกลาง',REF('01','ผู้จัดการ'),[
+    D(1,'สำนักงานกลาง',P('82','หัวหน้าฝ่ายสำนักงานกลาง','chat',{name:'คุณวีรดา บุบผา',name_en:'Veerada Bubpha',sex:'ญ',vacant:true,note:'จูนคุมเอง · ตำแหน่งใหม่ A284.1 แยกจากผู้จัดการ [01] (เดิมผู้จัดการคุมฝ่ายนี้ควบ)'}),[
       /* นักบัญชี [03] + ผู้ตรวจบัญชี [04] ย้ายไปทีมบัญชีและการเงิน · ยังรันในรอบ 08:23 เหมือนเดิม (จูน 24 ต.ค. 2026 01:45 · A274) */
       T('งานเช้า 08:23','<code>company/dashboard/DAILY-UPDATE.md</code>',P('02','หัวหน้างานเช้า','sched',{note:'เก็บตัวเลขขึ้นศูนย์ควบคุม แล้วผู้จัดการรายงานต่อในรอบเดียวกัน'})),
       T('วางแผน KPI','ยังไม่มีคู่มือ · ต้องทำคู่มือทบทวน KPI',P('05','ผู้ตรวจและวางแผน KPI','chat',{vacant:true})),
