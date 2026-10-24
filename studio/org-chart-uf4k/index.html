@@ -70,6 +70,7 @@ button.card:hover{transform:translateY(-2px)}
 .vac .av{border-style:dashed;color:#9a98b8}
 .nm{font-size:11px;letter-spacing:.06em;color:var(--card-muted);text-transform:uppercase}
 .nm.set{font-size:13px;letter-spacing:0;text-transform:none;color:var(--card-ink);font-weight:600}
+.nm-en{display:block;font-size:11px;color:var(--card-muted);letter-spacing:.02em;margin-top:-1px}
 .pos{font-weight:700;font-size:13.5px;line-height:1.3;text-wrap:balance}
 .unit{font-size:11.5px;color:var(--card-muted);line-height:1.3;text-wrap:balance}
 /* รับงาน = ตาราง "งานแบบไหน → ทีมไหน" (A273) */
@@ -146,6 +147,7 @@ const svg=k=>'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-
 /* (เดิม) */ const CHEV_OLD='<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5"/></svg>';
 
 /* ข้อมูลผัง — แก้ชื่อได้ที่ช่อง name ของแต่ละตำแหน่ง (เลข n ตรงกับ ORG-CHART §1.6) */
+/* ชื่อผู้อำนวยการ 7 ฝ่าย (จูน 24 ต.ค. 2026 14:05 · A284): name = ชื่อไทย · name_en = ชื่ออังกฤษ (ขึ้นใต้ชื่อไทย) · sex = ญ/ช · ฝ่าย 1 สำนักงานกลางใช้ตำแหน่ง [01] คุมควบ ชื่อจึงอยู่ที่ [01] */
 const P=(n,role,who,o={})=>Object.assign({n,role,who,name:''},o);
 const T=(name,manual,head,members=[])=>({kind:'team',name,manual,head,members});
 const D=(no,name,head,teams)=>({kind:'dept',no,name,head,teams});
@@ -154,7 +156,7 @@ const S=(name,manual,head,teams)=>({kind:'sub',name,manual,head,teams}); /* แ�
 
 const ORG={
   owner:{title:'จูนปลา',sub:'เจ้าของบริษัท · กด 7 เรื่องเองเสมอ'},
-  boss:P('01','ผู้จัดการ','sched',{vacant:true,label:'หัวหน้าใหญ่',note:'ตอนนี้จูนคุมเอง · รายงานวันละครั้งต่อท้ายงานเช้า 08:23 (จูนเคาะ 24 ต.ค. A274) · คู่มือ company/MANAGER.md ร่างแล้ว รอจูนสั่งเปิด'}),
+  boss:P('01','ผู้จัดการ','sched',{name:'คุณวีรดา บุบผา',name_en:'Veerada Bubpha',sex:'ญ',vacant:true,label:'หัวหน้าใหญ่',note:'ตอนนี้จูนคุมเอง · รายงานวันละครั้งต่อท้ายงานเช้า 08:23 (จูนเคาะ 24 ต.ค. A274) · คู่มือ company/MANAGER.md ร่างแล้ว รอจูนสั่งเปิด'}),
   depts:[
     D(1,'สำนักงานกลาง',REF('01','ผู้จัดการ'),[
       /* นักบัญชี [03] + ผู้ตรวจบัญชี [04] ย้ายไปทีมบัญชีและการเงิน · ยังรันในรอบ 08:23 เหมือนเดิม (จูน 24 ต.ค. 2026 01:45 · A274) */
@@ -167,7 +169,7 @@ const ORG={
       T('กฎหมายและสัญญา','ยังไม่มีคู่มือ · ต้องทำทะเบียนบริการ/สัญญา + วันต่ออายุ (ไม่เก็บรหัสผ่านหรือ token)',P('80','หัวหน้าทีมกฎหมายและสัญญา','chat',{vacant:true,note:'ทีมใหม่ A272 · กฎหมายและข้อบังคับ · ต่อสัญญาบริการ เช่น โฮสต์เว็บ Supabase GitHub · บัญชีผู้ใช้ต่างๆ'})),
       T('Cyber Security','ยังไม่มีคู่มือ · ตอนนี้มีแค่กติกา scan secret ก่อน push (CLAUDE.md §2)',P('81','หัวหน้าทีม Cyber Security','chat',{vacant:true,note:'ทีมใหม่ A272'}))
     ]),
-    D(2,'ข้อมูลและระบบ',P('06','หัวหน้าฝ่ายข้อมูลและระบบ','chat',{vacant:true,note:'จูนคุมเอง'}),[
+    D(2,'ข้อมูลและระบบ',P('06','หัวหน้าฝ่ายข้อมูลและระบบ','chat',{name:'คุณคลาวดี้ โคล',name_en:'Cloudy Cole',sex:'ญ',vacant:true,note:'จูนคุมเอง'}),[
       T('ท่อข้อมูล','เครื่องรันเอง · เฝ้าตาม <code>company/DATA-WATCH.md</code> (A275)',REF('10','ผู้เฝ้าข้อมูล'),[
         P('07','ท่อข้อมูลหุ้น sp500','machine'),
         P('08','ท่อข้อมูลทอง','machine'),
@@ -176,7 +178,7 @@ const ORG={
       /* ทีม dev แอป/เว็บ [11] ย้ายไปฝ่าย 8 Application เป็นทีม JPTrust App (A270) */
     ]),
     /* ฝ่าย 3: เปลี่ยนชื่อ สินค้า → สินค้าและบริการ · ฝ่าย Application ย้ายมาเป็นแผนกใต้ฝ่ายนี้ · เพิ่มทีมช่องทางการขาย (จูน 23 ต.ค. 2026 23:02 · A270.3) */
-    D(3,'สินค้าและบริการ',P('12','หัวหน้าฝ่ายสินค้าและบริการ','chat',{vacant:true,note:'จูนคุมเอง'}),[
+    D(3,'สินค้าและบริการ',P('12','หัวหน้าฝ่ายสินค้าและบริการ','chat',{name:'คุณไมเคิล แอนเดอร์สัน',name_en:'Michael Anderson',sex:'ช',vacant:true,note:'จูนคุมเอง'}),[
       /* ระบบสมาชิก [13][15] ย้ายไปฝ่าย 8 Application (A270) · Lab อยู่ที่เดิม ผู้เฝ้า [13] เฝ้าควบ */
       T('Lab โมเมนตัม','ยังไม่มีคู่มือ · ต้องทำคู่มือเฝ้าระบบสมาชิก + Lab',REF('13','ผู้เฝ้าระบบสมาชิก + Lab'),[
         P('14','หน้ากลยุทธ์ Lab','machine')]),
@@ -192,7 +194,7 @@ const ORG={
           P('75','ผู้ตรวจแอนิเมชัน Roadmap','script',{note:'check_anim.py'})]),
         T('คู่มือ','<code>htmlanim/STORY-ANIMATION-GUIDE.md</code> (โหมด Guide) + <code>handoff/appguide/</code>',P('76','หัวหน้าทีมคู่มือ','chat',{note:'ลงมือเอง · คู่มือใช้งานแอพ appguide'}))])
     ]),
-    D(4,'การตลาดและการสื่อสาร',P('17','ผู้อำนวยการการตลาด','skill',{note:'แชท + skill jpt-marketing-director'}),[
+    D(4,'การตลาดและการสื่อสาร',P('17','ผู้อำนวยการการตลาด','skill',{name:'คุณมากาเร็ต เวลมอนต์',name_en:'Margaret Velmont',sex:'ญ',note:'แชท + skill jpt-marketing-director'}),[
       T('วางแผนการตลาด','skill <code>jpt-marketing-director</code> + <code>jpt-source-of-truth</code> + Brand Policy <code>company/marketing/BRAND-POLICY.md</code>',REF('17','ผู้อำนวยการการตลาด'),[
         P('18','ผู้ดูแลข้อเท็จจริงกลาง','chat',{vacant:true}),
         P('19','นักวิจัยตลาดและลูกค้า','chat',{vacant:true,note:'ผู้อำนวยการทำแทน'}),
@@ -211,7 +213,7 @@ const ORG={
       T('เว็บไซต์','ยังไม่มีคู่มือเฉพาะ · ใช้ <code>app/ARCHITECTURE.md</code> + <code>THEME-GUIDE.md</code> ไปก่อน · ต้องทำคู่มือเว็บ public',P('78','หัวหน้าทีมเว็บไซต์','chat',{note:'ลงมือเอง · public.jptrustlearning.com หน้าแรก ราคา ห้องสมุด studio · ทีมใหม่ A270.3'}))
       /* ทีมด่านแบรนด์ [31] รวมเข้าทีมวางแผนการตลาด เป็นผู้ดูแล Brand Policy (จูน 23 ต.ค. 2026 22:46 · A270.2) */
     ]),
-    D(5,'สตูดิโอวิดีโอ',P('32','หัวหน้าสตูดิโอ','skill',{note:'แชท + skill jpt-studio-lead'}),[
+    D(5,'สตูดิโอวิดีโอ',P('32','หัวหน้าสตูดิโอ','skill',{name:'คุณวิชโอ โรเวลล์',name_en:'Vichio Rovell',sex:'ช',note:'แชท + skill jpt-studio-lead'}),[
       T('คลิปหุ้น/ข่าว','<code>htmlanim/STOCK-VIDEO-PLAYBOOK.md</code>',REF('32','หัวหน้าสตูดิโอ'),[
         P('33','ผู้หาข้อมูล','chat'),
         P('34','ผู้ตรวจข้อเท็จจริงอิสระ','agent'),
@@ -229,7 +231,7 @@ const ORG={
         P('46','ผู้ตรวจก่อนส่ง','script',{note:'Playwright'})]),
       T('บทพูด Reels/TikTok','<code>intoscript/TEMPLATE-D-SPOKEN.md</code>',P('47','นักเขียนบทพูด','chat'))
     ]),
-    D(6,'วิจัย',P('48','หัวหน้าฝ่ายวิจัย','chat',{vacant:true,note:'จูนคุมเอง'}),[
+    D(6,'วิจัย',P('48','หัวหน้าฝ่ายวิจัย','chat',{name:'คุณเคนจิ ทานากะ',name_en:'Kenji Tanaka',sex:'ช',vacant:true,note:'จูนคุมเอง'}),[
       T('วิจัยในแชท','<code>library/INDEX.md</code> + <code>NEGATIVE-RESULTS.md</code> + <code>BETA.md</code>',P('49','หัวหน้าทีมวิจัย','chat',{note:'ลงมือเอง'}),[
         P('50','ผู้ตรวจซ้ำอิสระ','agent',{note:'เมื่อผลจะใช้จริง'})]),
       T('วิจัยอัตโนมัติ (ยังไม่เปิด)','<code>agents/CHARTER.md</code> + <code>COMMON.md</code> · ต้องปรับเป็นชุด 10',P('51','หัวหน้าทีมวิจัยอัตโนมัติ','sched',{vacant:true,note:'วันละรอบ'}),[
@@ -244,7 +246,7 @@ const ORG={
         P('60','Librarian','agent',{vacant:true}),
         P('61','Digest Writer','agent',{vacant:true})])
     ]),
-    D(7,'Fund Desk',P('62','หัวหน้าฝ่าย Fund Desk','chat',{vacant:true,note:'จูนคุมเอง · เงินจริงจูนตัดสินคนเดียว'}),[
+    D(7,'Fund Desk',P('62','หัวหน้าฝ่าย Fund Desk','chat',{name:'คุณวีรดวย บุบผา',name_en:'Veeraduay Bubpha',sex:'ช',vacant:true,note:'จูนคุมเอง · เงินจริงจูนตัดสินคนเดียว'}),[
       T('ระบบเทรด','เฝ้าผลงาน <code>research/gold-scenario-table/MONITOR-23.md</code> + ยอดรวม · ต้องเพิ่มข้อเช็ค EA ยังเทรดในงานเช้า',P('63','หัวหน้าทีมระบบเทรด','sched',{vacant:true}),[
         P('64','EA D #23 v1.06','vps',{note:'บัญชีจริง · beta'}),
         P('65','พอร์ตหุ้นตามระบบ','machine',{note:'+ Port Recorder'}),
@@ -348,7 +350,7 @@ function cardInner(head,unit,extra,hdCls){
   const vac=!head.ref&&p.vacant;
   return (unit?'<span class="hd'+(hdCls?' '+hdCls:'')+'">'+unit+'</span>':'')
     +'<span class="av">'+PERSON+'</span>'
-    +(p.name?'<span class="nm set">'+esc(p.name)+'</span>':'<span class="nm">ยังไม่ตั้งชื่อ</span>')
+    +(p.name?'<span class="nm set">'+esc(p.name)+'</span>'+(p.name_en?'<span class="nm-en">'+esc(p.name_en)+'</span>':''):'<span class="nm">ยังไม่ตั้งชื่อ</span>')
     +'<span class="pos"><span class="pn">'+p.n+'</span>'+esc(role)+'</span>'
     +(vac?'<span class="tag">ว่าง</span>':'')
     +(extra||'');
@@ -361,7 +363,7 @@ function memberRow(p){
   return '<div class="m'+(p.vacant?' vac':'')+'"><span class="mn">'+p.n+'</span><span class="mr">'+esc(p.role)+'</span>'
     +'<span class="ms">'+svg(p.who)+esc(WHO[p.who])
     +(p.vacant?'<span class="v">ว่าง</span>':'')
-    +(p.name?'<span>ชื่อ: '+esc(p.name)+'</span>':'<span>ยังไม่ตั้งชื่อ</span>')
+    +(p.name?'<span>ชื่อ: '+esc(p.name)+(p.name_en?' · '+esc(p.name_en):'')+'</span>':'<span>ยังไม่ตั้งชื่อ</span>')
     +(p.note?'<span>· '+esc(p.note)+'</span>':'')+'</span></div>';
 }
 function teamLi(t,liStyle,prefix){
