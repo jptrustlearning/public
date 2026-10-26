@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1C1B43">
+<meta name="description" content="ผังองค์กร JP Trust Learning ทุกฝ่าย ทุกทีม และทุกตำแหน่ง">
+<meta property="og:title" content="ผังองค์กร JP Trust Learning">
+<meta property="og:url" content="https://public.jptrustlearning.com/studio/org-chart-uf4k/">
+<link rel="icon" href="/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+/* reset เดียวกับที่ artifact ใส่ให้ */
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>ผังองค์กร JP Trust Learning</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: ผังแบบบนลงล่าง หัวหน้าอยู่บนสุด ลูกทีมกางออกด้านข้าง เส้นสีแยกตามฝ่าย (ตามภาพตัวอย่างที่จูนส่ง) · โทนเดียว พื้นกรมท่าเข้ม การ์ดขาว */
+:root{
+  --bg:#1C1B43; --bg-2:#25245a; --card:#FFFFFF; --card-ink:#22213F; --card-muted:#6B6A86; --ink:#ECEBFA; --muted:#A9A8CC;
+  --line:#C9C8EC; --vacant:#E25C7A; --chip:#EEEDF8; --gold:#E9B949;
+  --c1:#F5B83D; --c2:#8BC34A; --c3:#26C6DA; --c4:#4F8EF7; --c5:#A66CFF; --c6:#FF8A3D; --c7:#F06292; --c8:#64B5F6; --c9:#2BD9A0;
+  --f:"Anuphan","Sarabun","Noto Sans Thai",system-ui,sans-serif;
+  color-scheme:dark;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--f);font-size:14px;line-height:1.45}
+.top{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 8px;max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+h1{margin:0;font-size:clamp(24px,4vw,32px);font-weight:700;letter-spacing:.01em;text-wrap:balance}
+.lede{margin:0;color:var(--muted);max-width:66ch}
+.stats{display:flex;flex-wrap:wrap;gap:6px 20px;color:var(--muted);font-variant-numeric:tabular-nums}
+.stats b{color:var(--ink);font-size:20px;font-weight:700;margin-right:5px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button.ctl{font:inherit;font-size:13px;padding:6px 13px;border-radius:999px;border:1px solid #4a4980;background:var(--bg-2);color:var(--ink);cursor:pointer}
+button.ctl:hover{border-color:var(--gold)}
+.zoom{display:inline-flex;gap:4px;align-items:center;margin-left:auto;color:var(--muted);font-size:13px}
+.zoom button{width:32px;padding:6px 0;text-align:center}
+button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ---- ผัง ---- */
+.scroller{overflow:auto;padding:16px 0 48px;-webkit-overflow-scrolling:touch}
+.chart{display:inline-block;min-width:100%;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+.tree,.tree ul{list-style:none;margin:0;padding:0;display:flex;justify-content:center}
+.tree ul{padding-top:22px;position:relative}
+.tree li{position:relative;padding:22px 7px 0;display:flex;flex-direction:column;align-items:center}
+.tree li::before,.tree li::after{content:"";position:absolute;top:0;right:50%;width:50%;height:22px;border-top:2.5px solid var(--c,var(--line))}
+.tree li::after{right:auto;left:50%;border-left:2.5px solid var(--c,var(--line))}
+.tree li:only-child::before,.tree li:only-child::after{display:none}
+.tree li:only-child{padding-top:0}
+.tree li:first-child::before,.tree li:last-child::after{border:0 none}
+.tree li:last-child::before{border-right:2.5px solid var(--c,var(--line));border-radius:0 14px 0 0}
+.tree li:first-child::after{border-radius:14px 0 0 0}
+.tree li>ul::before{content:"";position:absolute;top:0;left:50%;height:22px;border-left:2.5px solid var(--c,var(--line))}
+.tree>li{padding-top:0}
+
+.card{font:inherit;text-align:center;background:var(--card);color:var(--card-ink);border:0;border-radius:8px;width:150px;padding:12px 10px 0;display:flex;flex-direction:column;align-items:center;gap:2px;position:relative;box-shadow:0 6px 18px rgba(0,0,0,.28);overflow:hidden}
+button.card{cursor:pointer}
+button.card:hover{transform:translateY(-2px)}
+.card::after{content:"";display:block;align-self:stretch;height:5px;margin:8px -10px 0;background:var(--c,var(--line))}
+.card.vac{background:#F7F5FF;outline:2px dashed var(--vacant);outline-offset:-2px}
+.av{width:42px;height:42px;border-radius:50%;border:2px solid var(--c,var(--line));display:grid;place-items:center;color:var(--card-ink);margin-bottom:4px}
+.av svg{width:26px;height:26px}
+.vac .av{border-style:dashed;color:#9a98b8}
+.nm{font-size:11px;letter-spacing:.06em;color:var(--card-muted);text-transform:uppercase}
+.nm.set{font-size:13px;letter-spacing:0;text-transform:none;color:var(--card-ink);font-weight:600}
+.nm-en{display:block;font-size:11px;color:var(--card-muted);letter-spacing:.02em;margin-top:-1px}
+.pos{font-weight:700;font-size:13.5px;line-height:1.3;text-wrap:balance}
+.unit{font-size:11.5px;color:var(--card-muted);line-height:1.3;text-wrap:balance}
+/* รับงาน = ตาราง "งานแบบไหน → ทีมไหน" (A273) */
+.take{align-self:stretch;margin-top:5px;padding:5px 6px;border-radius:5px;background:var(--chip);font-size:11px;line-height:1.35;color:var(--card-ink);text-align:left;text-wrap:pretty}
+.take b{display:block;font-size:10px;letter-spacing:.04em;color:var(--card-muted);font-weight:700}
+/* ผู้จัดการเช็ค (A274) */
+.take.rep{background:transparent;border:1px dashed var(--card-muted);margin-top:4px}
+/* หัวการ์ด = ชื่อฝ่าย/ทีม ตัวเด่นบนสุด (จูน 23 ต.ค. 19:39) */
+.hd{align-self:stretch;margin:-12px -10px 9px;padding:9px 10px 8px;background:var(--c,var(--line));color:var(--card-ink);font-weight:700;font-size:15px;line-height:1.25;text-wrap:balance}
+.hd small{display:block;font-size:11px;font-weight:600;letter-spacing:.03em;opacity:.78;margin-bottom:1px}
+.hd.team{background:color-mix(in srgb,var(--c,var(--line)) 30%,#ffffff)}
+/* แผนก = หน่วยย่อยใต้ฝ่าย มีทีมของตัวเอง (A270.3) */
+.hd.sub{background:color-mix(in srgb,var(--c,var(--line)) 62%,#ffffff)}
+.c-lead .hd{background:var(--gold)}
+.pn{font-size:11px;font-weight:700;color:var(--card-muted);font-variant-numeric:tabular-nums;margin-right:4px}
+.tag{font-size:11px;font-weight:700;color:var(--vacant);border:1px solid var(--vacant);border-radius:999px;padding:0 7px;margin-top:2px}
+.more{margin-top:5px;font-size:11.5px;font-weight:600;color:var(--card-ink);display:inline-flex;gap:4px;align-items:center;background:var(--chip);border-radius:999px;padding:2px 9px}
+.more svg{width:10px;height:10px;transition:transform .2s ease}
+[aria-expanded="true"] .more svg{transform:rotate(180deg)}
+.c-lead{width:180px}
+.c-lead .nm.set{font-size:20px;font-weight:700}
+.stripes{display:flex;gap:3px;justify-content:center;margin-top:6px}
+.stripes i{width:6px;height:16px;border-radius:2px}
+
+/* คนในทีม = รายการแนวตั้งใต้การ์ดทีม */
+.members{margin-top:10px;display:flex;flex-direction:column;gap:6px;width:170px;position:relative;padding-left:12px}
+.members::before{content:"";position:absolute;left:0;top:-10px;bottom:14px;border-left:2.5px dotted var(--c,var(--line))}
+.m{background:var(--card);color:var(--card-ink);border-radius:6px;padding:6px 8px 6px 9px;display:grid;grid-template-columns:auto 1fr;gap:0 7px;align-items:start;position:relative;border-left:4px solid var(--c,var(--line))}
+.m::before{content:"";position:absolute;left:-16px;top:16px;width:12px;border-top:2.5px dotted var(--c,var(--line))}
+.m.vac{background:#F7F5FF;outline:1.5px dashed var(--vacant);outline-offset:-1.5px}
+.m .mn{font-size:11px;font-weight:700;color:var(--card-muted);font-variant-numeric:tabular-nums;padding-top:1px}
+.m .mr{font-size:12.5px;font-weight:700;line-height:1.3}
+.m .ms{grid-column:2;font-size:11px;color:var(--card-muted);display:flex;flex-wrap:wrap;gap:3px 6px;align-items:center}
+.m .ms svg{width:12px;height:12px}
+.m .ms .v{color:var(--vacant);font-weight:700}
+.foot{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-bottom:28px;max-width:1200px;margin:0 auto;color:var(--muted);font-size:12.5px;display:flex;flex-direction:column;gap:3px}
+.foot code{font-size:12px}
+@media (prefers-reduced-motion: reduce){.more svg{transition:none} button.card:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="top">
+  <h1>ผังองค์กร JP Trust Learning</h1>
+  <p class="lede">กดที่การ์ดฝ่ายหรือแผนกเพื่อดูทีม กดที่การ์ดทีมเพื่อดูคนในทีม · มุมซ้ายบนของการ์ดคือเลขตำแหน่ง ใช้อ้างตอนตั้งชื่อ</p>
+  <div class="stats" id="stats"></div>
+  <div class="bar">
+    <button class="ctl" id="openDepts" type="button">กางทุกฝ่าย</button>
+    <button class="ctl" id="openAll" type="button">กางทั้งหมด</button>
+    <button class="ctl" id="closeAll" type="button">ย่อทั้งหมด</button>
+    <span class="zoom"><button class="ctl" id="zOut" type="button" aria-label="ย่อ">−</button><span id="zLabel">100%</span><button class="ctl" id="zIn" type="button" aria-label="ขยาย">+</button></span>
+  </div>
+</div>
+
+<div class="scroller" id="scroller"><div class="chart" id="chart"><ul class="tree" id="tree"></ul></div></div>
+
+<div class="foot">
+  <div>ตั้งชื่อ: บอกเลขตำแหน่งกับชื่อในแชท เช่น "[32] ชื่อ ..." แล้วผังนี้กับ <code>company/ORG-CHART.md</code> §1.6 จะอัปเดตพร้อมกัน</div>
+  <div>การ์ดเส้นประสีชมพู = ตำแหน่งยังว่าง · "(ควบ)" = คนเดียวคุมหลายหน่วย</div>
+</div>
+
+<script>
+const ICONS={
+  chat:'<path d="M3 4.5h10v6.5H7l-3 2.5V11H3z"/>',
+  agent:'<circle cx="8" cy="5.2" r="2.4"/><path d="M3.5 13.5c.6-2.6 2.4-4 4.5-4s3.9 1.4 4.5 4"/>',
+  sched:'<circle cx="8" cy="8.5" r="5"/><path d="M8 5.8v2.9l2 1.3"/>',
+  machine:'<circle cx="8" cy="8" r="2.2"/><path d="M8 2.5v2M8 11.5v2M2.5 8h2M11.5 8h2M4.1 4.1l1.4 1.4M10.5 10.5l1.4 1.4M4.1 11.9l1.4-1.4M10.5 5.5l1.4-1.4"/>',
+  script:'<path d="M6 4.5 2.8 8 6 11.5M10 4.5 13.2 8 10 11.5"/>',
+  gemini:'<path d="M8 2.5c.5 2.9 2.6 5 5.5 5.5-2.9.5-5 2.6-5.5 5.5-.5-2.9-2.6-5-5.5-5.5 2.9-.5 5-2.6 5.5-5.5z"/>',
+  skill:'<path d="M3 3.5h4.2c.5 0 .8.3.8.8v9c0-.6-.4-1-1-1H3zM13 3.5H8.8c-.5 0-.8.3-.8.8v9c0-.6.4-1 1-1h4z"/>',
+  vps:'<rect x="3" y="3" width="10" height="4" rx="1"/><rect x="3" y="9" width="10" height="4" rx="1"/><path d="M5.2 5h.01M5.2 11h.01"/>'
+};
+const WHO={chat:'แชท',agent:'Agent',sched:'งานตั้งเวลา',machine:'เครื่อง',script:'สคริปต์',gemini:'Gemini',skill:'skill',vps:'VPS'};
+const svg=k=>'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICONS[k]+'</svg>';
+/* (เดิม) */ const CHEV_OLD='<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5"/></svg>';
+
+/* ข้อมูลผัง — แก้ชื่อได้ที่ช่อง name ของแต่ละตำแหน่ง (เลข n ตรงกับ ORG-CHART §1.6) */
+/* ชื่อผู้อำนวยการ 7 ฝ่าย (จูน 24 ต.ค. 2026 14:05 · A284): name = ชื่อไทย · name_en = ชื่ออังกฤษ (ขึ้นใต้ชื่อไทย) · sex = ญ/ช · ฝ่าย 1 สำนักงานกลางมีหัวหน้าฝ่ายของตัวเอง [82] แยกจากผู้จัดการ [01] (จูน 24 ต.ค. 14:18 "คนละตำแหน่งค่ะ" · A284.1) ชื่อคุณวีรดาจึงอยู่ที่ [82] · [01] ยังไม่ตั้งชื่อ */
+const P=(n,role,who,o={})=>Object.assign({n,role,who,name:''},o);
+const T=(name,manual,head,members=[])=>({kind:'team',name,manual,head,members});
+const D=(no,name,head,teams)=>({kind:'dept',no,name,head,teams});
+const REF=(n,role)=>({ref:n,role});
+const S=(name,manual,head,teams)=>({kind:'sub',name,manual,head,teams}); /* แผนกใต้ฝ่าย (A270.3) */
+
+const ORG={
+  owner:{title:'จูนปลา',sub:'เจ้าของบริษัท · กด 7 เรื่องเองเสมอ'},
+  boss:P('01','ผู้จัดการ','sched',{vacant:true,label:'หัวหน้าใหญ่',note:'ตอนนี้จูนคุมเอง · รายงานวันละครั้งต่อท้ายงานเช้า 08:23 (จูนเคาะ 24 ต.ค. A274) · คู่มือ company/MANAGER.md ร่างแล้ว รอจูนสั่งเปิด'}),
+  depts:[
+    D(1,'สำนักงานกลาง',P('82','หัวหน้าฝ่ายสำนักงานกลาง','chat',{name:'คุณวีรดา บุบผา',name_en:'Veerada Bubpha',sex:'ญ',vacant:true,note:'จูนคุมเอง · ตำแหน่งใหม่ A284.1 แยกจากผู้จัดการ [01] (เดิมผู้จัดการคุมฝ่ายนี้ควบ)'}),[
+      /* นักบัญชี [03] + ผู้ตรวจบัญชี [04] ย้ายไปทีมบัญชีและการเงิน · ยังรันในรอบ 08:23 เหมือนเดิม (จูน 24 ต.ค. 2026 01:45 · A274) */
+      T('งานเช้า 08:23','<code>company/dashboard/DAILY-UPDATE.md</code>',P('02','หัวหน้างานเช้า','sched',{note:'เก็บตัวเลขขึ้นศูนย์ควบคุม แล้วผู้จัดการรายงานต่อในรอบเดียวกัน'})),
+      T('วางแผน KPI','ยังไม่มีคู่มือ · ต้องทำคู่มือทบทวน KPI',P('05','ผู้ตรวจและวางแผน KPI','chat',{vacant:true})),
+      /* สำนักงานกลาง รื้อใหม่: เพิ่ม 3 ทีม (จูน 24 ต.ค. 2026 00:17 · A272) · ทีมงานเช้าคงไว้ก่อน จูนจะมาดูว่าทำอะไรอยู่ */
+      T('บัญชีและการเงิน','ยังไม่มีคู่มือทีม · สมุดบัญชีรายวันทำตาม <code>DAILY-UPDATE.md</code> §3.5 (<code>accounting.py</code> · <code>audit_memo.py</code>) · สเปก ORG-CHART §3.1',P('79','หัวหน้าทีมบัญชีและการเงิน','chat',{vacant:true,note:'ทีมใหม่ A272 · รับนักบัญชี [03] ผู้ตรวจบัญชี [04] จากทีมงานเช้า (A274)'}),[
+        P('03','นักบัญชี','script',{note:'รันในรอบงานเช้า 08:23'}),
+        P('04','ผู้ตรวจบัญชี','script',{note:'รันในรอบงานเช้า 08:23 · ผล Audit ส่งตรงถึงจูนด้วย'})]),
+      T('กฎหมายและสัญญา','ยังไม่มีคู่มือ · ต้องทำทะเบียนบริการ/สัญญา + วันต่ออายุ (ไม่เก็บรหัสผ่านหรือ token)',P('80','หัวหน้าทีมกฎหมายและสัญญา','chat',{vacant:true,note:'ทีมใหม่ A272 · กฎหมายและข้อบังคับ · ต่อสัญญาบริการ เช่น โฮสต์เว็บ Supabase GitHub · บัญชีผู้ใช้ต่างๆ'})),
+      T('Cyber Security','ยังไม่มีคู่มือ · ตอนนี้มีแค่กติกา scan secret ก่อน push (CLAUDE.md §2)',P('81','หัวหน้าทีม Cyber Security','chat',{vacant:true,note:'ทีมใหม่ A272'}))
+    ]),
+    D(2,'ข้อมูลและระบบ',P('06','หัวหน้าฝ่ายข้อมูลและระบบ','chat',{name:'คุณคลาวดี้ โคล',name_en:'Cloudy Cole',sex:'ญ',vacant:true,note:'จูนคุมเอง'}),[
+      T('ท่อข้อมูล','เครื่องรันเอง · เฝ้าตาม <code>company/DATA-WATCH.md</code> (A275)',REF('10','ผู้เฝ้าข้อมูล'),[
+        P('07','ท่อข้อมูลหุ้น sp500','machine'),
+        P('08','ท่อข้อมูลทอง','machine'),
+        P('09','ท่อข้อมูล BTC','machine')]),
+      T('เฝ้าข้อมูล','<code>company/DATA-WATCH.md</code> + <code>company/tools/data_watch.py</code>',P('10','ผู้เฝ้าข้อมูล','script',{vacant:true,note:'คู่มือ + สคริปต์พร้อม (A275) · รันพร้อมผู้จัดการต่อท้ายงานเช้าเมื่อจูนสั่งเปิด · แชทรันเองได้ทุกเมื่อ'}))
+      /* ทีม dev แอป/เว็บ [11] ย้ายไปฝ่าย 8 Application เป็นทีม JPTrust App (A270) */
+    ]),
+    /* ฝ่าย 3: เปลี่ยนชื่อ สินค้า → สินค้าและบริการ · ฝ่าย Application ย้ายมาเป็นแผนกใต้ฝ่ายนี้ · เพิ่มทีมช่องทางการขาย (จูน 23 ต.ค. 2026 23:02 · A270.3) */
+    D(3,'สินค้าและบริการ',P('12','หัวหน้าฝ่ายสินค้าและบริการ','chat',{name:'คุณไมเคิล แอนเดอร์สัน',name_en:'Michael Anderson',sex:'ช',vacant:true,note:'จูนคุมเอง'}),[
+      /* ระบบสมาชิก [13][15] ย้ายไปฝ่าย 8 Application (A270) · Lab อยู่ที่เดิม ผู้เฝ้า [13] เฝ้าควบ */
+      T('Lab โมเมนตัม','ยังไม่มีคู่มือ · ต้องทำคู่มือเฝ้าระบบสมาชิก + Lab',REF('13','ผู้เฝ้าระบบสมาชิก + Lab'),[
+        P('14','หน้ากลยุทธ์ Lab','machine')]),
+      T('ออกโพยรายเดือน','ยังไม่มีคู่มือ · ต้องทำคู่มือ + สคริปต์คำนวณล็อต',P('16','เจ้าหน้าที่โพย','sched',{vacant:true})),
+      T('ช่องทางการขาย','ยังไม่มีคู่มือ · ต้องทำคู่มือช่องทางการขาย (ขอบเขตจูนเคาะแล้ว)',P('77','หัวหน้าทีมช่องทางการขาย','chat',{vacant:true,note:'ทีมใหม่ A270.3 · 4 ช่อง: หน้าสมัคร/หน้าราคา · LINE OA @jptrust · ระบบชำระเงิน (repo payment) · พาร์ทเนอร์/ตัวแทน (จูนเคาะ 24 ต.ค. A274)'})),
+      S('Application','แอปสมาชิก app.jptrustlearning.com · เดิมฝ่าย 8 (A270)',P('71','หัวหน้าแผนก Application','chat',{vacant:true,note:'จูนคุมเอง'}),[
+        T('ระบบสมาชิก','ยังไม่มีคู่มือ · ต้องทำคู่มือเฝ้าระบบสมาชิก + Lab',P('13','ผู้เฝ้าระบบสมาชิก + Lab','sched',{vacant:true,note:'เฝ้าหน้า Lab ให้ทีม Lab ด้วย'}),[
+          P('15','ระบบสมาชิก','machine',{note:'สมัคร · อนุมัติ · เตือนหมดอายุ · โค้ดส่วนลด'})]),
+        T('JPTrust App','<code>app/ARCHITECTURE.md</code> + <code>THEME-GUIDE.md</code>',P('11','หัวหน้าทีม JPTrust App','chat',{note:'ลงมือเอง · แอปสมาชิก app.jptrustlearning.com · เว็บ public ย้ายไปทีมเว็บไซต์ (A270.3)'})),
+        T('Portfolio Recorder','ยังไม่มีคู่มือ · ต้องทำคู่มือ Port Recorder',P('72','หัวหน้าทีม Portfolio Recorder','chat',{note:'ลงมือเอง'}),[
+          P('73','Worker ราคา + อ่านสลิป','machine',{note:'Cloudflare Worker · จูนวางโค้ดเอง'})]),
+        T('Roadmap','<code>htmlanim/roadmap-task/README.md</code> · มีแค่ส่วนแอนิเมชันหัวข้อ',P('74','หัวหน้าทีม Roadmap','chat',{note:'ลงมือเอง'}),[
+          P('75','ผู้ตรวจแอนิเมชัน Roadmap','script',{note:'check_anim.py'})]),
+        T('คู่มือ','<code>htmlanim/STORY-ANIMATION-GUIDE.md</code> (โหมด Guide) + <code>handoff/appguide/</code>',P('76','หัวหน้าทีมคู่มือ','chat',{note:'ลงมือเอง · คู่มือใช้งานแอพ appguide'}))])
+    ]),
+    D(4,'การตลาดและการสื่อสาร',P('17','ผู้อำนวยการการตลาด','skill',{name:'คุณมากาเร็ต เวลมอนต์',name_en:'Margaret Velmont',sex:'ญ',note:'แชท + skill jpt-marketing-director'}),[
+      T('วางแผนการตลาด','skill <code>jpt-marketing-director</code> + <code>jpt-source-of-truth</code> + Brand Policy <code>company/marketing/BRAND-POLICY.md</code>',REF('17','ผู้อำนวยการการตลาด'),[
+        P('18','ผู้ดูแลข้อเท็จจริงกลาง','chat',{vacant:true}),
+        P('19','นักวิจัยตลาดและลูกค้า','chat',{vacant:true,note:'ผู้อำนวยการทำแทน'}),
+        P('20','ผู้ดูแลการเติบโต','chat',{vacant:true,note:'ผู้อำนวยการทำแทน'}),
+        P('31','ผู้ดูแล Brand Policy','skill',{note:'ตรวจตามนโยบายเมื่อจูนสั่ง · เดิมทีมด่านแบรนด์ (A270.2)'})]),
+      T('ข่าว','<code>news/NEWS-INSTRUCTION.md</code> + <code>MACRO-FRAMEWORK.md</code>',P('21','นักข่าว','sched',{note:'25 รอบ/สัปดาห์ · ลงมือเอง'})),
+      T('โพสต์โซเชียล','<code>articles/SOCIAL-POST-TEAM.md</code>',P('22','หัวหน้าทีมโพสต์','chat',{note:'เขียนเอง'}),[
+        P('23','ผู้อ่าน active read','agent')]),
+      T('หนังสือ + วารสาร','<code>books/STORYBOOK-GUIDE.md</code> + <code>BOOK-VOICE.md</code>',P('24','ผู้ประสานงาน','chat'),[
+        P('25','ผู้วางผัง','agent',{note:'เล่มใหม่'}),
+        P('26','นักเขียนเล่ม','agent',{note:'เล่มใหม่'}),
+        P('27','ผู้ตรวจตัวเลข','agent'),
+        P('28','ผู้อ่าน active read','agent'),
+        P('29','ผู้อ่านออกเสียง','agent'),
+        P('30','ผู้ตรวจหน้า','agent')]),
+      T('เว็บไซต์','ยังไม่มีคู่มือเฉพาะ · ใช้ <code>app/ARCHITECTURE.md</code> + <code>THEME-GUIDE.md</code> ไปก่อน · ต้องทำคู่มือเว็บ public',P('78','หัวหน้าทีมเว็บไซต์','chat',{note:'ลงมือเอง · public.jptrustlearning.com หน้าแรก ราคา ห้องสมุด studio · ทีมใหม่ A270.3'}))
+      /* ทีมด่านแบรนด์ [31] รวมเข้าทีมวางแผนการตลาด เป็นผู้ดูแล Brand Policy (จูน 23 ต.ค. 2026 22:46 · A270.2) */
+    ]),
+    D(5,'สตูดิโอวิดีโอ',P('32','หัวหน้าสตูดิโอ','skill',{name:'คุณวิชโอ โรเวลล์',name_en:'Vichio Rovell',sex:'ช',note:'แชท + skill jpt-studio-lead'}),[
+      T('คลิปหุ้น/ข่าว','<code>htmlanim/STOCK-VIDEO-PLAYBOOK.md</code>',REF('32','หัวหน้าสตูดิโอ'),[
+        P('33','ผู้หาข้อมูล','chat'),
+        P('34','ผู้ตรวจข้อเท็จจริงอิสระ','agent'),
+        P('35','นักเขียนบทพากย์','chat'),
+        P('36','ผู้ฟังอิสระ','agent'),
+        P('37','ผู้ตรวจบท','agent',{note:'คลิปผู้บรรยาย HeyGen'}),
+        P('38','ผู้อ่านบทพูดที่จูนเขียน','agent'),
+        P('39','ฝ่ายเสียง','gemini'),
+        P('40','ฝ่ายภาพ','gemini',{note:'Gemini + แชท'}),
+        P('41','ผู้ประกอบ HTML + มิกซ์','chat'),
+        P('42','ผู้ตรวจตัวเลขบนจออิสระ','agent'),
+        P('43','ผู้ตรวจปก','agent'),
+        P('44','ผู้อ่านแคปชั่น','agent')]),
+      T('HTML anime / ฉากบรรยาย','<code>STORY-ANIMATION-GUIDE.md</code> + <code>VIBE-GOAT.md</code>',P('45','หัวหน้าทีม HTML anime','chat',{note:'ลงมือเอง'}),[
+        P('46','ผู้ตรวจก่อนส่ง','script',{note:'Playwright'})]),
+      T('บทพูด Reels/TikTok','<code>intoscript/TEMPLATE-D-SPOKEN.md</code>',P('47','นักเขียนบทพูด','chat'))
+    ]),
+    D(6,'วิจัย',P('48','หัวหน้าฝ่ายวิจัย','chat',{name:'คุณเคนจิ ทานากะ',name_en:'Kenji Tanaka',sex:'ช',vacant:true,note:'จูนคุมเอง'}),[
+      T('วิจัยในแชท','<code>library/INDEX.md</code> + <code>NEGATIVE-RESULTS.md</code> + <code>BETA.md</code>',P('49','หัวหน้าทีมวิจัย','chat',{note:'ลงมือเอง'}),[
+        P('50','ผู้ตรวจซ้ำอิสระ','agent',{note:'เมื่อผลจะใช้จริง'})]),
+      T('วิจัยอัตโนมัติ (ยังไม่เปิด)','<code>agents/CHARTER.md</code> + <code>COMMON.md</code> · ต้องปรับเป็นชุด 10',P('51','หัวหน้าทีมวิจัยอัตโนมัติ','sched',{vacant:true,note:'วันละรอบ'}),[
+        P('52','Scout','agent',{vacant:true}),
+        P('53','Skeptic','agent',{vacant:true}),
+        P('54','Researcher หุ้น','agent',{vacant:true}),
+        P('55','Researcher ทอง-FX','agent',{vacant:true}),
+        P('56','Researcher มาโคร','agent',{vacant:true}),
+        P('57','Empirical Analyst','agent',{vacant:true}),
+        P('58','Reviewer A','agent',{vacant:true}),
+        P('59','Reviewer B','agent',{vacant:true}),
+        P('60','Librarian','agent',{vacant:true}),
+        P('61','Digest Writer','agent',{vacant:true})])
+    ]),
+    D(7,'Fund Desk',P('62','หัวหน้าฝ่าย Fund Desk','chat',{name:'คุณวีรดวย บุบผา',name_en:'Veeraduay Bubpha',sex:'ช',vacant:true,note:'จูนคุมเอง · เงินจริงจูนตัดสินคนเดียว'}),[
+      T('ระบบเทรด','เฝ้าผลงาน <code>research/gold-scenario-table/MONITOR-23.md</code> + ยอดรวม · ต้องเพิ่มข้อเช็ค EA ยังเทรดในงานเช้า',P('63','หัวหน้าทีมระบบเทรด','sched',{vacant:true}),[
+        P('64','EA D #23 v1.06','vps',{note:'บัญชีจริง · beta'}),
+        P('65','พอร์ตหุ้นตามระบบ','machine',{note:'+ Port Recorder'}),
+        P('67','ผู้เฝ้าทอง #23','sched',{note:'พุธ · เสาร์ 10:53 · เฝ้า EA ระบบเทรดนี้ · เดิมทีมเฝ้าระบบทอง (A272)'})]),
+      T('รายงาน P&L','<code>DAILY-UPDATE.md</code> §1–2',P('66','ผู้รายงานกำไรขาดทุน','sched',{note:'08:23'})),
+      /* ทีมเฝ้าระบบทอง [67] ย้ายเข้าทีมระบบเทรด (จูน 24 ต.ค. 2026 00:17 "จริงๆเค้าเฝ้าระบบเทรดอันนี้แหละ" · A272) */
+      T('วิจัย/แก้ EA','<code>ea/README.md</code> + <code>library/BETA.md</code>',P('68','หัวหน้าทีม EA','chat',{note:'ลงมือเอง'}),[
+        P('69','ผู้ตรวจซ้ำอิสระ','agent')])
+    ])
+    /* ฝ่าย 8 Application ย้ายไปเป็นแผนกใต้ฝ่าย 3 สินค้าและบริการ (A270.3) */
+  ],
+  /* Flood Watch [70] ถอดออกจากผัง (จูน 24 ต.ค. 2026 00:17 · A272) · เลข 70 เลิกใช้ ไม่เอามาใช้ซ้ำ */
+  outside:{title:'นอกผัง',sub:'ขึ้นตรงกับจูน',teams:[]}
+};
+
+/* รับงานอะไร = ตาราง "งานแบบไหน → ทีมไหน" ที่แชทใช้หาทีม (จูน 24 ต.ค. 2026 01:21 "จริงๆแล้วเธอก็ต้องจากตัวงานมั้ย แล้วไปเรียกทีม" · A273)
+   ชื่อ key = ชื่อทีมตรงตัว · แก้ที่นี่แล้วสร้าง ORG-CHART §1.7 ใหม่ · ทุกทีมต้องมี */
+const TAKE={
+  'งานเช้า 08:23':'อัปเดตศูนย์ควบคุมรายวัน (EA · พอร์ต · เรทเงิน · รีวิว · งานบริษัท) · ส่งต่อผู้จัดการรายงาน',
+  'วางแผน KPI':'ตั้งเป้าและทบทวน KPI บริษัท',
+  'บัญชีและการเงิน':'สมุดบัญชีรายวัน · ตรวจบัญชี (Audit) · รายรับรายจ่าย · ค่าบริการที่บริษัทจ่าย · สรุปการเงิน',
+  'กฎหมายและสัญญา':'คำถามกฎหมาย/ข้อบังคับ · ต่อสัญญาและบัญชีบริการ (โฮสต์เว็บ · Supabase · GitHub · โดเมน)',
+  'Cyber Security':'ความปลอดภัย repo · บัญชี · รหัสลับ · สิทธิ์เข้าถึง',
+  'ท่อข้อมูล':'ข้อมูลราคาหุ้น ทอง BTC รายวัน',
+  'เฝ้าข้อมูล':'เช็คข้อมูลหุ้น ทอง BTC มาครบรอบ ครบวัน ครบแถว · ตอบ "ข้อมูลมาครบไหม"',
+  'Lab โมเมนตัม':'หน้ากลยุทธ์ Lab · สัญญาณ · ล็อต',
+  'ออกโพยรายเดือน':'โพยรายเดือน · ล็อตใหม่ของกลยุทธ์',
+  'ช่องทางการขาย':'หน้าสมัคร/หน้าราคา (ราคา ข้อเสนอ ขั้นตอนสมัคร) · LINE OA @jptrust · ระบบชำระเงิน (repo payment) · พาร์ทเนอร์/ตัวแทน',
+  'ระบบสมาชิก':'หลังชำระเงิน: อนุมัติ · ต่ออายุ · สิทธิ์สมาชิก · โค้ดส่วนลด',
+  'JPTrust App':'แก้/เพิ่มหน้าในแอปสมาชิก',
+  'Portfolio Recorder':'บันทึกพอร์ต · อ่านสลิป · ราคา',
+  'Roadmap':'Roadmap 90 วัน · แอนิเมชันหัวข้อ',
+  'คู่มือ':'คู่มือใช้งานแอป (appguide)',
+  'วางแผนการตลาด':'แผนคอนเทนต์ · แคมเปญ · KPI การตลาด · ตรวจ Brand Policy',
+  'ข่าว':'ข่าวในแอปตามรอบ',
+  'โพสต์โซเชียล':'ข้อความโพสต์ FB/โซเชียล · แคปชั่น · Market Check',
+  'หนังสือ + วารสาร':'หนังสือภาพ B5 · วารสาร · เกลาภาษาบทความ',
+  'เว็บไซต์':'หน้าเว็บ public · ห้องสมุด · SEO · ลงมือแก้หน้าสมัคร/หน้าราคาตามทีมช่องทางการขาย',
+  'คลิปหุ้น/ข่าว':'คลิปหุ้น/ข่าว · ภาพประกอบโพสต์ · ภาพนิ่ง · ปก · render (ภาพทุกชิ้นใช้สไตล์บ้าน)',
+  'HTML anime / ฉากบรรยาย':'HTML anime · ฉากประกอบบรรยาย',
+  'บทพูด Reels/TikTok':'บทพูด Reels/TikTok',
+  'วิจัยในแชท':'วิจัย · backtest · ตัวเลขที่ต้องคำนวณเอง',
+  'วิจัยอัตโนมัติ (ยังไม่เปิด)':'ยังไม่รับงาน (ยังไม่เปิด)',
+  'ระบบเทรด':'EA บนบัญชีจริง · พอร์ตหุ้นตามระบบ · เฝ้าระบบทอง',
+  'รายงาน P&L':'รายงานกำไรขาดทุนการเทรด',
+  'วิจัย/แก้ EA':'แก้/สร้าง EA · ทดสอบกลยุทธ์ทอง'
+};
+
+/* ผู้จัดการเช็คอะไร · อ่านจากไหน — ใช้ทำรายงานผู้จัดการวันละครั้ง (จูน 24 ต.ค. 2026 01:39 "ต้องจัดผังให้เรียบร้อยก่อนสิ ผู้จัดการจะได้รายงานครบ" · A274)
+   "rev" = งานใน 24 ชม. จากบรรทัด Last updated ของ handoff/CURRENT-STATE.md · "(รอคู่มือ)" = ยังไม่มีทางอ่าน ผู้จัดการรายงานว่าไม่มีคนเฝ้า
+   key = ชื่อทีมตรงตัว · ทุกทีมต้องมี · แก้แล้วสร้าง ORG-CHART §1.8 ใหม่ */
+const REPORT={
+  'งานเช้า 08:23':'รอบเช้ารันครบ · ศูนย์ควบคุมอัปเดตวันนี้ · อ่าน: rev "dashboard รายวัน"',
+  'วางแผน KPI':'KPI ถึงเป้ากี่ข้อ · อ่าน: ศูนย์ควบคุม (KPI) · ทบทวน (รอคู่มือ)',
+  'บัญชีและการเงิน':'NET · Audit PASS/FAIL · อ่าน: accounting.py + audit/AUDIT-วันที่.md',
+  'กฎหมายและสัญญา':'บริการ/สัญญาที่หมดอายุใน 30 วัน · อ่าน: ทะเบียนบริการ (รอคู่มือ)',
+  'Cyber Security':'scan secret ว่างทุก repo · สิทธิ์ผิดปกติ · (รอคู่มือ)',
+  'ท่อข้อมูล':'workflow รายวันมาครบรอบ · อ่าน: data_watch.py (commit ของ sp500 gold btc)',
+  'เฝ้าข้อมูล':'ข้อมูลครบวัน ครบแถว (mini · rotation · ทอง · BTC) · อ่าน: data_watch.py --short',
+  'Lab โมเมนตัม':'สัญญาณ Lab อัปเดตตามรอบ · (รอคู่มือ)',
+  'ออกโพยรายเดือน':'โพยเดือนนี้ออกแล้วไหม (ต้นเดือน) · (รอคู่มือ)',
+  'ช่องทางการขาย':'สมัครใหม่ · ยอดชำระ · LINE OA ค้างตอบ · พาร์ทเนอร์ · (รอคู่มือ)',
+  'ระบบสมาชิก':'ค้างอนุมัติ · ใกล้หมดอายุ · (รอคู่มือ · ฐานข้อมูลสมาชิกจูนรันเอง)',
+  'JPTrust App':'งานที่ขึ้น live · บั๊กค้าง · อ่าน: rev + commit pages',
+  'Portfolio Recorder':'งานใน 24 ชม. · อ่าน: rev',
+  'Roadmap':'งานใน 24 ชม. · ผล check_anim · อ่าน: rev',
+  'คู่มือ':'งานใน 24 ชม. · อ่าน: rev',
+  'วางแผนการตลาด':'แผนสัปดาห์นี้ · KPI การตลาดที่จูนส่ง · อ่าน: rev',
+  'ข่าว':'รอบข่าววันนี้ออกครบตามเวลา · อ่าน: rev ข่าว + news-index (pages)',
+  'โพสต์โซเชียล':'โพสต์ที่ส่งจูน + ผลผู้อ่าน · อ่าน: rev',
+  'หนังสือ + วารสาร':'เล่มที่ส่ง + ผลผู้ตรวจ · อ่าน: rev',
+  'เว็บไซต์':'งานที่ขึ้น live · อ่าน: rev + commit public',
+  'คลิปหุ้น/ข่าว':'งานค้าง/ส่งแล้ว + ผลผู้ตรวจ · อ่าน: rev',
+  'HTML anime / ฉากบรรยาย':'งานใน 24 ชม. · อ่าน: rev',
+  'บทพูด Reels/TikTok':'งานใน 24 ชม. · อ่าน: rev',
+  'วิจัยในแชท':'ผลวิจัยใหม่ · อ่าน: rev + handoff B',
+  'วิจัยอัตโนมัติ (ยังไม่เปิด)':'ยังไม่เปิด',
+  'ระบบเทรด':'EA ยังเทรดไหม · สถานะเฝ้าทอง #23 · อ่าน: Myfxbook ยอดรวม + monitor_23_log.csv',
+  'รายงาน P&L':'กำไรขาดทุนรวม EA + พอร์ตหุ้น · อ่าน: ศูนย์ควบคุม (Fund Desk)',
+  'วิจัย/แก้ EA':'เวอร์ชัน EA ที่รอจูนกด · อ่าน: rev + handoff B'
+};
+
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const PERSON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 19.5c1.2-3.6 3.9-5.4 7-5.4s5.8 1.8 7 5.4"/></svg>';
+const DOWN='<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg>';
+const DEPT_C=['var(--c1)','var(--c2)','var(--c3)','var(--c4)','var(--c5)','var(--c6)','var(--c7)','var(--c9)'];
+
+/* ตำแหน่งทั้งหมด (ใช้หาชื่อของหัวหน้าที่ "ควบ") */
+function allPositions(){
+  const out=[ORG.boss];
+  const addTeam=t=>{ if(!t.head.ref) out.push(t.head); if(t.kind==='sub') t.teams.forEach(addTeam); else out.push(...t.members); };
+  ORG.depts.forEach(d=>{ if(!d.head.ref) out.push(d.head); d.teams.forEach(addTeam); });
+  ORG.outside.teams.forEach(t=>{ if(!t.head.ref) out.push(t.head); out.push(...t.members); });
+  return out;
+}
+const BYN={}; allPositions().forEach(p=>BYN[p.n]=p);
+
+function cardInner(head,unit,extra,hdCls){
+  const p=head.ref?BYN[head.ref]:head;
+  const role=head.ref?head.role+' (ควบ)':p.role;
+  const vac=!head.ref&&p.vacant;
+  return (unit?'<span class="hd'+(hdCls?' '+hdCls:'')+'">'+unit+'</span>':'')
+    +'<span class="av">'+PERSON+'</span>'
+    +(p.name?'<span class="nm set">'+esc(p.name)+'</span>'+(p.name_en?'<span class="nm-en">'+esc(p.name_en)+'</span>':''):'<span class="nm">ยังไม่ตั้งชื่อ</span>')
+    +'<span class="pos"><span class="pn">'+p.n+'</span>'+esc(role)+'</span>'
+    +(vac?'<span class="tag">ว่าง</span>':'')
+    +(extra||'');
+}
+const isVac=h=>!h.ref&&h.vacant;
+const more=label=>'<span class="more">'+label+DOWN+'</span>';
+
+let uid=0;
+function memberRow(p){
+  return '<div class="m'+(p.vacant?' vac':'')+'"><span class="mn">'+p.n+'</span><span class="mr">'+esc(p.role)+'</span>'
+    +'<span class="ms">'+svg(p.who)+esc(WHO[p.who])
+    +(p.vacant?'<span class="v">ว่าง</span>':'')
+    +(p.name?'<span>ชื่อ: '+esc(p.name)+(p.name_en?' · '+esc(p.name_en):'')+'</span>':'<span>ยังไม่ตั้งชื่อ</span>')
+    +(p.note?'<span>· '+esc(p.note)+'</span>':'')+'</span></div>';
+}
+function teamLi(t,liStyle,prefix){
+  const n=t.members.length, id='m'+(++uid);
+  const tk=(TAKE[t.name]?'<span class="take"><b>รับงาน</b>'+esc(TAKE[t.name])+'</span>':'')
+    +(REPORT[t.name]?'<span class="take rep"><b>ผู้จัดการเช็ค</b>'+esc(REPORT[t.name])+'</span>':'');
+  const inner=cardInner(t.head,'<small>'+(prefix||'ทีม')+'</small>'+esc(t.name), tk+(n?more(n+' คน'):''),'team');
+  const cls='card'+(isVac(t.head)?' vac':'');
+  const open='<li'+(liStyle?' style="'+liStyle+'"':'')+'>';
+  if(!n) return open+'<div class="'+cls+'">'+inner+'</div></li>';
+  return open+'<button type="button" class="'+cls+'" aria-expanded="false" aria-controls="'+id+'" data-key="t:'+esc(t.name)+'">'+inner+'</button>'
+    +'<div class="members" id="'+id+'" hidden>'+t.members.map(memberRow).join('')+'</div></li>';
+}
+const countTeams=list=>list.reduce((a,t)=>a+(t.kind==='sub'?countTeams(t.teams):1),0);
+const unitLabel=list=>{ const subs=list.filter(t=>t.kind==='sub').length, n=countTeams(list); return n+' ทีม'+(subs?' · '+subs+' แผนก':''); };
+const unitLi=t=>t.kind==='sub'?subLi(t):teamLi(t);
+function subLi(sd){
+  const id='s'+(++uid);
+  const inner=cardInner(sd.head,'<small>แผนก</small>'+esc(sd.name), more(sd.teams.length+' ทีม'),'sub');
+  return '<li><button type="button" class="card'+(isVac(sd.head)?' vac':'')+'" aria-expanded="false" aria-controls="'+id+'" data-key="s:'+esc(sd.name)+'">'+inner+'</button>'
+    +'<ul id="'+id+'" hidden>'+sd.teams.map(unitLi).join('')+'</ul></li>';
+}
+function deptLi(d,i){
+  const id='d'+(++uid);
+  const inner=cardInner(d.head,'<small>ฝ่าย '+d.no+'</small>'+esc(d.name), more(unitLabel(d.teams)));
+  return '<li style="--c:'+DEPT_C[i]+'"><button type="button" class="card'+(isVac(d.head)?' vac':'')+'" aria-expanded="false" aria-controls="'+id+'" data-key="d:'+d.no+'">'+inner+'</button>'
+    +'<ul id="'+id+'" hidden>'+d.teams.map(unitLi).join('')+'</ul></li>';
+}
+function render(){
+  uid=0;
+  const b=ORG.boss;
+  const stripes='<span class="stripes">'+DEPT_C.slice(0,ORG.depts.length).concat(ORG.outside.teams.length?['var(--c8)']:[]).map(c=>'<i style="background:'+c+'"></i>').join('')+'</span>';
+  const lead='<li><div class="card c-lead"><span class="hd">เจ้าของบริษัท</span><span class="av">'+PERSON+'</span><span class="nm set">'+esc(ORG.owner.title)+'</span><span class="unit">กด 7 เรื่องเองเสมอ</span>'+stripes+'</div><ul>'
+    +'<li style="--c:var(--line)"><div class="card'+(b.vacant?' vac':'')+'">'+cardInner(b,'<small>ผู้บริหาร</small>หัวหน้าใหญ่',"<span class=\"unit\">ตอนนี้จูนปลาคุมเอง</span>")+'</div><ul>'+ORG.depts.map(deptLi).join('')+'</ul></li>'
+    +ORG.outside.teams.map(t=>teamLi(t,'--c:var(--c8)','นอกผัง · ขึ้นตรงกับจูนปลา')).join('')
+    +'</ul></li>';
+  document.getElementById('tree').innerHTML=lead;
+}
+function stats(){
+  const ps=allPositions(), vac=ps.filter(p=>p.vacant).length, named=ps.filter(p=>p.name).length;
+  const teams=ORG.depts.reduce((a,d)=>a+countTeams(d.teams),0)+ORG.outside.teams.length;
+  const subs=ORG.depts.reduce((a,d)=>a+d.teams.filter(t=>t.kind==='sub').length,0);
+  document.getElementById('stats').innerHTML=[[ps.length,'ตำแหน่ง'],[ps.length-vac,'มีคนทำแล้ว'],[vac,'ยังว่าง'],[ORG.depts.length,'ฝ่าย'],[subs,'แผนก'],[teams,'ทีม'],[named,'ตั้งชื่อแล้ว']]
+    .map(([v,l])=>'<span><b>'+v+'</b>'+l+'</span>').join('');
+}
+
+/* กาง/ย่อ + จำสถานะในเครื่องผู้ดู */
+const KEY='jpt-org-tree-v2';
+function setOpen(btn,open){
+  btn.setAttribute('aria-expanded',open);
+  const el=document.getElementById(btn.getAttribute('aria-controls')); if(el) el.hidden=!open;
+}
+function saveState(){ try{const s={};document.querySelectorAll('[data-key]').forEach(b=>s[b.dataset.key]=b.getAttribute('aria-expanded')==='true');localStorage.setItem(KEY,JSON.stringify(s));}catch(e){} }
+function loadState(){ let s=null; try{s=JSON.parse(localStorage.getItem(KEY)||'null');}catch(e){} if(s) document.querySelectorAll('[data-key]').forEach(b=>{ if(b.dataset.key in s) setOpen(b,s[b.dataset.key]); }); }
+const all=p=>document.querySelectorAll('[data-key^="'+p+'"]');
+document.getElementById('tree').addEventListener('click',e=>{
+  const btn=e.target.closest('button[data-key]'); if(!btn) return;
+  const open=btn.getAttribute('aria-expanded')!=='true';
+  setOpen(btn,open); saveState();
+  if(open){ const li=btn.closest('li'); try{li.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});}catch(_){} }
+});
+document.getElementById('openDepts').addEventListener('click',()=>{all('d:').forEach(b=>setOpen(b,true));saveState();});
+document.getElementById('openAll').addEventListener('click',()=>{all('d:').forEach(b=>setOpen(b,true));all('s:').forEach(b=>setOpen(b,true));all('t:').forEach(b=>setOpen(b,true));saveState();});
+document.getElementById('closeAll').addEventListener('click',()=>{all('t:').forEach(b=>setOpen(b,false));all('s:').forEach(b=>setOpen(b,false));all('d:').forEach(b=>setOpen(b,false));saveState();center();});
+
+/* ซูม */
+let z=1;
+function applyZoom(){ document.getElementById('chart').style.zoom=z; document.getElementById('zLabel').textContent=Math.round(z*100)+'%'; }
+document.getElementById('zIn').addEventListener('click',()=>{z=Math.min(1.4,+(z+.1).toFixed(2));applyZoom();});
+document.getElementById('zOut').addEventListener('click',()=>{z=Math.max(.4,+(z-.1).toFixed(2));applyZoom();});
+function center(){ const s=document.getElementById('scroller'); s.scrollLeft=(s.scrollWidth-s.clientWidth)/2; }
+
+render(); stats(); loadState(); applyZoom(); requestAnimationFrame(center);
+</script>
+</body>
+</html>
