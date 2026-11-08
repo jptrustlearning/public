@@ -115,6 +115,12 @@ const RESEARCH = [
   /* ---------- Dashboard ---------- */
   {
     cat: "dashboard", type: "dashboard", status: "active",
+    title: "เทคช็อก vs ตลาดช็อก บนกราฟ SPY",
+    desc: "แดชบอร์ดข้อมูลย้อนหลัง 2001–2026 ดูว่าหุ้นเทคกับตลาดรวมเข้าโซนเฝ้าและถึงขั้นช็อกวันไหน (สัดส่วนหุ้นที่ราคาต่ำกว่าค่าเฉลี่ย 60 วันเกิน 2 ส่วนเบี่ยงเบน) เทียบกับราคา SPY, drawdown ของ SPY และวันที่ Sniper ยิง · เลือกได้หลายปี ดูต่อกันหรือแยกรายปี เปิดปิดเส้นวันที่ได้ · ตาราง 39 ช่วงพายุ บอกว่าใครเฝ้าก่อนและทำไม Sniper ไม่ยิง · ข้อมูลถึง 6 พ.ย. 2026",
+    assets: ["S&P 500", "SPY", "Tech"], href: "https://public.jptrustlearning.com/tech-vs-market-shock.html"
+  },
+  {
+    cat: "dashboard", type: "dashboard", status: "active",
     title: "เปรียบเทียบผลตอบแทนสินทรัพย์ · ข้อมูลสด",
     desc: "แดชบอร์ดเทียบผลตอบแทนหุ้นสหรัฐ ทองคำ น้ำมัน และเงินฝาก เลือกกรอบเวลา 1–20 ปี ดึงราคาสดจาก Yahoo Finance คำนวณ CAGR · Max Drawdown · เวลาฟื้นตัว · ความผันผวน · Sharpe (Rf=0) เพิ่มสินทรัพย์เองได้",
     assets: ["S&P 500", "Gold", "Oil", "FX"], href: "https://public.jptrustlearning.com/asset-comparison-live.html"
