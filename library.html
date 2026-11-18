@@ -20,6 +20,9 @@
 <!-- A140: ธีมทั้งหมดอยู่ในไฟล์ร่วมกับหน้าแรก — ห้ามก๊อป CSS มาวางซ้ำในหน้านี้ -->
 <link rel="stylesheet" href="jpt-home.css">
 <style>
+/* A338.1 หมวด "เริ่มต้นลงทุน" กว้างเต็มแถว — 6 หมวดเดิมเรียง 3×2 / 2×3 เหมือนเดิม */
+.shelf-card.wide{grid-column:1/-1}
+
 /* เฉพาะหน้านี้: หัวเรื่องบนพื้นเข้มชุดเดียวกับบล็อกแท็บของหน้าแรก */
 .pagehead{background:linear-gradient(145deg,#290008 0%,#1E0106 26%,#120205 52%,#0A0102 78%,#040000 100%);
   padding:clamp(86px,10vw,124px) 0 clamp(26px,3vw,38px);text-align:center}
@@ -52,6 +55,7 @@
       <div class="nl" id="nlLib">
         <a href="library.html">ห้องสมุด <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="nl-drop">
+          <a href="lib-beginner.html"><span class="v">เริ่มต้นลงทุน</span><span class="k">Start Here</span></a>
           <a href="lib-momentum.html"><span class="v">กลยุทธ์ Momentum</span><span class="k">Momentum</span></a>
           <a href="lib-analysis.html"><span class="v">บทวิเคราะห์</span><span class="k">Analysis</span></a>
           <a href="lib-curated.html"><span class="v">งานวิจัยคัดสรร</span><span class="k">Curated</span></a>
@@ -203,9 +207,10 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!cm.hidden)
 
 
 
-/* การ์ด 6 หมวด — ข้อมูลมาจาก research-data.js ไฟล์เดียวกับหน้าแรกและหน้าหมวด */
+/* การ์ด 7 หมวด (หมวด wide กว้างเต็มแถว · A338.1) — ข้อมูลมาจาก research-data.js ไฟล์เดียวกับหน้าแรกและหน้าหมวด */
 const ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 const CAT_ICONS = {
+beginner:'<svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="bgSt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF3CE"/><stop offset=".45" stop-color="#E8C766"/><stop offset="1" stop-color="#A9800F"/></linearGradient><linearGradient id="bgLf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8CF0BC"/><stop offset="1" stop-color="#1B8050"/></linearGradient></defs><path d="M3.6 27.6h24.8" stroke="#C69A22" stroke-width="1.2" stroke-linecap="round" opacity=".7"/><rect x="4.6" y="21.6" width="7" height="6" rx="1" fill="url(#bgSt)"/><rect x="12.5" y="16.6" width="7" height="11" rx="1" fill="url(#bgSt)"/><rect x="20.4" y="11.6" width="7" height="16" rx="1" fill="url(#bgSt)"/><path d="M23.9 11.6V6.6" stroke="#1B8050" stroke-width="1.3" stroke-linecap="round"/><path d="M23.9 9.2c-2.4 0-3.9-1.5-4.1-3.6 2.3 0 3.9 1.3 4.1 3.6z" fill="url(#bgLf)"/><path d="M23.9 7.9c2.2 0 3.8-1.4 4.1-3.7-2.4 0-4 1.4-4.1 3.7z" fill="url(#bgLf)"/></svg>',
 momentum:'<svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="mUp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8CF0BC"/><stop offset="1" stop-color="#1B8050"/></linearGradient><linearGradient id="mDn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F294A0"/><stop offset="1" stop-color="#9C1F30"/></linearGradient><linearGradient id="mAr" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#C69A22"/><stop offset=".5" stop-color="#E8C766"/><stop offset="1" stop-color="#FFF3CE"/></linearGradient></defs><g stroke="#BFE8D2" stroke-width="1.1" stroke-linecap="round" opacity=".55"><path d="M6.6 17.6v9.4M13.4 13.4v8.4M20.2 9.4v9.6"/></g><rect x="4.7" y="19.2" width="3.8" height="6.2" rx="1" fill="url(#mDn)"/><rect x="11.5" y="14.8" width="3.8" height="5.4" rx="1" fill="url(#mUp)"/><rect x="18.3" y="11" width="3.8" height="6.6" rx="1" fill="url(#mUp)"/><path d="M4.4 22.8 11 17l5 3 8.4-9.6" fill="none" stroke="url(#mAr)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M19.4 8.2h6.2v6.2" fill="none" stroke="url(#mAr)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
 analysis:'<svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="aG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3CE"/><stop offset="1" stop-color="#C69A22"/></linearGradient><linearGradient id="aM" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C9556A"/><stop offset="1" stop-color="#6D1728"/></linearGradient></defs><circle cx="16" cy="16.8" r="11.6" fill="#0f0508" opacity=".55"/><path d="M16.9 6.1a10.6 10.6 0 0 1 9.7 9.7h-9.7z" fill="url(#aG)" stroke="#2a0f16" stroke-width=".9"/><path d="M16 17.6h10.4A10.4 10.4 0 0 1 16 28z" fill="url(#aM)" stroke="#2a0f16" stroke-width=".9"/><path d="M15.2 7.2v9.6H5.6a10.4 10.4 0 0 1 9.6-9.6z" fill="#F5EDDC" stroke="#2a0f16" stroke-width=".9"/><path d="M15.2 17.6v10.3A10.4 10.4 0 0 1 5.6 17.6z" fill="#9C7412" stroke="#2a0f16" stroke-width=".9"/><circle cx="16" cy="17" r="11.8" fill="none" stroke="#D4AF37" stroke-width="1.1" opacity=".75"/></svg>',
 dashboard:'<svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="dFace" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B1723"/><stop offset="1" stop-color="#150608"/></linearGradient></defs><circle cx="16" cy="18" r="12" fill="url(#dFace)" stroke="#D4AF37" stroke-width="1.1"/><path d="M6.4 18a9.6 9.6 0 0 1 3.3-7.2" fill="none" stroke="#C9455A" stroke-width="3" stroke-linecap="round"/><path d="M11 9.8a9.6 9.6 0 0 1 10 0" fill="none" stroke="#E0BC5C" stroke-width="3" stroke-linecap="round"/><path d="M22.3 10.8a9.6 9.6 0 0 1 3.3 7.2" fill="none" stroke="#4FC48A" stroke-width="3" stroke-linecap="round"/><path d="M16 18l6.4-4.6" stroke="#FFF3CE" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="18" r="2.1" fill="#D4AF37" stroke="#8B6914" stroke-width=".8"/><g stroke="#F5EDDC" stroke-width="1.1" stroke-linecap="round" opacity=".5"><path d="M16 22.6v1.6M11.4 21.2l-1 1.2M20.6 21.2l1 1.2"/></g></svg>',
@@ -218,7 +223,7 @@ function cardHTML(c, i){
   const n = catCount(c.key);
   const count = n ? `<b>${n}</b> ${c.unit}` : 'เร็ว ๆ นี้';
   const eye = c.key.toUpperCase();
-  return `<a class="shelf-card" href="${c.page}" style="--bg:url(lib/shelf-${c.key}.jpg);animation-delay:${i*70}ms" aria-label="${c.title}">
+  return `<a class="shelf-card${c.wide ? ' wide' : ''}" href="${c.page}" style="--bg:url(lib/shelf-${c.key}.jpg);animation-delay:${i*70}ms" aria-label="${c.title}">
     <span class="sc-ico rich">${CAT_ICONS[c.key] || `<img src="lib/icon-${c.key}.jpg" alt="" width="240" height="240" loading="lazy" decoding="async">`}</span>
     <span class="sc-body">
       <span class="sc-eye">${eye}</span>
