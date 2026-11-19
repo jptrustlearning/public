@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ทำไมหุ้นอเมริกา และคนไทยซื้อได้กี่ทาง | JP Trust Learning</title>
+<meta name="description" content="หุ้นอเมริกาอยู่ไกลถึงอีกฝั่งโลก แล้วคนไทยที่มีเงินแสนเดียว จะซื้อได้จริงหรือ? ทุกวันนี้ซื้อได้จริง และมีให้เลือกมากกว่าหนึ่งทาง เพียงแต่แต่ละทางมีเงื่อนไขต่างกันมาก ทั้งสกุลเงินที่ใช้ เวลาซื้อขาย จำนวนหุ้นที่เลือกได้ และภาษี…">
+<link rel="canonical" href="https://public.jptrustlearning.com/beginner-us-stock-05.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="JP Trust Learning">
+<meta property="og:title" content="ทำไมหุ้นอเมริกา และคนไทยซื้อได้กี่ทาง">
+<meta property="og:description" content="หุ้นอเมริกาอยู่ไกลถึงอีกฝั่งโลก แล้วคนไทยที่มีเงินแสนเดียว จะซื้อได้จริงหรือ? ทุกวันนี้ซื้อได้จริง และมีให้เลือกมากกว่าหนึ่งทาง เพียงแต่แต่ละทางมีเงื่อนไขต่างกันมาก ทั้งสกุลเงินที่ใช้ เวลาซื้อขาย จำนวนหุ้นที่เลือกได้ และภาษี…">
+<meta property="og:image" content="https://public.jptrustlearning.com/og-image.png">
+<meta property="og:url" content="https://public.jptrustlearning.com/beginner-us-stock-05.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Cinzel:wght@500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maroon-deep:#1a0a0e;
+  --maroon:#2d1018;
+  --maroon-soft:#3a1620;
+  --cream:#FAF6ED;
+  --cream-2:#f3ecdc;
+  --gold:#D4AF37;
+  --gold-bright:#e7c659;
+  --gold-deep:#a8842a;
+  --price:#C75B49;          /* ราคา · อารมณ์  */
+  --price-soft:#e08a78;
+  --ink:#241016;
+  --ink-soft:#5a4640;
+  --on-dark:#f1e6d3;
+  --on-dark-soft:#c9b69b;
+  --line-dark:rgba(212,175,55,.22);
+  --line-light:rgba(45,16,24,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Anuphan',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.eyebrow{
+  font-family:'Cinzel',serif;
+  text-transform:uppercase;
+  letter-spacing:.34em;
+  font-size:.72rem;
+  font-weight:600;
+}
+.num{font-family:'DM Serif Display',serif;font-weight:400;line-height:.92;letter-spacing:-.01em}
+.serif{font-family:'DM Serif Display',serif}
+section{padding:clamp(64px,9vw,128px) clamp(22px,6vw,80px)}
+.wrap{max-width:980px;margin:0 auto}
+.narrow{max-width:760px;margin:0 auto}
+
+/* ---------- dual marker (signature) ---------- */
+.tag{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-family:'Cinzel',serif;font-size:.6rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;
+  padding:.32em .7em;border-radius:999px;white-space:nowrap;
+  vertical-align:middle;
+}
+.tag::before{content:"";width:.5em;height:.5em;border-radius:50%}
+.tag.price{color:var(--price);background:rgba(199,91,73,.1);border:1px solid rgba(199,91,73,.35)}
+.tag.price::before{background:var(--price)}
+.tag.value{color:var(--gold-deep);background:rgba(212,175,55,.12);border:1px solid rgba(168,132,42,.4)}
+.tag.value::before{background:var(--gold)}
+.dark .tag.price{color:var(--price-soft);background:rgba(199,91,73,.16);border-color:rgba(224,138,120,.4)}
+.dark .tag.value{color:var(--gold-bright);background:rgba(212,175,55,.14);border-color:var(--line-dark)}
+
+/* ---------- brand bar ---------- */
+.brandbar{display:flex;align-items:center;gap:14px;margin-bottom:clamp(34px,6vw,60px)}
+.owl{width:48px;height:48px;flex:0 0 auto;object-fit:contain;border-radius:12px;filter:drop-shadow(0 3px 10px rgba(0,0,0,.45))}
+.brandbar .wordmark{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.16em;
+  font-size:1.02rem;color:var(--gold);line-height:1.1}
+.brandbar .wordmark span{display:block;font-size:.58rem;letter-spacing:.42em;color:var(--on-dark-soft);font-weight:500}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:
+    radial-gradient(120% 90% at 88% 4%, rgba(212,175,55,.16), transparent 46%),
+    radial-gradient(90% 70% at 0% 100%, rgba(199,91,73,.14), transparent 50%),
+    linear-gradient(160deg,var(--maroon) 0%, var(--maroon-deep) 100%);
+  color:var(--on-dark);position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line-dark);
+}
+.hero .eyebrow{color:var(--gold);margin-bottom:26px}
+.hero-paradox{
+  display:flex;align-items:stretch;gap:0;margin:6px 0 34px;
+  border:1px solid var(--line-dark);border-radius:16px;overflow:hidden;
+  background:rgba(0,0,0,.18);
+}
+.hero-paradox .cell{flex:1;padding:clamp(20px,4vw,34px) clamp(18px,3.5vw,30px)}
+.hero-paradox .cell+.cell{border-left:1px solid var(--line-dark)}
+.hero-paradox .lbl{font-family:'Anuphan';font-size:.82rem;color:var(--on-dark-soft);
+  display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.hero-paradox .big{font-size:clamp(2.9rem,11vw,4.6rem)}
+.hero-paradox .cell.value .big{color:var(--gold-bright)}
+.hero-paradox .cell.price .big{color:var(--price-soft)}
+.hero-paradox .sub{font-size:.82rem;color:var(--on-dark-soft);margin-top:8px}
+.hero h1{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(2rem,6vw,3.35rem);line-height:1.12;
+  letter-spacing:-.01em;margin-bottom:22px;color:#fff;
+}
+.hero h1 em{font-style:italic;color:var(--gold-bright)}
+.hero .lens{
+  font-size:clamp(1.05rem,2.6vw,1.4rem);color:var(--on-dark);
+  border-left:2px solid var(--gold);padding-left:18px;margin-bottom:30px;
+  max-width:680px;
+}
+.hero .lens b{color:var(--gold-bright);font-weight:600}
+.hero .meta{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--on-dark-soft);line-height:2}
+
+/* ---------- section chrome ---------- */
+.dark{background:linear-gradient(170deg,var(--maroon) 0%,var(--maroon-deep) 100%);color:var(--on-dark)}
+.dark .eyebrow{color:var(--gold)}
+.light .eyebrow{color:var(--gold-deep)}
+.act-no{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--gold-deep);
+  letter-spacing:.05em;margin-bottom:6px;display:block}
+.dark .act-no{color:var(--gold)}
+h2.head{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.7rem,4.8vw,2.7rem);line-height:1.15;
+  margin:14px 0 26px;letter-spacing:-.01em;
+}
+.light h2.head{color:var(--maroon)}
+.dark h2.head{color:#fff}
+.lead{font-size:clamp(1.05rem,2.2vw,1.2rem);margin-bottom:14px}
+.light .lead{color:var(--ink)}
+.dark .lead{color:var(--on-dark)}
+p.body{margin-bottom:16px;font-size:1.02rem}
+.light p.body{color:var(--ink-soft)}
+.dark p.body{color:var(--on-dark-soft)}
+.kw{color:var(--maroon);font-weight:600}
+.dark .kw{color:var(--gold-bright)}
+
+/* section figure */
+.figure{margin:6px 0 30px;border-radius:18px;overflow:hidden;border:1px solid var(--line-dark);box-shadow:0 26px 64px -34px rgba(0,0,0,.75);position:relative}
+.figure img{display:block;width:100%;height:auto}
+.figure figcaption{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-soft);padding:11px 16px;background:rgba(0,0,0,.34);border-top:1px solid var(--line-dark);display:flex;align-items:center;gap:8px}
+.figure figcaption::before{content:"";width:.5em;height:.5em;border-radius:50%;background:var(--gold);flex:0 0 auto}
+.light .figure figcaption{color:var(--ink-soft);background:rgba(45,16,24,.05);border-top-color:var(--line-light)}
+/* pull line */
+.pull{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3.4vw,1.9rem);
+  line-height:1.3;margin:30px 0;padding:0 0 0 22px;border-left:3px solid var(--gold);
+}
+.light .pull{color:var(--maroon)}
+.dark .pull{color:#fff}
+.pull em{font-style:italic;color:var(--gold-deep)}
+.dark .pull em{color:var(--gold-bright)}
+
+/* analogy card */
+.analogy{
+  background:var(--cream-2);border:1px solid var(--line-light);border-radius:18px;
+  padding:clamp(24px,4vw,38px);margin:28px 0;position:relative;
+}
+.analogy::before{content:"\201C";font-family:'DM Serif Display',serif;
+  position:absolute;top:-.1em;left:.28em;font-size:4.5rem;color:var(--gold);opacity:.5;line-height:1}
+.analogy p{font-size:1.08rem;color:var(--ink);position:relative}
+.analogy .pv{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
+/* stat grid */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:30px 0 8px}
+.stat{
+  border:1px solid var(--line-dark);border-radius:14px;padding:22px 20px;
+  background:rgba(0,0,0,.16);position:relative;overflow:hidden;
+}
+.light .stat{background:#fff;border-color:var(--line-light);box-shadow:0 8px 24px -18px rgba(45,16,24,.4)}
+.stat .stat-num{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,5vw,2.5rem);
+  line-height:1;color:var(--gold)}
+.light .stat .stat-num{color:var(--gold-deep)}
+.stat .stat-lbl{font-size:.9rem;margin-top:10px}
+.dark .stat .stat-lbl{color:var(--on-dark-soft)}
+.light .stat .stat-lbl{color:var(--ink-soft)}
+.stat .src{font-family:'Cinzel',serif;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-deep);margin-top:12px;display:block;opacity:.8}
+.dark .stat .src{color:var(--on-dark-soft)}
+
+/* two-trap split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
+.trap{border:1px solid rgba(199,91,73,.34);border-radius:14px;padding:22px;background:rgba(199,91,73,.07)}
+.dark .trap{background:rgba(199,91,73,.12)}
+.trap .t{font-weight:600;color:var(--price);margin-bottom:6px;font-size:1.05rem}
+.dark .trap .t{color:var(--price-soft)}
+.trap p{font-size:.96rem}
+.light .trap p{color:var(--ink-soft)}
+.dark .trap p{color:var(--on-dark-soft)}
+.system{
+  border:1px solid var(--line-dark);border-left:3px solid var(--gold);
+  border-radius:14px;padding:24px;margin-top:20px;background:rgba(212,175,55,.06)
+}
+.dark .system{background:rgba(212,175,55,.08)}
+.system .t{font-family:'Cinzel',serif;letter-spacing:.16em;text-transform:uppercase;
+  font-size:.7rem;color:var(--gold-deep);margin-bottom:10px}
+.dark .system .t{color:var(--gold-bright)}
+
+/* paradox panel (act 2) */
+.paradox2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.pcard{border-radius:16px;padding:24px}
+.pcard.val{background:rgba(212,175,55,.1);border:1px solid rgba(168,132,42,.4)}
+.pcard.mood{background:rgba(199,91,73,.09);border:1px solid rgba(199,91,73,.35)}
+.pcard .pc-num{font-family:'DM Serif Display',serif;font-size:2rem;line-height:1;margin:8px 0}
+.pcard.val .pc-num{color:var(--gold-deep)}
+.pcard.mood .pc-num{color:var(--price)}
+.pcard p{font-size:.95rem;color:var(--ink-soft)}
+
+/* ---------- ad showcase ---------- */
+.showcase{padding:0}
+.showcase-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px);
+  align-items:center;max-width:980px;margin:0 auto;
+}
+.showcase .copy .eyebrow{margin-bottom:14px}
+.showcase .copy h3{font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:clamp(1.5rem,3.6vw,2.1rem);line-height:1.18;margin-bottom:16px}
+.dark.showcase-sec .copy h3{color:#fff}
+.light.showcase-sec .copy h3{color:var(--maroon)}
+.showcase .copy p{font-size:1rem;margin-bottom:18px}
+.dark.showcase-sec .copy p{color:var(--on-dark-soft)}
+.light.showcase-sec .copy p{color:var(--ink-soft)}
+.showcase .copy ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.showcase .copy li{display:flex;gap:10px;align-items:flex-start;font-size:.96rem}
+.showcase .copy li::before{content:"";flex:0 0 auto;width:7px;height:7px;border-radius:50%;
+  background:var(--gold);margin-top:.6em}
+.dark.showcase-sec .copy li{color:var(--on-dark)}
+.light.showcase-sec .copy li{color:var(--ink)}
+.shot{border-radius:20px;overflow:hidden;border:1px solid var(--line-dark);
+  box-shadow:0 30px 70px -34px rgba(0,0,0,.7);position:relative}
+.light.showcase-sec .shot{border-color:var(--line-light);box-shadow:0 30px 70px -38px rgba(45,16,24,.5)}
+.shot img{display:block;width:100%;height:auto}
+
+/* ---------- closing ---------- */
+.closing{background:
+  radial-gradient(100% 80% at 50% 0%, rgba(212,175,55,.14), transparent 55%),
+  linear-gradient(180deg,var(--maroon-deep),#120608);
+  color:var(--on-dark);text-align:center}
+.closing .q{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,4.4vw,2.5rem);
+  line-height:1.28;color:#fff;max-width:760px;margin:0 auto 26px}
+.closing .q em{font-style:italic;color:var(--gold-bright)}
+.closing .lens-final{font-size:clamp(1.05rem,2.6vw,1.3rem);color:var(--on-dark);
+  max-width:640px;margin:0 auto 44px}
+.closing .lens-final b{color:var(--gold-bright)}
+.cta{display:inline-flex;flex-direction:column;align-items:center;gap:6px;
+  border:1px solid var(--line-dark);border-radius:16px;
+  padding:24px 40px;background:rgba(0,0,0,.25);text-decoration:none}
+.cta .sub{font-family:'Cinzel',serif;letter-spacing:.3em;font-size:.6rem;
+  text-transform:uppercase;color:var(--on-dark-soft)}
+.cta .url{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.04em;
+  font-size:clamp(1.3rem,3.4vw,1.7rem);color:var(--gold)}
+.cta .tip{font-size:.84rem;color:var(--on-dark-soft);margin-top:2px}
+.cta:hover .url{color:var(--gold-bright)}
+.disclaimer{margin-top:46px;font-size:.74rem;color:var(--on-dark-soft);
+  letter-spacing:.02em;max-width:680px;margin-left:auto;margin-right:auto;
+  border-top:1px solid var(--line-dark);padding-top:22px;line-height:1.9}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:680px){
+  .hero-paradox{flex-direction:row}
+  .stats{grid-template-columns:1fr 1fr}
+  .split,.paradox2{grid-template-columns:1fr}
+  .showcase-inner{grid-template-columns:1fr}
+  .showcase .copy{order:2}
+  .showcase .shot{order:1;max-width:420px;margin:0 auto}
+}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+<style>
+/* ═══ A338.1 ซีรีส์มือใหม่ · ส่วนเสริมของหน้าบท ═══ */
+.light{background:var(--cream);color:var(--ink)}
+.hero h1{font-size:clamp(1.8rem,5.2vw,3rem);line-height:1.22}
+.hero .chno{display:inline-block;font-family:'Anuphan',sans-serif;font-size:.95rem;font-weight:600;color:var(--gold);
+  border:1px solid var(--line-dark);border-radius:999px;padding:.2em .9em;margin-bottom:16px}
+h2.head{font-size:clamp(1.5rem,4.2vw,2.3rem);line-height:1.3}
+.steps{list-style:none;display:flex;flex-direction:column;gap:12px;margin:8px 0 22px}
+.steps li{display:flex;gap:14px;align-items:flex-start;font-size:1.02rem;line-height:1.7}
+.steps .sn{flex:0 0 auto;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--gold-deep);background:rgba(212,175,55,.14);
+  border:1px solid var(--gold);margin-top:.15em}
+.dark .steps .sn{color:var(--gold-bright);background:rgba(212,175,55,.1)}
+.light p.body,.light .steps li{color:var(--ink)}
+.narrow p a,.narrow li a{color:#8B6914;text-decoration:none;border-bottom:1px solid rgba(184,134,11,.42)}
+.narrow p a:hover,.narrow li a:hover{color:#722F37;border-bottom-color:rgba(114,47,55,.55)}
+.dark .narrow p a,.dark .narrow li a{color:#E8D48B;border-bottom-color:rgba(232,212,139,.42)}
+.dark .narrow p a:hover,.dark .narrow li a:hover{color:#FFFEF8}
+/* อ่านต่อ */
+.series{background:var(--cream-2)}
+.series .nextcard{display:block;text-decoration:none;border:1px solid rgba(168,132,42,.45);border-radius:16px;
+  padding:22px 24px;background:linear-gradient(168deg,#FFFDF4 0%,#F6EBD6 100%);box-shadow:0 10px 26px rgba(26,10,14,.12);
+  transition:transform .25s ease,border-color .25s ease}
+.series .nextcard:hover{transform:translateY(-2px);border-color:var(--gold-deep)}
+.series .nextcard .k{display:block;font-size:.85rem;color:var(--gold-deep);font-weight:600;margin-bottom:4px}
+.series .nextcard .t{display:block;font-size:clamp(1.15rem,3vw,1.4rem);color:var(--maroon);font-weight:600;line-height:1.4}
+.series .prev{display:inline-block;margin-top:14px;font-size:.95rem;color:#8B6914;text-decoration:none}
+.series .toc{list-style:none;margin:30px 0 0;border-top:1px solid var(--line-light)}
+.series .toc li{border-bottom:1px solid var(--line-light)}
+.series .toc a,.series .toc .me{display:flex;gap:14px;padding:12px 4px;text-decoration:none;color:var(--ink);font-size:1rem;line-height:1.5}
+.series .toc a:hover{color:var(--maroon)}
+.series .toc .no{flex:0 0 64px;color:var(--gold-deep);font-weight:600;font-size:.9rem;padding-top:.1em}
+.series .toc .me{color:var(--maroon);font-weight:600}
+.series .toc .me .now{margin-left:auto;font-size:.78rem;color:var(--gold-deep);white-space:nowrap}
+.closing .note{font-size:.84rem;color:var(--on-dark-soft);max-width:680px;margin:0 auto 34px;line-height:1.9}
+.closing .note a{color:var(--gold)}
+.disclaimer b{color:var(--on-dark);font-weight:600}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <img class="owl" src="https://raw.githubusercontent.com/jptrustlearning/pages/main/jpt-owl-cropped.png" alt="JP Trust Learning">
+      <div class="wordmark">JP TRUST<span>LEARNING</span></div>
+    </div>
+
+    <div class="eyebrow rv">Start Here &middot; เริ่มต้นลงทุน</div>
+    <span class="chno rv">บทที่ 5 จาก 10</span>
+    <h1 class="rv">ทำไมหุ้นอเมริกา และคนไทยซื้อได้กี่ทาง</h1>
+
+    <p class="lens rv">หุ้นอเมริกาอยู่ไกลถึงอีกฝั่งโลก แล้วคนไทยที่มีเงินแสนเดียว จะซื้อได้จริงหรือ?</p>
+
+    <div class="meta rv">ซีรีส์ มือใหม่ จาก 0 ถึงหุ้นอเมริกาตัวแรก &middot; ความรู้พื้นฐาน &middot; ตรวจข้อมูลเมื่อ 18 พ.ย. 2026</div>
+  </div>
+</section>
+
+<!-- ===================== บทนำ ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">บทที่ 5 จาก 10</span>
+    <p class="lead rv">ทุกวันนี้ซื้อได้จริง และมีให้เลือกมากกว่าหนึ่งทาง เพียงแต่แต่ละทางมีเงื่อนไขต่างกันมาก ทั้งสกุลเงินที่ใช้ เวลาซื้อขาย จำนวนหุ้นที่เลือกได้ และภาษี ถ้าเลือกทางแรกที่เจอโดยไม่เทียบ อาจพลาดทางที่เหมาะกับตัวเองกว่า</p>
+    <p class="body rv">บทนี้จะตอบสองเรื่อง ทำไมหลายคนสนใจหุ้นอเมริกา และคนไทยเข้าถึงหุ้นอเมริกาได้กี่ทาง ทางไหนเหมาะกับใคร</p>
+  </div>
+</section>
+
+<!-- ===================== ตอนที่ 1 ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ตอนที่ 1</span>
+    <h2 class="head rv">ทำไมหุ้นอเมริกา</h2>
+    <p class="body rv">ตลาดหุ้นสหรัฐฯ มีมูลค่ารวมกันมากกว่าครึ่งหนึ่งของตลาดหุ้นทั้งโลก และเป็นที่ตั้งของบริษัทเทคโนโลยีชั้นนำระดับโลกจำนวนมาก บริษัทหลายแห่งที่เราใช้สินค้าทุกวัน ตั้งแต่โทรศัพท์ โปรแกรมทำงาน ไปจนถึงชิปในคอมพิวเตอร์ จดทะเบียนอยู่ในตลาดนี้</p>
+    <p class="body rv">สำหรับคนที่อยากเรียนรู้การคัดหุ้น ตลาดที่มีบริษัทให้เลือกมาก มีข้อมูลเปิดเผยละเอียด และมีประวัติราคายาวหลายสิบปี ช่วยให้ฝึกคิดได้ง่ายกว่า ข้อนี้ไม่ได้แปลว่าหุ้นอเมริกาจะให้ผลตอบแทนดีกว่าตลาดอื่นเสมอ ตลาดสหรัฐฯ เองก็เคยลงหนักหลายครั้งอย่างที่เห็นใน<a href="beginner-us-stock-04.html">บทที่ 4</a></p>
+  </div>
+</section>
+
+<!-- ===================== ตอนที่ 2 ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ตอนที่ 2</span>
+    <h2 class="head rv">ทางที่ 1 เปิดบัญชีหุ้นต่างประเทศ แล้วซื้อหุ้นในตลาดสหรัฐฯ โดยตรง</h2>
+    <p class="body rv">ทางนี้คือการซื้อหุ้นตัวจริงในตลาดสหรัฐฯ ผ่านบัญชีหุ้นต่างประเทศ ซึ่งบริษัทหลักทรัพย์ในไทยหลายแห่งเปิดให้บริการ เราต้องแลกเงินบาทเป็นดอลลาร์ก่อนซื้อ และซื้อขายตามเวลาตลาดสหรัฐฯ ซึ่งตรงกับช่วงกลางคืนของไทย</p>
+    <p class="body rv">ข้อดีคือเลือกหุ้นได้กว้างที่สุดในสามทาง รวมถึงกองทุน ETF ที่จดทะเบียนในสหรัฐฯ และบางแห่งให้ซื้อเป็นเศษหุ้นได้ คือซื้อไม่เต็มหุ้น เช่น ครึ่งหุ้น ส่วนสิ่งที่ต้องรู้คือค่าธรรมเนียมการซื้อขาย ค่าแลกเงิน ภาษีเงินปันผลที่ถูกหักที่ต้นทาง และกติกาภาษีเงินได้จากต่างประเทศเมื่อโอนเงินกลับเข้าไทย ซึ่ง<a href="beginner-us-stock-07.html">บทที่ 7</a> จะลงรายละเอียด</p>
+  </div>
+</section>
+
+<!-- ===================== ตอนที่ 3 ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ตอนที่ 3</span>
+    <h2 class="head rv">ทางที่ 2 ซื้อ DR ในตลาดหุ้นไทย</h2>
+    <p class="body rv">DR หรือตราสารแสดงสิทธิในหลักทรัพย์ต่างประเทศ คือหลักทรัพย์ที่ซื้อขายในตลาดหุ้นไทยเหมือนหุ้นไทยตัวหนึ่ง แต่อ้างอิงราคาหุ้นหรือกองทุน ETF ในต่างประเทศ ผู้ออก DR จะไปซื้อหุ้นต่างประเทศมาถือไว้แทนผู้ลงทุน ผู้ออก DR จึงเป็นคนละรายกับบริษัทต่างประเทศที่ออกหุ้นตัวนั้น</p>
+    <p class="body rv">ข้อดีคือใช้บัญชีหุ้นไทยที่มีอยู่แล้วได้ ซื้อขายเป็นเงินบาท ค่าธรรมเนียมการซื้อขายใกล้เคียงหุ้นไทย ราวร้อยละ 0.15 แล้วแต่โบรกเกอร์ และได้รับยกเว้นภาษีกำไรจากการขาย DR ที่อ้างอิงหุ้นอเมริกายังมีช่วงซื้อขายกลางคืน เวลา 19.00–03.00 น. ด้วย</p>
+    <p class="body rv">ส่วนสิ่งที่ต้องรู้คือ เลือกได้เฉพาะตัวที่มีผู้ออก DR ไว้แล้ว ราคา DR ปรับตามอัตราส่วนที่กำหนดและค่าเงิน และอาจไม่ตรงกับหุ้นแม่เสมอไป โดยเฉพาะช่วงที่ตลาดไทยกับตลาดต่างประเทศเปิดไม่พร้อมกัน นอกจากนี้ควรดูความน่าเชื่อถือของผู้ออก DR และเงื่อนไขการจ่ายสิทธิประโยชน์ เพราะผู้ออกอาจหักค่าใช้จ่ายก่อนจ่ายเงินปันผลให้เรา</p>
+  </div>
+</section>
+
+<!-- ===================== ตอนที่ 4 ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ตอนที่ 4</span>
+    <h2 class="head rv">ทางที่ 3 กองทุนรวมที่ลงทุนในหุ้นอเมริกา</h2>
+    <p class="body rv">ทางนี้คือการซื้อหน่วยลงทุนของกองทุนรวมในไทย ที่นำเงินไปลงทุนในหุ้นอเมริกาอีกทอดหนึ่ง ซื้อได้ผ่านธนาคารหรือแอปซื้อขายกองทุน ใช้เงินบาท และมีผู้จัดการกองทุนดูแลพอร์ตให้ตามนโยบายของกองทุน บางกองทุนเลือกหุ้นเอง บางกองทุนลงทุนตามดัชนี</p>
+    <p class="body rv">ข้อดีคือเริ่มง่าย ไม่ต้องเลือกหุ้นเอง ไม่ต้องตื่นดูตลาดกลางคืน ส่วนสิ่งที่ต้องรู้คือมีค่าธรรมเนียมการจัดการรายปี และเราไม่ได้เป็นคนเลือกหุ้นรายตัวเอง รายละเอียดค่าธรรมเนียม นโยบายการลงทุน และการป้องกันความเสี่ยงค่าเงิน อ่านได้จากหนังสือชี้ชวนของแต่ละกองทุน</p>
+  </div>
+</section>
+
+<!-- ===================== ตอนที่ 5 ===================== -->
+<section class="dark">
+  <div class="narrow">
+    <span class="act-no rv">ตอนที่ 5</span>
+    <h2 class="head rv">ซีรีส์นี้จะเดินทางไหน</h2>
+    <p class="body rv">เมื่อเทียบทั้งสามทาง ทางที่ 3 เหมาะกับคนที่ไม่อยากเลือกหุ้นเอง ทางที่ 2 เหมาะกับคนที่อยากใช้บัญชีหุ้นไทยและเงินบาท และหุ้นที่สนใจมี DR อยู่แล้ว ส่วนทางที่ 1 เหมาะกับคนที่อยากเลือกหุ้นเองจากตัวเลือกที่กว้างที่สุด</p>
+    <p class="body rv">ซีรีส์นี้ตั้งเป้าที่การซื้อหุ้นอเมริกาตัวแรกด้วยการคัดเอง <a href="beginner-us-stock-06.html">บทที่ 6</a> ถึง 10 จึงเดินตามทางที่ 1 เป็นหลัก และจะบอกไว้ในจุดที่ DR ต่างออกไป ใครเลือกทางที่ 2 ก็ใช้วิธีคัดหุ้นใน<a href="beginner-us-stock-08.html">บทที่ 8</a> และวิธีแบ่งเงินใน<a href="beginner-us-stock-09.html">บทที่ 9</a> ได้เหมือนกัน</p>
+  </div>
+</section>
+
+<!-- ===================== ตอนที่ 6 ===================== -->
+<section class="light">
+  <div class="narrow">
+    <span class="act-no rv">ตอนที่ 6</span>
+    <h2 class="head rv">เลือกช่องทางก่อน แล้วขั้นตอนที่เหลือจะชัดขึ้น</h2>
+    <p class="body rv">กลับไปที่คำถามตอนต้นว่าคนไทยซื้อหุ้นอเมริกาได้จริงไหม ได้จริง สื่อการเงินมักแบ่งไว้ 4 รูปแบบ คือซื้อหุ้นตรง DR กองทุนรวม และ ETF บทนี้รวม ETF ไว้ในทางที่ 1 และ 2 เพราะซื้อผ่านสองช่องทางนั้น จึงเหลือสามทางหลัก ซึ่งต่างกันที่สกุลเงิน เวลาซื้อขาย จำนวนตัวเลือก และภาษี</p>
+    <p class="body rv">ก่อนอ่านบทถัดไป ลองเลือกให้ได้ว่าเราอยากเดินทางไหน ถ้ายังไม่แน่ใจ ลองถามตัวเองว่าอยากเลือกหุ้นเองไหม และพร้อมดูตลาดในเวลากลางคืนของไทยหรือเปล่า คำตอบสองข้อนี้มักชี้ทางได้ชัดที่สุด</p>
+  </div>
+</section>
+
+<!-- ===================== อ่านต่อ ===================== -->
+<section class="light series">
+  <div class="narrow">
+    <span class="act-no rv">อ่านต่อ</span>
+    <a class="nextcard rv" href="beginner-us-stock-06.html"><span class="k">บทถัดไป · บทที่ 6</span><span class="t">เปิดบัญชีหุ้นต่างประเทศทีละขั้น</span></a>
+    <a class="prev rv" href="beginner-us-stock-04.html">← บทที่ 4 · ขาดทุนได้แค่ไหน และนานแค่ไหนกว่าจะกลับมา</a>
+    <ol class="toc rv"><li><a href="beginner-us-stock-01.html"><span class="no">บทที่ 1</span><span>มีเงินแสน อยากซื้อหุ้น "ตัวไหนดี" คำถามนี้มาก่อนเวลาไปหนึ่งก้าว</span></a></li><li><a href="beginner-us-stock-02.html"><span class="no">บทที่ 2</span><span>เงินเย็นจริงไหม เช็ค 4 ข้อก่อนเงินแสนแรกจะเข้าตลาด</span></a></li><li><a href="beginner-us-stock-03.html"><span class="no">บทที่ 3</span><span>หุ้นคืออะไร และเราได้เงินจากหุ้นทางไหน</span></a></li><li><a href="beginner-us-stock-04.html"><span class="no">บทที่ 4</span><span>ขาดทุนได้แค่ไหน และนานแค่ไหนกว่าจะกลับมา</span></a></li><li><span class="me"><span class="no">บทที่ 5</span><span>ทำไมหุ้นอเมริกา และคนไทยซื้อได้กี่ทาง</span><span class="now">กำลังอ่าน</span></span></li><li><a href="beginner-us-stock-06.html"><span class="no">บทที่ 6</span><span>เปิดบัญชีหุ้นต่างประเทศทีละขั้น</span></a></li><li><a href="beginner-us-stock-07.html"><span class="no">บทที่ 7</span><span>โอนเงิน แลกดอลลาร์ ค่าธรรมเนียม และภาษี ที่มือใหม่มักลืม</span></a></li><li><a href="beginner-us-stock-08.html"><span class="no">บทที่ 8</span><span>หุ้นตัวแรก เลือกอย่างไรโดยไม่ต้องรอให้ใครบอกชื่อ</span></a></li><li><a href="beginner-us-stock-09.html"><span class="no">บทที่ 9</span><span>แบ่งเงินแสนอย่างไร ไม่ให้ไม้แรกเป็นไม้สุดท้าย</span></a></li><li><a href="beginner-us-stock-10.html"><span class="no">บทที่ 10</span><span>กดซื้อครั้งแรก และสิ่งที่ต้องทำหลังจากนั้น</span></a></li></ol>
+  </div>
+</section>
+
+<!-- ===================== CLOSING ===================== -->
+<section class="closing">
+  <div class="narrow">
+    <p class="note rv">ข้อมูลค่าธรรมเนียม เวลาซื้อขาย และเงื่อนไข DR อ้างอิงข้อมูลที่ผู้ให้บริการและสื่อการเงินเผยแพร่ ตรวจเมื่อวันที่ 18 พฤศจิกายน 2026 แต่ละผู้ให้บริการอาจกำหนดต่างกัน และอาจเปลี่ยนได้ ควรตรวจสอบกับผู้ให้บริการก่อนใช้งานจริง</p>
+    <a class="cta rv" href="https://line.me/R/ti/p/@jptrust" target="_blank" rel="noopener">
+      <span class="sub">มีคำถามระหว่างอ่าน</span>
+      <span class="url">LINE @jptrust</span>
+      <span class="tip">ติดต่อทีมงาน JP Trust Learning</span>
+    </a>
+    <p class="disclaimer rv"><b>เนื้อหาเพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุนนะคะ</b><br>ซีรีส์ มือใหม่ จาก 0 ถึงหุ้นอเมริกาตัวแรก · บทที่ 5 จาก 10 · ตรวจข้อมูลเมื่อ 18 พ.ย. 2026</p>
+  </div>
+</section>
+
+<script>
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach((el,i)=>{
+  const sib=[...el.parentElement.children].filter(c=>c.classList.contains('rv'));
+  el.style.transitionDelay=(Math.min(sib.indexOf(el),5)*60)+'ms';
+  io.observe(el);
+});
+</script>
+<style>
+/* ═══ JPT · แถบนำทางกลับ (v1) ═══ */
+.jpt-libnav{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 26px;
+  margin:0;padding:26px 20px calc(26px + env(safe-area-inset-bottom,0px));
+  background:linear-gradient(135deg,#1a0a0e 0%,#2d1018 55%,#3a1520 100%);
+  border-top:1px solid rgba(212,175,55,.35);
+  font-family:'Anuphan',system-ui,-apple-system,sans-serif;
+  font-size:14.5px;line-height:1.9;text-align:center;
+}
+.jpt-libnav a{
+  color:#D4AF37;text-decoration:none;
+  border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease;
+}
+.jpt-libnav a:hover{color:#E8D48B;border-bottom-color:rgba(232,212,139,.6);}
+.jpt-libnav .sep{color:rgba(212,175,55,.35);}
+</style>
+<!-- JPT · แถบนำทางกลับ -->
+<nav class="jpt-libnav">
+  <a href="lib-beginner.html">← ห้องสมุด เริ่มต้นลงทุน</a>
+  <a href="library.html">หน้าแรกห้องสมุด</a>
+  <a href="https://app.jptrustlearning.com">เข้าระบบสมาชิก</a>
+</nav>
+<!-- A233 ปุ่มติดต่อทีมงาน → LINE OA @jptrust -->
+<script defer src="/support-line.js?v=1"></script>
+</body>
+</html>
