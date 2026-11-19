@@ -100,6 +100,39 @@
 .mo-note{margin:10px 0 0;font-size:10.5px;line-height:1.6;color:var(--muted)}
 @media(prefers-reduced-motion:reduce){.mo-arw,.mo-chip{transition:none}}
 </style>
+<style id="founder-note-css">
+/* A343: สารจากผู้ร่วมก่อตั้ง ในช่วงเกี่ยวกับเรา (hook + sub hook + รูป) · ไม่มี animation
+   มือถือ: รูป+ชื่ออยู่แถวบน แล้ว hook เต็มกว้าง · ≥760px: รูปซ้าย ข้อความขวา ชื่อปิดท้าย
+   ถอดออก = ลบบล็อกนี้ + <figure class="founder-note"> ใน .tabs-section (หรือ index-backup-v117.html) */
+.founder-note{position:relative;margin:0 0 clamp(20px,2.8vw,30px);padding:18px 18px 20px;border-radius:18px;
+  display:grid;grid-template-columns:64px minmax(0,1fr);column-gap:14px;align-items:center;
+  grid-template-areas:"photo eye" "photo sign" "hook hook" "sub sub";
+  background:linear-gradient(135deg,rgba(212,175,55,.10) 0%,rgba(212,175,55,.03) 46%,rgba(26,10,14,.28) 100%);
+  border:1px solid rgba(212,175,55,.26);box-shadow:inset 0 1px 0 rgba(255,246,228,.05)}
+.founder-note .fn-photo{grid-area:photo;width:64px;height:64px;border-radius:50%;object-fit:cover;display:block;background:#EDE4D0;
+  box-shadow:0 0 0 2px #1a0a0e,0 0 0 3.5px rgba(212,175,55,.75),0 8px 20px rgba(0,0,0,.45)}
+.founder-note .fn-eyebrow{grid-area:eye;align-self:end;font-family:'Anuphan',sans-serif;font-size:11px;font-weight:600;letter-spacing:.2em;color:var(--gold);margin:0 0 3px}
+.founder-note .fn-sign{grid-area:sign;align-self:start;font-family:'Anuphan',sans-serif;line-height:1.45;margin:0}
+.founder-note .fn-sign b{display:block;font-size:15px;font-weight:600;color:#FFFEF8}
+.founder-note .fn-sign span{display:block;font-size:12px;font-weight:400;color:rgba(232,228,220,.72)}
+.founder-note .fn-hook{grid-area:hook;font-family:'Anuphan',sans-serif;font-size:clamp(21px,5.6vw,24px);font-weight:600;line-height:1.42;color:#FFFEF8;margin:16px 0 0;letter-spacing:.1px}
+.founder-note .fn-hook span{display:block;white-space:nowrap}
+.founder-note .fn-sub{grid-area:sub;font-family:'Anuphan',sans-serif;font-size:15.5px;font-weight:500;line-height:1.65;color:var(--gold-light);margin:10px 0 0;
+  padding-top:12px;border-top:1px dashed rgba(212,175,55,.28)}
+.founder-note .fn-sub span{white-space:nowrap}
+@media(min-width:760px){
+  .founder-note{grid-template-columns:116px minmax(0,1fr);column-gap:clamp(22px,2.6vw,32px);padding:24px clamp(24px,3vw,36px);
+    grid-template-areas:"photo eye" "photo hook" "photo sub" "photo sign"}
+  .founder-note .fn-photo{width:116px;height:116px;align-self:center;box-shadow:0 0 0 3px #1a0a0e,0 0 0 4.5px rgba(212,175,55,.75),0 12px 28px rgba(0,0,0,.5)}
+  .founder-note .fn-eyebrow{align-self:auto;margin:0 0 8px}
+  .founder-note .fn-hook{font-size:clamp(22px,2.2vw,27px);margin:0;line-height:1.4}
+  .founder-note .fn-hook span{display:inline}
+  .founder-note .fn-sub{font-size:16px;margin:8px 0 0;padding-top:0;border-top:0}
+  .founder-note .fn-sign{margin:14px 0 0;padding-top:12px;border-top:1px dashed rgba(212,175,55,.28);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .founder-note .fn-sign b,.founder-note .fn-sign span{display:inline}
+  .founder-note .fn-sign span{font-size:12.5px}
+}
+</style>
 </head>
 <body>
 
@@ -246,6 +279,16 @@
 <p class="about-disclaimer">ไม่ใช่คำแนะนำในการลงทุน · ผลในอดีตไม่ใช่การรับประกันผลในอนาคต</p>
         </div>
       </div>
+
+      <!-- A343: สารจากผู้ร่วมก่อตั้ง — hook (pain ของคนอ่าน) + sub hook (สิ่งที่เราทำ) + รูปจริง
+           ห้ามแก้เป็นคำที่บอกให้ซื้อ (กฎแบรนด์ข้อ 1) · ชื่อต้องสะกดตรงกับที่ใช้ทุกจุดบนเว็บ -->
+      <figure class="founder-note" id="founderNote">
+        <img class="fn-photo" src="founder-watcharaphon.jpg" width="480" height="480" loading="lazy" decoding="async" alt="วัชรพล บุบผามะตานัง ผู้ร่วมก่อตั้ง JP Trust Learning">
+        <div class="fn-eyebrow">สารจากผู้ร่วมก่อตั้ง</div>
+        <p class="fn-hook"><span>หุ้นมีเป็นพันตัว </span><span>ไม่รู้จะเลือกตัวไหน </span><span>ไม่รู้จะใช้กลยุทธ์อะไร</span></p>
+        <p class="fn-sub"><span>เราคัดมาให้ดู</span> <span>พร้อมคำตอบว่าทำไมถึงถูกคัด</span></p>
+        <figcaption class="fn-sign"><b>วัชรพล บุบผามะตานัง</b><span>ผู้ร่วมก่อตั้ง JP Trust Learning</span></figcaption>
+      </figure>
 
       <div class="sec-cards">
 <div class="chart-pane" id="aboutChart">
